@@ -1,0 +1,126 @@
+package com.box.sdkgen.managers.fileclassifications;
+
+import java.util.Map;
+import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import java.io.IOException;
+import java.util.Arrays;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
+import com.box.sdkgen.serialization.json.JsonManager;
+import java.util.List;
+import com.box.sdkgen.schemas.classification.Classification;
+import com.box.sdkgen.schemas.clienterror.ClientError;
+import com.box.sdkgen.networking.auth.Authentication;
+import com.box.sdkgen.networking.network.NetworkSession;
+import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
+import static com.box.sdkgen.internal.utils.UtilsManager.convertToString;
+import com.box.sdkgen.internal.utils.ByteStream;
+import com.box.sdkgen.networking.fetch.FetchOptions;
+import com.box.sdkgen.networking.fetch.FetchResponse;
+import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
+import static com.box.sdkgen.serialization.json.JsonManager.sdToJson;
+import com.fasterxml.jackson.databind.JsonNode;
+
+public class UpdateClassificationOnFileRequestBody {
+
+  @JsonDeserialize(using = UpdateClassificationOnFileRequestBodyOpField.UpdateClassificationOnFileRequestBodyOpFieldDeserializer.class)
+  @JsonSerialize(using = UpdateClassificationOnFileRequestBodyOpField.UpdateClassificationOnFileRequestBodyOpFieldSerializer.class)
+  protected EnumWrapper<UpdateClassificationOnFileRequestBodyOpField> op;
+
+  @JsonDeserialize(using = UpdateClassificationOnFileRequestBodyPathField.UpdateClassificationOnFileRequestBodyPathFieldDeserializer.class)
+  @JsonSerialize(using = UpdateClassificationOnFileRequestBodyPathField.UpdateClassificationOnFileRequestBodyPathFieldSerializer.class)
+  protected EnumWrapper<UpdateClassificationOnFileRequestBodyPathField> path;
+
+  protected final String value;
+
+  public UpdateClassificationOnFileRequestBody(@JsonProperty("value") String value) {
+    this.value = value;
+    this.op = new EnumWrapper<UpdateClassificationOnFileRequestBodyOpField>(UpdateClassificationOnFileRequestBodyOpField.REPLACE.getValue(), UpdateClassificationOnFileRequestBodyOpField.REPLACE);
+    this.path = new EnumWrapper<UpdateClassificationOnFileRequestBodyPathField>(UpdateClassificationOnFileRequestBodyPathField._BOX__SECURITY__CLASSIFICATION__KEY.getValue(), UpdateClassificationOnFileRequestBodyPathField._BOX__SECURITY__CLASSIFICATION__KEY);
+  }
+
+  protected UpdateClassificationOnFileRequestBody(UpdateClassificationOnFileRequestBodyBuilder builder) {
+    this.op = builder.op;
+    this.path = builder.path;
+    this.value = builder.value;
+  }
+
+  public EnumWrapper<UpdateClassificationOnFileRequestBodyOpField> getOp() {
+    return op;
+  }
+
+  public EnumWrapper<UpdateClassificationOnFileRequestBodyPathField> getPath() {
+    return path;
+  }
+
+  public String getValue() {
+    return value;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    UpdateClassificationOnFileRequestBody casted = (UpdateClassificationOnFileRequestBody) o;
+    return Objects.equals(op, casted.op) &&
+      Objects.equals(path, casted.path) &&
+      Objects.equals(value, casted.value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+      op, path, value
+    );
+  }
+
+  @Override
+  public String toString() {
+    return "UpdateClassificationOnFileRequestBody{" + "op='" + op + '\'' + ", " + "path='" + path + '\'' + ", " + "value='" + value + '\'' + "}";
+  }
+
+  public static class UpdateClassificationOnFileRequestBodyBuilder {
+
+    protected EnumWrapper<UpdateClassificationOnFileRequestBodyOpField> op;
+
+    protected EnumWrapper<UpdateClassificationOnFileRequestBodyPathField> path;
+
+    protected final String value;
+
+    public UpdateClassificationOnFileRequestBodyBuilder(String value) {
+      this.value = value;
+      this.op = new EnumWrapper<UpdateClassificationOnFileRequestBodyOpField>(UpdateClassificationOnFileRequestBodyOpField.REPLACE.getValue(), UpdateClassificationOnFileRequestBodyOpField.REPLACE);
+      this.path = new EnumWrapper<UpdateClassificationOnFileRequestBodyPathField>(UpdateClassificationOnFileRequestBodyPathField._BOX__SECURITY__CLASSIFICATION__KEY.getValue(), UpdateClassificationOnFileRequestBodyPathField._BOX__SECURITY__CLASSIFICATION__KEY);
+    }
+
+    public UpdateClassificationOnFileRequestBodyBuilder op(UpdateClassificationOnFileRequestBodyOpField op) {
+      this.op = new EnumWrapper<UpdateClassificationOnFileRequestBodyOpField>(op.getValue(), op);
+      return this;
+    }
+
+    public UpdateClassificationOnFileRequestBodyBuilder path(UpdateClassificationOnFileRequestBodyPathField path) {
+      this.path = new EnumWrapper<UpdateClassificationOnFileRequestBodyPathField>(path.getValue(), path);
+      return this;
+    }
+
+    public UpdateClassificationOnFileRequestBody build() {
+      return new UpdateClassificationOnFileRequestBody(this);
+    }
+
+  }
+
+}

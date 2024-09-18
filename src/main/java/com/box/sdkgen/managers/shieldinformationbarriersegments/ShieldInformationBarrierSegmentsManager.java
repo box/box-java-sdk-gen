@@ -1,0 +1,128 @@
+package com.box.sdkgen.managers.shieldinformationbarriersegments;
+
+import java.util.Map;
+import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
+import com.box.sdkgen.serialization.json.JsonManager;
+import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
+import com.box.sdkgen.schemas.shieldinformationbarriersegment.ShieldInformationBarrierSegment;
+import com.box.sdkgen.schemas.clienterror.ClientError;
+import com.box.sdkgen.schemas.shieldinformationbarriersegments.ShieldInformationBarrierSegments;
+import com.box.sdkgen.schemas.shieldinformationbarrierbase.ShieldInformationBarrierBase;
+import com.box.sdkgen.networking.auth.Authentication;
+import com.box.sdkgen.networking.network.NetworkSession;
+import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
+import static com.box.sdkgen.internal.utils.UtilsManager.convertToString;
+import com.box.sdkgen.internal.utils.ByteStream;
+import com.box.sdkgen.networking.fetch.FetchOptions;
+import com.box.sdkgen.networking.fetch.FetchResponse;
+import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
+import static com.box.sdkgen.serialization.json.JsonManager.sdToJson;
+import com.fasterxml.jackson.databind.JsonNode;
+
+public class ShieldInformationBarrierSegmentsManager {
+
+  public Authentication auth;
+
+  public NetworkSession networkSession;
+
+  public ShieldInformationBarrierSegmentsManager() {
+    this.networkSession = new NetworkSession();
+  }
+
+  protected ShieldInformationBarrierSegmentsManager(ShieldInformationBarrierSegmentsManagerBuilder builder) {
+    this.auth = builder.auth;
+    this.networkSession = builder.networkSession;
+  }
+
+  public ShieldInformationBarrierSegment getShieldInformationBarrierSegmentById(String shieldInformationBarrierSegmentId) {
+    return getShieldInformationBarrierSegmentById(shieldInformationBarrierSegmentId, new GetShieldInformationBarrierSegmentByIdHeaders());
+  }
+
+  public ShieldInformationBarrierSegment getShieldInformationBarrierSegmentById(String shieldInformationBarrierSegmentId, GetShieldInformationBarrierSegmentByIdHeaders headers) {
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response = fetch(new FetchOptions.FetchOptionsBuilder(String.join("", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/shield_information_barrier_segments/", convertToString(shieldInformationBarrierSegmentId))).method("GET").headers(headersMap).responseFormat("json").auth(this.auth).networkSession(this.networkSession).build());
+    return JsonManager.deserialize(response.getData(), ShieldInformationBarrierSegment.class);
+  }
+
+  public void deleteShieldInformationBarrierSegmentById(String shieldInformationBarrierSegmentId) {
+    deleteShieldInformationBarrierSegmentById(shieldInformationBarrierSegmentId, new DeleteShieldInformationBarrierSegmentByIdHeaders());
+  }
+
+  public void deleteShieldInformationBarrierSegmentById(String shieldInformationBarrierSegmentId, DeleteShieldInformationBarrierSegmentByIdHeaders headers) {
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response = fetch(new FetchOptions.FetchOptionsBuilder(String.join("", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/shield_information_barrier_segments/", convertToString(shieldInformationBarrierSegmentId))).method("DELETE").headers(headersMap).responseFormat(null).auth(this.auth).networkSession(this.networkSession).build());
+  }
+
+  public ShieldInformationBarrierSegment updateShieldInformationBarrierSegmentById(String shieldInformationBarrierSegmentId) {
+    return updateShieldInformationBarrierSegmentById(shieldInformationBarrierSegmentId, new UpdateShieldInformationBarrierSegmentByIdRequestBody(), new UpdateShieldInformationBarrierSegmentByIdHeaders());
+  }
+
+  public ShieldInformationBarrierSegment updateShieldInformationBarrierSegmentById(String shieldInformationBarrierSegmentId, UpdateShieldInformationBarrierSegmentByIdRequestBody requestBody) {
+    return updateShieldInformationBarrierSegmentById(shieldInformationBarrierSegmentId, requestBody, new UpdateShieldInformationBarrierSegmentByIdHeaders());
+  }
+
+  public ShieldInformationBarrierSegment updateShieldInformationBarrierSegmentById(String shieldInformationBarrierSegmentId, UpdateShieldInformationBarrierSegmentByIdHeaders headers) {
+    return updateShieldInformationBarrierSegmentById(shieldInformationBarrierSegmentId, new UpdateShieldInformationBarrierSegmentByIdRequestBody(), headers);
+  }
+
+  public ShieldInformationBarrierSegment updateShieldInformationBarrierSegmentById(String shieldInformationBarrierSegmentId, UpdateShieldInformationBarrierSegmentByIdRequestBody requestBody, UpdateShieldInformationBarrierSegmentByIdHeaders headers) {
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response = fetch(new FetchOptions.FetchOptionsBuilder(String.join("", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/shield_information_barrier_segments/", convertToString(shieldInformationBarrierSegmentId))).method("PUT").headers(headersMap).data(JsonManager.serialize(requestBody)).contentType("application/json").responseFormat("json").auth(this.auth).networkSession(this.networkSession).build());
+    return JsonManager.deserialize(response.getData(), ShieldInformationBarrierSegment.class);
+  }
+
+  public ShieldInformationBarrierSegments getShieldInformationBarrierSegments(GetShieldInformationBarrierSegmentsQueryParams queryParams) {
+    return getShieldInformationBarrierSegments(queryParams, new GetShieldInformationBarrierSegmentsHeaders());
+  }
+
+  public ShieldInformationBarrierSegments getShieldInformationBarrierSegments(GetShieldInformationBarrierSegmentsQueryParams queryParams, GetShieldInformationBarrierSegmentsHeaders headers) {
+    Map<String, String> queryParamsMap = prepareParams(mapOf(entryOf("shield_information_barrier_id", convertToString(queryParams.getShieldInformationBarrierId())), entryOf("marker", convertToString(queryParams.getMarker())), entryOf("limit", convertToString(queryParams.getLimit()))));
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response = fetch(new FetchOptions.FetchOptionsBuilder(String.join("", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/shield_information_barrier_segments")).method("GET").params(queryParamsMap).headers(headersMap).responseFormat("json").auth(this.auth).networkSession(this.networkSession).build());
+    return JsonManager.deserialize(response.getData(), ShieldInformationBarrierSegments.class);
+  }
+
+  public ShieldInformationBarrierSegment createShieldInformationBarrierSegment(CreateShieldInformationBarrierSegmentRequestBody requestBody) {
+    return createShieldInformationBarrierSegment(requestBody, new CreateShieldInformationBarrierSegmentHeaders());
+  }
+
+  public ShieldInformationBarrierSegment createShieldInformationBarrierSegment(CreateShieldInformationBarrierSegmentRequestBody requestBody, CreateShieldInformationBarrierSegmentHeaders headers) {
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response = fetch(new FetchOptions.FetchOptionsBuilder(String.join("", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/shield_information_barrier_segments")).method("POST").headers(headersMap).data(JsonManager.serialize(requestBody)).contentType("application/json").responseFormat("json").auth(this.auth).networkSession(this.networkSession).build());
+    return JsonManager.deserialize(response.getData(), ShieldInformationBarrierSegment.class);
+  }
+
+  public Authentication getAuth() {
+    return auth;
+  }
+
+  public NetworkSession getNetworkSession() {
+    return networkSession;
+  }
+
+  public static class ShieldInformationBarrierSegmentsManagerBuilder {
+
+    protected Authentication auth;
+
+    protected NetworkSession networkSession;
+
+    public ShieldInformationBarrierSegmentsManagerBuilder auth(Authentication auth) {
+      this.auth = auth;
+      return this;
+    }
+
+    public ShieldInformationBarrierSegmentsManagerBuilder networkSession(NetworkSession networkSession) {
+      this.networkSession = networkSession;
+      return this;
+    }
+
+    public ShieldInformationBarrierSegmentsManager build() {
+      return new ShieldInformationBarrierSegmentsManager(this);
+    }
+
+  }
+
+}

@@ -1,0 +1,182 @@
+package com.box.sdkgen.managers.comments;
+
+import java.util.List;
+import java.util.Map;
+import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
+import java.util.Objects;
+import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import java.io.IOException;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
+import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
+import com.box.sdkgen.serialization.json.JsonManager;
+import com.box.sdkgen.schemas.comments.Comments;
+import com.box.sdkgen.schemas.clienterror.ClientError;
+import com.box.sdkgen.schemas.commentfull.CommentFull;
+import com.box.sdkgen.networking.auth.Authentication;
+import com.box.sdkgen.networking.network.NetworkSession;
+import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
+import static com.box.sdkgen.internal.utils.UtilsManager.convertToString;
+import com.box.sdkgen.internal.utils.ByteStream;
+import static com.box.sdkgen.serialization.json.JsonManager.sdToJson;
+import com.box.sdkgen.networking.fetch.FetchOptions;
+import com.box.sdkgen.networking.fetch.FetchResponse;
+import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
+import com.fasterxml.jackson.databind.JsonNode;
+
+public class CommentsManager {
+
+  public Authentication auth;
+
+  public NetworkSession networkSession;
+
+  public CommentsManager() {
+    this.networkSession = new NetworkSession();
+  }
+
+  protected CommentsManager(CommentsManagerBuilder builder) {
+    this.auth = builder.auth;
+    this.networkSession = builder.networkSession;
+  }
+
+  public Comments getFileComments(String fileId) {
+    return getFileComments(fileId, new GetFileCommentsQueryParams(), new GetFileCommentsHeaders());
+  }
+
+  public Comments getFileComments(String fileId, GetFileCommentsQueryParams queryParams) {
+    return getFileComments(fileId, queryParams, new GetFileCommentsHeaders());
+  }
+
+  public Comments getFileComments(String fileId, GetFileCommentsHeaders headers) {
+    return getFileComments(fileId, new GetFileCommentsQueryParams(), headers);
+  }
+
+  public Comments getFileComments(String fileId, GetFileCommentsQueryParams queryParams, GetFileCommentsHeaders headers) {
+    Map<String, String> queryParamsMap = prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields())), entryOf("limit", convertToString(queryParams.getLimit())), entryOf("offset", convertToString(queryParams.getOffset()))));
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response = fetch(new FetchOptions.FetchOptionsBuilder(String.join("", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/files/", convertToString(fileId), "/comments")).method("GET").params(queryParamsMap).headers(headersMap).responseFormat("json").auth(this.auth).networkSession(this.networkSession).build());
+    return JsonManager.deserialize(response.getData(), Comments.class);
+  }
+
+  public CommentFull getCommentById(String commentId) {
+    return getCommentById(commentId, new GetCommentByIdQueryParams(), new GetCommentByIdHeaders());
+  }
+
+  public CommentFull getCommentById(String commentId, GetCommentByIdQueryParams queryParams) {
+    return getCommentById(commentId, queryParams, new GetCommentByIdHeaders());
+  }
+
+  public CommentFull getCommentById(String commentId, GetCommentByIdHeaders headers) {
+    return getCommentById(commentId, new GetCommentByIdQueryParams(), headers);
+  }
+
+  public CommentFull getCommentById(String commentId, GetCommentByIdQueryParams queryParams, GetCommentByIdHeaders headers) {
+    Map<String, String> queryParamsMap = prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response = fetch(new FetchOptions.FetchOptionsBuilder(String.join("", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/comments/", convertToString(commentId))).method("GET").params(queryParamsMap).headers(headersMap).responseFormat("json").auth(this.auth).networkSession(this.networkSession).build());
+    return JsonManager.deserialize(response.getData(), CommentFull.class);
+  }
+
+  public CommentFull updateCommentById(String commentId) {
+    return updateCommentById(commentId, new UpdateCommentByIdRequestBody(), new UpdateCommentByIdQueryParams(), new UpdateCommentByIdHeaders());
+  }
+
+  public CommentFull updateCommentById(String commentId, UpdateCommentByIdRequestBody requestBody) {
+    return updateCommentById(commentId, requestBody, new UpdateCommentByIdQueryParams(), new UpdateCommentByIdHeaders());
+  }
+
+  public CommentFull updateCommentById(String commentId, UpdateCommentByIdQueryParams queryParams) {
+    return updateCommentById(commentId, new UpdateCommentByIdRequestBody(), queryParams, new UpdateCommentByIdHeaders());
+  }
+
+  public CommentFull updateCommentById(String commentId, UpdateCommentByIdRequestBody requestBody, UpdateCommentByIdQueryParams queryParams) {
+    return updateCommentById(commentId, requestBody, queryParams, new UpdateCommentByIdHeaders());
+  }
+
+  public CommentFull updateCommentById(String commentId, UpdateCommentByIdHeaders headers) {
+    return updateCommentById(commentId, new UpdateCommentByIdRequestBody(), new UpdateCommentByIdQueryParams(), headers);
+  }
+
+  public CommentFull updateCommentById(String commentId, UpdateCommentByIdRequestBody requestBody, UpdateCommentByIdHeaders headers) {
+    return updateCommentById(commentId, requestBody, new UpdateCommentByIdQueryParams(), headers);
+  }
+
+  public CommentFull updateCommentById(String commentId, UpdateCommentByIdQueryParams queryParams, UpdateCommentByIdHeaders headers) {
+    return updateCommentById(commentId, new UpdateCommentByIdRequestBody(), queryParams, headers);
+  }
+
+  public CommentFull updateCommentById(String commentId, UpdateCommentByIdRequestBody requestBody, UpdateCommentByIdQueryParams queryParams, UpdateCommentByIdHeaders headers) {
+    Map<String, String> queryParamsMap = prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response = fetch(new FetchOptions.FetchOptionsBuilder(String.join("", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/comments/", convertToString(commentId))).method("PUT").params(queryParamsMap).headers(headersMap).data(JsonManager.serialize(requestBody)).contentType("application/json").responseFormat("json").auth(this.auth).networkSession(this.networkSession).build());
+    return JsonManager.deserialize(response.getData(), CommentFull.class);
+  }
+
+  public void deleteCommentById(String commentId) {
+    deleteCommentById(commentId, new DeleteCommentByIdHeaders());
+  }
+
+  public void deleteCommentById(String commentId, DeleteCommentByIdHeaders headers) {
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response = fetch(new FetchOptions.FetchOptionsBuilder(String.join("", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/comments/", convertToString(commentId))).method("DELETE").headers(headersMap).responseFormat(null).auth(this.auth).networkSession(this.networkSession).build());
+  }
+
+  public CommentFull createComment(CreateCommentRequestBody requestBody) {
+    return createComment(requestBody, new CreateCommentQueryParams(), new CreateCommentHeaders());
+  }
+
+  public CommentFull createComment(CreateCommentRequestBody requestBody, CreateCommentQueryParams queryParams) {
+    return createComment(requestBody, queryParams, new CreateCommentHeaders());
+  }
+
+  public CommentFull createComment(CreateCommentRequestBody requestBody, CreateCommentHeaders headers) {
+    return createComment(requestBody, new CreateCommentQueryParams(), headers);
+  }
+
+  public CommentFull createComment(CreateCommentRequestBody requestBody, CreateCommentQueryParams queryParams, CreateCommentHeaders headers) {
+    Map<String, String> queryParamsMap = prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response = fetch(new FetchOptions.FetchOptionsBuilder(String.join("", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/comments")).method("POST").params(queryParamsMap).headers(headersMap).data(JsonManager.serialize(requestBody)).contentType("application/json").responseFormat("json").auth(this.auth).networkSession(this.networkSession).build());
+    return JsonManager.deserialize(response.getData(), CommentFull.class);
+  }
+
+  public Authentication getAuth() {
+    return auth;
+  }
+
+  public NetworkSession getNetworkSession() {
+    return networkSession;
+  }
+
+  public static class CommentsManagerBuilder {
+
+    protected Authentication auth;
+
+    protected NetworkSession networkSession;
+
+    public CommentsManagerBuilder auth(Authentication auth) {
+      this.auth = auth;
+      return this;
+    }
+
+    public CommentsManagerBuilder networkSession(NetworkSession networkSession) {
+      this.networkSession = networkSession;
+      return this;
+    }
+
+    public CommentsManager build() {
+      return new CommentsManager(this);
+    }
+
+  }
+
+}

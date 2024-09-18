@@ -1,0 +1,121 @@
+package com.box.sdkgen.schemas.skillinvocation;
+
+import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.box.sdkgen.schemas.fileorfolder.FileOrFolder;
+import com.box.sdkgen.schemas.event.Event;
+
+public class SkillInvocationSkillField {
+
+  protected String id;
+
+  @JsonDeserialize(using = SkillInvocationSkillTypeField.SkillInvocationSkillTypeFieldDeserializer.class)
+  @JsonSerialize(using = SkillInvocationSkillTypeField.SkillInvocationSkillTypeFieldSerializer.class)
+  protected EnumWrapper<SkillInvocationSkillTypeField> type;
+
+  protected String name;
+
+  @JsonProperty("api_key")
+  protected String apiKey;
+
+  public SkillInvocationSkillField() {
+  }
+
+  protected SkillInvocationSkillField(SkillInvocationSkillFieldBuilder builder) {
+    this.id = builder.id;
+    this.type = builder.type;
+    this.name = builder.name;
+    this.apiKey = builder.apiKey;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public EnumWrapper<SkillInvocationSkillTypeField> getType() {
+    return type;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getApiKey() {
+    return apiKey;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SkillInvocationSkillField casted = (SkillInvocationSkillField) o;
+    return Objects.equals(id, casted.id) &&
+      Objects.equals(type, casted.type) &&
+      Objects.equals(name, casted.name) &&
+      Objects.equals(apiKey, casted.apiKey);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+      id, type, name, apiKey
+    );
+  }
+
+  @Override
+  public String toString() {
+    return "SkillInvocationSkillField{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + ", " + "name='" + name + '\'' + ", " + "apiKey='" + apiKey + '\'' + "}";
+  }
+
+  public static class SkillInvocationSkillFieldBuilder {
+
+    protected String id;
+
+    protected EnumWrapper<SkillInvocationSkillTypeField> type;
+
+    protected String name;
+
+    protected String apiKey;
+
+    public SkillInvocationSkillFieldBuilder id(String id) {
+      this.id = id;
+      return this;
+    }
+
+    public SkillInvocationSkillFieldBuilder type(SkillInvocationSkillTypeField type) {
+      this.type = new EnumWrapper<SkillInvocationSkillTypeField>(type.getValue(), type);
+      return this;
+    }
+
+    public SkillInvocationSkillFieldBuilder name(String name) {
+      this.name = name;
+      return this;
+    }
+
+    public SkillInvocationSkillFieldBuilder apiKey(String apiKey) {
+      this.apiKey = apiKey;
+      return this;
+    }
+
+    public SkillInvocationSkillField build() {
+      return new SkillInvocationSkillField(this);
+    }
+
+  }
+
+}

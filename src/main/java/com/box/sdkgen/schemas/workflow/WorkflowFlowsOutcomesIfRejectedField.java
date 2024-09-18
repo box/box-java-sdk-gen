@@ -1,0 +1,125 @@
+package com.box.sdkgen.schemas.workflow;
+
+import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.box.sdkgen.schemas.workflowmini.WorkflowMiniTypeField;
+import com.box.sdkgen.schemas.workflowmini.WorkflowMini;
+import com.box.sdkgen.schemas.userbase.UserBase;
+
+public class WorkflowFlowsOutcomesIfRejectedField {
+
+  protected String id;
+
+  @JsonDeserialize(using = WorkflowFlowsOutcomesIfRejectedTypeField.WorkflowFlowsOutcomesIfRejectedTypeFieldDeserializer.class)
+  @JsonSerialize(using = WorkflowFlowsOutcomesIfRejectedTypeField.WorkflowFlowsOutcomesIfRejectedTypeFieldSerializer.class)
+  protected EnumWrapper<WorkflowFlowsOutcomesIfRejectedTypeField> type;
+
+  protected String name;
+
+  @JsonDeserialize(using = WorkflowFlowsOutcomesIfRejectedActionTypeField.WorkflowFlowsOutcomesIfRejectedActionTypeFieldDeserializer.class)
+  @JsonSerialize(using = WorkflowFlowsOutcomesIfRejectedActionTypeField.WorkflowFlowsOutcomesIfRejectedActionTypeFieldSerializer.class)
+  @JsonProperty("action_type")
+  protected EnumWrapper<WorkflowFlowsOutcomesIfRejectedActionTypeField> actionType;
+
+  public WorkflowFlowsOutcomesIfRejectedField() {
+  }
+
+  protected WorkflowFlowsOutcomesIfRejectedField(WorkflowFlowsOutcomesIfRejectedFieldBuilder builder) {
+    this.id = builder.id;
+    this.type = builder.type;
+    this.name = builder.name;
+    this.actionType = builder.actionType;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public EnumWrapper<WorkflowFlowsOutcomesIfRejectedTypeField> getType() {
+    return type;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public EnumWrapper<WorkflowFlowsOutcomesIfRejectedActionTypeField> getActionType() {
+    return actionType;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    WorkflowFlowsOutcomesIfRejectedField casted = (WorkflowFlowsOutcomesIfRejectedField) o;
+    return Objects.equals(id, casted.id) &&
+      Objects.equals(type, casted.type) &&
+      Objects.equals(name, casted.name) &&
+      Objects.equals(actionType, casted.actionType);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+      id, type, name, actionType
+    );
+  }
+
+  @Override
+  public String toString() {
+    return "WorkflowFlowsOutcomesIfRejectedField{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + ", " + "name='" + name + '\'' + ", " + "actionType='" + actionType + '\'' + "}";
+  }
+
+  public static class WorkflowFlowsOutcomesIfRejectedFieldBuilder {
+
+    protected String id;
+
+    protected EnumWrapper<WorkflowFlowsOutcomesIfRejectedTypeField> type;
+
+    protected String name;
+
+    protected EnumWrapper<WorkflowFlowsOutcomesIfRejectedActionTypeField> actionType;
+
+    public WorkflowFlowsOutcomesIfRejectedFieldBuilder id(String id) {
+      this.id = id;
+      return this;
+    }
+
+    public WorkflowFlowsOutcomesIfRejectedFieldBuilder type(WorkflowFlowsOutcomesIfRejectedTypeField type) {
+      this.type = new EnumWrapper<WorkflowFlowsOutcomesIfRejectedTypeField>(type.getValue(), type);
+      return this;
+    }
+
+    public WorkflowFlowsOutcomesIfRejectedFieldBuilder name(String name) {
+      this.name = name;
+      return this;
+    }
+
+    public WorkflowFlowsOutcomesIfRejectedFieldBuilder actionType(WorkflowFlowsOutcomesIfRejectedActionTypeField actionType) {
+      this.actionType = new EnumWrapper<WorkflowFlowsOutcomesIfRejectedActionTypeField>(actionType.getValue(), actionType);
+      return this;
+    }
+
+    public WorkflowFlowsOutcomesIfRejectedField build() {
+      return new WorkflowFlowsOutcomesIfRejectedField(this);
+    }
+
+  }
+
+}
