@@ -1,0 +1,143 @@
+package com.box.sdkgen.managers.zipdownloads;
+
+import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
+import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
+import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
+import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
+
+import com.box.sdkgen.internal.utils.ByteStream;
+import com.box.sdkgen.networking.auth.Authentication;
+import com.box.sdkgen.networking.fetch.FetchOptions;
+import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.network.NetworkSession;
+import com.box.sdkgen.schemas.zipdownload.ZipDownload;
+import com.box.sdkgen.schemas.zipdownloadrequest.ZipDownloadRequest;
+import com.box.sdkgen.schemas.zipdownloadstatus.ZipDownloadStatus;
+import com.box.sdkgen.serialization.json.JsonManager;
+import java.util.Map;
+
+public class ZipDownloadsManager {
+
+  public Authentication auth;
+
+  public NetworkSession networkSession;
+
+  public ZipDownloadsManager() {
+    this.networkSession = new NetworkSession();
+  }
+
+  protected ZipDownloadsManager(ZipDownloadsManagerBuilder builder) {
+    this.auth = builder.auth;
+    this.networkSession = builder.networkSession;
+  }
+
+  public ZipDownload createZipDownload(ZipDownloadRequest requestBody) {
+    return createZipDownload(requestBody, new CreateZipDownloadHeaders());
+  }
+
+  public ZipDownload createZipDownload(
+      ZipDownloadRequest requestBody, CreateZipDownloadHeaders headers) {
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response =
+        fetch(
+            new FetchOptions.FetchOptionsBuilder(
+                    String.join(
+                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/zip_downloads"))
+                .method("POST")
+                .headers(headersMap)
+                .data(JsonManager.serialize(requestBody))
+                .contentType("application/json")
+                .responseFormat("json")
+                .auth(this.auth)
+                .networkSession(this.networkSession)
+                .build());
+    return JsonManager.deserialize(response.getData(), ZipDownload.class);
+  }
+
+  public ByteStream getZipDownloadContent(String downloadUrl) {
+    return getZipDownloadContent(downloadUrl, new GetZipDownloadContentHeaders());
+  }
+
+  public ByteStream getZipDownloadContent(
+      String downloadUrl, GetZipDownloadContentHeaders headers) {
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response =
+        fetch(
+            new FetchOptions.FetchOptionsBuilder(downloadUrl)
+                .method("GET")
+                .headers(headersMap)
+                .responseFormat("binary")
+                .auth(this.auth)
+                .networkSession(this.networkSession)
+                .build());
+    return response.getContent();
+  }
+
+  public ZipDownloadStatus getZipDownloadStatus(String statusUrl) {
+    return getZipDownloadStatus(statusUrl, new GetZipDownloadStatusHeaders());
+  }
+
+  public ZipDownloadStatus getZipDownloadStatus(
+      String statusUrl, GetZipDownloadStatusHeaders headers) {
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response =
+        fetch(
+            new FetchOptions.FetchOptionsBuilder(statusUrl)
+                .method("GET")
+                .headers(headersMap)
+                .responseFormat("json")
+                .auth(this.auth)
+                .networkSession(this.networkSession)
+                .build());
+    return JsonManager.deserialize(response.getData(), ZipDownloadStatus.class);
+  }
+
+  public ByteStream downloadZip(ZipDownloadRequest requestBody) {
+    return downloadZip(requestBody, new DownloadZipHeaders());
+  }
+
+  public ByteStream downloadZip(ZipDownloadRequest requestBody, DownloadZipHeaders headers) {
+    ZipDownload zipDownloadSession =
+        this.createZipDownload(
+            new ZipDownloadRequest.ZipDownloadRequestBuilder(requestBody.getItems())
+                .downloadFileName(requestBody.getDownloadFileName())
+                .build(),
+            new CreateZipDownloadHeaders.CreateZipDownloadHeadersBuilder()
+                .extraHeaders(headers.getExtraHeaders())
+                .build());
+    return this.getZipDownloadContent(
+        zipDownloadSession.getDownloadUrl(),
+        new GetZipDownloadContentHeaders.GetZipDownloadContentHeadersBuilder()
+            .extraHeaders(headers.getExtraHeaders())
+            .build());
+  }
+
+  public Authentication getAuth() {
+    return auth;
+  }
+
+  public NetworkSession getNetworkSession() {
+    return networkSession;
+  }
+
+  public static class ZipDownloadsManagerBuilder {
+
+    protected Authentication auth;
+
+    protected NetworkSession networkSession;
+
+    public ZipDownloadsManagerBuilder auth(Authentication auth) {
+      this.auth = auth;
+      return this;
+    }
+
+    public ZipDownloadsManagerBuilder networkSession(NetworkSession networkSession) {
+      this.networkSession = networkSession;
+      return this;
+    }
+
+    public ZipDownloadsManager build() {
+      return new ZipDownloadsManager(this);
+    }
+  }
+}
