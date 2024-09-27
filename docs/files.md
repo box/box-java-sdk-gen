@@ -173,7 +173,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `ByteStream`.
+This function returns a value of type `InputStream`.
 
 When a thumbnail can be created the thumbnail data will be
 returned in the body of the response.Sometimes generating a thumbnail can take a few seconds. In these

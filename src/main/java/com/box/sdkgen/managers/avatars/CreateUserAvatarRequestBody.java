@@ -1,16 +1,16 @@
 package com.box.sdkgen.managers.avatars;
 
-import com.box.sdkgen.internal.utils.ByteStream;
+import java.io.InputStream;
 
 public class CreateUserAvatarRequestBody {
 
-  public final ByteStream pic;
+  public final InputStream pic;
 
   public String picFileName;
 
   public String picContentType;
 
-  public CreateUserAvatarRequestBody(ByteStream pic) {
+  public CreateUserAvatarRequestBody(InputStream pic) {
     this.pic = pic;
   }
 
@@ -20,7 +20,7 @@ public class CreateUserAvatarRequestBody {
     this.picContentType = builder.picContentType;
   }
 
-  public ByteStream getPic() {
+  public InputStream getPic() {
     return pic;
   }
 
@@ -34,13 +34,13 @@ public class CreateUserAvatarRequestBody {
 
   public static class CreateUserAvatarRequestBodyBuilder {
 
-    protected final ByteStream pic;
+    protected final InputStream pic;
 
     protected String picFileName;
 
     protected String picContentType;
 
-    public CreateUserAvatarRequestBodyBuilder(ByteStream pic) {
+    public CreateUserAvatarRequestBodyBuilder(InputStream pic) {
       this.pic = pic;
     }
 

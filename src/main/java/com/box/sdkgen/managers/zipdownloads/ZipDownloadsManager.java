@@ -5,7 +5,6 @@ import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
-import com.box.sdkgen.internal.utils.ByteStream;
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetch.FetchOptions;
 import com.box.sdkgen.networking.fetch.FetchResponse;
@@ -14,6 +13,7 @@ import com.box.sdkgen.schemas.zipdownload.ZipDownload;
 import com.box.sdkgen.schemas.zipdownloadrequest.ZipDownloadRequest;
 import com.box.sdkgen.schemas.zipdownloadstatus.ZipDownloadStatus;
 import com.box.sdkgen.serialization.json.JsonManager;
+import java.io.InputStream;
 import java.util.Map;
 
 public class ZipDownloadsManager {
@@ -54,11 +54,11 @@ public class ZipDownloadsManager {
     return JsonManager.deserialize(response.getData(), ZipDownload.class);
   }
 
-  public ByteStream getZipDownloadContent(String downloadUrl) {
+  public InputStream getZipDownloadContent(String downloadUrl) {
     return getZipDownloadContent(downloadUrl, new GetZipDownloadContentHeaders());
   }
 
-  public ByteStream getZipDownloadContent(
+  public InputStream getZipDownloadContent(
       String downloadUrl, GetZipDownloadContentHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
@@ -92,11 +92,11 @@ public class ZipDownloadsManager {
     return JsonManager.deserialize(response.getData(), ZipDownloadStatus.class);
   }
 
-  public ByteStream downloadZip(ZipDownloadRequest requestBody) {
+  public InputStream downloadZip(ZipDownloadRequest requestBody) {
     return downloadZip(requestBody, new DownloadZipHeaders());
   }
 
-  public ByteStream downloadZip(ZipDownloadRequest requestBody, DownloadZipHeaders headers) {
+  public InputStream downloadZip(ZipDownloadRequest requestBody, DownloadZipHeaders headers) {
     ZipDownload zipDownloadSession =
         this.createZipDownload(
             new ZipDownloadRequest.ZipDownloadRequestBuilder(requestBody.getItems())

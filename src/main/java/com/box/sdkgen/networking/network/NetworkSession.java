@@ -10,7 +10,7 @@ import okhttp3.OkHttpClient;
 
 public class NetworkSession {
 
-  public static final int MAX_ATTEMPTS = 5;
+  public static int MAX_ATTEMPTS = 5;
 
   protected Map<String, String> additionalHeaders = new HashMap<>();
 

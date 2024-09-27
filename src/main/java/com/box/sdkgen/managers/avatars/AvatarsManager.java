@@ -6,7 +6,6 @@ import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
-import com.box.sdkgen.internal.utils.ByteStream;
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetch.FetchOptions;
 import com.box.sdkgen.networking.fetch.FetchResponse;
@@ -14,6 +13,7 @@ import com.box.sdkgen.networking.fetch.MultipartItem;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.useravatar.UserAvatar;
 import com.box.sdkgen.serialization.json.JsonManager;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -32,11 +32,11 @@ public class AvatarsManager {
     this.networkSession = builder.networkSession;
   }
 
-  public ByteStream getUserAvatar(String userId) {
+  public InputStream getUserAvatar(String userId) {
     return getUserAvatar(userId, new GetUserAvatarHeaders());
   }
 
-  public ByteStream getUserAvatar(String userId, GetUserAvatarHeaders headers) {
+  public InputStream getUserAvatar(String userId, GetUserAvatarHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
         fetch(

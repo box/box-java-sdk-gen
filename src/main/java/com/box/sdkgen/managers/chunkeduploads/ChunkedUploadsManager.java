@@ -7,7 +7,6 @@ import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
-import com.box.sdkgen.internal.utils.ByteStream;
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetch.FetchOptions;
 import com.box.sdkgen.networking.fetch.FetchResponse;
@@ -17,6 +16,7 @@ import com.box.sdkgen.schemas.uploadedpart.UploadedPart;
 import com.box.sdkgen.schemas.uploadparts.UploadParts;
 import com.box.sdkgen.schemas.uploadsession.UploadSession;
 import com.box.sdkgen.serialization.json.JsonManager;
+import java.io.InputStream;
 import java.util.Map;
 
 public class ChunkedUploadsManager {
@@ -134,7 +134,7 @@ public class ChunkedUploadsManager {
   }
 
   public UploadedPart uploadFilePartByUrl(
-      String url, ByteStream requestBody, UploadFilePartByUrlHeaders headers) {
+      String url, InputStream requestBody, UploadFilePartByUrlHeaders headers) {
     Map<String, String> headersMap =
         prepareParams(
             mergeMaps(
@@ -157,7 +157,7 @@ public class ChunkedUploadsManager {
   }
 
   public UploadedPart uploadFilePart(
-      String uploadSessionId, ByteStream requestBody, UploadFilePartHeaders headers) {
+      String uploadSessionId, InputStream requestBody, UploadFilePartHeaders headers) {
     Map<String, String> headersMap =
         prepareParams(
             mergeMaps(

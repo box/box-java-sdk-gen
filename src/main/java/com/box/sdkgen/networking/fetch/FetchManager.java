@@ -18,10 +18,14 @@ import okhttp3.Call;
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okio.BufferedSink;
+import okio.Okio;
+import okio.Source;
 
 public class FetchManager {
 
@@ -51,8 +55,12 @@ public class FetchManager {
             response.code() == 202 && response.header("Retry-After") != null;
         if (response.isSuccessful() && !acceptedWithRetryAfter) {
           if (Objects.equals(options.getResponseFormat(), "binary")) {
-            // TODO: Add support for streams
-            return null;
+            return new FetchResponse(
+                response.code(),
+                null,
+                response.body().byteStream(),
+                response.headers().toMultimap().entrySet().stream()
+                    .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().get(0))));
           }
           return new FetchResponse(
               response.code(),
@@ -77,6 +85,9 @@ public class FetchManager {
         exceptionThrown = e;
         // Retry network exception only once
         if (attemptNumber > 1) {
+          if (response != null) {
+            response.close();
+          }
           throw new BoxSDKError(e.getMessage(), e);
         }
       }
@@ -162,8 +173,18 @@ public class FetchManager {
             ? RequestBody.create(sdToUrlParams(options.getData()), MediaType.parse(contentType))
             : null;
       case "multipart/form-data":
-        // TODO: Add support for streams
-        return null;
+        MultipartBody.Builder bodyBuilder = new MultipartBody.Builder().setType(MultipartBody.FORM);
+        for (MultipartItem part : options.multipartData) {
+          if (part.getData() != null) {
+            bodyBuilder.addFormDataPart(part.getPartName(), sdToJson(part.getData()));
+          } else {
+            bodyBuilder.addFormDataPart(
+                part.getPartName(),
+                part.getFileName() != null ? part.getFileName() : "file",
+                createMultipartRequestBody(part));
+          }
+        }
+        return bodyBuilder.build();
       default:
         throw new IllegalArgumentException("Unsupported content type " + contentType);
     }
@@ -183,7 +204,12 @@ public class FetchManager {
     if (response == null) {
       throw new BoxSDKError(exceptionThrown.getMessage(), exceptionThrown);
     }
-    throw BoxAPIError.fromAPICall(request, response);
+
+    try {
+      throw BoxAPIError.fromAPICall(request, response);
+    } finally {
+      response.close();
+    }
   }
 
   private static int getRetryAfterTimeInSeconds(int attemptNumber, String retryAfterHeader) {
@@ -196,5 +222,24 @@ public class FetchManager {
     double maxWindow = 1 + RANDOM_FACTOR;
     double jitter = (Math.random() * (maxWindow - minWindow)) + minWindow;
     return (int) (Math.pow(2, attemptNumber) * BASE_TIMEOUT * jitter);
+  }
+
+  public static RequestBody createMultipartRequestBody(MultipartItem part) {
+    return new RequestBody() {
+      @Override
+      public MediaType contentType() {
+        if (part.contentType != null) {
+          return MediaType.parse(part.contentType);
+        }
+        return MediaType.parse("application/octet-stream");
+      }
+
+      @Override
+      public void writeTo(BufferedSink sink) throws IOException {
+        try (Source source = Okio.source(part.getFileStream())) {
+          sink.writeAll(source);
+        }
+      }
+    };
   }
 }

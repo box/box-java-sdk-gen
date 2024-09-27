@@ -82,7 +82,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `ByteStream`.
+This function returns a value of type `InputStream`.
 
 Returns the content of the items requested for this download, formatted as
 a stream of files and folders in a `zip` archive.
@@ -144,7 +144,7 @@ This operation is performed by calling function `downloadZip`.
 
 ### Returns
 
-This function returns a value of type `ByteStream`.
+This function returns a value of type `InputStream`.
 
 
 
