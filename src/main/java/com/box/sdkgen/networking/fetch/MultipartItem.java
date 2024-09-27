@@ -1,7 +1,7 @@
 package com.box.sdkgen.networking.fetch;
 
-import com.box.sdkgen.internal.utils.ByteStream;
 import com.fasterxml.jackson.databind.JsonNode;
+import java.io.InputStream;
 
 public class MultipartItem {
 
@@ -9,7 +9,7 @@ public class MultipartItem {
 
   protected JsonNode data;
 
-  protected ByteStream fileStream;
+  protected InputStream fileStream;
 
   protected String fileName;
 
@@ -35,7 +35,7 @@ public class MultipartItem {
     return data;
   }
 
-  public ByteStream getFileStream() {
+  public InputStream getFileStream() {
     return fileStream;
   }
 
@@ -53,7 +53,7 @@ public class MultipartItem {
 
     protected JsonNode data;
 
-    protected ByteStream fileStream;
+    protected InputStream fileStream;
 
     protected String fileName;
 
@@ -68,7 +68,7 @@ public class MultipartItem {
       return this;
     }
 
-    public MultipartItemBuilder fileStream(ByteStream fileStream) {
+    public MultipartItemBuilder fileStream(InputStream fileStream) {
       this.fileStream = fileStream;
       return this;
     }

@@ -1,5 +1,8 @@
 package com.box.sdkgen.internal.utils;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +11,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class UtilsManager {
+  private static final int BUFFER_SIZE = 8192;
 
   public static <K, V> Map<K, V> mapOf(Entry<K, V>... entries) {
     return Arrays.stream(entries)
@@ -42,5 +46,25 @@ public class UtilsManager {
           .stream().map(UtilsManager::convertToString).collect(Collectors.joining(","));
     }
     return value.toString();
+  }
+
+  public static void writeInputStreamToOutputStream(InputStream input, OutputStream output) {
+    try {
+      byte[] buffer = new byte[BUFFER_SIZE];
+      int n = input.read(buffer);
+      while (n != -1) {
+        output.write(buffer, 0, n);
+        n = input.read(buffer);
+      }
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    } finally {
+      try {
+        input.close();
+        output.close();
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
+    }
   }
 }

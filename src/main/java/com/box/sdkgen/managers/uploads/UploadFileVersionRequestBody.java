@@ -1,19 +1,19 @@
 package com.box.sdkgen.managers.uploads;
 
-import com.box.sdkgen.internal.utils.ByteStream;
+import java.io.InputStream;
 
 public class UploadFileVersionRequestBody {
 
   public final UploadFileVersionRequestBodyAttributesField attributes;
 
-  public final ByteStream file;
+  public final InputStream file;
 
   public String fileFileName;
 
   public String fileContentType;
 
   public UploadFileVersionRequestBody(
-      UploadFileVersionRequestBodyAttributesField attributes, ByteStream file) {
+      UploadFileVersionRequestBodyAttributesField attributes, InputStream file) {
     this.attributes = attributes;
     this.file = file;
   }
@@ -29,7 +29,7 @@ public class UploadFileVersionRequestBody {
     return attributes;
   }
 
-  public ByteStream getFile() {
+  public InputStream getFile() {
     return file;
   }
 
@@ -45,14 +45,14 @@ public class UploadFileVersionRequestBody {
 
     protected final UploadFileVersionRequestBodyAttributesField attributes;
 
-    protected final ByteStream file;
+    protected final InputStream file;
 
     protected String fileFileName;
 
     protected String fileContentType;
 
     public UploadFileVersionRequestBodyBuilder(
-        UploadFileVersionRequestBodyAttributesField attributes, ByteStream file) {
+        UploadFileVersionRequestBodyAttributesField attributes, InputStream file) {
       this.attributes = attributes;
       this.file = file;
     }

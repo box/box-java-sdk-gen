@@ -7,13 +7,13 @@ import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
-import com.box.sdkgen.internal.utils.ByteStream;
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetch.FetchOptions;
 import com.box.sdkgen.networking.fetch.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.filefull.FileFull;
 import com.box.sdkgen.serialization.json.JsonManager;
+import java.io.InputStream;
 import java.util.Map;
 
 public class FilesManager {
@@ -212,7 +212,7 @@ public class FilesManager {
     return JsonManager.deserialize(response.getData(), FileFull.class);
   }
 
-  public ByteStream getFileThumbnailById(String fileId, GetFileThumbnailByIdExtension extension) {
+  public InputStream getFileThumbnailById(String fileId, GetFileThumbnailByIdExtension extension) {
     return getFileThumbnailById(
         fileId,
         extension,
@@ -220,19 +220,19 @@ public class FilesManager {
         new GetFileThumbnailByIdHeaders());
   }
 
-  public ByteStream getFileThumbnailById(
+  public InputStream getFileThumbnailById(
       String fileId,
       GetFileThumbnailByIdExtension extension,
       GetFileThumbnailByIdQueryParams queryParams) {
     return getFileThumbnailById(fileId, extension, queryParams, new GetFileThumbnailByIdHeaders());
   }
 
-  public ByteStream getFileThumbnailById(
+  public InputStream getFileThumbnailById(
       String fileId, GetFileThumbnailByIdExtension extension, GetFileThumbnailByIdHeaders headers) {
     return getFileThumbnailById(fileId, extension, new GetFileThumbnailByIdQueryParams(), headers);
   }
 
-  public ByteStream getFileThumbnailById(
+  public InputStream getFileThumbnailById(
       String fileId,
       GetFileThumbnailByIdExtension extension,
       GetFileThumbnailByIdQueryParams queryParams,

@@ -143,7 +143,7 @@ See the endpoint docs at
 
 - url `String`
   - URL of uploadFilePart method
-- requestBody `ByteStream`
+- requestBody `InputStream`
   - Request body of uploadFilePart method
 - headers `UploadFilePartByUrlHeaders`
   - Headers of uploadFilePart method
@@ -174,7 +174,7 @@ See the endpoint docs at
 
 - uploadSessionId `String`
   - The ID of the upload session. Example: "D5E3F7A"
-- requestBody `ByteStream`
+- requestBody `InputStream`
   - Request body of uploadFilePart method
 - headers `UploadFilePartHeaders`
   - Headers of uploadFilePart method

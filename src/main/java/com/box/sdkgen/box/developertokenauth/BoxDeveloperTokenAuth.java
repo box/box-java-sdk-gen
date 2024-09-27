@@ -1,5 +1,6 @@
 package com.box.sdkgen.box.developertokenauth;
 
+import com.box.sdkgen.box.errors.BoxSDKError;
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.accesstoken.AccessToken;
@@ -28,7 +29,7 @@ public class BoxDeveloperTokenAuth implements Authentication {
 
   @Override
   public AccessToken refreshToken(NetworkSession networkSession) {
-    return null;
+    throw new BoxSDKError("Developer token has expired. Please provide a new one.");
   }
 
   @Override

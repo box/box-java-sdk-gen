@@ -5,13 +5,15 @@ import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
+import static com.box.sdkgen.internal.utils.UtilsManager.writeInputStreamToOutputStream;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
-import com.box.sdkgen.internal.utils.ByteStream;
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetch.FetchOptions;
 import com.box.sdkgen.networking.fetch.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Map;
 
 public class DownloadsManager {
@@ -29,19 +31,19 @@ public class DownloadsManager {
     this.networkSession = builder.networkSession;
   }
 
-  public ByteStream downloadFile(String fileId) {
+  public InputStream downloadFile(String fileId) {
     return downloadFile(fileId, new DownloadFileQueryParams(), new DownloadFileHeaders());
   }
 
-  public ByteStream downloadFile(String fileId, DownloadFileQueryParams queryParams) {
+  public InputStream downloadFile(String fileId, DownloadFileQueryParams queryParams) {
     return downloadFile(fileId, queryParams, new DownloadFileHeaders());
   }
 
-  public ByteStream downloadFile(String fileId, DownloadFileHeaders headers) {
+  public InputStream downloadFile(String fileId, DownloadFileHeaders headers) {
     return downloadFile(fileId, new DownloadFileQueryParams(), headers);
   }
 
-  public ByteStream downloadFile(
+  public InputStream downloadFile(
       String fileId, DownloadFileQueryParams queryParams, DownloadFileHeaders headers) {
     Map<String, String> queryParamsMap =
         prepareParams(
@@ -72,6 +74,46 @@ public class DownloadsManager {
                 .networkSession(this.networkSession)
                 .build());
     return response.getContent();
+  }
+
+  public void downloadFileToOutputStream(String fileId, OutputStream outputStream) {
+    downloadFileToOutputStream(
+        fileId,
+        outputStream,
+        new DownloadFileToOutputStreamQueryParams(),
+        new DownloadFileToOutputStreamHeaders());
+  }
+
+  public void downloadFileToOutputStream(
+      String fileId, OutputStream outputStream, DownloadFileToOutputStreamQueryParams queryParams) {
+    downloadFileToOutputStream(
+        fileId, outputStream, queryParams, new DownloadFileToOutputStreamHeaders());
+  }
+
+  public void downloadFileToOutputStream(
+      String fileId, OutputStream outputStream, DownloadFileToOutputStreamHeaders headers) {
+    downloadFileToOutputStream(
+        fileId, outputStream, new DownloadFileToOutputStreamQueryParams(), headers);
+  }
+
+  public void downloadFileToOutputStream(
+      String fileId,
+      OutputStream outputStream,
+      DownloadFileToOutputStreamQueryParams queryParams,
+      DownloadFileToOutputStreamHeaders headers) {
+    InputStream downloadStream =
+        this.downloadFile(
+            fileId,
+            new DownloadFileQueryParams.DownloadFileQueryParamsBuilder()
+                .version(queryParams.getVersion())
+                .accessToken(queryParams.getAccessToken())
+                .build(),
+            new DownloadFileHeaders.DownloadFileHeadersBuilder()
+                .range(headers.getRange())
+                .boxapi(headers.getBoxapi())
+                .extraHeaders(headers.getExtraHeaders())
+                .build());
+    writeInputStreamToOutputStream(downloadStream, outputStream);
   }
 
   public Authentication getAuth() {

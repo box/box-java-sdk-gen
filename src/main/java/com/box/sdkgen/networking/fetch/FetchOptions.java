@@ -1,9 +1,9 @@
 package com.box.sdkgen.networking.fetch;
 
-import com.box.sdkgen.internal.utils.ByteStream;
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.fasterxml.jackson.databind.JsonNode;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +19,7 @@ public class FetchOptions {
 
   protected JsonNode data;
 
-  protected ByteStream fileStream;
+  protected InputStream fileStream;
 
   protected List<MultipartItem> multipartData;
 
@@ -70,7 +70,7 @@ public class FetchOptions {
     return data;
   }
 
-  public ByteStream getFileStream() {
+  public InputStream getFileStream() {
     return fileStream;
   }
 
@@ -106,7 +106,7 @@ public class FetchOptions {
 
     protected JsonNode data;
 
-    protected ByteStream fileStream;
+    protected InputStream fileStream;
 
     protected List<MultipartItem> multipartData;
 
@@ -143,7 +143,7 @@ public class FetchOptions {
       return this;
     }
 
-    public FetchOptionsBuilder fileStream(ByteStream fileStream) {
+    public FetchOptionsBuilder fileStream(InputStream fileStream) {
       this.fileStream = fileStream;
       return this;
     }

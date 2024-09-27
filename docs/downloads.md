@@ -2,6 +2,7 @@
 
 
 - [Download file](#download-file)
+- [Download file](#download-file)
 
 ## Download file
 
@@ -26,7 +27,7 @@ See the endpoint docs at
 
 ### Returns
 
-This function returns a value of type `ByteStream`.
+This function returns a value of type `InputStream`.
 
 Returns the requested file if the client has the **follow
 redirects** setting enabled to automatically
@@ -39,5 +40,33 @@ be available for the client to download.
 
 This response can occur when the file was uploaded immediately before the
 download request.
+
+
+## Download file
+
+Download file to a given output stream
+
+This operation is performed by calling function `downloadFileToOutputStream`.
+
+
+*Currently we don't have an example for calling `downloadFileToOutputStream` in integration tests*
+
+### Arguments
+
+- fileId `String`
+  - The unique identifier that represents a file.  The ID for any file can be determined by visiting a file in the web application and copying the ID from the URL. For example, for the URL `https://*.app.box.com/files/123` the `file_id` is `123`. Example: "12345"
+- outputStream `OutputStream`
+  - Download file to a given output stream
+- queryParams `DownloadFileToOutputStreamQueryParams`
+  - Query parameters of downloadFile method
+- headers `DownloadFileToOutputStreamHeaders`
+  - Headers of downloadFile method
+
+
+### Returns
+
+This function returns a value of type `void`.
+
+
 
 
