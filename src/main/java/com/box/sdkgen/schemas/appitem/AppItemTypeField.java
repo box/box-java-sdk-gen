@@ -35,9 +35,9 @@ public enum AppItemTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(AppItemTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<AppItemTypeField>(value, v))
+          .map((v) -> new EnumWrapper<AppItemTypeField>(value, v))
           .orElse(new EnumWrapper<AppItemTypeField>(value));
     }
   }

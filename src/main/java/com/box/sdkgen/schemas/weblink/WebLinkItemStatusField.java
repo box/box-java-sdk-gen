@@ -37,9 +37,9 @@ public enum WebLinkItemStatusField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(WebLinkItemStatusField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<WebLinkItemStatusField>(value, v))
+          .map((v) -> new EnumWrapper<WebLinkItemStatusField>(value, v))
           .orElse(new EnumWrapper<WebLinkItemStatusField>(value));
     }
   }

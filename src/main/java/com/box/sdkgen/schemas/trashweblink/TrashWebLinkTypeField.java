@@ -35,9 +35,9 @@ public enum TrashWebLinkTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(TrashWebLinkTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<TrashWebLinkTypeField>(value, v))
+          .map((v) -> new EnumWrapper<TrashWebLinkTypeField>(value, v))
           .orElse(new EnumWrapper<TrashWebLinkTypeField>(value));
     }
   }

@@ -39,9 +39,9 @@ public enum SkillInvocationStatusStateField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(SkillInvocationStatusStateField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<SkillInvocationStatusStateField>(value, v))
+          .map((v) -> new EnumWrapper<SkillInvocationStatusStateField>(value, v))
           .orElse(new EnumWrapper<SkillInvocationStatusStateField>(value));
     }
   }

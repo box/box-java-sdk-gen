@@ -35,9 +35,9 @@ public enum SignRequestTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(SignRequestTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<SignRequestTypeField>(value, v))
+          .map((v) -> new EnumWrapper<SignRequestTypeField>(value, v))
           .orElse(new EnumWrapper<SignRequestTypeField>(value));
     }
   }

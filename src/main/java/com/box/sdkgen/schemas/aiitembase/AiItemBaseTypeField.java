@@ -35,9 +35,9 @@ public enum AiItemBaseTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(AiItemBaseTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<AiItemBaseTypeField>(value, v))
+          .map((v) -> new EnumWrapper<AiItemBaseTypeField>(value, v))
           .orElse(new EnumWrapper<AiItemBaseTypeField>(value));
     }
   }

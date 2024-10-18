@@ -37,9 +37,9 @@ public enum GetTrashedItemsQueryParamsSortField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(GetTrashedItemsQueryParamsSortField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<GetTrashedItemsQueryParamsSortField>(value, v))
+          .map((v) -> new EnumWrapper<GetTrashedItemsQueryParamsSortField>(value, v))
           .orElse(new EnumWrapper<GetTrashedItemsQueryParamsSortField>(value));
     }
   }

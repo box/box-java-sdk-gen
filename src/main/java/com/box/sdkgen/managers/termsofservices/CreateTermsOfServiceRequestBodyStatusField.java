@@ -36,9 +36,9 @@ public enum CreateTermsOfServiceRequestBodyStatusField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CreateTermsOfServiceRequestBodyStatusField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<CreateTermsOfServiceRequestBodyStatusField>(value, v))
+          .map((v) -> new EnumWrapper<CreateTermsOfServiceRequestBodyStatusField>(value, v))
           .orElse(new EnumWrapper<CreateTermsOfServiceRequestBodyStatusField>(value));
     }
   }

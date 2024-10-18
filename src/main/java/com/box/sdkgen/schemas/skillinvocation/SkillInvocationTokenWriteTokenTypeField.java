@@ -35,9 +35,9 @@ public enum SkillInvocationTokenWriteTokenTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(SkillInvocationTokenWriteTokenTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<SkillInvocationTokenWriteTokenTypeField>(value, v))
+          .map((v) -> new EnumWrapper<SkillInvocationTokenWriteTokenTypeField>(value, v))
           .orElse(new EnumWrapper<SkillInvocationTokenWriteTokenTypeField>(value));
     }
   }

@@ -35,9 +35,9 @@ public enum AppItemEventSourceTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(AppItemEventSourceTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<AppItemEventSourceTypeField>(value, v))
+          .map((v) -> new EnumWrapper<AppItemEventSourceTypeField>(value, v))
           .orElse(new EnumWrapper<AppItemEventSourceTypeField>(value));
     }
   }

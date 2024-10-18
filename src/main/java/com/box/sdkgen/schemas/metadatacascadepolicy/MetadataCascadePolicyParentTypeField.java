@@ -35,9 +35,9 @@ public enum MetadataCascadePolicyParentTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(MetadataCascadePolicyParentTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<MetadataCascadePolicyParentTypeField>(value, v))
+          .map((v) -> new EnumWrapper<MetadataCascadePolicyParentTypeField>(value, v))
           .orElse(new EnumWrapper<MetadataCascadePolicyParentTypeField>(value));
     }
   }

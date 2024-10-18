@@ -35,9 +35,9 @@ public enum FileBaseTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(FileBaseTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<FileBaseTypeField>(value, v))
+          .map((v) -> new EnumWrapper<FileBaseTypeField>(value, v))
           .orElse(new EnumWrapper<FileBaseTypeField>(value));
     }
   }

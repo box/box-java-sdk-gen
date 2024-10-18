@@ -37,9 +37,9 @@ public enum AddShareLinkToFileRequestBodySharedLinkAccessField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(AddShareLinkToFileRequestBodySharedLinkAccessField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<AddShareLinkToFileRequestBodySharedLinkAccessField>(value, v))
+          .map((v) -> new EnumWrapper<AddShareLinkToFileRequestBodySharedLinkAccessField>(value, v))
           .orElse(new EnumWrapper<AddShareLinkToFileRequestBodySharedLinkAccessField>(value));
     }
   }

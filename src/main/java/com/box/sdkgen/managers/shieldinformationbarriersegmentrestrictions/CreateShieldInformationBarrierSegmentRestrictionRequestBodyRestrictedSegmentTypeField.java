@@ -43,10 +43,10 @@ public enum CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestricte
       return Arrays.stream(
               CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentTypeField
                   .values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v ->
+              (v) ->
                   new EnumWrapper<
                       CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentTypeField>(
                       value, v))

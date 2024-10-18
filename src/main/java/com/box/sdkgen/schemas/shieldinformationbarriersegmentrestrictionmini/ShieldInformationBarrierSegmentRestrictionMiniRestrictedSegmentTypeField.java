@@ -38,10 +38,10 @@ public enum ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeF
       String value = p.getValueAsString();
       return Arrays.stream(
               ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v ->
+              (v) ->
                   new EnumWrapper<
                       ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField>(
                       value, v))

@@ -35,9 +35,9 @@ public enum AccessTokenTokenTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(AccessTokenTokenTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<AccessTokenTokenTypeField>(value, v))
+          .map((v) -> new EnumWrapper<AccessTokenTokenTypeField>(value, v))
           .orElse(new EnumWrapper<AccessTokenTokenTypeField>(value));
     }
   }

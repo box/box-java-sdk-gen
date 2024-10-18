@@ -35,9 +35,9 @@ public enum ClassificationTemplateFieldsDisplayNameField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(ClassificationTemplateFieldsDisplayNameField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<ClassificationTemplateFieldsDisplayNameField>(value, v))
+          .map((v) -> new EnumWrapper<ClassificationTemplateFieldsDisplayNameField>(value, v))
           .orElse(new EnumWrapper<ClassificationTemplateFieldsDisplayNameField>(value));
     }
   }

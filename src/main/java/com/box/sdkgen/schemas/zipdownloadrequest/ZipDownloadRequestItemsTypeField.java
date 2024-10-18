@@ -36,9 +36,9 @@ public enum ZipDownloadRequestItemsTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(ZipDownloadRequestItemsTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<ZipDownloadRequestItemsTypeField>(value, v))
+          .map((v) -> new EnumWrapper<ZipDownloadRequestItemsTypeField>(value, v))
           .orElse(new EnumWrapper<ZipDownloadRequestItemsTypeField>(value));
     }
   }

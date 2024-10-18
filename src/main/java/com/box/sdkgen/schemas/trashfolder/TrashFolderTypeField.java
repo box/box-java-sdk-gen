@@ -35,9 +35,9 @@ public enum TrashFolderTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(TrashFolderTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<TrashFolderTypeField>(value, v))
+          .map((v) -> new EnumWrapper<TrashFolderTypeField>(value, v))
           .orElse(new EnumWrapper<TrashFolderTypeField>(value));
     }
   }

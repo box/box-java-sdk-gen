@@ -35,9 +35,9 @@ public enum CreateClassificationTemplateRequestBodyScopeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CreateClassificationTemplateRequestBodyScopeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<CreateClassificationTemplateRequestBodyScopeField>(value, v))
+          .map((v) -> new EnumWrapper<CreateClassificationTemplateRequestBodyScopeField>(value, v))
           .orElse(new EnumWrapper<CreateClassificationTemplateRequestBodyScopeField>(value));
     }
   }

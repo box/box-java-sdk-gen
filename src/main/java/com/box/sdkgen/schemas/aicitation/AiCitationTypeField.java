@@ -35,9 +35,9 @@ public enum AiCitationTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(AiCitationTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<AiCitationTypeField>(value, v))
+          .map((v) -> new EnumWrapper<AiCitationTypeField>(value, v))
           .orElse(new EnumWrapper<AiCitationTypeField>(value));
     }
   }

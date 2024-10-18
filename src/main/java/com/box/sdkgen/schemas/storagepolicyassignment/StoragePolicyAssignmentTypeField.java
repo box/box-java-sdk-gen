@@ -35,9 +35,9 @@ public enum StoragePolicyAssignmentTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(StoragePolicyAssignmentTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<StoragePolicyAssignmentTypeField>(value, v))
+          .map((v) -> new EnumWrapper<StoragePolicyAssignmentTypeField>(value, v))
           .orElse(new EnumWrapper<StoragePolicyAssignmentTypeField>(value));
     }
   }

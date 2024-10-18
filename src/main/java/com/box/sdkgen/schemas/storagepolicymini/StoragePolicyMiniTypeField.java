@@ -35,9 +35,9 @@ public enum StoragePolicyMiniTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(StoragePolicyMiniTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<StoragePolicyMiniTypeField>(value, v))
+          .map((v) -> new EnumWrapper<StoragePolicyMiniTypeField>(value, v))
           .orElse(new EnumWrapper<StoragePolicyMiniTypeField>(value));
     }
   }

@@ -35,9 +35,9 @@ public enum AddClassificationRequestBodyFieldKeyField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(AddClassificationRequestBodyFieldKeyField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<AddClassificationRequestBodyFieldKeyField>(value, v))
+          .map((v) -> new EnumWrapper<AddClassificationRequestBodyFieldKeyField>(value, v))
           .orElse(new EnumWrapper<AddClassificationRequestBodyFieldKeyField>(value));
     }
   }

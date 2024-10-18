@@ -35,9 +35,9 @@ public enum InviteTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(InviteTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<InviteTypeField>(value, v))
+          .map((v) -> new EnumWrapper<InviteTypeField>(value, v))
           .orElse(new EnumWrapper<InviteTypeField>(value));
     }
   }

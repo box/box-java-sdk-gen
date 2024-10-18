@@ -35,9 +35,9 @@ public enum SkillInvocationTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(SkillInvocationTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<SkillInvocationTypeField>(value, v))
+          .map((v) -> new EnumWrapper<SkillInvocationTypeField>(value, v))
           .orElse(new EnumWrapper<SkillInvocationTypeField>(value));
     }
   }

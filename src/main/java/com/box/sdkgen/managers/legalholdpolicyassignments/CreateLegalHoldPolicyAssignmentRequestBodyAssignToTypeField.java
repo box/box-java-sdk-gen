@@ -39,10 +39,10 @@ public enum CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v ->
+              (v) ->
                   new EnumWrapper<CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField>(
                       value, v))
           .orElse(

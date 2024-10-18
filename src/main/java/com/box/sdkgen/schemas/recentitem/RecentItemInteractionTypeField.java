@@ -39,9 +39,9 @@ public enum RecentItemInteractionTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(RecentItemInteractionTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<RecentItemInteractionTypeField>(value, v))
+          .map((v) -> new EnumWrapper<RecentItemInteractionTypeField>(value, v))
           .orElse(new EnumWrapper<RecentItemInteractionTypeField>(value));
     }
   }

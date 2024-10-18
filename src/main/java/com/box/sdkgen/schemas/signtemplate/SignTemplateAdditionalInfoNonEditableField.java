@@ -40,9 +40,9 @@ public enum SignTemplateAdditionalInfoNonEditableField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(SignTemplateAdditionalInfoNonEditableField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<SignTemplateAdditionalInfoNonEditableField>(value, v))
+          .map((v) -> new EnumWrapper<SignTemplateAdditionalInfoNonEditableField>(value, v))
           .orElse(new EnumWrapper<SignTemplateAdditionalInfoNonEditableField>(value));
     }
   }

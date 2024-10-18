@@ -37,9 +37,9 @@ public enum FolderFullAllowedSharedLinkAccessLevelsField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(FolderFullAllowedSharedLinkAccessLevelsField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<FolderFullAllowedSharedLinkAccessLevelsField>(value, v))
+          .map((v) -> new EnumWrapper<FolderFullAllowedSharedLinkAccessLevelsField>(value, v))
           .orElse(new EnumWrapper<FolderFullAllowedSharedLinkAccessLevelsField>(value));
     }
   }

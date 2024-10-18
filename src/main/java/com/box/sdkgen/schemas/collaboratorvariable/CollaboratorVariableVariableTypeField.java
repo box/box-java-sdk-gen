@@ -35,9 +35,9 @@ public enum CollaboratorVariableVariableTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CollaboratorVariableVariableTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<CollaboratorVariableVariableTypeField>(value, v))
+          .map((v) -> new EnumWrapper<CollaboratorVariableVariableTypeField>(value, v))
           .orElse(new EnumWrapper<CollaboratorVariableVariableTypeField>(value));
     }
   }

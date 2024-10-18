@@ -37,9 +37,9 @@ public enum FileItemStatusField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(FileItemStatusField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<FileItemStatusField>(value, v))
+          .map((v) -> new EnumWrapper<FileItemStatusField>(value, v))
           .orElse(new EnumWrapper<FileItemStatusField>(value));
     }
   }

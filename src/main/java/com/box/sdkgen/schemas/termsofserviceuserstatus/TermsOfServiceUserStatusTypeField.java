@@ -35,9 +35,9 @@ public enum TermsOfServiceUserStatusTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(TermsOfServiceUserStatusTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<TermsOfServiceUserStatusTypeField>(value, v))
+          .map((v) -> new EnumWrapper<TermsOfServiceUserStatusTypeField>(value, v))
           .orElse(new EnumWrapper<TermsOfServiceUserStatusTypeField>(value));
     }
   }

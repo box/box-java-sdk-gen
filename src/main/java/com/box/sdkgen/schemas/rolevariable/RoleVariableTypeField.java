@@ -35,9 +35,9 @@ public enum RoleVariableTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(RoleVariableTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<RoleVariableTypeField>(value, v))
+          .map((v) -> new EnumWrapper<RoleVariableTypeField>(value, v))
           .orElse(new EnumWrapper<RoleVariableTypeField>(value));
     }
   }

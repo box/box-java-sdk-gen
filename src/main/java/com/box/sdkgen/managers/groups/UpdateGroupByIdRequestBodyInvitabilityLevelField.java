@@ -37,9 +37,9 @@ public enum UpdateGroupByIdRequestBodyInvitabilityLevelField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UpdateGroupByIdRequestBodyInvitabilityLevelField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<UpdateGroupByIdRequestBodyInvitabilityLevelField>(value, v))
+          .map((v) -> new EnumWrapper<UpdateGroupByIdRequestBodyInvitabilityLevelField>(value, v))
           .orElse(new EnumWrapper<UpdateGroupByIdRequestBodyInvitabilityLevelField>(value));
     }
   }

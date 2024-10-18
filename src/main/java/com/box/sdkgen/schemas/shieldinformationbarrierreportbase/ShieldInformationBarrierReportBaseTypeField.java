@@ -35,9 +35,9 @@ public enum ShieldInformationBarrierReportBaseTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(ShieldInformationBarrierReportBaseTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<ShieldInformationBarrierReportBaseTypeField>(value, v))
+          .map((v) -> new EnumWrapper<ShieldInformationBarrierReportBaseTypeField>(value, v))
           .orElse(new EnumWrapper<ShieldInformationBarrierReportBaseTypeField>(value));
     }
   }

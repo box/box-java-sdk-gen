@@ -37,9 +37,9 @@ public enum SignRequestCreateSignerRoleField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(SignRequestCreateSignerRoleField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<SignRequestCreateSignerRoleField>(value, v))
+          .map((v) -> new EnumWrapper<SignRequestCreateSignerRoleField>(value, v))
           .orElse(new EnumWrapper<SignRequestCreateSignerRoleField>(value));
     }
   }

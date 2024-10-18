@@ -35,9 +35,9 @@ public enum WebhookMiniTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(WebhookMiniTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<WebhookMiniTypeField>(value, v))
+          .map((v) -> new EnumWrapper<WebhookMiniTypeField>(value, v))
           .orElse(new EnumWrapper<WebhookMiniTypeField>(value));
     }
   }

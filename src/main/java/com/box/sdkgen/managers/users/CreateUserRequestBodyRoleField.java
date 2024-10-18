@@ -36,9 +36,9 @@ public enum CreateUserRequestBodyRoleField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CreateUserRequestBodyRoleField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<CreateUserRequestBodyRoleField>(value, v))
+          .map((v) -> new EnumWrapper<CreateUserRequestBodyRoleField>(value, v))
           .orElse(new EnumWrapper<CreateUserRequestBodyRoleField>(value));
     }
   }

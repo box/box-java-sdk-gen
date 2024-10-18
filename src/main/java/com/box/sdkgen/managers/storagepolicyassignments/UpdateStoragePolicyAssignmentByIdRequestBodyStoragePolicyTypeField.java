@@ -37,10 +37,10 @@ public enum UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField {
       String value = p.getValueAsString();
       return Arrays.stream(
               UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v ->
+              (v) ->
                   new EnumWrapper<
                       UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField>(value, v))
           .orElse(

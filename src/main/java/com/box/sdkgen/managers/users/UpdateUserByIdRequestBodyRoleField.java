@@ -36,9 +36,9 @@ public enum UpdateUserByIdRequestBodyRoleField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UpdateUserByIdRequestBodyRoleField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<UpdateUserByIdRequestBodyRoleField>(value, v))
+          .map((v) -> new EnumWrapper<UpdateUserByIdRequestBodyRoleField>(value, v))
           .orElse(new EnumWrapper<UpdateUserByIdRequestBodyRoleField>(value));
     }
   }

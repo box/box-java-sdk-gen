@@ -35,9 +35,9 @@ public enum TimelineSkillCardTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(TimelineSkillCardTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<TimelineSkillCardTypeField>(value, v))
+          .map((v) -> new EnumWrapper<TimelineSkillCardTypeField>(value, v))
           .orElse(new EnumWrapper<TimelineSkillCardTypeField>(value));
     }
   }

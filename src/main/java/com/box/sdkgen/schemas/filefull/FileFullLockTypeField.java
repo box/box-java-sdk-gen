@@ -35,9 +35,9 @@ public enum FileFullLockTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(FileFullLockTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<FileFullLockTypeField>(value, v))
+          .map((v) -> new EnumWrapper<FileFullLockTypeField>(value, v))
           .orElse(new EnumWrapper<FileFullLockTypeField>(value));
     }
   }

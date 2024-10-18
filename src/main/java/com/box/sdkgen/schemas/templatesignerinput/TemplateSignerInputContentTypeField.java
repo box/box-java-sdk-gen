@@ -49,9 +49,9 @@ public enum TemplateSignerInputContentTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(TemplateSignerInputContentTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<TemplateSignerInputContentTypeField>(value, v))
+          .map((v) -> new EnumWrapper<TemplateSignerInputContentTypeField>(value, v))
           .orElse(new EnumWrapper<TemplateSignerInputContentTypeField>(value));
     }
   }

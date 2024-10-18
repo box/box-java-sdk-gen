@@ -35,9 +35,9 @@ public enum SignTemplateTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(SignTemplateTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<SignTemplateTypeField>(value, v))
+          .map((v) -> new EnumWrapper<SignTemplateTypeField>(value, v))
           .orElse(new EnumWrapper<SignTemplateTypeField>(value));
     }
   }

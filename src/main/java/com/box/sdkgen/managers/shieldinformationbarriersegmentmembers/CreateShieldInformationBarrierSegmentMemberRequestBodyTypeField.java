@@ -36,10 +36,10 @@ public enum CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v ->
+              (v) ->
                   new EnumWrapper<CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField>(
                       value, v))
           .orElse(

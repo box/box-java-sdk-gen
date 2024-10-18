@@ -35,9 +35,9 @@ public enum UpdateClassificationOnFolderRequestBodyOpField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UpdateClassificationOnFolderRequestBodyOpField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<UpdateClassificationOnFolderRequestBodyOpField>(value, v))
+          .map((v) -> new EnumWrapper<UpdateClassificationOnFolderRequestBodyOpField>(value, v))
           .orElse(new EnumWrapper<UpdateClassificationOnFolderRequestBodyOpField>(value));
     }
   }

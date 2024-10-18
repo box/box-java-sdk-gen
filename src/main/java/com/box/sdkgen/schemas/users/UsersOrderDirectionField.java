@@ -36,9 +36,9 @@ public enum UsersOrderDirectionField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UsersOrderDirectionField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<UsersOrderDirectionField>(value, v))
+          .map((v) -> new EnumWrapper<UsersOrderDirectionField>(value, v))
           .orElse(new EnumWrapper<UsersOrderDirectionField>(value));
     }
   }

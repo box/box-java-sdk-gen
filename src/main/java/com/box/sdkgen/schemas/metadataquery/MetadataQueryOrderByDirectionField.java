@@ -36,9 +36,9 @@ public enum MetadataQueryOrderByDirectionField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(MetadataQueryOrderByDirectionField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<MetadataQueryOrderByDirectionField>(value, v))
+          .map((v) -> new EnumWrapper<MetadataQueryOrderByDirectionField>(value, v))
           .orElse(new EnumWrapper<MetadataQueryOrderByDirectionField>(value));
     }
   }

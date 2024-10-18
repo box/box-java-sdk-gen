@@ -35,9 +35,9 @@ public enum WebLinkBaseTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(WebLinkBaseTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<WebLinkBaseTypeField>(value, v))
+          .map((v) -> new EnumWrapper<WebLinkBaseTypeField>(value, v))
           .orElse(new EnumWrapper<WebLinkBaseTypeField>(value));
     }
   }

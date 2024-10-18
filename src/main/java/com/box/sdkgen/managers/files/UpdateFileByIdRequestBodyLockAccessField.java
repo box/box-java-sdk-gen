@@ -35,9 +35,9 @@ public enum UpdateFileByIdRequestBodyLockAccessField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UpdateFileByIdRequestBodyLockAccessField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<UpdateFileByIdRequestBodyLockAccessField>(value, v))
+          .map((v) -> new EnumWrapper<UpdateFileByIdRequestBodyLockAccessField>(value, v))
           .orElse(new EnumWrapper<UpdateFileByIdRequestBodyLockAccessField>(value));
     }
   }

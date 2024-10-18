@@ -37,10 +37,10 @@ public enum UpdateFolderByIdRequestBodyFolderUploadEmailAccessField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UpdateFolderByIdRequestBodyFolderUploadEmailAccessField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v ->
+              (v) ->
                   new EnumWrapper<UpdateFolderByIdRequestBodyFolderUploadEmailAccessField>(
                       value, v))
           .orElse(new EnumWrapper<UpdateFolderByIdRequestBodyFolderUploadEmailAccessField>(value));

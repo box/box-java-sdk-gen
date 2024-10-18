@@ -35,9 +35,9 @@ public enum FileRequestTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(FileRequestTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<FileRequestTypeField>(value, v))
+          .map((v) -> new EnumWrapper<FileRequestTypeField>(value, v))
           .orElse(new EnumWrapper<FileRequestTypeField>(value));
     }
   }

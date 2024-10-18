@@ -35,9 +35,9 @@ public enum TaskTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(TaskTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<TaskTypeField>(value, v))
+          .map((v) -> new EnumWrapper<TaskTypeField>(value, v))
           .orElse(new EnumWrapper<TaskTypeField>(value));
     }
   }

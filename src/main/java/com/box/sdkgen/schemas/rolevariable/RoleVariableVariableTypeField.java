@@ -35,9 +35,9 @@ public enum RoleVariableVariableTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(RoleVariableVariableTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<RoleVariableVariableTypeField>(value, v))
+          .map((v) -> new EnumWrapper<RoleVariableVariableTypeField>(value, v))
           .orElse(new EnumWrapper<RoleVariableVariableTypeField>(value));
     }
   }

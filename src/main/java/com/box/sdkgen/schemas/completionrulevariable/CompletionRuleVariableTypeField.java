@@ -35,9 +35,9 @@ public enum CompletionRuleVariableTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CompletionRuleVariableTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<CompletionRuleVariableTypeField>(value, v))
+          .map((v) -> new EnumWrapper<CompletionRuleVariableTypeField>(value, v))
           .orElse(new EnumWrapper<CompletionRuleVariableTypeField>(value));
     }
   }

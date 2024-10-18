@@ -39,9 +39,9 @@ public enum CreateMetadataTemplateRequestBodyFieldsTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CreateMetadataTemplateRequestBodyFieldsTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(value, v))
+          .map((v) -> new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(value, v))
           .orElse(new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(value));
     }
   }

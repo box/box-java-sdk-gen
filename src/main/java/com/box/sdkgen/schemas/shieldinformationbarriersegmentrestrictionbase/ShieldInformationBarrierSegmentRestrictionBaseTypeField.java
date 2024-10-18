@@ -36,10 +36,10 @@ public enum ShieldInformationBarrierSegmentRestrictionBaseTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(ShieldInformationBarrierSegmentRestrictionBaseTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v ->
+              (v) ->
                   new EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField>(
                       value, v))
           .orElse(new EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField>(value));

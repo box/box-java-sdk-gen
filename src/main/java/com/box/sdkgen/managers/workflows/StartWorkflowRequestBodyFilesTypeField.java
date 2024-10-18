@@ -35,9 +35,9 @@ public enum StartWorkflowRequestBodyFilesTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(StartWorkflowRequestBodyFilesTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<StartWorkflowRequestBodyFilesTypeField>(value, v))
+          .map((v) -> new EnumWrapper<StartWorkflowRequestBodyFilesTypeField>(value, v))
           .orElse(new EnumWrapper<StartWorkflowRequestBodyFilesTypeField>(value));
     }
   }

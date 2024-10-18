@@ -41,9 +41,9 @@ public enum FolderFullAllowedInviteeRolesField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(FolderFullAllowedInviteeRolesField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<FolderFullAllowedInviteeRolesField>(value, v))
+          .map((v) -> new EnumWrapper<FolderFullAllowedInviteeRolesField>(value, v))
           .orElse(new EnumWrapper<FolderFullAllowedInviteeRolesField>(value));
     }
   }

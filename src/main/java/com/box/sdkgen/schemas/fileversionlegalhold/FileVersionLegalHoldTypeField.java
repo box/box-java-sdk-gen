@@ -35,9 +35,9 @@ public enum FileVersionLegalHoldTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(FileVersionLegalHoldTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<FileVersionLegalHoldTypeField>(value, v))
+          .map((v) -> new EnumWrapper<FileVersionLegalHoldTypeField>(value, v))
           .orElse(new EnumWrapper<FileVersionLegalHoldTypeField>(value));
     }
   }

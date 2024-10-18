@@ -37,9 +37,9 @@ public enum FileSharedLinkEffectiveAccessField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(FileSharedLinkEffectiveAccessField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<FileSharedLinkEffectiveAccessField>(value, v))
+          .map((v) -> new EnumWrapper<FileSharedLinkEffectiveAccessField>(value, v))
           .orElse(new EnumWrapper<FileSharedLinkEffectiveAccessField>(value));
     }
   }

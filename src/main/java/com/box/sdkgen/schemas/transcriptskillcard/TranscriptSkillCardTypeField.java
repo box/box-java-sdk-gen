@@ -35,9 +35,9 @@ public enum TranscriptSkillCardTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(TranscriptSkillCardTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<TranscriptSkillCardTypeField>(value, v))
+          .map((v) -> new EnumWrapper<TranscriptSkillCardTypeField>(value, v))
           .orElse(new EnumWrapper<TranscriptSkillCardTypeField>(value));
     }
   }

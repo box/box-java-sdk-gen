@@ -57,9 +57,9 @@ public enum WorkflowFlowsOutcomesActionTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(WorkflowFlowsOutcomesActionTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<WorkflowFlowsOutcomesActionTypeField>(value, v))
+          .map((v) -> new EnumWrapper<WorkflowFlowsOutcomesActionTypeField>(value, v))
           .orElse(new EnumWrapper<WorkflowFlowsOutcomesActionTypeField>(value));
     }
   }

@@ -35,9 +35,9 @@ public enum ClientErrorTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(ClientErrorTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<ClientErrorTypeField>(value, v))
+          .map((v) -> new EnumWrapper<ClientErrorTypeField>(value, v))
           .orElse(new EnumWrapper<ClientErrorTypeField>(value));
     }
   }

@@ -36,9 +36,9 @@ public enum FileRequestUpdateRequestStatusField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(FileRequestUpdateRequestStatusField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<FileRequestUpdateRequestStatusField>(value, v))
+          .map((v) -> new EnumWrapper<FileRequestUpdateRequestStatusField>(value, v))
           .orElse(new EnumWrapper<FileRequestUpdateRequestStatusField>(value));
     }
   }

@@ -35,9 +35,9 @@ public enum IntegrationMappingBoxItemSlackTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(IntegrationMappingBoxItemSlackTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<IntegrationMappingBoxItemSlackTypeField>(value, v))
+          .map((v) -> new EnumWrapper<IntegrationMappingBoxItemSlackTypeField>(value, v))
           .orElse(new EnumWrapper<IntegrationMappingBoxItemSlackTypeField>(value));
     }
   }

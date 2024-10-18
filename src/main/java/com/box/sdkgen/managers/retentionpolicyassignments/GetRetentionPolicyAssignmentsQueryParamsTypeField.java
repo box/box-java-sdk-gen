@@ -37,9 +37,9 @@ public enum GetRetentionPolicyAssignmentsQueryParamsTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(GetRetentionPolicyAssignmentsQueryParamsTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<GetRetentionPolicyAssignmentsQueryParamsTypeField>(value, v))
+          .map((v) -> new EnumWrapper<GetRetentionPolicyAssignmentsQueryParamsTypeField>(value, v))
           .orElse(new EnumWrapper<GetRetentionPolicyAssignmentsQueryParamsTypeField>(value));
     }
   }

@@ -35,9 +35,9 @@ public enum SearchResultsWithSharedLinksTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(SearchResultsWithSharedLinksTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<SearchResultsWithSharedLinksTypeField>(value, v))
+          .map((v) -> new EnumWrapper<SearchResultsWithSharedLinksTypeField>(value, v))
           .orElse(new EnumWrapper<SearchResultsWithSharedLinksTypeField>(value));
     }
   }

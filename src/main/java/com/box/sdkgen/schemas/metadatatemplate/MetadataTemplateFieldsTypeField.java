@@ -40,9 +40,9 @@ public enum MetadataTemplateFieldsTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(MetadataTemplateFieldsTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<MetadataTemplateFieldsTypeField>(value, v))
+          .map((v) -> new EnumWrapper<MetadataTemplateFieldsTypeField>(value, v))
           .orElse(new EnumWrapper<MetadataTemplateFieldsTypeField>(value));
     }
   }

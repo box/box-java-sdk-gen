@@ -36,9 +36,9 @@ public enum FolderFolderUploadEmailAccessField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(FolderFolderUploadEmailAccessField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<FolderFolderUploadEmailAccessField>(value, v))
+          .map((v) -> new EnumWrapper<FolderFolderUploadEmailAccessField>(value, v))
           .orElse(new EnumWrapper<FolderFolderUploadEmailAccessField>(value));
     }
   }

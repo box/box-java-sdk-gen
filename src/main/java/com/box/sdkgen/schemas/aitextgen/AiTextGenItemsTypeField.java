@@ -35,9 +35,9 @@ public enum AiTextGenItemsTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(AiTextGenItemsTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<AiTextGenItemsTypeField>(value, v))
+          .map((v) -> new EnumWrapper<AiTextGenItemsTypeField>(value, v))
           .orElse(new EnumWrapper<AiTextGenItemsTypeField>(value));
     }
   }

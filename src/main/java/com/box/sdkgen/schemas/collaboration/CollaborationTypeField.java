@@ -35,9 +35,9 @@ public enum CollaborationTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CollaborationTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<CollaborationTypeField>(value, v))
+          .map((v) -> new EnumWrapper<CollaborationTypeField>(value, v))
           .orElse(new EnumWrapper<CollaborationTypeField>(value));
     }
   }
