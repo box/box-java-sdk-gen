@@ -25,12 +25,6 @@ public class IntegrationMapping extends IntegrationMappingBase {
   @JsonProperty("integration_type")
   protected EnumWrapper<IntegrationMappingIntegrationTypeField> integrationType;
 
-  @JsonProperty("partner_item")
-  protected final IntegrationMappingPartnerItemSlackUnion partnerItem;
-
-  @JsonProperty("box_item")
-  protected final FolderMini boxItem;
-
   @JsonProperty("is_manually_created")
   protected Boolean isManuallyCreated;
 
@@ -41,6 +35,12 @@ public class IntegrationMapping extends IntegrationMappingBase {
 
   @JsonProperty("modified_by")
   protected UserIntegrationMappings modifiedBy;
+
+  @JsonProperty("partner_item")
+  protected final IntegrationMappingPartnerItemSlackUnion partnerItem;
+
+  @JsonProperty("box_item")
+  protected final FolderMini boxItem;
 
   @JsonProperty("created_at")
   protected String createdAt;
@@ -60,26 +60,18 @@ public class IntegrationMapping extends IntegrationMappingBase {
   protected IntegrationMapping(IntegrationMappingBuilder builder) {
     super(builder);
     this.integrationType = builder.integrationType;
-    this.partnerItem = builder.partnerItem;
-    this.boxItem = builder.boxItem;
     this.isManuallyCreated = builder.isManuallyCreated;
     this.options = builder.options;
     this.createdBy = builder.createdBy;
     this.modifiedBy = builder.modifiedBy;
+    this.partnerItem = builder.partnerItem;
+    this.boxItem = builder.boxItem;
     this.createdAt = builder.createdAt;
     this.modifiedAt = builder.modifiedAt;
   }
 
   public EnumWrapper<IntegrationMappingIntegrationTypeField> getIntegrationType() {
     return integrationType;
-  }
-
-  public IntegrationMappingPartnerItemSlackUnion getPartnerItem() {
-    return partnerItem;
-  }
-
-  public FolderMini getBoxItem() {
-    return boxItem;
   }
 
   public Boolean getIsManuallyCreated() {
@@ -96,6 +88,14 @@ public class IntegrationMapping extends IntegrationMappingBase {
 
   public UserIntegrationMappings getModifiedBy() {
     return modifiedBy;
+  }
+
+  public IntegrationMappingPartnerItemSlackUnion getPartnerItem() {
+    return partnerItem;
+  }
+
+  public FolderMini getBoxItem() {
+    return boxItem;
   }
 
   public String getCreatedAt() {
@@ -118,12 +118,12 @@ public class IntegrationMapping extends IntegrationMappingBase {
     return Objects.equals(id, casted.id)
         && Objects.equals(type, casted.type)
         && Objects.equals(integrationType, casted.integrationType)
-        && Objects.equals(partnerItem, casted.partnerItem)
-        && Objects.equals(boxItem, casted.boxItem)
         && Objects.equals(isManuallyCreated, casted.isManuallyCreated)
         && Objects.equals(options, casted.options)
         && Objects.equals(createdBy, casted.createdBy)
         && Objects.equals(modifiedBy, casted.modifiedBy)
+        && Objects.equals(partnerItem, casted.partnerItem)
+        && Objects.equals(boxItem, casted.boxItem)
         && Objects.equals(createdAt, casted.createdAt)
         && Objects.equals(modifiedAt, casted.modifiedAt);
   }
@@ -134,12 +134,12 @@ public class IntegrationMapping extends IntegrationMappingBase {
         id,
         type,
         integrationType,
-        partnerItem,
-        boxItem,
         isManuallyCreated,
         options,
         createdBy,
         modifiedBy,
+        partnerItem,
+        boxItem,
         createdAt,
         modifiedAt);
   }
@@ -159,14 +159,6 @@ public class IntegrationMapping extends IntegrationMappingBase {
         + integrationType
         + '\''
         + ", "
-        + "partnerItem='"
-        + partnerItem
-        + '\''
-        + ", "
-        + "boxItem='"
-        + boxItem
-        + '\''
-        + ", "
         + "isManuallyCreated='"
         + isManuallyCreated
         + '\''
@@ -183,6 +175,14 @@ public class IntegrationMapping extends IntegrationMappingBase {
         + modifiedBy
         + '\''
         + ", "
+        + "partnerItem='"
+        + partnerItem
+        + '\''
+        + ", "
+        + "boxItem='"
+        + boxItem
+        + '\''
+        + ", "
         + "createdAt='"
         + createdAt
         + '\''
@@ -197,10 +197,6 @@ public class IntegrationMapping extends IntegrationMappingBase {
 
     protected EnumWrapper<IntegrationMappingIntegrationTypeField> integrationType;
 
-    protected final IntegrationMappingPartnerItemSlackUnion partnerItem;
-
-    protected final FolderMini boxItem;
-
     protected Boolean isManuallyCreated;
 
     protected IntegrationMappingSlackOptions options;
@@ -208,6 +204,10 @@ public class IntegrationMapping extends IntegrationMappingBase {
     protected UserIntegrationMappings createdBy;
 
     protected UserIntegrationMappings modifiedBy;
+
+    protected final IntegrationMappingPartnerItemSlackUnion partnerItem;
+
+    protected final FolderMini boxItem;
 
     protected String createdAt;
 
