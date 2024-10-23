@@ -36,9 +36,9 @@ public enum GroupMembershipRoleField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(GroupMembershipRoleField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<GroupMembershipRoleField>(value, v))
+          .map((v) -> new EnumWrapper<GroupMembershipRoleField>(value, v))
           .orElse(new EnumWrapper<GroupMembershipRoleField>(value));
     }
   }

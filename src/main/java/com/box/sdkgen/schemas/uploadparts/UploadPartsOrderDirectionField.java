@@ -36,9 +36,9 @@ public enum UploadPartsOrderDirectionField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UploadPartsOrderDirectionField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<UploadPartsOrderDirectionField>(value, v))
+          .map((v) -> new EnumWrapper<UploadPartsOrderDirectionField>(value, v))
           .orElse(new EnumWrapper<UploadPartsOrderDirectionField>(value));
     }
   }

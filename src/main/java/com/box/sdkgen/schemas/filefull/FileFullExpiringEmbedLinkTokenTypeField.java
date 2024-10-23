@@ -35,9 +35,9 @@ public enum FileFullExpiringEmbedLinkTokenTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(FileFullExpiringEmbedLinkTokenTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<FileFullExpiringEmbedLinkTokenTypeField>(value, v))
+          .map((v) -> new EnumWrapper<FileFullExpiringEmbedLinkTokenTypeField>(value, v))
           .orElse(new EnumWrapper<FileFullExpiringEmbedLinkTokenTypeField>(value));
     }
   }

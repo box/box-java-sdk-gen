@@ -38,10 +38,10 @@ public enum CreateCollaborationWhitelistEntryRequestBodyDirectionField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CreateCollaborationWhitelistEntryRequestBodyDirectionField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v ->
+              (v) ->
                   new EnumWrapper<CreateCollaborationWhitelistEntryRequestBodyDirectionField>(
                       value, v))
           .orElse(

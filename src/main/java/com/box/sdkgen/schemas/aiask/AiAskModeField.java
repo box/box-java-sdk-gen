@@ -36,9 +36,9 @@ public enum AiAskModeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(AiAskModeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<AiAskModeField>(value, v))
+          .map((v) -> new EnumWrapper<AiAskModeField>(value, v))
           .orElse(new EnumWrapper<AiAskModeField>(value));
     }
   }

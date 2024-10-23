@@ -42,10 +42,10 @@ public enum ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegment
       return Arrays.stream(
               ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentTypeField
                   .values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v ->
+              (v) ->
                   new EnumWrapper<
                       ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentTypeField>(
                       value, v))

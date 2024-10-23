@@ -36,9 +36,9 @@ public enum CollectionsOrderDirectionField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CollectionsOrderDirectionField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<CollectionsOrderDirectionField>(value, v))
+          .map((v) -> new EnumWrapper<CollectionsOrderDirectionField>(value, v))
           .orElse(new EnumWrapper<CollectionsOrderDirectionField>(value));
     }
   }

@@ -36,9 +36,10 @@ public enum CreateFolderRequestBodyFolderUploadEmailAccessField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CreateFolderRequestBodyFolderUploadEmailAccessField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField>(value, v))
+          .map(
+              (v) -> new EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField>(value, v))
           .orElse(new EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField>(value));
     }
   }

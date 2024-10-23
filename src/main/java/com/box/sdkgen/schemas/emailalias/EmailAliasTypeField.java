@@ -35,9 +35,9 @@ public enum EmailAliasTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(EmailAliasTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<EmailAliasTypeField>(value, v))
+          .map((v) -> new EnumWrapper<EmailAliasTypeField>(value, v))
           .orElse(new EnumWrapper<EmailAliasTypeField>(value));
     }
   }

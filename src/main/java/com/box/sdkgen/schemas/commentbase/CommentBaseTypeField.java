@@ -35,9 +35,9 @@ public enum CommentBaseTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CommentBaseTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<CommentBaseTypeField>(value, v))
+          .map((v) -> new EnumWrapper<CommentBaseTypeField>(value, v))
           .orElse(new EnumWrapper<CommentBaseTypeField>(value));
     }
   }

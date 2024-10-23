@@ -171,9 +171,9 @@ public enum EventEventTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(EventEventTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<EventEventTypeField>(value, v))
+          .map((v) -> new EnumWrapper<EventEventTypeField>(value, v))
           .orElse(new EnumWrapper<EventEventTypeField>(value));
     }
   }

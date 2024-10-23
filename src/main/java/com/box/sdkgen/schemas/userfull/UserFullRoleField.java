@@ -37,9 +37,9 @@ public enum UserFullRoleField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UserFullRoleField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<UserFullRoleField>(value, v))
+          .map((v) -> new EnumWrapper<UserFullRoleField>(value, v))
           .orElse(new EnumWrapper<UserFullRoleField>(value));
     }
   }

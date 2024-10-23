@@ -38,10 +38,10 @@ public enum UpdateSharedLinkOnFileRequestBodySharedLinkAccessField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UpdateSharedLinkOnFileRequestBodySharedLinkAccessField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v ->
+              (v) ->
                   new EnumWrapper<UpdateSharedLinkOnFileRequestBodySharedLinkAccessField>(value, v))
           .orElse(new EnumWrapper<UpdateSharedLinkOnFileRequestBodySharedLinkAccessField>(value));
     }

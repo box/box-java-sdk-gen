@@ -35,9 +35,9 @@ public enum DevicePinnersOrderByField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(DevicePinnersOrderByField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<DevicePinnersOrderByField>(value, v))
+          .map((v) -> new EnumWrapper<DevicePinnersOrderByField>(value, v))
           .orElse(new EnumWrapper<DevicePinnersOrderByField>(value));
     }
   }

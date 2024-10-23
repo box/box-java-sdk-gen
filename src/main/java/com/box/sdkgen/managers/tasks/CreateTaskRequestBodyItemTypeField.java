@@ -35,9 +35,9 @@ public enum CreateTaskRequestBodyItemTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CreateTaskRequestBodyItemTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<CreateTaskRequestBodyItemTypeField>(value, v))
+          .map((v) -> new EnumWrapper<CreateTaskRequestBodyItemTypeField>(value, v))
           .orElse(new EnumWrapper<CreateTaskRequestBodyItemTypeField>(value));
     }
   }

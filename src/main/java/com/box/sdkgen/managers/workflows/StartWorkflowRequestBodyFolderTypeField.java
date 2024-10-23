@@ -35,9 +35,9 @@ public enum StartWorkflowRequestBodyFolderTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(StartWorkflowRequestBodyFolderTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<StartWorkflowRequestBodyFolderTypeField>(value, v))
+          .map((v) -> new EnumWrapper<StartWorkflowRequestBodyFolderTypeField>(value, v))
           .orElse(new EnumWrapper<StartWorkflowRequestBodyFolderTypeField>(value));
     }
   }

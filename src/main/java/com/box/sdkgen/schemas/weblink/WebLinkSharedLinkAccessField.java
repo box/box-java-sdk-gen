@@ -37,9 +37,9 @@ public enum WebLinkSharedLinkAccessField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(WebLinkSharedLinkAccessField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<WebLinkSharedLinkAccessField>(value, v))
+          .map((v) -> new EnumWrapper<WebLinkSharedLinkAccessField>(value, v))
           .orElse(new EnumWrapper<WebLinkSharedLinkAccessField>(value));
     }
   }

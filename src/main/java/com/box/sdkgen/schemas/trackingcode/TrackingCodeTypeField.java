@@ -35,9 +35,9 @@ public enum TrackingCodeTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(TrackingCodeTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<TrackingCodeTypeField>(value, v))
+          .map((v) -> new EnumWrapper<TrackingCodeTypeField>(value, v))
           .orElse(new EnumWrapper<TrackingCodeTypeField>(value));
     }
   }

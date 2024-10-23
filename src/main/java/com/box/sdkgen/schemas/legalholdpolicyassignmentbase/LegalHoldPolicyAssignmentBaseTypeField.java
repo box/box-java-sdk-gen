@@ -35,9 +35,9 @@ public enum LegalHoldPolicyAssignmentBaseTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(LegalHoldPolicyAssignmentBaseTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField>(value, v))
+          .map((v) -> new EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField>(value, v))
           .orElse(new EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField>(value));
     }
   }

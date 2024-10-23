@@ -35,9 +35,9 @@ public enum WorkflowFlowsOutcomesIfRejectedTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(WorkflowFlowsOutcomesIfRejectedTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<WorkflowFlowsOutcomesIfRejectedTypeField>(value, v))
+          .map((v) -> new EnumWrapper<WorkflowFlowsOutcomesIfRejectedTypeField>(value, v))
           .orElse(new EnumWrapper<WorkflowFlowsOutcomesIfRejectedTypeField>(value));
     }
   }

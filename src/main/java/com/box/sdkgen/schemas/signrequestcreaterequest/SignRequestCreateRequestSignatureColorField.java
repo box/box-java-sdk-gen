@@ -37,9 +37,9 @@ public enum SignRequestCreateRequestSignatureColorField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(SignRequestCreateRequestSignatureColorField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<SignRequestCreateRequestSignatureColorField>(value, v))
+          .map((v) -> new EnumWrapper<SignRequestCreateRequestSignatureColorField>(value, v))
           .orElse(new EnumWrapper<SignRequestCreateRequestSignatureColorField>(value));
     }
   }

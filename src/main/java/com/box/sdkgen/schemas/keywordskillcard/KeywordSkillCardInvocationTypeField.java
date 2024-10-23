@@ -35,9 +35,9 @@ public enum KeywordSkillCardInvocationTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(KeywordSkillCardInvocationTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<KeywordSkillCardInvocationTypeField>(value, v))
+          .map((v) -> new EnumWrapper<KeywordSkillCardInvocationTypeField>(value, v))
           .orElse(new EnumWrapper<KeywordSkillCardInvocationTypeField>(value));
     }
   }

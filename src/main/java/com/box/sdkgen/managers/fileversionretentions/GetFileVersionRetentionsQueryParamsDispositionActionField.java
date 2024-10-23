@@ -37,10 +37,10 @@ public enum GetFileVersionRetentionsQueryParamsDispositionActionField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(GetFileVersionRetentionsQueryParamsDispositionActionField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v ->
+              (v) ->
                   new EnumWrapper<GetFileVersionRetentionsQueryParamsDispositionActionField>(
                       value, v))
           .orElse(

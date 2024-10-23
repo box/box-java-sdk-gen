@@ -37,9 +37,9 @@ public enum FolderItemStatusField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(FolderItemStatusField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<FolderItemStatusField>(value, v))
+          .map((v) -> new EnumWrapper<FolderItemStatusField>(value, v))
           .orElse(new EnumWrapper<FolderItemStatusField>(value));
     }
   }

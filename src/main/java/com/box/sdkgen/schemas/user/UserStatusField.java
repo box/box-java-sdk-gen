@@ -38,9 +38,9 @@ public enum UserStatusField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UserStatusField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<UserStatusField>(value, v))
+          .map((v) -> new EnumWrapper<UserStatusField>(value, v))
           .orElse(new EnumWrapper<UserStatusField>(value));
     }
   }

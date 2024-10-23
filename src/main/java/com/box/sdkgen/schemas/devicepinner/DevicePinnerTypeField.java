@@ -35,9 +35,9 @@ public enum DevicePinnerTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(DevicePinnerTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<DevicePinnerTypeField>(value, v))
+          .map((v) -> new EnumWrapper<DevicePinnerTypeField>(value, v))
           .orElse(new EnumWrapper<DevicePinnerTypeField>(value));
     }
   }

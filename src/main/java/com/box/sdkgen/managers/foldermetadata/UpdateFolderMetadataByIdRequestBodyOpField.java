@@ -40,9 +40,9 @@ public enum UpdateFolderMetadataByIdRequestBodyOpField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UpdateFolderMetadataByIdRequestBodyOpField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<UpdateFolderMetadataByIdRequestBodyOpField>(value, v))
+          .map((v) -> new EnumWrapper<UpdateFolderMetadataByIdRequestBodyOpField>(value, v))
           .orElse(new EnumWrapper<UpdateFolderMetadataByIdRequestBodyOpField>(value));
     }
   }

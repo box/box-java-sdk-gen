@@ -37,10 +37,11 @@ public enum UpdateGroupByIdRequestBodyMemberViewabilityLevelField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UpdateGroupByIdRequestBodyMemberViewabilityLevelField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v -> new EnumWrapper<UpdateGroupByIdRequestBodyMemberViewabilityLevelField>(value, v))
+              (v) ->
+                  new EnumWrapper<UpdateGroupByIdRequestBodyMemberViewabilityLevelField>(value, v))
           .orElse(new EnumWrapper<UpdateGroupByIdRequestBodyMemberViewabilityLevelField>(value));
     }
   }

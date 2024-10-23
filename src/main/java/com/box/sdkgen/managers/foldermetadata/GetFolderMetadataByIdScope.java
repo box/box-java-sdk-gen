@@ -36,9 +36,9 @@ public enum GetFolderMetadataByIdScope {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(GetFolderMetadataByIdScope.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<GetFolderMetadataByIdScope>(value, v))
+          .map((v) -> new EnumWrapper<GetFolderMetadataByIdScope>(value, v))
           .orElse(new EnumWrapper<GetFolderMetadataByIdScope>(value));
     }
   }

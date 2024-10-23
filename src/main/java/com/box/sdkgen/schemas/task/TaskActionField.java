@@ -36,9 +36,9 @@ public enum TaskActionField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(TaskActionField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<TaskActionField>(value, v))
+          .map((v) -> new EnumWrapper<TaskActionField>(value, v))
           .orElse(new EnumWrapper<TaskActionField>(value));
     }
   }

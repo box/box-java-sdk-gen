@@ -37,9 +37,9 @@ public enum UpdateCollaborationByIdRequestBodyStatusField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UpdateCollaborationByIdRequestBodyStatusField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<UpdateCollaborationByIdRequestBodyStatusField>(value, v))
+          .map((v) -> new EnumWrapper<UpdateCollaborationByIdRequestBodyStatusField>(value, v))
           .orElse(new EnumWrapper<UpdateCollaborationByIdRequestBodyStatusField>(value));
     }
   }

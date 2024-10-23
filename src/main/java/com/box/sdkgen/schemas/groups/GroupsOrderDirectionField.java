@@ -36,9 +36,9 @@ public enum GroupsOrderDirectionField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(GroupsOrderDirectionField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<GroupsOrderDirectionField>(value, v))
+          .map((v) -> new EnumWrapper<GroupsOrderDirectionField>(value, v))
           .orElse(new EnumWrapper<GroupsOrderDirectionField>(value));
     }
   }

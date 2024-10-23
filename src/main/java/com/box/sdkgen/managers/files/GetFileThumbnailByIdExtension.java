@@ -36,9 +36,9 @@ public enum GetFileThumbnailByIdExtension {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(GetFileThumbnailByIdExtension.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<GetFileThumbnailByIdExtension>(value, v))
+          .map((v) -> new EnumWrapper<GetFileThumbnailByIdExtension>(value, v))
           .orElse(new EnumWrapper<GetFileThumbnailByIdExtension>(value));
     }
   }

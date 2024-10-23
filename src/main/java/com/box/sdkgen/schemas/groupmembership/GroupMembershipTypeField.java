@@ -35,9 +35,9 @@ public enum GroupMembershipTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(GroupMembershipTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<GroupMembershipTypeField>(value, v))
+          .map((v) -> new EnumWrapper<GroupMembershipTypeField>(value, v))
           .orElse(new EnumWrapper<GroupMembershipTypeField>(value));
     }
   }

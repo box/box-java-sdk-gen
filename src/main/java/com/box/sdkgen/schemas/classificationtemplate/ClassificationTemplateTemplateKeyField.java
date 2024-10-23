@@ -35,9 +35,9 @@ public enum ClassificationTemplateTemplateKeyField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(ClassificationTemplateTemplateKeyField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<ClassificationTemplateTemplateKeyField>(value, v))
+          .map((v) -> new EnumWrapper<ClassificationTemplateTemplateKeyField>(value, v))
           .orElse(new EnumWrapper<ClassificationTemplateTemplateKeyField>(value));
     }
   }

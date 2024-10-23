@@ -35,9 +35,10 @@ public enum UpdateFileWatermarkRequestBodyWatermarkImprintField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UpdateFileWatermarkRequestBodyWatermarkImprintField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField>(value, v))
+          .map(
+              (v) -> new EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField>(value, v))
           .orElse(new EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField>(value));
     }
   }

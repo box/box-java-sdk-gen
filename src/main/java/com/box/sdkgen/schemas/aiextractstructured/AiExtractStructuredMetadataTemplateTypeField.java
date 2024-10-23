@@ -35,9 +35,9 @@ public enum AiExtractStructuredMetadataTemplateTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(AiExtractStructuredMetadataTemplateTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<AiExtractStructuredMetadataTemplateTypeField>(value, v))
+          .map((v) -> new EnumWrapper<AiExtractStructuredMetadataTemplateTypeField>(value, v))
           .orElse(new EnumWrapper<AiExtractStructuredMetadataTemplateTypeField>(value));
     }
   }

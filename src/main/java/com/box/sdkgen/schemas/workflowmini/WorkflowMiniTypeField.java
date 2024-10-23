@@ -35,9 +35,9 @@ public enum WorkflowMiniTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(WorkflowMiniTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<WorkflowMiniTypeField>(value, v))
+          .map((v) -> new EnumWrapper<WorkflowMiniTypeField>(value, v))
           .orElse(new EnumWrapper<WorkflowMiniTypeField>(value));
     }
   }

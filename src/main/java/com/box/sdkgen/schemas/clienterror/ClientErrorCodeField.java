@@ -51,9 +51,9 @@ public enum ClientErrorCodeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(ClientErrorCodeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<ClientErrorCodeField>(value, v))
+          .map((v) -> new EnumWrapper<ClientErrorCodeField>(value, v))
           .orElse(new EnumWrapper<ClientErrorCodeField>(value));
     }
   }

@@ -40,9 +40,9 @@ public enum SignRequestSignerInputTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(SignRequestSignerInputTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<SignRequestSignerInputTypeField>(value, v))
+          .map((v) -> new EnumWrapper<SignRequestSignerInputTypeField>(value, v))
           .orElse(new EnumWrapper<SignRequestSignerInputTypeField>(value));
     }
   }

@@ -36,9 +36,9 @@ public enum CommentsOrderDirectionField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CommentsOrderDirectionField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<CommentsOrderDirectionField>(value, v))
+          .map((v) -> new EnumWrapper<CommentsOrderDirectionField>(value, v))
           .orElse(new EnumWrapper<CommentsOrderDirectionField>(value));
     }
   }

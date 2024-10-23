@@ -35,9 +35,9 @@ public enum AiAgentAskTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(AiAgentAskTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<AiAgentAskTypeField>(value, v))
+          .map((v) -> new EnumWrapper<AiAgentAskTypeField>(value, v))
           .orElse(new EnumWrapper<AiAgentAskTypeField>(value));
     }
   }

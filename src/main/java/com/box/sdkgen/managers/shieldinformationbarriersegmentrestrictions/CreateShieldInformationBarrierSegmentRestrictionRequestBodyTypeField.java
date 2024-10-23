@@ -38,10 +38,10 @@ public enum CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField
       String value = p.getValueAsString();
       return Arrays.stream(
               CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v ->
+              (v) ->
                   new EnumWrapper<
                       CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField>(
                       value, v))

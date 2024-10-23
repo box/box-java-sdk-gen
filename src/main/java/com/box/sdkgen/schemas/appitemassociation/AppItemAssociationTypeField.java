@@ -35,9 +35,9 @@ public enum AppItemAssociationTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(AppItemAssociationTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<AppItemAssociationTypeField>(value, v))
+          .map((v) -> new EnumWrapper<AppItemAssociationTypeField>(value, v))
           .orElse(new EnumWrapper<AppItemAssociationTypeField>(value));
     }
   }

@@ -35,9 +35,9 @@ public enum AiLlmEndpointParamsGoogleTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(AiLlmEndpointParamsGoogleTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<AiLlmEndpointParamsGoogleTypeField>(value, v))
+          .map((v) -> new EnumWrapper<AiLlmEndpointParamsGoogleTypeField>(value, v))
           .orElse(new EnumWrapper<AiLlmEndpointParamsGoogleTypeField>(value));
     }
   }

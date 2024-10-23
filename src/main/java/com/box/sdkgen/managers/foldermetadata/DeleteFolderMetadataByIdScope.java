@@ -36,9 +36,9 @@ public enum DeleteFolderMetadataByIdScope {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(DeleteFolderMetadataByIdScope.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<DeleteFolderMetadataByIdScope>(value, v))
+          .map((v) -> new EnumWrapper<DeleteFolderMetadataByIdScope>(value, v))
           .orElse(new EnumWrapper<DeleteFolderMetadataByIdScope>(value));
     }
   }

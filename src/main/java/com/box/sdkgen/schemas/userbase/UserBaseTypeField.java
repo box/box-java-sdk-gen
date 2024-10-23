@@ -35,9 +35,9 @@ public enum UserBaseTypeField {
         throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UserBaseTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<UserBaseTypeField>(value, v))
+          .map((v) -> new EnumWrapper<UserBaseTypeField>(value, v))
           .orElse(new EnumWrapper<UserBaseTypeField>(value));
     }
   }

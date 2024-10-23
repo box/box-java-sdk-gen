@@ -43,10 +43,10 @@ public enum ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarri
       return Arrays.stream(
               ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField
                   .values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v ->
+              (v) ->
                   new EnumWrapper<
                       ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField>(
                       value, v))

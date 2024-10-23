@@ -35,9 +35,9 @@ public enum SignTemplateAdditionalInfoRequiredSignersField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(SignTemplateAdditionalInfoRequiredSignersField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<SignTemplateAdditionalInfoRequiredSignersField>(value, v))
+          .map((v) -> new EnumWrapper<SignTemplateAdditionalInfoRequiredSignersField>(value, v))
           .orElse(new EnumWrapper<SignTemplateAdditionalInfoRequiredSignersField>(value));
     }
   }

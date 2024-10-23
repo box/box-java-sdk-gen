@@ -35,10 +35,11 @@ public enum CreateClassificationTemplateRequestBodyFieldsKeyField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CreateClassificationTemplateRequestBodyFieldsKeyField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v -> new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsKeyField>(value, v))
+              (v) ->
+                  new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsKeyField>(value, v))
           .orElse(new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsKeyField>(value));
     }
   }

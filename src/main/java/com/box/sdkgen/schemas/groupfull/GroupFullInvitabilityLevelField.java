@@ -37,9 +37,9 @@ public enum GroupFullInvitabilityLevelField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(GroupFullInvitabilityLevelField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<GroupFullInvitabilityLevelField>(value, v))
+          .map((v) -> new EnumWrapper<GroupFullInvitabilityLevelField>(value, v))
           .orElse(new EnumWrapper<GroupFullInvitabilityLevelField>(value));
     }
   }

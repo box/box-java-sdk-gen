@@ -35,9 +35,9 @@ public enum AuthorizeUserQueryParamsResponseTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(AuthorizeUserQueryParamsResponseTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<AuthorizeUserQueryParamsResponseTypeField>(value, v))
+          .map((v) -> new EnumWrapper<AuthorizeUserQueryParamsResponseTypeField>(value, v))
           .orElse(new EnumWrapper<AuthorizeUserQueryParamsResponseTypeField>(value));
     }
   }

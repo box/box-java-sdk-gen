@@ -37,9 +37,9 @@ public enum GetUsersQueryParamsUserTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(GetUsersQueryParamsUserTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<GetUsersQueryParamsUserTypeField>(value, v))
+          .map((v) -> new EnumWrapper<GetUsersQueryParamsUserTypeField>(value, v))
           .orElse(new EnumWrapper<GetUsersQueryParamsUserTypeField>(value));
     }
   }

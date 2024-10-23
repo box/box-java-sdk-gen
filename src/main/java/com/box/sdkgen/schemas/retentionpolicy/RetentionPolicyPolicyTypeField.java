@@ -36,9 +36,9 @@ public enum RetentionPolicyPolicyTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(RetentionPolicyPolicyTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<RetentionPolicyPolicyTypeField>(value, v))
+          .map((v) -> new EnumWrapper<RetentionPolicyPolicyTypeField>(value, v))
           .orElse(new EnumWrapper<RetentionPolicyPolicyTypeField>(value));
     }
   }

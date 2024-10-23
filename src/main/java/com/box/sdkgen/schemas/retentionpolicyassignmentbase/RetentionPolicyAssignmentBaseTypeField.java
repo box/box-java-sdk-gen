@@ -35,9 +35,9 @@ public enum RetentionPolicyAssignmentBaseTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(RetentionPolicyAssignmentBaseTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<RetentionPolicyAssignmentBaseTypeField>(value, v))
+          .map((v) -> new EnumWrapper<RetentionPolicyAssignmentBaseTypeField>(value, v))
           .orElse(new EnumWrapper<RetentionPolicyAssignmentBaseTypeField>(value));
     }
   }

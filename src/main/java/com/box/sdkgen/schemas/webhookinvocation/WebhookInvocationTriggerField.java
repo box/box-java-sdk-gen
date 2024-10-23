@@ -74,9 +74,9 @@ public enum WebhookInvocationTriggerField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(WebhookInvocationTriggerField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<WebhookInvocationTriggerField>(value, v))
+          .map((v) -> new EnumWrapper<WebhookInvocationTriggerField>(value, v))
           .orElse(new EnumWrapper<WebhookInvocationTriggerField>(value));
     }
   }

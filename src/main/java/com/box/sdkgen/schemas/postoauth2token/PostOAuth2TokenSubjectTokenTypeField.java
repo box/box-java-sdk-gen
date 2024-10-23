@@ -35,9 +35,9 @@ public enum PostOAuth2TokenSubjectTokenTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(PostOAuth2TokenSubjectTokenTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<PostOAuth2TokenSubjectTokenTypeField>(value, v))
+          .map((v) -> new EnumWrapper<PostOAuth2TokenSubjectTokenTypeField>(value, v))
           .orElse(new EnumWrapper<PostOAuth2TokenSubjectTokenTypeField>(value));
     }
   }

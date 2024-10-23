@@ -37,9 +37,9 @@ public enum SearchForContentQueryParamsTrashContentField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(SearchForContentQueryParamsTrashContentField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<SearchForContentQueryParamsTrashContentField>(value, v))
+          .map((v) -> new EnumWrapper<SearchForContentQueryParamsTrashContentField>(value, v))
           .orElse(new EnumWrapper<SearchForContentQueryParamsTrashContentField>(value));
     }
   }

@@ -36,9 +36,9 @@ public enum DeleteFileMetadataByIdScope {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(DeleteFileMetadataByIdScope.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<DeleteFileMetadataByIdScope>(value, v))
+          .map((v) -> new EnumWrapper<DeleteFileMetadataByIdScope>(value, v))
           .orElse(new EnumWrapper<DeleteFileMetadataByIdScope>(value));
     }
   }

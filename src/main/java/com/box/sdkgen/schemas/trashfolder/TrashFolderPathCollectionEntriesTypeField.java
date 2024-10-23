@@ -35,9 +35,9 @@ public enum TrashFolderPathCollectionEntriesTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(TrashFolderPathCollectionEntriesTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<TrashFolderPathCollectionEntriesTypeField>(value, v))
+          .map((v) -> new EnumWrapper<TrashFolderPathCollectionEntriesTypeField>(value, v))
           .orElse(new EnumWrapper<TrashFolderPathCollectionEntriesTypeField>(value));
     }
   }

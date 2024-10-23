@@ -36,10 +36,10 @@ public enum CreateTermsOfServiceStatusForUserRequestBodyUserTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CreateTermsOfServiceStatusForUserRequestBodyUserTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(
-              v ->
+              (v) ->
                   new EnumWrapper<CreateTermsOfServiceStatusForUserRequestBodyUserTypeField>(
                       value, v))
           .orElse(

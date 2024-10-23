@@ -35,9 +35,9 @@ public enum WorkflowFlowsTriggerTriggerTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(WorkflowFlowsTriggerTriggerTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<WorkflowFlowsTriggerTriggerTypeField>(value, v))
+          .map((v) -> new EnumWrapper<WorkflowFlowsTriggerTriggerTypeField>(value, v))
           .orElse(new EnumWrapper<WorkflowFlowsTriggerTriggerTypeField>(value));
     }
   }

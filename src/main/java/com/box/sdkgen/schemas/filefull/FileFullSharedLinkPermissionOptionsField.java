@@ -37,9 +37,9 @@ public enum FileFullSharedLinkPermissionOptionsField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(FileFullSharedLinkPermissionOptionsField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<FileFullSharedLinkPermissionOptionsField>(value, v))
+          .map((v) -> new EnumWrapper<FileFullSharedLinkPermissionOptionsField>(value, v))
           .orElse(new EnumWrapper<FileFullSharedLinkPermissionOptionsField>(value));
     }
   }

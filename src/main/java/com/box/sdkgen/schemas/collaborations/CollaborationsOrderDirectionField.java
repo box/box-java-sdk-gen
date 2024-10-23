@@ -36,9 +36,9 @@ public enum CollaborationsOrderDirectionField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(CollaborationsOrderDirectionField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<CollaborationsOrderDirectionField>(value, v))
+          .map((v) -> new EnumWrapper<CollaborationsOrderDirectionField>(value, v))
           .orElse(new EnumWrapper<CollaborationsOrderDirectionField>(value));
     }
   }

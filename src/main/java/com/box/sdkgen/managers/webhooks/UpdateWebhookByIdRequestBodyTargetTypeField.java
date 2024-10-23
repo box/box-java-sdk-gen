@@ -36,9 +36,9 @@ public enum UpdateWebhookByIdRequestBodyTargetTypeField {
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
       return Arrays.stream(UpdateWebhookByIdRequestBodyTargetTypeField.values())
-          .filter(v -> v.getValue().equalsIgnoreCase(value))
+          .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(v -> new EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField>(value, v))
+          .map((v) -> new EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField>(value, v))
           .orElse(new EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField>(value));
     }
   }
