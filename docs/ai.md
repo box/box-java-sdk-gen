@@ -16,7 +16,10 @@ This operation is performed by calling function `createAiAsk`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-ai-ask/).
 
-*Currently we don't have an example for calling `createAiAsk` in integration tests*
+<!-- sample post_ai_ask -->
+```
+client.getAi().createAiAsk(new AiAsk(AiAskModeField.MULTIPLE_ITEM_QA, "Which direction sun rises?", Arrays.asList(new AiItemBase.AiItemBaseBuilder(fileToAsk1.getId()).type(AiItemBaseTypeField.FILE).content("Earth goes around the sun").build(), new AiItemBase.AiItemBaseBuilder(fileToAsk2.getId()).type(AiItemBaseTypeField.FILE).content("Sun rises in the East in the morning").build())))
+```
 
 ### Arguments
 
@@ -42,7 +45,10 @@ This operation is performed by calling function `createAiTextGen`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-ai-text-gen/).
 
-*Currently we don't have an example for calling `createAiTextGen` in integration tests*
+<!-- sample post_ai_text_gen -->
+```
+client.getAi().createAiTextGen(new AiTextGen.AiTextGenBuilder("Parapharse the document.s", Arrays.asList(new AiTextGenItemsField.AiTextGenItemsFieldBuilder(fileToAsk.getId()).type(AiTextGenItemsTypeField.FILE).content("The Earth goes around the sun. Sun rises in the East in the morning.").build())).dialogueHistory(Arrays.asList(new AiDialogueHistory.AiDialogueHistoryBuilder().prompt("What does the earth go around?").answer("The sun").createdAt("2021-01-01T00:00:00Z").build(), new AiDialogueHistory.AiDialogueHistoryBuilder().prompt("On Earth, where does the sun rise?").answer("East").createdAt("2021-01-01T00:00:00Z").build())).build())
+```
 
 ### Arguments
 
@@ -68,7 +74,10 @@ This operation is performed by calling function `getAiAgentDefaultConfig`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-ai-agent-default/).
 
-*Currently we don't have an example for calling `getAiAgentDefaultConfig` in integration tests*
+<!-- sample get_ai_agent_default -->
+```
+client.getAi().getAiAgentDefaultConfig(new GetAiAgentDefaultConfigQueryParams.GetAiAgentDefaultConfigQueryParamsBuilder(GetAiAgentDefaultConfigQueryParamsModeField.TEXT_GEN).language("en-US").build())
+```
 
 ### Arguments
 
@@ -101,7 +110,10 @@ This operation is performed by calling function `createAiExtract`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-ai-extract/).
 
-*Currently we don't have an example for calling `createAiExtract` in integration tests*
+<!-- sample post_ai_extract -->
+```
+client.getAi().createAiExtract(new AiExtract("firstName, lastName, location, yearOfBirth, company", Arrays.asList(new AiItemBase(file.getId()))))
+```
 
 ### Arguments
 

@@ -16,7 +16,10 @@ This operation is performed by calling function `getTermsOfServiceUserStatuses`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-terms-of-service-user-statuses/).
 
-*Currently we don't have an example for calling `getTermsOfServiceUserStatuses` in integration tests*
+<!-- sample get_terms_of_service_user_statuses -->
+```
+client.getTermsOfServiceUserStatuses().getTermsOfServiceUserStatuses(new GetTermsOfServiceUserStatusesQueryParams.GetTermsOfServiceUserStatusesQueryParamsBuilder(tos.getId()).userId(user.getId()).build())
+```
 
 ### Arguments
 
@@ -42,7 +45,10 @@ This operation is performed by calling function `createTermsOfServiceStatusForUs
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-terms-of-service-user-statuses/).
 
-*Currently we don't have an example for calling `createTermsOfServiceStatusForUser` in integration tests*
+<!-- sample post_terms_of_service_user_statuses -->
+```
+client.getTermsOfServiceUserStatuses().createTermsOfServiceStatusForUser(new CreateTermsOfServiceStatusForUserRequestBody(new CreateTermsOfServiceStatusForUserRequestBodyTosField(tos.getId()), new CreateTermsOfServiceStatusForUserRequestBodyUserField(user.getId()), false))
+```
 
 ### Arguments
 
@@ -68,7 +74,10 @@ This operation is performed by calling function `updateTermsOfServiceStatusForUs
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-terms-of-service-user-statuses-id/).
 
-*Currently we don't have an example for calling `updateTermsOfServiceStatusForUserById` in integration tests*
+<!-- sample put_terms_of_service_user_statuses_id -->
+```
+client.getTermsOfServiceUserStatuses().updateTermsOfServiceStatusForUserById(createdTosUserStatus.getId(), new UpdateTermsOfServiceStatusForUserByIdRequestBody(true))
+```
 
 ### Arguments
 

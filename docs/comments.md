@@ -16,7 +16,10 @@ This operation is performed by calling function `getFileComments`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-comments/).
 
-*Currently we don't have an example for calling `getFileComments` in integration tests*
+<!-- sample get_files_id_comments -->
+```
+client.getComments().getFileComments(fileId)
+```
 
 ### Arguments
 
@@ -46,7 +49,10 @@ This operation is performed by calling function `getCommentById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-comments-id/).
 
-*Currently we don't have an example for calling `getCommentById` in integration tests*
+<!-- sample get_comments_id -->
+```
+client.getComments().getCommentById(newComment.getId())
+```
 
 ### Arguments
 
@@ -74,7 +80,10 @@ This operation is performed by calling function `updateCommentById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-comments-id/).
 
-*Currently we don't have an example for calling `updateCommentById` in integration tests*
+<!-- sample put_comments_id -->
+```
+client.getComments().updateCommentById(newReplyComment.getId(), new UpdateCommentByIdRequestBody.UpdateCommentByIdRequestBodyBuilder().message(newMessage).build())
+```
 
 ### Arguments
 
@@ -104,7 +113,10 @@ This operation is performed by calling function `deleteCommentById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-comments-id/).
 
-*Currently we don't have an example for calling `deleteCommentById` in integration tests*
+<!-- sample delete_comments_id -->
+```
+client.getComments().deleteCommentById(newComment.getId())
+```
 
 ### Arguments
 
@@ -131,7 +143,10 @@ This operation is performed by calling function `createComment`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-comments/).
 
-*Currently we don't have an example for calling `createComment` in integration tests*
+<!-- sample post_comments -->
+```
+client.getComments().createComment(new CreateCommentRequestBody(message, new CreateCommentRequestBodyItemField(newComment.getId(), CreateCommentRequestBodyItemTypeField.COMMENT)))
+```
 
 ### Arguments
 

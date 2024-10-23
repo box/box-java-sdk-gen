@@ -20,7 +20,10 @@ This operation is performed by calling function `getClassificationTemplate`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates-enterprise-security-classification-6-vm-vochw-u-wo-schema/).
 
-*Currently we don't have an example for calling `getClassificationTemplate` in integration tests*
+<!-- sample get_metadata_templates_enterprise_securityClassification-6VMVochwUWo_schema -->
+```
+client.getClassifications().getClassificationTemplate()
+```
 
 ### Arguments
 
@@ -51,7 +54,10 @@ This operation is performed by calling function `addClassification`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-metadata-templates-enterprise-security-classification-6-vm-vochw-u-wo-schema-add/).
 
-*Currently we don't have an example for calling `addClassification` in integration tests*
+<!-- sample put_metadata_templates_enterprise_securityClassification-6VMVochwUWo_schema#add -->
+```
+client.getClassifications().addClassification(Arrays.asList(new AddClassificationRequestBody(new AddClassificationRequestBodyDataField.AddClassificationRequestBodyDataFieldBuilder(getUuid()).staticConfig(new AddClassificationRequestBodyDataStaticConfigField.AddClassificationRequestBodyDataStaticConfigFieldBuilder().classification(new AddClassificationRequestBodyDataStaticConfigClassificationField.AddClassificationRequestBodyDataStaticConfigClassificationFieldBuilder().classificationDefinition("Other description").colorId(4L).build()).build()).build())))
+```
 
 ### Arguments
 
@@ -84,7 +90,10 @@ This operation is performed by calling function `updateClassification`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-metadata-templates-enterprise-security-classification-6-vm-vochw-u-wo-schema-update/).
 
-*Currently we don't have an example for calling `updateClassification` in integration tests*
+<!-- sample put_metadata_templates_enterprise_securityClassification-6VMVochwUWo_schema#update -->
+```
+client.getClassifications().updateClassification(Arrays.asList(new UpdateClassificationRequestBody(classification.getKey(), new UpdateClassificationRequestBodyDataField.UpdateClassificationRequestBodyDataFieldBuilder(updatedClassificationName).staticConfig(new UpdateClassificationRequestBodyDataStaticConfigField.UpdateClassificationRequestBodyDataStaticConfigFieldBuilder().classification(new UpdateClassificationRequestBodyDataStaticConfigClassificationField.UpdateClassificationRequestBodyDataStaticConfigClassificationFieldBuilder().classificationDefinition(updatedClassificationDescription).colorId(2L).build()).build()).build())))
+```
 
 ### Arguments
 

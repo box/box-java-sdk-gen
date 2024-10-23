@@ -16,7 +16,10 @@ This operation is performed by calling function `getShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segment-members-id/).
 
-*Currently we don't have an example for calling `getShieldInformationBarrierSegmentMemberById` in integration tests*
+<!-- sample get_shield_information_barrier_segment_members_id -->
+```
+client.getShieldInformationBarrierSegmentMembers().getShieldInformationBarrierSegmentMemberById(segmentMember.getId())
+```
 
 ### Arguments
 
@@ -43,7 +46,10 @@ This operation is performed by calling function `deleteShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-shield-information-barrier-segment-members-id/).
 
-*Currently we don't have an example for calling `deleteShieldInformationBarrierSegmentMemberById` in integration tests*
+<!-- sample delete_shield_information_barrier_segment_members_id -->
+```
+client.getShieldInformationBarrierSegmentMembers().deleteShieldInformationBarrierSegmentMemberById(segmentMember.getId())
+```
 
 ### Arguments
 
@@ -71,7 +77,10 @@ This operation is performed by calling function `getShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segment-members/).
 
-*Currently we don't have an example for calling `getShieldInformationBarrierSegmentMembers` in integration tests*
+<!-- sample get_shield_information_barrier_segment_members -->
+```
+client.getShieldInformationBarrierSegmentMembers().getShieldInformationBarrierSegmentMembers(new GetShieldInformationBarrierSegmentMembersQueryParams(segment.getId()))
+```
 
 ### Arguments
 
@@ -98,7 +107,10 @@ This operation is performed by calling function `createShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barrier-segment-members/).
 
-*Currently we don't have an example for calling `createShieldInformationBarrierSegmentMember` in integration tests*
+<!-- sample post_shield_information_barrier_segment_members -->
+```
+client.getShieldInformationBarrierSegmentMembers().createShieldInformationBarrierSegmentMember(new CreateShieldInformationBarrierSegmentMemberRequestBody(new CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField.CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentFieldBuilder().id(segment.getId()).type(CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField.SHIELD_INFORMATION_BARRIER_SEGMENT).build(), new UserBase(getEnvVar("USER_ID"))))
+```
 
 ### Arguments
 

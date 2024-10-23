@@ -20,7 +20,10 @@ This operation is performed by calling function `getClassificationOnFolder`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-*Currently we don't have an example for calling `getClassificationOnFolder` in integration tests*
+<!-- sample get_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
+```
+client.getFolderClassifications().getClassificationOnFolder(folder.getId())
+```
 
 ### Arguments
 
@@ -54,7 +57,10 @@ This operation is performed by calling function `addClassificationToFolder`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-folders-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-*Currently we don't have an example for calling `addClassificationToFolder` in integration tests*
+<!-- sample post_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
+```
+client.getFolderClassifications().addClassificationToFolder(folder.getId(), new AddClassificationToFolderRequestBody.AddClassificationToFolderRequestBodyBuilder().boxSecurityClassificationKey(classification.getKey()).build())
+```
 
 ### Arguments
 
@@ -87,7 +93,10 @@ This operation is performed by calling function `updateClassificationOnFolder`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-*Currently we don't have an example for calling `updateClassificationOnFolder` in integration tests*
+<!-- sample put_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
+```
+client.getFolderClassifications().updateClassificationOnFolder(folder.getId(), Arrays.asList(new UpdateClassificationOnFolderRequestBody(secondClassification.getKey())))
+```
 
 ### Arguments
 
@@ -119,7 +128,10 @@ This operation is performed by calling function `deleteClassificationFromFolder`
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-folders-id-metadata-enterprise-security-classification-6-vm-vochw-u-wo/).
 
-*Currently we don't have an example for calling `deleteClassificationFromFolder` in integration tests*
+<!-- sample delete_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
+```
+client.getFolderClassifications().deleteClassificationFromFolder(folder.getId())
+```
 
 ### Arguments
 

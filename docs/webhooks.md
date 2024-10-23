@@ -21,7 +21,10 @@ This operation is performed by calling function `getWebhooks`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-webhooks/).
 
-*Currently we don't have an example for calling `getWebhooks` in integration tests*
+<!-- sample get_webhooks -->
+```
+client.getWebhooks().getWebhooks()
+```
 
 ### Arguments
 
@@ -47,7 +50,10 @@ This operation is performed by calling function `createWebhook`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-webhooks/).
 
-*Currently we don't have an example for calling `createWebhook` in integration tests*
+<!-- sample post_webhooks -->
+```
+client.getWebhooks().createWebhook(new CreateWebhookRequestBody(new CreateWebhookRequestBodyTargetField.CreateWebhookRequestBodyTargetFieldBuilder().id(folder.getId()).type(CreateWebhookRequestBodyTargetTypeField.FOLDER).build(), "https://example.com/new-webhook", Arrays.asList(CreateWebhookRequestBodyTriggersField.FILE_UPLOADED)))
+```
 
 ### Arguments
 
@@ -73,7 +79,10 @@ This operation is performed by calling function `getWebhookById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-webhooks-id/).
 
-*Currently we don't have an example for calling `getWebhookById` in integration tests*
+<!-- sample get_webhooks_id -->
+```
+client.getWebhooks().getWebhookById(webhook.getId())
+```
 
 ### Arguments
 
@@ -99,7 +108,10 @@ This operation is performed by calling function `updateWebhookById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-webhooks-id/).
 
-*Currently we don't have an example for calling `updateWebhookById` in integration tests*
+<!-- sample put_webhooks_id -->
+```
+client.getWebhooks().updateWebhookById(webhook.getId(), new UpdateWebhookByIdRequestBody.UpdateWebhookByIdRequestBodyBuilder().address("https://example.com/updated-webhook").build())
+```
 
 ### Arguments
 
@@ -127,7 +139,10 @@ This operation is performed by calling function `deleteWebhookById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-webhooks-id/).
 
-*Currently we don't have an example for calling `deleteWebhookById` in integration tests*
+<!-- sample delete_webhooks_id -->
+```
+client.getWebhooks().deleteWebhookById(webhook.getId())
+```
 
 ### Arguments
 

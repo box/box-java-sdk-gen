@@ -18,7 +18,10 @@ This operation is performed by calling function `getMetadataCascadePolicies`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-cascade-policies/).
 
-*Currently we don't have an example for calling `getMetadataCascadePolicies` in integration tests*
+<!-- sample get_metadata_cascade_policies -->
+```
+client.getMetadataCascadePolicies().getMetadataCascadePolicies(new GetMetadataCascadePoliciesQueryParams(folder.getId()))
+```
 
 ### Arguments
 
@@ -49,7 +52,10 @@ This operation is performed by calling function `createMetadataCascadePolicy`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-metadata-cascade-policies/).
 
-*Currently we don't have an example for calling `createMetadataCascadePolicy` in integration tests*
+<!-- sample post_metadata_cascade_policies -->
+```
+client.getMetadataCascadePolicies().createMetadataCascadePolicy(new CreateMetadataCascadePolicyRequestBody(folder.getId(), CreateMetadataCascadePolicyRequestBodyScopeField.ENTERPRISE, templateKey))
+```
 
 ### Arguments
 
@@ -75,7 +81,10 @@ This operation is performed by calling function `getMetadataCascadePolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-cascade-policies-id/).
 
-*Currently we don't have an example for calling `getMetadataCascadePolicyById` in integration tests*
+<!-- sample get_metadata_cascade_policies_id -->
+```
+client.getMetadataCascadePolicies().getMetadataCascadePolicyById(cascadePolicyId)
+```
 
 ### Arguments
 
@@ -101,7 +110,10 @@ This operation is performed by calling function `deleteMetadataCascadePolicyById
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-metadata-cascade-policies-id/).
 
-*Currently we don't have an example for calling `deleteMetadataCascadePolicyById` in integration tests*
+<!-- sample delete_metadata_cascade_policies_id -->
+```
+client.getMetadataCascadePolicies().deleteMetadataCascadePolicyById(cascadePolicyId)
+```
 
 ### Arguments
 
@@ -131,7 +143,10 @@ This operation is performed by calling function `applyMetadataCascadePolicy`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-metadata-cascade-policies-id-apply/).
 
-*Currently we don't have an example for calling `applyMetadataCascadePolicy` in integration tests*
+<!-- sample post_metadata_cascade_policies_id_apply -->
+```
+client.getMetadataCascadePolicies().applyMetadataCascadePolicy(cascadePolicyId, new ApplyMetadataCascadePolicyRequestBody(ApplyMetadataCascadePolicyRequestBodyConflictResolutionField.OVERWRITE))
+```
 
 ### Arguments
 

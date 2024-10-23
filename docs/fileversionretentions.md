@@ -18,7 +18,10 @@ This operation is performed by calling function `getFileVersionRetentions`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-file-version-retentions/).
 
-*Currently we don't have an example for calling `getFileVersionRetentions` in integration tests*
+<!-- sample get_file_version_retentions -->
+```
+client.getFileVersionRetentions().getFileVersionRetentions()
+```
 
 ### Arguments
 
@@ -49,7 +52,10 @@ This operation is performed by calling function `getFileVersionRetentionById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-file-version-retentions-id/).
 
-*Currently we don't have an example for calling `getFileVersionRetentionById` in integration tests*
+<!-- sample get_file_version_retentions_id -->
+```
+client.getFileVersionRetentions().getFileVersionRetentionById(fileVersionRetention.getId())
+```
 
 ### Arguments
 

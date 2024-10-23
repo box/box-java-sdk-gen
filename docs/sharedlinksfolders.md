@@ -22,7 +22,10 @@ This operation is performed by calling function `findFolderForSharedLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shared-items-folders/).
 
-*Currently we don't have an example for calling `findFolderForSharedLink` in integration tests*
+<!-- sample get_shared_items#folders -->
+```
+userClient.getSharedLinksFolders().findFolderForSharedLink(new FindFolderForSharedLinkQueryParams(), new FindFolderForSharedLinkHeaders(String.join("", "shared_link=", folderFromApi.getSharedLink().getUrl(), "&shared_link_password=incorrectPassword")))
+```
 
 ### Arguments
 
@@ -49,7 +52,10 @@ This operation is performed by calling function `getSharedLinkForFolder`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-get-shared-link/).
 
-*Currently we don't have an example for calling `getSharedLinkForFolder` in integration tests*
+<!-- sample get_folders_id#get_shared_link -->
+```
+client.getSharedLinksFolders().getSharedLinkForFolder(folder.getId(), new GetSharedLinkForFolderQueryParams("shared_link"))
+```
 
 ### Arguments
 
@@ -78,7 +84,10 @@ This operation is performed by calling function `addShareLinkToFolder`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id-add-shared-link/).
 
-*Currently we don't have an example for calling `addShareLinkToFolder` in integration tests*
+<!-- sample put_folders_id#add_shared_link -->
+```
+client.getSharedLinksFolders().addShareLinkToFolder(folder.getId(), new AddShareLinkToFolderRequestBody.AddShareLinkToFolderRequestBodyBuilder().sharedLink(new AddShareLinkToFolderRequestBodySharedLinkField.AddShareLinkToFolderRequestBodySharedLinkFieldBuilder().access(AddShareLinkToFolderRequestBodySharedLinkAccessField.OPEN).password("Secret123@").build()).build(), new AddShareLinkToFolderQueryParams("shared_link"))
+```
 
 ### Arguments
 
@@ -109,7 +118,10 @@ This operation is performed by calling function `updateSharedLinkOnFolder`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id-update-shared-link/).
 
-*Currently we don't have an example for calling `updateSharedLinkOnFolder` in integration tests*
+<!-- sample put_folders_id#update_shared_link -->
+```
+client.getSharedLinksFolders().updateSharedLinkOnFolder(folder.getId(), new UpdateSharedLinkOnFolderRequestBody.UpdateSharedLinkOnFolderRequestBodyBuilder().sharedLink(new UpdateSharedLinkOnFolderRequestBodySharedLinkField.UpdateSharedLinkOnFolderRequestBodySharedLinkFieldBuilder().access(UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField.COLLABORATORS).build()).build(), new UpdateSharedLinkOnFolderQueryParams("shared_link"))
+```
 
 ### Arguments
 

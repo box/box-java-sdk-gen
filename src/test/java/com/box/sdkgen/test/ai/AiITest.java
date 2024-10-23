@@ -1,0 +1,166 @@
+package com.box.sdkgen.test.ai;
+
+import static com.box.sdkgen.internal.utils.UtilsManager.delayInSeconds;
+import static com.box.sdkgen.internal.utils.UtilsManager.getUuid;
+import static com.box.sdkgen.internal.utils.UtilsManager.stringToByteStream;
+import static com.box.sdkgen.test.commons.CommonsManager.getDefaultClient;
+import static com.box.sdkgen.test.commons.CommonsManager.uploadNewFile;
+
+import com.box.sdkgen.client.BoxClient;
+import com.box.sdkgen.managers.ai.GetAiAgentDefaultConfigQueryParams;
+import com.box.sdkgen.managers.ai.GetAiAgentDefaultConfigQueryParamsModeField;
+import com.box.sdkgen.managers.uploads.UploadFileRequestBody;
+import com.box.sdkgen.managers.uploads.UploadFileRequestBodyAttributesField;
+import com.box.sdkgen.managers.uploads.UploadFileRequestBodyAttributesParentField;
+import com.box.sdkgen.schemas.aiagentaskoraiagentextractoraiagentextractstructuredoraiagenttextgen.AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen;
+import com.box.sdkgen.schemas.aiask.AiAsk;
+import com.box.sdkgen.schemas.aiask.AiAskModeField;
+import com.box.sdkgen.schemas.aidialoguehistory.AiDialogueHistory;
+import com.box.sdkgen.schemas.aiextract.AiExtract;
+import com.box.sdkgen.schemas.aiitembase.AiItemBase;
+import com.box.sdkgen.schemas.aiitembase.AiItemBaseTypeField;
+import com.box.sdkgen.schemas.airesponse.AiResponse;
+import com.box.sdkgen.schemas.airesponsefull.AiResponseFull;
+import com.box.sdkgen.schemas.aitextgen.AiTextGen;
+import com.box.sdkgen.schemas.aitextgen.AiTextGenItemsField;
+import com.box.sdkgen.schemas.aitextgen.AiTextGenItemsTypeField;
+import com.box.sdkgen.schemas.filefull.FileFull;
+import com.box.sdkgen.schemas.files.Files;
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
+
+public class AiITest {
+
+  private static final BoxClient client = getDefaultClient();
+
+  @Test
+  public void testAskAiSingleItem() {
+    FileFull fileToAsk = uploadNewFile();
+    AiResponseFull response =
+        client
+            .getAi()
+            .createAiAsk(
+                new AiAsk(
+                    AiAskModeField.SINGLE_ITEM_QA,
+                    "which direction sun rises",
+                    Arrays.asList(
+                        new AiItemBase.AiItemBaseBuilder(fileToAsk.getId())
+                            .type(AiItemBaseTypeField.FILE)
+                            .content("Sun rises in the East")
+                            .build())));
+    assert response.getAnswer().contains("East");
+    assert response.getCompletionReason().equals("done");
+    client.getFiles().deleteFileById(fileToAsk.getId());
+  }
+
+  @Test
+  public void testAskAiMultipleItems() {
+    FileFull fileToAsk1 = uploadNewFile();
+    FileFull fileToAsk2 = uploadNewFile();
+    AiResponseFull response =
+        client
+            .getAi()
+            .createAiAsk(
+                new AiAsk(
+                    AiAskModeField.MULTIPLE_ITEM_QA,
+                    "Which direction sun rises?",
+                    Arrays.asList(
+                        new AiItemBase.AiItemBaseBuilder(fileToAsk1.getId())
+                            .type(AiItemBaseTypeField.FILE)
+                            .content("Earth goes around the sun")
+                            .build(),
+                        new AiItemBase.AiItemBaseBuilder(fileToAsk2.getId())
+                            .type(AiItemBaseTypeField.FILE)
+                            .content("Sun rises in the East in the morning")
+                            .build())));
+    assert response.getAnswer().contains("East");
+    assert response.getCompletionReason().equals("done");
+    client.getFiles().deleteFileById(fileToAsk1.getId());
+    client.getFiles().deleteFileById(fileToAsk2.getId());
+  }
+
+  @Test
+  public void testAiTextGenWithDialogueHistory() {
+    FileFull fileToAsk = uploadNewFile();
+    AiResponse response =
+        client
+            .getAi()
+            .createAiTextGen(
+                new AiTextGen.AiTextGenBuilder(
+                        "Parapharse the document.s",
+                        Arrays.asList(
+                            new AiTextGenItemsField.AiTextGenItemsFieldBuilder(fileToAsk.getId())
+                                .type(AiTextGenItemsTypeField.FILE)
+                                .content(
+                                    "The Earth goes around the sun. Sun rises in the East in the morning.")
+                                .build()))
+                    .dialogueHistory(
+                        Arrays.asList(
+                            new AiDialogueHistory.AiDialogueHistoryBuilder()
+                                .prompt("What does the earth go around?")
+                                .answer("The sun")
+                                .createdAt("2021-01-01T00:00:00Z")
+                                .build(),
+                            new AiDialogueHistory.AiDialogueHistoryBuilder()
+                                .prompt("On Earth, where does the sun rise?")
+                                .answer("East")
+                                .createdAt("2021-01-01T00:00:00Z")
+                                .build()))
+                    .build());
+    assert response.getAnswer().contains("sun");
+    assert response.getCompletionReason().equals("done");
+    client.getFiles().deleteFileById(fileToAsk.getId());
+  }
+
+  @Test
+  public void testGettingAiAskAgentConfig() {
+    AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen aiAskConfig =
+        client
+            .getAi()
+            .getAiAgentDefaultConfig(
+                new GetAiAgentDefaultConfigQueryParams.GetAiAgentDefaultConfigQueryParamsBuilder(
+                        GetAiAgentDefaultConfigQueryParamsModeField.ASK)
+                    .language("en-US")
+                    .build());
+  }
+
+  @Test
+  public void testGettingAiTextGenAgentConfig() {
+    AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen aiTextGenConfig =
+        client
+            .getAi()
+            .getAiAgentDefaultConfig(
+                new GetAiAgentDefaultConfigQueryParams.GetAiAgentDefaultConfigQueryParamsBuilder(
+                        GetAiAgentDefaultConfigQueryParamsModeField.TEXT_GEN)
+                    .language("en-US")
+                    .build());
+  }
+
+  @Test
+  public void testAiExtract() {
+    Files uploadedFiles =
+        client
+            .getUploads()
+            .uploadFile(
+                new UploadFileRequestBody(
+                    new UploadFileRequestBodyAttributesField(
+                        String.join("", getUuid(), ".txt"),
+                        new UploadFileRequestBodyAttributesParentField("0")),
+                    stringToByteStream(
+                        "My name is John Doe. I live in San Francisco. I was born in 1990. I work at Box.")));
+    FileFull file = uploadedFiles.getEntries().get(0);
+    delayInSeconds(5);
+    AiResponse response =
+        client
+            .getAi()
+            .createAiExtract(
+                new AiExtract(
+                    "firstName, lastName, location, yearOfBirth, company",
+                    Arrays.asList(new AiItemBase(file.getId()))));
+    String expectedResponse =
+        "{\"firstName\": \"John\", \"lastName\": \"Doe\", \"location\": \"San Francisco\", \"yearOfBirth\": \"1990\", \"company\": \"Box\"}";
+    assert response.getAnswer().equals(expectedResponse);
+    assert response.getCompletionReason().equals("done");
+    client.getFiles().deleteFileById(file.getId());
+  }
+}

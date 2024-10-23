@@ -14,7 +14,10 @@ This operation is performed by calling function `getUserAvatar`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-users-id-avatar/).
 
-*Currently we don't have an example for calling `getUserAvatar` in integration tests*
+<!-- sample get_users_id_avatar -->
+```
+client.getAvatars().getUserAvatar(user.getId())
+```
 
 ### Arguments
 
@@ -42,7 +45,10 @@ This operation is performed by calling function `createUserAvatar`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-users-id-avatar/).
 
-*Currently we don't have an example for calling `createUserAvatar` in integration tests*
+<!-- sample post_users_id_avatar -->
+```
+client.getAvatars().createUserAvatar(user.getId(), new CreateUserAvatarRequestBody.CreateUserAvatarRequestBodyBuilder(decodeBase64ByteStream("iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEW10NBjBBbqAAAAH0lEQVRoge3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAvg0hAAABmmDh1QAAAABJRU5ErkJggg==")).picFileName("avatar.png").picContentType("image/png").build())
+```
 
 ### Arguments
 
@@ -73,7 +79,10 @@ This operation is performed by calling function `deleteUserAvatar`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-users-id-avatar/).
 
-*Currently we don't have an example for calling `deleteUserAvatar` in integration tests*
+<!-- sample delete_users_id_avatar -->
+```
+client.getAvatars().deleteUserAvatar(user.getId())
+```
 
 ### Arguments
 

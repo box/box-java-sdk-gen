@@ -16,7 +16,10 @@ This operation is performed by calling function `getCollaborationWhitelistExempt
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-collaboration-whitelist-exempt-targets/).
 
-*Currently we don't have an example for calling `getCollaborationWhitelistExemptTargets` in integration tests*
+<!-- sample get_collaboration_whitelist_exempt_targets -->
+```
+client.getCollaborationAllowlistExemptTargets().getCollaborationWhitelistExemptTargets()
+```
 
 ### Arguments
 
@@ -43,7 +46,10 @@ This operation is performed by calling function `createCollaborationWhitelistExe
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-collaboration-whitelist-exempt-targets/).
 
-*Currently we don't have an example for calling `createCollaborationWhitelistExemptTarget` in integration tests*
+<!-- sample post_collaboration_whitelist_exempt_targets -->
+```
+client.getCollaborationAllowlistExemptTargets().createCollaborationWhitelistExemptTarget(new CreateCollaborationWhitelistExemptTargetRequestBody(new CreateCollaborationWhitelistExemptTargetRequestBodyUserField(user.getId())))
+```
 
 ### Arguments
 
@@ -70,7 +76,10 @@ This operation is performed by calling function `getCollaborationWhitelistExempt
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-collaboration-whitelist-exempt-targets-id/).
 
-*Currently we don't have an example for calling `getCollaborationWhitelistExemptTargetById` in integration tests*
+<!-- sample get_collaboration_whitelist_exempt_targets_id -->
+```
+client.getCollaborationAllowlistExemptTargets().getCollaborationWhitelistExemptTargetById(exemptTarget.getId())
+```
 
 ### Arguments
 
@@ -97,7 +106,10 @@ This operation is performed by calling function `deleteCollaborationWhitelistExe
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-collaboration-whitelist-exempt-targets-id/).
 
-*Currently we don't have an example for calling `deleteCollaborationWhitelistExemptTargetById` in integration tests*
+<!-- sample delete_collaboration_whitelist_exempt_targets_id -->
+```
+client.getCollaborationAllowlistExemptTargets().deleteCollaborationWhitelistExemptTargetById(exemptTarget.getId())
+```
 
 ### Arguments
 

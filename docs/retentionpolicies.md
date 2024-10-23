@@ -16,7 +16,10 @@ This operation is performed by calling function `getRetentionPolicies`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-retention-policies/).
 
-*Currently we don't have an example for calling `getRetentionPolicies` in integration tests*
+<!-- sample get_retention_policies -->
+```
+client.getRetentionPolicies().getRetentionPolicies()
+```
 
 ### Arguments
 
@@ -42,7 +45,10 @@ This operation is performed by calling function `createRetentionPolicy`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-retention-policies/).
 
-*Currently we don't have an example for calling `createRetentionPolicy` in integration tests*
+<!-- sample post_retention_policies -->
+```
+client.getRetentionPolicies().createRetentionPolicy(new CreateRetentionPolicyRequestBody.CreateRetentionPolicyRequestBodyBuilder(getUuid(), CreateRetentionPolicyRequestBodyPolicyTypeField.FINITE, CreateRetentionPolicyRequestBodyDispositionActionField.REMOVE_RETENTION).description(description).retentionLength("1").retentionType(CreateRetentionPolicyRequestBodyRetentionTypeField.MODIFIABLE).canOwnerExtendRetention(false).build())
+```
 
 ### Arguments
 
@@ -68,7 +74,10 @@ This operation is performed by calling function `getRetentionPolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-retention-policies-id/).
 
-*Currently we don't have an example for calling `getRetentionPolicyById` in integration tests*
+<!-- sample get_retention_policies_id -->
+```
+client.getRetentionPolicies().getRetentionPolicyById(retentionPolicy.getId())
+```
 
 ### Arguments
 
@@ -96,7 +105,10 @@ This operation is performed by calling function `updateRetentionPolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-retention-policies-id/).
 
-*Currently we don't have an example for calling `updateRetentionPolicyById` in integration tests*
+<!-- sample put_retention_policies_id -->
+```
+client.getRetentionPolicies().updateRetentionPolicyById(retentionPolicy.getId(), new UpdateRetentionPolicyByIdRequestBody.UpdateRetentionPolicyByIdRequestBodyBuilder().policyName(updatedRetentionPolicyName).build())
+```
 
 ### Arguments
 
@@ -124,7 +136,10 @@ This operation is performed by calling function `deleteRetentionPolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-retention-policies-id/).
 
-*Currently we don't have an example for calling `deleteRetentionPolicyById` in integration tests*
+<!-- sample delete_retention_policies_id -->
+```
+client.getRetentionPolicies().deleteRetentionPolicyById(retentionPolicy.getId())
+```
 
 ### Arguments
 

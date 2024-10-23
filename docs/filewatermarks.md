@@ -14,7 +14,10 @@ This operation is performed by calling function `getFileWatermark`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-watermark/).
 
-*Currently we don't have an example for calling `getFileWatermark` in integration tests*
+<!-- sample get_files_id_watermark -->
+```
+client.getFileWatermarks().getFileWatermark(file.getId())
+```
 
 ### Arguments
 
@@ -41,7 +44,10 @@ This operation is performed by calling function `updateFileWatermark`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-watermark/).
 
-*Currently we don't have an example for calling `updateFileWatermark` in integration tests*
+<!-- sample put_files_id_watermark -->
+```
+client.getFileWatermarks().updateFileWatermark(file.getId(), new UpdateFileWatermarkRequestBody(new UpdateFileWatermarkRequestBodyWatermarkField.UpdateFileWatermarkRequestBodyWatermarkFieldBuilder().imprint(UpdateFileWatermarkRequestBodyWatermarkImprintField.DEFAULT).build()))
+```
 
 ### Arguments
 
@@ -71,7 +77,10 @@ This operation is performed by calling function `deleteFileWatermark`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-files-id-watermark/).
 
-*Currently we don't have an example for calling `deleteFileWatermark` in integration tests*
+<!-- sample delete_files_id_watermark -->
+```
+client.getFileWatermarks().deleteFileWatermark(file.getId())
+```
 
 ### Arguments
 
