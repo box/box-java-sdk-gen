@@ -4,6 +4,7 @@ import com.box.sdkgen.schemas.clienterror.ClientError;
 import com.box.sdkgen.schemas.clienterror.ClientErrorCodeField;
 import com.box.sdkgen.schemas.clienterror.ClientErrorTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import java.util.Map;
 import java.util.Objects;
 
 public class ConflictError extends ClientError {
