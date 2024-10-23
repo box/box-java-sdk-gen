@@ -15,7 +15,10 @@ This operation is performed by calling function `getShieldInformationBarrierById
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barriers-id/).
 
-*Currently we don't have an example for calling `getShieldInformationBarrierById` in integration tests*
+<!-- sample get_shield_information_barriers_id -->
+```
+client.getShieldInformationBarriers().getShieldInformationBarrierById(barrierId)
+```
 
 ### Arguments
 
@@ -41,7 +44,10 @@ This operation is performed by calling function `updateShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barriers-change-status/).
 
-*Currently we don't have an example for calling `updateShieldInformationBarrierStatus` in integration tests*
+<!-- sample post_shield_information_barriers_change_status -->
+```
+client.getShieldInformationBarriers().updateShieldInformationBarrierStatus(new UpdateShieldInformationBarrierStatusRequestBody(barrierId, UpdateShieldInformationBarrierStatusRequestBodyStatusField.DISABLED))
+```
 
 ### Arguments
 
@@ -68,7 +74,10 @@ This operation is performed by calling function `getShieldInformationBarriers`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barriers/).
 
-*Currently we don't have an example for calling `getShieldInformationBarriers` in integration tests*
+<!-- sample get_shield_information_barriers -->
+```
+client.getShieldInformationBarriers().getShieldInformationBarriers()
+```
 
 ### Arguments
 
@@ -98,7 +107,10 @@ This operation is performed by calling function `createShieldInformationBarrier`
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barriers/).
 
-*Currently we don't have an example for calling `createShieldInformationBarrier` in integration tests*
+<!-- sample post_shield_information_barriers -->
+```
+client.getShieldInformationBarriers().createShieldInformationBarrier(new CreateShieldInformationBarrierRequestBody(new EnterpriseBase.EnterpriseBaseBuilder().id(enterpriseId).build()))
+```
 
 ### Arguments
 

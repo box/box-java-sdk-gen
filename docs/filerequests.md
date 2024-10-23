@@ -15,7 +15,10 @@ This operation is performed by calling function `getFileRequestById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-file-requests-id/).
 
-*Currently we don't have an example for calling `getFileRequestById` in integration tests*
+<!-- sample get_file_requests_id -->
+```
+client.getFileRequests().getFileRequestById(updatedFileRequest.getId())
+```
 
 ### Arguments
 
@@ -42,7 +45,10 @@ This operation is performed by calling function `updateFileRequestById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-file-requests-id/).
 
-*Currently we don't have an example for calling `updateFileRequestById` in integration tests*
+<!-- sample put_file_requests_id -->
+```
+client.getFileRequests().updateFileRequestById(copiedFileRequest.getId(), new FileRequestUpdateRequest.FileRequestUpdateRequestBuilder().title("updated title").description("updated description").build())
+```
 
 ### Arguments
 
@@ -70,7 +76,10 @@ This operation is performed by calling function `deleteFileRequestById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-file-requests-id/).
 
-*Currently we don't have an example for calling `deleteFileRequestById` in integration tests*
+<!-- sample delete_file_requests_id -->
+```
+client.getFileRequests().deleteFileRequestById(updatedFileRequest.getId())
+```
 
 ### Arguments
 
@@ -98,7 +107,10 @@ This operation is performed by calling function `createFileRequestCopy`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-file-requests-id-copy/).
 
-*Currently we don't have an example for calling `createFileRequestCopy` in integration tests*
+<!-- sample post_file_requests_id_copy -->
+```
+client.getFileRequests().createFileRequestCopy(fileRequestId, new FileRequestCopyRequest(new FileRequestCopyRequestFolderField.FileRequestCopyRequestFolderFieldBuilder(fileRequest.getFolder().getId()).type(FileRequestCopyRequestFolderTypeField.FOLDER).build()))
+```
 
 ### Arguments
 

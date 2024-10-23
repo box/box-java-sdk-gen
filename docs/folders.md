@@ -26,7 +26,10 @@ This operation is performed by calling function `getFolderById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id/).
 
-*Currently we don't have an example for calling `getFolderById` in integration tests*
+<!-- sample get_folders_id -->
+```
+client.getFolders().getFolderById(folderId, new GetFolderByIdQueryParams.GetFolderByIdQueryParamsBuilder().fields(Arrays.asList("is_associated_with_app_item")).build())
+```
 
 ### Arguments
 
@@ -65,7 +68,10 @@ This operation is performed by calling function `updateFolderById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id/).
 
-*Currently we don't have an example for calling `updateFolderById` in integration tests*
+<!-- sample put_folders_id -->
+```
+client.getFolders().updateFolderById(copiedFolder.getId(), new UpdateFolderByIdRequestBody.UpdateFolderByIdRequestBodyBuilder().name(movedFolderName).parent(new UpdateFolderByIdRequestBodyParentField.UpdateFolderByIdRequestBodyParentFieldBuilder().id(folderOrigin.getId()).build()).build())
+```
 
 ### Arguments
 
@@ -105,7 +111,10 @@ This operation is performed by calling function `deleteFolderById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-folders-id/).
 
-*Currently we don't have an example for calling `deleteFolderById` in integration tests*
+<!-- sample delete_folders_id -->
+```
+client.getFolders().deleteFolderById(folder.getId(), new DeleteFolderByIdQueryParams.DeleteFolderByIdQueryParamsBuilder().recursive(true).build())
+```
 
 ### Arguments
 
@@ -138,7 +147,10 @@ This operation is performed by calling function `getFolderItems`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-items/).
 
-*Currently we don't have an example for calling `getFolderItems` in integration tests*
+<!-- sample get_folders_id_items -->
+```
+client.getFolders().getFolderItems(folderOrigin.getId())
+```
 
 ### Arguments
 
@@ -166,7 +178,10 @@ This operation is performed by calling function `createFolder`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-folders/).
 
-*Currently we don't have an example for calling `createFolder` in integration tests*
+<!-- sample post_folders -->
+```
+client.getFolders().createFolder(new CreateFolderRequestBody(folderOriginName, new CreateFolderRequestBodyParentField("0")))
+```
 
 ### Arguments
 
@@ -200,7 +215,10 @@ This operation is performed by calling function `copyFolder`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-folders-id-copy/).
 
-*Currently we don't have an example for calling `copyFolder` in integration tests*
+<!-- sample post_folders_id_copy -->
+```
+client.getFolders().copyFolder(folderOrigin.getId(), new CopyFolderRequestBody.CopyFolderRequestBodyBuilder(new CopyFolderRequestBodyParentField("0")).name(copiedFolderName).build())
+```
 
 ### Arguments
 

@@ -19,7 +19,10 @@ This operation is performed by calling function `getFileVersions`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-versions/).
 
-*Currently we don't have an example for calling `getFileVersions` in integration tests*
+<!-- sample get_files_id_versions -->
+```
+client.getFileVersions().getFileVersions(file.getId())
+```
 
 ### Arguments
 
@@ -49,7 +52,10 @@ This operation is performed by calling function `getFileVersionById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-versions-id/).
 
-*Currently we don't have an example for calling `getFileVersionById` in integration tests*
+<!-- sample get_files_id_versions_id -->
+```
+client.getFileVersions().getFileVersionById(file.getId(), fileVersions.getEntries().get(0).getId())
+```
 
 ### Arguments
 
@@ -85,7 +91,10 @@ This operation is performed by calling function `deleteFileVersionById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-files-id-versions-id/).
 
-*Currently we don't have an example for calling `deleteFileVersionById` in integration tests*
+<!-- sample delete_files_id_versions_id -->
+```
+client.getFileVersions().deleteFileVersionById(file.getId(), fileVersion.getId())
+```
 
 ### Arguments
 
@@ -162,7 +171,10 @@ This operation is performed by calling function `promoteFileVersion`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-id-versions-current/).
 
-*Currently we don't have an example for calling `promoteFileVersion` in integration tests*
+<!-- sample post_files_id_versions_current -->
+```
+client.getFileVersions().promoteFileVersion(file.getId(), new PromoteFileVersionRequestBody.PromoteFileVersionRequestBodyBuilder().id(fileVersions.getEntries().get(0).getId()).type(PromoteFileVersionRequestBodyTypeField.FILE_VERSION).build())
+```
 
 ### Arguments
 

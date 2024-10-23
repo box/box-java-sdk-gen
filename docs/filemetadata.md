@@ -16,7 +16,10 @@ This operation is performed by calling function `getFileMetadata`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-metadata/).
 
-*Currently we don't have an example for calling `getFileMetadata` in integration tests*
+<!-- sample get_files_id_metadata -->
+```
+client.getFileMetadata().getFileMetadata(file.getId())
+```
 
 ### Arguments
 
@@ -46,7 +49,10 @@ This operation is performed by calling function `getFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `getFileMetadataById` in integration tests*
+<!-- sample get_files_id_metadata_id_id -->
+```
+client.getFileMetadata().getFileMetadataById(file.getId(), GetFileMetadataByIdScope.GLOBAL, "properties")
+```
 
 ### Arguments
 
@@ -82,7 +88,10 @@ This operation is performed by calling function `createFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `createFileMetadataById` in integration tests*
+<!-- sample post_files_id_metadata_id_id -->
+```
+client.getFileMetadata().createFileMetadataById(file.getId(), CreateFileMetadataByIdScope.GLOBAL, "properties", mapOf(entryOf("abc", "xyz")))
+```
 
 ### Arguments
 
@@ -122,7 +131,10 @@ This operation is performed by calling function `updateFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `updateFileMetadataById` in integration tests*
+<!-- sample put_files_id_metadata_id_id -->
+```
+client.getFileMetadata().updateFileMetadataById(file.getId(), UpdateFileMetadataByIdScope.GLOBAL, "properties", Arrays.asList(new UpdateFileMetadataByIdRequestBody.UpdateFileMetadataByIdRequestBodyBuilder().op(UpdateFileMetadataByIdRequestBodyOpField.REPLACE).path("/abc").value(newValue).build()))
+```
 
 ### Arguments
 
@@ -155,7 +167,10 @@ This operation is performed by calling function `deleteFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-files-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `deleteFileMetadataById` in integration tests*
+<!-- sample delete_files_id_metadata_id_id -->
+```
+client.getFileMetadata().deleteFileMetadataById(file.getId(), DeleteFileMetadataByIdScope.GLOBAL, "properties")
+```
 
 ### Arguments
 

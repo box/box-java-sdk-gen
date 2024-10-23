@@ -17,7 +17,10 @@ This operation is performed by calling function `getGroups`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-groups/).
 
-*Currently we don't have an example for calling `getGroups` in integration tests*
+<!-- sample get_groups -->
+```
+client.getGroups().getGroups()
+```
 
 ### Arguments
 
@@ -45,7 +48,10 @@ This operation is performed by calling function `createGroup`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-groups/).
 
-*Currently we don't have an example for calling `createGroup` in integration tests*
+<!-- sample post_groups -->
+```
+client.getGroups().createGroup(new CreateGroupRequestBody.CreateGroupRequestBodyBuilder(groupName).description(groupDescription).build())
+```
 
 ### Arguments
 
@@ -75,7 +81,10 @@ This operation is performed by calling function `getGroupById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-groups-id/).
 
-*Currently we don't have an example for calling `getGroupById` in integration tests*
+<!-- sample get_groups_id -->
+```
+client.getGroups().getGroupById(group.getId())
+```
 
 ### Arguments
 
@@ -105,7 +114,10 @@ This operation is performed by calling function `updateGroupById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-groups-id/).
 
-*Currently we don't have an example for calling `updateGroupById` in integration tests*
+<!-- sample put_groups_id -->
+```
+client.getGroups().updateGroupById(group.getId(), new UpdateGroupByIdRequestBody.UpdateGroupByIdRequestBodyBuilder().name(updatedGroupName).build())
+```
 
 ### Arguments
 
@@ -136,7 +148,10 @@ This operation is performed by calling function `deleteGroupById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-groups-id/).
 
-*Currently we don't have an example for calling `deleteGroupById` in integration tests*
+<!-- sample delete_groups_id -->
+```
+client.getGroups().deleteGroupById(group.getId())
+```
 
 ### Arguments
 

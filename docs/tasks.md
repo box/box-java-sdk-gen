@@ -17,7 +17,10 @@ This operation is performed by calling function `getFileTasks`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-tasks/).
 
-*Currently we don't have an example for calling `getFileTasks` in integration tests*
+<!-- sample get_files_id_tasks -->
+```
+client.getTasks().getFileTasks(file.getId())
+```
 
 ### Arguments
 
@@ -47,7 +50,10 @@ This operation is performed by calling function `createTask`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-tasks/).
 
-*Currently we don't have an example for calling `createTask` in integration tests*
+<!-- sample post_tasks -->
+```
+client.getTasks().createTask(new CreateTaskRequestBody.CreateTaskRequestBodyBuilder(new CreateTaskRequestBodyItemField.CreateTaskRequestBodyItemFieldBuilder().id(file.getId()).type(CreateTaskRequestBodyItemTypeField.FILE).build()).action(CreateTaskRequestBodyActionField.REVIEW).message("test message").dueAt(date).completionRule(CreateTaskRequestBodyCompletionRuleField.ALL_ASSIGNEES).build())
+```
 
 ### Arguments
 
@@ -73,7 +79,10 @@ This operation is performed by calling function `getTaskById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-tasks-id/).
 
-*Currently we don't have an example for calling `getTaskById` in integration tests*
+<!-- sample get_tasks_id -->
+```
+client.getTasks().getTaskById(task.getId())
+```
 
 ### Arguments
 
@@ -100,7 +109,10 @@ This operation is performed by calling function `updateTaskById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-tasks-id/).
 
-*Currently we don't have an example for calling `updateTaskById` in integration tests*
+<!-- sample put_tasks_id -->
+```
+client.getTasks().updateTaskById(task.getId(), new UpdateTaskByIdRequestBody.UpdateTaskByIdRequestBodyBuilder().message("updated message").build())
+```
 
 ### Arguments
 
@@ -128,7 +140,10 @@ This operation is performed by calling function `deleteTaskById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-tasks-id/).
 
-*Currently we don't have an example for calling `deleteTaskById` in integration tests*
+<!-- sample delete_tasks_id -->
+```
+client.getTasks().deleteTaskById(task.getId())
+```
 
 ### Arguments
 

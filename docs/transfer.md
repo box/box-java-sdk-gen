@@ -44,7 +44,10 @@ This operation is performed by calling function `transferOwnedFolder`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-users-id-folders-0/).
 
-*Currently we don't have an example for calling `transferOwnedFolder` in integration tests*
+<!-- sample put_users_id_folders_0 -->
+```
+client.getTransfer().transferOwnedFolder(newUser.getId(), new TransferOwnedFolderRequestBody(new TransferOwnedFolderRequestBodyOwnedByField(currentUser.getId())), new TransferOwnedFolderQueryParams.TransferOwnedFolderQueryParamsBuilder().notify(false).build())
+```
 
 ### Arguments
 

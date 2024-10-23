@@ -1,13 +1,22 @@
 package com.box.sdkgen.internal.utils;
 
+import com.box.sdkgen.serialization.json.EnumWrapper;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class UtilsManager {
@@ -41,6 +50,9 @@ public class UtilsManager {
     if (value == null) {
       return null;
     }
+    if (value instanceof EnumWrapper) {
+      return ((EnumWrapper<?>) value).getStringValue();
+    }
     if (value instanceof List) {
       return ((List<?>) value)
           .stream().map(UtilsManager::convertToString).collect(Collectors.joining(","));
@@ -65,6 +77,103 @@ public class UtilsManager {
       } catch (IOException e) {
         throw new RuntimeException(e);
       }
+    }
+  }
+
+  public static String getUuid() {
+    return UUID.randomUUID().toString();
+  }
+
+  public static byte[] generateByteBuffer(int size) {
+    byte[] bytes = new byte[size];
+    Arrays.fill(bytes, (byte) 0);
+    return bytes;
+  }
+
+  public static InputStream generateByteStream(int size) {
+    byte[] bytes = generateByteBuffer(size);
+    return new ByteArrayInputStream(bytes);
+  }
+
+  public static InputStream generateByteStreamFromBuffer(byte[] buffer) {
+    return new ByteArrayInputStream(buffer);
+  }
+
+  public static byte[] readByteStream(InputStream inputStream) {
+    ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+    byte[] data = new byte[BUFFER_SIZE];
+    int bytesRead;
+    try {
+      while ((bytesRead = inputStream.read(data, 0, data.length)) != -1) {
+        buffer.write(data, 0, bytesRead);
+      }
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    } finally {
+      try {
+        inputStream.close();
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
+    }
+
+    return buffer.toByteArray();
+  }
+
+  public static boolean bufferEquals(byte[] buffer1, byte[] buffer2) {
+    return Arrays.equals(buffer1, buffer2);
+  }
+
+  public static int bufferLength(byte[] buffer) {
+    return buffer.length;
+  }
+
+  public static InputStream decodeBase64ByteStream(String value) {
+    return new ByteArrayInputStream(Base64.getDecoder().decode(value));
+  }
+
+  public static String decodeBase64(String value) {
+    return new String(Base64.getDecoder().decode(value));
+  }
+
+  public static InputStream stringToByteStream(String value) {
+    return new ByteArrayInputStream(value.getBytes());
+  }
+
+  public static OutputStream getFileOutputStream(String filePath) {
+    try {
+      return new FileOutputStream(filePath);
+    } catch (FileNotFoundException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  public static void closeFileOutputStream(OutputStream outputStream) {
+    try {
+      outputStream.close();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  public static byte[] readBufferFromFile(String filePath) {
+    try {
+      InputStream inputStream = Files.newInputStream(Paths.get(filePath));
+      return readByteStream(inputStream);
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  public static String getEnvVar(String envVar) {
+    return System.getenv(envVar);
+  }
+
+  public static void delayInSeconds(int seconds) {
+    try {
+      Thread.sleep(seconds * 1000L);
+    } catch (InterruptedException e) {
+      throw new RuntimeException(e);
     }
   }
 }

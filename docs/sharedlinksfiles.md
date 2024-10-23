@@ -25,7 +25,10 @@ This operation is performed by calling function `findFileForSharedLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shared-items/).
 
-*Currently we don't have an example for calling `findFileForSharedLink` in integration tests*
+<!-- sample get_shared_items -->
+```
+userClient.getSharedLinksFiles().findFileForSharedLink(new FindFileForSharedLinkQueryParams(), new FindFileForSharedLinkHeaders(String.join("", "shared_link=", fileFromApi.getSharedLink().getUrl(), "&shared_link_password=incorrectPassword")))
+```
 
 ### Arguments
 
@@ -52,7 +55,10 @@ This operation is performed by calling function `getSharedLinkForFile`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-get-shared-link/).
 
-*Currently we don't have an example for calling `getSharedLinkForFile` in integration tests*
+<!-- sample get_files_id#get_shared_link -->
+```
+client.getSharedLinksFiles().getSharedLinkForFile(fileId, new GetSharedLinkForFileQueryParams("shared_link"))
+```
 
 ### Arguments
 
@@ -81,7 +87,10 @@ This operation is performed by calling function `addShareLinkToFile`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-add-shared-link/).
 
-*Currently we don't have an example for calling `addShareLinkToFile` in integration tests*
+<!-- sample put_files_id#add_shared_link -->
+```
+client.getSharedLinksFiles().addShareLinkToFile(fileId, new AddShareLinkToFileRequestBody.AddShareLinkToFileRequestBodyBuilder().sharedLink(new AddShareLinkToFileRequestBodySharedLinkField.AddShareLinkToFileRequestBodySharedLinkFieldBuilder().access(AddShareLinkToFileRequestBodySharedLinkAccessField.OPEN).password("Secret123@").build()).build(), new AddShareLinkToFileQueryParams("shared_link"))
+```
 
 ### Arguments
 
@@ -112,7 +121,10 @@ This operation is performed by calling function `updateSharedLinkOnFile`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-update-shared-link/).
 
-*Currently we don't have an example for calling `updateSharedLinkOnFile` in integration tests*
+<!-- sample put_files_id#update_shared_link -->
+```
+client.getSharedLinksFiles().updateSharedLinkOnFile(fileId, new UpdateSharedLinkOnFileRequestBody.UpdateSharedLinkOnFileRequestBodyBuilder().sharedLink(new UpdateSharedLinkOnFileRequestBodySharedLinkField.UpdateSharedLinkOnFileRequestBodySharedLinkFieldBuilder().access(UpdateSharedLinkOnFileRequestBodySharedLinkAccessField.COLLABORATORS).build()).build(), new UpdateSharedLinkOnFileQueryParams("shared_link"))
+```
 
 ### Arguments
 

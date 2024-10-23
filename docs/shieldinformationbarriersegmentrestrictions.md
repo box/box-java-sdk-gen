@@ -16,7 +16,10 @@ This operation is performed by calling function `getShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segment-restrictions-id/).
 
-*Currently we don't have an example for calling `getShieldInformationBarrierSegmentRestrictionById` in integration tests*
+<!-- sample get_shield_information_barrier_segment_restrictions_id -->
+```
+client.getShieldInformationBarrierSegmentRestrictions().getShieldInformationBarrierSegmentRestrictionById(segmentRestrictionId)
+```
 
 ### Arguments
 
@@ -44,7 +47,10 @@ This operation is performed by calling function `deleteShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-shield-information-barrier-segment-restrictions-id/).
 
-*Currently we don't have an example for calling `deleteShieldInformationBarrierSegmentRestrictionById` in integration tests*
+<!-- sample delete_shield_information_barrier_segment_restrictions_id -->
+```
+client.getShieldInformationBarrierSegmentRestrictions().deleteShieldInformationBarrierSegmentRestrictionById(segmentRestrictionId)
+```
 
 ### Arguments
 
@@ -71,7 +77,10 @@ This operation is performed by calling function `getShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segment-restrictions/).
 
-*Currently we don't have an example for calling `getShieldInformationBarrierSegmentRestrictions` in integration tests*
+<!-- sample get_shield_information_barrier_segment_restrictions -->
+```
+client.getShieldInformationBarrierSegmentRestrictions().getShieldInformationBarrierSegmentRestrictions(new GetShieldInformationBarrierSegmentRestrictionsQueryParams(segmentId))
+```
 
 ### Arguments
 
@@ -99,7 +108,10 @@ This operation is performed by calling function `createShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barrier-segment-restrictions/).
 
-*Currently we don't have an example for calling `createShieldInformationBarrierSegmentRestriction` in integration tests*
+<!-- sample post_shield_information_barrier_segment_restrictions -->
+```
+client.getShieldInformationBarrierSegmentRestrictions().createShieldInformationBarrierSegmentRestriction(new CreateShieldInformationBarrierSegmentRestrictionRequestBody.CreateShieldInformationBarrierSegmentRestrictionRequestBodyBuilder(new CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField.CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentFieldBuilder().id(segmentId).type(CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentTypeField.SHIELD_INFORMATION_BARRIER_SEGMENT).build(), new CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentField.CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentFieldBuilder().id(segmentToRestrictId).type(CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentTypeField.SHIELD_INFORMATION_BARRIER_SEGMENT).build()).type(CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField.SHIELD_INFORMATION_BARRIER_SEGMENT_RESTRICTION).build())
+```
 
 ### Arguments
 

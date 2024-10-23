@@ -17,7 +17,10 @@ This operation is performed by calling function `getFileCollaborations`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-collaborations/).
 
-*Currently we don't have an example for calling `getFileCollaborations` in integration tests*
+<!-- sample get_files_id_collaborations -->
+```
+client.getListCollaborations().getFileCollaborations(file.getId())
+```
 
 ### Arguments
 
@@ -52,7 +55,10 @@ This operation is performed by calling function `getFolderCollaborations`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-collaborations/).
 
-*Currently we don't have an example for calling `getFolderCollaborations` in integration tests*
+<!-- sample get_folders_id_collaborations -->
+```
+client.getListCollaborations().getFolderCollaborations(folder.getId())
+```
 
 ### Arguments
 
@@ -85,7 +91,10 @@ This operation is performed by calling function `getCollaborations`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-collaborations/).
 
-*Currently we don't have an example for calling `getCollaborations` in integration tests*
+<!-- sample get_collaborations -->
+```
+client.getListCollaborations().getCollaborations(new GetCollaborationsQueryParams(GetCollaborationsQueryParamsStatusField.PENDING))
+```
 
 ### Arguments
 
@@ -118,7 +127,10 @@ This operation is performed by calling function `getGroupCollaborations`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-groups-id-collaborations/).
 
-*Currently we don't have an example for calling `getGroupCollaborations` in integration tests*
+<!-- sample get_groups_id_collaborations -->
+```
+client.getListCollaborations().getGroupCollaborations(group.getId())
+```
 
 ### Arguments
 

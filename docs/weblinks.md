@@ -15,7 +15,10 @@ This operation is performed by calling function `createWebLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-web-links/).
 
-*Currently we don't have an example for calling `createWebLink` in integration tests*
+<!-- sample post_web_links -->
+```
+client.getWebLinks().createWebLink(new CreateWebLinkRequestBody.CreateWebLinkRequestBodyBuilder("https://www.box.com", new CreateWebLinkRequestBodyParentField(parent.getId())).name(getUuid()).description("Weblink description").build())
+```
 
 ### Arguments
 
@@ -41,7 +44,10 @@ This operation is performed by calling function `getWebLinkById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-web-links-id/).
 
-*Currently we don't have an example for calling `getWebLinkById` in integration tests*
+<!-- sample get_web_links_id -->
+```
+client.getWebLinks().getWebLinkById(weblink.getId())
+```
 
 ### Arguments
 
@@ -67,7 +73,10 @@ This operation is performed by calling function `updateWebLinkById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-web-links-id/).
 
-*Currently we don't have an example for calling `updateWebLinkById` in integration tests*
+<!-- sample put_web_links_id -->
+```
+client.getWebLinks().updateWebLinkById(weblink.getId(), new UpdateWebLinkByIdRequestBody.UpdateWebLinkByIdRequestBodyBuilder().name(updatedName).sharedLink(new UpdateWebLinkByIdRequestBodySharedLinkField.UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder().access(UpdateWebLinkByIdRequestBodySharedLinkAccessField.OPEN).password(password).build()).build())
+```
 
 ### Arguments
 
@@ -95,7 +104,10 @@ This operation is performed by calling function `deleteWebLinkById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-web-links-id/).
 
-*Currently we don't have an example for calling `deleteWebLinkById` in integration tests*
+<!-- sample delete_web_links_id -->
+```
+client.getWebLinks().deleteWebLinkById(webLinkId)
+```
 
 ### Arguments
 

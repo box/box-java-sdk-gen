@@ -16,7 +16,10 @@ This operation is performed by calling function `terminateUsersSessions`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-users-terminate-sessions/).
 
-*Currently we don't have an example for calling `terminateUsersSessions` in integration tests*
+<!-- sample post_users_terminate_sessions -->
+```
+client.getSessionTermination().terminateUsersSessions(new TerminateUsersSessionsRequestBody(Arrays.asList(getEnvVar("USER_ID")), Arrays.asList(user.getLogin())))
+```
 
 ### Arguments
 
@@ -45,7 +48,10 @@ This operation is performed by calling function `terminateGroupsSessions`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-groups-terminate-sessions/).
 
-*Currently we don't have an example for calling `terminateGroupsSessions` in integration tests*
+<!-- sample post_groups_terminate_sessions -->
+```
+client.getSessionTermination().terminateGroupsSessions(new TerminateGroupsSessionsRequestBody(Arrays.asList(group.getId())))
+```
 
 ### Arguments
 

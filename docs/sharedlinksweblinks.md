@@ -22,7 +22,10 @@ This operation is performed by calling function `findWebLinkForSharedLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shared-items-web-links/).
 
-*Currently we don't have an example for calling `findWebLinkForSharedLink` in integration tests*
+<!-- sample get_shared_items#web_links -->
+```
+userClient.getSharedLinksWebLinks().findWebLinkForSharedLink(new FindWebLinkForSharedLinkQueryParams(), new FindWebLinkForSharedLinkHeaders(String.join("", "shared_link=", webLinkFromApi.getSharedLink().getUrl(), "&shared_link_password=incorrectPassword")))
+```
 
 ### Arguments
 
@@ -49,7 +52,10 @@ This operation is performed by calling function `getSharedLinkForWebLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-web-links-id-get-shared-link/).
 
-*Currently we don't have an example for calling `getSharedLinkForWebLink` in integration tests*
+<!-- sample get_web_links_id#get_shared_link -->
+```
+client.getSharedLinksWebLinks().getSharedLinkForWebLink(webLinkId, new GetSharedLinkForWebLinkQueryParams("shared_link"))
+```
 
 ### Arguments
 
@@ -78,7 +84,10 @@ This operation is performed by calling function `addShareLinkToWebLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-web-links-id-add-shared-link/).
 
-*Currently we don't have an example for calling `addShareLinkToWebLink` in integration tests*
+<!-- sample put_web_links_id#add_shared_link -->
+```
+client.getSharedLinksWebLinks().addShareLinkToWebLink(webLinkId, new AddShareLinkToWebLinkRequestBody.AddShareLinkToWebLinkRequestBodyBuilder().sharedLink(new AddShareLinkToWebLinkRequestBodySharedLinkField.AddShareLinkToWebLinkRequestBodySharedLinkFieldBuilder().access(AddShareLinkToWebLinkRequestBodySharedLinkAccessField.OPEN).password("Secret123@").build()).build(), new AddShareLinkToWebLinkQueryParams("shared_link"))
+```
 
 ### Arguments
 
@@ -109,7 +118,10 @@ This operation is performed by calling function `updateSharedLinkOnWebLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-web-links-id-update-shared-link/).
 
-*Currently we don't have an example for calling `updateSharedLinkOnWebLink` in integration tests*
+<!-- sample put_web_links_id#update_shared_link -->
+```
+client.getSharedLinksWebLinks().updateSharedLinkOnWebLink(webLinkId, new UpdateSharedLinkOnWebLinkRequestBody.UpdateSharedLinkOnWebLinkRequestBodyBuilder().sharedLink(new UpdateSharedLinkOnWebLinkRequestBodySharedLinkField.UpdateSharedLinkOnWebLinkRequestBodySharedLinkFieldBuilder().access(UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField.COLLABORATORS).build()).build(), new UpdateSharedLinkOnWebLinkQueryParams("shared_link"))
+```
 
 ### Arguments
 
