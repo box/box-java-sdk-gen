@@ -31,11 +31,11 @@ public class SharedLinksWebLinksManager {
   }
 
   public WebLink findWebLinkForSharedLink(FindWebLinkForSharedLinkHeaders headers) {
-    return findWebLinkForSharedLink(headers, new FindWebLinkForSharedLinkQueryParams());
+    return findWebLinkForSharedLink(new FindWebLinkForSharedLinkQueryParams(), headers);
   }
 
   public WebLink findWebLinkForSharedLink(
-      FindWebLinkForSharedLinkHeaders headers, FindWebLinkForSharedLinkQueryParams queryParams) {
+      FindWebLinkForSharedLinkQueryParams queryParams, FindWebLinkForSharedLinkHeaders headers) {
     Map<String, String> queryParamsMap =
         prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));
     Map<String, String> headersMap =
@@ -97,17 +97,17 @@ public class SharedLinksWebLinksManager {
       String webLinkId, AddShareLinkToWebLinkQueryParams queryParams) {
     return addShareLinkToWebLink(
         webLinkId,
-        queryParams,
         new AddShareLinkToWebLinkRequestBody(),
+        queryParams,
         new AddShareLinkToWebLinkHeaders());
   }
 
   public WebLink addShareLinkToWebLink(
       String webLinkId,
-      AddShareLinkToWebLinkQueryParams queryParams,
-      AddShareLinkToWebLinkRequestBody requestBody) {
+      AddShareLinkToWebLinkRequestBody requestBody,
+      AddShareLinkToWebLinkQueryParams queryParams) {
     return addShareLinkToWebLink(
-        webLinkId, queryParams, requestBody, new AddShareLinkToWebLinkHeaders());
+        webLinkId, requestBody, queryParams, new AddShareLinkToWebLinkHeaders());
   }
 
   public WebLink addShareLinkToWebLink(
@@ -115,13 +115,13 @@ public class SharedLinksWebLinksManager {
       AddShareLinkToWebLinkQueryParams queryParams,
       AddShareLinkToWebLinkHeaders headers) {
     return addShareLinkToWebLink(
-        webLinkId, queryParams, new AddShareLinkToWebLinkRequestBody(), headers);
+        webLinkId, new AddShareLinkToWebLinkRequestBody(), queryParams, headers);
   }
 
   public WebLink addShareLinkToWebLink(
       String webLinkId,
-      AddShareLinkToWebLinkQueryParams queryParams,
       AddShareLinkToWebLinkRequestBody requestBody,
+      AddShareLinkToWebLinkQueryParams queryParams,
       AddShareLinkToWebLinkHeaders headers) {
     Map<String, String> queryParamsMap =
         prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));
@@ -151,17 +151,17 @@ public class SharedLinksWebLinksManager {
       String webLinkId, UpdateSharedLinkOnWebLinkQueryParams queryParams) {
     return updateSharedLinkOnWebLink(
         webLinkId,
-        queryParams,
         new UpdateSharedLinkOnWebLinkRequestBody(),
+        queryParams,
         new UpdateSharedLinkOnWebLinkHeaders());
   }
 
   public WebLink updateSharedLinkOnWebLink(
       String webLinkId,
-      UpdateSharedLinkOnWebLinkQueryParams queryParams,
-      UpdateSharedLinkOnWebLinkRequestBody requestBody) {
+      UpdateSharedLinkOnWebLinkRequestBody requestBody,
+      UpdateSharedLinkOnWebLinkQueryParams queryParams) {
     return updateSharedLinkOnWebLink(
-        webLinkId, queryParams, requestBody, new UpdateSharedLinkOnWebLinkHeaders());
+        webLinkId, requestBody, queryParams, new UpdateSharedLinkOnWebLinkHeaders());
   }
 
   public WebLink updateSharedLinkOnWebLink(
@@ -169,13 +169,13 @@ public class SharedLinksWebLinksManager {
       UpdateSharedLinkOnWebLinkQueryParams queryParams,
       UpdateSharedLinkOnWebLinkHeaders headers) {
     return updateSharedLinkOnWebLink(
-        webLinkId, queryParams, new UpdateSharedLinkOnWebLinkRequestBody(), headers);
+        webLinkId, new UpdateSharedLinkOnWebLinkRequestBody(), queryParams, headers);
   }
 
   public WebLink updateSharedLinkOnWebLink(
       String webLinkId,
-      UpdateSharedLinkOnWebLinkQueryParams queryParams,
       UpdateSharedLinkOnWebLinkRequestBody requestBody,
+      UpdateSharedLinkOnWebLinkQueryParams queryParams,
       UpdateSharedLinkOnWebLinkHeaders headers) {
     Map<String, String> queryParamsMap =
         prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));
@@ -205,17 +205,17 @@ public class SharedLinksWebLinksManager {
       String webLinkId, RemoveSharedLinkFromWebLinkQueryParams queryParams) {
     return removeSharedLinkFromWebLink(
         webLinkId,
-        queryParams,
         new RemoveSharedLinkFromWebLinkRequestBody(),
+        queryParams,
         new RemoveSharedLinkFromWebLinkHeaders());
   }
 
   public WebLink removeSharedLinkFromWebLink(
       String webLinkId,
-      RemoveSharedLinkFromWebLinkQueryParams queryParams,
-      RemoveSharedLinkFromWebLinkRequestBody requestBody) {
+      RemoveSharedLinkFromWebLinkRequestBody requestBody,
+      RemoveSharedLinkFromWebLinkQueryParams queryParams) {
     return removeSharedLinkFromWebLink(
-        webLinkId, queryParams, requestBody, new RemoveSharedLinkFromWebLinkHeaders());
+        webLinkId, requestBody, queryParams, new RemoveSharedLinkFromWebLinkHeaders());
   }
 
   public WebLink removeSharedLinkFromWebLink(
@@ -223,13 +223,13 @@ public class SharedLinksWebLinksManager {
       RemoveSharedLinkFromWebLinkQueryParams queryParams,
       RemoveSharedLinkFromWebLinkHeaders headers) {
     return removeSharedLinkFromWebLink(
-        webLinkId, queryParams, new RemoveSharedLinkFromWebLinkRequestBody(), headers);
+        webLinkId, new RemoveSharedLinkFromWebLinkRequestBody(), queryParams, headers);
   }
 
   public WebLink removeSharedLinkFromWebLink(
       String webLinkId,
-      RemoveSharedLinkFromWebLinkQueryParams queryParams,
       RemoveSharedLinkFromWebLinkRequestBody requestBody,
+      RemoveSharedLinkFromWebLinkQueryParams queryParams,
       RemoveSharedLinkFromWebLinkHeaders headers) {
     Map<String, String> queryParamsMap =
         prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));

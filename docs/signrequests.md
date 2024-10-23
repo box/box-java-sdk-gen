@@ -16,7 +16,10 @@ This operation is performed by calling function `cancelSignRequest`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-sign-requests-id-cancel/).
 
-*Currently we don't have an example for calling `cancelSignRequest` in integration tests*
+<!-- sample post_sign_requests_id_cancel -->
+```
+client.getSignRequests().cancelSignRequest(createdSignRequest.getId())
+```
 
 ### Arguments
 
@@ -69,7 +72,10 @@ This operation is performed by calling function `getSignRequestById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-sign-requests-id/).
 
-*Currently we don't have an example for calling `getSignRequestById` in integration tests*
+<!-- sample get_sign_requests_id -->
+```
+client.getSignRequests().getSignRequestById(createdSignRequest.getId())
+```
 
 ### Arguments
 
@@ -96,7 +102,10 @@ This operation is performed by calling function `getSignRequests`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-sign-requests/).
 
-*Currently we don't have an example for calling `getSignRequests` in integration tests*
+<!-- sample get_sign_requests -->
+```
+client.getSignRequests().getSignRequests()
+```
 
 ### Arguments
 
@@ -123,7 +132,10 @@ This operation is performed by calling function `createSignRequest`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-sign-requests/).
 
-*Currently we don't have an example for calling `createSignRequest` in integration tests*
+<!-- sample post_sign_requests -->
+```
+client.getSignRequests().createSignRequest(new SignRequestCreateRequest.SignRequestCreateRequestBuilder(Arrays.asList(new SignRequestCreateSigner.SignRequestCreateSignerBuilder().email(signer1Email).signerGroupId("user").build(), new SignRequestCreateSigner.SignRequestCreateSignerBuilder().email(signer2Email).signerGroupId("user").build())).sourceFiles(Arrays.asList(new FileBase(fileToSign.getId()))).parentFolder(new FolderMini(destinationFolder.getId())).build())
+```
 
 ### Arguments
 

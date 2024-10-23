@@ -19,7 +19,10 @@ This operation is performed by calling function `getUserMemberships`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-users-id-memberships/).
 
-*Currently we don't have an example for calling `getUserMemberships` in integration tests*
+<!-- sample get_users_id_memberships -->
+```
+client.getMemberships().getUserMemberships(user.getId())
+```
 
 ### Arguments
 
@@ -50,7 +53,10 @@ This operation is performed by calling function `getGroupMemberships`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-groups-id-memberships/).
 
-*Currently we don't have an example for calling `getGroupMemberships` in integration tests*
+<!-- sample get_groups_id_memberships -->
+```
+client.getMemberships().getGroupMemberships(group.getId())
+```
 
 ### Arguments
 
@@ -80,7 +86,10 @@ This operation is performed by calling function `createGroupMembership`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-group-memberships/).
 
-*Currently we don't have an example for calling `createGroupMembership` in integration tests*
+<!-- sample post_group_memberships -->
+```
+client.getMemberships().createGroupMembership(new CreateGroupMembershipRequestBody(new CreateGroupMembershipRequestBodyUserField(user.getId()), new CreateGroupMembershipRequestBodyGroupField(group.getId())))
+```
 
 ### Arguments
 
@@ -110,7 +119,10 @@ This operation is performed by calling function `getGroupMembershipById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-group-memberships-id/).
 
-*Currently we don't have an example for calling `getGroupMembershipById` in integration tests*
+<!-- sample get_group_memberships_id -->
+```
+client.getMemberships().getGroupMembershipById(groupMembership.getId())
+```
 
 ### Arguments
 
@@ -140,7 +152,10 @@ This operation is performed by calling function `updateGroupMembershipById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-group-memberships-id/).
 
-*Currently we don't have an example for calling `updateGroupMembershipById` in integration tests*
+<!-- sample put_group_memberships_id -->
+```
+client.getMemberships().updateGroupMembershipById(groupMembership.getId(), new UpdateGroupMembershipByIdRequestBody.UpdateGroupMembershipByIdRequestBodyBuilder().role(UpdateGroupMembershipByIdRequestBodyRoleField.ADMIN).build())
+```
 
 ### Arguments
 
@@ -172,7 +187,10 @@ This operation is performed by calling function `deleteGroupMembershipById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-group-memberships-id/).
 
-*Currently we don't have an example for calling `deleteGroupMembershipById` in integration tests*
+<!-- sample delete_group_memberships_id -->
+```
+client.getMemberships().deleteGroupMembershipById(groupMembership.getId())
+```
 
 ### Arguments
 

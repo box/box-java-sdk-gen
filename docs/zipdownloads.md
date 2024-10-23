@@ -30,7 +30,10 @@ This operation is performed by calling function `createZipDownload`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-zip-downloads/).
 
-*Currently we don't have an example for calling `createZipDownload` in integration tests*
+<!-- sample post_zip_downloads -->
+```
+client.getZipDownloads().createZipDownload(new ZipDownloadRequest.ZipDownloadRequestBuilder(Arrays.asList(new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FILE, file1.getId()), new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FILE, file2.getId()), new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FOLDER, folder1.getId()))).downloadFileName("zip").build())
+```
 
 ### Arguments
 
@@ -70,7 +73,10 @@ This operation is performed by calling function `getZipDownloadContent`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-zip-downloads-id-content/).
 
-*Currently we don't have an example for calling `getZipDownloadContent` in integration tests*
+<!-- sample get_zip_downloads_id_content -->
+```
+client.getZipDownloads().getZipDownloadContent(zipDownload.getDownloadUrl())
+```
 
 ### Arguments
 
@@ -108,7 +114,10 @@ This operation is performed by calling function `getZipDownloadStatus`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-zip-downloads-id-status/).
 
-*Currently we don't have an example for calling `getZipDownloadStatus` in integration tests*
+<!-- sample get_zip_downloads_id_status -->
+```
+client.getZipDownloads().getZipDownloadStatus(zipDownload.getStatusUrl())
+```
 
 ### Arguments
 
@@ -132,7 +141,10 @@ Creates a zip and downloads its content
 This operation is performed by calling function `downloadZip`.
 
 
-*Currently we don't have an example for calling `downloadZip` in integration tests*
+
+```
+client.getZipDownloads().downloadZip(new ZipDownloadRequest.ZipDownloadRequestBuilder(Arrays.asList(new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FILE, file1.getId()), new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FILE, file2.getId()), new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FOLDER, folder1.getId()))).downloadFileName("zip").build())
+```
 
 ### Arguments
 

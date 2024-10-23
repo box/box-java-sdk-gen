@@ -14,7 +14,10 @@ This operation is performed by calling function `getShieldInformationBarrierRepo
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-reports/).
 
-*Currently we don't have an example for calling `getShieldInformationBarrierReports` in integration tests*
+<!-- sample get_shield_information_barrier_reports -->
+```
+client.getShieldInformationBarrierReports().getShieldInformationBarrierReports(new GetShieldInformationBarrierReportsQueryParams(barrierId))
+```
 
 ### Arguments
 
@@ -40,7 +43,10 @@ This operation is performed by calling function `createShieldInformationBarrierR
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barrier-reports/).
 
-*Currently we don't have an example for calling `createShieldInformationBarrierReport` in integration tests*
+<!-- sample post_shield_information_barrier_reports -->
+```
+client.getShieldInformationBarrierReports().createShieldInformationBarrierReport(new ShieldInformationBarrierReference.ShieldInformationBarrierReferenceBuilder().shieldInformationBarrier(new ShieldInformationBarrierBase.ShieldInformationBarrierBaseBuilder().id(barrierId).type(ShieldInformationBarrierBaseTypeField.SHIELD_INFORMATION_BARRIER).build()).build())
+```
 
 ### Arguments
 
@@ -66,7 +72,10 @@ This operation is performed by calling function `getShieldInformationBarrierRepo
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-reports-id/).
 
-*Currently we don't have an example for calling `getShieldInformationBarrierReportById` in integration tests*
+<!-- sample get_shield_information_barrier_reports_id -->
+```
+client.getShieldInformationBarrierReports().getShieldInformationBarrierReportById(createdReport.getId())
+```
 
 ### Arguments
 

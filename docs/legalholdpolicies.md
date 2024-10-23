@@ -17,7 +17,10 @@ This operation is performed by calling function `getLegalHoldPolicies`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-legal-hold-policies/).
 
-*Currently we don't have an example for calling `getLegalHoldPolicies` in integration tests*
+<!-- sample get_legal_hold_policies -->
+```
+client.getLegalHoldPolicies().getLegalHoldPolicies()
+```
 
 ### Arguments
 
@@ -43,7 +46,10 @@ This operation is performed by calling function `createLegalHoldPolicy`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-legal-hold-policies/).
 
-*Currently we don't have an example for calling `createLegalHoldPolicy` in integration tests*
+<!-- sample post_legal_hold_policies -->
+```
+client.getLegalHoldPolicies().createLegalHoldPolicy(new CreateLegalHoldPolicyRequestBody.CreateLegalHoldPolicyRequestBodyBuilder(legalHoldPolicyName).description(legalHoldDescription).filterStartedAt(filterStartedAt).filterEndedAt(filterEndedAt).isOngoing(false).build())
+```
 
 ### Arguments
 
@@ -69,7 +75,10 @@ This operation is performed by calling function `getLegalHoldPolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-legal-hold-policies-id/).
 
-*Currently we don't have an example for calling `getLegalHoldPolicyById` in integration tests*
+<!-- sample get_legal_hold_policies_id -->
+```
+client.getLegalHoldPolicies().getLegalHoldPolicyById(legalHoldPolicyId)
+```
 
 ### Arguments
 
@@ -95,7 +104,10 @@ This operation is performed by calling function `updateLegalHoldPolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-legal-hold-policies-id/).
 
-*Currently we don't have an example for calling `updateLegalHoldPolicyById` in integration tests*
+<!-- sample put_legal_hold_policies_id -->
+```
+client.getLegalHoldPolicies().updateLegalHoldPolicyById(legalHoldPolicyId, new UpdateLegalHoldPolicyByIdRequestBody.UpdateLegalHoldPolicyByIdRequestBodyBuilder().policyName(updatedLegalHoldPolicyName).build())
+```
 
 ### Arguments
 
@@ -126,7 +138,10 @@ This operation is performed by calling function `deleteLegalHoldPolicyById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-legal-hold-policies-id/).
 
-*Currently we don't have an example for calling `deleteLegalHoldPolicyById` in integration tests*
+<!-- sample delete_legal_hold_policies_id -->
+```
+client.getLegalHoldPolicies().deleteLegalHoldPolicyById(legalHoldPolicy.getId())
+```
 
 ### Arguments
 

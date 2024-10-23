@@ -31,11 +31,11 @@ public class SharedLinksFoldersManager {
   }
 
   public FolderFull findFolderForSharedLink(FindFolderForSharedLinkHeaders headers) {
-    return findFolderForSharedLink(headers, new FindFolderForSharedLinkQueryParams());
+    return findFolderForSharedLink(new FindFolderForSharedLinkQueryParams(), headers);
   }
 
   public FolderFull findFolderForSharedLink(
-      FindFolderForSharedLinkHeaders headers, FindFolderForSharedLinkQueryParams queryParams) {
+      FindFolderForSharedLinkQueryParams queryParams, FindFolderForSharedLinkHeaders headers) {
     Map<String, String> queryParamsMap =
         prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));
     Map<String, String> headersMap =
@@ -97,17 +97,17 @@ public class SharedLinksFoldersManager {
       String folderId, AddShareLinkToFolderQueryParams queryParams) {
     return addShareLinkToFolder(
         folderId,
-        queryParams,
         new AddShareLinkToFolderRequestBody(),
+        queryParams,
         new AddShareLinkToFolderHeaders());
   }
 
   public FolderFull addShareLinkToFolder(
       String folderId,
-      AddShareLinkToFolderQueryParams queryParams,
-      AddShareLinkToFolderRequestBody requestBody) {
+      AddShareLinkToFolderRequestBody requestBody,
+      AddShareLinkToFolderQueryParams queryParams) {
     return addShareLinkToFolder(
-        folderId, queryParams, requestBody, new AddShareLinkToFolderHeaders());
+        folderId, requestBody, queryParams, new AddShareLinkToFolderHeaders());
   }
 
   public FolderFull addShareLinkToFolder(
@@ -115,13 +115,13 @@ public class SharedLinksFoldersManager {
       AddShareLinkToFolderQueryParams queryParams,
       AddShareLinkToFolderHeaders headers) {
     return addShareLinkToFolder(
-        folderId, queryParams, new AddShareLinkToFolderRequestBody(), headers);
+        folderId, new AddShareLinkToFolderRequestBody(), queryParams, headers);
   }
 
   public FolderFull addShareLinkToFolder(
       String folderId,
-      AddShareLinkToFolderQueryParams queryParams,
       AddShareLinkToFolderRequestBody requestBody,
+      AddShareLinkToFolderQueryParams queryParams,
       AddShareLinkToFolderHeaders headers) {
     Map<String, String> queryParamsMap =
         prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));
@@ -151,17 +151,17 @@ public class SharedLinksFoldersManager {
       String folderId, UpdateSharedLinkOnFolderQueryParams queryParams) {
     return updateSharedLinkOnFolder(
         folderId,
-        queryParams,
         new UpdateSharedLinkOnFolderRequestBody(),
+        queryParams,
         new UpdateSharedLinkOnFolderHeaders());
   }
 
   public FolderFull updateSharedLinkOnFolder(
       String folderId,
-      UpdateSharedLinkOnFolderQueryParams queryParams,
-      UpdateSharedLinkOnFolderRequestBody requestBody) {
+      UpdateSharedLinkOnFolderRequestBody requestBody,
+      UpdateSharedLinkOnFolderQueryParams queryParams) {
     return updateSharedLinkOnFolder(
-        folderId, queryParams, requestBody, new UpdateSharedLinkOnFolderHeaders());
+        folderId, requestBody, queryParams, new UpdateSharedLinkOnFolderHeaders());
   }
 
   public FolderFull updateSharedLinkOnFolder(
@@ -169,13 +169,13 @@ public class SharedLinksFoldersManager {
       UpdateSharedLinkOnFolderQueryParams queryParams,
       UpdateSharedLinkOnFolderHeaders headers) {
     return updateSharedLinkOnFolder(
-        folderId, queryParams, new UpdateSharedLinkOnFolderRequestBody(), headers);
+        folderId, new UpdateSharedLinkOnFolderRequestBody(), queryParams, headers);
   }
 
   public FolderFull updateSharedLinkOnFolder(
       String folderId,
-      UpdateSharedLinkOnFolderQueryParams queryParams,
       UpdateSharedLinkOnFolderRequestBody requestBody,
+      UpdateSharedLinkOnFolderQueryParams queryParams,
       UpdateSharedLinkOnFolderHeaders headers) {
     Map<String, String> queryParamsMap =
         prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));
@@ -205,17 +205,17 @@ public class SharedLinksFoldersManager {
       String folderId, RemoveSharedLinkFromFolderQueryParams queryParams) {
     return removeSharedLinkFromFolder(
         folderId,
-        queryParams,
         new RemoveSharedLinkFromFolderRequestBody(),
+        queryParams,
         new RemoveSharedLinkFromFolderHeaders());
   }
 
   public FolderFull removeSharedLinkFromFolder(
       String folderId,
-      RemoveSharedLinkFromFolderQueryParams queryParams,
-      RemoveSharedLinkFromFolderRequestBody requestBody) {
+      RemoveSharedLinkFromFolderRequestBody requestBody,
+      RemoveSharedLinkFromFolderQueryParams queryParams) {
     return removeSharedLinkFromFolder(
-        folderId, queryParams, requestBody, new RemoveSharedLinkFromFolderHeaders());
+        folderId, requestBody, queryParams, new RemoveSharedLinkFromFolderHeaders());
   }
 
   public FolderFull removeSharedLinkFromFolder(
@@ -223,13 +223,13 @@ public class SharedLinksFoldersManager {
       RemoveSharedLinkFromFolderQueryParams queryParams,
       RemoveSharedLinkFromFolderHeaders headers) {
     return removeSharedLinkFromFolder(
-        folderId, queryParams, new RemoveSharedLinkFromFolderRequestBody(), headers);
+        folderId, new RemoveSharedLinkFromFolderRequestBody(), queryParams, headers);
   }
 
   public FolderFull removeSharedLinkFromFolder(
       String folderId,
-      RemoveSharedLinkFromFolderQueryParams queryParams,
       RemoveSharedLinkFromFolderRequestBody requestBody,
+      RemoveSharedLinkFromFolderQueryParams queryParams,
       RemoveSharedLinkFromFolderHeaders headers) {
     Map<String, String> queryParamsMap =
         prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));

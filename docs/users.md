@@ -22,7 +22,10 @@ This operation is performed by calling function `getUsers`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-users/).
 
-*Currently we don't have an example for calling `getUsers` in integration tests*
+<!-- sample get_users -->
+```
+client.getUsers().getUsers()
+```
 
 ### Arguments
 
@@ -50,7 +53,10 @@ This operation is performed by calling function `createUser`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-users/).
 
-*Currently we don't have an example for calling `createUser` in integration tests*
+<!-- sample post_users -->
+```
+client.getUsers().createUser(new CreateUserRequestBody.CreateUserRequestBodyBuilder(userName).isPlatformAccessOnly(true).build())
+```
 
 ### Arguments
 
@@ -87,7 +93,10 @@ This operation is performed by calling function `getUserMe`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-users-me/).
 
-*Currently we don't have an example for calling `getUserMe` in integration tests*
+<!-- sample get_users_me -->
+```
+client.getUsers().getUserMe()
+```
 
 ### Arguments
 
@@ -123,7 +132,10 @@ This operation is performed by calling function `getUserById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-users-id/).
 
-*Currently we don't have an example for calling `getUserById` in integration tests*
+<!-- sample get_users_id -->
+```
+client.getUsers().getUserById(user.getId())
+```
 
 ### Arguments
 
@@ -158,7 +170,10 @@ This operation is performed by calling function `updateUserById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-users-id/).
 
-*Currently we don't have an example for calling `updateUserById` in integration tests*
+<!-- sample put_users_id -->
+```
+client.getUsers().updateUserById(user.getId(), new UpdateUserByIdRequestBody.UpdateUserByIdRequestBodyBuilder().name(updatedUserName).build())
+```
 
 ### Arguments
 
@@ -191,7 +206,10 @@ This operation is performed by calling function `deleteUserById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-users-id/).
 
-*Currently we don't have an example for calling `deleteUserById` in integration tests*
+<!-- sample delete_users_id -->
+```
+client.getUsers().deleteUserById(createdUser.getId())
+```
 
 ### Arguments
 

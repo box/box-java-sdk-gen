@@ -16,7 +16,10 @@ This operation is performed by calling function `getShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segments-id/).
 
-*Currently we don't have an example for calling `getShieldInformationBarrierSegmentById` in integration tests*
+<!-- sample get_shield_information_barrier_segments_id -->
+```
+client.getShieldInformationBarrierSegments().getShieldInformationBarrierSegmentById(segmentId)
+```
 
 ### Arguments
 
@@ -43,7 +46,10 @@ This operation is performed by calling function `deleteShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-shield-information-barrier-segments-id/).
 
-*Currently we don't have an example for calling `deleteShieldInformationBarrierSegmentById` in integration tests*
+<!-- sample delete_shield_information_barrier_segments_id -->
+```
+client.getShieldInformationBarrierSegments().deleteShieldInformationBarrierSegmentById(segment.getId())
+```
 
 ### Arguments
 
@@ -69,7 +75,10 @@ This operation is performed by calling function `updateShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-shield-information-barrier-segments-id/).
 
-*Currently we don't have an example for calling `updateShieldInformationBarrierSegmentById` in integration tests*
+<!-- sample put_shield_information_barrier_segments_id -->
+```
+client.getShieldInformationBarrierSegments().updateShieldInformationBarrierSegmentById(segmentId, new UpdateShieldInformationBarrierSegmentByIdRequestBody.UpdateShieldInformationBarrierSegmentByIdRequestBodyBuilder().description(updatedSegmentDescription).build())
+```
 
 ### Arguments
 
@@ -98,7 +107,10 @@ This operation is performed by calling function `getShieldInformationBarrierSegm
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-shield-information-barrier-segments/).
 
-*Currently we don't have an example for calling `getShieldInformationBarrierSegments` in integration tests*
+<!-- sample get_shield_information_barrier_segments -->
+```
+client.getShieldInformationBarrierSegments().getShieldInformationBarrierSegments(new GetShieldInformationBarrierSegmentsQueryParams(barrierId))
+```
 
 ### Arguments
 
@@ -124,7 +136,10 @@ This operation is performed by calling function `createShieldInformationBarrierS
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-shield-information-barrier-segments/).
 
-*Currently we don't have an example for calling `createShieldInformationBarrierSegment` in integration tests*
+<!-- sample post_shield_information_barrier_segments -->
+```
+client.getShieldInformationBarrierSegments().createShieldInformationBarrierSegment(new CreateShieldInformationBarrierSegmentRequestBody(new ShieldInformationBarrierBase.ShieldInformationBarrierBaseBuilder().id(barrierId).type(ShieldInformationBarrierBaseTypeField.SHIELD_INFORMATION_BARRIER).build(), segmentName))
+```
 
 ### Arguments
 

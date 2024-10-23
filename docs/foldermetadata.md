@@ -17,7 +17,10 @@ This operation is performed by calling function `getFolderMetadata`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-metadata/).
 
-*Currently we don't have an example for calling `getFolderMetadata` in integration tests*
+<!-- sample get_folders_id_metadata -->
+```
+client.getFolderMetadata().getFolderMetadata(folder.getId())
+```
 
 ### Arguments
 
@@ -47,7 +50,10 @@ This operation is performed by calling function `getFolderMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `getFolderMetadataById` in integration tests*
+<!-- sample get_folders_id_metadata_id_id -->
+```
+client.getFolderMetadata().getFolderMetadataById(folder.getId(), GetFolderMetadataByIdScope.GLOBAL, "properties")
+```
 
 ### Arguments
 
@@ -87,7 +93,10 @@ This operation is performed by calling function `createFolderMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-folders-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `createFolderMetadataById` in integration tests*
+<!-- sample post_folders_id_metadata_id_id -->
+```
+client.getFolderMetadata().createFolderMetadataById(folder.getId(), CreateFolderMetadataByIdScope.GLOBAL, "properties", mapOf(entryOf("abc", "xyz")))
+```
 
 ### Arguments
 
@@ -127,7 +136,10 @@ This operation is performed by calling function `updateFolderMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `updateFolderMetadataById` in integration tests*
+<!-- sample put_folders_id_metadata_id_id -->
+```
+client.getFolderMetadata().updateFolderMetadataById(folder.getId(), UpdateFolderMetadataByIdScope.GLOBAL, "properties", Arrays.asList(new UpdateFolderMetadataByIdRequestBody.UpdateFolderMetadataByIdRequestBodyBuilder().op(UpdateFolderMetadataByIdRequestBodyOpField.REPLACE).path("/abc").value(newValue).build()))
+```
 
 ### Arguments
 
@@ -160,7 +172,10 @@ This operation is performed by calling function `deleteFolderMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-folders-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `deleteFolderMetadataById` in integration tests*
+<!-- sample delete_folders_id_metadata_id_id -->
+```
+client.getFolderMetadata().deleteFolderMetadataById(folder.getId(), DeleteFolderMetadataByIdScope.GLOBAL, "properties")
+```
 
 ### Arguments
 

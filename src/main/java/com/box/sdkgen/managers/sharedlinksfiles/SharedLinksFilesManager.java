@@ -31,11 +31,11 @@ public class SharedLinksFilesManager {
   }
 
   public FileFull findFileForSharedLink(FindFileForSharedLinkHeaders headers) {
-    return findFileForSharedLink(headers, new FindFileForSharedLinkQueryParams());
+    return findFileForSharedLink(new FindFileForSharedLinkQueryParams(), headers);
   }
 
   public FileFull findFileForSharedLink(
-      FindFileForSharedLinkHeaders headers, FindFileForSharedLinkQueryParams queryParams) {
+      FindFileForSharedLinkQueryParams queryParams, FindFileForSharedLinkHeaders headers) {
     Map<String, String> queryParamsMap =
         prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));
     Map<String, String> headersMap =
@@ -92,25 +92,25 @@ public class SharedLinksFilesManager {
 
   public FileFull addShareLinkToFile(String fileId, AddShareLinkToFileQueryParams queryParams) {
     return addShareLinkToFile(
-        fileId, queryParams, new AddShareLinkToFileRequestBody(), new AddShareLinkToFileHeaders());
+        fileId, new AddShareLinkToFileRequestBody(), queryParams, new AddShareLinkToFileHeaders());
   }
 
   public FileFull addShareLinkToFile(
       String fileId,
-      AddShareLinkToFileQueryParams queryParams,
-      AddShareLinkToFileRequestBody requestBody) {
-    return addShareLinkToFile(fileId, queryParams, requestBody, new AddShareLinkToFileHeaders());
+      AddShareLinkToFileRequestBody requestBody,
+      AddShareLinkToFileQueryParams queryParams) {
+    return addShareLinkToFile(fileId, requestBody, queryParams, new AddShareLinkToFileHeaders());
   }
 
   public FileFull addShareLinkToFile(
       String fileId, AddShareLinkToFileQueryParams queryParams, AddShareLinkToFileHeaders headers) {
-    return addShareLinkToFile(fileId, queryParams, new AddShareLinkToFileRequestBody(), headers);
+    return addShareLinkToFile(fileId, new AddShareLinkToFileRequestBody(), queryParams, headers);
   }
 
   public FileFull addShareLinkToFile(
       String fileId,
-      AddShareLinkToFileQueryParams queryParams,
       AddShareLinkToFileRequestBody requestBody,
+      AddShareLinkToFileQueryParams queryParams,
       AddShareLinkToFileHeaders headers) {
     Map<String, String> queryParamsMap =
         prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));
@@ -140,17 +140,17 @@ public class SharedLinksFilesManager {
       String fileId, UpdateSharedLinkOnFileQueryParams queryParams) {
     return updateSharedLinkOnFile(
         fileId,
-        queryParams,
         new UpdateSharedLinkOnFileRequestBody(),
+        queryParams,
         new UpdateSharedLinkOnFileHeaders());
   }
 
   public FileFull updateSharedLinkOnFile(
       String fileId,
-      UpdateSharedLinkOnFileQueryParams queryParams,
-      UpdateSharedLinkOnFileRequestBody requestBody) {
+      UpdateSharedLinkOnFileRequestBody requestBody,
+      UpdateSharedLinkOnFileQueryParams queryParams) {
     return updateSharedLinkOnFile(
-        fileId, queryParams, requestBody, new UpdateSharedLinkOnFileHeaders());
+        fileId, requestBody, queryParams, new UpdateSharedLinkOnFileHeaders());
   }
 
   public FileFull updateSharedLinkOnFile(
@@ -158,13 +158,13 @@ public class SharedLinksFilesManager {
       UpdateSharedLinkOnFileQueryParams queryParams,
       UpdateSharedLinkOnFileHeaders headers) {
     return updateSharedLinkOnFile(
-        fileId, queryParams, new UpdateSharedLinkOnFileRequestBody(), headers);
+        fileId, new UpdateSharedLinkOnFileRequestBody(), queryParams, headers);
   }
 
   public FileFull updateSharedLinkOnFile(
       String fileId,
-      UpdateSharedLinkOnFileQueryParams queryParams,
       UpdateSharedLinkOnFileRequestBody requestBody,
+      UpdateSharedLinkOnFileQueryParams queryParams,
       UpdateSharedLinkOnFileHeaders headers) {
     Map<String, String> queryParamsMap =
         prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));
@@ -194,17 +194,17 @@ public class SharedLinksFilesManager {
       String fileId, RemoveSharedLinkFromFileQueryParams queryParams) {
     return removeSharedLinkFromFile(
         fileId,
-        queryParams,
         new RemoveSharedLinkFromFileRequestBody(),
+        queryParams,
         new RemoveSharedLinkFromFileHeaders());
   }
 
   public FileFull removeSharedLinkFromFile(
       String fileId,
-      RemoveSharedLinkFromFileQueryParams queryParams,
-      RemoveSharedLinkFromFileRequestBody requestBody) {
+      RemoveSharedLinkFromFileRequestBody requestBody,
+      RemoveSharedLinkFromFileQueryParams queryParams) {
     return removeSharedLinkFromFile(
-        fileId, queryParams, requestBody, new RemoveSharedLinkFromFileHeaders());
+        fileId, requestBody, queryParams, new RemoveSharedLinkFromFileHeaders());
   }
 
   public FileFull removeSharedLinkFromFile(
@@ -212,13 +212,13 @@ public class SharedLinksFilesManager {
       RemoveSharedLinkFromFileQueryParams queryParams,
       RemoveSharedLinkFromFileHeaders headers) {
     return removeSharedLinkFromFile(
-        fileId, queryParams, new RemoveSharedLinkFromFileRequestBody(), headers);
+        fileId, new RemoveSharedLinkFromFileRequestBody(), queryParams, headers);
   }
 
   public FileFull removeSharedLinkFromFile(
       String fileId,
-      RemoveSharedLinkFromFileQueryParams queryParams,
       RemoveSharedLinkFromFileRequestBody requestBody,
+      RemoveSharedLinkFromFileQueryParams queryParams,
       RemoveSharedLinkFromFileHeaders headers) {
     Map<String, String> queryParamsMap =
         prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));

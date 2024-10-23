@@ -16,7 +16,10 @@ This operation is performed by calling function `getStoragePolicyAssignments`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-storage-policy-assignments/).
 
-*Currently we don't have an example for calling `getStoragePolicyAssignments` in integration tests*
+<!-- sample get_storage_policy_assignments -->
+```
+client.getStoragePolicyAssignments().getStoragePolicyAssignments(new GetStoragePolicyAssignmentsQueryParams(GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField.USER, userId))
+```
 
 ### Arguments
 
@@ -43,7 +46,10 @@ This operation is performed by calling function `createStoragePolicyAssignment`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-storage-policy-assignments/).
 
-*Currently we don't have an example for calling `createStoragePolicyAssignment` in integration tests*
+<!-- sample post_storage_policy_assignments -->
+```
+client.getStoragePolicyAssignments().createStoragePolicyAssignment(new CreateStoragePolicyAssignmentRequestBody(new CreateStoragePolicyAssignmentRequestBodyStoragePolicyField(policyId), new CreateStoragePolicyAssignmentRequestBodyAssignedToField(CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField.USER, userId)))
+```
 
 ### Arguments
 
@@ -69,7 +75,10 @@ This operation is performed by calling function `getStoragePolicyAssignmentById`
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-storage-policy-assignments-id/).
 
-*Currently we don't have an example for calling `getStoragePolicyAssignmentById` in integration tests*
+<!-- sample get_storage_policy_assignments_id -->
+```
+client.getStoragePolicyAssignments().getStoragePolicyAssignmentById(storagePolicyAssignment.getId())
+```
 
 ### Arguments
 
@@ -95,7 +104,10 @@ This operation is performed by calling function `updateStoragePolicyAssignmentBy
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-storage-policy-assignments-id/).
 
-*Currently we don't have an example for calling `updateStoragePolicyAssignmentById` in integration tests*
+<!-- sample put_storage_policy_assignments_id -->
+```
+client.getStoragePolicyAssignments().updateStoragePolicyAssignmentById(storagePolicyAssignment.getId(), new UpdateStoragePolicyAssignmentByIdRequestBody(new UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField(storagePolicy2.getId())))
+```
 
 ### Arguments
 
@@ -130,7 +142,10 @@ This operation is performed by calling function `deleteStoragePolicyAssignmentBy
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-storage-policy-assignments-id/).
 
-*Currently we don't have an example for calling `deleteStoragePolicyAssignmentById` in integration tests*
+<!-- sample delete_storage_policy_assignments_id -->
+```
+client.getStoragePolicyAssignments().deleteStoragePolicyAssignmentById(storagePolicyAssignment.getId())
+```
 
 ### Arguments
 

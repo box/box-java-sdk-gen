@@ -21,7 +21,10 @@ This operation is performed by calling function `createInvite`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-invites/).
 
-*Currently we don't have an example for calling `createInvite` in integration tests*
+<!-- sample post_invites -->
+```
+client.getInvites().createInvite(new CreateInviteRequestBody(new CreateInviteRequestBodyEnterpriseField(currentUser.getEnterprise().getId()), new CreateInviteRequestBodyActionableByField.CreateInviteRequestBodyActionableByFieldBuilder().login(email).build()))
+```
 
 ### Arguments
 
@@ -49,7 +52,10 @@ This operation is performed by calling function `getInviteById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-invites-id/).
 
-*Currently we don't have an example for calling `getInviteById` in integration tests*
+<!-- sample get_invites_id -->
+```
+client.getInvites().getInviteById(invitation.getId())
+```
 
 ### Arguments
 

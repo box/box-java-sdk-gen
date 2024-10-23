@@ -20,7 +20,10 @@ This operation is performed by calling function `getMetadataTemplatesByInstanceI
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates/).
 
-*Currently we don't have an example for calling `getMetadataTemplatesByInstanceId` in integration tests*
+<!-- sample get_metadata_templates -->
+```
+client.getMetadataTemplates().getMetadataTemplatesByInstanceId(new GetMetadataTemplatesByInstanceIdQueryParams(createdMetadataInstance.getId()))
+```
 
 ### Arguments
 
@@ -50,7 +53,10 @@ This operation is performed by calling function `getMetadataTemplate`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates-id-id-schema/).
 
-*Currently we don't have an example for calling `getMetadataTemplate` in integration tests*
+<!-- sample get_metadata_templates_id_id_schema -->
+```
+client.getMetadataTemplates().getMetadataTemplate(GetMetadataTemplateScope.ENTERPRISE, template.getTemplateKey())
+```
 
 ### Arguments
 
@@ -85,7 +91,10 @@ This operation is performed by calling function `updateMetadataTemplate`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-metadata-templates-id-id-schema/).
 
-*Currently we don't have an example for calling `updateMetadataTemplate` in integration tests*
+<!-- sample put_metadata_templates_id_id_schema -->
+```
+client.getMetadataTemplates().updateMetadataTemplate(UpdateMetadataTemplateScope.ENTERPRISE, templateKey, Arrays.asList(new UpdateMetadataTemplateRequestBody.UpdateMetadataTemplateRequestBodyBuilder(UpdateMetadataTemplateRequestBodyOpField.ADDFIELD).data(mapOf(entryOf("type", "string"), entryOf("displayName", "newFieldName"))).fieldKey("newfieldname").build()))
+```
 
 ### Arguments
 
@@ -117,7 +126,10 @@ This operation is performed by calling function `deleteMetadataTemplate`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-metadata-templates-id-id-schema/).
 
-*Currently we don't have an example for calling `deleteMetadataTemplate` in integration tests*
+<!-- sample delete_metadata_templates_id_id_schema -->
+```
+client.getMetadataTemplates().deleteMetadataTemplate(DeleteMetadataTemplateScope.ENTERPRISE, templateKey)
+```
 
 ### Arguments
 
@@ -146,7 +158,10 @@ This operation is performed by calling function `getMetadataTemplateById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates-id/).
 
-*Currently we don't have an example for calling `getMetadataTemplateById` in integration tests*
+<!-- sample get_metadata_templates_id -->
+```
+client.getMetadataTemplates().getMetadataTemplateById(template.getId())
+```
 
 ### Arguments
 
@@ -173,7 +188,10 @@ This operation is performed by calling function `getGlobalMetadataTemplates`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates-global/).
 
-*Currently we don't have an example for calling `getGlobalMetadataTemplates` in integration tests*
+<!-- sample get_metadata_templates_global -->
+```
+client.getMetadataTemplates().getGlobalMetadataTemplates()
+```
 
 ### Arguments
 
@@ -201,7 +219,10 @@ This operation is performed by calling function `getEnterpriseMetadataTemplates`
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-metadata-templates-enterprise/).
 
-*Currently we don't have an example for calling `getEnterpriseMetadataTemplates` in integration tests*
+<!-- sample get_metadata_templates_enterprise -->
+```
+client.getMetadataTemplates().getEnterpriseMetadataTemplates()
+```
 
 ### Arguments
 
@@ -229,7 +250,10 @@ This operation is performed by calling function `createMetadataTemplate`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-metadata-templates-schema/).
 
-*Currently we don't have an example for calling `createMetadataTemplate` in integration tests*
+<!-- sample post_metadata_templates_schema -->
+```
+client.getMetadataTemplates().createMetadataTemplate(new CreateMetadataTemplateRequestBody.CreateMetadataTemplateRequestBodyBuilder("enterprise", templateKey).templateKey(templateKey).fields(Arrays.asList(new CreateMetadataTemplateRequestBodyFieldsField(CreateMetadataTemplateRequestBodyFieldsTypeField.STRING, "testName", "testName"))).build())
+```
 
 ### Arguments
 

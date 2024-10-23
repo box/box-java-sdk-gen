@@ -13,7 +13,10 @@ This operation is performed by calling function `downloadFile`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-content/).
 
-*Currently we don't have an example for calling `downloadFile` in integration tests*
+<!-- sample get_files_id_content -->
+```
+client.getDownloads().downloadFile(uploadedFile.getId())
+```
 
 ### Arguments
 
@@ -49,7 +52,10 @@ Download file to a given output stream
 This operation is performed by calling function `downloadFileToOutputStream`.
 
 
-*Currently we don't have an example for calling `downloadFileToOutputStream` in integration tests*
+
+```
+client.getDownloads().downloadFileToOutputStream(uploadedFile.getId(), fileOutputStream)
+```
 
 ### Arguments
 

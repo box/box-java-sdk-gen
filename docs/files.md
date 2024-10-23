@@ -16,7 +16,10 @@ This operation is performed by calling function `getFileById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id/).
 
-*Currently we don't have an example for calling `getFileById` in integration tests*
+<!-- sample get_files_id -->
+```
+client.getFiles().getFileById(fileId, new GetFileByIdQueryParams.GetFileByIdQueryParamsBuilder().fields(Arrays.asList("is_associated_with_app_item")).build())
+```
 
 ### Arguments
 
@@ -49,7 +52,10 @@ This operation is performed by calling function `updateFileById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id/).
 
-*Currently we don't have an example for calling `updateFileById` in integration tests*
+<!-- sample put_files_id -->
+```
+client.getFiles().updateFileById(fileToUpdate.getId(), new UpdateFileByIdRequestBody.UpdateFileByIdRequestBodyBuilder().name(updatedName).description("Updated description").build())
+```
 
 ### Arguments
 
@@ -87,7 +93,10 @@ This operation is performed by calling function `deleteFileById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-files-id/).
 
-*Currently we don't have an example for calling `deleteFileById` in integration tests*
+<!-- sample delete_files_id -->
+```
+client.getFiles().deleteFileById(file.getId())
+```
 
 ### Arguments
 
@@ -114,7 +123,10 @@ This operation is performed by calling function `copyFile`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-id-copy/).
 
-*Currently we don't have an example for calling `copyFile` in integration tests*
+<!-- sample post_files_id_copy -->
+```
+client.getFiles().copyFile(fileOrigin.getId(), new CopyFileRequestBody.CopyFileRequestBodyBuilder(new CopyFileRequestBodyParentField("0")).name(copiedFileName).build())
+```
 
 ### Arguments
 
@@ -157,7 +169,10 @@ This operation is performed by calling function `getFileThumbnailById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-thumbnail-id/).
 
-*Currently we don't have an example for calling `getFileThumbnailById` in integration tests*
+<!-- sample get_files_id_thumbnail_id -->
+```
+client.getFiles().getFileThumbnailById(thumbnailFile.getId(), GetFileThumbnailByIdExtension.PNG)
+```
 
 ### Arguments
 

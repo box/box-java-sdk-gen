@@ -20,7 +20,10 @@ This operation is performed by calling function `uploadFileVersion`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-id-content/).
 
-*Currently we don't have an example for calling `uploadFileVersion` in integration tests*
+<!-- sample post_files_id_content -->
+```
+client.getUploads().uploadFileVersion(file.getId(), new UploadFileVersionRequestBody(new UploadFileVersionRequestBodyAttributesField(file.getName()), generateByteStream(20)))
+```
 
 ### Arguments
 
@@ -84,7 +87,10 @@ This operation is performed by calling function `uploadFile`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-content/).
 
-*Currently we don't have an example for calling `uploadFile` in integration tests*
+<!-- sample post_files_content -->
+```
+client.getUploads().uploadFile(new UploadFileRequestBody(new UploadFileRequestBodyAttributesField(String.join("", getUuid(), ".txt"), new UploadFileRequestBodyAttributesParentField("0")), stringToByteStream("My name is John Doe. I live in San Francisco. I was born in 1990. I work at Box.")))
+```
 
 ### Arguments
 

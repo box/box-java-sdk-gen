@@ -16,7 +16,10 @@ This operation is performed by calling function `getLegalHoldPolicyAssignments`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-legal-hold-policy-assignments/).
 
-*Currently we don't have an example for calling `getLegalHoldPolicyAssignments` in integration tests*
+<!-- sample get_legal_hold_policy_assignments -->
+```
+client.getLegalHoldPolicyAssignments().getLegalHoldPolicyAssignments(new GetLegalHoldPolicyAssignmentsQueryParams(legalHoldPolicyId))
+```
 
 ### Arguments
 
@@ -42,7 +45,10 @@ This operation is performed by calling function `createLegalHoldPolicyAssignment
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-legal-hold-policy-assignments/).
 
-*Currently we don't have an example for calling `createLegalHoldPolicyAssignment` in integration tests*
+<!-- sample post_legal_hold_policy_assignments -->
+```
+client.getLegalHoldPolicyAssignments().createLegalHoldPolicyAssignment(new CreateLegalHoldPolicyAssignmentRequestBody(legalHoldPolicyId, new CreateLegalHoldPolicyAssignmentRequestBodyAssignToField(CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField.FILE, fileId)))
+```
 
 ### Arguments
 
@@ -68,7 +74,10 @@ This operation is performed by calling function `getLegalHoldPolicyAssignmentByI
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-legal-hold-policy-assignments-id/).
 
-*Currently we don't have an example for calling `getLegalHoldPolicyAssignmentById` in integration tests*
+<!-- sample get_legal_hold_policy_assignments_id -->
+```
+client.getLegalHoldPolicyAssignments().getLegalHoldPolicyAssignmentById(legalHoldPolicyAssignmentId)
+```
 
 ### Arguments
 
@@ -97,7 +106,10 @@ This operation is performed by calling function `deleteLegalHoldPolicyAssignment
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-legal-hold-policy-assignments-id/).
 
-*Currently we don't have an example for calling `deleteLegalHoldPolicyAssignmentById` in integration tests*
+<!-- sample delete_legal_hold_policy_assignments_id -->
+```
+client.getLegalHoldPolicyAssignments().deleteLegalHoldPolicyAssignmentById(legalHoldPolicyAssignmentId)
+```
 
 ### Arguments
 
@@ -142,7 +154,10 @@ This operation is performed by calling function `getLegalHoldPolicyAssignmentFil
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-legal-hold-policy-assignments-id-files-on-hold/).
 
-*Currently we don't have an example for calling `getLegalHoldPolicyAssignmentFileOnHold` in integration tests*
+<!-- sample get_legal_hold_policy_assignments_id_files_on_hold -->
+```
+client.getLegalHoldPolicyAssignments().getLegalHoldPolicyAssignmentFileOnHold(legalHoldPolicyAssignmentId)
+```
 
 ### Arguments
 

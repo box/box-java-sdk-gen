@@ -15,7 +15,10 @@ This operation is performed by calling function `getCollaborationById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-collaborations-id/).
 
-*Currently we don't have an example for calling `getCollaborationById` in integration tests*
+<!-- sample get_collaborations_id -->
+```
+client.getUserCollaborations().getCollaborationById(collaborationId)
+```
 
 ### Arguments
 
@@ -45,7 +48,10 @@ This operation is performed by calling function `updateCollaborationById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-collaborations-id/).
 
-*Currently we don't have an example for calling `updateCollaborationById` in integration tests*
+<!-- sample put_collaborations_id -->
+```
+client.getUserCollaborations().updateCollaborationById(collaborationId, new UpdateCollaborationByIdRequestBody(UpdateCollaborationByIdRequestBodyRoleField.VIEWER))
+```
 
 ### Arguments
 
@@ -75,7 +81,10 @@ This operation is performed by calling function `deleteCollaborationById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-collaborations-id/).
 
-*Currently we don't have an example for calling `deleteCollaborationById` in integration tests*
+<!-- sample delete_collaborations_id -->
+```
+client.getUserCollaborations().deleteCollaborationById(groupCollaboration.getId())
+```
 
 ### Arguments
 
@@ -115,7 +124,10 @@ This operation is performed by calling function `createCollaboration`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-collaborations/).
 
-*Currently we don't have an example for calling `createCollaboration` in integration tests*
+<!-- sample post_collaborations -->
+```
+client.getUserCollaborations().createCollaboration(new CreateCollaborationRequestBody(new CreateCollaborationRequestBodyItemField.CreateCollaborationRequestBodyItemFieldBuilder().type(CreateCollaborationRequestBodyItemTypeField.FILE).id(file.getId()).build(), new CreateCollaborationRequestBodyAccessibleByField.CreateCollaborationRequestBodyAccessibleByFieldBuilder(CreateCollaborationRequestBodyAccessibleByTypeField.USER).id(getEnvVar("USER_ID")).build(), CreateCollaborationRequestBodyRoleField.EDITOR))
+```
 
 ### Arguments
 
