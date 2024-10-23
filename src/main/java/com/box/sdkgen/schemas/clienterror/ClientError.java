@@ -4,6 +4,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Map;
 import java.util.Objects;
 
 public class ClientError {
@@ -21,7 +22,7 @@ public class ClientError {
   protected String message;
 
   @JsonProperty("context_info")
-  protected ClientErrorContextInfoField contextInfo;
+  protected Map<String, String> contextInfo;
 
   @JsonProperty("help_url")
   protected String helpUrl;
@@ -57,7 +58,7 @@ public class ClientError {
     return message;
   }
 
-  public ClientErrorContextInfoField getContextInfo() {
+  public Map<String, String> getContextInfo() {
     return contextInfo;
   }
 
@@ -135,7 +136,7 @@ public class ClientError {
 
     protected String message;
 
-    protected ClientErrorContextInfoField contextInfo;
+    protected Map<String, String> contextInfo;
 
     protected String helpUrl;
 
@@ -161,7 +162,7 @@ public class ClientError {
       return this;
     }
 
-    public ClientErrorBuilder contextInfo(ClientErrorContextInfoField contextInfo) {
+    public ClientErrorBuilder contextInfo(Map<String, String> contextInfo) {
       this.contextInfo = contextInfo;
       return this;
     }

@@ -2,7 +2,6 @@ package com.box.sdkgen.schemas.conflicterror;
 
 import com.box.sdkgen.schemas.clienterror.ClientError;
 import com.box.sdkgen.schemas.clienterror.ClientErrorCodeField;
-import com.box.sdkgen.schemas.clienterror.ClientErrorContextInfoField;
 import com.box.sdkgen.schemas.clienterror.ClientErrorTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import java.util.Objects;
@@ -100,7 +99,7 @@ public class ConflictError extends ClientError {
     }
 
     @Override
-    public ConflictErrorBuilder contextInfo(ClientErrorContextInfoField contextInfo) {
+    public ConflictErrorBuilder contextInfo(Map<String, String> contextInfo) {
       this.contextInfo = contextInfo;
       return this;
     }
