@@ -72,6 +72,12 @@ public class StartWorkflowRequestBodyFolderField {
     protected String id;
 
     public StartWorkflowRequestBodyFolderFieldBuilder type(
+        EnumWrapper<StartWorkflowRequestBodyFolderTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public StartWorkflowRequestBodyFolderFieldBuilder type(
         StartWorkflowRequestBodyFolderTypeField type) {
       this.type = new EnumWrapper<StartWorkflowRequestBodyFolderTypeField>(type.getValue(), type);
       return this;

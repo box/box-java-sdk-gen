@@ -119,10 +119,22 @@ public class RetentionPolicyMini extends RetentionPolicyBase {
     }
 
     public RetentionPolicyMiniBuilder dispositionAction(
+        EnumWrapper<RetentionPolicyMiniDispositionActionField> dispositionAction) {
+      this.dispositionAction = dispositionAction;
+      return this;
+    }
+
+    public RetentionPolicyMiniBuilder dispositionAction(
         RetentionPolicyMiniDispositionActionField dispositionAction) {
       this.dispositionAction =
           new EnumWrapper<RetentionPolicyMiniDispositionActionField>(
               dispositionAction.getValue(), dispositionAction);
+      return this;
+    }
+
+    @Override
+    public RetentionPolicyMiniBuilder type(EnumWrapper<RetentionPolicyBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

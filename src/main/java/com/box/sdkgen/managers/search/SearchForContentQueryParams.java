@@ -207,6 +207,12 @@ public class SearchForContentQueryParams {
       return this;
     }
 
+    public SearchForContentQueryParamsBuilder scope(
+        EnumWrapper<SearchForContentQueryParamsScopeField> scope) {
+      this.scope = scope;
+      return this;
+    }
+
     public SearchForContentQueryParamsBuilder scope(SearchForContentQueryParamsScopeField scope) {
       this.scope = new EnumWrapper<SearchForContentQueryParamsScopeField>(scope.getValue(), scope);
       return this;
@@ -254,8 +260,20 @@ public class SearchForContentQueryParams {
       return this;
     }
 
+    public SearchForContentQueryParamsBuilder type(
+        EnumWrapper<SearchForContentQueryParamsTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public SearchForContentQueryParamsBuilder type(SearchForContentQueryParamsTypeField type) {
       this.type = new EnumWrapper<SearchForContentQueryParamsTypeField>(type.getValue(), type);
+      return this;
+    }
+
+    public SearchForContentQueryParamsBuilder trashContent(
+        EnumWrapper<SearchForContentQueryParamsTrashContentField> trashContent) {
+      this.trashContent = trashContent;
       return this;
     }
 
@@ -272,8 +290,20 @@ public class SearchForContentQueryParams {
       return this;
     }
 
+    public SearchForContentQueryParamsBuilder sort(
+        EnumWrapper<SearchForContentQueryParamsSortField> sort) {
+      this.sort = sort;
+      return this;
+    }
+
     public SearchForContentQueryParamsBuilder sort(SearchForContentQueryParamsSortField sort) {
       this.sort = new EnumWrapper<SearchForContentQueryParamsSortField>(sort.getValue(), sort);
+      return this;
+    }
+
+    public SearchForContentQueryParamsBuilder direction(
+        EnumWrapper<SearchForContentQueryParamsDirectionField> direction) {
+      this.direction = direction;
       return this;
     }
 

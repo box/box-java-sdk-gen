@@ -182,6 +182,11 @@ public class SkillInvocation {
 
     protected Event event;
 
+    public SkillInvocationBuilder type(EnumWrapper<SkillInvocationTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public SkillInvocationBuilder type(SkillInvocationTypeField type) {
       this.type = new EnumWrapper<SkillInvocationTypeField>(type.getValue(), type);
       return this;

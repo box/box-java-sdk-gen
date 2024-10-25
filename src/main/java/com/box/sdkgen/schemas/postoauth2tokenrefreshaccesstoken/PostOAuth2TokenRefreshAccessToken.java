@@ -127,6 +127,12 @@ public class PostOAuth2TokenRefreshAccessToken {
     }
 
     public PostOAuth2TokenRefreshAccessTokenBuilder grantType(
+        EnumWrapper<PostOAuth2TokenRefreshAccessTokenGrantTypeField> grantType) {
+      this.grantType = grantType;
+      return this;
+    }
+
+    public PostOAuth2TokenRefreshAccessTokenBuilder grantType(
         PostOAuth2TokenRefreshAccessTokenGrantTypeField grantType) {
       this.grantType =
           new EnumWrapper<PostOAuth2TokenRefreshAccessTokenGrantTypeField>(

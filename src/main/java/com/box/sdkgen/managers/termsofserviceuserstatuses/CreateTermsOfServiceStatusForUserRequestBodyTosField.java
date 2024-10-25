@@ -88,6 +88,12 @@ public class CreateTermsOfServiceStatusForUserRequestBodyTosField {
     }
 
     public CreateTermsOfServiceStatusForUserRequestBodyTosFieldBuilder type(
+        EnumWrapper<CreateTermsOfServiceStatusForUserRequestBodyTosTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public CreateTermsOfServiceStatusForUserRequestBodyTosFieldBuilder type(
         CreateTermsOfServiceStatusForUserRequestBodyTosTypeField type) {
       this.type =
           new EnumWrapper<CreateTermsOfServiceStatusForUserRequestBodyTosTypeField>(

@@ -97,6 +97,11 @@ public class FileBase {
       return this;
     }
 
+    public FileBaseBuilder type(EnumWrapper<FileBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public FileBaseBuilder type(FileBaseTypeField type) {
       this.type = new EnumWrapper<FileBaseTypeField>(type.getValue(), type);
       return this;

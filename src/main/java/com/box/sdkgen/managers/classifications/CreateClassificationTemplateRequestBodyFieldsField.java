@@ -175,6 +175,12 @@ public class CreateClassificationTemplateRequestBodyFieldsField {
     }
 
     public CreateClassificationTemplateRequestBodyFieldsFieldBuilder type(
+        EnumWrapper<CreateClassificationTemplateRequestBodyFieldsTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public CreateClassificationTemplateRequestBodyFieldsFieldBuilder type(
         CreateClassificationTemplateRequestBodyFieldsTypeField type) {
       this.type =
           new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsTypeField>(
@@ -183,10 +189,22 @@ public class CreateClassificationTemplateRequestBodyFieldsField {
     }
 
     public CreateClassificationTemplateRequestBodyFieldsFieldBuilder key(
+        EnumWrapper<CreateClassificationTemplateRequestBodyFieldsKeyField> key) {
+      this.key = key;
+      return this;
+    }
+
+    public CreateClassificationTemplateRequestBodyFieldsFieldBuilder key(
         CreateClassificationTemplateRequestBodyFieldsKeyField key) {
       this.key =
           new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsKeyField>(
               key.getValue(), key);
+      return this;
+    }
+
+    public CreateClassificationTemplateRequestBodyFieldsFieldBuilder displayName(
+        EnumWrapper<CreateClassificationTemplateRequestBodyFieldsDisplayNameField> displayName) {
+      this.displayName = displayName;
       return this;
     }
 

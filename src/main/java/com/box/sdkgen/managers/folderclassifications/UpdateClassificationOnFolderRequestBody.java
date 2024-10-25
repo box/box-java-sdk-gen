@@ -120,8 +120,20 @@ public class UpdateClassificationOnFolderRequestBody {
     }
 
     public UpdateClassificationOnFolderRequestBodyBuilder op(
+        EnumWrapper<UpdateClassificationOnFolderRequestBodyOpField> op) {
+      this.op = op;
+      return this;
+    }
+
+    public UpdateClassificationOnFolderRequestBodyBuilder op(
         UpdateClassificationOnFolderRequestBodyOpField op) {
       this.op = new EnumWrapper<UpdateClassificationOnFolderRequestBodyOpField>(op.getValue(), op);
+      return this;
+    }
+
+    public UpdateClassificationOnFolderRequestBodyBuilder path(
+        EnumWrapper<UpdateClassificationOnFolderRequestBodyPathField> path) {
+      this.path = path;
       return this;
     }
 

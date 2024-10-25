@@ -207,6 +207,11 @@ public class Event {
       return this;
     }
 
+    public EventBuilder eventType(EnumWrapper<EventEventTypeField> eventType) {
+      this.eventType = eventType;
+      return this;
+    }
+
     public EventBuilder eventType(EventEventTypeField eventType) {
       this.eventType = new EnumWrapper<EventEventTypeField>(eventType.getValue(), eventType);
       return this;

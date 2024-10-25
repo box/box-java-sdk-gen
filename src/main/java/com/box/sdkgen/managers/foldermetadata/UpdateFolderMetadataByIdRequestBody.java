@@ -101,6 +101,12 @@ public class UpdateFolderMetadataByIdRequestBody {
     protected String from;
 
     public UpdateFolderMetadataByIdRequestBodyBuilder op(
+        EnumWrapper<UpdateFolderMetadataByIdRequestBodyOpField> op) {
+      this.op = op;
+      return this;
+    }
+
+    public UpdateFolderMetadataByIdRequestBodyBuilder op(
         UpdateFolderMetadataByIdRequestBodyOpField op) {
       this.op = new EnumWrapper<UpdateFolderMetadataByIdRequestBodyOpField>(op.getValue(), op);
       return this;

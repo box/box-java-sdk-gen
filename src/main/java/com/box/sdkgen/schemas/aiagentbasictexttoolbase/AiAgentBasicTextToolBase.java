@@ -1,6 +1,6 @@
 package com.box.sdkgen.schemas.aiagentbasictexttoolbase;
 
-import com.box.sdkgen.schemas.aillmendpointparamsgoogleoraillmendpointparamsopenai.AiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi;
+import com.box.sdkgen.schemas.aillmendpointparamsawsoraillmendpointparamsgoogleoraillmendpointparamsopenai.AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
@@ -12,7 +12,8 @@ public class AiAgentBasicTextToolBase {
   protected Long numTokensForCompletion;
 
   @JsonProperty("llm_endpoint_params")
-  protected AiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi llmEndpointParams;
+  protected AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi
+      llmEndpointParams;
 
   public AiAgentBasicTextToolBase() {}
 
@@ -30,7 +31,8 @@ public class AiAgentBasicTextToolBase {
     return numTokensForCompletion;
   }
 
-  public AiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi getLlmEndpointParams() {
+  public AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi
+      getLlmEndpointParams() {
     return llmEndpointParams;
   }
 
@@ -76,7 +78,8 @@ public class AiAgentBasicTextToolBase {
 
     protected Long numTokensForCompletion;
 
-    protected AiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi llmEndpointParams;
+    protected AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi
+        llmEndpointParams;
 
     public AiAgentBasicTextToolBaseBuilder model(String model) {
       this.model = model;
@@ -89,7 +92,8 @@ public class AiAgentBasicTextToolBase {
     }
 
     public AiAgentBasicTextToolBaseBuilder llmEndpointParams(
-        AiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi llmEndpointParams) {
+        AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi
+            llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }

@@ -75,6 +75,12 @@ public class ShieldInformationBarrierBase {
       return this;
     }
 
+    public ShieldInformationBarrierBaseBuilder type(
+        EnumWrapper<ShieldInformationBarrierBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public ShieldInformationBarrierBaseBuilder type(ShieldInformationBarrierBaseTypeField type) {
       this.type = new EnumWrapper<ShieldInformationBarrierBaseTypeField>(type.getValue(), type);
       return this;

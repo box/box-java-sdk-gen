@@ -87,6 +87,12 @@ public class CollaboratorVariableVariableValueField {
     }
 
     public CollaboratorVariableVariableValueFieldBuilder type(
+        EnumWrapper<CollaboratorVariableVariableValueTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public CollaboratorVariableVariableValueFieldBuilder type(
         CollaboratorVariableVariableValueTypeField type) {
       this.type =
           new EnumWrapper<CollaboratorVariableVariableValueTypeField>(type.getValue(), type);

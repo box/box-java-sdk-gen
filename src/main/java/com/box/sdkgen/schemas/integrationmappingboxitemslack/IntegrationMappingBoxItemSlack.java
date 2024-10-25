@@ -86,6 +86,12 @@ public class IntegrationMappingBoxItemSlack {
     }
 
     public IntegrationMappingBoxItemSlackBuilder type(
+        EnumWrapper<IntegrationMappingBoxItemSlackTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public IntegrationMappingBoxItemSlackBuilder type(
         IntegrationMappingBoxItemSlackTypeField type) {
       this.type = new EnumWrapper<IntegrationMappingBoxItemSlackTypeField>(type.getValue(), type);
       return this;

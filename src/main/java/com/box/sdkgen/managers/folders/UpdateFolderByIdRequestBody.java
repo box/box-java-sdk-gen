@@ -228,6 +228,12 @@ public class UpdateFolderByIdRequestBody {
     }
 
     public UpdateFolderByIdRequestBodyBuilder syncState(
+        EnumWrapper<UpdateFolderByIdRequestBodySyncStateField> syncState) {
+      this.syncState = syncState;
+      return this;
+    }
+
+    public UpdateFolderByIdRequestBodyBuilder syncState(
         UpdateFolderByIdRequestBodySyncStateField syncState) {
       this.syncState =
           new EnumWrapper<UpdateFolderByIdRequestBodySyncStateField>(

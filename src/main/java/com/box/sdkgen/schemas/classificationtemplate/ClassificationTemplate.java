@@ -208,8 +208,19 @@ public class ClassificationTemplate {
               ClassificationTemplateDisplayNameField.CLASSIFICATION);
     }
 
+    public ClassificationTemplateBuilder type(EnumWrapper<ClassificationTemplateTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public ClassificationTemplateBuilder type(ClassificationTemplateTypeField type) {
       this.type = new EnumWrapper<ClassificationTemplateTypeField>(type.getValue(), type);
+      return this;
+    }
+
+    public ClassificationTemplateBuilder templateKey(
+        EnumWrapper<ClassificationTemplateTemplateKeyField> templateKey) {
+      this.templateKey = templateKey;
       return this;
     }
 
@@ -218,6 +229,12 @@ public class ClassificationTemplate {
       this.templateKey =
           new EnumWrapper<ClassificationTemplateTemplateKeyField>(
               templateKey.getValue(), templateKey);
+      return this;
+    }
+
+    public ClassificationTemplateBuilder displayName(
+        EnumWrapper<ClassificationTemplateDisplayNameField> displayName) {
+      this.displayName = displayName;
       return this;
     }
 

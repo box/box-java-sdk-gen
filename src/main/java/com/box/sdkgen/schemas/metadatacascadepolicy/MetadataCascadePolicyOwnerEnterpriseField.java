@@ -73,6 +73,12 @@ public class MetadataCascadePolicyOwnerEnterpriseField {
     protected String id;
 
     public MetadataCascadePolicyOwnerEnterpriseFieldBuilder type(
+        EnumWrapper<MetadataCascadePolicyOwnerEnterpriseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public MetadataCascadePolicyOwnerEnterpriseFieldBuilder type(
         MetadataCascadePolicyOwnerEnterpriseTypeField type) {
       this.type =
           new EnumWrapper<MetadataCascadePolicyOwnerEnterpriseTypeField>(type.getValue(), type);

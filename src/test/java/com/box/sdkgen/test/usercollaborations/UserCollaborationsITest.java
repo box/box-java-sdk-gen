@@ -61,7 +61,7 @@ public class UserCollaborationsITest {
     assert collaborationId.equals(collaborationFromApi.getId());
     assert convertToString(collaborationFromApi.getStatus()).equals("accepted");
     assert convertToString(collaborationFromApi.getType()).equals("collaboration");
-    assert collaborationFromApi.getInviteEmail().equals(null);
+    assert collaborationFromApi.getInviteEmail() == null;
     Collaboration updatedCollaboration =
         client
             .getUserCollaborations()

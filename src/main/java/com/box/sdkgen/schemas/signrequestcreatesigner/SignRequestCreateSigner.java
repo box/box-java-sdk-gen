@@ -233,6 +233,11 @@ public class SignRequestCreateSigner {
       return this;
     }
 
+    public SignRequestCreateSignerBuilder role(EnumWrapper<SignRequestCreateSignerRoleField> role) {
+      this.role = role;
+      return this;
+    }
+
     public SignRequestCreateSignerBuilder role(SignRequestCreateSignerRoleField role) {
       this.role = new EnumWrapper<SignRequestCreateSignerRoleField>(role.getValue(), role);
       return this;

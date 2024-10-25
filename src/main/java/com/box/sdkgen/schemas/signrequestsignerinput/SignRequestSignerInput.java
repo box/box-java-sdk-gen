@@ -138,8 +138,19 @@ public class SignRequestSignerInput extends SignRequestPrefillTag {
       this.pageIndex = pageIndex;
     }
 
+    public SignRequestSignerInputBuilder type(EnumWrapper<SignRequestSignerInputTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public SignRequestSignerInputBuilder type(SignRequestSignerInputTypeField type) {
       this.type = new EnumWrapper<SignRequestSignerInputTypeField>(type.getValue(), type);
+      return this;
+    }
+
+    public SignRequestSignerInputBuilder contentType(
+        EnumWrapper<SignRequestSignerInputContentTypeField> contentType) {
+      this.contentType = contentType;
       return this;
     }
 

@@ -385,6 +385,11 @@ public class TrashFolderRestored {
       return this;
     }
 
+    public TrashFolderRestoredBuilder type(EnumWrapper<TrashFolderRestoredTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TrashFolderRestoredBuilder type(TrashFolderRestoredTypeField type) {
       this.type = new EnumWrapper<TrashFolderRestoredTypeField>(type.getValue(), type);
       return this;
@@ -473,6 +478,12 @@ public class TrashFolderRestored {
 
     public TrashFolderRestoredBuilder parent(FolderMini parent) {
       this.parent = parent;
+      return this;
+    }
+
+    public TrashFolderRestoredBuilder itemStatus(
+        EnumWrapper<TrashFolderRestoredItemStatusField> itemStatus) {
+      this.itemStatus = itemStatus;
       return this;
     }
 

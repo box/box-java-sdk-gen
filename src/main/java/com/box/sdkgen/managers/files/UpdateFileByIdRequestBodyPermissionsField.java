@@ -62,6 +62,12 @@ public class UpdateFileByIdRequestBodyPermissionsField {
     protected EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField> canDownload;
 
     public UpdateFileByIdRequestBodyPermissionsFieldBuilder canDownload(
+        EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField> canDownload) {
+      this.canDownload = canDownload;
+      return this;
+    }
+
+    public UpdateFileByIdRequestBodyPermissionsFieldBuilder canDownload(
         UpdateFileByIdRequestBodyPermissionsCanDownloadField canDownload) {
       this.canDownload =
           new EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField>(

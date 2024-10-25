@@ -81,6 +81,12 @@ public class TimelineSkillCardSkillField {
               TimelineSkillCardSkillTypeField.SERVICE);
     }
 
+    public TimelineSkillCardSkillFieldBuilder type(
+        EnumWrapper<TimelineSkillCardSkillTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TimelineSkillCardSkillFieldBuilder type(TimelineSkillCardSkillTypeField type) {
       this.type = new EnumWrapper<TimelineSkillCardSkillTypeField>(type.getValue(), type);
       return this;

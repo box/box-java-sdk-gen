@@ -201,8 +201,19 @@ public class TranscriptSkillCard {
       return this;
     }
 
+    public TranscriptSkillCardBuilder type(EnumWrapper<TranscriptSkillCardTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TranscriptSkillCardBuilder type(TranscriptSkillCardTypeField type) {
       this.type = new EnumWrapper<TranscriptSkillCardTypeField>(type.getValue(), type);
+      return this;
+    }
+
+    public TranscriptSkillCardBuilder skillCardType(
+        EnumWrapper<TranscriptSkillCardSkillCardTypeField> skillCardType) {
+      this.skillCardType = skillCardType;
       return this;
     }
 

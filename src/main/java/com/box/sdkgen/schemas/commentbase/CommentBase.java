@@ -61,6 +61,11 @@ public class CommentBase {
       return this;
     }
 
+    public CommentBaseBuilder type(EnumWrapper<CommentBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public CommentBaseBuilder type(CommentBaseTypeField type) {
       this.type = new EnumWrapper<CommentBaseTypeField>(type.getValue(), type);
       return this;

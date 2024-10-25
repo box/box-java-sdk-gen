@@ -109,6 +109,12 @@ public class UpdateTaskByIdRequestBody {
 
     protected EnumWrapper<UpdateTaskByIdRequestBodyCompletionRuleField> completionRule;
 
+    public UpdateTaskByIdRequestBodyBuilder action(
+        EnumWrapper<UpdateTaskByIdRequestBodyActionField> action) {
+      this.action = action;
+      return this;
+    }
+
     public UpdateTaskByIdRequestBodyBuilder action(UpdateTaskByIdRequestBodyActionField action) {
       this.action =
           new EnumWrapper<UpdateTaskByIdRequestBodyActionField>(action.getValue(), action);
@@ -122,6 +128,12 @@ public class UpdateTaskByIdRequestBody {
 
     public UpdateTaskByIdRequestBodyBuilder dueAt(String dueAt) {
       this.dueAt = dueAt;
+      return this;
+    }
+
+    public UpdateTaskByIdRequestBodyBuilder completionRule(
+        EnumWrapper<UpdateTaskByIdRequestBodyCompletionRuleField> completionRule) {
+      this.completionRule = completionRule;
       return this;
     }
 

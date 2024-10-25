@@ -104,6 +104,12 @@ public class AiLlmEndpointParamsGoogle {
 
     protected Double topK;
 
+    public AiLlmEndpointParamsGoogleBuilder type(
+        EnumWrapper<AiLlmEndpointParamsGoogleTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public AiLlmEndpointParamsGoogleBuilder type(AiLlmEndpointParamsGoogleTypeField type) {
       this.type = new EnumWrapper<AiLlmEndpointParamsGoogleTypeField>(type.getValue(), type);
       return this;

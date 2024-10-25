@@ -75,6 +75,12 @@ public class PromoteFileVersionRequestBody {
       return this;
     }
 
+    public PromoteFileVersionRequestBodyBuilder type(
+        EnumWrapper<PromoteFileVersionRequestBodyTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public PromoteFileVersionRequestBodyBuilder type(PromoteFileVersionRequestBodyTypeField type) {
       this.type = new EnumWrapper<PromoteFileVersionRequestBodyTypeField>(type.getValue(), type);
       return this;

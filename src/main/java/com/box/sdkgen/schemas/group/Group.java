@@ -105,6 +105,12 @@ public class Group extends GroupMini {
     }
 
     @Override
+    public GroupBuilder type(EnumWrapper<GroupBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    @Override
     public GroupBuilder type(GroupBaseTypeField type) {
       this.type = new EnumWrapper<GroupBaseTypeField>(type.getValue(), type);
       return this;
@@ -113,6 +119,12 @@ public class Group extends GroupMini {
     @Override
     public GroupBuilder name(String name) {
       this.name = name;
+      return this;
+    }
+
+    @Override
+    public GroupBuilder groupType(EnumWrapper<GroupMiniGroupTypeField> groupType) {
+      this.groupType = groupType;
       return this;
     }
 

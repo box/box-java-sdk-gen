@@ -151,6 +151,11 @@ public class FileVersionRetention {
       return this;
     }
 
+    public FileVersionRetentionBuilder type(EnumWrapper<FileVersionRetentionTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public FileVersionRetentionBuilder type(FileVersionRetentionTypeField type) {
       this.type = new EnumWrapper<FileVersionRetentionTypeField>(type.getValue(), type);
       return this;

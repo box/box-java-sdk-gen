@@ -76,6 +76,12 @@ public class UpdateGroupMembershipByIdRequestBody {
     protected Map<String, Boolean> configurablePermissions;
 
     public UpdateGroupMembershipByIdRequestBodyBuilder role(
+        EnumWrapper<UpdateGroupMembershipByIdRequestBodyRoleField> role) {
+      this.role = role;
+      return this;
+    }
+
+    public UpdateGroupMembershipByIdRequestBodyBuilder role(
         UpdateGroupMembershipByIdRequestBodyRoleField role) {
       this.role =
           new EnumWrapper<UpdateGroupMembershipByIdRequestBodyRoleField>(role.getValue(), role);

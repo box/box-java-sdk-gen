@@ -141,6 +141,12 @@ public class CollaborationAllowlistEntry {
       return this;
     }
 
+    public CollaborationAllowlistEntryBuilder type(
+        EnumWrapper<CollaborationAllowlistEntryTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public CollaborationAllowlistEntryBuilder type(CollaborationAllowlistEntryTypeField type) {
       this.type = new EnumWrapper<CollaborationAllowlistEntryTypeField>(type.getValue(), type);
       return this;
@@ -148,6 +154,12 @@ public class CollaborationAllowlistEntry {
 
     public CollaborationAllowlistEntryBuilder domain(String domain) {
       this.domain = domain;
+      return this;
+    }
+
+    public CollaborationAllowlistEntryBuilder direction(
+        EnumWrapper<CollaborationAllowlistEntryDirectionField> direction) {
+      this.direction = direction;
       return this;
     }
 

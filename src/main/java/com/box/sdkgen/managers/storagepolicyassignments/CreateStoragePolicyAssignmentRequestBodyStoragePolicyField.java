@@ -90,6 +90,12 @@ public class CreateStoragePolicyAssignmentRequestBodyStoragePolicyField {
     }
 
     public CreateStoragePolicyAssignmentRequestBodyStoragePolicyFieldBuilder type(
+        EnumWrapper<CreateStoragePolicyAssignmentRequestBodyStoragePolicyTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public CreateStoragePolicyAssignmentRequestBodyStoragePolicyFieldBuilder type(
         CreateStoragePolicyAssignmentRequestBodyStoragePolicyTypeField type) {
       this.type =
           new EnumWrapper<CreateStoragePolicyAssignmentRequestBodyStoragePolicyTypeField>(

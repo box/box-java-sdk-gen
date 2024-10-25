@@ -71,6 +71,12 @@ public class FileVersionsOrderField {
       return this;
     }
 
+    public FileVersionsOrderFieldBuilder direction(
+        EnumWrapper<FileVersionsOrderDirectionField> direction) {
+      this.direction = direction;
+      return this;
+    }
+
     public FileVersionsOrderFieldBuilder direction(FileVersionsOrderDirectionField direction) {
       this.direction =
           new EnumWrapper<FileVersionsOrderDirectionField>(direction.getValue(), direction);

@@ -221,6 +221,12 @@ public class IntegrationMapping extends IntegrationMappingBase {
     }
 
     public IntegrationMappingBuilder integrationType(
+        EnumWrapper<IntegrationMappingIntegrationTypeField> integrationType) {
+      this.integrationType = integrationType;
+      return this;
+    }
+
+    public IntegrationMappingBuilder integrationType(
         IntegrationMappingIntegrationTypeField integrationType) {
       this.integrationType =
           new EnumWrapper<IntegrationMappingIntegrationTypeField>(
@@ -255,6 +261,12 @@ public class IntegrationMapping extends IntegrationMappingBase {
 
     public IntegrationMappingBuilder modifiedAt(String modifiedAt) {
       this.modifiedAt = modifiedAt;
+      return this;
+    }
+
+    @Override
+    public IntegrationMappingBuilder type(EnumWrapper<IntegrationMappingBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

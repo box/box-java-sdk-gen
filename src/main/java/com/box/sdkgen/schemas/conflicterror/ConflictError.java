@@ -76,6 +76,12 @@ public class ConflictError extends ClientError {
   public static class ConflictErrorBuilder extends ClientErrorBuilder {
 
     @Override
+    public ConflictErrorBuilder type(EnumWrapper<ClientErrorTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    @Override
     public ConflictErrorBuilder type(ClientErrorTypeField type) {
       this.type = new EnumWrapper<ClientErrorTypeField>(type.getValue(), type);
       return this;
@@ -84,6 +90,12 @@ public class ConflictError extends ClientError {
     @Override
     public ConflictErrorBuilder status(Integer status) {
       this.status = status;
+      return this;
+    }
+
+    @Override
+    public ConflictErrorBuilder code(EnumWrapper<ClientErrorCodeField> code) {
+      this.code = code;
       return this;
     }
 

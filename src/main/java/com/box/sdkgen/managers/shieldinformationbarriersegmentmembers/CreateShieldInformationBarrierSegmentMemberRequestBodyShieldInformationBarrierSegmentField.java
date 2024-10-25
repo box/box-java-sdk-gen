@@ -97,6 +97,16 @@ class CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBar
     public
     CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentFieldBuilder
         type(
+            EnumWrapper<
+                    CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField>
+                type) {
+      this.type = type;
+      return this;
+    }
+
+    public
+    CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentFieldBuilder
+        type(
             CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField
                 type) {
       this.type =

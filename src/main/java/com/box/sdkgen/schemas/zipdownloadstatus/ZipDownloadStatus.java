@@ -134,6 +134,11 @@ public class ZipDownloadStatus {
       return this;
     }
 
+    public ZipDownloadStatusBuilder state(EnumWrapper<ZipDownloadStatusStateField> state) {
+      this.state = state;
+      return this;
+    }
+
     public ZipDownloadStatusBuilder state(ZipDownloadStatusStateField state) {
       this.state = new EnumWrapper<ZipDownloadStatusStateField>(state.getValue(), state);
       return this;

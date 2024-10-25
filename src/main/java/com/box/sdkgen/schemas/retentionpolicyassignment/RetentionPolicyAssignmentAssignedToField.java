@@ -77,6 +77,12 @@ public class RetentionPolicyAssignmentAssignedToField {
     }
 
     public RetentionPolicyAssignmentAssignedToFieldBuilder type(
+        EnumWrapper<RetentionPolicyAssignmentAssignedToTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public RetentionPolicyAssignmentAssignedToFieldBuilder type(
         RetentionPolicyAssignmentAssignedToTypeField type) {
       this.type =
           new EnumWrapper<RetentionPolicyAssignmentAssignedToTypeField>(type.getValue(), type);

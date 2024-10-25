@@ -77,6 +77,12 @@ public class CreateWebhookRequestBodyTargetField {
     }
 
     public CreateWebhookRequestBodyTargetFieldBuilder type(
+        EnumWrapper<CreateWebhookRequestBodyTargetTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public CreateWebhookRequestBodyTargetFieldBuilder type(
         CreateWebhookRequestBodyTargetTypeField type) {
       this.type = new EnumWrapper<CreateWebhookRequestBodyTargetTypeField>(type.getValue(), type);
       return this;

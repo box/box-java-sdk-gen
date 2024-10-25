@@ -72,6 +72,11 @@ public class LegalHoldPolicyMini {
               LegalHoldPolicyMiniTypeField.LEGAL_HOLD_POLICY);
     }
 
+    public LegalHoldPolicyMiniBuilder type(EnumWrapper<LegalHoldPolicyMiniTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public LegalHoldPolicyMiniBuilder type(LegalHoldPolicyMiniTypeField type) {
       this.type = new EnumWrapper<LegalHoldPolicyMiniTypeField>(type.getValue(), type);
       return this;

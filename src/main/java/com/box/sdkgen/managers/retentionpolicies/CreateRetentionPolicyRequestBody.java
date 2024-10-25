@@ -254,6 +254,12 @@ public class CreateRetentionPolicyRequestBody {
     }
 
     public CreateRetentionPolicyRequestBodyBuilder retentionType(
+        EnumWrapper<CreateRetentionPolicyRequestBodyRetentionTypeField> retentionType) {
+      this.retentionType = retentionType;
+      return this;
+    }
+
+    public CreateRetentionPolicyRequestBodyBuilder retentionType(
         CreateRetentionPolicyRequestBodyRetentionTypeField retentionType) {
       this.retentionType =
           new EnumWrapper<CreateRetentionPolicyRequestBodyRetentionTypeField>(

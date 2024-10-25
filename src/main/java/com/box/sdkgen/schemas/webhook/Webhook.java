@@ -142,6 +142,12 @@ public class Webhook extends WebhookMini {
     }
 
     @Override
+    public WebhookBuilder type(EnumWrapper<WebhookMiniTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    @Override
     public WebhookBuilder type(WebhookMiniTypeField type) {
       this.type = new EnumWrapper<WebhookMiniTypeField>(type.getValue(), type);
       return this;

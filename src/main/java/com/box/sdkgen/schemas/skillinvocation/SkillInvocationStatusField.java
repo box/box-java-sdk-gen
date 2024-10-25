@@ -98,6 +98,12 @@ public class SkillInvocationStatusField {
 
     protected String additionalInfo;
 
+    public SkillInvocationStatusFieldBuilder state(
+        EnumWrapper<SkillInvocationStatusStateField> state) {
+      this.state = state;
+      return this;
+    }
+
     public SkillInvocationStatusFieldBuilder state(SkillInvocationStatusStateField state) {
       this.state = new EnumWrapper<SkillInvocationStatusStateField>(state.getValue(), state);
       return this;

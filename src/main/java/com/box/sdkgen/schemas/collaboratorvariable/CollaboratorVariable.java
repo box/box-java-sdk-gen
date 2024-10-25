@@ -116,8 +116,19 @@ public class CollaboratorVariable {
               CollaboratorVariableVariableTypeField.USER_LIST);
     }
 
+    public CollaboratorVariableBuilder type(EnumWrapper<CollaboratorVariableTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public CollaboratorVariableBuilder type(CollaboratorVariableTypeField type) {
       this.type = new EnumWrapper<CollaboratorVariableTypeField>(type.getValue(), type);
+      return this;
+    }
+
+    public CollaboratorVariableBuilder variableType(
+        EnumWrapper<CollaboratorVariableVariableTypeField> variableType) {
+      this.variableType = variableType;
       return this;
     }
 

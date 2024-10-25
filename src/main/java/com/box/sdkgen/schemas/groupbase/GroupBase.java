@@ -69,6 +69,11 @@ public class GroupBase {
               GroupBaseTypeField.GROUP.getValue(), GroupBaseTypeField.GROUP);
     }
 
+    public GroupBaseBuilder type(EnumWrapper<GroupBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public GroupBaseBuilder type(GroupBaseTypeField type) {
       this.type = new EnumWrapper<GroupBaseTypeField>(type.getValue(), type);
       return this;

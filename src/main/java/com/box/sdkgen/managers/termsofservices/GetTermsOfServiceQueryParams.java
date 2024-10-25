@@ -21,6 +21,12 @@ public class GetTermsOfServiceQueryParams {
     protected EnumWrapper<GetTermsOfServiceQueryParamsTosTypeField> tosType;
 
     public GetTermsOfServiceQueryParamsBuilder tosType(
+        EnumWrapper<GetTermsOfServiceQueryParamsTosTypeField> tosType) {
+      this.tosType = tosType;
+      return this;
+    }
+
+    public GetTermsOfServiceQueryParamsBuilder tosType(
         GetTermsOfServiceQueryParamsTosTypeField tosType) {
       this.tosType =
           new EnumWrapper<GetTermsOfServiceQueryParamsTosTypeField>(tosType.getValue(), tosType);

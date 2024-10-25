@@ -85,6 +85,12 @@ public class RetentionPolicyAssignmentBase {
               RetentionPolicyAssignmentBaseTypeField.RETENTION_POLICY_ASSIGNMENT);
     }
 
+    public RetentionPolicyAssignmentBaseBuilder type(
+        EnumWrapper<RetentionPolicyAssignmentBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public RetentionPolicyAssignmentBaseBuilder type(RetentionPolicyAssignmentBaseTypeField type) {
       this.type = new EnumWrapper<RetentionPolicyAssignmentBaseTypeField>(type.getValue(), type);
       return this;

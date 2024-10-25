@@ -109,6 +109,12 @@ public class CommentFull extends Comment {
     }
 
     @Override
+    public CommentFullBuilder type(EnumWrapper<CommentBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    @Override
     public CommentFullBuilder type(CommentBaseTypeField type) {
       this.type = new EnumWrapper<CommentBaseTypeField>(type.getValue(), type);
       return this;

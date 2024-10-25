@@ -625,6 +625,12 @@ public class FileFull extends File {
     }
 
     @Override
+    public FileFullBuilder type(EnumWrapper<FileBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    @Override
     public FileFullBuilder type(FileBaseTypeField type) {
       this.type = new EnumWrapper<FileBaseTypeField>(type.getValue(), type);
       return this;
@@ -735,6 +741,12 @@ public class FileFull extends File {
     @Override
     public FileFullBuilder parent(FolderMini parent) {
       this.parent = parent;
+      return this;
+    }
+
+    @Override
+    public FileFullBuilder itemStatus(EnumWrapper<FileItemStatusField> itemStatus) {
+      this.itemStatus = itemStatus;
       return this;
     }
 

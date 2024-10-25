@@ -73,6 +73,11 @@ public class StatusSkillCardSkillField {
               StatusSkillCardSkillTypeField.SERVICE);
     }
 
+    public StatusSkillCardSkillFieldBuilder type(EnumWrapper<StatusSkillCardSkillTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public StatusSkillCardSkillFieldBuilder type(StatusSkillCardSkillTypeField type) {
       this.type = new EnumWrapper<StatusSkillCardSkillTypeField>(type.getValue(), type);
       return this;

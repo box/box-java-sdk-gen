@@ -90,6 +90,12 @@ public class SignRequestSignerSignerDecisionField {
     protected String additionalInfo;
 
     public SignRequestSignerSignerDecisionFieldBuilder type(
+        EnumWrapper<SignRequestSignerSignerDecisionTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public SignRequestSignerSignerDecisionFieldBuilder type(
         SignRequestSignerSignerDecisionTypeField type) {
       this.type = new EnumWrapper<SignRequestSignerSignerDecisionTypeField>(type.getValue(), type);
       return this;

@@ -159,6 +159,12 @@ public class ShieldInformationBarrierReport extends ShieldInformationBarrierRepo
     }
 
     public ShieldInformationBarrierReportBuilder status(
+        EnumWrapper<ShieldInformationBarrierReportStatusField> status) {
+      this.status = status;
+      return this;
+    }
+
+    public ShieldInformationBarrierReportBuilder status(
         ShieldInformationBarrierReportStatusField status) {
       this.status =
           new EnumWrapper<ShieldInformationBarrierReportStatusField>(status.getValue(), status);
@@ -189,6 +195,13 @@ public class ShieldInformationBarrierReport extends ShieldInformationBarrierRepo
     @Override
     public ShieldInformationBarrierReportBuilder id(String id) {
       this.id = id;
+      return this;
+    }
+
+    @Override
+    public ShieldInformationBarrierReportBuilder type(
+        EnumWrapper<ShieldInformationBarrierReportBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

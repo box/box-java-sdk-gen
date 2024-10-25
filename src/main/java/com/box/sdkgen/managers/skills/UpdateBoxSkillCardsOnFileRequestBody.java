@@ -88,6 +88,12 @@ public class UpdateBoxSkillCardsOnFileRequestBody {
     protected KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard value;
 
     public UpdateBoxSkillCardsOnFileRequestBodyBuilder op(
+        EnumWrapper<UpdateBoxSkillCardsOnFileRequestBodyOpField> op) {
+      this.op = op;
+      return this;
+    }
+
+    public UpdateBoxSkillCardsOnFileRequestBodyBuilder op(
         UpdateBoxSkillCardsOnFileRequestBodyOpField op) {
       this.op = new EnumWrapper<UpdateBoxSkillCardsOnFileRequestBodyOpField>(op.getValue(), op);
       return this;

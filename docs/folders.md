@@ -70,7 +70,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id -->
 ```
-client.getFolders().updateFolderById(copiedFolder.getId(), new UpdateFolderByIdRequestBody.UpdateFolderByIdRequestBodyBuilder().name(movedFolderName).parent(new UpdateFolderByIdRequestBodyParentField.UpdateFolderByIdRequestBodyParentFieldBuilder().id(folderOrigin.getId()).build()).build())
+downscopedClient.getFolders().updateFolderById(folder.getId(), new UpdateFolderByIdRequestBody.UpdateFolderByIdRequestBodyBuilder().name(getUuid()).build())
 ```
 
 ### Arguments
@@ -113,7 +113,7 @@ See the endpoint docs at
 
 <!-- sample delete_folders_id -->
 ```
-client.getFolders().deleteFolderById(folder.getId(), new DeleteFolderByIdQueryParams.DeleteFolderByIdQueryParamsBuilder().recursive(true).build())
+parentClient.getFolders().deleteFolderById(folder.getId())
 ```
 
 ### Arguments
@@ -180,7 +180,7 @@ See the endpoint docs at
 
 <!-- sample post_folders -->
 ```
-client.getFolders().createFolder(new CreateFolderRequestBody(folderOriginName, new CreateFolderRequestBodyParentField("0")))
+parentClient.getFolders().createFolder(new CreateFolderRequestBody(getUuid(), new CreateFolderRequestBodyParentField("0")))
 ```
 
 ### Arguments

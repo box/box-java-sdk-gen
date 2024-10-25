@@ -73,6 +73,12 @@ public class KeywordSkillCardSkillField {
               KeywordSkillCardSkillTypeField.SERVICE);
     }
 
+    public KeywordSkillCardSkillFieldBuilder type(
+        EnumWrapper<KeywordSkillCardSkillTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public KeywordSkillCardSkillFieldBuilder type(KeywordSkillCardSkillTypeField type) {
       this.type = new EnumWrapper<KeywordSkillCardSkillTypeField>(type.getValue(), type);
       return this;

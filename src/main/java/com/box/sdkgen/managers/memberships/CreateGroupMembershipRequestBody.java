@@ -115,6 +115,12 @@ public class CreateGroupMembershipRequestBody {
     }
 
     public CreateGroupMembershipRequestBodyBuilder role(
+        EnumWrapper<CreateGroupMembershipRequestBodyRoleField> role) {
+      this.role = role;
+      return this;
+    }
+
+    public CreateGroupMembershipRequestBodyBuilder role(
         CreateGroupMembershipRequestBodyRoleField role) {
       this.role = new EnumWrapper<CreateGroupMembershipRequestBodyRoleField>(role.getValue(), role);
       return this;

@@ -116,6 +116,12 @@ public class WorkflowFlowsOutcomesIfRejectedField {
     }
 
     public WorkflowFlowsOutcomesIfRejectedFieldBuilder type(
+        EnumWrapper<WorkflowFlowsOutcomesIfRejectedTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public WorkflowFlowsOutcomesIfRejectedFieldBuilder type(
         WorkflowFlowsOutcomesIfRejectedTypeField type) {
       this.type = new EnumWrapper<WorkflowFlowsOutcomesIfRejectedTypeField>(type.getValue(), type);
       return this;
@@ -123,6 +129,12 @@ public class WorkflowFlowsOutcomesIfRejectedField {
 
     public WorkflowFlowsOutcomesIfRejectedFieldBuilder name(String name) {
       this.name = name;
+      return this;
+    }
+
+    public WorkflowFlowsOutcomesIfRejectedFieldBuilder actionType(
+        EnumWrapper<WorkflowFlowsOutcomesIfRejectedActionTypeField> actionType) {
+      this.actionType = actionType;
       return this;
     }
 

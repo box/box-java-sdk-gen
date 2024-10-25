@@ -93,6 +93,12 @@ public class CollaborationAllowlistEntryEnterpriseField {
     }
 
     public CollaborationAllowlistEntryEnterpriseFieldBuilder type(
+        EnumWrapper<CollaborationAllowlistEntryEnterpriseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public CollaborationAllowlistEntryEnterpriseFieldBuilder type(
         CollaborationAllowlistEntryEnterpriseTypeField type) {
       this.type =
           new EnumWrapper<CollaborationAllowlistEntryEnterpriseTypeField>(type.getValue(), type);

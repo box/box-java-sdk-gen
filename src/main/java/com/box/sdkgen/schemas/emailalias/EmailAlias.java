@@ -100,6 +100,11 @@ public class EmailAlias {
       return this;
     }
 
+    public EmailAliasBuilder type(EnumWrapper<EmailAliasTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public EmailAliasBuilder type(EmailAliasTypeField type) {
       this.type = new EnumWrapper<EmailAliasTypeField>(type.getValue(), type);
       return this;

@@ -201,10 +201,22 @@ public class GroupFull extends Group {
       return this;
     }
 
+    public GroupFullBuilder invitabilityLevel(
+        EnumWrapper<GroupFullInvitabilityLevelField> invitabilityLevel) {
+      this.invitabilityLevel = invitabilityLevel;
+      return this;
+    }
+
     public GroupFullBuilder invitabilityLevel(GroupFullInvitabilityLevelField invitabilityLevel) {
       this.invitabilityLevel =
           new EnumWrapper<GroupFullInvitabilityLevelField>(
               invitabilityLevel.getValue(), invitabilityLevel);
+      return this;
+    }
+
+    public GroupFullBuilder memberViewabilityLevel(
+        EnumWrapper<GroupFullMemberViewabilityLevelField> memberViewabilityLevel) {
+      this.memberViewabilityLevel = memberViewabilityLevel;
       return this;
     }
 
@@ -222,6 +234,12 @@ public class GroupFull extends Group {
     }
 
     @Override
+    public GroupFullBuilder type(EnumWrapper<GroupBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    @Override
     public GroupFullBuilder type(GroupBaseTypeField type) {
       this.type = new EnumWrapper<GroupBaseTypeField>(type.getValue(), type);
       return this;
@@ -230,6 +248,12 @@ public class GroupFull extends Group {
     @Override
     public GroupFullBuilder name(String name) {
       this.name = name;
+      return this;
+    }
+
+    @Override
+    public GroupFullBuilder groupType(EnumWrapper<GroupMiniGroupTypeField> groupType) {
+      this.groupType = groupType;
       return this;
     }
 

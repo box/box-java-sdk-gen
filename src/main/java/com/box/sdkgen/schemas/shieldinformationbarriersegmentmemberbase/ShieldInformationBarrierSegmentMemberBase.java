@@ -78,6 +78,12 @@ public class ShieldInformationBarrierSegmentMemberBase {
     }
 
     public ShieldInformationBarrierSegmentMemberBaseBuilder type(
+        EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public ShieldInformationBarrierSegmentMemberBaseBuilder type(
         ShieldInformationBarrierSegmentMemberBaseTypeField type) {
       this.type =
           new EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField>(

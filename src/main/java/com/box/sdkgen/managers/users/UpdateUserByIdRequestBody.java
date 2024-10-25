@@ -396,6 +396,12 @@ public class UpdateUserByIdRequestBody {
       return this;
     }
 
+    public UpdateUserByIdRequestBodyBuilder role(
+        EnumWrapper<UpdateUserByIdRequestBodyRoleField> role) {
+      this.role = role;
+      return this;
+    }
+
     public UpdateUserByIdRequestBodyBuilder role(UpdateUserByIdRequestBodyRoleField role) {
       this.role = new EnumWrapper<UpdateUserByIdRequestBodyRoleField>(role.getValue(), role);
       return this;
@@ -462,6 +468,12 @@ public class UpdateUserByIdRequestBody {
     public UpdateUserByIdRequestBodyBuilder isPasswordResetRequired(
         Boolean isPasswordResetRequired) {
       this.isPasswordResetRequired = isPasswordResetRequired;
+      return this;
+    }
+
+    public UpdateUserByIdRequestBodyBuilder status(
+        EnumWrapper<UpdateUserByIdRequestBodyStatusField> status) {
+      this.status = status;
       return this;
     }
 

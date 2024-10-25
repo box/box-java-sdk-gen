@@ -118,6 +118,11 @@ public class AiAgentAsk {
 
     protected AiAgentBasicTextTool basicTextMulti;
 
+    public AiAgentAskBuilder type(EnumWrapper<AiAgentAskTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public AiAgentAskBuilder type(AiAgentAskTypeField type) {
       this.type = new EnumWrapper<AiAgentAskTypeField>(type.getValue(), type);
       return this;

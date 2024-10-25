@@ -102,6 +102,11 @@ public class DevicePinner {
       return this;
     }
 
+    public DevicePinnerBuilder type(EnumWrapper<DevicePinnerTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public DevicePinnerBuilder type(DevicePinnerTypeField type) {
       this.type = new EnumWrapper<DevicePinnerTypeField>(type.getValue(), type);
       return this;

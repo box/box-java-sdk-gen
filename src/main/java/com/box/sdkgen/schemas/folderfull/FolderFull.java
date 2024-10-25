@@ -424,6 +424,11 @@ public class FolderFull extends Folder {
       super(id);
     }
 
+    public FolderFullBuilder syncState(EnumWrapper<FolderFullSyncStateField> syncState) {
+      this.syncState = syncState;
+      return this;
+    }
+
     public FolderFullBuilder syncState(FolderFullSyncStateField syncState) {
       this.syncState = new EnumWrapper<FolderFullSyncStateField>(syncState.getValue(), syncState);
       return this;
@@ -505,6 +510,12 @@ public class FolderFull extends Folder {
     @Override
     public FolderFullBuilder etag(String etag) {
       this.etag = etag;
+      return this;
+    }
+
+    @Override
+    public FolderFullBuilder type(EnumWrapper<FolderBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -613,6 +624,12 @@ public class FolderFull extends Folder {
     @Override
     public FolderFullBuilder parent(FolderMini parent) {
       this.parent = parent;
+      return this;
+    }
+
+    @Override
+    public FolderFullBuilder itemStatus(EnumWrapper<FolderItemStatusField> itemStatus) {
+      this.itemStatus = itemStatus;
       return this;
     }
 

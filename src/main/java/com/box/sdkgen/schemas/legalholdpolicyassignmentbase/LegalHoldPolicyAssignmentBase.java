@@ -75,6 +75,12 @@ public class LegalHoldPolicyAssignmentBase {
       return this;
     }
 
+    public LegalHoldPolicyAssignmentBaseBuilder type(
+        EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public LegalHoldPolicyAssignmentBaseBuilder type(LegalHoldPolicyAssignmentBaseTypeField type) {
       this.type = new EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField>(type.getValue(), type);
       return this;

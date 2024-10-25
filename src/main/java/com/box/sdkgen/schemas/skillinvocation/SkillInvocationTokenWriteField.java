@@ -115,6 +115,12 @@ public class SkillInvocationTokenWriteField {
     }
 
     public SkillInvocationTokenWriteFieldBuilder tokenType(
+        EnumWrapper<SkillInvocationTokenWriteTokenTypeField> tokenType) {
+      this.tokenType = tokenType;
+      return this;
+    }
+
+    public SkillInvocationTokenWriteFieldBuilder tokenType(
         SkillInvocationTokenWriteTokenTypeField tokenType) {
       this.tokenType =
           new EnumWrapper<SkillInvocationTokenWriteTokenTypeField>(tokenType.getValue(), tokenType);

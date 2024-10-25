@@ -116,8 +116,20 @@ public class AddClassificationRequestBody {
               AddClassificationRequestBodyFieldKeyField.BOX__SECURITY__CLASSIFICATION__KEY);
     }
 
+    public AddClassificationRequestBodyBuilder op(
+        EnumWrapper<AddClassificationRequestBodyOpField> op) {
+      this.op = op;
+      return this;
+    }
+
     public AddClassificationRequestBodyBuilder op(AddClassificationRequestBodyOpField op) {
       this.op = new EnumWrapper<AddClassificationRequestBodyOpField>(op.getValue(), op);
+      return this;
+    }
+
+    public AddClassificationRequestBodyBuilder fieldKey(
+        EnumWrapper<AddClassificationRequestBodyFieldKeyField> fieldKey) {
+      this.fieldKey = fieldKey;
       return this;
     }
 

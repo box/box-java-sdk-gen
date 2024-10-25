@@ -198,8 +198,19 @@ public class TimelineSkillCard {
       return this;
     }
 
+    public TimelineSkillCardBuilder type(EnumWrapper<TimelineSkillCardTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TimelineSkillCardBuilder type(TimelineSkillCardTypeField type) {
       this.type = new EnumWrapper<TimelineSkillCardTypeField>(type.getValue(), type);
+      return this;
+    }
+
+    public TimelineSkillCardBuilder skillCardType(
+        EnumWrapper<TimelineSkillCardSkillCardTypeField> skillCardType) {
+      this.skillCardType = skillCardType;
       return this;
     }
 

@@ -478,6 +478,11 @@ public class TrashFileRestored {
       return this;
     }
 
+    public TrashFileRestoredBuilder type(EnumWrapper<TrashFileRestoredTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TrashFileRestoredBuilder type(TrashFileRestoredTypeField type) {
       this.type = new EnumWrapper<TrashFileRestoredTypeField>(type.getValue(), type);
       return this;

@@ -126,6 +126,12 @@ public class CreateTaskRequestBody {
       this.item = item;
     }
 
+    public CreateTaskRequestBodyBuilder action(
+        EnumWrapper<CreateTaskRequestBodyActionField> action) {
+      this.action = action;
+      return this;
+    }
+
     public CreateTaskRequestBodyBuilder action(CreateTaskRequestBodyActionField action) {
       this.action = new EnumWrapper<CreateTaskRequestBodyActionField>(action.getValue(), action);
       return this;
@@ -138,6 +144,12 @@ public class CreateTaskRequestBody {
 
     public CreateTaskRequestBodyBuilder dueAt(String dueAt) {
       this.dueAt = dueAt;
+      return this;
+    }
+
+    public CreateTaskRequestBodyBuilder completionRule(
+        EnumWrapper<CreateTaskRequestBodyCompletionRuleField> completionRule) {
+      this.completionRule = completionRule;
       return this;
     }
 

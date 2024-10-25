@@ -131,6 +131,11 @@ public class WorkflowFlowsField {
       return this;
     }
 
+    public WorkflowFlowsFieldBuilder type(EnumWrapper<WorkflowFlowsTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public WorkflowFlowsFieldBuilder type(WorkflowFlowsTypeField type) {
       this.type = new EnumWrapper<WorkflowFlowsTypeField>(type.getValue(), type);
       return this;

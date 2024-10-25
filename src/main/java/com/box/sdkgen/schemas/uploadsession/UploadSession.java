@@ -147,6 +147,11 @@ public class UploadSession {
       return this;
     }
 
+    public UploadSessionBuilder type(EnumWrapper<UploadSessionTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public UploadSessionBuilder type(UploadSessionTypeField type) {
       this.type = new EnumWrapper<UploadSessionTypeField>(type.getValue(), type);
       return this;

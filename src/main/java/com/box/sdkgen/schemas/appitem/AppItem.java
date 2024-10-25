@@ -96,6 +96,11 @@ public class AppItem {
               AppItemTypeField.APP_ITEM.getValue(), AppItemTypeField.APP_ITEM);
     }
 
+    public AppItemBuilder type(EnumWrapper<AppItemTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public AppItemBuilder type(AppItemTypeField type) {
       this.type = new EnumWrapper<AppItemTypeField>(type.getValue(), type);
       return this;

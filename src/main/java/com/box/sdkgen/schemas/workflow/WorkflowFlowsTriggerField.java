@@ -91,8 +91,19 @@ public class WorkflowFlowsTriggerField {
 
     protected List<WorkflowFlowsTriggerScopeField> scope;
 
+    public WorkflowFlowsTriggerFieldBuilder type(EnumWrapper<WorkflowFlowsTriggerTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public WorkflowFlowsTriggerFieldBuilder type(WorkflowFlowsTriggerTypeField type) {
       this.type = new EnumWrapper<WorkflowFlowsTriggerTypeField>(type.getValue(), type);
+      return this;
+    }
+
+    public WorkflowFlowsTriggerFieldBuilder triggerType(
+        EnumWrapper<WorkflowFlowsTriggerTriggerTypeField> triggerType) {
+      this.triggerType = triggerType;
       return this;
     }
 

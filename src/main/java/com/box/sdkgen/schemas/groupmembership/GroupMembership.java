@@ -147,6 +147,11 @@ public class GroupMembership {
       return this;
     }
 
+    public GroupMembershipBuilder type(EnumWrapper<GroupMembershipTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public GroupMembershipBuilder type(GroupMembershipTypeField type) {
       this.type = new EnumWrapper<GroupMembershipTypeField>(type.getValue(), type);
       return this;
@@ -159,6 +164,11 @@ public class GroupMembership {
 
     public GroupMembershipBuilder group(GroupMini group) {
       this.group = group;
+      return this;
+    }
+
+    public GroupMembershipBuilder role(EnumWrapper<GroupMembershipRoleField> role) {
+      this.role = role;
       return this;
     }
 

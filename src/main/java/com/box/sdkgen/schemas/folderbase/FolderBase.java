@@ -97,6 +97,11 @@ public class FolderBase {
       return this;
     }
 
+    public FolderBaseBuilder type(EnumWrapper<FolderBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public FolderBaseBuilder type(FolderBaseTypeField type) {
       this.type = new EnumWrapper<FolderBaseTypeField>(type.getValue(), type);
       return this;

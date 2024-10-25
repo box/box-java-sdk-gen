@@ -307,6 +307,11 @@ public class SignRequest extends SignRequestBase {
 
     protected FolderMini parentFolder;
 
+    public SignRequestBuilder type(EnumWrapper<SignRequestTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public SignRequestBuilder type(SignRequestTypeField type) {
       this.type = new EnumWrapper<SignRequestTypeField>(type.getValue(), type);
       return this;
@@ -339,6 +344,11 @@ public class SignRequest extends SignRequestBase {
 
     public SignRequestBuilder signingLog(FileMini signingLog) {
       this.signingLog = signingLog;
+      return this;
+    }
+
+    public SignRequestBuilder status(EnumWrapper<SignRequestStatusField> status) {
+      this.status = status;
       return this;
     }
 

@@ -137,6 +137,12 @@ public class SearchResultsWithSharedLinks {
       return this;
     }
 
+    public SearchResultsWithSharedLinksBuilder type(
+        EnumWrapper<SearchResultsWithSharedLinksTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public SearchResultsWithSharedLinksBuilder type(SearchResultsWithSharedLinksTypeField type) {
       this.type = new EnumWrapper<SearchResultsWithSharedLinksTypeField>(type.getValue(), type);
       return this;

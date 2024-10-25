@@ -105,6 +105,12 @@ public class UpdateWebLinkByIdRequestBodySharedLinkField {
     protected String unsharedAt;
 
     public UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder access(
+        EnumWrapper<UpdateWebLinkByIdRequestBodySharedLinkAccessField> access) {
+      this.access = access;
+      return this;
+    }
+
+    public UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder access(
         UpdateWebLinkByIdRequestBodySharedLinkAccessField access) {
       this.access =
           new EnumWrapper<UpdateWebLinkByIdRequestBodySharedLinkAccessField>(

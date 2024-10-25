@@ -128,6 +128,12 @@ public class StartWorkflowRequestBody {
       this.folder = folder;
     }
 
+    public StartWorkflowRequestBodyBuilder type(
+        EnumWrapper<StartWorkflowRequestBodyTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public StartWorkflowRequestBodyBuilder type(StartWorkflowRequestBodyTypeField type) {
       this.type = new EnumWrapper<StartWorkflowRequestBodyTypeField>(type.getValue(), type);
       return this;

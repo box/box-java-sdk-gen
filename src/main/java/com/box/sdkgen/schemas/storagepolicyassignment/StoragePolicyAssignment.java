@@ -113,6 +113,11 @@ public class StoragePolicyAssignment {
               StoragePolicyAssignmentTypeField.STORAGE_POLICY_ASSIGNMENT);
     }
 
+    public StoragePolicyAssignmentBuilder type(EnumWrapper<StoragePolicyAssignmentTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public StoragePolicyAssignmentBuilder type(StoragePolicyAssignmentTypeField type) {
       this.type = new EnumWrapper<StoragePolicyAssignmentTypeField>(type.getValue(), type);
       return this;

@@ -93,6 +93,12 @@ public class CollaborationAllowlistExemptTargetEnterpriseField {
     }
 
     public CollaborationAllowlistExemptTargetEnterpriseFieldBuilder type(
+        EnumWrapper<CollaborationAllowlistExemptTargetEnterpriseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public CollaborationAllowlistExemptTargetEnterpriseFieldBuilder type(
         CollaborationAllowlistExemptTargetEnterpriseTypeField type) {
       this.type =
           new EnumWrapper<CollaborationAllowlistExemptTargetEnterpriseTypeField>(

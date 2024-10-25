@@ -72,6 +72,12 @@ public class CreateTaskRequestBodyItemField {
       return this;
     }
 
+    public CreateTaskRequestBodyItemFieldBuilder type(
+        EnumWrapper<CreateTaskRequestBodyItemTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public CreateTaskRequestBodyItemFieldBuilder type(CreateTaskRequestBodyItemTypeField type) {
       this.type = new EnumWrapper<CreateTaskRequestBodyItemTypeField>(type.getValue(), type);
       return this;

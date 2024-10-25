@@ -92,6 +92,11 @@ public class AiItemBase {
               AiItemBaseTypeField.FILE.getValue(), AiItemBaseTypeField.FILE);
     }
 
+    public AiItemBaseBuilder type(EnumWrapper<AiItemBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public AiItemBaseBuilder type(AiItemBaseTypeField type) {
       this.type = new EnumWrapper<AiItemBaseTypeField>(type.getValue(), type);
       return this;

@@ -61,6 +61,11 @@ public class EnterpriseBase {
       return this;
     }
 
+    public EnterpriseBaseBuilder type(EnumWrapper<EnterpriseBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public EnterpriseBaseBuilder type(EnterpriseBaseTypeField type) {
       this.type = new EnumWrapper<EnterpriseBaseTypeField>(type.getValue(), type);
       return this;

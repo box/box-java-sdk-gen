@@ -166,6 +166,11 @@ public class MetadataTemplate {
               MetadataTemplateTypeField.METADATA_TEMPLATE);
     }
 
+    public MetadataTemplateBuilder type(EnumWrapper<MetadataTemplateTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public MetadataTemplateBuilder type(MetadataTemplateTypeField type) {
       this.type = new EnumWrapper<MetadataTemplateTypeField>(type.getValue(), type);
       return this;

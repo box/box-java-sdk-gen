@@ -137,6 +137,12 @@ public class CollaborationAllowlistExemptTarget {
     }
 
     public CollaborationAllowlistExemptTargetBuilder type(
+        EnumWrapper<CollaborationAllowlistExemptTargetTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public CollaborationAllowlistExemptTargetBuilder type(
         CollaborationAllowlistExemptTargetTypeField type) {
       this.type =
           new EnumWrapper<CollaborationAllowlistExemptTargetTypeField>(type.getValue(), type);

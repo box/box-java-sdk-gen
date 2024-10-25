@@ -221,6 +221,11 @@ public class Task {
       return this;
     }
 
+    public TaskBuilder type(EnumWrapper<TaskTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TaskBuilder type(TaskTypeField type) {
       this.type = new EnumWrapper<TaskTypeField>(type.getValue(), type);
       return this;
@@ -233,6 +238,11 @@ public class Task {
 
     public TaskBuilder dueAt(String dueAt) {
       this.dueAt = dueAt;
+      return this;
+    }
+
+    public TaskBuilder action(EnumWrapper<TaskActionField> action) {
+      this.action = action;
       return this;
     }
 
@@ -263,6 +273,11 @@ public class Task {
 
     public TaskBuilder createdAt(String createdAt) {
       this.createdAt = createdAt;
+      return this;
+    }
+
+    public TaskBuilder completionRule(EnumWrapper<TaskCompletionRuleField> completionRule) {
+      this.completionRule = completionRule;
       return this;
     }
 

@@ -77,6 +77,12 @@ public class UpdateWebhookByIdRequestBodyTargetField {
     }
 
     public UpdateWebhookByIdRequestBodyTargetFieldBuilder type(
+        EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public UpdateWebhookByIdRequestBodyTargetFieldBuilder type(
         UpdateWebhookByIdRequestBodyTargetTypeField type) {
       this.type =
           new EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField>(type.getValue(), type);

@@ -142,6 +142,11 @@ public class ClientError {
 
     protected String requestId;
 
+    public ClientErrorBuilder type(EnumWrapper<ClientErrorTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public ClientErrorBuilder type(ClientErrorTypeField type) {
       this.type = new EnumWrapper<ClientErrorTypeField>(type.getValue(), type);
       return this;
@@ -149,6 +154,11 @@ public class ClientError {
 
     public ClientErrorBuilder status(Integer status) {
       this.status = status;
+      return this;
+    }
+
+    public ClientErrorBuilder code(EnumWrapper<ClientErrorCodeField> code) {
+      this.code = code;
       return this;
     }
 

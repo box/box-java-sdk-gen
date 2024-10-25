@@ -115,6 +115,12 @@ public class CreateTermsOfServiceRequestBody {
     }
 
     public CreateTermsOfServiceRequestBodyBuilder tosType(
+        EnumWrapper<CreateTermsOfServiceRequestBodyTosTypeField> tosType) {
+      this.tosType = tosType;
+      return this;
+    }
+
+    public CreateTermsOfServiceRequestBodyBuilder tosType(
         CreateTermsOfServiceRequestBodyTosTypeField tosType) {
       this.tosType =
           new EnumWrapper<CreateTermsOfServiceRequestBodyTosTypeField>(tosType.getValue(), tosType);

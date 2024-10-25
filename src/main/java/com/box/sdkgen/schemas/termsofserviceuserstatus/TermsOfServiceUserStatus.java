@@ -157,6 +157,12 @@ public class TermsOfServiceUserStatus {
               TermsOfServiceUserStatusTypeField.TERMS_OF_SERVICE_USER_STATUS);
     }
 
+    public TermsOfServiceUserStatusBuilder type(
+        EnumWrapper<TermsOfServiceUserStatusTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TermsOfServiceUserStatusBuilder type(TermsOfServiceUserStatusTypeField type) {
       this.type = new EnumWrapper<TermsOfServiceUserStatusTypeField>(type.getValue(), type);
       return this;

@@ -145,6 +145,11 @@ public class AccessToken {
       return this;
     }
 
+    public AccessTokenBuilder tokenType(EnumWrapper<AccessTokenTokenTypeField> tokenType) {
+      this.tokenType = tokenType;
+      return this;
+    }
+
     public AccessTokenBuilder tokenType(AccessTokenTokenTypeField tokenType) {
       this.tokenType = new EnumWrapper<AccessTokenTokenTypeField>(tokenType.getValue(), tokenType);
       return this;
@@ -157,6 +162,12 @@ public class AccessToken {
 
     public AccessTokenBuilder refreshToken(String refreshToken) {
       this.refreshToken = refreshToken;
+      return this;
+    }
+
+    public AccessTokenBuilder issuedTokenType(
+        EnumWrapper<AccessTokenIssuedTokenTypeField> issuedTokenType) {
+      this.issuedTokenType = issuedTokenType;
       return this;
     }
 

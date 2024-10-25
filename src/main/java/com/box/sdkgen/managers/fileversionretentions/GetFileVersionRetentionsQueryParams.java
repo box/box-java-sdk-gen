@@ -102,6 +102,12 @@ public class GetFileVersionRetentionsQueryParams {
     }
 
     public GetFileVersionRetentionsQueryParamsBuilder dispositionAction(
+        EnumWrapper<GetFileVersionRetentionsQueryParamsDispositionActionField> dispositionAction) {
+      this.dispositionAction = dispositionAction;
+      return this;
+    }
+
+    public GetFileVersionRetentionsQueryParamsBuilder dispositionAction(
         GetFileVersionRetentionsQueryParamsDispositionActionField dispositionAction) {
       this.dispositionAction =
           new EnumWrapper<GetFileVersionRetentionsQueryParamsDispositionActionField>(

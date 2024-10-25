@@ -102,6 +102,11 @@ public class SkillInvocationSkillField {
       return this;
     }
 
+    public SkillInvocationSkillFieldBuilder type(EnumWrapper<SkillInvocationSkillTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public SkillInvocationSkillFieldBuilder type(SkillInvocationSkillTypeField type) {
       this.type = new EnumWrapper<SkillInvocationSkillTypeField>(type.getValue(), type);
       return this;

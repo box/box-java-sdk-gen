@@ -131,6 +131,12 @@ public class FileFullExpiringEmbedLinkField {
     }
 
     public FileFullExpiringEmbedLinkFieldBuilder tokenType(
+        EnumWrapper<FileFullExpiringEmbedLinkTokenTypeField> tokenType) {
+      this.tokenType = tokenType;
+      return this;
+    }
+
+    public FileFullExpiringEmbedLinkFieldBuilder tokenType(
         FileFullExpiringEmbedLinkTokenTypeField tokenType) {
       this.tokenType =
           new EnumWrapper<FileFullExpiringEmbedLinkTokenTypeField>(tokenType.getValue(), tokenType);

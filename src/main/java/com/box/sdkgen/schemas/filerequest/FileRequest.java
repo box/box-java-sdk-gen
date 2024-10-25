@@ -296,6 +296,11 @@ public class FileRequest {
               FileRequestTypeField.FILE_REQUEST.getValue(), FileRequestTypeField.FILE_REQUEST);
     }
 
+    public FileRequestBuilder type(EnumWrapper<FileRequestTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public FileRequestBuilder type(FileRequestTypeField type) {
       this.type = new EnumWrapper<FileRequestTypeField>(type.getValue(), type);
       return this;
@@ -308,6 +313,11 @@ public class FileRequest {
 
     public FileRequestBuilder description(String description) {
       this.description = description;
+      return this;
+    }
+
+    public FileRequestBuilder status(EnumWrapper<FileRequestStatusField> status) {
+      this.status = status;
       return this;
     }
 

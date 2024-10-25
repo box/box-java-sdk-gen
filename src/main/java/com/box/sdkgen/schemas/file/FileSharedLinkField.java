@@ -308,6 +308,11 @@ public class FileSharedLinkField {
       return this;
     }
 
+    public FileSharedLinkFieldBuilder access(EnumWrapper<FileSharedLinkAccessField> access) {
+      this.access = access;
+      return this;
+    }
+
     public FileSharedLinkFieldBuilder access(FileSharedLinkAccessField access) {
       this.access = new EnumWrapper<FileSharedLinkAccessField>(access.getValue(), access);
       return this;

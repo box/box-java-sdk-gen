@@ -124,6 +124,12 @@ public class RecentItem {
       return this;
     }
 
+    public RecentItemBuilder interactionType(
+        EnumWrapper<RecentItemInteractionTypeField> interactionType) {
+      this.interactionType = interactionType;
+      return this;
+    }
+
     public RecentItemBuilder interactionType(RecentItemInteractionTypeField interactionType) {
       this.interactionType =
           new EnumWrapper<RecentItemInteractionTypeField>(

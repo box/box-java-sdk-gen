@@ -112,6 +112,12 @@ public class UserCollaborations extends UserBase {
     }
 
     @Override
+    public UserCollaborationsBuilder type(EnumWrapper<UserBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    @Override
     public UserCollaborationsBuilder type(UserBaseTypeField type) {
       this.type = new EnumWrapper<UserBaseTypeField>(type.getValue(), type);
       return this;

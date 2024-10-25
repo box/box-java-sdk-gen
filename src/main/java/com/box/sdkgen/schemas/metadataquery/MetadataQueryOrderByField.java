@@ -75,6 +75,12 @@ public class MetadataQueryOrderByField {
     }
 
     public MetadataQueryOrderByFieldBuilder direction(
+        EnumWrapper<MetadataQueryOrderByDirectionField> direction) {
+      this.direction = direction;
+      return this;
+    }
+
+    public MetadataQueryOrderByFieldBuilder direction(
         MetadataQueryOrderByDirectionField direction) {
       this.direction =
           new EnumWrapper<MetadataQueryOrderByDirectionField>(direction.getValue(), direction);

@@ -149,6 +149,11 @@ public class FileFullLockField {
       return this;
     }
 
+    public FileFullLockFieldBuilder type(EnumWrapper<FileFullLockTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public FileFullLockFieldBuilder type(FileFullLockTypeField type) {
       this.type = new EnumWrapper<FileFullLockTypeField>(type.getValue(), type);
       return this;
@@ -171,6 +176,11 @@ public class FileFullLockField {
 
     public FileFullLockFieldBuilder isDownloadPrevented(Boolean isDownloadPrevented) {
       this.isDownloadPrevented = isDownloadPrevented;
+      return this;
+    }
+
+    public FileFullLockFieldBuilder appType(EnumWrapper<FileFullLockAppTypeField> appType) {
+      this.appType = appType;
       return this;
     }
 

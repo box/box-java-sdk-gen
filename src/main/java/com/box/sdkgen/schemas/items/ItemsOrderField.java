@@ -61,6 +61,11 @@ public class ItemsOrderField {
       return this;
     }
 
+    public ItemsOrderFieldBuilder direction(EnumWrapper<ItemsOrderDirectionField> direction) {
+      this.direction = direction;
+      return this;
+    }
+
     public ItemsOrderFieldBuilder direction(ItemsOrderDirectionField direction) {
       this.direction = new EnumWrapper<ItemsOrderDirectionField>(direction.getValue(), direction);
       return this;

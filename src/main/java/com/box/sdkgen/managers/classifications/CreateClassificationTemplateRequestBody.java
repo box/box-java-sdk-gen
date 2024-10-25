@@ -185,6 +185,12 @@ public class CreateClassificationTemplateRequestBody {
     }
 
     public CreateClassificationTemplateRequestBodyBuilder scope(
+        EnumWrapper<CreateClassificationTemplateRequestBodyScopeField> scope) {
+      this.scope = scope;
+      return this;
+    }
+
+    public CreateClassificationTemplateRequestBodyBuilder scope(
         CreateClassificationTemplateRequestBodyScopeField scope) {
       this.scope =
           new EnumWrapper<CreateClassificationTemplateRequestBodyScopeField>(
@@ -193,10 +199,22 @@ public class CreateClassificationTemplateRequestBody {
     }
 
     public CreateClassificationTemplateRequestBodyBuilder templateKey(
+        EnumWrapper<CreateClassificationTemplateRequestBodyTemplateKeyField> templateKey) {
+      this.templateKey = templateKey;
+      return this;
+    }
+
+    public CreateClassificationTemplateRequestBodyBuilder templateKey(
         CreateClassificationTemplateRequestBodyTemplateKeyField templateKey) {
       this.templateKey =
           new EnumWrapper<CreateClassificationTemplateRequestBodyTemplateKeyField>(
               templateKey.getValue(), templateKey);
+      return this;
+    }
+
+    public CreateClassificationTemplateRequestBodyBuilder displayName(
+        EnumWrapper<CreateClassificationTemplateRequestBodyDisplayNameField> displayName) {
+      this.displayName = displayName;
       return this;
     }
 

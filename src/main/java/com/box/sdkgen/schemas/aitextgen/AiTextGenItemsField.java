@@ -92,6 +92,11 @@ public class AiTextGenItemsField {
               AiTextGenItemsTypeField.FILE.getValue(), AiTextGenItemsTypeField.FILE);
     }
 
+    public AiTextGenItemsFieldBuilder type(EnumWrapper<AiTextGenItemsTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public AiTextGenItemsFieldBuilder type(AiTextGenItemsTypeField type) {
       this.type = new EnumWrapper<AiTextGenItemsTypeField>(type.getValue(), type);
       return this;

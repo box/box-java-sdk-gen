@@ -127,6 +127,12 @@ public class CreateShieldInformationBarrierSegmentMemberRequestBody {
     }
 
     public CreateShieldInformationBarrierSegmentMemberRequestBodyBuilder type(
+        EnumWrapper<CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public CreateShieldInformationBarrierSegmentMemberRequestBodyBuilder type(
         CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField type) {
       this.type =
           new EnumWrapper<CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField>(

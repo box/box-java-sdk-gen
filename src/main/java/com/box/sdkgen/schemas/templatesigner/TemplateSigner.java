@@ -165,6 +165,11 @@ public class TemplateSigner {
       return this;
     }
 
+    public TemplateSignerBuilder role(EnumWrapper<TemplateSignerRoleField> role) {
+      this.role = role;
+      return this;
+    }
+
     public TemplateSignerBuilder role(TemplateSignerRoleField role) {
       this.role = new EnumWrapper<TemplateSignerRoleField>(role.getValue(), role);
       return this;

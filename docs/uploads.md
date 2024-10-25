@@ -89,7 +89,7 @@ See the endpoint docs at
 
 <!-- sample post_files_content -->
 ```
-client.getUploads().uploadFile(new UploadFileRequestBody(new UploadFileRequestBodyAttributesField(String.join("", getUuid(), ".txt"), new UploadFileRequestBodyAttributesParentField("0")), stringToByteStream("My name is John Doe. I live in San Francisco. I was born in 1990. I work at Box.")))
+parentClient.getUploads().uploadFile(new UploadFileRequestBody(new UploadFileRequestBodyAttributesField(getUuid(), new UploadFileRequestBodyAttributesParentField("0")), generateByteStream(1024 * 1024)))
 ```
 
 ### Arguments
