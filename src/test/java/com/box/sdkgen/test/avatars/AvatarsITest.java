@@ -32,9 +32,9 @@ public class AvatarsITest {
                     .picFileName("avatar.png")
                     .picContentType("image/png")
                     .build());
-    assert !(createdAvatar.getPicUrls().getSmall().equals(null));
-    assert !(createdAvatar.getPicUrls().getLarge().equals(null));
-    assert !(createdAvatar.getPicUrls().getPreview().equals(null));
+    assert !(createdAvatar.getPicUrls().getSmall() == null);
+    assert !(createdAvatar.getPicUrls().getLarge() == null);
+    assert !(createdAvatar.getPicUrls().getPreview() == null);
     InputStream response = client.getAvatars().getUserAvatar(user.getId());
     assert bufferEquals(readByteStream(response), generateByteBuffer(0)) == false;
     client.getAvatars().deleteUserAvatar(user.getId());

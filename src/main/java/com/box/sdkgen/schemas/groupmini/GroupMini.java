@@ -91,8 +91,19 @@ public class GroupMini extends GroupBase {
       return this;
     }
 
+    public GroupMiniBuilder groupType(EnumWrapper<GroupMiniGroupTypeField> groupType) {
+      this.groupType = groupType;
+      return this;
+    }
+
     public GroupMiniBuilder groupType(GroupMiniGroupTypeField groupType) {
       this.groupType = new EnumWrapper<GroupMiniGroupTypeField>(groupType.getValue(), groupType);
+      return this;
+    }
+
+    @Override
+    public GroupMiniBuilder type(EnumWrapper<GroupBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

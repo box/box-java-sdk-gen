@@ -324,6 +324,11 @@ public class TrashWebLink {
 
     protected EnumWrapper<TrashWebLinkItemStatusField> itemStatus;
 
+    public TrashWebLinkBuilder type(EnumWrapper<TrashWebLinkTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TrashWebLinkBuilder type(TrashWebLinkTypeField type) {
       this.type = new EnumWrapper<TrashWebLinkTypeField>(type.getValue(), type);
       return this;
@@ -406,6 +411,11 @@ public class TrashWebLink {
 
     public TrashWebLinkBuilder sharedLink(String sharedLink) {
       this.sharedLink = sharedLink;
+      return this;
+    }
+
+    public TrashWebLinkBuilder itemStatus(EnumWrapper<TrashWebLinkItemStatusField> itemStatus) {
+      this.itemStatus = itemStatus;
       return this;
     }
 

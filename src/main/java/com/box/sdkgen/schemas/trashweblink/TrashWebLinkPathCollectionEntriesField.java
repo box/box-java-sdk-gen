@@ -117,6 +117,12 @@ public class TrashWebLinkPathCollectionEntriesField {
     protected String name;
 
     public TrashWebLinkPathCollectionEntriesFieldBuilder type(
+        EnumWrapper<TrashWebLinkPathCollectionEntriesTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public TrashWebLinkPathCollectionEntriesFieldBuilder type(
         TrashWebLinkPathCollectionEntriesTypeField type) {
       this.type =
           new EnumWrapper<TrashWebLinkPathCollectionEntriesTypeField>(type.getValue(), type);

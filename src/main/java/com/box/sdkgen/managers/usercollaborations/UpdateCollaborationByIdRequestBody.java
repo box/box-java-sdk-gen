@@ -124,6 +124,12 @@ public class UpdateCollaborationByIdRequestBody {
     }
 
     public UpdateCollaborationByIdRequestBodyBuilder status(
+        EnumWrapper<UpdateCollaborationByIdRequestBodyStatusField> status) {
+      this.status = status;
+      return this;
+    }
+
+    public UpdateCollaborationByIdRequestBodyBuilder status(
         UpdateCollaborationByIdRequestBodyStatusField status) {
       this.status =
           new EnumWrapper<UpdateCollaborationByIdRequestBodyStatusField>(status.getValue(), status);

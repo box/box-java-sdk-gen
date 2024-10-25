@@ -118,6 +118,12 @@ public class UpdateFileByIdRequestBodySharedLinkField {
     protected UpdateFileByIdRequestBodySharedLinkPermissionsField permissions;
 
     public UpdateFileByIdRequestBodySharedLinkFieldBuilder access(
+        EnumWrapper<UpdateFileByIdRequestBodySharedLinkAccessField> access) {
+      this.access = access;
+      return this;
+    }
+
+    public UpdateFileByIdRequestBodySharedLinkFieldBuilder access(
         UpdateFileByIdRequestBodySharedLinkAccessField access) {
       this.access =
           new EnumWrapper<UpdateFileByIdRequestBodySharedLinkAccessField>(

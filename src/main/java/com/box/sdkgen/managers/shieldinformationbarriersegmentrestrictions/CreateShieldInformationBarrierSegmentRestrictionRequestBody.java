@@ -153,6 +153,12 @@ public class CreateShieldInformationBarrierSegmentRestrictionRequestBody {
     }
 
     public CreateShieldInformationBarrierSegmentRestrictionRequestBodyBuilder type(
+        EnumWrapper<CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public CreateShieldInformationBarrierSegmentRestrictionRequestBodyBuilder type(
         CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField type) {
       this.type =
           new EnumWrapper<CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField>(

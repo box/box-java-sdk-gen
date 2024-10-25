@@ -92,6 +92,11 @@ public class WebLinkBase {
               WebLinkBaseTypeField.WEB_LINK.getValue(), WebLinkBaseTypeField.WEB_LINK);
     }
 
+    public WebLinkBaseBuilder type(EnumWrapper<WebLinkBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public WebLinkBaseBuilder type(WebLinkBaseTypeField type) {
       this.type = new EnumWrapper<WebLinkBaseTypeField>(type.getValue(), type);
       return this;

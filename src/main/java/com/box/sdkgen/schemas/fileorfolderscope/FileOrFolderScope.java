@@ -66,6 +66,11 @@ public class FileOrFolderScope {
 
     protected FileMiniOrFolderMini object;
 
+    public FileOrFolderScopeBuilder scope(EnumWrapper<FileOrFolderScopeScopeField> scope) {
+      this.scope = scope;
+      return this;
+    }
+
     public FileOrFolderScopeBuilder scope(FileOrFolderScopeScopeField scope) {
       this.scope = new EnumWrapper<FileOrFolderScopeScopeField>(scope.getValue(), scope);
       return this;

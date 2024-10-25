@@ -342,6 +342,11 @@ public class CreateUserRequestBody {
       return this;
     }
 
+    public CreateUserRequestBodyBuilder role(EnumWrapper<CreateUserRequestBodyRoleField> role) {
+      this.role = role;
+      return this;
+    }
+
     public CreateUserRequestBodyBuilder role(CreateUserRequestBodyRoleField role) {
       this.role = new EnumWrapper<CreateUserRequestBodyRoleField>(role.getValue(), role);
       return this;
@@ -406,6 +411,12 @@ public class CreateUserRequestBody {
     public CreateUserRequestBodyBuilder isExemptFromLoginVerification(
         Boolean isExemptFromLoginVerification) {
       this.isExemptFromLoginVerification = isExemptFromLoginVerification;
+      return this;
+    }
+
+    public CreateUserRequestBodyBuilder status(
+        EnumWrapper<CreateUserRequestBodyStatusField> status) {
+      this.status = status;
       return this;
     }
 

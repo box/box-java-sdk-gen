@@ -475,6 +475,11 @@ public class TrashFile {
       return this;
     }
 
+    public TrashFileBuilder type(EnumWrapper<TrashFileTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TrashFileBuilder type(TrashFileTypeField type) {
       this.type = new EnumWrapper<TrashFileTypeField>(type.getValue(), type);
       return this;

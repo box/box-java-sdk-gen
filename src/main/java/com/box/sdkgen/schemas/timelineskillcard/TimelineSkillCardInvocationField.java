@@ -84,6 +84,12 @@ public class TimelineSkillCardInvocationField {
               TimelineSkillCardInvocationTypeField.SKILL_INVOCATION);
     }
 
+    public TimelineSkillCardInvocationFieldBuilder type(
+        EnumWrapper<TimelineSkillCardInvocationTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TimelineSkillCardInvocationFieldBuilder type(TimelineSkillCardInvocationTypeField type) {
       this.type = new EnumWrapper<TimelineSkillCardInvocationTypeField>(type.getValue(), type);
       return this;

@@ -103,6 +103,12 @@ public class ZipDownloadNameConflictsField {
       return this;
     }
 
+    public ZipDownloadNameConflictsFieldBuilder type(
+        EnumWrapper<ZipDownloadNameConflictsTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public ZipDownloadNameConflictsFieldBuilder type(ZipDownloadNameConflictsTypeField type) {
       this.type = new EnumWrapper<ZipDownloadNameConflictsTypeField>(type.getValue(), type);
       return this;

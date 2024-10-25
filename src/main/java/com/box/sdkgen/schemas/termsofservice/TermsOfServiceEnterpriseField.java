@@ -86,6 +86,12 @@ public class TermsOfServiceEnterpriseField {
       return this;
     }
 
+    public TermsOfServiceEnterpriseFieldBuilder type(
+        EnumWrapper<TermsOfServiceEnterpriseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TermsOfServiceEnterpriseFieldBuilder type(TermsOfServiceEnterpriseTypeField type) {
       this.type = new EnumWrapper<TermsOfServiceEnterpriseTypeField>(type.getValue(), type);
       return this;

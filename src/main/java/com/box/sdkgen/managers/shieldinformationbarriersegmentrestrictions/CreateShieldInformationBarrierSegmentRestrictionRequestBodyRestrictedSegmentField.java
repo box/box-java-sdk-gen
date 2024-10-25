@@ -90,6 +90,15 @@ public class CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrict
 
     public CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentFieldBuilder
         type(
+            EnumWrapper<
+                    CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentTypeField>
+                type) {
+      this.type = type;
+      return this;
+    }
+
+    public CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentFieldBuilder
+        type(
             CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentTypeField
                 type) {
       this.type =

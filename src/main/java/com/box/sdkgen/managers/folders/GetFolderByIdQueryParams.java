@@ -62,8 +62,20 @@ public class GetFolderByIdQueryParams {
       return this;
     }
 
+    public GetFolderByIdQueryParamsBuilder sort(
+        EnumWrapper<GetFolderByIdQueryParamsSortField> sort) {
+      this.sort = sort;
+      return this;
+    }
+
     public GetFolderByIdQueryParamsBuilder sort(GetFolderByIdQueryParamsSortField sort) {
       this.sort = new EnumWrapper<GetFolderByIdQueryParamsSortField>(sort.getValue(), sort);
+      return this;
+    }
+
+    public GetFolderByIdQueryParamsBuilder direction(
+        EnumWrapper<GetFolderByIdQueryParamsDirectionField> direction) {
+      this.direction = direction;
       return this;
     }
 

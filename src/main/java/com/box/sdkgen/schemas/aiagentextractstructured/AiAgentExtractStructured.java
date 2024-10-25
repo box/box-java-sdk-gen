@@ -91,6 +91,12 @@ public class AiAgentExtractStructured {
 
     protected AiAgentBasicTextTool basicText;
 
+    public AiAgentExtractStructuredBuilder type(
+        EnumWrapper<AiAgentExtractStructuredTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public AiAgentExtractStructuredBuilder type(AiAgentExtractStructuredTypeField type) {
       this.type = new EnumWrapper<AiAgentExtractStructuredTypeField>(type.getValue(), type);
       return this;

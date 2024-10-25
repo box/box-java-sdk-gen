@@ -18,13 +18,45 @@ dependencies {
   testImplementation "org.junit.jupiter:junit-jupiter-api:5.10.0"
   testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.10.0"
 }
-test {
-  //useJUnitPlatform()
-}
 spotless {
   java {
     googleJavaFormat '1.7'
     target 'src/**/*.java'
+  }
+
+}
+test {
+  useJUnitPlatform()
+  testLogging {
+    events = ['passed', 'failed', 'skipped']
+    showStandardStreams = true
+  }
+
+    filter {
+    excludeTestsMatching 'com.box.sdkgen.test.client.ClientITest.testWithCustomBaseUrls'
+    excludeTestsMatching 'com.box.sdkgen.test.client.ClientITest.testWithAsUserHeader'
+    excludeTestsMatching 'com.box.sdkgen.test.client.ClientITest.testWithExtraHeaders'
+
+    excludeTestsMatching 'com.box.sdkgen.test.filemetadata.FileMetadataITest.testGlobalFileMetadata'
+
+    excludeTestsMatching 'com.box.sdkgen.test.foldermetadata.FolderMetadataITest.testGlobalFolderMetadata'
+
+    excludeTestsMatching 'com.box.sdkgen.test.metadatatemplates.MetadataTemplatesITest.testMetadataTemplates'
+    excludeTestsMatching 'com.box.sdkgen.test.metadatatemplates.MetadataTemplatesITest.testGetMetadataTemplateByInstance'
+
+    excludeTestsMatching 'com.box.sdkgen.test.metadatacascadepolicies.MetadataCascadePoliciesITest.testMetadataCascadePolicies'
+
+    excludeTestsMatching 'com.box.sdkgen.test.files.FilesITest.testGetFileThumbnail'
+
+    excludeTestsMatching 'com.box.sdkgen.test.signtemplates.SignTemplatesITest.testGetSignTemplates'
+    excludeTestsMatching 'com.box.sdkgen.test.signtemplates.SignTemplatesITest.testGetSignTemplate'
+
+    excludeTestsMatching 'com.box.sdkgen.test.signrequests.SignRequestsITest.testCreateSignRequestWithSignerGroupId'
+    excludeTestsMatching 'com.box.sdkgen.test.signrequests.SignRequestsITest.testCreateGetCancelAndListSignRequest'
+
+    excludeTestsMatching 'com.box.sdkgen.test.webhooks.WebhooksITest.testWebhooksCrud'
+
+    excludeTestsMatching 'com.box.sdkgen.test.transfer.TransferITest.testTransferUserContent'
   }
 
 }

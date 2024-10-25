@@ -64,6 +64,11 @@ public class AiAgentTextGen {
 
     protected AiAgentBasicGenTool basicGen;
 
+    public AiAgentTextGenBuilder type(EnumWrapper<AiAgentTextGenTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public AiAgentTextGenBuilder type(AiAgentTextGenTypeField type) {
       this.type = new EnumWrapper<AiAgentTextGenTypeField>(type.getValue(), type);
       return this;

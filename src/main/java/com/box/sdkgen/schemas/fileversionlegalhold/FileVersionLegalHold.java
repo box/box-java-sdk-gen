@@ -136,6 +136,11 @@ public class FileVersionLegalHold {
       return this;
     }
 
+    public FileVersionLegalHoldBuilder type(EnumWrapper<FileVersionLegalHoldTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public FileVersionLegalHoldBuilder type(FileVersionLegalHoldTypeField type) {
       this.type = new EnumWrapper<FileVersionLegalHoldTypeField>(type.getValue(), type);
       return this;

@@ -119,6 +119,12 @@ public class UpdateSharedLinkOnWebLinkRequestBodySharedLinkField {
     protected UpdateSharedLinkOnWebLinkRequestBodySharedLinkPermissionsField permissions;
 
     public UpdateSharedLinkOnWebLinkRequestBodySharedLinkFieldBuilder access(
+        EnumWrapper<UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField> access) {
+      this.access = access;
+      return this;
+    }
+
+    public UpdateSharedLinkOnWebLinkRequestBodySharedLinkFieldBuilder access(
         UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField access) {
       this.access =
           new EnumWrapper<UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField>(

@@ -139,6 +139,11 @@ public class MetadataCascadePolicy {
               MetadataCascadePolicyTypeField.METADATA_CASCADE_POLICY);
     }
 
+    public MetadataCascadePolicyBuilder type(EnumWrapper<MetadataCascadePolicyTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public MetadataCascadePolicyBuilder type(MetadataCascadePolicyTypeField type) {
       this.type = new EnumWrapper<MetadataCascadePolicyTypeField>(type.getValue(), type);
       return this;

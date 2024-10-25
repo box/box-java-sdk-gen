@@ -119,6 +119,12 @@ public class AddShareLinkToFileRequestBodySharedLinkField {
     protected AddShareLinkToFileRequestBodySharedLinkPermissionsField permissions;
 
     public AddShareLinkToFileRequestBodySharedLinkFieldBuilder access(
+        EnumWrapper<AddShareLinkToFileRequestBodySharedLinkAccessField> access) {
+      this.access = access;
+      return this;
+    }
+
+    public AddShareLinkToFileRequestBodySharedLinkFieldBuilder access(
         AddShareLinkToFileRequestBodySharedLinkAccessField access) {
       this.access =
           new EnumWrapper<AddShareLinkToFileRequestBodySharedLinkAccessField>(

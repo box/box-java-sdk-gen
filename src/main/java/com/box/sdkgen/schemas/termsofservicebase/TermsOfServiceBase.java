@@ -72,6 +72,11 @@ public class TermsOfServiceBase {
               TermsOfServiceBaseTypeField.TERMS_OF_SERVICE);
     }
 
+    public TermsOfServiceBaseBuilder type(EnumWrapper<TermsOfServiceBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TermsOfServiceBaseBuilder type(TermsOfServiceBaseTypeField type) {
       this.type = new EnumWrapper<TermsOfServiceBaseTypeField>(type.getValue(), type);
       return this;

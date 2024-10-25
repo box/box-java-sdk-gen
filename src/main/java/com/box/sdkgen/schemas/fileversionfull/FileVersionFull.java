@@ -150,6 +150,12 @@ public class FileVersionFull extends FileVersion {
     }
 
     @Override
+    public FileVersionFullBuilder type(EnumWrapper<FileVersionBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    @Override
     public FileVersionFullBuilder type(FileVersionBaseTypeField type) {
       this.type = new EnumWrapper<FileVersionBaseTypeField>(type.getValue(), type);
       return this;

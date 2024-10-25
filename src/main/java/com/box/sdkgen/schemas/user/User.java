@@ -309,6 +309,11 @@ public class User extends UserMini {
       return this;
     }
 
+    public UserBuilder status(EnumWrapper<UserStatusField> status) {
+      this.status = status;
+      return this;
+    }
+
     public UserBuilder status(UserStatusField status) {
       this.status = new EnumWrapper<UserStatusField>(status.getValue(), status);
       return this;
@@ -336,6 +341,12 @@ public class User extends UserMini {
 
     public UserBuilder notificationEmail(UserNotificationEmailField notificationEmail) {
       this.notificationEmail = notificationEmail;
+      return this;
+    }
+
+    @Override
+    public UserBuilder type(EnumWrapper<UserBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

@@ -103,6 +103,13 @@ public class FileRequestCopyRequest extends FileRequestUpdateRequest {
     }
 
     @Override
+    public FileRequestCopyRequestBuilder status(
+        EnumWrapper<FileRequestUpdateRequestStatusField> status) {
+      this.status = status;
+      return this;
+    }
+
+    @Override
     public FileRequestCopyRequestBuilder status(FileRequestUpdateRequestStatusField status) {
       this.status = new EnumWrapper<FileRequestUpdateRequestStatusField>(status.getValue(), status);
       return this;

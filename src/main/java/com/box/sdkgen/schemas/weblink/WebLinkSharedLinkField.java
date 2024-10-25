@@ -312,6 +312,11 @@ public class WebLinkSharedLinkField {
       return this;
     }
 
+    public WebLinkSharedLinkFieldBuilder access(EnumWrapper<WebLinkSharedLinkAccessField> access) {
+      this.access = access;
+      return this;
+    }
+
     public WebLinkSharedLinkFieldBuilder access(WebLinkSharedLinkAccessField access) {
       this.access = new EnumWrapper<WebLinkSharedLinkAccessField>(access.getValue(), access);
       return this;

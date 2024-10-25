@@ -225,6 +225,12 @@ public class SignRequestSigner extends SignRequestCreateSigner {
     }
 
     @Override
+    public SignRequestSignerBuilder role(EnumWrapper<SignRequestCreateSignerRoleField> role) {
+      this.role = role;
+      return this;
+    }
+
+    @Override
     public SignRequestSignerBuilder role(SignRequestCreateSignerRoleField role) {
       this.role = new EnumWrapper<SignRequestCreateSignerRoleField>(role.getValue(), role);
       return this;

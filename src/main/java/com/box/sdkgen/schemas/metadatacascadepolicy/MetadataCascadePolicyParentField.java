@@ -69,6 +69,12 @@ public class MetadataCascadePolicyParentField {
 
     protected String id;
 
+    public MetadataCascadePolicyParentFieldBuilder type(
+        EnumWrapper<MetadataCascadePolicyParentTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public MetadataCascadePolicyParentFieldBuilder type(MetadataCascadePolicyParentTypeField type) {
       this.type = new EnumWrapper<MetadataCascadePolicyParentTypeField>(type.getValue(), type);
       return this;

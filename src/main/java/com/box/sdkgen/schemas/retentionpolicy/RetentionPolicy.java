@@ -267,9 +267,21 @@ public class RetentionPolicy extends RetentionPolicyMini {
       return this;
     }
 
+    public RetentionPolicyBuilder policyType(
+        EnumWrapper<RetentionPolicyPolicyTypeField> policyType) {
+      this.policyType = policyType;
+      return this;
+    }
+
     public RetentionPolicyBuilder policyType(RetentionPolicyPolicyTypeField policyType) {
       this.policyType =
           new EnumWrapper<RetentionPolicyPolicyTypeField>(policyType.getValue(), policyType);
+      return this;
+    }
+
+    public RetentionPolicyBuilder retentionType(
+        EnumWrapper<RetentionPolicyRetentionTypeField> retentionType) {
+      this.retentionType = retentionType;
       return this;
     }
 
@@ -277,6 +289,11 @@ public class RetentionPolicy extends RetentionPolicyMini {
       this.retentionType =
           new EnumWrapper<RetentionPolicyRetentionTypeField>(
               retentionType.getValue(), retentionType);
+      return this;
+    }
+
+    public RetentionPolicyBuilder status(EnumWrapper<RetentionPolicyStatusField> status) {
+      this.status = status;
       return this;
     }
 
@@ -323,6 +340,12 @@ public class RetentionPolicy extends RetentionPolicyMini {
     }
 
     @Override
+    public RetentionPolicyBuilder type(EnumWrapper<RetentionPolicyBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    @Override
     public RetentionPolicyBuilder type(RetentionPolicyBaseTypeField type) {
       this.type = new EnumWrapper<RetentionPolicyBaseTypeField>(type.getValue(), type);
       return this;
@@ -337,6 +360,13 @@ public class RetentionPolicy extends RetentionPolicyMini {
     @Override
     public RetentionPolicyBuilder retentionLength(String retentionLength) {
       this.retentionLength = retentionLength;
+      return this;
+    }
+
+    @Override
+    public RetentionPolicyBuilder dispositionAction(
+        EnumWrapper<RetentionPolicyMiniDispositionActionField> dispositionAction) {
+      this.dispositionAction = dispositionAction;
       return this;
     }
 

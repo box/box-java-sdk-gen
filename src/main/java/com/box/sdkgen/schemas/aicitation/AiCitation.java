@@ -103,6 +103,11 @@ public class AiCitation {
       return this;
     }
 
+    public AiCitationBuilder type(EnumWrapper<AiCitationTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public AiCitationBuilder type(AiCitationTypeField type) {
       this.type = new EnumWrapper<AiCitationTypeField>(type.getValue(), type);
       return this;

@@ -180,13 +180,31 @@ public class ClassificationTemplateFieldsField {
     }
 
     public ClassificationTemplateFieldsFieldBuilder type(
+        EnumWrapper<ClassificationTemplateFieldsTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public ClassificationTemplateFieldsFieldBuilder type(
         ClassificationTemplateFieldsTypeField type) {
       this.type = new EnumWrapper<ClassificationTemplateFieldsTypeField>(type.getValue(), type);
       return this;
     }
 
+    public ClassificationTemplateFieldsFieldBuilder key(
+        EnumWrapper<ClassificationTemplateFieldsKeyField> key) {
+      this.key = key;
+      return this;
+    }
+
     public ClassificationTemplateFieldsFieldBuilder key(ClassificationTemplateFieldsKeyField key) {
       this.key = new EnumWrapper<ClassificationTemplateFieldsKeyField>(key.getValue(), key);
+      return this;
+    }
+
+    public ClassificationTemplateFieldsFieldBuilder displayName(
+        EnumWrapper<ClassificationTemplateFieldsDisplayNameField> displayName) {
+      this.displayName = displayName;
       return this;
     }
 

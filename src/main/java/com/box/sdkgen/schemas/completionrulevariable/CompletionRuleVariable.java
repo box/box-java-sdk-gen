@@ -140,8 +140,19 @@ public class CompletionRuleVariable {
               CompletionRuleVariableVariableTypeField.TASK_COMPLETION_RULE);
     }
 
+    public CompletionRuleVariableBuilder type(EnumWrapper<CompletionRuleVariableTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public CompletionRuleVariableBuilder type(CompletionRuleVariableTypeField type) {
       this.type = new EnumWrapper<CompletionRuleVariableTypeField>(type.getValue(), type);
+      return this;
+    }
+
+    public CompletionRuleVariableBuilder variableType(
+        EnumWrapper<CompletionRuleVariableVariableTypeField> variableType) {
+      this.variableType = variableType;
       return this;
     }
 

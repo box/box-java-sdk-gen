@@ -88,6 +88,12 @@ public class GetSlackIntegrationMappingQueryParams {
     }
 
     public GetSlackIntegrationMappingQueryParamsBuilder partnerItemType(
+        EnumWrapper<GetSlackIntegrationMappingQueryParamsPartnerItemTypeField> partnerItemType) {
+      this.partnerItemType = partnerItemType;
+      return this;
+    }
+
+    public GetSlackIntegrationMappingQueryParamsBuilder partnerItemType(
         GetSlackIntegrationMappingQueryParamsPartnerItemTypeField partnerItemType) {
       this.partnerItemType =
           new EnumWrapper<GetSlackIntegrationMappingQueryParamsPartnerItemTypeField>(
@@ -102,6 +108,12 @@ public class GetSlackIntegrationMappingQueryParams {
 
     public GetSlackIntegrationMappingQueryParamsBuilder boxItemId(String boxItemId) {
       this.boxItemId = boxItemId;
+      return this;
+    }
+
+    public GetSlackIntegrationMappingQueryParamsBuilder boxItemType(
+        EnumWrapper<GetSlackIntegrationMappingQueryParamsBoxItemTypeField> boxItemType) {
+      this.boxItemType = boxItemType;
       return this;
     }
 

@@ -67,6 +67,12 @@ public class FolderFolderUploadEmailField {
 
     protected String email;
 
+    public FolderFolderUploadEmailFieldBuilder access(
+        EnumWrapper<FolderFolderUploadEmailAccessField> access) {
+      this.access = access;
+      return this;
+    }
+
     public FolderFolderUploadEmailFieldBuilder access(FolderFolderUploadEmailAccessField access) {
       this.access = new EnumWrapper<FolderFolderUploadEmailAccessField>(access.getValue(), access);
       return this;

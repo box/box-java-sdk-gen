@@ -92,6 +92,12 @@ public class UserMini extends UserBase {
     }
 
     @Override
+    public UserMiniBuilder type(EnumWrapper<UserBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    @Override
     public UserMiniBuilder type(UserBaseTypeField type) {
       this.type = new EnumWrapper<UserBaseTypeField>(type.getValue(), type);
       return this;

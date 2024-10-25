@@ -124,8 +124,19 @@ public class RoleVariable {
               RoleVariableVariableTypeField.COLLABORATOR_ROLE);
     }
 
+    public RoleVariableBuilder type(EnumWrapper<RoleVariableTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public RoleVariableBuilder type(RoleVariableTypeField type) {
       this.type = new EnumWrapper<RoleVariableTypeField>(type.getValue(), type);
+      return this;
+    }
+
+    public RoleVariableBuilder variableType(
+        EnumWrapper<RoleVariableVariableTypeField> variableType) {
+      this.variableType = variableType;
       return this;
     }
 

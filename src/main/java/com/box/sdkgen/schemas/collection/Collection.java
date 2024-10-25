@@ -106,13 +106,29 @@ public class Collection {
       return this;
     }
 
+    public CollectionBuilder type(EnumWrapper<CollectionTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public CollectionBuilder type(CollectionTypeField type) {
       this.type = new EnumWrapper<CollectionTypeField>(type.getValue(), type);
       return this;
     }
 
+    public CollectionBuilder name(EnumWrapper<CollectionNameField> name) {
+      this.name = name;
+      return this;
+    }
+
     public CollectionBuilder name(CollectionNameField name) {
       this.name = new EnumWrapper<CollectionNameField>(name.getValue(), name);
+      return this;
+    }
+
+    public CollectionBuilder collectionType(
+        EnumWrapper<CollectionCollectionTypeField> collectionType) {
+      this.collectionType = collectionType;
       return this;
     }
 

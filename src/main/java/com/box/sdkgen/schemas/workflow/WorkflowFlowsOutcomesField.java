@@ -125,6 +125,12 @@ public class WorkflowFlowsOutcomesField {
       return this;
     }
 
+    public WorkflowFlowsOutcomesFieldBuilder type(
+        EnumWrapper<WorkflowFlowsOutcomesTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public WorkflowFlowsOutcomesFieldBuilder type(WorkflowFlowsOutcomesTypeField type) {
       this.type = new EnumWrapper<WorkflowFlowsOutcomesTypeField>(type.getValue(), type);
       return this;
@@ -132,6 +138,12 @@ public class WorkflowFlowsOutcomesField {
 
     public WorkflowFlowsOutcomesFieldBuilder name(String name) {
       this.name = name;
+      return this;
+    }
+
+    public WorkflowFlowsOutcomesFieldBuilder actionType(
+        EnumWrapper<WorkflowFlowsOutcomesActionTypeField> actionType) {
+      this.actionType = actionType;
       return this;
     }
 

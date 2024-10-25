@@ -54,7 +54,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id -->
 ```
-client.getFiles().updateFileById(fileToUpdate.getId(), new UpdateFileByIdRequestBody.UpdateFileByIdRequestBodyBuilder().name(updatedName).description("Updated description").build())
+downscopedClient.getFiles().updateFileById(file.getId(), new UpdateFileByIdRequestBody.UpdateFileByIdRequestBodyBuilder().name(getUuid()).build())
 ```
 
 ### Arguments
@@ -95,7 +95,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id -->
 ```
-client.getFiles().deleteFileById(file.getId())
+parentClient.getFiles().deleteFileById(file.getId())
 ```
 
 ### Arguments

@@ -73,6 +73,12 @@ public class UpdateAllSkillCardsOnFileRequestBodyFileVersionField {
     protected String id;
 
     public UpdateAllSkillCardsOnFileRequestBodyFileVersionFieldBuilder type(
+        EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public UpdateAllSkillCardsOnFileRequestBodyFileVersionFieldBuilder type(
         UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField type) {
       this.type =
           new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField>(

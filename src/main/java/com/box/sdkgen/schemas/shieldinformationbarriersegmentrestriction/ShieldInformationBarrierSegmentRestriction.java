@@ -191,6 +191,13 @@ public class ShieldInformationBarrierSegmentRestriction
 
     @Override
     public ShieldInformationBarrierSegmentRestrictionBuilder type(
+        EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    @Override
+    public ShieldInformationBarrierSegmentRestrictionBuilder type(
         ShieldInformationBarrierSegmentRestrictionBaseTypeField type) {
       this.type =
           new EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField>(

@@ -133,6 +133,12 @@ public class AiLlmEndpointParamsOpenAi {
 
     protected String stop;
 
+    public AiLlmEndpointParamsOpenAiBuilder type(
+        EnumWrapper<AiLlmEndpointParamsOpenAiTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public AiLlmEndpointParamsOpenAiBuilder type(AiLlmEndpointParamsOpenAiTypeField type) {
       this.type = new EnumWrapper<AiLlmEndpointParamsOpenAiTypeField>(type.getValue(), type);
       return this;

@@ -213,6 +213,12 @@ public class SignRequestCreateRequest extends SignRequestBase {
     }
 
     public SignRequestCreateRequestBuilder signatureColor(
+        EnumWrapper<SignRequestCreateRequestSignatureColorField> signatureColor) {
+      this.signatureColor = signatureColor;
+      return this;
+    }
+
+    public SignRequestCreateRequestBuilder signatureColor(
         SignRequestCreateRequestSignatureColorField signatureColor) {
       this.signatureColor =
           new EnumWrapper<SignRequestCreateRequestSignatureColorField>(

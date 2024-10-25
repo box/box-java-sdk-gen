@@ -117,6 +117,12 @@ public class TrashFilePathCollectionEntriesField {
     protected String name;
 
     public TrashFilePathCollectionEntriesFieldBuilder type(
+        EnumWrapper<TrashFilePathCollectionEntriesTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public TrashFilePathCollectionEntriesFieldBuilder type(
         TrashFilePathCollectionEntriesTypeField type) {
       this.type = new EnumWrapper<TrashFilePathCollectionEntriesTypeField>(type.getValue(), type);
       return this;

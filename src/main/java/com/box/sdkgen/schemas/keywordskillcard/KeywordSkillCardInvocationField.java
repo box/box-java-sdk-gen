@@ -83,6 +83,12 @@ public class KeywordSkillCardInvocationField {
               KeywordSkillCardInvocationTypeField.SKILL_INVOCATION);
     }
 
+    public KeywordSkillCardInvocationFieldBuilder type(
+        EnumWrapper<KeywordSkillCardInvocationTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public KeywordSkillCardInvocationFieldBuilder type(KeywordSkillCardInvocationTypeField type) {
       this.type = new EnumWrapper<KeywordSkillCardInvocationTypeField>(type.getValue(), type);
       return this;

@@ -168,10 +168,22 @@ public class CreateGroupRequestBody {
     }
 
     public CreateGroupRequestBodyBuilder invitabilityLevel(
+        EnumWrapper<CreateGroupRequestBodyInvitabilityLevelField> invitabilityLevel) {
+      this.invitabilityLevel = invitabilityLevel;
+      return this;
+    }
+
+    public CreateGroupRequestBodyBuilder invitabilityLevel(
         CreateGroupRequestBodyInvitabilityLevelField invitabilityLevel) {
       this.invitabilityLevel =
           new EnumWrapper<CreateGroupRequestBodyInvitabilityLevelField>(
               invitabilityLevel.getValue(), invitabilityLevel);
+      return this;
+    }
+
+    public CreateGroupRequestBodyBuilder memberViewabilityLevel(
+        EnumWrapper<CreateGroupRequestBodyMemberViewabilityLevelField> memberViewabilityLevel) {
+      this.memberViewabilityLevel = memberViewabilityLevel;
       return this;
     }
 

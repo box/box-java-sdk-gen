@@ -82,6 +82,12 @@ public class WorkflowFlowsTriggerScopeField {
 
     protected WorkflowFlowsTriggerScopeObjectField object;
 
+    public WorkflowFlowsTriggerScopeFieldBuilder type(
+        EnumWrapper<WorkflowFlowsTriggerScopeTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public WorkflowFlowsTriggerScopeFieldBuilder type(WorkflowFlowsTriggerScopeTypeField type) {
       this.type = new EnumWrapper<WorkflowFlowsTriggerScopeTypeField>(type.getValue(), type);
       return this;

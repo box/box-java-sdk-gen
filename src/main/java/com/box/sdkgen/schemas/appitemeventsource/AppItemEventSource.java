@@ -128,6 +128,11 @@ public class AppItemEventSource {
               AppItemEventSourceTypeField.APP_ITEM);
     }
 
+    public AppItemEventSourceBuilder type(EnumWrapper<AppItemEventSourceTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public AppItemEventSourceBuilder type(AppItemEventSourceTypeField type) {
       this.type = new EnumWrapper<AppItemEventSourceTypeField>(type.getValue(), type);
       return this;

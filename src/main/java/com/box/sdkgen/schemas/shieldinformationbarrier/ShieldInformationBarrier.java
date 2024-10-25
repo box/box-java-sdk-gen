@@ -209,6 +209,12 @@ public class ShieldInformationBarrier {
       return this;
     }
 
+    public ShieldInformationBarrierBuilder type(
+        EnumWrapper<ShieldInformationBarrierTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public ShieldInformationBarrierBuilder type(ShieldInformationBarrierTypeField type) {
       this.type = new EnumWrapper<ShieldInformationBarrierTypeField>(type.getValue(), type);
       return this;
@@ -216,6 +222,12 @@ public class ShieldInformationBarrier {
 
     public ShieldInformationBarrierBuilder enterprise(EnterpriseBase enterprise) {
       this.enterprise = enterprise;
+      return this;
+    }
+
+    public ShieldInformationBarrierBuilder status(
+        EnumWrapper<ShieldInformationBarrierStatusField> status) {
+      this.status = status;
       return this;
     }
 

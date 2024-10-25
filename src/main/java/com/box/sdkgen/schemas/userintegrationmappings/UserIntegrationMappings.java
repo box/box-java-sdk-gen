@@ -92,6 +92,12 @@ public class UserIntegrationMappings extends UserBase {
     }
 
     @Override
+    public UserIntegrationMappingsBuilder type(EnumWrapper<UserBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    @Override
     public UserIntegrationMappingsBuilder type(UserBaseTypeField type) {
       this.type = new EnumWrapper<UserBaseTypeField>(type.getValue(), type);
       return this;

@@ -119,6 +119,12 @@ public class CreateFolderRequestBody {
     }
 
     public CreateFolderRequestBodyBuilder syncState(
+        EnumWrapper<CreateFolderRequestBodySyncStateField> syncState) {
+      this.syncState = syncState;
+      return this;
+    }
+
+    public CreateFolderRequestBodyBuilder syncState(
         CreateFolderRequestBodySyncStateField syncState) {
       this.syncState =
           new EnumWrapper<CreateFolderRequestBodySyncStateField>(syncState.getValue(), syncState);

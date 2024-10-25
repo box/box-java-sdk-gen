@@ -244,6 +244,11 @@ public class LegalHoldPolicy extends LegalHoldPolicyMini {
       return this;
     }
 
+    public LegalHoldPolicyBuilder status(EnumWrapper<LegalHoldPolicyStatusField> status) {
+      this.status = status;
+      return this;
+    }
+
     public LegalHoldPolicyBuilder status(LegalHoldPolicyStatusField status) {
       this.status = new EnumWrapper<LegalHoldPolicyStatusField>(status.getValue(), status);
       return this;
@@ -287,6 +292,12 @@ public class LegalHoldPolicy extends LegalHoldPolicyMini {
 
     public LegalHoldPolicyBuilder releaseNotes(String releaseNotes) {
       this.releaseNotes = releaseNotes;
+      return this;
+    }
+
+    @Override
+    public LegalHoldPolicyBuilder type(EnumWrapper<LegalHoldPolicyMiniTypeField> type) {
+      this.type = type;
       return this;
     }
 

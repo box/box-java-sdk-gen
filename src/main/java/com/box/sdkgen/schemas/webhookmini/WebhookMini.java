@@ -84,6 +84,11 @@ public class WebhookMini {
       return this;
     }
 
+    public WebhookMiniBuilder type(EnumWrapper<WebhookMiniTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public WebhookMiniBuilder type(WebhookMiniTypeField type) {
       this.type = new EnumWrapper<WebhookMiniTypeField>(type.getValue(), type);
       return this;

@@ -192,6 +192,12 @@ public class ShieldInformationBarrierSegment {
     }
 
     public ShieldInformationBarrierSegmentBuilder type(
+        EnumWrapper<ShieldInformationBarrierSegmentTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public ShieldInformationBarrierSegmentBuilder type(
         ShieldInformationBarrierSegmentTypeField type) {
       this.type = new EnumWrapper<ShieldInformationBarrierSegmentTypeField>(type.getValue(), type);
       return this;

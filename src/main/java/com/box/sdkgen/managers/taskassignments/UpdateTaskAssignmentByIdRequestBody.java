@@ -80,6 +80,12 @@ public class UpdateTaskAssignmentByIdRequestBody {
     }
 
     public UpdateTaskAssignmentByIdRequestBodyBuilder resolutionState(
+        EnumWrapper<UpdateTaskAssignmentByIdRequestBodyResolutionStateField> resolutionState) {
+      this.resolutionState = resolutionState;
+      return this;
+    }
+
+    public UpdateTaskAssignmentByIdRequestBodyBuilder resolutionState(
         UpdateTaskAssignmentByIdRequestBodyResolutionStateField resolutionState) {
       this.resolutionState =
           new EnumWrapper<UpdateTaskAssignmentByIdRequestBodyResolutionStateField>(

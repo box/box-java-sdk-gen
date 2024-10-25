@@ -294,6 +294,11 @@ public class Collaboration {
               CollaborationTypeField.COLLABORATION);
     }
 
+    public CollaborationBuilder type(EnumWrapper<CollaborationTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public CollaborationBuilder type(CollaborationTypeField type) {
       this.type = new EnumWrapper<CollaborationTypeField>(type.getValue(), type);
       return this;
@@ -319,6 +324,11 @@ public class Collaboration {
       return this;
     }
 
+    public CollaborationBuilder role(EnumWrapper<CollaborationRoleField> role) {
+      this.role = role;
+      return this;
+    }
+
     public CollaborationBuilder role(CollaborationRoleField role) {
       this.role = new EnumWrapper<CollaborationRoleField>(role.getValue(), role);
       return this;
@@ -331,6 +341,11 @@ public class Collaboration {
 
     public CollaborationBuilder isAccessOnly(Boolean isAccessOnly) {
       this.isAccessOnly = isAccessOnly;
+      return this;
+    }
+
+    public CollaborationBuilder status(EnumWrapper<CollaborationStatusField> status) {
+      this.status = status;
       return this;
     }
 

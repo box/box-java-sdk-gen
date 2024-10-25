@@ -150,6 +150,11 @@ public class WebhookInvocation {
       return this;
     }
 
+    public WebhookInvocationBuilder type(EnumWrapper<WebhookInvocationTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public WebhookInvocationBuilder type(WebhookInvocationTypeField type) {
       this.type = new EnumWrapper<WebhookInvocationTypeField>(type.getValue(), type);
       return this;
@@ -167,6 +172,11 @@ public class WebhookInvocation {
 
     public WebhookInvocationBuilder createdAt(String createdAt) {
       this.createdAt = createdAt;
+      return this;
+    }
+
+    public WebhookInvocationBuilder trigger(EnumWrapper<WebhookInvocationTriggerField> trigger) {
+      this.trigger = trigger;
       return this;
     }
 

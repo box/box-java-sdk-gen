@@ -337,6 +337,12 @@ public class PostOAuth2Token {
     }
 
     public PostOAuth2TokenBuilder subjectTokenType(
+        EnumWrapper<PostOAuth2TokenSubjectTokenTypeField> subjectTokenType) {
+      this.subjectTokenType = subjectTokenType;
+      return this;
+    }
+
+    public PostOAuth2TokenBuilder subjectTokenType(
         PostOAuth2TokenSubjectTokenTypeField subjectTokenType) {
       this.subjectTokenType =
           new EnumWrapper<PostOAuth2TokenSubjectTokenTypeField>(
@@ -346,6 +352,12 @@ public class PostOAuth2Token {
 
     public PostOAuth2TokenBuilder actorToken(String actorToken) {
       this.actorToken = actorToken;
+      return this;
+    }
+
+    public PostOAuth2TokenBuilder actorTokenType(
+        EnumWrapper<PostOAuth2TokenActorTokenTypeField> actorTokenType) {
+      this.actorTokenType = actorTokenType;
       return this;
     }
 
@@ -364,6 +376,12 @@ public class PostOAuth2Token {
 
     public PostOAuth2TokenBuilder resource(String resource) {
       this.resource = resource;
+      return this;
+    }
+
+    public PostOAuth2TokenBuilder boxSubjectType(
+        EnumWrapper<PostOAuth2TokenBoxSubjectTypeField> boxSubjectType) {
+      this.boxSubjectType = boxSubjectType;
       return this;
     }
 

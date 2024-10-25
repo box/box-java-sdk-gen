@@ -448,6 +448,11 @@ public class TrashFolder {
       return this;
     }
 
+    public TrashFolderBuilder type(EnumWrapper<TrashFolderTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TrashFolderBuilder type(TrashFolderTypeField type) {
       this.type = new EnumWrapper<TrashFolderTypeField>(type.getValue(), type);
       return this;

@@ -399,6 +399,11 @@ public class File extends FileMini {
       return this;
     }
 
+    public FileBuilder itemStatus(EnumWrapper<FileItemStatusField> itemStatus) {
+      this.itemStatus = itemStatus;
+      return this;
+    }
+
     public FileBuilder itemStatus(FileItemStatusField itemStatus) {
       this.itemStatus = new EnumWrapper<FileItemStatusField>(itemStatus.getValue(), itemStatus);
       return this;
@@ -407,6 +412,12 @@ public class File extends FileMini {
     @Override
     public FileBuilder etag(String etag) {
       this.etag = etag;
+      return this;
+    }
+
+    @Override
+    public FileBuilder type(EnumWrapper<FileBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

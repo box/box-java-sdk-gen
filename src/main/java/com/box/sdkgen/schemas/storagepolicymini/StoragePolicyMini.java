@@ -71,6 +71,11 @@ public class StoragePolicyMini {
               StoragePolicyMiniTypeField.STORAGE_POLICY);
     }
 
+    public StoragePolicyMiniBuilder type(EnumWrapper<StoragePolicyMiniTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public StoragePolicyMiniBuilder type(StoragePolicyMiniTypeField type) {
       this.type = new EnumWrapper<StoragePolicyMiniTypeField>(type.getValue(), type);
       return this;

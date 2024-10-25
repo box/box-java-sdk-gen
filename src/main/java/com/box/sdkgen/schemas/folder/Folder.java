@@ -423,6 +423,11 @@ public class Folder extends FolderMini {
       return this;
     }
 
+    public FolderBuilder itemStatus(EnumWrapper<FolderItemStatusField> itemStatus) {
+      this.itemStatus = itemStatus;
+      return this;
+    }
+
     public FolderBuilder itemStatus(FolderItemStatusField itemStatus) {
       this.itemStatus = new EnumWrapper<FolderItemStatusField>(itemStatus.getValue(), itemStatus);
       return this;
@@ -436,6 +441,12 @@ public class Folder extends FolderMini {
     @Override
     public FolderBuilder etag(String etag) {
       this.etag = etag;
+      return this;
+    }
+
+    @Override
+    public FolderBuilder type(EnumWrapper<FolderBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

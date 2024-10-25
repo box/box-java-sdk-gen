@@ -90,6 +90,15 @@ public class ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarr
 
     public ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentFieldBuilder
         type(
+            EnumWrapper<
+                    ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField>
+                type) {
+      this.type = type;
+      return this;
+    }
+
+    public ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentFieldBuilder
+        type(
             ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField
                 type) {
       this.type =

@@ -120,6 +120,11 @@ public class AppItemAssociation {
               AppItemAssociationTypeField.APP_ITEM_ASSOCIATION);
     }
 
+    public AppItemAssociationBuilder type(EnumWrapper<AppItemAssociationTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public AppItemAssociationBuilder type(AppItemAssociationTypeField type) {
       this.type = new EnumWrapper<AppItemAssociationTypeField>(type.getValue(), type);
       return this;

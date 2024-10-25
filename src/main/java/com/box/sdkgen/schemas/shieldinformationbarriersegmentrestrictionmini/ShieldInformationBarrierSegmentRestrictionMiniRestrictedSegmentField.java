@@ -84,6 +84,13 @@ public class ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFiel
     }
 
     public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFieldBuilder type(
+        EnumWrapper<ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField>
+            type) {
+      this.type = type;
+      return this;
+    }
+
+    public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFieldBuilder type(
         ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField type) {
       this.type =
           new EnumWrapper<ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField>(

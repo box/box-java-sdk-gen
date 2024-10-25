@@ -79,6 +79,11 @@ public class TrackingCode {
 
     protected String value;
 
+    public TrackingCodeBuilder type(EnumWrapper<TrackingCodeTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TrackingCodeBuilder type(TrackingCodeTypeField type) {
       this.type = new EnumWrapper<TrackingCodeTypeField>(type.getValue(), type);
       return this;

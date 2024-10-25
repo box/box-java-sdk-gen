@@ -69,6 +69,11 @@ public class UserBase {
               UserBaseTypeField.USER.getValue(), UserBaseTypeField.USER);
     }
 
+    public UserBaseBuilder type(EnumWrapper<UserBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public UserBaseBuilder type(UserBaseTypeField type) {
       this.type = new EnumWrapper<UserBaseTypeField>(type.getValue(), type);
       return this;

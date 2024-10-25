@@ -74,6 +74,12 @@ public class GroupMembershipsOrderField {
     }
 
     public GroupMembershipsOrderFieldBuilder direction(
+        EnumWrapper<GroupMembershipsOrderDirectionField> direction) {
+      this.direction = direction;
+      return this;
+    }
+
+    public GroupMembershipsOrderFieldBuilder direction(
         GroupMembershipsOrderDirectionField direction) {
       this.direction =
           new EnumWrapper<GroupMembershipsOrderDirectionField>(direction.getValue(), direction);

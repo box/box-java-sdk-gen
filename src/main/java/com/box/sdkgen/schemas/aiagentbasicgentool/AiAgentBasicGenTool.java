@@ -2,7 +2,7 @@ package com.box.sdkgen.schemas.aiagentbasicgentool;
 
 import com.box.sdkgen.schemas.aiagentlongtexttooltextgen.AiAgentLongTextToolTextGen;
 import com.box.sdkgen.schemas.aiagentlongtexttooltextgen.AiAgentLongTextToolTextGenEmbeddingsField;
-import com.box.sdkgen.schemas.aillmendpointparamsgoogleoraillmendpointparamsopenai.AiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi;
+import com.box.sdkgen.schemas.aillmendpointparamsawsoraillmendpointparamsgoogleoraillmendpointparamsopenai.AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
@@ -110,7 +110,8 @@ public class AiAgentBasicGenTool extends AiAgentLongTextToolTextGen {
 
     @Override
     public AiAgentBasicGenToolBuilder llmEndpointParams(
-        AiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi llmEndpointParams) {
+        AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi
+            llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }

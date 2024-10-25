@@ -71,6 +71,11 @@ public class FileVersionBase {
               FileVersionBaseTypeField.FILE_VERSION);
     }
 
+    public FileVersionBaseBuilder type(EnumWrapper<FileVersionBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public FileVersionBaseBuilder type(FileVersionBaseTypeField type) {
       this.type = new EnumWrapper<FileVersionBaseTypeField>(type.getValue(), type);
       return this;

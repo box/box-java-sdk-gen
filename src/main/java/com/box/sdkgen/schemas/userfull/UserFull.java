@@ -342,6 +342,11 @@ public class UserFull extends User {
       super(id);
     }
 
+    public UserFullBuilder role(EnumWrapper<UserFullRoleField> role) {
+      this.role = role;
+      return this;
+    }
+
     public UserFullBuilder role(UserFullRoleField role) {
       this.role = new EnumWrapper<UserFullRoleField>(role.getValue(), role);
       return this;
@@ -403,6 +408,12 @@ public class UserFull extends User {
     }
 
     @Override
+    public UserFullBuilder type(EnumWrapper<UserBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    @Override
     public UserFullBuilder type(UserBaseTypeField type) {
       this.type = new EnumWrapper<UserBaseTypeField>(type.getValue(), type);
       return this;
@@ -459,6 +470,12 @@ public class UserFull extends User {
     @Override
     public UserFullBuilder maxUploadSize(Long maxUploadSize) {
       this.maxUploadSize = maxUploadSize;
+      return this;
+    }
+
+    @Override
+    public UserFullBuilder status(EnumWrapper<UserStatusField> status) {
+      this.status = status;
       return this;
     }
 

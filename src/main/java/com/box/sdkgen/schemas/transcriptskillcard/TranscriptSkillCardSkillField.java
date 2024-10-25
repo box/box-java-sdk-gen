@@ -81,6 +81,12 @@ public class TranscriptSkillCardSkillField {
               TranscriptSkillCardSkillTypeField.SERVICE);
     }
 
+    public TranscriptSkillCardSkillFieldBuilder type(
+        EnumWrapper<TranscriptSkillCardSkillTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TranscriptSkillCardSkillFieldBuilder type(TranscriptSkillCardSkillTypeField type) {
       this.type = new EnumWrapper<TranscriptSkillCardSkillTypeField>(type.getValue(), type);
       return this;

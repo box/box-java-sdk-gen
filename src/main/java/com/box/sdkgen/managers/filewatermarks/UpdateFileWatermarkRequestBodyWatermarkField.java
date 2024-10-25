@@ -61,6 +61,12 @@ public class UpdateFileWatermarkRequestBodyWatermarkField {
     protected EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField> imprint;
 
     public UpdateFileWatermarkRequestBodyWatermarkFieldBuilder imprint(
+        EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField> imprint) {
+      this.imprint = imprint;
+      return this;
+    }
+
+    public UpdateFileWatermarkRequestBodyWatermarkFieldBuilder imprint(
         UpdateFileWatermarkRequestBodyWatermarkImprintField imprint) {
       this.imprint =
           new EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField>(

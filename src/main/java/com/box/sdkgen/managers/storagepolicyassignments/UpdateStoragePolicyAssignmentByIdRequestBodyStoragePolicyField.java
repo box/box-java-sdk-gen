@@ -91,6 +91,12 @@ public class UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField {
     }
 
     public UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyFieldBuilder type(
+        EnumWrapper<UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyFieldBuilder type(
         UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField type) {
       this.type =
           new EnumWrapper<UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField>(

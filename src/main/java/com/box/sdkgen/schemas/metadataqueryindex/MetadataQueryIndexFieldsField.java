@@ -78,6 +78,12 @@ public class MetadataQueryIndexFieldsField {
     }
 
     public MetadataQueryIndexFieldsFieldBuilder sortDirection(
+        EnumWrapper<MetadataQueryIndexFieldsSortDirectionField> sortDirection) {
+      this.sortDirection = sortDirection;
+      return this;
+    }
+
+    public MetadataQueryIndexFieldsFieldBuilder sortDirection(
         MetadataQueryIndexFieldsSortDirectionField sortDirection) {
       this.sortDirection =
           new EnumWrapper<MetadataQueryIndexFieldsSortDirectionField>(

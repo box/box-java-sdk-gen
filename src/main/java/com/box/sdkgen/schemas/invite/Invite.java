@@ -168,6 +168,11 @@ public class Invite {
               InviteTypeField.INVITE.getValue(), InviteTypeField.INVITE);
     }
 
+    public InviteBuilder type(EnumWrapper<InviteTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public InviteBuilder type(InviteTypeField type) {
       this.type = new EnumWrapper<InviteTypeField>(type.getValue(), type);
       return this;

@@ -1,7 +1,7 @@
 package com.box.sdkgen.schemas.aiagentlongtexttool;
 
 import com.box.sdkgen.schemas.aiagentbasictexttool.AiAgentBasicTextTool;
-import com.box.sdkgen.schemas.aillmendpointparamsgoogleoraillmendpointparamsopenai.AiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi;
+import com.box.sdkgen.schemas.aillmendpointparamsawsoraillmendpointparamsgoogleoraillmendpointparamsopenai.AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi;
 import java.util.Objects;
 
 public class AiAgentLongTextTool extends AiAgentBasicTextTool {
@@ -101,7 +101,8 @@ public class AiAgentLongTextTool extends AiAgentBasicTextTool {
 
     @Override
     public AiAgentLongTextToolBuilder llmEndpointParams(
-        AiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi llmEndpointParams) {
+        AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi
+            llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }

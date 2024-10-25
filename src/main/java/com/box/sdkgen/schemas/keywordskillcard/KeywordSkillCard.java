@@ -181,8 +181,19 @@ public class KeywordSkillCard {
       return this;
     }
 
+    public KeywordSkillCardBuilder type(EnumWrapper<KeywordSkillCardTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public KeywordSkillCardBuilder type(KeywordSkillCardTypeField type) {
       this.type = new EnumWrapper<KeywordSkillCardTypeField>(type.getValue(), type);
+      return this;
+    }
+
+    public KeywordSkillCardBuilder skillCardType(
+        EnumWrapper<KeywordSkillCardSkillCardTypeField> skillCardType) {
+      this.skillCardType = skillCardType;
       return this;
     }
 

@@ -68,8 +68,19 @@ public class DevicePinnersOrderField {
 
     protected EnumWrapper<DevicePinnersOrderDirectionField> direction;
 
+    public DevicePinnersOrderFieldBuilder by(EnumWrapper<DevicePinnersOrderByField> by) {
+      this.by = by;
+      return this;
+    }
+
     public DevicePinnersOrderFieldBuilder by(DevicePinnersOrderByField by) {
       this.by = new EnumWrapper<DevicePinnersOrderByField>(by.getValue(), by);
+      return this;
+    }
+
+    public DevicePinnersOrderFieldBuilder direction(
+        EnumWrapper<DevicePinnersOrderDirectionField> direction) {
+      this.direction = direction;
       return this;
     }
 

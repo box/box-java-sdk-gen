@@ -140,6 +140,12 @@ public class FileRequestUpdateRequest {
       return this;
     }
 
+    public FileRequestUpdateRequestBuilder status(
+        EnumWrapper<FileRequestUpdateRequestStatusField> status) {
+      this.status = status;
+      return this;
+    }
+
     public FileRequestUpdateRequestBuilder status(FileRequestUpdateRequestStatusField status) {
       this.status = new EnumWrapper<FileRequestUpdateRequestStatusField>(status.getValue(), status);
       return this;

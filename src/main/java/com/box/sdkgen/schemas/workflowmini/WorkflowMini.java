@@ -114,6 +114,11 @@ public class WorkflowMini {
       return this;
     }
 
+    public WorkflowMiniBuilder type(EnumWrapper<WorkflowMiniTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public WorkflowMiniBuilder type(WorkflowMiniTypeField type) {
       this.type = new EnumWrapper<WorkflowMiniTypeField>(type.getValue(), type);
       return this;

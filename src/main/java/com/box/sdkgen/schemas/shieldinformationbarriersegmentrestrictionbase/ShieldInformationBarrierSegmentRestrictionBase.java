@@ -73,6 +73,12 @@ public class ShieldInformationBarrierSegmentRestrictionBase {
     protected String id;
 
     public ShieldInformationBarrierSegmentRestrictionBaseBuilder type(
+        EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public ShieldInformationBarrierSegmentRestrictionBaseBuilder type(
         ShieldInformationBarrierSegmentRestrictionBaseTypeField type) {
       this.type =
           new EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField>(

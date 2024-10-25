@@ -101,10 +101,22 @@ public class GetTrashedItemsQueryParams {
     }
 
     public GetTrashedItemsQueryParamsBuilder direction(
+        EnumWrapper<GetTrashedItemsQueryParamsDirectionField> direction) {
+      this.direction = direction;
+      return this;
+    }
+
+    public GetTrashedItemsQueryParamsBuilder direction(
         GetTrashedItemsQueryParamsDirectionField direction) {
       this.direction =
           new EnumWrapper<GetTrashedItemsQueryParamsDirectionField>(
               direction.getValue(), direction);
+      return this;
+    }
+
+    public GetTrashedItemsQueryParamsBuilder sort(
+        EnumWrapper<GetTrashedItemsQueryParamsSortField> sort) {
+      this.sort = sort;
       return this;
     }
 

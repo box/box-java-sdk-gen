@@ -87,6 +87,12 @@ public class CreateTaskAssignmentRequestBodyTaskField {
     }
 
     public CreateTaskAssignmentRequestBodyTaskFieldBuilder type(
+        EnumWrapper<CreateTaskAssignmentRequestBodyTaskTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public CreateTaskAssignmentRequestBodyTaskFieldBuilder type(
         CreateTaskAssignmentRequestBodyTaskTypeField type) {
       this.type =
           new EnumWrapper<CreateTaskAssignmentRequestBodyTaskTypeField>(type.getValue(), type);

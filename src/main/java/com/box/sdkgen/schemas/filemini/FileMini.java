@@ -144,6 +144,12 @@ public class FileMini extends FileBase {
     }
 
     @Override
+    public FileMiniBuilder type(EnumWrapper<FileBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    @Override
     public FileMiniBuilder type(FileBaseTypeField type) {
       this.type = new EnumWrapper<FileBaseTypeField>(type.getValue(), type);
       return this;

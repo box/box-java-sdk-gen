@@ -117,6 +117,12 @@ public class IntegrationMappingPartnerItemSlack {
     }
 
     public IntegrationMappingPartnerItemSlackBuilder type(
+        EnumWrapper<IntegrationMappingPartnerItemSlackTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    public IntegrationMappingPartnerItemSlackBuilder type(
         IntegrationMappingPartnerItemSlackTypeField type) {
       this.type =
           new EnumWrapper<IntegrationMappingPartnerItemSlackTypeField>(type.getValue(), type);

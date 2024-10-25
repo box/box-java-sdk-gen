@@ -2,9 +2,11 @@ package com.box.sdkgen.test.commons;
 
 import static com.box.sdkgen.internal.utils.UtilsManager.convertToString;
 import static com.box.sdkgen.internal.utils.UtilsManager.generateByteStream;
+import static com.box.sdkgen.internal.utils.UtilsManager.getEnvVar;
 import static com.box.sdkgen.internal.utils.UtilsManager.getUuid;
 
-import com.box.sdkgen.box.developertokenauth.BoxDeveloperTokenAuth;
+import com.box.sdkgen.box.ccgauth.BoxCCGAuth;
+import com.box.sdkgen.box.ccgauth.CCGConfig;
 import com.box.sdkgen.client.BoxClient;
 import com.box.sdkgen.managers.classifications.AddClassificationRequestBody;
 import com.box.sdkgen.managers.classifications.AddClassificationRequestBodyDataField;
@@ -38,9 +40,23 @@ import java.util.List;
 
 public class CommonsManager {
 
+  public static BoxCCGAuth getCcgAuth() {
+    CCGConfig ccgConfig =
+        new CCGConfig.CCGConfigBuilder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
+            .enterpriseId(getEnvVar("ENTERPRISE_ID"))
+            .build();
+    BoxCCGAuth auth = new BoxCCGAuth(ccgConfig);
+    return auth;
+  }
+
+  public static BoxClient getDefaultClientWithUserSubject(String userId) {
+    BoxCCGAuth auth = getCcgAuth();
+    BoxCCGAuth authUser = auth.withUserSubject(userId);
+    return new BoxClient(authUser);
+  }
+
   public static BoxClient getDefaultClient() {
-    BoxDeveloperTokenAuth auth = new BoxDeveloperTokenAuth("INSERT_YOUR_TOKEN_HERE");
-    BoxClient client = new BoxClient(auth);
+    BoxClient client = new BoxClient(getCcgAuth());
     return client;
   }
 
@@ -138,10 +154,6 @@ public class CommonsManager {
                       new CreateClassificationTemplateRequestBodyFieldsField(
                           Collections.emptyList()))));
     }
-  }
-
-  public static BoxClient getDefaultClientWithUserSubject(String userId) {
-    return getDefaultClient();
   }
 
   public static ShieldInformationBarrier getOrCreateShieldInformationBarrier(

@@ -310,6 +310,11 @@ public class SignTemplate {
 
     protected SignTemplateCustomBrandingField customBranding;
 
+    public SignTemplateBuilder type(EnumWrapper<SignTemplateTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public SignTemplateBuilder type(SignTemplateTypeField type) {
       this.type = new EnumWrapper<SignTemplateTypeField>(type.getValue(), type);
       return this;

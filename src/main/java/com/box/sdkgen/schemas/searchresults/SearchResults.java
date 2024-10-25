@@ -131,6 +131,11 @@ public class SearchResults {
       return this;
     }
 
+    public SearchResultsBuilder type(EnumWrapper<SearchResultsTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public SearchResultsBuilder type(SearchResultsTypeField type) {
       this.type = new EnumWrapper<SearchResultsTypeField>(type.getValue(), type);
       return this;

@@ -89,6 +89,11 @@ public class AiAgentExtract {
 
     protected AiAgentBasicTextTool basicText;
 
+    public AiAgentExtractBuilder type(EnumWrapper<AiAgentExtractTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public AiAgentExtractBuilder type(AiAgentExtractTypeField type) {
       this.type = new EnumWrapper<AiAgentExtractTypeField>(type.getValue(), type);
       return this;

@@ -71,6 +71,12 @@ public class CollaborationsOrderField {
       return this;
     }
 
+    public CollaborationsOrderFieldBuilder direction(
+        EnumWrapper<CollaborationsOrderDirectionField> direction) {
+      this.direction = direction;
+      return this;
+    }
+
     public CollaborationsOrderFieldBuilder direction(CollaborationsOrderDirectionField direction) {
       this.direction =
           new EnumWrapper<CollaborationsOrderDirectionField>(direction.getValue(), direction);

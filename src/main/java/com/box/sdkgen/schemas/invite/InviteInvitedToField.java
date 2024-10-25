@@ -84,6 +84,11 @@ public class InviteInvitedToField {
       return this;
     }
 
+    public InviteInvitedToFieldBuilder type(EnumWrapper<InviteInvitedToTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public InviteInvitedToFieldBuilder type(InviteInvitedToTypeField type) {
       this.type = new EnumWrapper<InviteInvitedToTypeField>(type.getValue(), type);
       return this;

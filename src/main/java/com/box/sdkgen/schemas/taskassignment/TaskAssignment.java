@@ -206,6 +206,11 @@ public class TaskAssignment {
       return this;
     }
 
+    public TaskAssignmentBuilder type(EnumWrapper<TaskAssignmentTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public TaskAssignmentBuilder type(TaskAssignmentTypeField type) {
       this.type = new EnumWrapper<TaskAssignmentTypeField>(type.getValue(), type);
       return this;
@@ -238,6 +243,12 @@ public class TaskAssignment {
 
     public TaskAssignmentBuilder remindedAt(String remindedAt) {
       this.remindedAt = remindedAt;
+      return this;
+    }
+
+    public TaskAssignmentBuilder resolutionState(
+        EnumWrapper<TaskAssignmentResolutionStateField> resolutionState) {
+      this.resolutionState = resolutionState;
       return this;
     }
 

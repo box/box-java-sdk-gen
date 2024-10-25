@@ -178,8 +178,19 @@ public class StatusSkillCard {
       return this;
     }
 
+    public StatusSkillCardBuilder type(EnumWrapper<StatusSkillCardTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
     public StatusSkillCardBuilder type(StatusSkillCardTypeField type) {
       this.type = new EnumWrapper<StatusSkillCardTypeField>(type.getValue(), type);
+      return this;
+    }
+
+    public StatusSkillCardBuilder skillCardType(
+        EnumWrapper<StatusSkillCardSkillCardTypeField> skillCardType) {
+      this.skillCardType = skillCardType;
       return this;
     }
 

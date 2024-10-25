@@ -56,6 +56,12 @@ public class UpdateFolderByIdRequestBodyFolderUploadEmailField {
     protected EnumWrapper<UpdateFolderByIdRequestBodyFolderUploadEmailAccessField> access;
 
     public UpdateFolderByIdRequestBodyFolderUploadEmailFieldBuilder access(
+        EnumWrapper<UpdateFolderByIdRequestBodyFolderUploadEmailAccessField> access) {
+      this.access = access;
+      return this;
+    }
+
+    public UpdateFolderByIdRequestBodyFolderUploadEmailFieldBuilder access(
         UpdateFolderByIdRequestBodyFolderUploadEmailAccessField access) {
       this.access =
           new EnumWrapper<UpdateFolderByIdRequestBodyFolderUploadEmailAccessField>(

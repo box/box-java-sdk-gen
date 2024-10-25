@@ -202,6 +202,13 @@ public class ShieldInformationBarrierSegmentMember
 
     @Override
     public ShieldInformationBarrierSegmentMemberBuilder type(
+        EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField> type) {
+      this.type = type;
+      return this;
+    }
+
+    @Override
+    public ShieldInformationBarrierSegmentMemberBuilder type(
         ShieldInformationBarrierSegmentMemberBaseTypeField type) {
       this.type =
           new EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField>(

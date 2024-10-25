@@ -170,6 +170,11 @@ public class Classification {
       return this;
     }
 
+    public ClassificationBuilder template(EnumWrapper<ClassificationTemplateField> template) {
+      this.template = template;
+      return this;
+    }
+
     public ClassificationBuilder template(ClassificationTemplateField template) {
       this.template = new EnumWrapper<ClassificationTemplateField>(template.getValue(), template);
       return this;

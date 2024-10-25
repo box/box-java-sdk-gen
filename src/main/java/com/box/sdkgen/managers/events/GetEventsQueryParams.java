@@ -66,6 +66,12 @@ public class GetEventsQueryParams {
 
     protected String createdBefore;
 
+    public GetEventsQueryParamsBuilder streamType(
+        EnumWrapper<GetEventsQueryParamsStreamTypeField> streamType) {
+      this.streamType = streamType;
+      return this;
+    }
+
     public GetEventsQueryParamsBuilder streamType(GetEventsQueryParamsStreamTypeField streamType) {
       this.streamType =
           new EnumWrapper<GetEventsQueryParamsStreamTypeField>(streamType.getValue(), streamType);

@@ -311,6 +311,11 @@ public class FolderSharedLinkField {
       return this;
     }
 
+    public FolderSharedLinkFieldBuilder access(EnumWrapper<FolderSharedLinkAccessField> access) {
+      this.access = access;
+      return this;
+    }
+
     public FolderSharedLinkFieldBuilder access(FolderSharedLinkAccessField access) {
       this.access = new EnumWrapper<FolderSharedLinkAccessField>(access.getValue(), access);
       return this;

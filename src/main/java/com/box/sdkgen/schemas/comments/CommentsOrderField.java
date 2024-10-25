@@ -70,6 +70,11 @@ public class CommentsOrderField {
       return this;
     }
 
+    public CommentsOrderFieldBuilder direction(EnumWrapper<CommentsOrderDirectionField> direction) {
+      this.direction = direction;
+      return this;
+    }
+
     public CommentsOrderFieldBuilder direction(CommentsOrderDirectionField direction) {
       this.direction =
           new EnumWrapper<CommentsOrderDirectionField>(direction.getValue(), direction);

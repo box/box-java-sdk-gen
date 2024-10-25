@@ -100,6 +100,12 @@ public class UpdateFileMetadataByIdRequestBody {
     protected String from;
 
     public UpdateFileMetadataByIdRequestBodyBuilder op(
+        EnumWrapper<UpdateFileMetadataByIdRequestBodyOpField> op) {
+      this.op = op;
+      return this;
+    }
+
+    public UpdateFileMetadataByIdRequestBodyBuilder op(
         UpdateFileMetadataByIdRequestBodyOpField op) {
       this.op = new EnumWrapper<UpdateFileMetadataByIdRequestBodyOpField>(op.getValue(), op);
       return this;
