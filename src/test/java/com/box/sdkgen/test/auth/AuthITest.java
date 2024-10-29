@@ -1,5 +1,6 @@
 package com.box.sdkgen.test.auth;
 
+import static com.box.sdkgen.internal.utils.UtilsManager.decodeBase64;
 import static com.box.sdkgen.internal.utils.UtilsManager.generateByteStream;
 import static com.box.sdkgen.internal.utils.UtilsManager.getEnvVar;
 import static com.box.sdkgen.internal.utils.UtilsManager.getUuid;
@@ -9,6 +10,8 @@ import com.box.sdkgen.box.ccgauth.BoxCCGAuth;
 import com.box.sdkgen.box.ccgauth.CCGConfig;
 import com.box.sdkgen.box.developertokenauth.BoxDeveloperTokenAuth;
 import com.box.sdkgen.box.developertokenauth.DeveloperTokenConfig;
+import com.box.sdkgen.box.jwtauth.BoxJWTAuth;
+import com.box.sdkgen.box.jwtauth.JWTConfig;
 import com.box.sdkgen.box.oauth.BoxOAuth;
 import com.box.sdkgen.box.oauth.OAuthConfig;
 import com.box.sdkgen.box.tokenstorage.InMemoryTokenStorage;
@@ -42,6 +45,78 @@ public class AuthITest {
     BoxCCGAuth auth = new BoxCCGAuth(ccgConfig);
     BoxCCGAuth authUser = auth.withUserSubject(userId);
     return authUser.retrieveToken();
+  }
+
+  @Test
+  public void testJwtAuth() {
+    String userId = getEnvVar("USER_ID");
+    String enterpriseId = getEnvVar("ENTERPRISE_ID");
+    JWTConfig jwtConfig =
+        JWTConfig.fromConfigJsonString(decodeBase64(getEnvVar("JWT_CONFIG_BASE_64")));
+    BoxJWTAuth auth = new BoxJWTAuth(jwtConfig);
+    BoxJWTAuth userAuth = auth.withUserSubject(userId);
+    BoxClient userClient = new BoxClient(userAuth);
+    UserFull currentUser = userClient.getUsers().getUserMe();
+    assert currentUser.getId().equals(userId);
+    BoxJWTAuth enterpriseAuth = auth.withEnterpriseSubject(enterpriseId);
+    BoxClient enterpriseClient = new BoxClient(enterpriseAuth);
+    UserFull newUser =
+        enterpriseClient
+            .getUsers()
+            .getUserMe(
+                new GetUserMeQueryParams.GetUserMeQueryParamsBuilder()
+                    .fields(Arrays.asList("enterprise"))
+                    .build());
+    assert !(newUser.getEnterprise() == null);
+    assert newUser.getEnterprise().getId().equals(enterpriseId);
+    assert !(newUser.getId().equals(userId));
+  }
+
+  @Test
+  public void testJwtAuthDownscope() {
+    JWTConfig jwtConfig =
+        JWTConfig.fromConfigJsonString(decodeBase64(getEnvVar("JWT_CONFIG_BASE_64")));
+    BoxJWTAuth auth = new BoxJWTAuth(jwtConfig);
+    BoxClient parentClient = new BoxClient(auth);
+    Files uploadedFiles =
+        parentClient
+            .getUploads()
+            .uploadFile(
+                new UploadFileRequestBody(
+                    new UploadFileRequestBodyAttributesField(
+                        getUuid(), new UploadFileRequestBodyAttributesParentField("0")),
+                    generateByteStream(1024 * 1024)));
+    FileFull file = uploadedFiles.getEntries().get(0);
+    String resourcePath = String.join("", "https://api.box.com/2.0/files/", file.getId());
+    AccessToken downscopedToken =
+        auth.downscopeToken(Arrays.asList("item_rename", "item_preview"), resourcePath, null, null);
+    assert !(downscopedToken.getAccessToken() == null);
+    BoxClient downscopedClient =
+        new BoxClient(new BoxDeveloperTokenAuth(downscopedToken.getAccessToken()));
+    downscopedClient
+        .getFiles()
+        .updateFileById(
+            file.getId(),
+            new UpdateFileByIdRequestBody.UpdateFileByIdRequestBodyBuilder()
+                .name(getUuid())
+                .build());
+    assertThrows(
+        RuntimeException.class, () -> downscopedClient.getFiles().deleteFileById(file.getId()));
+    parentClient.getFiles().deleteFileById(file.getId());
+  }
+
+  @Test
+  public void testJwtAuthRevoke() {
+    JWTConfig jwtConfig =
+        JWTConfig.fromConfigJsonString(decodeBase64(getEnvVar("JWT_CONFIG_BASE_64")));
+    BoxJWTAuth auth = new BoxJWTAuth(jwtConfig);
+    AccessToken tokenFromStorageBeforeRevoke = auth.retrieveToken();
+    assert !(tokenFromStorageBeforeRevoke == null);
+    auth.revokeToken();
+    AccessToken tokenFromStorageAfterRevoke = auth.retrieveToken();
+    assert !(tokenFromStorageBeforeRevoke
+        .getAccessToken()
+        .equals(tokenFromStorageAfterRevoke.getAccessToken()));
   }
 
   @Test
