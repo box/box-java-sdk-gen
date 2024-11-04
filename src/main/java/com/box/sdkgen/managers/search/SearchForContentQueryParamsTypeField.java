@@ -1,6 +1,7 @@
 package com.box.sdkgen.managers.search;
 
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.box.sdkgen.serialization.json.Valuable;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -10,7 +11,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import java.io.IOException;
 import java.util.Arrays;
 
-public enum SearchForContentQueryParamsTypeField {
+public enum SearchForContentQueryParamsTypeField implements Valuable {
   FILE("file"),
   FOLDER("folder"),
   WEB_LINK("web_link");

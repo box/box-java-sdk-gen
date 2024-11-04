@@ -43,13 +43,6 @@ public class BoxCCGAuth implements Authentication {
                 : PostOAuth2TokenBoxSubjectTypeField.ENTERPRISE));
   }
 
-  protected BoxCCGAuth(BoxCCGAuthBuilder builder) {
-    this.config = builder.config;
-    this.tokenStorage = builder.tokenStorage;
-    this.subjectId = builder.subjectId;
-    this.subjectType = builder.subjectType;
-  }
-
   public AccessToken refreshToken() {
     return refreshToken(null);
   }
@@ -164,60 +157,5 @@ public class BoxCCGAuth implements Authentication {
             .token(oldToken.getAccessToken())
             .build());
     this.tokenStorage.clear();
-  }
-
-  public static class BoxCCGAuthBuilder {
-
-    protected final CCGConfig config;
-
-    protected TokenStorage tokenStorage;
-
-    protected String subjectId;
-
-    protected EnumWrapper<PostOAuth2TokenBoxSubjectTypeField> subjectType;
-
-    public BoxCCGAuthBuilder(CCGConfig config) {
-      this.config = config;
-      this.tokenStorage = this.config.getTokenStorage();
-      this.subjectId =
-          (!(this.config.getUserId() == null)
-              ? this.config.getUserId()
-              : this.config.getEnterpriseId());
-      this.subjectType =
-          new EnumWrapper<PostOAuth2TokenBoxSubjectTypeField>(
-              (!(this.config.getUserId() == null)
-                      ? PostOAuth2TokenBoxSubjectTypeField.USER
-                      : PostOAuth2TokenBoxSubjectTypeField.ENTERPRISE)
-                  .getValue(),
-              (!(this.config.getUserId() == null)
-                  ? PostOAuth2TokenBoxSubjectTypeField.USER
-                  : PostOAuth2TokenBoxSubjectTypeField.ENTERPRISE));
-    }
-
-    public BoxCCGAuthBuilder tokenStorage(TokenStorage tokenStorage) {
-      this.tokenStorage = tokenStorage;
-      return this;
-    }
-
-    public BoxCCGAuthBuilder subjectId(String subjectId) {
-      this.subjectId = subjectId;
-      return this;
-    }
-
-    public BoxCCGAuthBuilder subjectType(
-        EnumWrapper<PostOAuth2TokenBoxSubjectTypeField> subjectType) {
-      this.subjectType = subjectType;
-      return this;
-    }
-
-    public BoxCCGAuthBuilder subjectType(PostOAuth2TokenBoxSubjectTypeField subjectType) {
-      this.subjectType =
-          new EnumWrapper<PostOAuth2TokenBoxSubjectTypeField>(subjectType.getValue(), subjectType);
-      return this;
-    }
-
-    public BoxCCGAuth build() {
-      return new BoxCCGAuth(this);
-    }
   }
 }

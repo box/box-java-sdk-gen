@@ -74,13 +74,6 @@ public class FetchManager {
           authenticationNeeded = true;
         }
 
-        if (response.code() >= 400
-            && response.code() < 500
-            && response.code() != 429
-            && !authenticationNeeded) {
-          throwOnUnsuccessfulResponse(request, response, exceptionThrown);
-        }
-
       } catch (Exception e) {
         exceptionThrown = e;
         // Retry network exception only once
@@ -90,6 +83,14 @@ public class FetchManager {
           }
           throw new BoxSDKError(e.getMessage(), e);
         }
+      }
+
+      if (response != null
+          && response.code() >= 400
+          && response.code() < 500
+          && response.code() != 429
+          && !authenticationNeeded) {
+        throwOnUnsuccessfulResponse(request, response, exceptionThrown);
       }
 
       if (attemptNumber >= NetworkSession.MAX_ATTEMPTS) {
@@ -161,17 +162,21 @@ public class FetchManager {
   }
 
   private static RequestBody prepareRequestBody(FetchOptions options) {
+    if (options.getMethod().equalsIgnoreCase("GET")) {
+      return null;
+    }
     String contentType = options.getContentType();
+    MediaType mediaType = MediaType.parse(contentType);
     switch (contentType) {
       case "application/json":
       case "application/json-patch+json":
         return options.getData() != null
-            ? RequestBody.create(sdToJson(options.getData()), MediaType.parse(contentType))
-            : null;
+            ? RequestBody.create(sdToJson(options.getData()), mediaType)
+            : RequestBody.create("", mediaType);
       case "application/x-www-form-urlencoded":
         return options.getData() != null
-            ? RequestBody.create(sdToUrlParams(options.getData()), MediaType.parse(contentType))
-            : null;
+            ? RequestBody.create(sdToUrlParams(options.getData()), mediaType)
+            : RequestBody.create("", mediaType);
       case "multipart/form-data":
         MultipartBody.Builder bodyBuilder = new MultipartBody.Builder().setType(MultipartBody.FORM);
         for (MultipartItem part : options.multipartData) {

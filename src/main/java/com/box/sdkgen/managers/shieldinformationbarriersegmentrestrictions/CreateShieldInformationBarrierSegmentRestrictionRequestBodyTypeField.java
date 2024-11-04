@@ -1,6 +1,7 @@
 package com.box.sdkgen.managers.shieldinformationbarriersegmentrestrictions;
 
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.box.sdkgen.serialization.json.Valuable;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -10,7 +11,8 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import java.io.IOException;
 import java.util.Arrays;
 
-public enum CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField {
+public enum CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField
+    implements Valuable {
   SHIELD_INFORMATION_BARRIER_SEGMENT_RESTRICTION("shield_information_barrier_segment_restriction");
 
   private final String value;

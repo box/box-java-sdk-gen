@@ -43,13 +43,6 @@ public class BoxJWTAuth implements Authentication {
     this.subjectType = (!(this.config.getEnterpriseId() == null) ? "enterprise" : "user");
   }
 
-  protected BoxJWTAuth(BoxJWTAuthBuilder builder) {
-    this.config = builder.config;
-    this.tokenStorage = builder.tokenStorage;
-    this.subjectId = builder.subjectId;
-    this.subjectType = builder.subjectType;
-  }
-
   public AccessToken refreshToken() {
     return refreshToken(null);
   }
@@ -196,45 +189,5 @@ public class BoxJWTAuth implements Authentication {
 
   public JWTConfig getConfig() {
     return config;
-  }
-
-  public static class BoxJWTAuthBuilder {
-
-    protected final JWTConfig config;
-
-    protected TokenStorage tokenStorage;
-
-    protected String subjectId;
-
-    protected String subjectType;
-
-    public BoxJWTAuthBuilder(JWTConfig config) {
-      this.config = config;
-      this.tokenStorage = this.config.getTokenStorage();
-      this.subjectId =
-          (!(this.config.getEnterpriseId() == null)
-              ? this.config.getEnterpriseId()
-              : this.config.getUserId());
-      this.subjectType = (!(this.config.getEnterpriseId() == null) ? "enterprise" : "user");
-    }
-
-    public BoxJWTAuthBuilder tokenStorage(TokenStorage tokenStorage) {
-      this.tokenStorage = tokenStorage;
-      return this;
-    }
-
-    public BoxJWTAuthBuilder subjectId(String subjectId) {
-      this.subjectId = subjectId;
-      return this;
-    }
-
-    public BoxJWTAuthBuilder subjectType(String subjectType) {
-      this.subjectType = subjectType;
-      return this;
-    }
-
-    public BoxJWTAuth build() {
-      return new BoxJWTAuth(this);
-    }
   }
 }

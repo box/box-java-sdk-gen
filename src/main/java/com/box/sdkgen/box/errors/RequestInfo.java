@@ -3,6 +3,8 @@ package com.box.sdkgen.box.errors;
 import java.util.Map;
 import java.util.stream.Collectors;
 import okhttp3.Request;
+import okhttp3.RequestBody;
+import okio.Buffer;
 
 public class RequestInfo {
 
@@ -83,12 +85,30 @@ public class RequestInfo {
   }
 
   public static RequestInfo fromRequest(Request request) {
-    return new RequestInfo(
-        request.method(),
-        request.url().toString(),
-        request.url().queryParameterNames().stream()
-            .collect(Collectors.toMap(name -> name, name -> request.url().queryParameter(name))),
-        request.headers().toMultimap().entrySet().stream()
-            .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().get(0))));
+    RequestInfoBuilder requestInfoBuilder =
+        new RequestInfoBuilder(
+                request.method(),
+                request.url().toString(),
+                request.url().queryParameterNames().stream()
+                    .collect(
+                        Collectors.toMap(name -> name, name -> request.url().queryParameter(name))),
+                request.headers().toMultimap().entrySet().stream()
+                    .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().get(0))))
+            .body(getRequestBodyAsString(request.body()));
+
+    return new RequestInfo(requestInfoBuilder);
+  }
+
+  private static String getRequestBodyAsString(RequestBody requestBody) {
+    try {
+      if (requestBody != null) {
+        Buffer buffer = new Buffer();
+        requestBody.writeTo(buffer);
+        return buffer.readUtf8();
+      }
+    } catch (Exception e) {
+      return null;
+    }
+    return null;
   }
 }

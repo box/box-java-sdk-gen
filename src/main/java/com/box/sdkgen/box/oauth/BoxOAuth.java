@@ -30,11 +30,6 @@ public class BoxOAuth implements Authentication {
     this.tokenStorage = this.config.getTokenStorage();
   }
 
-  protected BoxOAuth(BoxOAuthBuilder builder) {
-    this.config = builder.config;
-    this.tokenStorage = builder.tokenStorage;
-  }
-
   public String getAuthorizeUrl() {
     return getAuthorizeUrl(new GetAuthorizeUrlOptions());
   }
@@ -163,26 +158,5 @@ public class BoxOAuth implements Authentication {
                 .boxSharedLink(sharedLink)
                 .build());
     return downscopedToken;
-  }
-
-  public static class BoxOAuthBuilder {
-
-    protected final OAuthConfig config;
-
-    protected TokenStorage tokenStorage;
-
-    public BoxOAuthBuilder(OAuthConfig config) {
-      this.config = config;
-      this.tokenStorage = this.config.getTokenStorage();
-    }
-
-    public BoxOAuthBuilder tokenStorage(TokenStorage tokenStorage) {
-      this.tokenStorage = tokenStorage;
-      return this;
-    }
-
-    public BoxOAuth build() {
-      return new BoxOAuth(this);
-    }
   }
 }

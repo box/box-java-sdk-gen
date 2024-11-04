@@ -1,6 +1,7 @@
 package com.box.sdkgen.schemas.postoauth2token;
 
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.box.sdkgen.serialization.json.Valuable;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -10,7 +11,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import java.io.IOException;
 import java.util.Arrays;
 
-public enum PostOAuth2TokenSubjectTokenTypeField {
+public enum PostOAuth2TokenSubjectTokenTypeField implements Valuable {
   URN_IETF_PARAMS_OAUTH_TOKEN_TYPE_ACCESS_TOKEN("urn:ietf:params:oauth:token-type:access_token");
 
   private final String value;
