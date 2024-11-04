@@ -11,6 +11,7 @@ import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetch.FetchOptions;
 import com.box.sdkgen.networking.fetch.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
+import com.box.sdkgen.schemas.collection.Collection;
 import com.box.sdkgen.schemas.collections.Collections;
 import com.box.sdkgen.schemas.items.Items;
 import com.box.sdkgen.serialization.json.JsonManager;
@@ -108,6 +109,29 @@ public class CollectionsManager {
                 .networkSession(this.networkSession)
                 .build());
     return JsonManager.deserialize(response.getData(), Items.class);
+  }
+
+  public Collection getCollectionById(String collectionId) {
+    return getCollectionById(collectionId, new GetCollectionByIdHeaders());
+  }
+
+  public Collection getCollectionById(String collectionId, GetCollectionByIdHeaders headers) {
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response =
+        fetch(
+            new FetchOptions.FetchOptionsBuilder(
+                    String.join(
+                        "",
+                        this.networkSession.getBaseUrls().getBaseUrl(),
+                        "/2.0/collections/",
+                        convertToString(collectionId)))
+                .method("GET")
+                .headers(headersMap)
+                .responseFormat("json")
+                .auth(this.auth)
+                .networkSession(this.networkSession)
+                .build());
+    return JsonManager.deserialize(response.getData(), Collection.class);
   }
 
   public Authentication getAuth() {
