@@ -16,10 +16,7 @@ This operation is performed by calling function `getFileMetadata`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-metadata/).
 
-<!-- sample get_files_id_metadata -->
-```
-client.getFileMetadata().getFileMetadata(file.getId())
-```
+*Currently we don't have an example for calling `getFileMetadata` in integration tests*
 
 ### Arguments
 
@@ -49,10 +46,7 @@ This operation is performed by calling function `getFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-metadata-id-id/).
 
-<!-- sample get_files_id_metadata_id_id -->
-```
-client.getFileMetadata().getFileMetadataById(file.getId(), GetFileMetadataByIdScope.GLOBAL, "properties")
-```
+*Currently we don't have an example for calling `getFileMetadataById` in integration tests*
 
 ### Arguments
 
@@ -90,7 +84,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_metadata_id_id -->
 ```
-client.getFileMetadata().createFileMetadataById(file.getId(), CreateFileMetadataByIdScope.GLOBAL, "properties", mapOf(entryOf("abc", "xyz")))
+client.getFileMetadata().createFileMetadataById(file.getId(), CreateFileMetadataByIdScope.ENTERPRISE, templateKey, mapOf(entryOf("testName", "xyz")))
 ```
 
 ### Arguments
@@ -131,10 +125,7 @@ This operation is performed by calling function `updateFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-metadata-id-id/).
 
-<!-- sample put_files_id_metadata_id_id -->
-```
-client.getFileMetadata().updateFileMetadataById(file.getId(), UpdateFileMetadataByIdScope.GLOBAL, "properties", Arrays.asList(new UpdateFileMetadataByIdRequestBody.UpdateFileMetadataByIdRequestBodyBuilder().op(UpdateFileMetadataByIdRequestBodyOpField.REPLACE).path("/abc").value(newValue).build()))
-```
+*Currently we don't have an example for calling `updateFileMetadataById` in integration tests*
 
 ### Arguments
 
@@ -169,7 +160,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id_metadata_id_id -->
 ```
-client.getFileMetadata().deleteFileMetadataById(file.getId(), DeleteFileMetadataByIdScope.GLOBAL, "properties")
+client.getFileMetadata().deleteFileMetadataById(file.getId(), DeleteFileMetadataByIdScope.ENTERPRISE, templateKey)
 ```
 
 ### Arguments

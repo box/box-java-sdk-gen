@@ -33,7 +33,10 @@ public class BoxDeveloperTokenAuth implements Authentication {
   protected BoxDeveloperTokenAuth(BoxDeveloperTokenAuthBuilder builder) {
     this.token = builder.token;
     this.config = builder.config;
-    this.tokenStorage = builder.tokenStorage;
+    this.tokenStorage =
+        new InMemoryTokenStorage.InMemoryTokenStorageBuilder()
+            .token(new AccessToken.AccessTokenBuilder().accessToken(this.token).build())
+            .build();
   }
 
   public AccessToken retrieveToken() {
@@ -117,24 +120,13 @@ public class BoxDeveloperTokenAuth implements Authentication {
 
     protected DeveloperTokenConfig config;
 
-    protected TokenStorage tokenStorage;
-
     public BoxDeveloperTokenAuthBuilder(String token) {
       this.token = token;
       this.config = new DeveloperTokenConfig();
-      this.tokenStorage =
-          new InMemoryTokenStorage.InMemoryTokenStorageBuilder()
-              .token(new AccessToken.AccessTokenBuilder().accessToken(this.token).build())
-              .build();
     }
 
     public BoxDeveloperTokenAuthBuilder config(DeveloperTokenConfig config) {
       this.config = config;
-      return this;
-    }
-
-    public BoxDeveloperTokenAuthBuilder tokenStorage(TokenStorage tokenStorage) {
-      this.tokenStorage = tokenStorage;
       return this;
     }
 

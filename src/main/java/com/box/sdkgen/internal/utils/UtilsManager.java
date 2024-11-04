@@ -2,6 +2,7 @@ package com.box.sdkgen.internal.utils;
 
 import com.box.sdkgen.box.errors.BoxSDKError;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.box.sdkgen.serialization.json.Valuable;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -73,6 +74,9 @@ public class UtilsManager {
     }
     if (value instanceof EnumWrapper) {
       return ((EnumWrapper<?>) value).getStringValue();
+    }
+    if (value instanceof Valuable) {
+      return ((Valuable) value).getValue();
     }
     if (value instanceof List) {
       return ((List<?>) value)

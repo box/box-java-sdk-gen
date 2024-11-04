@@ -1,6 +1,7 @@
 package com.box.sdkgen.schemas.workflow;
 
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.box.sdkgen.serialization.json.Valuable;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -10,7 +11,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import java.io.IOException;
 import java.util.Arrays;
 
-public enum WorkflowFlowsOutcomesIfRejectedActionTypeField {
+public enum WorkflowFlowsOutcomesIfRejectedActionTypeField implements Valuable {
   ADD_METADATA("add_metadata"),
   ASSIGN_TASK("assign_task"),
   COPY_FILE("copy_file"),

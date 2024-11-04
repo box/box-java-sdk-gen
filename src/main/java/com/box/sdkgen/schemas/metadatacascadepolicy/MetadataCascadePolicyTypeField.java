@@ -1,6 +1,7 @@
 package com.box.sdkgen.schemas.metadatacascadepolicy;
 
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.box.sdkgen.serialization.json.Valuable;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -10,7 +11,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import java.io.IOException;
 import java.util.Arrays;
 
-public enum MetadataCascadePolicyTypeField {
+public enum MetadataCascadePolicyTypeField implements Valuable {
   METADATA_CASCADE_POLICY("metadata_cascade_policy");
 
   private final String value;
