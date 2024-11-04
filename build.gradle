@@ -4,7 +4,7 @@ plugins {
 }
 group = "com.box"
 archivesBaseName = "box-java-sdk-gen"
-version = "0.1.0"
+version = "0.1.1"
 java {
   sourceCompatibility = "${libraryJavaVersion}"
   targetCompatibility = "${libraryJavaVersion}"
