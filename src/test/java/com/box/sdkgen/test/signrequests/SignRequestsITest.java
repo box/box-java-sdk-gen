@@ -134,6 +134,7 @@ public class SignRequestsITest {
                     .parentFolder(new FolderMini(destinationFolder.getId()))
                     .build());
     assert createdSignRequest.getSigners().size() == 3;
+    assert !(createdSignRequest.getSigners().get(1).getSignerGroupId() == null);
     assert createdSignRequest
         .getSigners()
         .get(1)
