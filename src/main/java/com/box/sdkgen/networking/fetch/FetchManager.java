@@ -53,7 +53,8 @@ public class FetchManager {
 
         boolean acceptedWithRetryAfter =
             response.code() == 202 && response.header("Retry-After") != null;
-        if (response.isSuccessful() && !acceptedWithRetryAfter) {
+        if (response.isSuccessful()
+            && (!acceptedWithRetryAfter || attemptNumber >= NetworkSession.MAX_ATTEMPTS)) {
           if (Objects.equals(options.getResponseFormat(), "binary")) {
             return new FetchResponse(
                 response.code(),

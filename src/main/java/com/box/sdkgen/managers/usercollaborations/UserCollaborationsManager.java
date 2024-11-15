@@ -97,6 +97,9 @@ public class UserCollaborationsManager {
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
+    if (convertToString(response.getStatus()).equals("204")) {
+      return null;
+    }
     return JsonManager.deserialize(response.getData(), Collaboration.class);
   }
 

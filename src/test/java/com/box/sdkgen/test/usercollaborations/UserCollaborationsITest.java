@@ -17,6 +17,7 @@ import com.box.sdkgen.managers.usercollaborations.UpdateCollaborationByIdRequest
 import com.box.sdkgen.managers.usercollaborations.UpdateCollaborationByIdRequestBodyRoleField;
 import com.box.sdkgen.managers.users.CreateUserRequestBody;
 import com.box.sdkgen.schemas.collaboration.Collaboration;
+import com.box.sdkgen.schemas.collaborations.Collaborations;
 import com.box.sdkgen.schemas.folderfull.FolderFull;
 import com.box.sdkgen.schemas.userfull.UserFull;
 import org.junit.jupiter.api.Test;
@@ -75,6 +76,54 @@ public class UserCollaborationsITest {
         RuntimeException.class,
         () -> client.getUserCollaborations().getCollaborationById(collaborationId));
     client.getFolders().deleteFolderById(folder.getId());
+    client.getUsers().deleteUserById(user.getId());
+  }
+
+  @Test
+  public void testConvertingUserCollaborationToOwnership() {
+    String userName = getUuid();
+    String userLogin = String.join("", getUuid(), "@gmail.com");
+    UserFull user =
+        client
+            .getUsers()
+            .createUser(
+                new CreateUserRequestBody.CreateUserRequestBodyBuilder(userName)
+                    .login(userLogin)
+                    .isPlatformAccessOnly(true)
+                    .build());
+    FolderFull folder = createNewFolder();
+    Collaboration collaboration =
+        client
+            .getUserCollaborations()
+            .createCollaboration(
+                new CreateCollaborationRequestBody(
+                    new CreateCollaborationRequestBodyItemField
+                            .CreateCollaborationRequestBodyItemFieldBuilder()
+                        .type(CreateCollaborationRequestBodyItemTypeField.FOLDER)
+                        .id(folder.getId())
+                        .build(),
+                    new CreateCollaborationRequestBodyAccessibleByField
+                            .CreateCollaborationRequestBodyAccessibleByFieldBuilder(
+                            CreateCollaborationRequestBodyAccessibleByTypeField.USER)
+                        .id(user.getId())
+                        .build(),
+                    CreateCollaborationRequestBodyRoleField.EDITOR));
+    assert convertToString(collaboration.getRole()).equals("editor");
+    Collaboration ownerCollaboration =
+        client
+            .getUserCollaborations()
+            .updateCollaborationById(
+                collaboration.getId(),
+                new UpdateCollaborationByIdRequestBody(
+                    UpdateCollaborationByIdRequestBodyRoleField.OWNER));
+    assert ownerCollaboration == null;
+    Collaborations folderCollaborations =
+        client.getListCollaborations().getFolderCollaborations(folder.getId());
+    Collaboration folderCollaboration = folderCollaborations.getEntries().get(0);
+    client.getUserCollaborations().deleteCollaborationById(folderCollaboration.getId());
+    BoxClient userClient = client.withAsUserHeader(user.getId());
+    userClient.getFolders().deleteFolderById(folder.getId());
+    userClient.getTrashedFolders().deleteTrashedFolderById(folder.getId());
     client.getUsers().deleteUserById(user.getId());
   }
 

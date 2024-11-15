@@ -48,13 +48,11 @@ public class FilesITest {
     String thumbnailFileName = getUuid();
     InputStream thumbnailContentStream = generateByteStream(1024 * 1024);
     FileFull thumbnailFile = uploadFile(thumbnailFileName, thumbnailContentStream);
-    assert !(bufferEquals(
-            readByteStream(
-                client
-                    .getFiles()
-                    .getFileThumbnailById(
-                        thumbnailFile.getId(), GetFileThumbnailByIdExtension.PNG)),
-            readByteStream(thumbnailContentStream))
+    InputStream thumbnail =
+        client
+            .getFiles()
+            .getFileThumbnailById(thumbnailFile.getId(), GetFileThumbnailByIdExtension.PNG);
+    assert !(bufferEquals(readByteStream(thumbnail), readByteStream(thumbnailContentStream))
         == true);
     client.getFiles().deleteFileById(thumbnailFile.getId());
   }
