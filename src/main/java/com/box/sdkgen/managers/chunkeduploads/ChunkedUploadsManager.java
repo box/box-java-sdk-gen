@@ -338,6 +338,9 @@ public class ChunkedUploadsManager {
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
+    if (convertToString(response.getStatus()).equals("202")) {
+      return null;
+    }
     return JsonManager.deserialize(response.getData(), Files.class);
   }
 
@@ -370,6 +373,9 @@ public class ChunkedUploadsManager {
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
+    if (convertToString(response.getStatus()).equals("202")) {
+      return null;
+    }
     return JsonManager.deserialize(response.getData(), Files.class);
   }
 
