@@ -106,7 +106,7 @@ client.getListCollaborations().getCollaborations(new GetCollaborationsQueryParam
 
 ### Returns
 
-This function returns a value of type `Collaborations`.
+This function returns a value of type `CollaborationsOffsetPaginated`.
 
 Returns a collection of pending collaboration objects.
 
@@ -144,7 +144,7 @@ client.getListCollaborations().getGroupCollaborations(group.getId())
 
 ### Returns
 
-This function returns a value of type `Collaborations`.
+This function returns a value of type `CollaborationsOffsetPaginated`.
 
 Returns a collection of collaboration objects. If there are no
 collaborations, an empty collection will be returned.

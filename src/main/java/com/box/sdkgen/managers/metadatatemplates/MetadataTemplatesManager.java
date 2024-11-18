@@ -45,7 +45,9 @@ public class MetadataTemplatesManager {
         prepareParams(
             mapOf(
                 entryOf(
-                    "metadata_instance_id", convertToString(queryParams.getMetadataInstanceId()))));
+                    "metadata_instance_id", convertToString(queryParams.getMetadataInstanceId())),
+                entryOf("marker", convertToString(queryParams.getMarker())),
+                entryOf("limit", convertToString(queryParams.getLimit()))));
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
         fetch(

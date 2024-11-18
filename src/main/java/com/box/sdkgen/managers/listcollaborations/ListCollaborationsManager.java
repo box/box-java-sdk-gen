@@ -12,6 +12,7 @@ import com.box.sdkgen.networking.fetch.FetchOptions;
 import com.box.sdkgen.networking.fetch.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.collaborations.Collaborations;
+import com.box.sdkgen.schemas.collaborationsoffsetpaginated.CollaborationsOffsetPaginated;
 import com.box.sdkgen.serialization.json.JsonManager;
 import java.util.Map;
 
@@ -94,7 +95,11 @@ public class ListCollaborationsManager {
       GetFolderCollaborationsQueryParams queryParams,
       GetFolderCollaborationsHeaders headers) {
     Map<String, String> queryParamsMap =
-        prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));
+        prepareParams(
+            mapOf(
+                entryOf("fields", convertToString(queryParams.getFields())),
+                entryOf("limit", convertToString(queryParams.getLimit())),
+                entryOf("marker", convertToString(queryParams.getMarker()))));
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
         fetch(
@@ -115,11 +120,11 @@ public class ListCollaborationsManager {
     return JsonManager.deserialize(response.getData(), Collaborations.class);
   }
 
-  public Collaborations getCollaborations(GetCollaborationsQueryParams queryParams) {
+  public CollaborationsOffsetPaginated getCollaborations(GetCollaborationsQueryParams queryParams) {
     return getCollaborations(queryParams, new GetCollaborationsHeaders());
   }
 
-  public Collaborations getCollaborations(
+  public CollaborationsOffsetPaginated getCollaborations(
       GetCollaborationsQueryParams queryParams, GetCollaborationsHeaders headers) {
     Map<String, String> queryParamsMap =
         prepareParams(
@@ -141,25 +146,25 @@ public class ListCollaborationsManager {
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
-    return JsonManager.deserialize(response.getData(), Collaborations.class);
+    return JsonManager.deserialize(response.getData(), CollaborationsOffsetPaginated.class);
   }
 
-  public Collaborations getGroupCollaborations(String groupId) {
+  public CollaborationsOffsetPaginated getGroupCollaborations(String groupId) {
     return getGroupCollaborations(
         groupId, new GetGroupCollaborationsQueryParams(), new GetGroupCollaborationsHeaders());
   }
 
-  public Collaborations getGroupCollaborations(
+  public CollaborationsOffsetPaginated getGroupCollaborations(
       String groupId, GetGroupCollaborationsQueryParams queryParams) {
     return getGroupCollaborations(groupId, queryParams, new GetGroupCollaborationsHeaders());
   }
 
-  public Collaborations getGroupCollaborations(
+  public CollaborationsOffsetPaginated getGroupCollaborations(
       String groupId, GetGroupCollaborationsHeaders headers) {
     return getGroupCollaborations(groupId, new GetGroupCollaborationsQueryParams(), headers);
   }
 
-  public Collaborations getGroupCollaborations(
+  public CollaborationsOffsetPaginated getGroupCollaborations(
       String groupId,
       GetGroupCollaborationsQueryParams queryParams,
       GetGroupCollaborationsHeaders headers) {
@@ -185,7 +190,7 @@ public class ListCollaborationsManager {
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
-    return JsonManager.deserialize(response.getData(), Collaborations.class);
+    return JsonManager.deserialize(response.getData(), CollaborationsOffsetPaginated.class);
   }
 
   public Authentication getAuth() {

@@ -13,7 +13,7 @@ import com.box.sdkgen.networking.fetch.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.collection.Collection;
 import com.box.sdkgen.schemas.collections.Collections;
-import com.box.sdkgen.schemas.items.Items;
+import com.box.sdkgen.schemas.itemsoffsetpaginated.ItemsOffsetPaginated;
 import com.box.sdkgen.serialization.json.JsonManager;
 import java.util.Map;
 
@@ -68,20 +68,22 @@ public class CollectionsManager {
     return JsonManager.deserialize(response.getData(), Collections.class);
   }
 
-  public Items getCollectionItems(String collectionId) {
+  public ItemsOffsetPaginated getCollectionItems(String collectionId) {
     return getCollectionItems(
         collectionId, new GetCollectionItemsQueryParams(), new GetCollectionItemsHeaders());
   }
 
-  public Items getCollectionItems(String collectionId, GetCollectionItemsQueryParams queryParams) {
+  public ItemsOffsetPaginated getCollectionItems(
+      String collectionId, GetCollectionItemsQueryParams queryParams) {
     return getCollectionItems(collectionId, queryParams, new GetCollectionItemsHeaders());
   }
 
-  public Items getCollectionItems(String collectionId, GetCollectionItemsHeaders headers) {
+  public ItemsOffsetPaginated getCollectionItems(
+      String collectionId, GetCollectionItemsHeaders headers) {
     return getCollectionItems(collectionId, new GetCollectionItemsQueryParams(), headers);
   }
 
-  public Items getCollectionItems(
+  public ItemsOffsetPaginated getCollectionItems(
       String collectionId,
       GetCollectionItemsQueryParams queryParams,
       GetCollectionItemsHeaders headers) {
@@ -108,7 +110,7 @@ public class CollectionsManager {
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
-    return JsonManager.deserialize(response.getData(), Items.class);
+    return JsonManager.deserialize(response.getData(), ItemsOffsetPaginated.class);
   }
 
   public Collection getCollectionById(String collectionId) {
