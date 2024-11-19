@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.metadataqueryresults;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filefullorfolderfull.FileFullOrFolderFull;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class MetadataQueryResults {
+public class MetadataQueryResults extends SerializableObject {
 
   protected List<FileFullOrFolderFull> entries;
 
@@ -14,9 +15,12 @@ public class MetadataQueryResults {
   @JsonProperty("next_marker")
   protected String nextMarker;
 
-  public MetadataQueryResults() {}
+  public MetadataQueryResults() {
+    super();
+  }
 
   protected MetadataQueryResults(MetadataQueryResultsBuilder builder) {
+    super();
     this.entries = builder.entries;
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;

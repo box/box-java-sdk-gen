@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.metadatatemplates;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.metadatatemplate.MetadataTemplate;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class MetadataTemplates {
+public class MetadataTemplates extends SerializableObject {
 
   protected Long limit;
 
@@ -17,9 +18,12 @@ public class MetadataTemplates {
 
   protected List<MetadataTemplate> entries;
 
-  public MetadataTemplates() {}
+  public MetadataTemplates() {
+    super();
+  }
 
   protected MetadataTemplates(MetadataTemplatesBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;

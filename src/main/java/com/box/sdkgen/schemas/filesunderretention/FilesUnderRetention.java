@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.filesunderretention;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filemini.FileMini;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class FilesUnderRetention {
+public class FilesUnderRetention extends SerializableObject {
 
   protected Long limit;
 
@@ -17,9 +18,12 @@ public class FilesUnderRetention {
 
   protected List<FileMini> entries;
 
-  public FilesUnderRetention() {}
+  public FilesUnderRetention() {
+    super();
+  }
 
   protected FilesUnderRetention(FilesUnderRetentionBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;

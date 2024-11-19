@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.folders;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CreateFolderRequestBody {
+public class CreateFolderRequestBody extends SerializableObject {
 
   protected final String name;
 
@@ -29,11 +30,13 @@ public class CreateFolderRequestBody {
   public CreateFolderRequestBody(
       @JsonProperty("name") String name,
       @JsonProperty("parent") CreateFolderRequestBodyParentField parent) {
+    super();
     this.name = name;
     this.parent = parent;
   }
 
   protected CreateFolderRequestBody(CreateFolderRequestBodyBuilder builder) {
+    super();
     this.name = builder.name;
     this.parent = builder.parent;
     this.folderUploadEmail = builder.folderUploadEmail;

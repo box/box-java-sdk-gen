@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.metadatacascadepolicy;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class MetadataCascadePolicy {
+public class MetadataCascadePolicy extends SerializableObject {
 
   protected final String id;
 
@@ -26,6 +27,7 @@ public class MetadataCascadePolicy {
   protected String templateKey;
 
   public MetadataCascadePolicy(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<MetadataCascadePolicyTypeField>(
@@ -34,6 +36,7 @@ public class MetadataCascadePolicy {
   }
 
   protected MetadataCascadePolicy(MetadataCascadePolicyBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.ownerEnterprise = builder.ownerEnterprise;

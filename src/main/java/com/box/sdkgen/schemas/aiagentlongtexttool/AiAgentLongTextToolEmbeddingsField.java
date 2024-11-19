@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.aiagentlongtexttool;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class AiAgentLongTextToolEmbeddingsField {
+public class AiAgentLongTextToolEmbeddingsField extends SerializableObject {
 
   protected String model;
 
   protected AiAgentLongTextToolEmbeddingsStrategyField strategy;
 
-  public AiAgentLongTextToolEmbeddingsField() {}
+  public AiAgentLongTextToolEmbeddingsField() {
+    super();
+  }
 
   protected AiAgentLongTextToolEmbeddingsField(AiAgentLongTextToolEmbeddingsFieldBuilder builder) {
+    super();
     this.model = builder.model;
     this.strategy = builder.strategy;
   }

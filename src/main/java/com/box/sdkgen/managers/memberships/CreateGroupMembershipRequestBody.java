@@ -1,5 +1,6 @@
 package com.box.sdkgen.managers.memberships;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Map;
 import java.util.Objects;
 
-public class CreateGroupMembershipRequestBody {
+public class CreateGroupMembershipRequestBody extends SerializableObject {
 
   protected final CreateGroupMembershipRequestBodyUserField user;
 
@@ -29,11 +30,13 @@ public class CreateGroupMembershipRequestBody {
   public CreateGroupMembershipRequestBody(
       @JsonProperty("user") CreateGroupMembershipRequestBodyUserField user,
       @JsonProperty("group") CreateGroupMembershipRequestBodyGroupField group) {
+    super();
     this.user = user;
     this.group = group;
   }
 
   protected CreateGroupMembershipRequestBody(CreateGroupMembershipRequestBodyBuilder builder) {
+    super();
     this.user = builder.user;
     this.group = builder.group;
     this.role = builder.role;

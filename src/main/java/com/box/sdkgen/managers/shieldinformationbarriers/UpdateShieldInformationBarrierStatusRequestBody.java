@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.shieldinformationbarriers;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UpdateShieldInformationBarrierStatusRequestBody {
+public class UpdateShieldInformationBarrierStatusRequestBody extends SerializableObject {
 
   protected final String id;
 
@@ -24,12 +25,14 @@ public class UpdateShieldInformationBarrierStatusRequestBody {
       @JsonProperty("id") String id,
       @JsonProperty("status")
           EnumWrapper<UpdateShieldInformationBarrierStatusRequestBodyStatusField> status) {
+    super();
     this.id = id;
     this.status = status;
   }
 
   public UpdateShieldInformationBarrierStatusRequestBody(
       String id, UpdateShieldInformationBarrierStatusRequestBodyStatusField status) {
+    super();
     this.id = id;
     this.status =
         new EnumWrapper<UpdateShieldInformationBarrierStatusRequestBodyStatusField>(

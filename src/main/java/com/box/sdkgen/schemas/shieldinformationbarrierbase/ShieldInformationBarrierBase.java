@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.shieldinformationbarrierbase;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class ShieldInformationBarrierBase {
+public class ShieldInformationBarrierBase extends SerializableObject {
 
   protected String id;
 
@@ -19,9 +20,12 @@ public class ShieldInformationBarrierBase {
               .class)
   protected EnumWrapper<ShieldInformationBarrierBaseTypeField> type;
 
-  public ShieldInformationBarrierBase() {}
+  public ShieldInformationBarrierBase() {
+    super();
+  }
 
   protected ShieldInformationBarrierBase(ShieldInformationBarrierBaseBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

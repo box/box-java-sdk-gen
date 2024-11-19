@@ -1,17 +1,21 @@
 package com.box.sdkgen.managers.skills;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class UpdateAllSkillCardsOnFileRequestBodyUsageField {
+public class UpdateAllSkillCardsOnFileRequestBodyUsageField extends SerializableObject {
 
   protected String unit;
 
   protected Double value;
 
-  public UpdateAllSkillCardsOnFileRequestBodyUsageField() {}
+  public UpdateAllSkillCardsOnFileRequestBodyUsageField() {
+    super();
+  }
 
   protected UpdateAllSkillCardsOnFileRequestBodyUsageField(
       UpdateAllSkillCardsOnFileRequestBodyUsageFieldBuilder builder) {
+    super();
     this.unit = builder.unit;
     this.value = builder.value;
   }

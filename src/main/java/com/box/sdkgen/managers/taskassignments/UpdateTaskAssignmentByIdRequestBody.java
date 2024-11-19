@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.taskassignments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UpdateTaskAssignmentByIdRequestBody {
+public class UpdateTaskAssignmentByIdRequestBody extends SerializableObject {
 
   protected String message;
 
@@ -21,10 +22,13 @@ public class UpdateTaskAssignmentByIdRequestBody {
   @JsonProperty("resolution_state")
   protected EnumWrapper<UpdateTaskAssignmentByIdRequestBodyResolutionStateField> resolutionState;
 
-  public UpdateTaskAssignmentByIdRequestBody() {}
+  public UpdateTaskAssignmentByIdRequestBody() {
+    super();
+  }
 
   protected UpdateTaskAssignmentByIdRequestBody(
       UpdateTaskAssignmentByIdRequestBodyBuilder builder) {
+    super();
     this.message = builder.message;
     this.resolutionState = builder.resolutionState;
   }

@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.comments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CreateCommentRequestBodyItemField {
+public class CreateCommentRequestBodyItemField extends SerializableObject {
 
   protected final String id;
 
@@ -23,11 +24,13 @@ public class CreateCommentRequestBodyItemField {
   public CreateCommentRequestBodyItemField(
       @JsonProperty("id") String id,
       @JsonProperty("type") EnumWrapper<CreateCommentRequestBodyItemTypeField> type) {
+    super();
     this.id = id;
     this.type = type;
   }
 
   public CreateCommentRequestBodyItemField(String id, CreateCommentRequestBodyItemTypeField type) {
+    super();
     this.id = id;
     this.type = new EnumWrapper<CreateCommentRequestBodyItemTypeField>(type.getValue(), type);
   }

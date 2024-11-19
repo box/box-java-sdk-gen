@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.webhooks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.List;
 import java.util.Objects;
 
-public class UpdateWebhookByIdRequestBody {
+public class UpdateWebhookByIdRequestBody extends SerializableObject {
 
   protected UpdateWebhookByIdRequestBodyTargetField target;
 
@@ -11,9 +12,12 @@ public class UpdateWebhookByIdRequestBody {
 
   protected List<UpdateWebhookByIdRequestBodyTriggersField> triggers;
 
-  public UpdateWebhookByIdRequestBody() {}
+  public UpdateWebhookByIdRequestBody() {
+    super();
+  }
 
   protected UpdateWebhookByIdRequestBody(UpdateWebhookByIdRequestBodyBuilder builder) {
+    super();
     this.target = builder.target;
     this.address = builder.address;
     this.triggers = builder.triggers;

@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.folder;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class FolderSharedLinkField {
+public class FolderSharedLinkField extends SerializableObject {
 
   protected final String url;
 
@@ -68,6 +69,7 @@ public class FolderSharedLinkField {
       @JsonProperty("is_password_enabled") boolean isPasswordEnabled,
       @JsonProperty("download_count") long downloadCount,
       @JsonProperty("preview_count") long previewCount) {
+    super();
     this.url = url;
     this.effectiveAccess = effectiveAccess;
     this.effectivePermission = effectivePermission;
@@ -83,6 +85,7 @@ public class FolderSharedLinkField {
       boolean isPasswordEnabled,
       long downloadCount,
       long previewCount) {
+    super();
     this.url = url;
     this.effectiveAccess =
         new EnumWrapper<FolderSharedLinkEffectiveAccessField>(
@@ -96,6 +99,7 @@ public class FolderSharedLinkField {
   }
 
   protected FolderSharedLinkField(FolderSharedLinkFieldBuilder builder) {
+    super();
     this.url = builder.url;
     this.downloadUrl = builder.downloadUrl;
     this.vanityUrl = builder.vanityUrl;

@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.weblinkbase;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class WebLinkBase {
+public class WebLinkBase extends SerializableObject {
 
   protected final String id;
 
@@ -17,6 +18,7 @@ public class WebLinkBase {
   protected String etag;
 
   public WebLinkBase(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<WebLinkBaseTypeField>(
@@ -24,6 +26,7 @@ public class WebLinkBase {
   }
 
   protected WebLinkBase(WebLinkBaseBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.etag = builder.etag;

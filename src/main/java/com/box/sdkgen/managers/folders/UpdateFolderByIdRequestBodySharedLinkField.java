@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.folders;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UpdateFolderByIdRequestBodySharedLinkField {
+public class UpdateFolderByIdRequestBodySharedLinkField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -28,10 +29,13 @@ public class UpdateFolderByIdRequestBodySharedLinkField {
 
   protected UpdateFolderByIdRequestBodySharedLinkPermissionsField permissions;
 
-  public UpdateFolderByIdRequestBodySharedLinkField() {}
+  public UpdateFolderByIdRequestBodySharedLinkField() {
+    super();
+  }
 
   protected UpdateFolderByIdRequestBodySharedLinkField(
       UpdateFolderByIdRequestBodySharedLinkFieldBuilder builder) {
+    super();
     this.access = builder.access;
     this.password = builder.password;
     this.vanityName = builder.vanityName;

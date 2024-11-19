@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.eventsource;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class EventSource {
+public class EventSource extends SerializableObject {
 
   @JsonDeserialize(using = EventSourceItemTypeField.EventSourceItemTypeFieldDeserializer.class)
   @JsonSerialize(using = EventSourceItemTypeField.EventSourceItemTypeFieldSerializer.class)
@@ -32,18 +33,21 @@ public class EventSource {
       @JsonProperty("item_type") EnumWrapper<EventSourceItemTypeField> itemType,
       @JsonProperty("item_id") String itemId,
       @JsonProperty("item_name") String itemName) {
+    super();
     this.itemType = itemType;
     this.itemId = itemId;
     this.itemName = itemName;
   }
 
   public EventSource(EventSourceItemTypeField itemType, String itemId, String itemName) {
+    super();
     this.itemType = new EnumWrapper<EventSourceItemTypeField>(itemType.getValue(), itemType);
     this.itemId = itemId;
     this.itemName = itemName;
   }
 
   protected EventSource(EventSourceBuilder builder) {
+    super();
     this.itemType = builder.itemType;
     this.itemId = builder.itemId;
     this.itemName = builder.itemName;

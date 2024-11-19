@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.itemsoffsetpaginated;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class ItemsOffsetPaginatedOrderField {
+public class ItemsOffsetPaginatedOrderField extends SerializableObject {
 
   protected String by;
 
@@ -19,9 +20,12 @@ public class ItemsOffsetPaginatedOrderField {
               .class)
   protected EnumWrapper<ItemsOffsetPaginatedOrderDirectionField> direction;
 
-  public ItemsOffsetPaginatedOrderField() {}
+  public ItemsOffsetPaginatedOrderField() {
+    super();
+  }
 
   protected ItemsOffsetPaginatedOrderField(ItemsOffsetPaginatedOrderFieldBuilder builder) {
+    super();
     this.by = builder.by;
     this.direction = builder.direction;
   }

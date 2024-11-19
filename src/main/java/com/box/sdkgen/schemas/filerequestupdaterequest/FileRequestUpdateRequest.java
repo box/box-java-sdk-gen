@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.filerequestupdaterequest;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class FileRequestUpdateRequest {
+public class FileRequestUpdateRequest extends SerializableObject {
 
   protected String title;
 
@@ -29,9 +30,12 @@ public class FileRequestUpdateRequest {
   @JsonProperty("expires_at")
   protected String expiresAt;
 
-  public FileRequestUpdateRequest() {}
+  public FileRequestUpdateRequest() {
+    super();
+  }
 
   protected FileRequestUpdateRequest(FileRequestUpdateRequestBuilder builder) {
+    super();
     this.title = builder.title;
     this.description = builder.description;
     this.status = builder.status;

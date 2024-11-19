@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.file;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class FileSharedLinkPermissionsField {
+public class FileSharedLinkPermissionsField extends SerializableObject {
 
   @JsonProperty("can_download")
   protected final boolean canDownload;
@@ -18,6 +19,7 @@ public class FileSharedLinkPermissionsField {
       @JsonProperty("can_download") boolean canDownload,
       @JsonProperty("can_preview") boolean canPreview,
       @JsonProperty("can_edit") boolean canEdit) {
+    super();
     this.canDownload = canDownload;
     this.canPreview = canPreview;
     this.canEdit = canEdit;

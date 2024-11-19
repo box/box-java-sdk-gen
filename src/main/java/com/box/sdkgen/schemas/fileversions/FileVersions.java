@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.fileversions;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.fileversionfull.FileVersionFull;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class FileVersions {
+public class FileVersions extends SerializableObject {
 
   @JsonProperty("total_count")
   protected Long totalCount;
@@ -18,9 +19,12 @@ public class FileVersions {
 
   protected List<FileVersionFull> entries;
 
-  public FileVersions() {}
+  public FileVersions() {
+    super();
+  }
 
   protected FileVersions(FileVersionsBuilder builder) {
+    super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
     this.offset = builder.offset;

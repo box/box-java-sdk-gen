@@ -1,17 +1,21 @@
 package com.box.sdkgen.managers.sharedlinksfiles;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class RemoveSharedLinkFromFileRequestBody {
+public class RemoveSharedLinkFromFileRequestBody extends SerializableObject {
 
   @JsonProperty("shared_link")
   protected RemoveSharedLinkFromFileRequestBodySharedLinkField sharedLink;
 
-  public RemoveSharedLinkFromFileRequestBody() {}
+  public RemoveSharedLinkFromFileRequestBody() {
+    super();
+  }
 
   protected RemoveSharedLinkFromFileRequestBody(
       RemoveSharedLinkFromFileRequestBodyBuilder builder) {
+    super();
     this.sharedLink = builder.sharedLink;
   }
 

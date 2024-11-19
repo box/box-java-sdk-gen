@@ -1,8 +1,12 @@
 package com.box.sdkgen.internal.utils;
 
 import com.box.sdkgen.box.errors.BoxSDKError;
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.box.sdkgen.serialization.json.Valuable;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -81,6 +85,13 @@ public class UtilsManager {
     if (value instanceof List) {
       return ((List<?>) value)
           .stream().map(UtilsManager::convertToString).collect(Collectors.joining(","));
+    }
+    if (value instanceof ArrayNode) {
+      return convertToString(new ObjectMapper().convertValue(value, List.class));
+    }
+
+    if (value instanceof JsonNode) {
+      return ((JsonNode) value).asText();
     }
     return value.toString();
   }
@@ -286,5 +297,9 @@ public class UtilsManager {
     }
 
     return assertion;
+  }
+
+  public static JsonNode getValueFromObjectRawData(SerializableObject obj, String key) {
+    return obj.getRawData().get(key);
   }
 }

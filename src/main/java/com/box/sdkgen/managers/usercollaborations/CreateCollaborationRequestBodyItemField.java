@@ -1,11 +1,12 @@
 package com.box.sdkgen.managers.usercollaborations;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CreateCollaborationRequestBodyItemField {
+public class CreateCollaborationRequestBodyItemField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -19,10 +20,13 @@ public class CreateCollaborationRequestBodyItemField {
 
   protected String id;
 
-  public CreateCollaborationRequestBodyItemField() {}
+  public CreateCollaborationRequestBodyItemField() {
+    super();
+  }
 
   protected CreateCollaborationRequestBodyItemField(
       CreateCollaborationRequestBodyItemFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
   }

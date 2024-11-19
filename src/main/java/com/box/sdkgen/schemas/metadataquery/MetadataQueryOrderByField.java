@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.metadataquery;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class MetadataQueryOrderByField {
+public class MetadataQueryOrderByField extends SerializableObject {
 
   @JsonProperty("field_key")
   protected String fieldKey;
@@ -18,9 +19,12 @@ public class MetadataQueryOrderByField {
       using = MetadataQueryOrderByDirectionField.MetadataQueryOrderByDirectionFieldSerializer.class)
   protected EnumWrapper<MetadataQueryOrderByDirectionField> direction;
 
-  public MetadataQueryOrderByField() {}
+  public MetadataQueryOrderByField() {
+    super();
+  }
 
   protected MetadataQueryOrderByField(MetadataQueryOrderByFieldBuilder builder) {
+    super();
     this.fieldKey = builder.fieldKey;
     this.direction = builder.direction;
   }

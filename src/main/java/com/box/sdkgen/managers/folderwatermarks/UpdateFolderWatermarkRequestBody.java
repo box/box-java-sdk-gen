@@ -1,14 +1,16 @@
 package com.box.sdkgen.managers.folderwatermarks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UpdateFolderWatermarkRequestBody {
+public class UpdateFolderWatermarkRequestBody extends SerializableObject {
 
   protected final UpdateFolderWatermarkRequestBodyWatermarkField watermark;
 
   public UpdateFolderWatermarkRequestBody(
       @JsonProperty("watermark") UpdateFolderWatermarkRequestBodyWatermarkField watermark) {
+    super();
     this.watermark = watermark;
   }
 

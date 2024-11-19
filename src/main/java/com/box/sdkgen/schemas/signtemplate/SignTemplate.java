@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.signtemplate;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filemini.FileMini;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.templatesigner.TemplateSigner;
@@ -10,7 +11,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class SignTemplate {
+public class SignTemplate extends SerializableObject {
 
   @JsonDeserialize(using = SignTemplateTypeField.SignTemplateTypeFieldDeserializer.class)
   @JsonSerialize(using = SignTemplateTypeField.SignTemplateTypeFieldSerializer.class)
@@ -61,9 +62,12 @@ public class SignTemplate {
   @JsonProperty("custom_branding")
   protected SignTemplateCustomBrandingField customBranding;
 
-  public SignTemplate() {}
+  public SignTemplate() {
+    super();
+  }
 
   protected SignTemplate(SignTemplateBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
     this.name = builder.name;

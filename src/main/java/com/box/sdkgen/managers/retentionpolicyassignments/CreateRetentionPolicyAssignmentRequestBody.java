@@ -1,10 +1,11 @@
 package com.box.sdkgen.managers.retentionpolicyassignments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class CreateRetentionPolicyAssignmentRequestBody {
+public class CreateRetentionPolicyAssignmentRequestBody extends SerializableObject {
 
   @JsonProperty("policy_id")
   protected final String policyId;
@@ -21,12 +22,14 @@ public class CreateRetentionPolicyAssignmentRequestBody {
   public CreateRetentionPolicyAssignmentRequestBody(
       @JsonProperty("policy_id") String policyId,
       @JsonProperty("assign_to") CreateRetentionPolicyAssignmentRequestBodyAssignToField assignTo) {
+    super();
     this.policyId = policyId;
     this.assignTo = assignTo;
   }
 
   protected CreateRetentionPolicyAssignmentRequestBody(
       CreateRetentionPolicyAssignmentRequestBodyBuilder builder) {
+    super();
     this.policyId = builder.policyId;
     this.assignTo = builder.assignTo;
     this.filterFields = builder.filterFields;

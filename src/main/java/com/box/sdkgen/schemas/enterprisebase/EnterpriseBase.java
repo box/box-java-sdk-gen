@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.enterprisebase;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class EnterpriseBase {
+public class EnterpriseBase extends SerializableObject {
 
   protected String id;
 
@@ -13,9 +14,12 @@ public class EnterpriseBase {
   @JsonSerialize(using = EnterpriseBaseTypeField.EnterpriseBaseTypeFieldSerializer.class)
   protected EnumWrapper<EnterpriseBaseTypeField> type;
 
-  public EnterpriseBase() {}
+  public EnterpriseBase() {
+    super();
+  }
 
   protected EnterpriseBase(EnterpriseBaseBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

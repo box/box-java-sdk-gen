@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.aiextractstructured;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class AiExtractStructuredMetadataTemplateField {
+public class AiExtractStructuredMetadataTemplateField extends SerializableObject {
 
   @JsonProperty("template_key")
   protected String templateKey;
@@ -23,10 +24,13 @@ public class AiExtractStructuredMetadataTemplateField {
 
   protected String scope;
 
-  public AiExtractStructuredMetadataTemplateField() {}
+  public AiExtractStructuredMetadataTemplateField() {
+    super();
+  }
 
   protected AiExtractStructuredMetadataTemplateField(
       AiExtractStructuredMetadataTemplateFieldBuilder builder) {
+    super();
     this.templateKey = builder.templateKey;
     this.type = builder.type;
     this.scope = builder.scope;

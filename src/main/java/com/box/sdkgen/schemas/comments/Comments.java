@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.comments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.commentfull.CommentFull;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class Comments {
+public class Comments extends SerializableObject {
 
   @JsonProperty("total_count")
   protected Long totalCount;
@@ -18,9 +19,12 @@ public class Comments {
 
   protected List<CommentFull> entries;
 
-  public Comments() {}
+  public Comments() {
+    super();
+  }
 
   protected Comments(CommentsBuilder builder) {
+    super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
     this.offset = builder.offset;

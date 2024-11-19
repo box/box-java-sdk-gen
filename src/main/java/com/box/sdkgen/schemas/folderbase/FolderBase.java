@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.folderbase;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class FolderBase {
+public class FolderBase extends SerializableObject {
 
   protected final String id;
 
@@ -17,6 +18,7 @@ public class FolderBase {
   protected EnumWrapper<FolderBaseTypeField> type;
 
   public FolderBase(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<FolderBaseTypeField>(
@@ -24,6 +26,7 @@ public class FolderBase {
   }
 
   protected FolderBase(FolderBaseBuilder builder) {
+    super();
     this.id = builder.id;
     this.etag = builder.etag;
     this.type = builder.type;

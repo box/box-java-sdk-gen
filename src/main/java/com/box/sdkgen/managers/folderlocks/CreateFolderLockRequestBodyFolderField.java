@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.folderlocks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateFolderLockRequestBodyFolderField {
+public class CreateFolderLockRequestBodyFolderField extends SerializableObject {
 
   protected final String type;
 
@@ -11,6 +12,7 @@ public class CreateFolderLockRequestBodyFolderField {
 
   public CreateFolderLockRequestBodyFolderField(
       @JsonProperty("type") String type, @JsonProperty("id") String id) {
+    super();
     this.type = type;
     this.id = id;
   }

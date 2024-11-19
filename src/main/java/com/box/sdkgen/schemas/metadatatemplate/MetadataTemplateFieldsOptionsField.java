@@ -1,19 +1,22 @@
 package com.box.sdkgen.schemas.metadatatemplate;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class MetadataTemplateFieldsOptionsField {
+public class MetadataTemplateFieldsOptionsField extends SerializableObject {
 
   protected final String key;
 
   protected String id;
 
   public MetadataTemplateFieldsOptionsField(@JsonProperty("key") String key) {
+    super();
     this.key = key;
   }
 
   protected MetadataTemplateFieldsOptionsField(MetadataTemplateFieldsOptionsFieldBuilder builder) {
+    super();
     this.key = builder.key;
     this.id = builder.id;
   }

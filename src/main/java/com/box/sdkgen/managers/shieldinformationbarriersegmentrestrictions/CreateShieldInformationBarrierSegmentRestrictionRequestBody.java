@@ -1,5 +1,6 @@
 package com.box.sdkgen.managers.shieldinformationbarriersegmentrestrictions;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.shieldinformationbarrierbase.ShieldInformationBarrierBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,7 +8,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CreateShieldInformationBarrierSegmentRestrictionRequestBody {
+public class CreateShieldInformationBarrierSegmentRestrictionRequestBody
+    extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -39,6 +41,7 @@ public class CreateShieldInformationBarrierSegmentRestrictionRequestBody {
       @JsonProperty("restricted_segment")
           CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentField
               restrictedSegment) {
+    super();
     this.shieldInformationBarrierSegment = shieldInformationBarrierSegment;
     this.restrictedSegment = restrictedSegment;
     this.type =
@@ -52,6 +55,7 @@ public class CreateShieldInformationBarrierSegmentRestrictionRequestBody {
 
   protected CreateShieldInformationBarrierSegmentRestrictionRequestBody(
       CreateShieldInformationBarrierSegmentRestrictionRequestBodyBuilder builder) {
+    super();
     this.type = builder.type;
     this.shieldInformationBarrier = builder.shieldInformationBarrier;
     this.shieldInformationBarrierSegment = builder.shieldInformationBarrierSegment;

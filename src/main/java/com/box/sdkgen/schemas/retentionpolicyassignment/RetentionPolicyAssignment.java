@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.retentionpolicyassignment;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.retentionpolicymini.RetentionPolicyMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -9,7 +10,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class RetentionPolicyAssignment {
+public class RetentionPolicyAssignment extends SerializableObject {
 
   protected final String id;
 
@@ -39,6 +40,7 @@ public class RetentionPolicyAssignment {
   protected String startDateField;
 
   public RetentionPolicyAssignment(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<RetentionPolicyAssignmentTypeField>(
@@ -47,6 +49,7 @@ public class RetentionPolicyAssignment {
   }
 
   protected RetentionPolicyAssignment(RetentionPolicyAssignmentBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.retentionPolicy = builder.retentionPolicy;

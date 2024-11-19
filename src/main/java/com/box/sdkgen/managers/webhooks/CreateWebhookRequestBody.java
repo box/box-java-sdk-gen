@@ -1,10 +1,11 @@
 package com.box.sdkgen.managers.webhooks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class CreateWebhookRequestBody {
+public class CreateWebhookRequestBody extends SerializableObject {
 
   protected final CreateWebhookRequestBodyTargetField target;
 
@@ -16,6 +17,7 @@ public class CreateWebhookRequestBody {
       @JsonProperty("target") CreateWebhookRequestBodyTargetField target,
       @JsonProperty("address") String address,
       @JsonProperty("triggers") List<CreateWebhookRequestBodyTriggersField> triggers) {
+    super();
     this.target = target;
     this.address = address;
     this.triggers = triggers;

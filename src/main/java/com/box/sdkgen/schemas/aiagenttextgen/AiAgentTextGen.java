@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.aiagenttextgen;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagentbasicgentool.AiAgentBasicGenTool;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class AiAgentTextGen {
+public class AiAgentTextGen extends SerializableObject {
 
   @JsonDeserialize(using = AiAgentTextGenTypeField.AiAgentTextGenTypeFieldDeserializer.class)
   @JsonSerialize(using = AiAgentTextGenTypeField.AiAgentTextGenTypeFieldSerializer.class)
@@ -17,6 +18,7 @@ public class AiAgentTextGen {
   protected AiAgentBasicGenTool basicGen;
 
   public AiAgentTextGen() {
+    super();
     this.type =
         new EnumWrapper<AiAgentTextGenTypeField>(
             AiAgentTextGenTypeField.AI_AGENT_TEXT_GEN.getValue(),
@@ -24,6 +26,7 @@ public class AiAgentTextGen {
   }
 
   protected AiAgentTextGen(AiAgentTextGenBuilder builder) {
+    super();
     this.type = builder.type;
     this.basicGen = builder.basicGen;
   }

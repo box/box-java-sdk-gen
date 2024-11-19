@@ -1,19 +1,23 @@
 package com.box.sdkgen.schemas.signtemplate;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class SignTemplateAdditionalInfoField {
+public class SignTemplateAdditionalInfoField extends SerializableObject {
 
   @JsonProperty("non_editable")
   protected List<SignTemplateAdditionalInfoNonEditableField> nonEditable;
 
   protected SignTemplateAdditionalInfoRequiredField required;
 
-  public SignTemplateAdditionalInfoField() {}
+  public SignTemplateAdditionalInfoField() {
+    super();
+  }
 
   protected SignTemplateAdditionalInfoField(SignTemplateAdditionalInfoFieldBuilder builder) {
+    super();
     this.nonEditable = builder.nonEditable;
     this.required = builder.required;
   }

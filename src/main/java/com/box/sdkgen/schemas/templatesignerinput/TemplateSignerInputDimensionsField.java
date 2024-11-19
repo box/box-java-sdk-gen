@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.templatesignerinput;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class TemplateSignerInputDimensionsField {
+public class TemplateSignerInputDimensionsField extends SerializableObject {
 
   protected Double width;
 
   protected Double height;
 
-  public TemplateSignerInputDimensionsField() {}
+  public TemplateSignerInputDimensionsField() {
+    super();
+  }
 
   protected TemplateSignerInputDimensionsField(TemplateSignerInputDimensionsFieldBuilder builder) {
+    super();
     this.width = builder.width;
     this.height = builder.height;
   }

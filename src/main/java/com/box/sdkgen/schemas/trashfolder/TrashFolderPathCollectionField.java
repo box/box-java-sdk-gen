@@ -1,10 +1,11 @@
 package com.box.sdkgen.schemas.trashfolder;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class TrashFolderPathCollectionField {
+public class TrashFolderPathCollectionField extends SerializableObject {
 
   @JsonProperty("total_count")
   protected final long totalCount;
@@ -14,6 +15,7 @@ public class TrashFolderPathCollectionField {
   public TrashFolderPathCollectionField(
       @JsonProperty("total_count") long totalCount,
       @JsonProperty("entries") List<TrashFolderPathCollectionEntriesField> entries) {
+    super();
     this.totalCount = totalCount;
     this.entries = entries;
   }

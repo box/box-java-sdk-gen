@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.postoauth2tokenrefreshaccesstoken;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class PostOAuth2TokenRefreshAccessToken {
+public class PostOAuth2TokenRefreshAccessToken extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -32,6 +33,7 @@ public class PostOAuth2TokenRefreshAccessToken {
       @JsonProperty("client_id") String clientId,
       @JsonProperty("client_secret") String clientSecret,
       @JsonProperty("refresh_token") String refreshToken) {
+    super();
     this.clientId = clientId;
     this.clientSecret = clientSecret;
     this.refreshToken = refreshToken;
@@ -42,6 +44,7 @@ public class PostOAuth2TokenRefreshAccessToken {
   }
 
   protected PostOAuth2TokenRefreshAccessToken(PostOAuth2TokenRefreshAccessTokenBuilder builder) {
+    super();
     this.grantType = builder.grantType;
     this.clientId = builder.clientId;
     this.clientSecret = builder.clientSecret;

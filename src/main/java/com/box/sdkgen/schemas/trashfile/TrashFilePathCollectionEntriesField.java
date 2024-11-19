@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.trashfile;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class TrashFilePathCollectionEntriesField {
+public class TrashFilePathCollectionEntriesField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -27,10 +28,13 @@ public class TrashFilePathCollectionEntriesField {
 
   protected String name;
 
-  public TrashFilePathCollectionEntriesField() {}
+  public TrashFilePathCollectionEntriesField() {
+    super();
+  }
 
   protected TrashFilePathCollectionEntriesField(
       TrashFilePathCollectionEntriesFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
     this.sequenceId = builder.sequenceId;

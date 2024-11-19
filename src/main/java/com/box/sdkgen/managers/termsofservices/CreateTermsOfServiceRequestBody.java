@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.termsofservices;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CreateTermsOfServiceRequestBody {
+public class CreateTermsOfServiceRequestBody extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -34,18 +35,21 @@ public class CreateTermsOfServiceRequestBody {
   public CreateTermsOfServiceRequestBody(
       @JsonProperty("status") EnumWrapper<CreateTermsOfServiceRequestBodyStatusField> status,
       @JsonProperty("text") String text) {
+    super();
     this.status = status;
     this.text = text;
   }
 
   public CreateTermsOfServiceRequestBody(
       CreateTermsOfServiceRequestBodyStatusField status, String text) {
+    super();
     this.status =
         new EnumWrapper<CreateTermsOfServiceRequestBodyStatusField>(status.getValue(), status);
     this.text = text;
   }
 
   protected CreateTermsOfServiceRequestBody(CreateTermsOfServiceRequestBodyBuilder builder) {
+    super();
     this.status = builder.status;
     this.tosType = builder.tosType;
     this.text = builder.text;

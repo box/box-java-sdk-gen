@@ -1,15 +1,19 @@
 package com.box.sdkgen.managers.files;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class UpdateFileByIdRequestBodyParentField {
+public class UpdateFileByIdRequestBodyParentField extends SerializableObject {
 
   protected String id;
 
-  public UpdateFileByIdRequestBodyParentField() {}
+  public UpdateFileByIdRequestBodyParentField() {
+    super();
+  }
 
   protected UpdateFileByIdRequestBodyParentField(
       UpdateFileByIdRequestBodyParentFieldBuilder builder) {
+    super();
     this.id = builder.id;
   }
 

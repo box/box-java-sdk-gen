@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.termsofservicebase;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class TermsOfServiceBase {
+public class TermsOfServiceBase extends SerializableObject {
 
   protected final String id;
 
@@ -16,6 +17,7 @@ public class TermsOfServiceBase {
   protected EnumWrapper<TermsOfServiceBaseTypeField> type;
 
   public TermsOfServiceBase(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<TermsOfServiceBaseTypeField>(
@@ -24,6 +26,7 @@ public class TermsOfServiceBase {
   }
 
   protected TermsOfServiceBase(TermsOfServiceBaseBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

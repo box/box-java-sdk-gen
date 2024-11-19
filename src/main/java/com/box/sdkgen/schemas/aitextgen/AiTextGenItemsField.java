@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.aitextgen;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class AiTextGenItemsField {
+public class AiTextGenItemsField extends SerializableObject {
 
   protected final String id;
 
@@ -17,6 +18,7 @@ public class AiTextGenItemsField {
   protected String content;
 
   public AiTextGenItemsField(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<AiTextGenItemsTypeField>(
@@ -24,6 +26,7 @@ public class AiTextGenItemsField {
   }
 
   protected AiTextGenItemsField(AiTextGenItemsFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.content = builder.content;

@@ -1,17 +1,21 @@
 package com.box.sdkgen.schemas.transcriptskillcard;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.List;
 import java.util.Objects;
 
-public class TranscriptSkillCardEntriesField {
+public class TranscriptSkillCardEntriesField extends SerializableObject {
 
   protected String text;
 
   protected List<TranscriptSkillCardEntriesAppearsField> appears;
 
-  public TranscriptSkillCardEntriesField() {}
+  public TranscriptSkillCardEntriesField() {
+    super();
+  }
 
   protected TranscriptSkillCardEntriesField(TranscriptSkillCardEntriesFieldBuilder builder) {
+    super();
     this.text = builder.text;
     this.appears = builder.appears;
   }

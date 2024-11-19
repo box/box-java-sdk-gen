@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.sharedlinksfolders;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class AddShareLinkToFolderRequestBodySharedLinkField {
+public class AddShareLinkToFolderRequestBodySharedLinkField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -28,10 +29,13 @@ public class AddShareLinkToFolderRequestBodySharedLinkField {
 
   protected AddShareLinkToFolderRequestBodySharedLinkPermissionsField permissions;
 
-  public AddShareLinkToFolderRequestBodySharedLinkField() {}
+  public AddShareLinkToFolderRequestBodySharedLinkField() {
+    super();
+  }
 
   protected AddShareLinkToFolderRequestBodySharedLinkField(
       AddShareLinkToFolderRequestBodySharedLinkFieldBuilder builder) {
+    super();
     this.access = builder.access;
     this.password = builder.password;
     this.vanityName = builder.vanityName;

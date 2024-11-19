@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.usercollaborations;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UpdateCollaborationByIdRequestBody {
+public class UpdateCollaborationByIdRequestBody extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -36,14 +37,17 @@ public class UpdateCollaborationByIdRequestBody {
 
   public UpdateCollaborationByIdRequestBody(
       @JsonProperty("role") EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField> role) {
+    super();
     this.role = role;
   }
 
   public UpdateCollaborationByIdRequestBody(UpdateCollaborationByIdRequestBodyRoleField role) {
+    super();
     this.role = new EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField>(role.getValue(), role);
   }
 
   protected UpdateCollaborationByIdRequestBody(UpdateCollaborationByIdRequestBodyBuilder builder) {
+    super();
     this.role = builder.role;
     this.status = builder.status;
     this.expiresAt = builder.expiresAt;

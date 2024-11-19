@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.signrequestbase;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.signrequestprefilltag.SignRequestPrefillTag;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class SignRequestBase {
+public class SignRequestBase extends SerializableObject {
 
   @JsonProperty("is_document_preparation_needed")
   protected Boolean isDocumentPreparationNeeded;
@@ -48,9 +49,12 @@ public class SignRequestBase {
   @JsonProperty("external_system_name")
   protected String externalSystemName;
 
-  public SignRequestBase() {}
+  public SignRequestBase() {
+    super();
+  }
 
   protected SignRequestBase(SignRequestBaseBuilder builder) {
+    super();
     this.isDocumentPreparationNeeded = builder.isDocumentPreparationNeeded;
     this.redirectUrl = builder.redirectUrl;
     this.declinedRedirectUrl = builder.declinedRedirectUrl;

@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.collaboratorvariable;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class CollaboratorVariable {
+public class CollaboratorVariable extends SerializableObject {
 
   @JsonDeserialize(
       using = CollaboratorVariableTypeField.CollaboratorVariableTypeFieldDeserializer.class)
@@ -31,6 +32,7 @@ public class CollaboratorVariable {
 
   public CollaboratorVariable(
       @JsonProperty("variable_value") List<CollaboratorVariableVariableValueField> variableValue) {
+    super();
     this.variableValue = variableValue;
     this.type =
         new EnumWrapper<CollaboratorVariableTypeField>(
@@ -43,6 +45,7 @@ public class CollaboratorVariable {
   }
 
   protected CollaboratorVariable(CollaboratorVariableBuilder builder) {
+    super();
     this.type = builder.type;
     this.variableType = builder.variableType;
     this.variableValue = builder.variableValue;

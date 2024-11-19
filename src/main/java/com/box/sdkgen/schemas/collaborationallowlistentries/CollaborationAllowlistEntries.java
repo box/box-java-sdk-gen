@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.collaborationallowlistentries;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.collaborationallowlistentry.CollaborationAllowlistEntry;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class CollaborationAllowlistEntries {
+public class CollaborationAllowlistEntries extends SerializableObject {
 
   protected Long limit;
 
@@ -17,9 +18,12 @@ public class CollaborationAllowlistEntries {
 
   protected List<CollaborationAllowlistEntry> entries;
 
-  public CollaborationAllowlistEntries() {}
+  public CollaborationAllowlistEntries() {
+    super();
+  }
 
   protected CollaborationAllowlistEntries(CollaborationAllowlistEntriesBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;

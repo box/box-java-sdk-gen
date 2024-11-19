@@ -1,15 +1,19 @@
 package com.box.sdkgen.managers.trashedweblinks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class RestoreWeblinkFromTrashRequestBodyParentField {
+public class RestoreWeblinkFromTrashRequestBodyParentField extends SerializableObject {
 
   protected String id;
 
-  public RestoreWeblinkFromTrashRequestBodyParentField() {}
+  public RestoreWeblinkFromTrashRequestBodyParentField() {
+    super();
+  }
 
   protected RestoreWeblinkFromTrashRequestBodyParentField(
       RestoreWeblinkFromTrashRequestBodyParentFieldBuilder builder) {
+    super();
     this.id = builder.id;
   }
 

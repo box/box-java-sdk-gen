@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.templatesigner;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.templatesignerinput.TemplateSignerInput;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class TemplateSigner {
+public class TemplateSigner extends SerializableObject {
 
   protected List<TemplateSignerInput> inputs;
 
@@ -31,9 +32,12 @@ public class TemplateSigner {
   @JsonProperty("public_id")
   protected String publicId;
 
-  public TemplateSigner() {}
+  public TemplateSigner() {
+    super();
+  }
 
   protected TemplateSigner(TemplateSignerBuilder builder) {
+    super();
     this.inputs = builder.inputs;
     this.email = builder.email;
     this.role = builder.role;

@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.uploadsession;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UploadSession {
+public class UploadSession extends SerializableObject {
 
   protected String id;
 
@@ -29,9 +30,12 @@ public class UploadSession {
   @JsonProperty("session_endpoints")
   protected UploadSessionSessionEndpointsField sessionEndpoints;
 
-  public UploadSession() {}
+  public UploadSession() {
+    super();
+  }
 
   protected UploadSession(UploadSessionBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.sessionExpiresAt = builder.sessionExpiresAt;

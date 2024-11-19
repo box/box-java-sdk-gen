@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.groupfull;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class GroupFullPermissionsField {
+public class GroupFullPermissionsField extends SerializableObject {
 
   @JsonProperty("can_invite_as_collaborator")
   protected Boolean canInviteAsCollaborator;
 
-  public GroupFullPermissionsField() {}
+  public GroupFullPermissionsField() {
+    super();
+  }
 
   protected GroupFullPermissionsField(GroupFullPermissionsFieldBuilder builder) {
+    super();
     this.canInviteAsCollaborator = builder.canInviteAsCollaborator;
   }
 

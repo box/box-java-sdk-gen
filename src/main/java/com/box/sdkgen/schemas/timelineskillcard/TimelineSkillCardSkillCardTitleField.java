@@ -1,20 +1,23 @@
 package com.box.sdkgen.schemas.timelineskillcard;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class TimelineSkillCardSkillCardTitleField {
+public class TimelineSkillCardSkillCardTitleField extends SerializableObject {
 
   protected String code;
 
   protected final String message;
 
   public TimelineSkillCardSkillCardTitleField(@JsonProperty("message") String message) {
+    super();
     this.message = message;
   }
 
   protected TimelineSkillCardSkillCardTitleField(
       TimelineSkillCardSkillCardTitleFieldBuilder builder) {
+    super();
     this.code = builder.code;
     this.message = builder.message;
   }

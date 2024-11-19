@@ -1,17 +1,21 @@
 package com.box.sdkgen.schemas.timelineskillcard;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class TimelineSkillCardEntriesAppearsField {
+public class TimelineSkillCardEntriesAppearsField extends SerializableObject {
 
   protected Long start;
 
   protected Long end;
 
-  public TimelineSkillCardEntriesAppearsField() {}
+  public TimelineSkillCardEntriesAppearsField() {
+    super();
+  }
 
   protected TimelineSkillCardEntriesAppearsField(
       TimelineSkillCardEntriesAppearsFieldBuilder builder) {
+    super();
     this.start = builder.start;
     this.end = builder.end;
   }

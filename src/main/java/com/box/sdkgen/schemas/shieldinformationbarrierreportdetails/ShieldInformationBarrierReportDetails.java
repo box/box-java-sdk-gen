@@ -1,15 +1,19 @@
 package com.box.sdkgen.schemas.shieldinformationbarrierreportdetails;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class ShieldInformationBarrierReportDetails {
+public class ShieldInformationBarrierReportDetails extends SerializableObject {
 
   protected ShieldInformationBarrierReportDetailsDetailsField details;
 
-  public ShieldInformationBarrierReportDetails() {}
+  public ShieldInformationBarrierReportDetails() {
+    super();
+  }
 
   protected ShieldInformationBarrierReportDetails(
       ShieldInformationBarrierReportDetailsBuilder builder) {
+    super();
     this.details = builder.details;
   }
 

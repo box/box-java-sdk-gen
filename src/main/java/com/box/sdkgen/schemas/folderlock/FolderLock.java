@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.folderlock;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class FolderLock {
+public class FolderLock extends SerializableObject {
 
   protected FolderMini folder;
 
@@ -25,9 +26,12 @@ public class FolderLock {
   @JsonProperty("lock_type")
   protected String lockType;
 
-  public FolderLock() {}
+  public FolderLock() {
+    super();
+  }
 
   protected FolderLock(FolderLockBuilder builder) {
+    super();
     this.folder = builder.folder;
     this.id = builder.id;
     this.type = builder.type;
