@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.zipdownloadrequest;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class ZipDownloadRequestItemsField {
+public class ZipDownloadRequestItemsField extends SerializableObject {
 
   @JsonDeserialize(
       using = ZipDownloadRequestItemsTypeField.ZipDownloadRequestItemsTypeFieldDeserializer.class)
@@ -19,11 +20,13 @@ public class ZipDownloadRequestItemsField {
   public ZipDownloadRequestItemsField(
       @JsonProperty("type") EnumWrapper<ZipDownloadRequestItemsTypeField> type,
       @JsonProperty("id") String id) {
+    super();
     this.type = type;
     this.id = id;
   }
 
   public ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField type, String id) {
+    super();
     this.type = new EnumWrapper<ZipDownloadRequestItemsTypeField>(type.getValue(), type);
     this.id = id;
   }

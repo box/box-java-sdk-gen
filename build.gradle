@@ -49,10 +49,7 @@ test {
       excludeTestsMatching 'com.box.sdkgen.test.signtemplates.SignTemplatesITest.testGetSignTemplates'
       excludeTestsMatching 'com.box.sdkgen.test.signtemplates.SignTemplatesITest.testGetSignTemplate'
       excludeTestsMatching 'com.box.sdkgen.test.webhooks.WebhooksITest.testWebhooksCrud'
-      
-      // API error
-      excludeTestsMatching 'com.box.sdkgen.test.signrequests.SignRequestsITest.testCreateSignRequestWithSignerGroupId'
-      
+
       // Socket timeout
       excludeTestsMatching 'com.box.sdkgen.test.transfer.TransferITest.testTransferUserContent'
   }

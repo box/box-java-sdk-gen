@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.invite;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class InviteInvitedToField {
+public class InviteInvitedToField extends SerializableObject {
 
   protected String id;
 
@@ -15,9 +16,12 @@ public class InviteInvitedToField {
 
   protected String name;
 
-  public InviteInvitedToField() {}
+  public InviteInvitedToField() {
+    super();
+  }
 
   protected InviteInvitedToField(InviteInvitedToFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.name = builder.name;

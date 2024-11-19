@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.users;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UsersOrderField {
+public class UsersOrderField extends SerializableObject {
 
   protected String by;
 
@@ -13,9 +14,12 @@ public class UsersOrderField {
   @JsonSerialize(using = UsersOrderDirectionField.UsersOrderDirectionFieldSerializer.class)
   protected EnumWrapper<UsersOrderDirectionField> direction;
 
-  public UsersOrderField() {}
+  public UsersOrderField() {
+    super();
+  }
 
   protected UsersOrderField(UsersOrderFieldBuilder builder) {
+    super();
     this.by = builder.by;
     this.direction = builder.direction;
   }

@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.legalholdpolicyassignments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.legalholdpolicyassignment.LegalHoldPolicyAssignment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class LegalHoldPolicyAssignments {
+public class LegalHoldPolicyAssignments extends SerializableObject {
 
   protected Long limit;
 
@@ -17,9 +18,12 @@ public class LegalHoldPolicyAssignments {
 
   protected List<LegalHoldPolicyAssignment> entries;
 
-  public LegalHoldPolicyAssignments() {}
+  public LegalHoldPolicyAssignments() {
+    super();
+  }
 
   protected LegalHoldPolicyAssignments(LegalHoldPolicyAssignmentsBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;

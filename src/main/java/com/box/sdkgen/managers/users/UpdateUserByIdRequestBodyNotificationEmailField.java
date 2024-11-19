@@ -1,15 +1,19 @@
 package com.box.sdkgen.managers.users;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class UpdateUserByIdRequestBodyNotificationEmailField {
+public class UpdateUserByIdRequestBodyNotificationEmailField extends SerializableObject {
 
   protected String email;
 
-  public UpdateUserByIdRequestBodyNotificationEmailField() {}
+  public UpdateUserByIdRequestBodyNotificationEmailField() {
+    super();
+  }
 
   protected UpdateUserByIdRequestBodyNotificationEmailField(
       UpdateUserByIdRequestBodyNotificationEmailFieldBuilder builder) {
+    super();
     this.email = builder.email;
   }
 

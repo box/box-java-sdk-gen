@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.devicepinners;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.devicepinner.DevicePinner;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class DevicePinners {
+public class DevicePinners extends SerializableObject {
 
   protected List<DevicePinner> entries;
 
@@ -16,9 +17,12 @@ public class DevicePinners {
 
   protected List<DevicePinnersOrderField> order;
 
-  public DevicePinners() {}
+  public DevicePinners() {
+    super();
+  }
 
   protected DevicePinners(DevicePinnersBuilder builder) {
+    super();
     this.entries = builder.entries;
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;

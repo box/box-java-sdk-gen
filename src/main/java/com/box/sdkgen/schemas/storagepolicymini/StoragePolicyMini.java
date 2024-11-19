@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.storagepolicymini;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class StoragePolicyMini {
+public class StoragePolicyMini extends SerializableObject {
 
   protected final String id;
 
@@ -15,6 +16,7 @@ public class StoragePolicyMini {
   protected EnumWrapper<StoragePolicyMiniTypeField> type;
 
   public StoragePolicyMini(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<StoragePolicyMiniTypeField>(
@@ -23,6 +25,7 @@ public class StoragePolicyMini {
   }
 
   protected StoragePolicyMini(StoragePolicyMiniBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

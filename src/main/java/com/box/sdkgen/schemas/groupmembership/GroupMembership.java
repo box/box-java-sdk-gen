@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.groupmembership;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.groupmini.GroupMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class GroupMembership {
+public class GroupMembership extends SerializableObject {
 
   protected String id;
 
@@ -30,9 +31,12 @@ public class GroupMembership {
   @JsonProperty("modified_at")
   protected String modifiedAt;
 
-  public GroupMembership() {}
+  public GroupMembership() {
+    super();
+  }
 
   protected GroupMembership(GroupMembershipBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.user = builder.user;

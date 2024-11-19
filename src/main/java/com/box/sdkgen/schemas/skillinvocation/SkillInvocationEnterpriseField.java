@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.skillinvocation;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class SkillInvocationEnterpriseField {
+public class SkillInvocationEnterpriseField extends SerializableObject {
 
   protected String id;
 
@@ -18,9 +19,12 @@ public class SkillInvocationEnterpriseField {
 
   protected String name;
 
-  public SkillInvocationEnterpriseField() {}
+  public SkillInvocationEnterpriseField() {
+    super();
+  }
 
   protected SkillInvocationEnterpriseField(SkillInvocationEnterpriseFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.name = builder.name;

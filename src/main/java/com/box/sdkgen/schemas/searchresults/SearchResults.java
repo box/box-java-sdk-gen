@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.searchresults;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filefullorfolderfullorweblink.FileFullOrFolderFullOrWebLink;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class SearchResults {
+public class SearchResults extends SerializableObject {
 
   @JsonProperty("total_count")
   protected Long totalCount;
@@ -24,6 +25,7 @@ public class SearchResults {
   protected List<FileFullOrFolderFullOrWebLink> entries;
 
   public SearchResults() {
+    super();
     this.type =
         new EnumWrapper<SearchResultsTypeField>(
             SearchResultsTypeField.SEARCH_RESULTS_ITEMS.getValue(),
@@ -31,6 +33,7 @@ public class SearchResults {
   }
 
   protected SearchResults(SearchResultsBuilder builder) {
+    super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
     this.offset = builder.offset;

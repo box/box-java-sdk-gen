@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.emailalias;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class EmailAlias {
+public class EmailAlias extends SerializableObject {
 
   protected String id;
 
@@ -19,9 +20,12 @@ public class EmailAlias {
   @JsonProperty("is_confirmed")
   protected Boolean isConfirmed;
 
-  public EmailAlias() {}
+  public EmailAlias() {
+    super();
+  }
 
   protected EmailAlias(EmailAliasBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.email = builder.email;

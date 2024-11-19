@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.metadatacascadepolicies;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CreateMetadataCascadePolicyRequestBody {
+public class CreateMetadataCascadePolicyRequestBody extends SerializableObject {
 
   @JsonProperty("folder_id")
   protected final String folderId;
@@ -27,6 +28,7 @@ public class CreateMetadataCascadePolicyRequestBody {
       @JsonProperty("folder_id") String folderId,
       @JsonProperty("scope") EnumWrapper<CreateMetadataCascadePolicyRequestBodyScopeField> scope,
       @JsonProperty("templateKey") String templateKey) {
+    super();
     this.folderId = folderId;
     this.scope = scope;
     this.templateKey = templateKey;
@@ -34,6 +36,7 @@ public class CreateMetadataCascadePolicyRequestBody {
 
   public CreateMetadataCascadePolicyRequestBody(
       String folderId, CreateMetadataCascadePolicyRequestBodyScopeField scope, String templateKey) {
+    super();
     this.folderId = folderId;
     this.scope =
         new EnumWrapper<CreateMetadataCascadePolicyRequestBodyScopeField>(scope.getValue(), scope);

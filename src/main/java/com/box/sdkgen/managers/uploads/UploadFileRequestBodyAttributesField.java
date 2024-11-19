@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.uploads;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UploadFileRequestBodyAttributesField {
+public class UploadFileRequestBodyAttributesField extends SerializableObject {
 
   protected final String name;
 
@@ -18,12 +19,14 @@ public class UploadFileRequestBodyAttributesField {
   public UploadFileRequestBodyAttributesField(
       @JsonProperty("name") String name,
       @JsonProperty("parent") UploadFileRequestBodyAttributesParentField parent) {
+    super();
     this.name = name;
     this.parent = parent;
   }
 
   protected UploadFileRequestBodyAttributesField(
       UploadFileRequestBodyAttributesFieldBuilder builder) {
+    super();
     this.name = builder.name;
     this.parent = builder.parent;
     this.contentCreatedAt = builder.contentCreatedAt;

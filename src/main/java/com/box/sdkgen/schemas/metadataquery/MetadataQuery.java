@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.metadataquery;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class MetadataQuery {
+public class MetadataQuery extends SerializableObject {
 
   protected final String from;
 
@@ -29,11 +30,13 @@ public class MetadataQuery {
   public MetadataQuery(
       @JsonProperty("from") String from,
       @JsonProperty("ancestor_folder_id") String ancestorFolderId) {
+    super();
     this.from = from;
     this.ancestorFolderId = ancestorFolderId;
   }
 
   protected MetadataQuery(MetadataQueryBuilder builder) {
+    super();
     this.from = builder.from;
     this.query = builder.query;
     this.queryParams = builder.queryParams;

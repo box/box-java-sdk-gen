@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.shieldinformationbarriersegmentmembers;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.shieldinformationbarriersegmentmember.ShieldInformationBarrierSegmentMember;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class ShieldInformationBarrierSegmentMembers {
+public class ShieldInformationBarrierSegmentMembers extends SerializableObject {
 
   protected Long limit;
 
@@ -14,10 +15,13 @@ public class ShieldInformationBarrierSegmentMembers {
 
   protected List<ShieldInformationBarrierSegmentMember> entries;
 
-  public ShieldInformationBarrierSegmentMembers() {}
+  public ShieldInformationBarrierSegmentMembers() {
+    super();
+  }
 
   protected ShieldInformationBarrierSegmentMembers(
       ShieldInformationBarrierSegmentMembersBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.entries = builder.entries;

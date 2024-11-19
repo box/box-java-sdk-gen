@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.collaborationallowlistexempttarget;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CollaborationAllowlistExemptTargetEnterpriseField {
+public class CollaborationAllowlistExemptTargetEnterpriseField extends SerializableObject {
 
   protected String id;
 
@@ -21,10 +22,13 @@ public class CollaborationAllowlistExemptTargetEnterpriseField {
 
   protected String name;
 
-  public CollaborationAllowlistExemptTargetEnterpriseField() {}
+  public CollaborationAllowlistExemptTargetEnterpriseField() {
+    super();
+  }
 
   protected CollaborationAllowlistExemptTargetEnterpriseField(
       CollaborationAllowlistExemptTargetEnterpriseFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.name = builder.name;

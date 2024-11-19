@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.keywordskillcard;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class KeywordSkillCard {
+public class KeywordSkillCard extends SerializableObject {
 
   @JsonProperty("created_at")
   protected String createdAt;
@@ -37,6 +38,7 @@ public class KeywordSkillCard {
       @JsonProperty("skill") KeywordSkillCardSkillField skill,
       @JsonProperty("invocation") KeywordSkillCardInvocationField invocation,
       @JsonProperty("entries") List<KeywordSkillCardEntriesField> entries) {
+    super();
     this.skill = skill;
     this.invocation = invocation;
     this.entries = entries;
@@ -50,6 +52,7 @@ public class KeywordSkillCard {
   }
 
   protected KeywordSkillCard(KeywordSkillCardBuilder builder) {
+    super();
     this.createdAt = builder.createdAt;
     this.type = builder.type;
     this.skillCardType = builder.skillCardType;

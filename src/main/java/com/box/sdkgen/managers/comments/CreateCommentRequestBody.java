@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.comments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateCommentRequestBody {
+public class CreateCommentRequestBody extends SerializableObject {
 
   protected final String message;
 
@@ -15,11 +16,13 @@ public class CreateCommentRequestBody {
   public CreateCommentRequestBody(
       @JsonProperty("message") String message,
       @JsonProperty("item") CreateCommentRequestBodyItemField item) {
+    super();
     this.message = message;
     this.item = item;
   }
 
   protected CreateCommentRequestBody(CreateCommentRequestBodyBuilder builder) {
+    super();
     this.message = builder.message;
     this.taggedMessage = builder.taggedMessage;
     this.item = builder.item;

@@ -1,15 +1,19 @@
 package com.box.sdkgen.schemas.classificationtemplate;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class ClassificationTemplateFieldsOptionsStaticConfigField {
+public class ClassificationTemplateFieldsOptionsStaticConfigField extends SerializableObject {
 
   protected ClassificationTemplateFieldsOptionsStaticConfigClassificationField classification;
 
-  public ClassificationTemplateFieldsOptionsStaticConfigField() {}
+  public ClassificationTemplateFieldsOptionsStaticConfigField() {
+    super();
+  }
 
   protected ClassificationTemplateFieldsOptionsStaticConfigField(
       ClassificationTemplateFieldsOptionsStaticConfigFieldBuilder builder) {
+    super();
     this.classification = builder.classification;
   }
 

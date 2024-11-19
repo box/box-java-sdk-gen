@@ -1,19 +1,23 @@
 package com.box.sdkgen.schemas.aiagentlongtexttool;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class AiAgentLongTextToolEmbeddingsStrategyField {
+public class AiAgentLongTextToolEmbeddingsStrategyField extends SerializableObject {
 
   protected String id;
 
   @JsonProperty("num_tokens_per_chunk")
   protected Long numTokensPerChunk;
 
-  public AiAgentLongTextToolEmbeddingsStrategyField() {}
+  public AiAgentLongTextToolEmbeddingsStrategyField() {
+    super();
+  }
 
   protected AiAgentLongTextToolEmbeddingsStrategyField(
       AiAgentLongTextToolEmbeddingsStrategyFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.numTokensPerChunk = builder.numTokensPerChunk;
   }

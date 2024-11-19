@@ -1,13 +1,15 @@
 package com.box.sdkgen.managers.memberships;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateGroupMembershipRequestBodyUserField {
+public class CreateGroupMembershipRequestBodyUserField extends SerializableObject {
 
   protected final String id;
 
   public CreateGroupMembershipRequestBodyUserField(@JsonProperty("id") String id) {
+    super();
     this.id = id;
   }
 

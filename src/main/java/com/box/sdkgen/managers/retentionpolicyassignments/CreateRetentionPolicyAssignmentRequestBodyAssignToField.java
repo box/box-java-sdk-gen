@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.retentionpolicyassignments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CreateRetentionPolicyAssignmentRequestBodyAssignToField {
+public class CreateRetentionPolicyAssignmentRequestBodyAssignToField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -23,11 +24,13 @@ public class CreateRetentionPolicyAssignmentRequestBodyAssignToField {
   public CreateRetentionPolicyAssignmentRequestBodyAssignToField(
       @JsonProperty("type")
           EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField> type) {
+    super();
     this.type = type;
   }
 
   public CreateRetentionPolicyAssignmentRequestBodyAssignToField(
       CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField type) {
+    super();
     this.type =
         new EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField>(
             type.getValue(), type);
@@ -35,6 +38,7 @@ public class CreateRetentionPolicyAssignmentRequestBodyAssignToField {
 
   protected CreateRetentionPolicyAssignmentRequestBodyAssignToField(
       CreateRetentionPolicyAssignmentRequestBodyAssignToFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
   }

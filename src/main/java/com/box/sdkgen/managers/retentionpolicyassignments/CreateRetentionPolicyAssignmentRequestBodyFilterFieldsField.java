@@ -1,17 +1,22 @@
 package com.box.sdkgen.managers.retentionpolicyassignments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class CreateRetentionPolicyAssignmentRequestBodyFilterFieldsField {
+public class CreateRetentionPolicyAssignmentRequestBodyFilterFieldsField
+    extends SerializableObject {
 
   protected String field;
 
   protected String value;
 
-  public CreateRetentionPolicyAssignmentRequestBodyFilterFieldsField() {}
+  public CreateRetentionPolicyAssignmentRequestBodyFilterFieldsField() {
+    super();
+  }
 
   protected CreateRetentionPolicyAssignmentRequestBodyFilterFieldsField(
       CreateRetentionPolicyAssignmentRequestBodyFilterFieldsFieldBuilder builder) {
+    super();
     this.field = builder.field;
     this.value = builder.value;
   }

@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.fileversionlegalhold;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filemini.FileMini;
 import com.box.sdkgen.schemas.fileversionmini.FileVersionMini;
 import com.box.sdkgen.schemas.legalholdpolicyassignment.LegalHoldPolicyAssignment;
@@ -10,7 +11,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class FileVersionLegalHold {
+public class FileVersionLegalHold extends SerializableObject {
 
   protected String id;
 
@@ -31,9 +32,12 @@ public class FileVersionLegalHold {
   @JsonProperty("deleted_at")
   protected String deletedAt;
 
-  public FileVersionLegalHold() {}
+  public FileVersionLegalHold() {
+    super();
+  }
 
   protected FileVersionLegalHold(FileVersionLegalHoldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.fileVersion = builder.fileVersion;

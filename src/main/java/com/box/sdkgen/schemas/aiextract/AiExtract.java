@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.aiextract;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagentextract.AiAgentExtract;
 import com.box.sdkgen.schemas.aiitembase.AiItemBase;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class AiExtract {
+public class AiExtract extends SerializableObject {
 
   protected final String prompt;
 
@@ -17,11 +18,13 @@ public class AiExtract {
 
   public AiExtract(
       @JsonProperty("prompt") String prompt, @JsonProperty("items") List<AiItemBase> items) {
+    super();
     this.prompt = prompt;
     this.items = items;
   }
 
   protected AiExtract(AiExtractBuilder builder) {
+    super();
     this.prompt = builder.prompt;
     this.items = builder.items;
     this.aiAgent = builder.aiAgent;

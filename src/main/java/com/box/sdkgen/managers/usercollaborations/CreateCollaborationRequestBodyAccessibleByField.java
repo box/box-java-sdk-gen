@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.usercollaborations;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CreateCollaborationRequestBodyAccessibleByField {
+public class CreateCollaborationRequestBodyAccessibleByField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -24,17 +25,20 @@ public class CreateCollaborationRequestBodyAccessibleByField {
 
   public CreateCollaborationRequestBodyAccessibleByField(
       @JsonProperty("type") EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField> type) {
+    super();
     this.type = type;
   }
 
   public CreateCollaborationRequestBodyAccessibleByField(
       CreateCollaborationRequestBodyAccessibleByTypeField type) {
+    super();
     this.type =
         new EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField>(type.getValue(), type);
   }
 
   protected CreateCollaborationRequestBodyAccessibleByField(
       CreateCollaborationRequestBodyAccessibleByFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
     this.login = builder.login;

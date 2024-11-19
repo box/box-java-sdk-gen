@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.transcriptskillcard;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class TranscriptSkillCard {
+public class TranscriptSkillCard extends SerializableObject {
 
   @JsonProperty("created_at")
   protected String createdAt;
@@ -43,6 +44,7 @@ public class TranscriptSkillCard {
       @JsonProperty("skill") TranscriptSkillCardSkillField skill,
       @JsonProperty("invocation") TranscriptSkillCardInvocationField invocation,
       @JsonProperty("entries") List<TranscriptSkillCardEntriesField> entries) {
+    super();
     this.skill = skill;
     this.invocation = invocation;
     this.entries = entries;
@@ -57,6 +59,7 @@ public class TranscriptSkillCard {
   }
 
   protected TranscriptSkillCard(TranscriptSkillCardBuilder builder) {
+    super();
     this.createdAt = builder.createdAt;
     this.type = builder.type;
     this.skillCardType = builder.skillCardType;

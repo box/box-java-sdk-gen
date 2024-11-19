@@ -1,11 +1,12 @@
 package com.box.sdkgen.managers.folders;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UpdateFolderByIdRequestBodyFolderUploadEmailField {
+public class UpdateFolderByIdRequestBodyFolderUploadEmailField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -17,10 +18,13 @@ public class UpdateFolderByIdRequestBodyFolderUploadEmailField {
               .UpdateFolderByIdRequestBodyFolderUploadEmailAccessFieldSerializer.class)
   protected EnumWrapper<UpdateFolderByIdRequestBodyFolderUploadEmailAccessField> access;
 
-  public UpdateFolderByIdRequestBodyFolderUploadEmailField() {}
+  public UpdateFolderByIdRequestBodyFolderUploadEmailField() {
+    super();
+  }
 
   protected UpdateFolderByIdRequestBodyFolderUploadEmailField(
       UpdateFolderByIdRequestBodyFolderUploadEmailFieldBuilder builder) {
+    super();
     this.access = builder.access;
   }
 

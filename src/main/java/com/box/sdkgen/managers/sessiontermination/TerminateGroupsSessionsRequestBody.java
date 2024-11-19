@@ -1,15 +1,17 @@
 package com.box.sdkgen.managers.sessiontermination;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class TerminateGroupsSessionsRequestBody {
+public class TerminateGroupsSessionsRequestBody extends SerializableObject {
 
   @JsonProperty("group_ids")
   protected final List<String> groupIds;
 
   public TerminateGroupsSessionsRequestBody(@JsonProperty("group_ids") List<String> groupIds) {
+    super();
     this.groupIds = groupIds;
   }
 

@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.skills;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UpdateAllSkillCardsOnFileRequestBody {
+public class UpdateAllSkillCardsOnFileRequestBody extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -31,6 +32,7 @@ public class UpdateAllSkillCardsOnFileRequestBody {
       @JsonProperty("status") EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField> status,
       @JsonProperty("metadata") UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata,
       @JsonProperty("file") UpdateAllSkillCardsOnFileRequestBodyFileField file) {
+    super();
     this.status = status;
     this.metadata = metadata;
     this.file = file;
@@ -40,6 +42,7 @@ public class UpdateAllSkillCardsOnFileRequestBody {
       UpdateAllSkillCardsOnFileRequestBodyStatusField status,
       UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata,
       UpdateAllSkillCardsOnFileRequestBodyFileField file) {
+    super();
     this.status =
         new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField>(status.getValue(), status);
     this.metadata = metadata;
@@ -48,6 +51,7 @@ public class UpdateAllSkillCardsOnFileRequestBody {
 
   protected UpdateAllSkillCardsOnFileRequestBody(
       UpdateAllSkillCardsOnFileRequestBodyBuilder builder) {
+    super();
     this.status = builder.status;
     this.metadata = builder.metadata;
     this.file = builder.file;

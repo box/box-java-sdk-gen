@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.fileversionbase;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class FileVersionBase {
+public class FileVersionBase extends SerializableObject {
 
   protected final String id;
 
@@ -15,6 +16,7 @@ public class FileVersionBase {
   protected EnumWrapper<FileVersionBaseTypeField> type;
 
   public FileVersionBase(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<FileVersionBaseTypeField>(
@@ -23,6 +25,7 @@ public class FileVersionBase {
   }
 
   protected FileVersionBase(FileVersionBaseBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

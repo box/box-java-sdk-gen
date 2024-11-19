@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.searchresultswithsharedlinks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.searchresultwithsharedlink.SearchResultWithSharedLink;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class SearchResultsWithSharedLinks {
+public class SearchResultsWithSharedLinks extends SerializableObject {
 
   @JsonProperty("total_count")
   protected Long totalCount;
@@ -30,6 +31,7 @@ public class SearchResultsWithSharedLinks {
   protected List<SearchResultWithSharedLink> entries;
 
   public SearchResultsWithSharedLinks() {
+    super();
     this.type =
         new EnumWrapper<SearchResultsWithSharedLinksTypeField>(
             SearchResultsWithSharedLinksTypeField.SEARCH_RESULTS_WITH_SHARED_LINKS.getValue(),
@@ -37,6 +39,7 @@ public class SearchResultsWithSharedLinks {
   }
 
   protected SearchResultsWithSharedLinks(SearchResultsWithSharedLinksBuilder builder) {
+    super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
     this.offset = builder.offset;

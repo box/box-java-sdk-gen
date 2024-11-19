@@ -1,9 +1,10 @@
 package com.box.sdkgen.box.jwtauth;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class JwtConfigFile {
+public class JwtConfigFile extends SerializableObject {
 
   @JsonProperty("enterpriseID")
   protected String enterpriseId;
@@ -14,10 +15,12 @@ public class JwtConfigFile {
   protected final JwtConfigAppSettings boxAppSettings;
 
   public JwtConfigFile(@JsonProperty("boxAppSettings") JwtConfigAppSettings boxAppSettings) {
+    super();
     this.boxAppSettings = boxAppSettings;
   }
 
   protected JwtConfigFile(JwtConfigFileBuilder builder) {
+    super();
     this.enterpriseId = builder.enterpriseId;
     this.userId = builder.userId;
     this.boxAppSettings = builder.boxAppSettings;

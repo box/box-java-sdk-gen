@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.metadataqueryindex;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class MetadataQueryIndex {
+public class MetadataQueryIndex extends SerializableObject {
 
   protected String id;
 
@@ -24,16 +25,19 @@ public class MetadataQueryIndex {
   public MetadataQueryIndex(
       @JsonProperty("type") String type,
       @JsonProperty("status") EnumWrapper<MetadataQueryIndexStatusField> status) {
+    super();
     this.type = type;
     this.status = status;
   }
 
   public MetadataQueryIndex(String type, MetadataQueryIndexStatusField status) {
+    super();
     this.type = type;
     this.status = new EnumWrapper<MetadataQueryIndexStatusField>(status.getValue(), status);
   }
 
   protected MetadataQueryIndex(MetadataQueryIndexBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.status = builder.status;

@@ -1,5 +1,6 @@
 package com.box.sdkgen.managers.metadatatemplates;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class CreateMetadataTemplateRequestBodyFieldsField {
+public class CreateMetadataTemplateRequestBodyFieldsField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -33,6 +34,7 @@ public class CreateMetadataTemplateRequestBodyFieldsField {
       @JsonProperty("type") EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField> type,
       @JsonProperty("key") String key,
       @JsonProperty("displayName") String displayName) {
+    super();
     this.type = type;
     this.key = key;
     this.displayName = displayName;
@@ -40,6 +42,7 @@ public class CreateMetadataTemplateRequestBodyFieldsField {
 
   public CreateMetadataTemplateRequestBodyFieldsField(
       CreateMetadataTemplateRequestBodyFieldsTypeField type, String key, String displayName) {
+    super();
     this.type =
         new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(type.getValue(), type);
     this.key = key;
@@ -48,6 +51,7 @@ public class CreateMetadataTemplateRequestBodyFieldsField {
 
   protected CreateMetadataTemplateRequestBodyFieldsField(
       CreateMetadataTemplateRequestBodyFieldsFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.key = builder.key;
     this.displayName = builder.displayName;

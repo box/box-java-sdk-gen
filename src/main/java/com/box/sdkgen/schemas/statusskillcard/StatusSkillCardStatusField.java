@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.statusskillcard;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class StatusSkillCardStatusField {
+public class StatusSkillCardStatusField extends SerializableObject {
 
   @JsonDeserialize(
       using = StatusSkillCardStatusCodeField.StatusSkillCardStatusCodeFieldDeserializer.class)
@@ -18,14 +19,17 @@ public class StatusSkillCardStatusField {
 
   public StatusSkillCardStatusField(
       @JsonProperty("code") EnumWrapper<StatusSkillCardStatusCodeField> code) {
+    super();
     this.code = code;
   }
 
   public StatusSkillCardStatusField(StatusSkillCardStatusCodeField code) {
+    super();
     this.code = new EnumWrapper<StatusSkillCardStatusCodeField>(code.getValue(), code);
   }
 
   protected StatusSkillCardStatusField(StatusSkillCardStatusFieldBuilder builder) {
+    super();
     this.code = builder.code;
     this.message = builder.message;
   }

@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.clienterror;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Map;
 import java.util.Objects;
 
-public class ClientError {
+public class ClientError extends SerializableObject {
 
   @JsonDeserialize(using = ClientErrorTypeField.ClientErrorTypeFieldDeserializer.class)
   @JsonSerialize(using = ClientErrorTypeField.ClientErrorTypeFieldSerializer.class)
@@ -30,9 +31,12 @@ public class ClientError {
   @JsonProperty("request_id")
   protected String requestId;
 
-  public ClientError() {}
+  public ClientError() {
+    super();
+  }
 
   protected ClientError(ClientErrorBuilder builder) {
+    super();
     this.type = builder.type;
     this.status = builder.status;
     this.code = builder.code;

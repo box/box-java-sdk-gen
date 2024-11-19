@@ -1,14 +1,17 @@
 package com.box.sdkgen.managers.collaborationallowlistexempttargets;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateCollaborationWhitelistExemptTargetRequestBodyUserField {
+public class CreateCollaborationWhitelistExemptTargetRequestBodyUserField
+    extends SerializableObject {
 
   protected final String id;
 
   public CreateCollaborationWhitelistExemptTargetRequestBodyUserField(
       @JsonProperty("id") String id) {
+    super();
     this.id = id;
   }
 

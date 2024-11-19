@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.appitemassociations;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.appitemassociation.AppItemAssociation;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class AppItemAssociations {
+public class AppItemAssociations extends SerializableObject {
 
   protected Long limit;
 
@@ -17,9 +18,12 @@ public class AppItemAssociations {
 
   protected List<AppItemAssociation> entries;
 
-  public AppItemAssociations() {}
+  public AppItemAssociations() {
+    super();
+  }
 
   protected AppItemAssociations(AppItemAssociationsBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;

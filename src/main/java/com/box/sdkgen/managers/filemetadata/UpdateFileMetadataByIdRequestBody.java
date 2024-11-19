@@ -1,11 +1,12 @@
 package com.box.sdkgen.managers.filemetadata;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UpdateFileMetadataByIdRequestBody {
+public class UpdateFileMetadataByIdRequestBody extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -23,9 +24,12 @@ public class UpdateFileMetadataByIdRequestBody {
 
   protected String from;
 
-  public UpdateFileMetadataByIdRequestBody() {}
+  public UpdateFileMetadataByIdRequestBody() {
+    super();
+  }
 
   protected UpdateFileMetadataByIdRequestBody(UpdateFileMetadataByIdRequestBodyBuilder builder) {
+    super();
     this.op = builder.op;
     this.path = builder.path;
     this.value = builder.value;

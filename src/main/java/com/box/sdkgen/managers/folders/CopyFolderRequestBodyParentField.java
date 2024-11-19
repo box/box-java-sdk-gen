@@ -1,13 +1,15 @@
 package com.box.sdkgen.managers.folders;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CopyFolderRequestBodyParentField {
+public class CopyFolderRequestBodyParentField extends SerializableObject {
 
   protected final String id;
 
   public CopyFolderRequestBodyParentField(@JsonProperty("id") String id) {
+    super();
     this.id = id;
   }
 

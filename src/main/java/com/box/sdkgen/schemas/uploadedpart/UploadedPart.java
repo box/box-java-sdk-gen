@@ -1,15 +1,19 @@
 package com.box.sdkgen.schemas.uploadedpart;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.uploadpart.UploadPart;
 import java.util.Objects;
 
-public class UploadedPart {
+public class UploadedPart extends SerializableObject {
 
   protected UploadPart part;
 
-  public UploadedPart() {}
+  public UploadedPart() {
+    super();
+  }
 
   protected UploadedPart(UploadedPartBuilder builder) {
+    super();
     this.part = builder.part;
   }
 

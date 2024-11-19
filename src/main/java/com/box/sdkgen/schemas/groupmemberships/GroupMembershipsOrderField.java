@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.groupmemberships;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class GroupMembershipsOrderField {
+public class GroupMembershipsOrderField extends SerializableObject {
 
   protected String by;
 
@@ -17,9 +18,12 @@ public class GroupMembershipsOrderField {
           GroupMembershipsOrderDirectionField.GroupMembershipsOrderDirectionFieldSerializer.class)
   protected EnumWrapper<GroupMembershipsOrderDirectionField> direction;
 
-  public GroupMembershipsOrderField() {}
+  public GroupMembershipsOrderField() {
+    super();
+  }
 
   protected GroupMembershipsOrderField(GroupMembershipsOrderFieldBuilder builder) {
+    super();
     this.by = builder.by;
     this.direction = builder.direction;
   }

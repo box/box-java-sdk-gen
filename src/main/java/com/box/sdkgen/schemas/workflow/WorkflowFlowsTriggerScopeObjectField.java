@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.workflow;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class WorkflowFlowsTriggerScopeObjectField {
+public class WorkflowFlowsTriggerScopeObjectField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -19,10 +20,13 @@ public class WorkflowFlowsTriggerScopeObjectField {
 
   protected String id;
 
-  public WorkflowFlowsTriggerScopeObjectField() {}
+  public WorkflowFlowsTriggerScopeObjectField() {
+    super();
+  }
 
   protected WorkflowFlowsTriggerScopeObjectField(
       WorkflowFlowsTriggerScopeObjectFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
   }

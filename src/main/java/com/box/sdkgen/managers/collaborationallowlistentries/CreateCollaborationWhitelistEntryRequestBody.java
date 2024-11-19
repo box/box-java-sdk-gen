@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.collaborationallowlistentries;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CreateCollaborationWhitelistEntryRequestBody {
+public class CreateCollaborationWhitelistEntryRequestBody extends SerializableObject {
 
   protected final String domain;
 
@@ -24,12 +25,14 @@ public class CreateCollaborationWhitelistEntryRequestBody {
       @JsonProperty("domain") String domain,
       @JsonProperty("direction")
           EnumWrapper<CreateCollaborationWhitelistEntryRequestBodyDirectionField> direction) {
+    super();
     this.domain = domain;
     this.direction = direction;
   }
 
   public CreateCollaborationWhitelistEntryRequestBody(
       String domain, CreateCollaborationWhitelistEntryRequestBodyDirectionField direction) {
+    super();
     this.domain = domain;
     this.direction =
         new EnumWrapper<CreateCollaborationWhitelistEntryRequestBodyDirectionField>(

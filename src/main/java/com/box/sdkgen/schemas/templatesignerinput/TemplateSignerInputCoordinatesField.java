@@ -1,17 +1,21 @@
 package com.box.sdkgen.schemas.templatesignerinput;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class TemplateSignerInputCoordinatesField {
+public class TemplateSignerInputCoordinatesField extends SerializableObject {
 
   protected Double x;
 
   protected Double y;
 
-  public TemplateSignerInputCoordinatesField() {}
+  public TemplateSignerInputCoordinatesField() {
+    super();
+  }
 
   protected TemplateSignerInputCoordinatesField(
       TemplateSignerInputCoordinatesFieldBuilder builder) {
+    super();
     this.x = builder.x;
     this.y = builder.y;
   }

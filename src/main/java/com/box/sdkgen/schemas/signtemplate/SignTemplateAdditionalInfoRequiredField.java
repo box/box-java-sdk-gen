@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.signtemplate;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.List;
 import java.util.Objects;
 
-public class SignTemplateAdditionalInfoRequiredField {
+public class SignTemplateAdditionalInfoRequiredField extends SerializableObject {
 
   protected List<List<SignTemplateAdditionalInfoRequiredSignersField>> signers;
 
-  public SignTemplateAdditionalInfoRequiredField() {}
+  public SignTemplateAdditionalInfoRequiredField() {
+    super();
+  }
 
   protected SignTemplateAdditionalInfoRequiredField(
       SignTemplateAdditionalInfoRequiredFieldBuilder builder) {
+    super();
     this.signers = builder.signers;
   }
 

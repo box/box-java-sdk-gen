@@ -1,11 +1,12 @@
 package com.box.sdkgen.managers.filewatermarks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UpdateFileWatermarkRequestBodyWatermarkField {
+public class UpdateFileWatermarkRequestBodyWatermarkField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -18,6 +19,7 @@ public class UpdateFileWatermarkRequestBodyWatermarkField {
   protected EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField> imprint;
 
   public UpdateFileWatermarkRequestBodyWatermarkField() {
+    super();
     this.imprint =
         new EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField>(
             UpdateFileWatermarkRequestBodyWatermarkImprintField.DEFAULT.getValue(),
@@ -26,6 +28,7 @@ public class UpdateFileWatermarkRequestBodyWatermarkField {
 
   protected UpdateFileWatermarkRequestBodyWatermarkField(
       UpdateFileWatermarkRequestBodyWatermarkFieldBuilder builder) {
+    super();
     this.imprint = builder.imprint;
   }
 

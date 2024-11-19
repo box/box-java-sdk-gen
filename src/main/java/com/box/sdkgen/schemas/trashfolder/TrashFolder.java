@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.trashfolder;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class TrashFolder {
+public class TrashFolder extends SerializableObject {
 
   protected final String id;
 
@@ -80,6 +81,7 @@ public class TrashFolder {
       @JsonProperty("modified_by") UserMini modifiedBy,
       @JsonProperty("owned_by") UserMini ownedBy,
       @JsonProperty("item_status") EnumWrapper<TrashFolderItemStatusField> itemStatus) {
+    super();
     this.id = id;
     this.name = name;
     this.description = description;
@@ -104,6 +106,7 @@ public class TrashFolder {
       UserMini modifiedBy,
       UserMini ownedBy,
       TrashFolderItemStatusField itemStatus) {
+    super();
     this.id = id;
     this.name = name;
     this.description = description;
@@ -120,6 +123,7 @@ public class TrashFolder {
   }
 
   protected TrashFolder(TrashFolderBuilder builder) {
+    super();
     this.id = builder.id;
     this.etag = builder.etag;
     this.type = builder.type;

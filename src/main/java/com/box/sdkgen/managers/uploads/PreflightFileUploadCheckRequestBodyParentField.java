@@ -1,15 +1,19 @@
 package com.box.sdkgen.managers.uploads;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class PreflightFileUploadCheckRequestBodyParentField {
+public class PreflightFileUploadCheckRequestBodyParentField extends SerializableObject {
 
   protected String id;
 
-  public PreflightFileUploadCheckRequestBodyParentField() {}
+  public PreflightFileUploadCheckRequestBodyParentField() {
+    super();
+  }
 
   protected PreflightFileUploadCheckRequestBodyParentField(
       PreflightFileUploadCheckRequestBodyParentFieldBuilder builder) {
+    super();
     this.id = builder.id;
   }
 

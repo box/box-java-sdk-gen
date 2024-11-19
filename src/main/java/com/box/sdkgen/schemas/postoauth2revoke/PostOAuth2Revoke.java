@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.postoauth2revoke;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class PostOAuth2Revoke {
+public class PostOAuth2Revoke extends SerializableObject {
 
   @JsonProperty("client_id")
   protected String clientId;
@@ -13,9 +14,12 @@ public class PostOAuth2Revoke {
 
   protected String token;
 
-  public PostOAuth2Revoke() {}
+  public PostOAuth2Revoke() {
+    super();
+  }
 
   protected PostOAuth2Revoke(PostOAuth2RevokeBuilder builder) {
+    super();
     this.clientId = builder.clientId;
     this.clientSecret = builder.clientSecret;
     this.token = builder.token;

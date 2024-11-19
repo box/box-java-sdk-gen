@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.timelineskillcard;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class TimelineSkillCard {
+public class TimelineSkillCard extends SerializableObject {
 
   @JsonProperty("created_at")
   protected String createdAt;
@@ -40,6 +41,7 @@ public class TimelineSkillCard {
       @JsonProperty("skill") TimelineSkillCardSkillField skill,
       @JsonProperty("invocation") TimelineSkillCardInvocationField invocation,
       @JsonProperty("entries") List<TimelineSkillCardEntriesField> entries) {
+    super();
     this.skill = skill;
     this.invocation = invocation;
     this.entries = entries;
@@ -54,6 +56,7 @@ public class TimelineSkillCard {
   }
 
   protected TimelineSkillCard(TimelineSkillCardBuilder builder) {
+    super();
     this.createdAt = builder.createdAt;
     this.type = builder.type;
     this.skillCardType = builder.skillCardType;

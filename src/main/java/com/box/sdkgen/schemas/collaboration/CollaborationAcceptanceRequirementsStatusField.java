@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.collaboration;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CollaborationAcceptanceRequirementsStatusField {
+public class CollaborationAcceptanceRequirementsStatusField extends SerializableObject {
 
   @JsonProperty("terms_of_service_requirement")
   protected CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementField
@@ -17,10 +18,13 @@ public class CollaborationAcceptanceRequirementsStatusField {
   protected CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementField
       twoFactorAuthenticationRequirement;
 
-  public CollaborationAcceptanceRequirementsStatusField() {}
+  public CollaborationAcceptanceRequirementsStatusField() {
+    super();
+  }
 
   protected CollaborationAcceptanceRequirementsStatusField(
       CollaborationAcceptanceRequirementsStatusFieldBuilder builder) {
+    super();
     this.termsOfServiceRequirement = builder.termsOfServiceRequirement;
     this.strongPasswordRequirement = builder.strongPasswordRequirement;
     this.twoFactorAuthenticationRequirement = builder.twoFactorAuthenticationRequirement;

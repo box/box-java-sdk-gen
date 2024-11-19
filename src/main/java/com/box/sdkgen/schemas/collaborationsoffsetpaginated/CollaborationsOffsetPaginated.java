@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.collaborationsoffsetpaginated;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.collaboration.Collaboration;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class CollaborationsOffsetPaginated {
+public class CollaborationsOffsetPaginated extends SerializableObject {
 
   @JsonProperty("total_count")
   protected Long totalCount;
@@ -16,9 +17,12 @@ public class CollaborationsOffsetPaginated {
 
   protected List<Collaboration> entries;
 
-  public CollaborationsOffsetPaginated() {}
+  public CollaborationsOffsetPaginated() {
+    super();
+  }
 
   protected CollaborationsOffsetPaginated(CollaborationsOffsetPaginatedBuilder builder) {
+    super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
     this.offset = builder.offset;

@@ -1,6 +1,12 @@
 package com.box.sdkgen.schemas.event;
 
-public class EventAdditionalDetailsField {
+import com.box.sdkgen.internal.SerializableObject;
+
+public class EventAdditionalDetailsField extends SerializableObject {
+
+  public EventAdditionalDetailsField() {
+    super();
+  }
 
   @Override
   public String toString() {

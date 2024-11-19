@@ -1,17 +1,21 @@
 package com.box.sdkgen.managers.folders;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class UpdateFolderByIdRequestBodyCollectionsField {
+public class UpdateFolderByIdRequestBodyCollectionsField extends SerializableObject {
 
   protected String id;
 
   protected String type;
 
-  public UpdateFolderByIdRequestBodyCollectionsField() {}
+  public UpdateFolderByIdRequestBodyCollectionsField() {
+    super();
+  }
 
   protected UpdateFolderByIdRequestBodyCollectionsField(
       UpdateFolderByIdRequestBodyCollectionsFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

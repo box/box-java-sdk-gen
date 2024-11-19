@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.shieldinformationbarrier;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.enterprisebase.EnterpriseBase;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class ShieldInformationBarrier {
+public class ShieldInformationBarrier extends SerializableObject {
 
   protected String id;
 
@@ -46,9 +47,12 @@ public class ShieldInformationBarrier {
   @JsonProperty("enabled_by")
   protected UserBase enabledBy;
 
-  public ShieldInformationBarrier() {}
+  public ShieldInformationBarrier() {
+    super();
+  }
 
   protected ShieldInformationBarrier(ShieldInformationBarrierBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.enterprise = builder.enterprise;

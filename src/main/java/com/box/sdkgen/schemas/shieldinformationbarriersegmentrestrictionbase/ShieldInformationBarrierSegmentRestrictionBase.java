@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.shieldinformationbarriersegmentrestrictionbase;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class ShieldInformationBarrierSegmentRestrictionBase {
+public class ShieldInformationBarrierSegmentRestrictionBase extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -19,10 +20,13 @@ public class ShieldInformationBarrierSegmentRestrictionBase {
 
   protected String id;
 
-  public ShieldInformationBarrierSegmentRestrictionBase() {}
+  public ShieldInformationBarrierSegmentRestrictionBase() {
+    super();
+  }
 
   protected ShieldInformationBarrierSegmentRestrictionBase(
       ShieldInformationBarrierSegmentRestrictionBaseBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
   }

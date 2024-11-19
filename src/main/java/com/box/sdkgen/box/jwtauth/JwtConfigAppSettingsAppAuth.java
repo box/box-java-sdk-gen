@@ -1,9 +1,10 @@
 package com.box.sdkgen.box.jwtauth;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class JwtConfigAppSettingsAppAuth {
+public class JwtConfigAppSettingsAppAuth extends SerializableObject {
 
   @JsonProperty("publicKeyID")
   protected final String publicKeyId;
@@ -16,6 +17,7 @@ public class JwtConfigAppSettingsAppAuth {
       @JsonProperty("publicKeyID") String publicKeyId,
       @JsonProperty("privateKey") String privateKey,
       @JsonProperty("passphrase") String passphrase) {
+    super();
     this.publicKeyId = publicKeyId;
     this.privateKey = privateKey;
     this.passphrase = passphrase;

@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.recentitem;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filefullorfolderfullorweblink.FileFullOrFolderFullOrWebLink;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class RecentItem {
+public class RecentItem extends SerializableObject {
 
   protected String type;
 
@@ -26,9 +27,12 @@ public class RecentItem {
   @JsonProperty("interaction_shared_link")
   protected String interactionSharedLink;
 
-  public RecentItem() {}
+  public RecentItem() {
+    super();
+  }
 
   protected RecentItem(RecentItemBuilder builder) {
+    super();
     this.type = builder.type;
     this.item = builder.item;
     this.interactionType = builder.interactionType;

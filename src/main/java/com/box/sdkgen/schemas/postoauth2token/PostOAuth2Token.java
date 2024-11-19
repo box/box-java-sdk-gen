@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.postoauth2token;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class PostOAuth2Token {
+public class PostOAuth2Token extends SerializableObject {
 
   @JsonDeserialize(
       using = PostOAuth2TokenGrantTypeField.PostOAuth2TokenGrantTypeFieldDeserializer.class)
@@ -72,15 +73,18 @@ public class PostOAuth2Token {
 
   public PostOAuth2Token(
       @JsonProperty("grant_type") EnumWrapper<PostOAuth2TokenGrantTypeField> grantType) {
+    super();
     this.grantType = grantType;
   }
 
   public PostOAuth2Token(PostOAuth2TokenGrantTypeField grantType) {
+    super();
     this.grantType =
         new EnumWrapper<PostOAuth2TokenGrantTypeField>(grantType.getValue(), grantType);
   }
 
   protected PostOAuth2Token(PostOAuth2TokenBuilder builder) {
+    super();
     this.grantType = builder.grantType;
     this.clientId = builder.clientId;
     this.clientSecret = builder.clientSecret;

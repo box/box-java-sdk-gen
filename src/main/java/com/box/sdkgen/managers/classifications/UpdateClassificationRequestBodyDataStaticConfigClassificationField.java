@@ -1,19 +1,24 @@
 package com.box.sdkgen.managers.classifications;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UpdateClassificationRequestBodyDataStaticConfigClassificationField {
+public class UpdateClassificationRequestBodyDataStaticConfigClassificationField
+    extends SerializableObject {
 
   protected String classificationDefinition;
 
   @JsonProperty("colorID")
   protected Long colorId;
 
-  public UpdateClassificationRequestBodyDataStaticConfigClassificationField() {}
+  public UpdateClassificationRequestBodyDataStaticConfigClassificationField() {
+    super();
+  }
 
   protected UpdateClassificationRequestBodyDataStaticConfigClassificationField(
       UpdateClassificationRequestBodyDataStaticConfigClassificationFieldBuilder builder) {
+    super();
     this.classificationDefinition = builder.classificationDefinition;
     this.colorId = builder.colorId;
   }
