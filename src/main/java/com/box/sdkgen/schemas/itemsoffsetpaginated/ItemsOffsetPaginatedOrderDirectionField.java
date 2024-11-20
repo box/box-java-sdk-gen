@@ -1,4 +1,4 @@
-package com.box.sdkgen.schemas.collaborations;
+package com.box.sdkgen.schemas.itemsoffsetpaginated;
 
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.box.sdkgen.serialization.json.Valuable;
@@ -11,13 +11,13 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import java.io.IOException;
 import java.util.Arrays;
 
-public enum CollaborationsOrderDirectionField implements Valuable {
+public enum ItemsOffsetPaginatedOrderDirectionField implements Valuable {
   ASC("ASC"),
   DESC("DESC");
 
   private final String value;
 
-  CollaborationsOrderDirectionField(String value) {
+  ItemsOffsetPaginatedOrderDirectionField(String value) {
     this.value = value;
   }
 
@@ -25,35 +25,35 @@ public enum CollaborationsOrderDirectionField implements Valuable {
     return value;
   }
 
-  public static class CollaborationsOrderDirectionFieldDeserializer
-      extends JsonDeserializer<EnumWrapper<CollaborationsOrderDirectionField>> {
+  public static class ItemsOffsetPaginatedOrderDirectionFieldDeserializer
+      extends JsonDeserializer<EnumWrapper<ItemsOffsetPaginatedOrderDirectionField>> {
 
-    public CollaborationsOrderDirectionFieldDeserializer() {
+    public ItemsOffsetPaginatedOrderDirectionFieldDeserializer() {
       super();
     }
 
     @Override
-    public EnumWrapper<CollaborationsOrderDirectionField> deserialize(
+    public EnumWrapper<ItemsOffsetPaginatedOrderDirectionField> deserialize(
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
-      return Arrays.stream(CollaborationsOrderDirectionField.values())
+      return Arrays.stream(ItemsOffsetPaginatedOrderDirectionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CollaborationsOrderDirectionField>(value, v))
-          .orElse(new EnumWrapper<CollaborationsOrderDirectionField>(value));
+          .map((v) -> new EnumWrapper<ItemsOffsetPaginatedOrderDirectionField>(value, v))
+          .orElse(new EnumWrapper<ItemsOffsetPaginatedOrderDirectionField>(value));
     }
   }
 
-  public static class CollaborationsOrderDirectionFieldSerializer
-      extends JsonSerializer<EnumWrapper<CollaborationsOrderDirectionField>> {
+  public static class ItemsOffsetPaginatedOrderDirectionFieldSerializer
+      extends JsonSerializer<EnumWrapper<ItemsOffsetPaginatedOrderDirectionField>> {
 
-    public CollaborationsOrderDirectionFieldSerializer() {
+    public ItemsOffsetPaginatedOrderDirectionFieldSerializer() {
       super();
     }
 
     @Override
     public void serialize(
-        EnumWrapper<CollaborationsOrderDirectionField> value,
+        EnumWrapper<ItemsOffsetPaginatedOrderDirectionField> value,
         JsonGenerator gen,
         SerializerProvider serializers)
         throws IOException {

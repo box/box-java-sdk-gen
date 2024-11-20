@@ -15,13 +15,6 @@ public class Collaborations {
   @JsonProperty("prev_marker")
   protected String prevMarker;
 
-  @JsonProperty("total_count")
-  protected Long totalCount;
-
-  protected Long offset;
-
-  protected List<CollaborationsOrderField> order;
-
   protected List<Collaboration> entries;
 
   public Collaborations() {}
@@ -30,9 +23,6 @@ public class Collaborations {
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;
-    this.totalCount = builder.totalCount;
-    this.offset = builder.offset;
-    this.order = builder.order;
     this.entries = builder.entries;
   }
 
@@ -46,18 +36,6 @@ public class Collaborations {
 
   public String getPrevMarker() {
     return prevMarker;
-  }
-
-  public Long getTotalCount() {
-    return totalCount;
-  }
-
-  public Long getOffset() {
-    return offset;
-  }
-
-  public List<CollaborationsOrderField> getOrder() {
-    return order;
   }
 
   public List<Collaboration> getEntries() {
@@ -76,15 +54,12 @@ public class Collaborations {
     return Objects.equals(limit, casted.limit)
         && Objects.equals(nextMarker, casted.nextMarker)
         && Objects.equals(prevMarker, casted.prevMarker)
-        && Objects.equals(totalCount, casted.totalCount)
-        && Objects.equals(offset, casted.offset)
-        && Objects.equals(order, casted.order)
         && Objects.equals(entries, casted.entries);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, nextMarker, prevMarker, totalCount, offset, order, entries);
+    return Objects.hash(limit, nextMarker, prevMarker, entries);
   }
 
   @Override
@@ -102,18 +77,6 @@ public class Collaborations {
         + prevMarker
         + '\''
         + ", "
-        + "totalCount='"
-        + totalCount
-        + '\''
-        + ", "
-        + "offset='"
-        + offset
-        + '\''
-        + ", "
-        + "order='"
-        + order
-        + '\''
-        + ", "
         + "entries='"
         + entries
         + '\''
@@ -127,12 +90,6 @@ public class Collaborations {
     protected String nextMarker;
 
     protected String prevMarker;
-
-    protected Long totalCount;
-
-    protected Long offset;
-
-    protected List<CollaborationsOrderField> order;
 
     protected List<Collaboration> entries;
 
@@ -148,21 +105,6 @@ public class Collaborations {
 
     public CollaborationsBuilder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
-      return this;
-    }
-
-    public CollaborationsBuilder totalCount(Long totalCount) {
-      this.totalCount = totalCount;
-      return this;
-    }
-
-    public CollaborationsBuilder offset(Long offset) {
-      this.offset = offset;
-      return this;
-    }
-
-    public CollaborationsBuilder order(List<CollaborationsOrderField> order) {
-      this.order = order;
       return this;
     }
 
