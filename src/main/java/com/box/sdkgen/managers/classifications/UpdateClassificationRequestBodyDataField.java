@@ -1,20 +1,23 @@
 package com.box.sdkgen.managers.classifications;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UpdateClassificationRequestBodyDataField {
+public class UpdateClassificationRequestBodyDataField extends SerializableObject {
 
   protected final String key;
 
   protected UpdateClassificationRequestBodyDataStaticConfigField staticConfig;
 
   public UpdateClassificationRequestBodyDataField(@JsonProperty("key") String key) {
+    super();
     this.key = key;
   }
 
   protected UpdateClassificationRequestBodyDataField(
       UpdateClassificationRequestBodyDataFieldBuilder builder) {
+    super();
     this.key = builder.key;
     this.staticConfig = builder.staticConfig;
   }

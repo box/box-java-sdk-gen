@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.termsofserviceuserstatuses;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateTermsOfServiceStatusForUserRequestBody {
+public class CreateTermsOfServiceStatusForUserRequestBody extends SerializableObject {
 
   protected final CreateTermsOfServiceStatusForUserRequestBodyTosField tos;
 
@@ -16,6 +17,7 @@ public class CreateTermsOfServiceStatusForUserRequestBody {
       @JsonProperty("tos") CreateTermsOfServiceStatusForUserRequestBodyTosField tos,
       @JsonProperty("user") CreateTermsOfServiceStatusForUserRequestBodyUserField user,
       @JsonProperty("is_accepted") boolean isAccepted) {
+    super();
     this.tos = tos;
     this.user = user;
     this.isAccepted = isAccepted;

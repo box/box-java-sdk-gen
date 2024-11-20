@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.weblinks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UpdateWebLinkByIdRequestBody {
+public class UpdateWebLinkByIdRequestBody extends SerializableObject {
 
   protected String url;
 
@@ -16,9 +17,12 @@ public class UpdateWebLinkByIdRequestBody {
   @JsonProperty("shared_link")
   protected UpdateWebLinkByIdRequestBodySharedLinkField sharedLink;
 
-  public UpdateWebLinkByIdRequestBody() {}
+  public UpdateWebLinkByIdRequestBody() {
+    super();
+  }
 
   protected UpdateWebLinkByIdRequestBody(UpdateWebLinkByIdRequestBodyBuilder builder) {
+    super();
     this.url = builder.url;
     this.parent = builder.parent;
     this.name = builder.name;

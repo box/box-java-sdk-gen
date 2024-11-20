@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.weblinks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateWebLinkRequestBody {
+public class CreateWebLinkRequestBody extends SerializableObject {
 
   protected final String url;
 
@@ -16,11 +17,13 @@ public class CreateWebLinkRequestBody {
   public CreateWebLinkRequestBody(
       @JsonProperty("url") String url,
       @JsonProperty("parent") CreateWebLinkRequestBodyParentField parent) {
+    super();
     this.url = url;
     this.parent = parent;
   }
 
   protected CreateWebLinkRequestBody(CreateWebLinkRequestBodyBuilder builder) {
+    super();
     this.url = builder.url;
     this.parent = builder.parent;
     this.name = builder.name;

@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.integrationmappingbase;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class IntegrationMappingBase {
+public class IntegrationMappingBase extends SerializableObject {
 
   protected final String id;
 
@@ -17,6 +18,7 @@ public class IntegrationMappingBase {
   protected EnumWrapper<IntegrationMappingBaseTypeField> type;
 
   public IntegrationMappingBase(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<IntegrationMappingBaseTypeField>(
@@ -25,6 +27,7 @@ public class IntegrationMappingBase {
   }
 
   protected IntegrationMappingBase(IntegrationMappingBaseBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

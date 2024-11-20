@@ -1,11 +1,12 @@
 package com.box.sdkgen.managers.retentionpolicies;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class UpdateRetentionPolicyByIdRequestBody {
+public class UpdateRetentionPolicyByIdRequestBody extends SerializableObject {
 
   @JsonProperty("policy_name")
   protected String policyName;
@@ -32,10 +33,13 @@ public class UpdateRetentionPolicyByIdRequestBody {
   @JsonProperty("custom_notification_recipients")
   protected List<UserBase> customNotificationRecipients;
 
-  public UpdateRetentionPolicyByIdRequestBody() {}
+  public UpdateRetentionPolicyByIdRequestBody() {
+    super();
+  }
 
   protected UpdateRetentionPolicyByIdRequestBody(
       UpdateRetentionPolicyByIdRequestBodyBuilder builder) {
+    super();
     this.policyName = builder.policyName;
     this.description = builder.description;
     this.dispositionAction = builder.dispositionAction;

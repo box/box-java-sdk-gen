@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.chunkeduploads;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateFileUploadSessionForExistingFileRequestBody {
+public class CreateFileUploadSessionForExistingFileRequestBody extends SerializableObject {
 
   @JsonProperty("file_size")
   protected final long fileSize;
@@ -13,11 +14,13 @@ public class CreateFileUploadSessionForExistingFileRequestBody {
 
   public CreateFileUploadSessionForExistingFileRequestBody(
       @JsonProperty("file_size") long fileSize) {
+    super();
     this.fileSize = fileSize;
   }
 
   protected CreateFileUploadSessionForExistingFileRequestBody(
       CreateFileUploadSessionForExistingFileRequestBodyBuilder builder) {
+    super();
     this.fileSize = builder.fileSize;
     this.fileName = builder.fileName;
   }

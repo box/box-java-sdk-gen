@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.signtemplate;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class SignTemplateCustomBrandingField {
+public class SignTemplateCustomBrandingField extends SerializableObject {
 
   @JsonProperty("company_name")
   protected String companyName;
@@ -17,9 +18,12 @@ public class SignTemplateCustomBrandingField {
   @JsonProperty("email_footer_text")
   protected String emailFooterText;
 
-  public SignTemplateCustomBrandingField() {}
+  public SignTemplateCustomBrandingField() {
+    super();
+  }
 
   protected SignTemplateCustomBrandingField(SignTemplateCustomBrandingFieldBuilder builder) {
+    super();
     this.companyName = builder.companyName;
     this.logoUri = builder.logoUri;
     this.brandingColor = builder.brandingColor;

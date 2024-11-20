@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.folderlocks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateFolderLockRequestBody {
+public class CreateFolderLockRequestBody extends SerializableObject {
 
   @JsonProperty("locked_operations")
   protected CreateFolderLockRequestBodyLockedOperationsField lockedOperations;
@@ -12,10 +13,12 @@ public class CreateFolderLockRequestBody {
 
   public CreateFolderLockRequestBody(
       @JsonProperty("folder") CreateFolderLockRequestBodyFolderField folder) {
+    super();
     this.folder = folder;
   }
 
   protected CreateFolderLockRequestBody(CreateFolderLockRequestBodyBuilder builder) {
+    super();
     this.lockedOperations = builder.lockedOperations;
     this.folder = builder.folder;
   }

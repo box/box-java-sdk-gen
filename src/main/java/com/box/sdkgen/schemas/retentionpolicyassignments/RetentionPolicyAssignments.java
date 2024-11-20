@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.retentionpolicyassignments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.retentionpolicyassignment.RetentionPolicyAssignment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class RetentionPolicyAssignments {
+public class RetentionPolicyAssignments extends SerializableObject {
 
   protected List<RetentionPolicyAssignment> entries;
 
@@ -14,9 +15,12 @@ public class RetentionPolicyAssignments {
   @JsonProperty("next_marker")
   protected String nextMarker;
 
-  public RetentionPolicyAssignments() {}
+  public RetentionPolicyAssignments() {
+    super();
+  }
 
   protected RetentionPolicyAssignments(RetentionPolicyAssignmentsBuilder builder) {
+    super();
     this.entries = builder.entries;
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;

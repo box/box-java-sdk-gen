@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.folderlocks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateFolderLockRequestBodyLockedOperationsField {
+public class CreateFolderLockRequestBodyLockedOperationsField extends SerializableObject {
 
   protected final boolean move;
 
@@ -11,6 +12,7 @@ public class CreateFolderLockRequestBodyLockedOperationsField {
 
   public CreateFolderLockRequestBodyLockedOperationsField(
       @JsonProperty("move") boolean move, @JsonProperty("delete") boolean delete) {
+    super();
     this.move = move;
     this.delete = delete;
   }

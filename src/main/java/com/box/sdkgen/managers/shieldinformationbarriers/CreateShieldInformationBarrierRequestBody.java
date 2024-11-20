@@ -1,15 +1,17 @@
 package com.box.sdkgen.managers.shieldinformationbarriers;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.enterprisebase.EnterpriseBase;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateShieldInformationBarrierRequestBody {
+public class CreateShieldInformationBarrierRequestBody extends SerializableObject {
 
   protected final EnterpriseBase enterprise;
 
   public CreateShieldInformationBarrierRequestBody(
       @JsonProperty("enterprise") EnterpriseBase enterprise) {
+    super();
     this.enterprise = enterprise;
   }
 

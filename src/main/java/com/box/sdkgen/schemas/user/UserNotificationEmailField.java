@@ -1,18 +1,22 @@
 package com.box.sdkgen.schemas.user;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UserNotificationEmailField {
+public class UserNotificationEmailField extends SerializableObject {
 
   protected String email;
 
   @JsonProperty("is_confirmed")
   protected Boolean isConfirmed;
 
-  public UserNotificationEmailField() {}
+  public UserNotificationEmailField() {
+    super();
+  }
 
   protected UserNotificationEmailField(UserNotificationEmailFieldBuilder builder) {
+    super();
     this.email = builder.email;
     this.isConfirmed = builder.isConfirmed;
   }

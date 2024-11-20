@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.skillinvocation;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class SkillInvocationTokenField {
+public class SkillInvocationTokenField extends SerializableObject {
 
   protected SkillInvocationTokenReadField read;
 
   protected SkillInvocationTokenWriteField write;
 
-  public SkillInvocationTokenField() {}
+  public SkillInvocationTokenField() {
+    super();
+  }
 
   protected SkillInvocationTokenField(SkillInvocationTokenFieldBuilder builder) {
+    super();
     this.read = builder.read;
     this.write = builder.write;
   }

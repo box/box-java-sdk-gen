@@ -142,7 +142,10 @@ This operation is performed by calling function `createAiExtractStructured`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-ai-extract-structured/).
 
-*Currently we don't have an example for calling `createAiExtractStructured` in integration tests*
+<!-- sample post_ai_extract_structured -->
+```
+client.getAi().createAiExtractStructured(new AiExtractStructured.AiExtractStructuredBuilder(Arrays.asList(new AiItemBase(file.getId()))).metadataTemplate(new AiExtractStructuredMetadataTemplateField.AiExtractStructuredMetadataTemplateFieldBuilder().templateKey(templateKey).scope("enterprise").build()).build())
+```
 
 ### Arguments
 

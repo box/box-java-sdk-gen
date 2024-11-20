@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.folderfull;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.metadatafull.MetadataFull;
 import java.util.Map;
 import java.util.Objects;
 
-public class FolderFullMetadataField {
+public class FolderFullMetadataField extends SerializableObject {
 
   protected Map<String, Map<String, MetadataFull>> extraData;
 
-  public FolderFullMetadataField() {}
+  public FolderFullMetadataField() {
+    super();
+  }
 
   protected FolderFullMetadataField(FolderFullMetadataFieldBuilder builder) {
+    super();
     this.extraData = builder.extraData;
   }
 

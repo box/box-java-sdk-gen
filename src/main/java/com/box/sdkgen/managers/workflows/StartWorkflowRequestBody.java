@@ -1,5 +1,6 @@
 package com.box.sdkgen.managers.workflows;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.outcome.Outcome;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class StartWorkflowRequestBody {
+public class StartWorkflowRequestBody extends SerializableObject {
 
   @JsonDeserialize(
       using = StartWorkflowRequestBodyTypeField.StartWorkflowRequestBodyTypeFieldDeserializer.class)
@@ -28,12 +29,14 @@ public class StartWorkflowRequestBody {
       @JsonProperty("flow") StartWorkflowRequestBodyFlowField flow,
       @JsonProperty("files") List<StartWorkflowRequestBodyFilesField> files,
       @JsonProperty("folder") StartWorkflowRequestBodyFolderField folder) {
+    super();
     this.flow = flow;
     this.files = files;
     this.folder = folder;
   }
 
   protected StartWorkflowRequestBody(StartWorkflowRequestBodyBuilder builder) {
+    super();
     this.type = builder.type;
     this.flow = builder.flow;
     this.files = builder.files;

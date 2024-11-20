@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.workflow;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class WorkflowFlowsTriggerField {
+public class WorkflowFlowsTriggerField extends SerializableObject {
 
   @JsonDeserialize(
       using = WorkflowFlowsTriggerTypeField.WorkflowFlowsTriggerTypeFieldDeserializer.class)
@@ -27,9 +28,12 @@ public class WorkflowFlowsTriggerField {
 
   protected List<WorkflowFlowsTriggerScopeField> scope;
 
-  public WorkflowFlowsTriggerField() {}
+  public WorkflowFlowsTriggerField() {
+    super();
+  }
 
   protected WorkflowFlowsTriggerField(WorkflowFlowsTriggerFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.triggerType = builder.triggerType;
     this.scope = builder.scope;

@@ -1,10 +1,11 @@
 package com.box.sdkgen.managers.files;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class UpdateFileByIdRequestBody {
+public class UpdateFileByIdRequestBody extends SerializableObject {
 
   protected String name;
 
@@ -26,9 +27,12 @@ public class UpdateFileByIdRequestBody {
 
   protected List<String> tags;
 
-  public UpdateFileByIdRequestBody() {}
+  public UpdateFileByIdRequestBody() {
+    super();
+  }
 
   protected UpdateFileByIdRequestBody(UpdateFileByIdRequestBodyBuilder builder) {
+    super();
     this.name = builder.name;
     this.description = builder.description;
     this.parent = builder.parent;

@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.legalholdpolicyassignments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateLegalHoldPolicyAssignmentRequestBody {
+public class CreateLegalHoldPolicyAssignmentRequestBody extends SerializableObject {
 
   @JsonProperty("policy_id")
   protected final String policyId;
@@ -14,6 +15,7 @@ public class CreateLegalHoldPolicyAssignmentRequestBody {
   public CreateLegalHoldPolicyAssignmentRequestBody(
       @JsonProperty("policy_id") String policyId,
       @JsonProperty("assign_to") CreateLegalHoldPolicyAssignmentRequestBodyAssignToField assignTo) {
+    super();
     this.policyId = policyId;
     this.assignTo = assignTo;
   }

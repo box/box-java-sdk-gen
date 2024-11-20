@@ -1,12 +1,14 @@
 package com.box.sdkgen.managers.storagepolicyassignments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField {
+public class UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField
+    extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -22,6 +24,7 @@ public class UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField {
 
   public UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField(
       @JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyTypeField>(
@@ -32,6 +35,7 @@ public class UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField {
 
   protected UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyField(
       UpdateStoragePolicyAssignmentByIdRequestBodyStoragePolicyFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
   }

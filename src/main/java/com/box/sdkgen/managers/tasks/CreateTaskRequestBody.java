@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.tasks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CreateTaskRequestBody {
+public class CreateTaskRequestBody extends SerializableObject {
 
   protected final CreateTaskRequestBodyItemField item;
 
@@ -33,10 +34,12 @@ public class CreateTaskRequestBody {
   protected EnumWrapper<CreateTaskRequestBodyCompletionRuleField> completionRule;
 
   public CreateTaskRequestBody(@JsonProperty("item") CreateTaskRequestBodyItemField item) {
+    super();
     this.item = item;
   }
 
   protected CreateTaskRequestBody(CreateTaskRequestBodyBuilder builder) {
+    super();
     this.item = builder.item;
     this.action = builder.action;
     this.message = builder.message;

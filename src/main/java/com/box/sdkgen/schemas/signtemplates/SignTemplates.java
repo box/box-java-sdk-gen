@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.signtemplates;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.signtemplate.SignTemplate;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class SignTemplates {
+public class SignTemplates extends SerializableObject {
 
   protected Long limit;
 
@@ -17,9 +18,12 @@ public class SignTemplates {
 
   protected List<SignTemplate> entries;
 
-  public SignTemplates() {}
+  public SignTemplates() {
+    super();
+  }
 
   protected SignTemplates(SignTemplatesBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;

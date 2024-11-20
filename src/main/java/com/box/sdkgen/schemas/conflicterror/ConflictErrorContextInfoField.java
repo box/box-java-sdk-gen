@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.conflicterror;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.fileconflict.FileConflict;
 import java.util.List;
 import java.util.Objects;
 
-public class ConflictErrorContextInfoField {
+public class ConflictErrorContextInfoField extends SerializableObject {
 
   protected List<FileConflict> conflicts;
 
-  public ConflictErrorContextInfoField() {}
+  public ConflictErrorContextInfoField() {
+    super();
+  }
 
   protected ConflictErrorContextInfoField(ConflictErrorContextInfoFieldBuilder builder) {
+    super();
     this.conflicts = builder.conflicts;
   }
 

@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.classification;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class Classification {
+public class Classification extends SerializableObject {
 
   @JsonProperty("Box__Security__Classification__Key")
   protected String boxSecurityClassificationKey;
@@ -35,9 +36,12 @@ public class Classification {
   @JsonProperty("$canEdit")
   protected Boolean canEdit;
 
-  public Classification() {}
+  public Classification() {
+    super();
+  }
 
   protected Classification(ClassificationBuilder builder) {
+    super();
     this.boxSecurityClassificationKey = builder.boxSecurityClassificationKey;
     this.parent = builder.parent;
     this.template = builder.template;

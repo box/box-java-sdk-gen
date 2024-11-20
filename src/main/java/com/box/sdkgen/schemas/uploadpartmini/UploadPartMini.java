@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.uploadpartmini;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UploadPartMini {
+public class UploadPartMini extends SerializableObject {
 
   @JsonProperty("part_id")
   protected String partId;
@@ -12,9 +13,12 @@ public class UploadPartMini {
 
   protected Long size;
 
-  public UploadPartMini() {}
+  public UploadPartMini() {
+    super();
+  }
 
   protected UploadPartMini(UploadPartMiniBuilder builder) {
+    super();
     this.partId = builder.partId;
     this.offset = builder.offset;
     this.size = builder.size;

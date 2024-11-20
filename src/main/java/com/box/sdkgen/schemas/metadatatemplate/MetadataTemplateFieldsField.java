@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.metadatatemplate;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class MetadataTemplateFieldsField {
+public class MetadataTemplateFieldsField extends SerializableObject {
 
   @JsonDeserialize(
       using = MetadataTemplateFieldsTypeField.MetadataTemplateFieldsTypeFieldDeserializer.class)
@@ -31,6 +32,7 @@ public class MetadataTemplateFieldsField {
       @JsonProperty("type") EnumWrapper<MetadataTemplateFieldsTypeField> type,
       @JsonProperty("key") String key,
       @JsonProperty("displayName") String displayName) {
+    super();
     this.type = type;
     this.key = key;
     this.displayName = displayName;
@@ -38,12 +40,14 @@ public class MetadataTemplateFieldsField {
 
   public MetadataTemplateFieldsField(
       MetadataTemplateFieldsTypeField type, String key, String displayName) {
+    super();
     this.type = new EnumWrapper<MetadataTemplateFieldsTypeField>(type.getValue(), type);
     this.key = key;
     this.displayName = displayName;
   }
 
   protected MetadataTemplateFieldsField(MetadataTemplateFieldsFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.key = builder.key;
     this.displayName = builder.displayName;

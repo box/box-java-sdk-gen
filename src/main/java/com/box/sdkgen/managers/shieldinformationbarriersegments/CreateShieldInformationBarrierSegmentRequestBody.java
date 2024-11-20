@@ -1,10 +1,11 @@
 package com.box.sdkgen.managers.shieldinformationbarriersegments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.shieldinformationbarrierbase.ShieldInformationBarrierBase;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateShieldInformationBarrierSegmentRequestBody {
+public class CreateShieldInformationBarrierSegmentRequestBody extends SerializableObject {
 
   @JsonProperty("shield_information_barrier")
   protected final ShieldInformationBarrierBase shieldInformationBarrier;
@@ -17,12 +18,14 @@ public class CreateShieldInformationBarrierSegmentRequestBody {
       @JsonProperty("shield_information_barrier")
           ShieldInformationBarrierBase shieldInformationBarrier,
       @JsonProperty("name") String name) {
+    super();
     this.shieldInformationBarrier = shieldInformationBarrier;
     this.name = name;
   }
 
   protected CreateShieldInformationBarrierSegmentRequestBody(
       CreateShieldInformationBarrierSegmentRequestBodyBuilder builder) {
+    super();
     this.shieldInformationBarrier = builder.shieldInformationBarrier;
     this.name = builder.name;
     this.description = builder.description;

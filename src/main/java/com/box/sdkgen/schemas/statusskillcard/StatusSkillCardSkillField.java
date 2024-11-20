@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.statusskillcard;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class StatusSkillCardSkillField {
+public class StatusSkillCardSkillField extends SerializableObject {
 
   @JsonDeserialize(
       using = StatusSkillCardSkillTypeField.StatusSkillCardSkillTypeFieldDeserializer.class)
@@ -17,6 +18,7 @@ public class StatusSkillCardSkillField {
   protected final String id;
 
   public StatusSkillCardSkillField(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<StatusSkillCardSkillTypeField>(
@@ -25,6 +27,7 @@ public class StatusSkillCardSkillField {
   }
 
   protected StatusSkillCardSkillField(StatusSkillCardSkillFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
   }

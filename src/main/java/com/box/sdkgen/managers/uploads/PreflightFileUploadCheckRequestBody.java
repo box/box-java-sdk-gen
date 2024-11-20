@@ -1,8 +1,9 @@
 package com.box.sdkgen.managers.uploads;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class PreflightFileUploadCheckRequestBody {
+public class PreflightFileUploadCheckRequestBody extends SerializableObject {
 
   protected String name;
 
@@ -10,10 +11,13 @@ public class PreflightFileUploadCheckRequestBody {
 
   protected PreflightFileUploadCheckRequestBodyParentField parent;
 
-  public PreflightFileUploadCheckRequestBody() {}
+  public PreflightFileUploadCheckRequestBody() {
+    super();
+  }
 
   protected PreflightFileUploadCheckRequestBody(
       PreflightFileUploadCheckRequestBodyBuilder builder) {
+    super();
     this.name = builder.name;
     this.size = builder.size;
     this.parent = builder.parent;

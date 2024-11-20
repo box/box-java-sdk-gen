@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.metadatabase;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class MetadataBase {
+public class MetadataBase extends SerializableObject {
 
   @JsonProperty("$parent")
   protected String parent;
@@ -17,9 +18,12 @@ public class MetadataBase {
   @JsonProperty("$version")
   protected Long version;
 
-  public MetadataBase() {}
+  public MetadataBase() {
+    super();
+  }
 
   protected MetadataBase(MetadataBaseBuilder builder) {
+    super();
     this.parent = builder.parent;
     this.template = builder.template;
     this.scope = builder.scope;

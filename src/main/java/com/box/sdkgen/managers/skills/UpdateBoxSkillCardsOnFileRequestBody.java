@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.skills;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.keywordskillcardorstatusskillcardortimelineskillcardortranscriptskillcard.KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UpdateBoxSkillCardsOnFileRequestBody {
+public class UpdateBoxSkillCardsOnFileRequestBody extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -22,10 +23,13 @@ public class UpdateBoxSkillCardsOnFileRequestBody {
 
   protected KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard value;
 
-  public UpdateBoxSkillCardsOnFileRequestBody() {}
+  public UpdateBoxSkillCardsOnFileRequestBody() {
+    super();
+  }
 
   protected UpdateBoxSkillCardsOnFileRequestBody(
       UpdateBoxSkillCardsOnFileRequestBodyBuilder builder) {
+    super();
     this.op = builder.op;
     this.path = builder.path;
     this.value = builder.value;

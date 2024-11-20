@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.workflowmini;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class WorkflowMini {
+public class WorkflowMini extends SerializableObject {
 
   protected String id;
 
@@ -21,9 +22,12 @@ public class WorkflowMini {
   @JsonProperty("is_enabled")
   protected Boolean isEnabled;
 
-  public WorkflowMini() {}
+  public WorkflowMini() {
+    super();
+  }
 
   protected WorkflowMini(WorkflowMiniBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.name = builder.name;

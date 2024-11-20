@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.files;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UpdateFileByIdRequestBodyPermissionsField {
+public class UpdateFileByIdRequestBodyPermissionsField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -19,10 +20,13 @@ public class UpdateFileByIdRequestBodyPermissionsField {
   @JsonProperty("can_download")
   protected EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField> canDownload;
 
-  public UpdateFileByIdRequestBodyPermissionsField() {}
+  public UpdateFileByIdRequestBodyPermissionsField() {
+    super();
+  }
 
   protected UpdateFileByIdRequestBodyPermissionsField(
       UpdateFileByIdRequestBodyPermissionsFieldBuilder builder) {
+    super();
     this.canDownload = builder.canDownload;
   }
 

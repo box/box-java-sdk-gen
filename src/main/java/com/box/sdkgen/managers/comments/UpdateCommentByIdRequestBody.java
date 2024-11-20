@@ -1,14 +1,18 @@
 package com.box.sdkgen.managers.comments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class UpdateCommentByIdRequestBody {
+public class UpdateCommentByIdRequestBody extends SerializableObject {
 
   protected String message;
 
-  public UpdateCommentByIdRequestBody() {}
+  public UpdateCommentByIdRequestBody() {
+    super();
+  }
 
   protected UpdateCommentByIdRequestBody(UpdateCommentByIdRequestBodyBuilder builder) {
+    super();
     this.message = builder.message;
   }
 

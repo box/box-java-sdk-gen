@@ -1,20 +1,24 @@
 package com.box.sdkgen.schemas.termsofserviceuserstatuses;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.termsofserviceuserstatus.TermsOfServiceUserStatus;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class TermsOfServiceUserStatuses {
+public class TermsOfServiceUserStatuses extends SerializableObject {
 
   @JsonProperty("total_count")
   protected Long totalCount;
 
   protected List<TermsOfServiceUserStatus> entries;
 
-  public TermsOfServiceUserStatuses() {}
+  public TermsOfServiceUserStatuses() {
+    super();
+  }
 
   protected TermsOfServiceUserStatuses(TermsOfServiceUserStatusesBuilder builder) {
+    super();
     this.totalCount = builder.totalCount;
     this.entries = builder.entries;
   }

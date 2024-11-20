@@ -1,17 +1,21 @@
 package com.box.sdkgen.schemas.shieldinformationbarrierreference;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.shieldinformationbarrierbase.ShieldInformationBarrierBase;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class ShieldInformationBarrierReference {
+public class ShieldInformationBarrierReference extends SerializableObject {
 
   @JsonProperty("shield_information_barrier")
   protected ShieldInformationBarrierBase shieldInformationBarrier;
 
-  public ShieldInformationBarrierReference() {}
+  public ShieldInformationBarrierReference() {
+    super();
+  }
 
   protected ShieldInformationBarrierReference(ShieldInformationBarrierReferenceBuilder builder) {
+    super();
     this.shieldInformationBarrier = builder.shieldInformationBarrier;
   }
 

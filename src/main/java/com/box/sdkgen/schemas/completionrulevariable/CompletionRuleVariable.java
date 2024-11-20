@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.completionrulevariable;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CompletionRuleVariable {
+public class CompletionRuleVariable extends SerializableObject {
 
   @JsonDeserialize(
       using = CompletionRuleVariableTypeField.CompletionRuleVariableTypeFieldDeserializer.class)
@@ -39,6 +40,7 @@ public class CompletionRuleVariable {
   public CompletionRuleVariable(
       @JsonProperty("variable_value")
           EnumWrapper<CompletionRuleVariableVariableValueField> variableValue) {
+    super();
     this.variableValue = variableValue;
     this.type =
         new EnumWrapper<CompletionRuleVariableTypeField>(
@@ -51,6 +53,7 @@ public class CompletionRuleVariable {
   }
 
   public CompletionRuleVariable(CompletionRuleVariableVariableValueField variableValue) {
+    super();
     this.variableValue =
         new EnumWrapper<CompletionRuleVariableVariableValueField>(
             variableValue.getValue(), variableValue);
@@ -65,6 +68,7 @@ public class CompletionRuleVariable {
   }
 
   protected CompletionRuleVariable(CompletionRuleVariableBuilder builder) {
+    super();
     this.type = builder.type;
     this.variableType = builder.variableType;
     this.variableValue = builder.variableValue;

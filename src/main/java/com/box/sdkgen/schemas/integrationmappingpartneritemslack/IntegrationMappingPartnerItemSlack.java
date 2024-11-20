@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.integrationmappingpartneritemslack;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class IntegrationMappingPartnerItemSlack {
+public class IntegrationMappingPartnerItemSlack extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -27,6 +28,7 @@ public class IntegrationMappingPartnerItemSlack {
   protected String slackOrgId;
 
   public IntegrationMappingPartnerItemSlack(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<IntegrationMappingPartnerItemSlackTypeField>(
@@ -35,6 +37,7 @@ public class IntegrationMappingPartnerItemSlack {
   }
 
   protected IntegrationMappingPartnerItemSlack(IntegrationMappingPartnerItemSlackBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
     this.slackWorkspaceId = builder.slackWorkspaceId;

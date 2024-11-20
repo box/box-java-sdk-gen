@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.signrequestprefilltag;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class SignRequestPrefillTag {
+public class SignRequestPrefillTag extends SerializableObject {
 
   @JsonProperty("document_tag_id")
   protected String documentTagId;
@@ -17,9 +18,12 @@ public class SignRequestPrefillTag {
   @JsonProperty("date_value")
   protected String dateValue;
 
-  public SignRequestPrefillTag() {}
+  public SignRequestPrefillTag() {
+    super();
+  }
 
   protected SignRequestPrefillTag(SignRequestPrefillTagBuilder builder) {
+    super();
     this.documentTagId = builder.documentTagId;
     this.textValue = builder.textValue;
     this.checkboxValue = builder.checkboxValue;

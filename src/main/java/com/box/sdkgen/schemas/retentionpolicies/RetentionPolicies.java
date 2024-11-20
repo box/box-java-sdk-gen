@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.retentionpolicies;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.retentionpolicy.RetentionPolicy;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class RetentionPolicies {
+public class RetentionPolicies extends SerializableObject {
 
   protected List<RetentionPolicy> entries;
 
@@ -14,9 +15,12 @@ public class RetentionPolicies {
   @JsonProperty("next_marker")
   protected String nextMarker;
 
-  public RetentionPolicies() {}
+  public RetentionPolicies() {
+    super();
+  }
 
   protected RetentionPolicies(RetentionPoliciesBuilder builder) {
+    super();
     this.entries = builder.entries;
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;

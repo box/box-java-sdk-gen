@@ -1,11 +1,13 @@
 package com.box.sdkgen.schemas.shieldinformationbarriersegmentrestrictionmini;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentField {
+public class ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentField
+    extends SerializableObject {
 
   protected String id;
 
@@ -23,11 +25,14 @@ public class ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarr
           ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField>
       type;
 
-  public ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentField() {}
+  public ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentField() {
+    super();
+  }
 
   protected ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentField(
       ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentFieldBuilder
           builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

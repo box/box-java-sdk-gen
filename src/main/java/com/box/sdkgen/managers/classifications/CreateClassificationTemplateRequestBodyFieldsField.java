@@ -1,5 +1,6 @@
 package com.box.sdkgen.managers.classifications;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class CreateClassificationTemplateRequestBodyFieldsField {
+public class CreateClassificationTemplateRequestBodyFieldsField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -46,6 +47,7 @@ public class CreateClassificationTemplateRequestBodyFieldsField {
   public CreateClassificationTemplateRequestBodyFieldsField(
       @JsonProperty("options")
           List<CreateClassificationTemplateRequestBodyFieldsOptionsField> options) {
+    super();
     this.options = options;
     this.type =
         new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsTypeField>(
@@ -65,6 +67,7 @@ public class CreateClassificationTemplateRequestBodyFieldsField {
 
   protected CreateClassificationTemplateRequestBodyFieldsField(
       CreateClassificationTemplateRequestBodyFieldsFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.key = builder.key;
     this.displayName = builder.displayName;

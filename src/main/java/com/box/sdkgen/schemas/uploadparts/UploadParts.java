@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.uploadparts;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.uploadpart.UploadPart;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class UploadParts {
+public class UploadParts extends SerializableObject {
 
   @JsonProperty("total_count")
   protected Long totalCount;
@@ -18,9 +19,12 @@ public class UploadParts {
 
   protected List<UploadPart> entries;
 
-  public UploadParts() {}
+  public UploadParts() {
+    super();
+  }
 
   protected UploadParts(UploadPartsBuilder builder) {
+    super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
     this.offset = builder.offset;

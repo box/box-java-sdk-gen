@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.signrequests;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.signrequest.SignRequest;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class SignRequests {
+public class SignRequests extends SerializableObject {
 
   protected Long limit;
 
@@ -14,9 +15,12 @@ public class SignRequests {
 
   protected List<SignRequest> entries;
 
-  public SignRequests() {}
+  public SignRequests() {
+    super();
+  }
 
   protected SignRequests(SignRequestsBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.entries = builder.entries;

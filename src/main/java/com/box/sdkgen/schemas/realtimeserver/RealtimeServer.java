@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.realtimeserver;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class RealtimeServer {
+public class RealtimeServer extends SerializableObject {
 
   protected String type;
 
@@ -17,9 +18,12 @@ public class RealtimeServer {
   @JsonProperty("retry_timeout")
   protected Long retryTimeout;
 
-  public RealtimeServer() {}
+  public RealtimeServer() {
+    super();
+  }
 
   protected RealtimeServer(RealtimeServerBuilder builder) {
+    super();
     this.type = builder.type;
     this.url = builder.url;
     this.ttl = builder.ttl;

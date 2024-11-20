@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.webhookmini;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class WebhookMini {
+public class WebhookMini extends SerializableObject {
 
   protected String id;
 
@@ -15,9 +16,12 @@ public class WebhookMini {
 
   protected WebhookMiniTargetField target;
 
-  public WebhookMini() {}
+  public WebhookMini() {
+    super();
+  }
 
   protected WebhookMini(WebhookMiniBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.target = builder.target;

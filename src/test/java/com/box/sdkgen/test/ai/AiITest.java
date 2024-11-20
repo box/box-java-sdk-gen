@@ -1,7 +1,9 @@
 package com.box.sdkgen.test.ai;
 
+import static com.box.sdkgen.internal.utils.UtilsManager.convertToString;
 import static com.box.sdkgen.internal.utils.UtilsManager.delayInSeconds;
 import static com.box.sdkgen.internal.utils.UtilsManager.getUuid;
+import static com.box.sdkgen.internal.utils.UtilsManager.getValueFromObjectRawData;
 import static com.box.sdkgen.internal.utils.UtilsManager.stringToByteStream;
 import static com.box.sdkgen.test.commons.CommonsManager.getDefaultClient;
 import static com.box.sdkgen.test.commons.CommonsManager.uploadNewFile;
@@ -9,6 +11,10 @@ import static com.box.sdkgen.test.commons.CommonsManager.uploadNewFile;
 import com.box.sdkgen.client.BoxClient;
 import com.box.sdkgen.managers.ai.GetAiAgentDefaultConfigQueryParams;
 import com.box.sdkgen.managers.ai.GetAiAgentDefaultConfigQueryParamsModeField;
+import com.box.sdkgen.managers.metadatatemplates.CreateMetadataTemplateRequestBody;
+import com.box.sdkgen.managers.metadatatemplates.CreateMetadataTemplateRequestBodyFieldsField;
+import com.box.sdkgen.managers.metadatatemplates.CreateMetadataTemplateRequestBodyFieldsTypeField;
+import com.box.sdkgen.managers.metadatatemplates.DeleteMetadataTemplateScope;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBody;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBodyAttributesField;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBodyAttributesParentField;
@@ -17,6 +23,10 @@ import com.box.sdkgen.schemas.aiask.AiAsk;
 import com.box.sdkgen.schemas.aiask.AiAskModeField;
 import com.box.sdkgen.schemas.aidialoguehistory.AiDialogueHistory;
 import com.box.sdkgen.schemas.aiextract.AiExtract;
+import com.box.sdkgen.schemas.aiextractresponse.AiExtractResponse;
+import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructured;
+import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructuredFieldsField;
+import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructuredMetadataTemplateField;
 import com.box.sdkgen.schemas.aiitembase.AiItemBase;
 import com.box.sdkgen.schemas.aiitembase.AiItemBaseTypeField;
 import com.box.sdkgen.schemas.airesponse.AiResponse;
@@ -26,6 +36,7 @@ import com.box.sdkgen.schemas.aitextgen.AiTextGenItemsField;
 import com.box.sdkgen.schemas.aitextgen.AiTextGenItemsTypeField;
 import com.box.sdkgen.schemas.filefull.FileFull;
 import com.box.sdkgen.schemas.files.Files;
+import com.box.sdkgen.schemas.metadatatemplate.MetadataTemplate;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
@@ -161,6 +172,158 @@ public class AiITest {
         "{\"firstName\": \"John\", \"lastName\": \"Doe\", \"location\": \"San Francisco\", \"yearOfBirth\": \"1990\", \"company\": \"Box\"}";
     assert response.getAnswer().equals(expectedResponse);
     assert response.getCompletionReason().equals("done");
+    client.getFiles().deleteFileById(file.getId());
+  }
+
+  @Test
+  public void testAiExtractStructuredWithFields() {
+    Files uploadedFiles =
+        client
+            .getUploads()
+            .uploadFile(
+                new UploadFileRequestBody(
+                    new UploadFileRequestBodyAttributesField(
+                        String.join("", getUuid(), ".txt"),
+                        new UploadFileRequestBodyAttributesParentField("0")),
+                    stringToByteStream(
+                        "My name is John Doe. I was born in 4th July 1990. I am 34 years old. My hobby is guitar and books.")));
+    FileFull file = uploadedFiles.getEntries().get(0);
+    delayInSeconds(5);
+    AiExtractResponse response =
+        client
+            .getAi()
+            .createAiExtractStructured(
+                new AiExtractStructured.AiExtractStructuredBuilder(
+                        Arrays.asList(new AiItemBase(file.getId())))
+                    .fields(
+                        Arrays.asList(
+                            new AiExtractStructuredFieldsField
+                                    .AiExtractStructuredFieldsFieldBuilder("firstName")
+                                .description("Person first name")
+                                .displayName("First name")
+                                .prompt("What is the your first name?")
+                                .type("string")
+                                .build(),
+                            new AiExtractStructuredFieldsField
+                                    .AiExtractStructuredFieldsFieldBuilder("lastName")
+                                .description("Person last name")
+                                .displayName("Last name")
+                                .prompt("What is the your last name?")
+                                .type("string")
+                                .build(),
+                            new AiExtractStructuredFieldsField
+                                    .AiExtractStructuredFieldsFieldBuilder("dateOfBirth")
+                                .description("Person date of birth")
+                                .displayName("Birth date")
+                                .prompt("What is the date of your birth?")
+                                .type("date")
+                                .build(),
+                            new AiExtractStructuredFieldsField
+                                    .AiExtractStructuredFieldsFieldBuilder("age")
+                                .description("Person age")
+                                .displayName("Age")
+                                .prompt("How old are you?")
+                                .type("float")
+                                .build(),
+                            new AiExtractStructuredFieldsField
+                                    .AiExtractStructuredFieldsFieldBuilder("hobby")
+                                .description("Person hobby")
+                                .displayName("Hobby")
+                                .prompt("What is your hobby?")
+                                .type("multiSelect")
+                                .build()))
+                    .build());
+    assert convertToString(getValueFromObjectRawData(response, "firstName")).equals("John");
+    assert convertToString(getValueFromObjectRawData(response, "lastName")).equals("Doe");
+    assert convertToString(getValueFromObjectRawData(response, "dateOfBirth")).equals("1990-07-04");
+    assert convertToString(getValueFromObjectRawData(response, "age")).equals("34");
+    assert convertToString(getValueFromObjectRawData(response, "hobby"))
+        .equals(convertToString(Arrays.asList("guitar", "books")));
+    client.getFiles().deleteFileById(file.getId());
+  }
+
+  @Test
+  public void testAiExtractStructuredWithMetadataTemplate() {
+    Files uploadedFiles =
+        client
+            .getUploads()
+            .uploadFile(
+                new UploadFileRequestBody(
+                    new UploadFileRequestBodyAttributesField(
+                        String.join("", getUuid(), ".txt"),
+                        new UploadFileRequestBodyAttributesParentField("0")),
+                    stringToByteStream(
+                        "My name is John Doe. I was born in 4th July 1990. I am 34 years old. My hobby is guitar and books.")));
+    FileFull file = uploadedFiles.getEntries().get(0);
+    delayInSeconds(5);
+    String templateKey = String.join("", "key", getUuid());
+    MetadataTemplate template =
+        client
+            .getMetadataTemplates()
+            .createMetadataTemplate(
+                new CreateMetadataTemplateRequestBody.CreateMetadataTemplateRequestBodyBuilder(
+                        "enterprise", templateKey)
+                    .templateKey(templateKey)
+                    .fields(
+                        Arrays.asList(
+                            new CreateMetadataTemplateRequestBodyFieldsField
+                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                                    CreateMetadataTemplateRequestBodyFieldsTypeField.STRING,
+                                    "firstName",
+                                    "First name")
+                                .description("Person first name")
+                                .build(),
+                            new CreateMetadataTemplateRequestBodyFieldsField
+                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                                    CreateMetadataTemplateRequestBodyFieldsTypeField.STRING,
+                                    "lastName",
+                                    "Last name")
+                                .description("Person last name")
+                                .build(),
+                            new CreateMetadataTemplateRequestBodyFieldsField
+                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                                    CreateMetadataTemplateRequestBodyFieldsTypeField.DATE,
+                                    "dateOfBirth",
+                                    "Birth date")
+                                .description("Person date of birth")
+                                .build(),
+                            new CreateMetadataTemplateRequestBodyFieldsField
+                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                                    CreateMetadataTemplateRequestBodyFieldsTypeField.FLOAT,
+                                    "age",
+                                    "Age")
+                                .description("Person age")
+                                .build(),
+                            new CreateMetadataTemplateRequestBodyFieldsField
+                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                                    CreateMetadataTemplateRequestBodyFieldsTypeField.MULTISELECT,
+                                    "hobby",
+                                    "Hobby")
+                                .description("Person hobby")
+                                .build()))
+                    .build());
+    AiExtractResponse response =
+        client
+            .getAi()
+            .createAiExtractStructured(
+                new AiExtractStructured.AiExtractStructuredBuilder(
+                        Arrays.asList(new AiItemBase(file.getId())))
+                    .metadataTemplate(
+                        new AiExtractStructuredMetadataTemplateField
+                                .AiExtractStructuredMetadataTemplateFieldBuilder()
+                            .templateKey(templateKey)
+                            .scope("enterprise")
+                            .build())
+                    .build());
+    assert convertToString(getValueFromObjectRawData(response, "firstName")).equals("John");
+    assert convertToString(getValueFromObjectRawData(response, "lastName")).equals("Doe");
+    assert convertToString(getValueFromObjectRawData(response, "dateOfBirth")).equals("1990-07-04");
+    assert convertToString(getValueFromObjectRawData(response, "age")).equals("34");
+    assert convertToString(getValueFromObjectRawData(response, "hobby"))
+        .equals(convertToString(Arrays.asList("guitar", "books")));
+    client
+        .getMetadataTemplates()
+        .deleteMetadataTemplate(DeleteMetadataTemplateScope.ENTERPRISE, template.getTemplateKey());
     client.getFiles().deleteFileById(file.getId());
   }
 }

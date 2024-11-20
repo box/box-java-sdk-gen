@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.transcriptskillcard;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class TranscriptSkillCardInvocationField {
+public class TranscriptSkillCardInvocationField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -21,6 +22,7 @@ public class TranscriptSkillCardInvocationField {
   protected final String id;
 
   public TranscriptSkillCardInvocationField(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<TranscriptSkillCardInvocationTypeField>(
@@ -29,6 +31,7 @@ public class TranscriptSkillCardInvocationField {
   }
 
   protected TranscriptSkillCardInvocationField(TranscriptSkillCardInvocationFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
   }

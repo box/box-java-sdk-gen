@@ -1,15 +1,17 @@
 package com.box.sdkgen.managers.termsofserviceuserstatuses;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UpdateTermsOfServiceStatusForUserByIdRequestBody {
+public class UpdateTermsOfServiceStatusForUserByIdRequestBody extends SerializableObject {
 
   @JsonProperty("is_accepted")
   protected final boolean isAccepted;
 
   public UpdateTermsOfServiceStatusForUserByIdRequestBody(
       @JsonProperty("is_accepted") boolean isAccepted) {
+    super();
     this.isAccepted = isAccepted;
   }
 

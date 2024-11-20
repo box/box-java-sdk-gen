@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.uploadparts;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UploadPartsOrderField {
+public class UploadPartsOrderField extends SerializableObject {
 
   protected String by;
 
@@ -15,9 +16,12 @@ public class UploadPartsOrderField {
       using = UploadPartsOrderDirectionField.UploadPartsOrderDirectionFieldSerializer.class)
   protected EnumWrapper<UploadPartsOrderDirectionField> direction;
 
-  public UploadPartsOrderField() {}
+  public UploadPartsOrderField() {
+    super();
+  }
 
   protected UploadPartsOrderField(UploadPartsOrderFieldBuilder builder) {
+    super();
     this.by = builder.by;
     this.direction = builder.direction;
   }

@@ -1,13 +1,15 @@
 package com.box.sdkgen.managers.emailaliases;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateUserEmailAliasRequestBody {
+public class CreateUserEmailAliasRequestBody extends SerializableObject {
 
   protected final String email;
 
   public CreateUserEmailAliasRequestBody(@JsonProperty("email") String email) {
+    super();
     this.email = email;
   }
 

@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.filesonhold;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filemini.FileMini;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class FilesOnHold {
+public class FilesOnHold extends SerializableObject {
 
   protected Long limit;
 
@@ -17,9 +18,12 @@ public class FilesOnHold {
 
   protected List<FileMini> entries;
 
-  public FilesOnHold() {}
+  public FilesOnHold() {
+    super();
+  }
 
   protected FilesOnHold(FilesOnHoldBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;

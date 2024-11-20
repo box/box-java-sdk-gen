@@ -1,13 +1,15 @@
 package com.box.sdkgen.managers.uploads;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UploadFileRequestBodyAttributesParentField {
+public class UploadFileRequestBodyAttributesParentField extends SerializableObject {
 
   protected final String id;
 
   public UploadFileRequestBodyAttributesParentField(@JsonProperty("id") String id) {
+    super();
     this.id = id;
   }
 

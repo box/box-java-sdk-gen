@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.invites;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateInviteRequestBody {
+public class CreateInviteRequestBody extends SerializableObject {
 
   protected final CreateInviteRequestBodyEnterpriseField enterprise;
 
@@ -13,6 +14,7 @@ public class CreateInviteRequestBody {
   public CreateInviteRequestBody(
       @JsonProperty("enterprise") CreateInviteRequestBodyEnterpriseField enterprise,
       @JsonProperty("actionable_by") CreateInviteRequestBodyActionableByField actionableBy) {
+    super();
     this.enterprise = enterprise;
     this.actionableBy = actionableBy;
   }

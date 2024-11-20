@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.signtemplate;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class SignTemplateReadySignLinkField {
+public class SignTemplateReadySignLinkField extends SerializableObject {
 
   protected String url;
 
@@ -20,9 +21,12 @@ public class SignTemplateReadySignLinkField {
   @JsonProperty("is_active")
   protected Boolean isActive;
 
-  public SignTemplateReadySignLinkField() {}
+  public SignTemplateReadySignLinkField() {
+    super();
+  }
 
   protected SignTemplateReadySignLinkField(SignTemplateReadySignLinkFieldBuilder builder) {
+    super();
     this.url = builder.url;
     this.name = builder.name;
     this.instructions = builder.instructions;

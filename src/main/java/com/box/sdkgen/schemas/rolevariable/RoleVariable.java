@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.rolevariable;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class RoleVariable {
+public class RoleVariable extends SerializableObject {
 
   @JsonDeserialize(using = RoleVariableTypeField.RoleVariableTypeFieldDeserializer.class)
   @JsonSerialize(using = RoleVariableTypeField.RoleVariableTypeFieldSerializer.class)
@@ -28,6 +29,7 @@ public class RoleVariable {
 
   public RoleVariable(
       @JsonProperty("variable_value") EnumWrapper<RoleVariableVariableValueField> variableValue) {
+    super();
     this.variableValue = variableValue;
     this.type =
         new EnumWrapper<RoleVariableTypeField>(
@@ -39,6 +41,7 @@ public class RoleVariable {
   }
 
   public RoleVariable(RoleVariableVariableValueField variableValue) {
+    super();
     this.variableValue =
         new EnumWrapper<RoleVariableVariableValueField>(variableValue.getValue(), variableValue);
     this.type =
@@ -51,6 +54,7 @@ public class RoleVariable {
   }
 
   protected RoleVariable(RoleVariableBuilder builder) {
+    super();
     this.type = builder.type;
     this.variableType = builder.variableType;
     this.variableValue = builder.variableValue;

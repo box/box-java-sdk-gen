@@ -1,17 +1,21 @@
 package com.box.sdkgen.managers.sharedlinksfolders;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UpdateSharedLinkOnFolderRequestBody {
+public class UpdateSharedLinkOnFolderRequestBody extends SerializableObject {
 
   @JsonProperty("shared_link")
   protected UpdateSharedLinkOnFolderRequestBodySharedLinkField sharedLink;
 
-  public UpdateSharedLinkOnFolderRequestBody() {}
+  public UpdateSharedLinkOnFolderRequestBody() {
+    super();
+  }
 
   protected UpdateSharedLinkOnFolderRequestBody(
       UpdateSharedLinkOnFolderRequestBodyBuilder builder) {
+    super();
     this.sharedLink = builder.sharedLink;
   }
 

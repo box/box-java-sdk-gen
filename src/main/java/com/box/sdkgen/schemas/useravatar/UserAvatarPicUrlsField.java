@@ -1,8 +1,9 @@
 package com.box.sdkgen.schemas.useravatar;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class UserAvatarPicUrlsField {
+public class UserAvatarPicUrlsField extends SerializableObject {
 
   protected String small;
 
@@ -10,9 +11,12 @@ public class UserAvatarPicUrlsField {
 
   protected String preview;
 
-  public UserAvatarPicUrlsField() {}
+  public UserAvatarPicUrlsField() {
+    super();
+  }
 
   protected UserAvatarPicUrlsField(UserAvatarPicUrlsFieldBuilder builder) {
+    super();
     this.small = builder.small;
     this.large = builder.large;
     this.preview = builder.preview;

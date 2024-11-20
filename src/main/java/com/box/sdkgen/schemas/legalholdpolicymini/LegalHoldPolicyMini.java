@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.legalholdpolicymini;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class LegalHoldPolicyMini {
+public class LegalHoldPolicyMini extends SerializableObject {
 
   protected final String id;
 
@@ -16,6 +17,7 @@ public class LegalHoldPolicyMini {
   protected EnumWrapper<LegalHoldPolicyMiniTypeField> type;
 
   public LegalHoldPolicyMini(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<LegalHoldPolicyMiniTypeField>(
@@ -24,6 +26,7 @@ public class LegalHoldPolicyMini {
   }
 
   protected LegalHoldPolicyMini(LegalHoldPolicyMiniBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

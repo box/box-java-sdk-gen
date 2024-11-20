@@ -1,18 +1,22 @@
 package com.box.sdkgen.schemas.metadatas;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.metadata.Metadata;
 import java.util.List;
 import java.util.Objects;
 
-public class Metadatas {
+public class Metadatas extends SerializableObject {
 
   protected List<Metadata> entries;
 
   protected Long limit;
 
-  public Metadatas() {}
+  public Metadatas() {
+    super();
+  }
 
   protected Metadatas(MetadatasBuilder builder) {
+    super();
     this.entries = builder.entries;
     this.limit = builder.limit;
   }

@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.metadatacascadepolicy;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class MetadataCascadePolicyParentField {
+public class MetadataCascadePolicyParentField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -18,9 +19,12 @@ public class MetadataCascadePolicyParentField {
 
   protected String id;
 
-  public MetadataCascadePolicyParentField() {}
+  public MetadataCascadePolicyParentField() {
+    super();
+  }
 
   protected MetadataCascadePolicyParentField(MetadataCascadePolicyParentFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
   }

@@ -1,8 +1,9 @@
 package com.box.sdkgen.schemas.filefull;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class FileFullRepresentationsEntriesPropertiesField {
+public class FileFullRepresentationsEntriesPropertiesField extends SerializableObject {
 
   protected String dimensions;
 
@@ -10,10 +11,13 @@ public class FileFullRepresentationsEntriesPropertiesField {
 
   protected Boolean thumb;
 
-  public FileFullRepresentationsEntriesPropertiesField() {}
+  public FileFullRepresentationsEntriesPropertiesField() {
+    super();
+  }
 
   protected FileFullRepresentationsEntriesPropertiesField(
       FileFullRepresentationsEntriesPropertiesFieldBuilder builder) {
+    super();
     this.dimensions = builder.dimensions;
     this.paged = builder.paged;
     this.thumb = builder.thumb;

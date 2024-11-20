@@ -1,13 +1,15 @@
 package com.box.sdkgen.managers.folders;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateFolderRequestBodyParentField {
+public class CreateFolderRequestBodyParentField extends SerializableObject {
 
   protected final String id;
 
   public CreateFolderRequestBodyParentField(@JsonProperty("id") String id) {
+    super();
     this.id = id;
   }
 

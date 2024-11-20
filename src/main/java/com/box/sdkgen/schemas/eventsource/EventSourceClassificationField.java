@@ -1,14 +1,18 @@
 package com.box.sdkgen.schemas.eventsource;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class EventSourceClassificationField {
+public class EventSourceClassificationField extends SerializableObject {
 
   protected String name;
 
-  public EventSourceClassificationField() {}
+  public EventSourceClassificationField() {
+    super();
+  }
 
   protected EventSourceClassificationField(EventSourceClassificationFieldBuilder builder) {
+    super();
     this.name = builder.name;
   }
 

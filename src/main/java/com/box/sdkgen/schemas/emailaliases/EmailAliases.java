@@ -1,20 +1,24 @@
 package com.box.sdkgen.schemas.emailaliases;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.emailalias.EmailAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class EmailAliases {
+public class EmailAliases extends SerializableObject {
 
   @JsonProperty("total_count")
   protected Long totalCount;
 
   protected List<EmailAlias> entries;
 
-  public EmailAliases() {}
+  public EmailAliases() {
+    super();
+  }
 
   protected EmailAliases(EmailAliasesBuilder builder) {
+    super();
     this.totalCount = builder.totalCount;
     this.entries = builder.entries;
   }

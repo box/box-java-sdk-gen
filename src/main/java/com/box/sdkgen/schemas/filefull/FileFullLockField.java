@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.filefull;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class FileFullLockField {
+public class FileFullLockField extends SerializableObject {
 
   protected String id;
 
@@ -32,9 +33,12 @@ public class FileFullLockField {
   @JsonProperty("app_type")
   protected EnumWrapper<FileFullLockAppTypeField> appType;
 
-  public FileFullLockField() {}
+  public FileFullLockField() {
+    super();
+  }
 
   protected FileFullLockField(FileFullLockFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.createdBy = builder.createdBy;

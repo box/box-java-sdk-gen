@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.filefull;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class FileFullWatermarkInfoField {
+public class FileFullWatermarkInfoField extends SerializableObject {
 
   @JsonProperty("is_watermarked")
   protected Boolean isWatermarked;
 
-  public FileFullWatermarkInfoField() {}
+  public FileFullWatermarkInfoField() {
+    super();
+  }
 
   protected FileFullWatermarkInfoField(FileFullWatermarkInfoFieldBuilder builder) {
+    super();
     this.isWatermarked = builder.isWatermarked;
   }
 
