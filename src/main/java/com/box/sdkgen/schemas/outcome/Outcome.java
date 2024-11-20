@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.outcome;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.collaboratorvariable.CollaboratorVariable;
 import com.box.sdkgen.schemas.completionrulevariable.CompletionRuleVariable;
 import com.box.sdkgen.schemas.rolevariable.RoleVariable;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class Outcome {
+public class Outcome extends SerializableObject {
 
   protected final String id;
 
@@ -24,10 +25,12 @@ public class Outcome {
   protected RoleVariable role;
 
   public Outcome(@JsonProperty("id") String id) {
+    super();
     this.id = id;
   }
 
   protected Outcome(OutcomeBuilder builder) {
+    super();
     this.id = builder.id;
     this.collaborators = builder.collaborators;
     this.completionRule = builder.completionRule;

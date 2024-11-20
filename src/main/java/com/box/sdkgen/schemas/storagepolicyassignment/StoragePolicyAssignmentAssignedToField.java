@@ -1,17 +1,21 @@
 package com.box.sdkgen.schemas.storagepolicyassignment;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class StoragePolicyAssignmentAssignedToField {
+public class StoragePolicyAssignmentAssignedToField extends SerializableObject {
 
   protected String id;
 
   protected String type;
 
-  public StoragePolicyAssignmentAssignedToField() {}
+  public StoragePolicyAssignmentAssignedToField() {
+    super();
+  }
 
   protected StoragePolicyAssignmentAssignedToField(
       StoragePolicyAssignmentAssignedToFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

@@ -1,20 +1,24 @@
 package com.box.sdkgen.schemas.files;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filefull.FileFull;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class Files {
+public class Files extends SerializableObject {
 
   @JsonProperty("total_count")
   protected Long totalCount;
 
   protected List<FileFull> entries;
 
-  public Files() {}
+  public Files() {
+    super();
+  }
 
   protected Files(FilesBuilder builder) {
+    super();
     this.totalCount = builder.totalCount;
     this.entries = builder.entries;
   }

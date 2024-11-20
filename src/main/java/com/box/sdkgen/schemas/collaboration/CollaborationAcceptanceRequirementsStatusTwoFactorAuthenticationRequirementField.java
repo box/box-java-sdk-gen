@@ -1,9 +1,11 @@
 package com.box.sdkgen.schemas.collaboration;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementField {
+public class CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementField
+    extends SerializableObject {
 
   @JsonProperty("enterprise_has_two_factor_auth_enabled")
   protected Boolean enterpriseHasTwoFactorAuthEnabled;
@@ -11,11 +13,14 @@ public class CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationReq
   @JsonProperty("user_has_two_factor_authentication_enabled")
   protected Boolean userHasTwoFactorAuthenticationEnabled;
 
-  public CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementField() {}
+  public CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementField() {
+    super();
+  }
 
   protected CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementField(
       CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementFieldBuilder
           builder) {
+    super();
     this.enterpriseHasTwoFactorAuthEnabled = builder.enterpriseHasTwoFactorAuthEnabled;
     this.userHasTwoFactorAuthenticationEnabled = builder.userHasTwoFactorAuthenticationEnabled;
   }

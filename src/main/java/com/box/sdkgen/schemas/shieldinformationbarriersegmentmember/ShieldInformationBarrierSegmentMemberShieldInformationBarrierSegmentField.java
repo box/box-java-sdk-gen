@@ -1,11 +1,13 @@
 package com.box.sdkgen.schemas.shieldinformationbarriersegmentmember;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentField {
+public class ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentField
+    extends SerializableObject {
 
   protected String id;
 
@@ -23,10 +25,13 @@ public class ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmen
           ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentTypeField>
       type;
 
-  public ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentField() {}
+  public ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentField() {
+    super();
+  }
 
   protected ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentField(
       ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

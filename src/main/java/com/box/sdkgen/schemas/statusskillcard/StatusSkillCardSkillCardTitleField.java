@@ -1,19 +1,22 @@
 package com.box.sdkgen.schemas.statusskillcard;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class StatusSkillCardSkillCardTitleField {
+public class StatusSkillCardSkillCardTitleField extends SerializableObject {
 
   protected String code;
 
   protected final String message;
 
   public StatusSkillCardSkillCardTitleField(@JsonProperty("message") String message) {
+    super();
     this.message = message;
   }
 
   protected StatusSkillCardSkillCardTitleField(StatusSkillCardSkillCardTitleFieldBuilder builder) {
+    super();
     this.code = builder.code;
     this.message = builder.message;
   }

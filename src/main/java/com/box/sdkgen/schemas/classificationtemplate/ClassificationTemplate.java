@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.classificationtemplate;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class ClassificationTemplate {
+public class ClassificationTemplate extends SerializableObject {
 
   protected final String id;
 
@@ -49,6 +50,7 @@ public class ClassificationTemplate {
       @JsonProperty("id") String id,
       @JsonProperty("scope") String scope,
       @JsonProperty("fields") List<ClassificationTemplateFieldsField> fields) {
+    super();
     this.id = id;
     this.scope = scope;
     this.fields = fields;
@@ -67,6 +69,7 @@ public class ClassificationTemplate {
   }
 
   protected ClassificationTemplate(ClassificationTemplateBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.scope = builder.scope;

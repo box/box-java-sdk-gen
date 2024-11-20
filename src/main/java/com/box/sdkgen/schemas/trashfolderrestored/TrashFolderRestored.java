@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.trashfolderrestored;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class TrashFolderRestored {
+public class TrashFolderRestored extends SerializableObject {
 
   protected String id;
 
@@ -74,9 +75,12 @@ public class TrashFolderRestored {
   @JsonProperty("item_status")
   protected EnumWrapper<TrashFolderRestoredItemStatusField> itemStatus;
 
-  public TrashFolderRestored() {}
+  public TrashFolderRestored() {
+    super();
+  }
 
   protected TrashFolderRestored(TrashFolderRestoredBuilder builder) {
+    super();
     this.id = builder.id;
     this.etag = builder.etag;
     this.type = builder.type;

@@ -1,16 +1,20 @@
 package com.box.sdkgen.managers.fileversions;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UpdateFileVersionByIdRequestBody {
+public class UpdateFileVersionByIdRequestBody extends SerializableObject {
 
   @JsonProperty("trashed_at")
   protected String trashedAt;
 
-  public UpdateFileVersionByIdRequestBody() {}
+  public UpdateFileVersionByIdRequestBody() {
+    super();
+  }
 
   protected UpdateFileVersionByIdRequestBody(UpdateFileVersionByIdRequestBodyBuilder builder) {
+    super();
     this.trashedAt = builder.trashedAt;
   }
 

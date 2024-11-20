@@ -1,11 +1,12 @@
 package com.box.sdkgen.managers.tasks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CreateTaskRequestBodyItemField {
+public class CreateTaskRequestBodyItemField extends SerializableObject {
 
   protected String id;
 
@@ -16,9 +17,12 @@ public class CreateTaskRequestBodyItemField {
       using = CreateTaskRequestBodyItemTypeField.CreateTaskRequestBodyItemTypeFieldSerializer.class)
   protected EnumWrapper<CreateTaskRequestBodyItemTypeField> type;
 
-  public CreateTaskRequestBodyItemField() {}
+  public CreateTaskRequestBodyItemField() {
+    super();
+  }
 
   protected CreateTaskRequestBodyItemField(CreateTaskRequestBodyItemFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

@@ -1,5 +1,6 @@
 package com.box.sdkgen.managers.users;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.trackingcode.TrackingCode;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class CreateUserRequestBody {
+public class CreateUserRequestBody extends SerializableObject {
 
   protected final String name;
 
@@ -65,10 +66,12 @@ public class CreateUserRequestBody {
   protected String externalAppUserId;
 
   public CreateUserRequestBody(@JsonProperty("name") String name) {
+    super();
     this.name = name;
   }
 
   protected CreateUserRequestBody(CreateUserRequestBodyBuilder builder) {
+    super();
     this.name = builder.name;
     this.login = builder.login;
     this.isPlatformAccessOnly = builder.isPlatformAccessOnly;

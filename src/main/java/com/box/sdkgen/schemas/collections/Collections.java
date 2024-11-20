@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.collections;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.collection.Collection;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class Collections {
+public class Collections extends SerializableObject {
 
   @JsonProperty("total_count")
   protected Long totalCount;
@@ -18,9 +19,12 @@ public class Collections {
 
   protected List<Collection> entries;
 
-  public Collections() {}
+  public Collections() {
+    super();
+  }
 
   protected Collections(CollectionsBuilder builder) {
+    super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
     this.offset = builder.offset;

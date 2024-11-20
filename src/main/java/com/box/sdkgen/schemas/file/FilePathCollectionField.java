@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.file;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class FilePathCollectionField {
+public class FilePathCollectionField extends SerializableObject {
 
   @JsonProperty("total_count")
   protected final long totalCount;
@@ -15,6 +16,7 @@ public class FilePathCollectionField {
   public FilePathCollectionField(
       @JsonProperty("total_count") long totalCount,
       @JsonProperty("entries") List<FolderMini> entries) {
+    super();
     this.totalCount = totalCount;
     this.entries = entries;
   }

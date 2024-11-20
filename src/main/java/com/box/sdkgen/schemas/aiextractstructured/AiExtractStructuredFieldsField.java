@@ -1,10 +1,11 @@
 package com.box.sdkgen.schemas.aiextractstructured;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class AiExtractStructuredFieldsField {
+public class AiExtractStructuredFieldsField extends SerializableObject {
 
   protected final String key;
 
@@ -19,10 +20,12 @@ public class AiExtractStructuredFieldsField {
   protected List<AiExtractStructuredFieldsOptionsField> options;
 
   public AiExtractStructuredFieldsField(@JsonProperty("key") String key) {
+    super();
     this.key = key;
   }
 
   protected AiExtractStructuredFieldsField(AiExtractStructuredFieldsFieldBuilder builder) {
+    super();
     this.key = builder.key;
     this.description = builder.description;
     this.displayName = builder.displayName;

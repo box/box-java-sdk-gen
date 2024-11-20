@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.aiagentask;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagentbasictexttool.AiAgentBasicTextTool;
 import com.box.sdkgen.schemas.aiagentlongtexttool.AiAgentLongTextTool;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class AiAgentAsk {
+public class AiAgentAsk extends SerializableObject {
 
   @JsonDeserialize(using = AiAgentAskTypeField.AiAgentAskTypeFieldDeserializer.class)
   @JsonSerialize(using = AiAgentAskTypeField.AiAgentAskTypeFieldSerializer.class)
@@ -27,12 +28,14 @@ public class AiAgentAsk {
   protected AiAgentBasicTextTool basicTextMulti;
 
   public AiAgentAsk() {
+    super();
     this.type =
         new EnumWrapper<AiAgentAskTypeField>(
             AiAgentAskTypeField.AI_AGENT_ASK.getValue(), AiAgentAskTypeField.AI_AGENT_ASK);
   }
 
   protected AiAgentAsk(AiAgentAskBuilder builder) {
+    super();
     this.type = builder.type;
     this.longText = builder.longText;
     this.basicText = builder.basicText;

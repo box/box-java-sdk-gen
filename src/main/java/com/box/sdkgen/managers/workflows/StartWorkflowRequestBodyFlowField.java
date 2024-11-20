@@ -1,16 +1,20 @@
 package com.box.sdkgen.managers.workflows;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class StartWorkflowRequestBodyFlowField {
+public class StartWorkflowRequestBodyFlowField extends SerializableObject {
 
   protected String type;
 
   protected String id;
 
-  public StartWorkflowRequestBodyFlowField() {}
+  public StartWorkflowRequestBodyFlowField() {
+    super();
+  }
 
   protected StartWorkflowRequestBodyFlowField(StartWorkflowRequestBodyFlowFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
   }

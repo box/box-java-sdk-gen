@@ -1,16 +1,20 @@
 package com.box.sdkgen.managers.trashedfolders;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class RestoreFolderFromTrashRequestBody {
+public class RestoreFolderFromTrashRequestBody extends SerializableObject {
 
   protected String name;
 
   protected RestoreFolderFromTrashRequestBodyParentField parent;
 
-  public RestoreFolderFromTrashRequestBody() {}
+  public RestoreFolderFromTrashRequestBody() {
+    super();
+  }
 
   protected RestoreFolderFromTrashRequestBody(RestoreFolderFromTrashRequestBodyBuilder builder) {
+    super();
     this.name = builder.name;
     this.parent = builder.parent;
   }

@@ -128,7 +128,7 @@ See the endpoint docs at
 
 <!-- sample delete_metadata_templates_id_id_schema -->
 ```
-client.getMetadataTemplates().deleteMetadataTemplate(DeleteMetadataTemplateScope.ENTERPRISE, templateKey)
+client.getMetadataTemplates().deleteMetadataTemplate(DeleteMetadataTemplateScope.ENTERPRISE, template.getTemplateKey())
 ```
 
 ### Arguments
@@ -252,7 +252,7 @@ See the endpoint docs at
 
 <!-- sample post_metadata_templates_schema -->
 ```
-client.getMetadataTemplates().createMetadataTemplate(new CreateMetadataTemplateRequestBody.CreateMetadataTemplateRequestBodyBuilder("enterprise", templateKey).templateKey(templateKey).fields(Arrays.asList(new CreateMetadataTemplateRequestBodyFieldsField(CreateMetadataTemplateRequestBodyFieldsTypeField.STRING, "testName", "testName"))).build())
+client.getMetadataTemplates().createMetadataTemplate(new CreateMetadataTemplateRequestBody.CreateMetadataTemplateRequestBodyBuilder("enterprise", templateKey).templateKey(templateKey).fields(Arrays.asList(new CreateMetadataTemplateRequestBodyFieldsField.CreateMetadataTemplateRequestBodyFieldsFieldBuilder(CreateMetadataTemplateRequestBodyFieldsTypeField.STRING, "firstName", "First name").description("Person first name").build(), new CreateMetadataTemplateRequestBodyFieldsField.CreateMetadataTemplateRequestBodyFieldsFieldBuilder(CreateMetadataTemplateRequestBodyFieldsTypeField.STRING, "lastName", "Last name").description("Person last name").build(), new CreateMetadataTemplateRequestBodyFieldsField.CreateMetadataTemplateRequestBodyFieldsFieldBuilder(CreateMetadataTemplateRequestBodyFieldsTypeField.DATE, "dateOfBirth", "Birth date").description("Person date of birth").build(), new CreateMetadataTemplateRequestBodyFieldsField.CreateMetadataTemplateRequestBodyFieldsFieldBuilder(CreateMetadataTemplateRequestBodyFieldsTypeField.FLOAT, "age", "Age").description("Person age").build(), new CreateMetadataTemplateRequestBodyFieldsField.CreateMetadataTemplateRequestBodyFieldsFieldBuilder(CreateMetadataTemplateRequestBodyFieldsTypeField.MULTISELECT, "hobby", "Hobby").description("Person hobby").build())).build())
 ```
 
 ### Arguments

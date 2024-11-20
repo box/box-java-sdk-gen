@@ -1,5 +1,6 @@
 package com.box.sdkgen.managers.memberships;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Map;
 import java.util.Objects;
 
-public class UpdateGroupMembershipByIdRequestBody {
+public class UpdateGroupMembershipByIdRequestBody extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -22,10 +23,13 @@ public class UpdateGroupMembershipByIdRequestBody {
   @JsonProperty("configurable_permissions")
   protected Map<String, Boolean> configurablePermissions;
 
-  public UpdateGroupMembershipByIdRequestBody() {}
+  public UpdateGroupMembershipByIdRequestBody() {
+    super();
+  }
 
   protected UpdateGroupMembershipByIdRequestBody(
       UpdateGroupMembershipByIdRequestBodyBuilder builder) {
+    super();
     this.role = builder.role;
     this.configurablePermissions = builder.configurablePermissions;
   }

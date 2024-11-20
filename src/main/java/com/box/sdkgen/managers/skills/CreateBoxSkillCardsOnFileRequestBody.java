@@ -1,11 +1,12 @@
 package com.box.sdkgen.managers.skills;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.keywordskillcardorstatusskillcardortimelineskillcardortranscriptskillcard.KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class CreateBoxSkillCardsOnFileRequestBody {
+public class CreateBoxSkillCardsOnFileRequestBody extends SerializableObject {
 
   protected final List<KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard>
       cards;
@@ -13,6 +14,7 @@ public class CreateBoxSkillCardsOnFileRequestBody {
   public CreateBoxSkillCardsOnFileRequestBody(
       @JsonProperty("cards")
           List<KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard> cards) {
+    super();
     this.cards = cards;
   }
 

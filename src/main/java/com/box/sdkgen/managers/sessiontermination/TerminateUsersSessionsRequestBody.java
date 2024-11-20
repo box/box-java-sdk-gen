@@ -1,10 +1,11 @@
 package com.box.sdkgen.managers.sessiontermination;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class TerminateUsersSessionsRequestBody {
+public class TerminateUsersSessionsRequestBody extends SerializableObject {
 
   @JsonProperty("user_ids")
   protected final List<String> userIds;
@@ -15,6 +16,7 @@ public class TerminateUsersSessionsRequestBody {
   public TerminateUsersSessionsRequestBody(
       @JsonProperty("user_ids") List<String> userIds,
       @JsonProperty("user_logins") List<String> userLogins) {
+    super();
     this.userIds = userIds;
     this.userLogins = userLogins;
   }

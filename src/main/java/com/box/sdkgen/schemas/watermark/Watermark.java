@@ -1,14 +1,18 @@
 package com.box.sdkgen.schemas.watermark;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class Watermark {
+public class Watermark extends SerializableObject {
 
   protected WatermarkWatermarkField watermark;
 
-  public Watermark() {}
+  public Watermark() {
+    super();
+  }
 
   protected Watermark(WatermarkBuilder builder) {
+    super();
     this.watermark = builder.watermark;
   }
 

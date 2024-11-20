@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.storagepolicyassignments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateStoragePolicyAssignmentRequestBody {
+public class CreateStoragePolicyAssignmentRequestBody extends SerializableObject {
 
   @JsonProperty("storage_policy")
   protected final CreateStoragePolicyAssignmentRequestBodyStoragePolicyField storagePolicy;
@@ -16,6 +17,7 @@ public class CreateStoragePolicyAssignmentRequestBody {
           CreateStoragePolicyAssignmentRequestBodyStoragePolicyField storagePolicy,
       @JsonProperty("assigned_to")
           CreateStoragePolicyAssignmentRequestBodyAssignedToField assignedTo) {
+    super();
     this.storagePolicy = storagePolicy;
     this.assignedTo = assignedTo;
   }

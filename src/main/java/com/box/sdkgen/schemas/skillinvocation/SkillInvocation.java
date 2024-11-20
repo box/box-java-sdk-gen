@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.skillinvocation;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.event.Event;
 import com.box.sdkgen.schemas.fileorfolder.FileOrFolder;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class SkillInvocation {
+public class SkillInvocation extends SerializableObject {
 
   @JsonDeserialize(using = SkillInvocationTypeField.SkillInvocationTypeFieldDeserializer.class)
   @JsonSerialize(using = SkillInvocationTypeField.SkillInvocationTypeFieldSerializer.class)
@@ -33,9 +34,12 @@ public class SkillInvocation {
 
   protected Event event;
 
-  public SkillInvocation() {}
+  public SkillInvocation() {
+    super();
+  }
 
   protected SkillInvocation(SkillInvocationBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
     this.skill = builder.skill;

@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.useravatar;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UserAvatar {
+public class UserAvatar extends SerializableObject {
 
   @JsonProperty("pic_urls")
   protected UserAvatarPicUrlsField picUrls;
 
-  public UserAvatar() {}
+  public UserAvatar() {
+    super();
+  }
 
   protected UserAvatar(UserAvatarBuilder builder) {
+    super();
     this.picUrls = builder.picUrls;
   }
 

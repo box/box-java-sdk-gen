@@ -1,10 +1,11 @@
 package com.box.sdkgen.schemas.zipdownload;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class ZipDownload {
+public class ZipDownload extends SerializableObject {
 
   @JsonProperty("download_url")
   protected String downloadUrl;
@@ -18,9 +19,12 @@ public class ZipDownload {
   @JsonProperty("name_conflicts")
   protected List<List<ZipDownloadNameConflictsField>> nameConflicts;
 
-  public ZipDownload() {}
+  public ZipDownload() {
+    super();
+  }
 
   protected ZipDownload(ZipDownloadBuilder builder) {
+    super();
     this.downloadUrl = builder.downloadUrl;
     this.statusUrl = builder.statusUrl;
     this.expiresAt = builder.expiresAt;

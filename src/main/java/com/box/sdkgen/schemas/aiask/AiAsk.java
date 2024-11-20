@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.aiask;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagentask.AiAgentAsk;
 import com.box.sdkgen.schemas.aidialoguehistory.AiDialogueHistory;
 import com.box.sdkgen.schemas.aiitembase.AiItemBase;
@@ -10,7 +11,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class AiAsk {
+public class AiAsk extends SerializableObject {
 
   @JsonDeserialize(using = AiAskModeField.AiAskModeFieldDeserializer.class)
   @JsonSerialize(using = AiAskModeField.AiAskModeFieldSerializer.class)
@@ -33,18 +34,21 @@ public class AiAsk {
       @JsonProperty("mode") EnumWrapper<AiAskModeField> mode,
       @JsonProperty("prompt") String prompt,
       @JsonProperty("items") List<AiItemBase> items) {
+    super();
     this.mode = mode;
     this.prompt = prompt;
     this.items = items;
   }
 
   public AiAsk(AiAskModeField mode, String prompt, List<AiItemBase> items) {
+    super();
     this.mode = new EnumWrapper<AiAskModeField>(mode.getValue(), mode);
     this.prompt = prompt;
     this.items = items;
   }
 
   protected AiAsk(AiAskBuilder builder) {
+    super();
     this.mode = builder.mode;
     this.prompt = builder.prompt;
     this.items = builder.items;

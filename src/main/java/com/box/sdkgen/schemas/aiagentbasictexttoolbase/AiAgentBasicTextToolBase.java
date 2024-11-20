@@ -1,10 +1,11 @@
 package com.box.sdkgen.schemas.aiagentbasictexttoolbase;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aillmendpointparamsawsoraillmendpointparamsgoogleoraillmendpointparamsopenai.AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class AiAgentBasicTextToolBase {
+public class AiAgentBasicTextToolBase extends SerializableObject {
 
   protected String model;
 
@@ -15,9 +16,12 @@ public class AiAgentBasicTextToolBase {
   protected AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi
       llmEndpointParams;
 
-  public AiAgentBasicTextToolBase() {}
+  public AiAgentBasicTextToolBase() {
+    super();
+  }
 
   protected AiAgentBasicTextToolBase(AiAgentBasicTextToolBaseBuilder builder) {
+    super();
     this.model = builder.model;
     this.numTokensForCompletion = builder.numTokensForCompletion;
     this.llmEndpointParams = builder.llmEndpointParams;

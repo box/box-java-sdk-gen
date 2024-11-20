@@ -1,20 +1,24 @@
 package com.box.sdkgen.schemas.realtimeservers;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.realtimeserver.RealtimeServer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class RealtimeServers {
+public class RealtimeServers extends SerializableObject {
 
   @JsonProperty("chunk_size")
   protected Long chunkSize;
 
   protected List<RealtimeServer> entries;
 
-  public RealtimeServers() {}
+  public RealtimeServers() {
+    super();
+  }
 
   protected RealtimeServers(RealtimeServersBuilder builder) {
+    super();
     this.chunkSize = builder.chunkSize;
     this.entries = builder.entries;
   }

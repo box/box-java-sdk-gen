@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.signrequestcreatesigner;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class SignRequestCreateSigner {
+public class SignRequestCreateSigner extends SerializableObject {
 
   protected String email;
 
@@ -44,9 +45,12 @@ public class SignRequestCreateSigner {
   @JsonProperty("suppress_notifications")
   protected Boolean suppressNotifications;
 
-  public SignRequestCreateSigner() {}
+  public SignRequestCreateSigner() {
+    super();
+  }
 
   protected SignRequestCreateSigner(SignRequestCreateSignerBuilder builder) {
+    super();
     this.email = builder.email;
     this.role = builder.role;
     this.isInPerson = builder.isInPerson;

@@ -1,5 +1,6 @@
 package com.box.sdkgen.managers.folders;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class UpdateFolderByIdRequestBody {
+public class UpdateFolderByIdRequestBody extends SerializableObject {
 
   protected String name;
 
@@ -45,9 +46,12 @@ public class UpdateFolderByIdRequestBody {
   @JsonProperty("can_non_owners_view_collaborators")
   protected Boolean canNonOwnersViewCollaborators;
 
-  public UpdateFolderByIdRequestBody() {}
+  public UpdateFolderByIdRequestBody() {
+    super();
+  }
 
   protected UpdateFolderByIdRequestBody(UpdateFolderByIdRequestBodyBuilder builder) {
+    super();
     this.name = builder.name;
     this.description = builder.description;
     this.syncState = builder.syncState;

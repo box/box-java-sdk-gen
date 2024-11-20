@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.signrequestsigner;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class SignRequestSignerSignerDecisionField {
+public class SignRequestSignerSignerDecisionField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -24,10 +25,13 @@ public class SignRequestSignerSignerDecisionField {
   @JsonProperty("additional_info")
   protected String additionalInfo;
 
-  public SignRequestSignerSignerDecisionField() {}
+  public SignRequestSignerSignerDecisionField() {
+    super();
+  }
 
   protected SignRequestSignerSignerDecisionField(
       SignRequestSignerSignerDecisionFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.finalizedAt = builder.finalizedAt;
     this.additionalInfo = builder.additionalInfo;

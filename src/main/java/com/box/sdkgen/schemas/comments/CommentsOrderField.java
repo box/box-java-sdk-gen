@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.comments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CommentsOrderField {
+public class CommentsOrderField extends SerializableObject {
 
   protected String by;
 
@@ -14,9 +15,12 @@ public class CommentsOrderField {
   @JsonSerialize(using = CommentsOrderDirectionField.CommentsOrderDirectionFieldSerializer.class)
   protected EnumWrapper<CommentsOrderDirectionField> direction;
 
-  public CommentsOrderField() {}
+  public CommentsOrderField() {
+    super();
+  }
 
   protected CommentsOrderField(CommentsOrderFieldBuilder builder) {
+    super();
     this.by = builder.by;
     this.direction = builder.direction;
   }

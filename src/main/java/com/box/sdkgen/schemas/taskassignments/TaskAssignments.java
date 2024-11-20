@@ -1,20 +1,24 @@
 package com.box.sdkgen.schemas.taskassignments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.taskassignment.TaskAssignment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class TaskAssignments {
+public class TaskAssignments extends SerializableObject {
 
   @JsonProperty("total_count")
   protected Long totalCount;
 
   protected List<TaskAssignment> entries;
 
-  public TaskAssignments() {}
+  public TaskAssignments() {
+    super();
+  }
 
   protected TaskAssignments(TaskAssignmentsBuilder builder) {
+    super();
     this.totalCount = builder.totalCount;
     this.entries = builder.entries;
   }

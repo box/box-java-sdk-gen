@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.trashfile;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.fileversionmini.FileVersionMini;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
@@ -9,7 +10,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class TrashFile {
+public class TrashFile extends SerializableObject {
 
   protected final String id;
 
@@ -85,6 +86,7 @@ public class TrashFile {
       @JsonProperty("modified_by") UserMini modifiedBy,
       @JsonProperty("owned_by") UserMini ownedBy,
       @JsonProperty("item_status") EnumWrapper<TrashFileItemStatusField> itemStatus) {
+    super();
     this.id = id;
     this.sequenceId = sequenceId;
     this.sha1 = sha1;
@@ -113,6 +115,7 @@ public class TrashFile {
       UserMini modifiedBy,
       UserMini ownedBy,
       TrashFileItemStatusField itemStatus) {
+    super();
     this.id = id;
     this.sequenceId = sequenceId;
     this.sha1 = sha1;
@@ -130,6 +133,7 @@ public class TrashFile {
   }
 
   protected TrashFile(TrashFileBuilder builder) {
+    super();
     this.id = builder.id;
     this.etag = builder.etag;
     this.type = builder.type;

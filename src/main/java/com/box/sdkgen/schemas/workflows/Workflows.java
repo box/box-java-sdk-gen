@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.workflows;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.workflow.Workflow;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class Workflows {
+public class Workflows extends SerializableObject {
 
   protected Long limit;
 
@@ -17,9 +18,12 @@ public class Workflows {
 
   protected List<Workflow> entries;
 
-  public Workflows() {}
+  public Workflows() {
+    super();
+  }
 
   protected Workflows(WorkflowsBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;

@@ -1,15 +1,19 @@
 package com.box.sdkgen.schemas.filefull;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.List;
 import java.util.Objects;
 
-public class FileFullRepresentationsField {
+public class FileFullRepresentationsField extends SerializableObject {
 
   protected List<FileFullRepresentationsEntriesField> entries;
 
-  public FileFullRepresentationsField() {}
+  public FileFullRepresentationsField() {
+    super();
+  }
 
   protected FileFullRepresentationsField(FileFullRepresentationsFieldBuilder builder) {
+    super();
     this.entries = builder.entries;
   }
 

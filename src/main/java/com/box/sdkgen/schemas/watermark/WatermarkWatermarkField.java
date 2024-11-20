@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.watermark;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class WatermarkWatermarkField {
+public class WatermarkWatermarkField extends SerializableObject {
 
   @JsonProperty("created_at")
   protected String createdAt;
@@ -11,9 +12,12 @@ public class WatermarkWatermarkField {
   @JsonProperty("modified_at")
   protected String modifiedAt;
 
-  public WatermarkWatermarkField() {}
+  public WatermarkWatermarkField() {
+    super();
+  }
 
   protected WatermarkWatermarkField(WatermarkWatermarkFieldBuilder builder) {
+    super();
     this.createdAt = builder.createdAt;
     this.modifiedAt = builder.modifiedAt;
   }

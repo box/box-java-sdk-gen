@@ -1,5 +1,6 @@
 package com.box.sdkgen.managers.users;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.trackingcode.TrackingCode;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class UpdateUserByIdRequestBody {
+public class UpdateUserByIdRequestBody extends SerializableObject {
 
   protected String enterprise;
 
@@ -75,9 +76,12 @@ public class UpdateUserByIdRequestBody {
   @JsonProperty("external_app_user_id")
   protected String externalAppUserId;
 
-  public UpdateUserByIdRequestBody() {}
+  public UpdateUserByIdRequestBody() {
+    super();
+  }
 
   protected UpdateUserByIdRequestBody(UpdateUserByIdRequestBodyBuilder builder) {
+    super();
     this.enterprise = builder.enterprise;
     this.notify = builder.notify;
     this.name = builder.name;

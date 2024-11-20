@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.event;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.appitemeventsourceoreventsourceorfileorfolderorgenericsourceoruser.AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class Event {
+public class Event extends SerializableObject {
 
   protected String type;
 
@@ -37,9 +38,12 @@ public class Event {
   @JsonProperty("additional_details")
   protected EventAdditionalDetailsField additionalDetails;
 
-  public Event() {}
+  public Event() {
+    super();
+  }
 
   protected Event(EventBuilder builder) {
+    super();
     this.type = builder.type;
     this.createdAt = builder.createdAt;
     this.recordedAt = builder.recordedAt;

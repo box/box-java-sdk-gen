@@ -1,13 +1,15 @@
 package com.box.sdkgen.managers.transfer;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class TransferOwnedFolderRequestBodyOwnedByField {
+public class TransferOwnedFolderRequestBodyOwnedByField extends SerializableObject {
 
   protected final String id;
 
   public TransferOwnedFolderRequestBodyOwnedByField(@JsonProperty("id") String id) {
+    super();
     this.id = id;
   }
 

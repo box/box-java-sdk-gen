@@ -1,17 +1,21 @@
 package com.box.sdkgen.managers.folders;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UpdateFolderByIdRequestBodySharedLinkPermissionsField {
+public class UpdateFolderByIdRequestBodySharedLinkPermissionsField extends SerializableObject {
 
   @JsonProperty("can_download")
   protected Boolean canDownload;
 
-  public UpdateFolderByIdRequestBodySharedLinkPermissionsField() {}
+  public UpdateFolderByIdRequestBodySharedLinkPermissionsField() {
+    super();
+  }
 
   protected UpdateFolderByIdRequestBodySharedLinkPermissionsField(
       UpdateFolderByIdRequestBodySharedLinkPermissionsFieldBuilder builder) {
+    super();
     this.canDownload = builder.canDownload;
   }
 

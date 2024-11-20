@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.retentionpolicy;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class RetentionPolicyAssignmentCountsField {
+public class RetentionPolicyAssignmentCountsField extends SerializableObject {
 
   protected Long enterprise;
 
@@ -12,10 +13,13 @@ public class RetentionPolicyAssignmentCountsField {
   @JsonProperty("metadata_template")
   protected Long metadataTemplate;
 
-  public RetentionPolicyAssignmentCountsField() {}
+  public RetentionPolicyAssignmentCountsField() {
+    super();
+  }
 
   protected RetentionPolicyAssignmentCountsField(
       RetentionPolicyAssignmentCountsFieldBuilder builder) {
+    super();
     this.enterprise = builder.enterprise;
     this.folder = builder.folder;
     this.metadataTemplate = builder.metadataTemplate;

@@ -1,20 +1,23 @@
 package com.box.sdkgen.schemas.transcriptskillcard;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class TranscriptSkillCardSkillCardTitleField {
+public class TranscriptSkillCardSkillCardTitleField extends SerializableObject {
 
   protected String code;
 
   protected final String message;
 
   public TranscriptSkillCardSkillCardTitleField(@JsonProperty("message") String message) {
+    super();
     this.message = message;
   }
 
   protected TranscriptSkillCardSkillCardTitleField(
       TranscriptSkillCardSkillCardTitleFieldBuilder builder) {
+    super();
     this.code = builder.code;
     this.message = builder.message;
   }

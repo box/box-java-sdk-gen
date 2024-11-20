@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.aillmendpointparamsaws;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class AiLlmEndpointParamsAws {
+public class AiLlmEndpointParamsAws extends SerializableObject {
 
   @JsonDeserialize(
       using = AiLlmEndpointParamsAwsTypeField.AiLlmEndpointParamsAwsTypeFieldDeserializer.class)
@@ -20,6 +21,7 @@ public class AiLlmEndpointParamsAws {
   protected Double topP;
 
   public AiLlmEndpointParamsAws() {
+    super();
     this.type =
         new EnumWrapper<AiLlmEndpointParamsAwsTypeField>(
             AiLlmEndpointParamsAwsTypeField.AWS_PARAMS.getValue(),
@@ -27,6 +29,7 @@ public class AiLlmEndpointParamsAws {
   }
 
   protected AiLlmEndpointParamsAws(AiLlmEndpointParamsAwsBuilder builder) {
+    super();
     this.type = builder.type;
     this.temperature = builder.temperature;
     this.topP = builder.topP;

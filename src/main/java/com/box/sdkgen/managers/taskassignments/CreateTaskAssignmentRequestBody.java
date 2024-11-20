@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.taskassignments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateTaskAssignmentRequestBody {
+public class CreateTaskAssignmentRequestBody extends SerializableObject {
 
   protected final CreateTaskAssignmentRequestBodyTaskField task;
 
@@ -13,6 +14,7 @@ public class CreateTaskAssignmentRequestBody {
   public CreateTaskAssignmentRequestBody(
       @JsonProperty("task") CreateTaskAssignmentRequestBodyTaskField task,
       @JsonProperty("assign_to") CreateTaskAssignmentRequestBodyAssignToField assignTo) {
+    super();
     this.task = task;
     this.assignTo = assignTo;
   }

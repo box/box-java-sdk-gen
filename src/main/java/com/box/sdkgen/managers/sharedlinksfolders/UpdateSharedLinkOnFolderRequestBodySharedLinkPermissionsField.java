@@ -1,9 +1,11 @@
 package com.box.sdkgen.managers.sharedlinksfolders;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UpdateSharedLinkOnFolderRequestBodySharedLinkPermissionsField {
+public class UpdateSharedLinkOnFolderRequestBodySharedLinkPermissionsField
+    extends SerializableObject {
 
   @JsonProperty("can_download")
   protected Boolean canDownload;
@@ -14,10 +16,13 @@ public class UpdateSharedLinkOnFolderRequestBodySharedLinkPermissionsField {
   @JsonProperty("can_edit")
   protected Boolean canEdit;
 
-  public UpdateSharedLinkOnFolderRequestBodySharedLinkPermissionsField() {}
+  public UpdateSharedLinkOnFolderRequestBodySharedLinkPermissionsField() {
+    super();
+  }
 
   protected UpdateSharedLinkOnFolderRequestBodySharedLinkPermissionsField(
       UpdateSharedLinkOnFolderRequestBodySharedLinkPermissionsFieldBuilder builder) {
+    super();
     this.canDownload = builder.canDownload;
     this.canPreview = builder.canPreview;
     this.canEdit = builder.canEdit;

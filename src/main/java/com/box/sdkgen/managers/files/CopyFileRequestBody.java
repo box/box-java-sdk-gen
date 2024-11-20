@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.files;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CopyFileRequestBody {
+public class CopyFileRequestBody extends SerializableObject {
 
   protected String name;
 
@@ -12,10 +13,12 @@ public class CopyFileRequestBody {
   protected final CopyFileRequestBodyParentField parent;
 
   public CopyFileRequestBody(@JsonProperty("parent") CopyFileRequestBodyParentField parent) {
+    super();
     this.parent = parent;
   }
 
   protected CopyFileRequestBody(CopyFileRequestBodyBuilder builder) {
+    super();
     this.name = builder.name;
     this.version = builder.version;
     this.parent = builder.parent;

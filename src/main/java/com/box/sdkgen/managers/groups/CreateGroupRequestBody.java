@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.groups;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CreateGroupRequestBody {
+public class CreateGroupRequestBody extends SerializableObject {
 
   protected final String name;
 
@@ -40,10 +41,12 @@ public class CreateGroupRequestBody {
   protected EnumWrapper<CreateGroupRequestBodyMemberViewabilityLevelField> memberViewabilityLevel;
 
   public CreateGroupRequestBody(@JsonProperty("name") String name) {
+    super();
     this.name = name;
   }
 
   protected CreateGroupRequestBody(CreateGroupRequestBodyBuilder builder) {
+    super();
     this.name = builder.name;
     this.provenance = builder.provenance;
     this.externalSyncIdentifier = builder.externalSyncIdentifier;

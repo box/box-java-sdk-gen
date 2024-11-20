@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.legalholdpolicies;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UpdateLegalHoldPolicyByIdRequestBody {
+public class UpdateLegalHoldPolicyByIdRequestBody extends SerializableObject {
 
   @JsonProperty("policy_name")
   protected String policyName;
@@ -13,10 +14,13 @@ public class UpdateLegalHoldPolicyByIdRequestBody {
   @JsonProperty("release_notes")
   protected String releaseNotes;
 
-  public UpdateLegalHoldPolicyByIdRequestBody() {}
+  public UpdateLegalHoldPolicyByIdRequestBody() {
+    super();
+  }
 
   protected UpdateLegalHoldPolicyByIdRequestBody(
       UpdateLegalHoldPolicyByIdRequestBodyBuilder builder) {
+    super();
     this.policyName = builder.policyName;
     this.description = builder.description;
     this.releaseNotes = builder.releaseNotes;

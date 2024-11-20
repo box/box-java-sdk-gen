@@ -1,10 +1,11 @@
 package com.box.sdkgen.schemas.zipdownloadrequest;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class ZipDownloadRequest {
+public class ZipDownloadRequest extends SerializableObject {
 
   protected final List<ZipDownloadRequestItemsField> items;
 
@@ -12,10 +13,12 @@ public class ZipDownloadRequest {
   protected String downloadFileName;
 
   public ZipDownloadRequest(@JsonProperty("items") List<ZipDownloadRequestItemsField> items) {
+    super();
     this.items = items;
   }
 
   protected ZipDownloadRequest(ZipDownloadRequestBuilder builder) {
+    super();
     this.items = builder.items;
     this.downloadFileName = builder.downloadFileName;
   }

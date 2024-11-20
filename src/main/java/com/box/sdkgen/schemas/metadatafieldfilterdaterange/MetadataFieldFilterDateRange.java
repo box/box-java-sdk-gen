@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.metadatafieldfilterdaterange;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class MetadataFieldFilterDateRange {
+public class MetadataFieldFilterDateRange extends SerializableObject {
 
   protected String lt;
 
   protected String gt;
 
-  public MetadataFieldFilterDateRange() {}
+  public MetadataFieldFilterDateRange() {
+    super();
+  }
 
   protected MetadataFieldFilterDateRange(MetadataFieldFilterDateRangeBuilder builder) {
+    super();
     this.lt = builder.lt;
     this.gt = builder.gt;
   }

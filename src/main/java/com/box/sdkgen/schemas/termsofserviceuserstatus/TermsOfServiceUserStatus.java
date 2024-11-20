@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.termsofserviceuserstatus;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.termsofservicebase.TermsOfServiceBase;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class TermsOfServiceUserStatus {
+public class TermsOfServiceUserStatus extends SerializableObject {
 
   protected final String id;
 
@@ -32,6 +33,7 @@ public class TermsOfServiceUserStatus {
   protected String modifiedAt;
 
   public TermsOfServiceUserStatus(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<TermsOfServiceUserStatusTypeField>(
@@ -40,6 +42,7 @@ public class TermsOfServiceUserStatus {
   }
 
   protected TermsOfServiceUserStatus(TermsOfServiceUserStatusBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.tos = builder.tos;

@@ -1,8 +1,9 @@
 package com.box.sdkgen.schemas.folderfull;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class FolderFullClassificationField {
+public class FolderFullClassificationField extends SerializableObject {
 
   protected String name;
 
@@ -10,9 +11,12 @@ public class FolderFullClassificationField {
 
   protected String color;
 
-  public FolderFullClassificationField() {}
+  public FolderFullClassificationField() {
+    super();
+  }
 
   protected FolderFullClassificationField(FolderFullClassificationFieldBuilder builder) {
+    super();
     this.name = builder.name;
     this.definition = builder.definition;
     this.color = builder.color;

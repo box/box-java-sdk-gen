@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.folderlocks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.folderlock.FolderLock;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class FolderLocks {
+public class FolderLocks extends SerializableObject {
 
   protected List<FolderLock> entries;
 
@@ -14,9 +15,12 @@ public class FolderLocks {
   @JsonProperty("next_marker")
   protected String nextMarker;
 
-  public FolderLocks() {}
+  public FolderLocks() {
+    super();
+  }
 
   protected FolderLocks(FolderLocksBuilder builder) {
+    super();
     this.entries = builder.entries;
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;

@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.trashweblinkrestored;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class TrashWebLinkRestored {
+public class TrashWebLinkRestored extends SerializableObject {
 
   @JsonDeserialize(
       using = TrashWebLinkRestoredTypeField.TrashWebLinkRestoredTypeFieldDeserializer.class)
@@ -70,11 +71,13 @@ public class TrashWebLinkRestored {
   public TrashWebLinkRestored(
       @JsonProperty("sequence_id") String sequenceId,
       @JsonProperty("path_collection") TrashWebLinkRestoredPathCollectionField pathCollection) {
+    super();
     this.sequenceId = sequenceId;
     this.pathCollection = pathCollection;
   }
 
   protected TrashWebLinkRestored(TrashWebLinkRestoredBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
     this.sequenceId = builder.sequenceId;

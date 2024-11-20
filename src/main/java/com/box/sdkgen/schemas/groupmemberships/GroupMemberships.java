@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.groupmemberships;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.groupmembership.GroupMembership;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class GroupMemberships {
+public class GroupMemberships extends SerializableObject {
 
   @JsonProperty("total_count")
   protected Long totalCount;
@@ -18,9 +19,12 @@ public class GroupMemberships {
 
   protected List<GroupMembership> entries;
 
-  public GroupMemberships() {}
+  public GroupMemberships() {
+    super();
+  }
 
   protected GroupMemberships(GroupMembershipsBuilder builder) {
+    super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
     this.offset = builder.offset;

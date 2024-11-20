@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.aicitation;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class AiCitation {
+public class AiCitation extends SerializableObject {
 
   protected String content;
 
@@ -17,9 +18,12 @@ public class AiCitation {
 
   protected String name;
 
-  public AiCitation() {}
+  public AiCitation() {
+    super();
+  }
 
   protected AiCitation(AiCitationBuilder builder) {
+    super();
     this.content = builder.content;
     this.id = builder.id;
     this.type = builder.type;

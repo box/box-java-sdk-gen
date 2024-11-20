@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.itemsoffsetpaginated;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filefullorfolderminiorweblink.FileFullOrFolderMiniOrWebLink;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class ItemsOffsetPaginated {
+public class ItemsOffsetPaginated extends SerializableObject {
 
   @JsonProperty("total_count")
   protected Long totalCount;
@@ -18,9 +19,12 @@ public class ItemsOffsetPaginated {
 
   protected List<FileFullOrFolderMiniOrWebLink> entries;
 
-  public ItemsOffsetPaginated() {}
+  public ItemsOffsetPaginated() {
+    super();
+  }
 
   protected ItemsOffsetPaginated(ItemsOffsetPaginatedBuilder builder) {
+    super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
     this.offset = builder.offset;

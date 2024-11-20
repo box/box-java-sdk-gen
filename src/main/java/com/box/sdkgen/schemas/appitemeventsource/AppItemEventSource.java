@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.appitemeventsource;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.groupmini.GroupMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class AppItemEventSource {
+public class AppItemEventSource extends SerializableObject {
 
   protected final String id;
 
@@ -26,6 +27,7 @@ public class AppItemEventSource {
 
   public AppItemEventSource(
       @JsonProperty("id") String id, @JsonProperty("app_item_type") String appItemType) {
+    super();
     this.id = id;
     this.appItemType = appItemType;
     this.type =
@@ -34,6 +36,7 @@ public class AppItemEventSource {
   }
 
   protected AppItemEventSource(AppItemEventSourceBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.appItemType = builder.appItemType;

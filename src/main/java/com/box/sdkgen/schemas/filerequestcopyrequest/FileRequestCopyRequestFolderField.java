@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.filerequestcopyrequest;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class FileRequestCopyRequestFolderField {
+public class FileRequestCopyRequestFolderField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -21,10 +22,12 @@ public class FileRequestCopyRequestFolderField {
   protected final String id;
 
   public FileRequestCopyRequestFolderField(@JsonProperty("id") String id) {
+    super();
     this.id = id;
   }
 
   protected FileRequestCopyRequestFolderField(FileRequestCopyRequestFolderFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
   }

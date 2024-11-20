@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import java.io.IOException;
 
-public class OneOfThree<T0, T1, T2> {
+public class OneOfThree<T0, T1, T2> extends SerializableObject {
   protected static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
   protected T0 value0;
   protected T1 value1;

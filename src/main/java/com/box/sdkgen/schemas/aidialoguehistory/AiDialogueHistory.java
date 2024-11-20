@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.aidialoguehistory;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class AiDialogueHistory {
+public class AiDialogueHistory extends SerializableObject {
 
   protected String prompt;
 
@@ -12,9 +13,12 @@ public class AiDialogueHistory {
   @JsonProperty("created_at")
   protected String createdAt;
 
-  public AiDialogueHistory() {}
+  public AiDialogueHistory() {
+    super();
+  }
 
   protected AiDialogueHistory(AiDialogueHistoryBuilder builder) {
+    super();
     this.prompt = builder.prompt;
     this.answer = builder.answer;
     this.createdAt = builder.createdAt;

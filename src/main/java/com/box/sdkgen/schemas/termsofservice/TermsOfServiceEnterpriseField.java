@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.termsofservice;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class TermsOfServiceEnterpriseField {
+public class TermsOfServiceEnterpriseField extends SerializableObject {
 
   protected String id;
 
@@ -17,9 +18,12 @@ public class TermsOfServiceEnterpriseField {
 
   protected String name;
 
-  public TermsOfServiceEnterpriseField() {}
+  public TermsOfServiceEnterpriseField() {
+    super();
+  }
 
   protected TermsOfServiceEnterpriseField(TermsOfServiceEnterpriseFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.name = builder.name;

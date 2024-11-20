@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.filefull;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class FileFullPermissionsField {
+public class FileFullPermissionsField extends SerializableObject {
 
   @JsonProperty("can_delete")
   protected final boolean canDelete;
@@ -54,6 +55,7 @@ public class FileFullPermissionsField {
       @JsonProperty("can_upload") boolean canUpload,
       @JsonProperty("can_view_annotations_all") boolean canViewAnnotationsAll,
       @JsonProperty("can_view_annotations_self") boolean canViewAnnotationsSelf) {
+    super();
     this.canDelete = canDelete;
     this.canDownload = canDownload;
     this.canInviteCollaborator = canInviteCollaborator;

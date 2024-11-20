@@ -1,20 +1,24 @@
 package com.box.sdkgen.schemas.signrequest;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filemini.FileMini;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class SignRequestSignFilesField {
+public class SignRequestSignFilesField extends SerializableObject {
 
   protected List<FileMini> files;
 
   @JsonProperty("is_ready_for_download")
   protected Boolean isReadyForDownload;
 
-  public SignRequestSignFilesField() {}
+  public SignRequestSignFilesField() {
+    super();
+  }
 
   protected SignRequestSignFilesField(SignRequestSignFilesFieldBuilder builder) {
+    super();
     this.files = builder.files;
     this.isReadyForDownload = builder.isReadyForDownload;
   }

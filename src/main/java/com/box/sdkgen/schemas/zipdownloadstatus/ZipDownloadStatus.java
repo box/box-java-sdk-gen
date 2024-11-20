@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.zipdownloadstatus;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class ZipDownloadStatus {
+public class ZipDownloadStatus extends SerializableObject {
 
   @JsonProperty("total_file_count")
   protected Long totalFileCount;
@@ -25,9 +26,12 @@ public class ZipDownloadStatus {
   @JsonSerialize(using = ZipDownloadStatusStateField.ZipDownloadStatusStateFieldSerializer.class)
   protected EnumWrapper<ZipDownloadStatusStateField> state;
 
-  public ZipDownloadStatus() {}
+  public ZipDownloadStatus() {
+    super();
+  }
 
   protected ZipDownloadStatus(ZipDownloadStatusBuilder builder) {
+    super();
     this.totalFileCount = builder.totalFileCount;
     this.downloadedFileCount = builder.downloadedFileCount;
     this.skippedFileCount = builder.skippedFileCount;

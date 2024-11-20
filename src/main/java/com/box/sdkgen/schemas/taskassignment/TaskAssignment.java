@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.taskassignment;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filemini.FileMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class TaskAssignment {
+public class TaskAssignment extends SerializableObject {
 
   protected String id;
 
@@ -43,9 +44,12 @@ public class TaskAssignment {
   @JsonProperty("assigned_by")
   protected UserMini assignedBy;
 
-  public TaskAssignment() {}
+  public TaskAssignment() {
+    super();
+  }
 
   protected TaskAssignment(TaskAssignmentBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.item = builder.item;

@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.files;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UpdateFileByIdRequestBodyLockField {
+public class UpdateFileByIdRequestBodyLockField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -24,9 +25,12 @@ public class UpdateFileByIdRequestBodyLockField {
   @JsonProperty("is_download_prevented")
   protected Boolean isDownloadPrevented;
 
-  public UpdateFileByIdRequestBodyLockField() {}
+  public UpdateFileByIdRequestBodyLockField() {
+    super();
+  }
 
   protected UpdateFileByIdRequestBodyLockField(UpdateFileByIdRequestBodyLockFieldBuilder builder) {
+    super();
     this.access = builder.access;
     this.expiresAt = builder.expiresAt;
     this.isDownloadPrevented = builder.isDownloadPrevented;

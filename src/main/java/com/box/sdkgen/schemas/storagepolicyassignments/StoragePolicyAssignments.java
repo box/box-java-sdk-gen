@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.storagepolicyassignments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.storagepolicyassignment.StoragePolicyAssignment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class StoragePolicyAssignments {
+public class StoragePolicyAssignments extends SerializableObject {
 
   protected Long limit;
 
@@ -17,9 +18,12 @@ public class StoragePolicyAssignments {
 
   protected List<StoragePolicyAssignment> entries;
 
-  public StoragePolicyAssignments() {}
+  public StoragePolicyAssignments() {
+    super();
+  }
 
   protected StoragePolicyAssignments(StoragePolicyAssignmentsBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;

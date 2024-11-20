@@ -1,15 +1,19 @@
 package com.box.sdkgen.managers.classifications;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class AddClassificationRequestBodyDataStaticConfigField {
+public class AddClassificationRequestBodyDataStaticConfigField extends SerializableObject {
 
   protected AddClassificationRequestBodyDataStaticConfigClassificationField classification;
 
-  public AddClassificationRequestBodyDataStaticConfigField() {}
+  public AddClassificationRequestBodyDataStaticConfigField() {
+    super();
+  }
 
   protected AddClassificationRequestBodyDataStaticConfigField(
       AddClassificationRequestBodyDataStaticConfigFieldBuilder builder) {
+    super();
     this.classification = builder.classification;
   }
 

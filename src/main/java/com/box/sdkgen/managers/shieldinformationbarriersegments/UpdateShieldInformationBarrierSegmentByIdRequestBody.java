@@ -1,17 +1,21 @@
 package com.box.sdkgen.managers.shieldinformationbarriersegments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class UpdateShieldInformationBarrierSegmentByIdRequestBody {
+public class UpdateShieldInformationBarrierSegmentByIdRequestBody extends SerializableObject {
 
   protected String name;
 
   protected String description;
 
-  public UpdateShieldInformationBarrierSegmentByIdRequestBody() {}
+  public UpdateShieldInformationBarrierSegmentByIdRequestBody() {
+    super();
+  }
 
   protected UpdateShieldInformationBarrierSegmentByIdRequestBody(
       UpdateShieldInformationBarrierSegmentByIdRequestBodyBuilder builder) {
+    super();
     this.name = builder.name;
     this.description = builder.description;
   }

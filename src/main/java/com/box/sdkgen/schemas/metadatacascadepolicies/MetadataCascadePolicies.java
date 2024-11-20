@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.metadatacascadepolicies;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.metadatacascadepolicy.MetadataCascadePolicy;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class MetadataCascadePolicies {
+public class MetadataCascadePolicies extends SerializableObject {
 
   protected Long limit;
 
@@ -17,9 +18,12 @@ public class MetadataCascadePolicies {
 
   protected List<MetadataCascadePolicy> entries;
 
-  public MetadataCascadePolicies() {}
+  public MetadataCascadePolicies() {
+    super();
+  }
 
   protected MetadataCascadePolicies(MetadataCascadePoliciesBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;

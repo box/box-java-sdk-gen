@@ -1,10 +1,11 @@
 package com.box.sdkgen.schemas.searchresultwithsharedlink;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filefullorfolderfullorweblink.FileFullOrFolderFullOrWebLink;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class SearchResultWithSharedLink {
+public class SearchResultWithSharedLink extends SerializableObject {
 
   @JsonProperty("accessible_via_shared_link")
   protected String accessibleViaSharedLink;
@@ -13,9 +14,12 @@ public class SearchResultWithSharedLink {
 
   protected String type;
 
-  public SearchResultWithSharedLink() {}
+  public SearchResultWithSharedLink() {
+    super();
+  }
 
   protected SearchResultWithSharedLink(SearchResultWithSharedLinkBuilder builder) {
+    super();
     this.accessibleViaSharedLink = builder.accessibleViaSharedLink;
     this.item = builder.item;
     this.type = builder.type;

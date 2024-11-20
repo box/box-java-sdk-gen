@@ -1,14 +1,18 @@
 package com.box.sdkgen.schemas.keywordskillcard;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class KeywordSkillCardEntriesField {
+public class KeywordSkillCardEntriesField extends SerializableObject {
 
   protected String text;
 
-  public KeywordSkillCardEntriesField() {}
+  public KeywordSkillCardEntriesField() {
+    super();
+  }
 
   protected KeywordSkillCardEntriesField(KeywordSkillCardEntriesFieldBuilder builder) {
+    super();
     this.text = builder.text;
   }
 

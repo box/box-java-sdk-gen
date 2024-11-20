@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.recentitems;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.recentitem.RecentItem;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class RecentItems {
+public class RecentItems extends SerializableObject {
 
   protected Long limit;
 
@@ -17,9 +18,12 @@ public class RecentItems {
 
   protected List<RecentItem> entries;
 
-  public RecentItems() {}
+  public RecentItems() {
+    super();
+  }
 
   protected RecentItems(RecentItemsBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;

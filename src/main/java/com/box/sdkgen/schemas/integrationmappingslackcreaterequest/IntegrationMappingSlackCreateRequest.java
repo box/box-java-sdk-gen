@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.integrationmappingslackcreaterequest;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.integrationmappingboxitemslack.IntegrationMappingBoxItemSlack;
 import com.box.sdkgen.schemas.integrationmappingpartneritemslack.IntegrationMappingPartnerItemSlack;
 import com.box.sdkgen.schemas.integrationmappingslackoptions.IntegrationMappingSlackOptions;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class IntegrationMappingSlackCreateRequest {
+public class IntegrationMappingSlackCreateRequest extends SerializableObject {
 
   @JsonProperty("partner_item")
   protected final IntegrationMappingPartnerItemSlack partnerItem;
@@ -19,12 +20,14 @@ public class IntegrationMappingSlackCreateRequest {
   public IntegrationMappingSlackCreateRequest(
       @JsonProperty("partner_item") IntegrationMappingPartnerItemSlack partnerItem,
       @JsonProperty("box_item") IntegrationMappingBoxItemSlack boxItem) {
+    super();
     this.partnerItem = partnerItem;
     this.boxItem = boxItem;
   }
 
   protected IntegrationMappingSlackCreateRequest(
       IntegrationMappingSlackCreateRequestBuilder builder) {
+    super();
     this.partnerItem = builder.partnerItem;
     this.boxItem = builder.boxItem;
     this.options = builder.options;

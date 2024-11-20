@@ -1,21 +1,25 @@
 package com.box.sdkgen.managers.integrationmappings;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.integrationmappingboxitemslack.IntegrationMappingBoxItemSlack;
 import com.box.sdkgen.schemas.integrationmappingslackoptions.IntegrationMappingSlackOptions;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UpdateSlackIntegrationMappingByIdRequestBody {
+public class UpdateSlackIntegrationMappingByIdRequestBody extends SerializableObject {
 
   @JsonProperty("box_item")
   protected IntegrationMappingBoxItemSlack boxItem;
 
   protected IntegrationMappingSlackOptions options;
 
-  public UpdateSlackIntegrationMappingByIdRequestBody() {}
+  public UpdateSlackIntegrationMappingByIdRequestBody() {
+    super();
+  }
 
   protected UpdateSlackIntegrationMappingByIdRequestBody(
       UpdateSlackIntegrationMappingByIdRequestBodyBuilder builder) {
+    super();
     this.boxItem = builder.boxItem;
     this.options = builder.options;
   }

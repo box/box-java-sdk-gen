@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.events;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.event.Event;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class Events {
+public class Events extends SerializableObject {
 
   @JsonProperty("chunk_size")
   protected Long chunkSize;
@@ -15,9 +16,12 @@ public class Events {
 
   protected List<Event> entries;
 
-  public Events() {}
+  public Events() {
+    super();
+  }
 
   protected Events(EventsBuilder builder) {
+    super();
     this.chunkSize = builder.chunkSize;
     this.nextStreamPosition = builder.nextStreamPosition;
     this.entries = builder.entries;

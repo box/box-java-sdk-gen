@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.metadatafieldfilterfloatrange;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class MetadataFieldFilterFloatRange {
+public class MetadataFieldFilterFloatRange extends SerializableObject {
 
   protected Double lt;
 
   protected Double gt;
 
-  public MetadataFieldFilterFloatRange() {}
+  public MetadataFieldFilterFloatRange() {
+    super();
+  }
 
   protected MetadataFieldFilterFloatRange(MetadataFieldFilterFloatRangeBuilder builder) {
+    super();
     this.lt = builder.lt;
     this.gt = builder.gt;
   }
