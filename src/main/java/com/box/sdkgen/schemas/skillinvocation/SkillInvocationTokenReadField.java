@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.skillinvocation;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class SkillInvocationTokenReadField {
+public class SkillInvocationTokenReadField extends SerializableObject {
 
   @JsonProperty("access_token")
   protected String accessToken;
@@ -28,9 +29,12 @@ public class SkillInvocationTokenReadField {
   @JsonProperty("restricted_to")
   protected String restrictedTo;
 
-  public SkillInvocationTokenReadField() {}
+  public SkillInvocationTokenReadField() {
+    super();
+  }
 
   protected SkillInvocationTokenReadField(SkillInvocationTokenReadFieldBuilder builder) {
+    super();
     this.accessToken = builder.accessToken;
     this.expiresIn = builder.expiresIn;
     this.tokenType = builder.tokenType;

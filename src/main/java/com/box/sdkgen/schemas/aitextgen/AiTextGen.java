@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.aitextgen;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagenttextgen.AiAgentTextGen;
 import com.box.sdkgen.schemas.aidialoguehistory.AiDialogueHistory;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class AiTextGen {
+public class AiTextGen extends SerializableObject {
 
   protected final String prompt;
 
@@ -21,11 +22,13 @@ public class AiTextGen {
   public AiTextGen(
       @JsonProperty("prompt") String prompt,
       @JsonProperty("items") List<AiTextGenItemsField> items) {
+    super();
     this.prompt = prompt;
     this.items = items;
   }
 
   protected AiTextGen(AiTextGenBuilder builder) {
+    super();
     this.prompt = builder.prompt;
     this.items = builder.items;
     this.dialogueHistory = builder.dialogueHistory;

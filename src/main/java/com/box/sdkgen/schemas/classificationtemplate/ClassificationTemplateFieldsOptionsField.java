@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.classificationtemplate;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class ClassificationTemplateFieldsOptionsField {
+public class ClassificationTemplateFieldsOptionsField extends SerializableObject {
 
   protected final String id;
 
@@ -13,12 +14,14 @@ public class ClassificationTemplateFieldsOptionsField {
 
   public ClassificationTemplateFieldsOptionsField(
       @JsonProperty("id") String id, @JsonProperty("key") String key) {
+    super();
     this.id = id;
     this.key = key;
   }
 
   protected ClassificationTemplateFieldsOptionsField(
       ClassificationTemplateFieldsOptionsFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.key = builder.key;
     this.staticConfig = builder.staticConfig;

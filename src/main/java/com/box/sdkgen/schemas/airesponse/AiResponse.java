@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.airesponse;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class AiResponse {
+public class AiResponse extends SerializableObject {
 
   protected final String answer;
 
@@ -15,11 +16,13 @@ public class AiResponse {
 
   public AiResponse(
       @JsonProperty("answer") String answer, @JsonProperty("created_at") String createdAt) {
+    super();
     this.answer = answer;
     this.createdAt = createdAt;
   }
 
   protected AiResponse(AiResponseBuilder builder) {
+    super();
     this.answer = builder.answer;
     this.createdAt = builder.createdAt;
     this.completionReason = builder.completionReason;

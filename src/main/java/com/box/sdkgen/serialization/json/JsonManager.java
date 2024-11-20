@@ -1,5 +1,6 @@
 package com.box.sdkgen.serialization.json;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -22,8 +23,10 @@ public class JsonManager {
     return OBJECT_MAPPER.valueToTree(value);
   }
 
-  public static <T> T deserialize(JsonNode content, Class<T> valueType) {
-    return OBJECT_MAPPER.convertValue(content, valueType);
+  public static <T extends SerializableObject> T deserialize(JsonNode content, Class<T> valueType) {
+    T deserializedObject = OBJECT_MAPPER.convertValue(content, valueType);
+    deserializedObject.setRawData(content);
+    return deserializedObject;
   }
 
   public static JsonNode jsonToSerializedData(String text) {

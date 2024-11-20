@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.metadataqueryindex;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class MetadataQueryIndexFieldsField {
+public class MetadataQueryIndexFieldsField extends SerializableObject {
 
   protected String key;
 
@@ -21,9 +22,12 @@ public class MetadataQueryIndexFieldsField {
   @JsonProperty("sort_direction")
   protected EnumWrapper<MetadataQueryIndexFieldsSortDirectionField> sortDirection;
 
-  public MetadataQueryIndexFieldsField() {}
+  public MetadataQueryIndexFieldsField() {
+    super();
+  }
 
   protected MetadataQueryIndexFieldsField(MetadataQueryIndexFieldsFieldBuilder builder) {
+    super();
     this.key = builder.key;
     this.sortDirection = builder.sortDirection;
   }

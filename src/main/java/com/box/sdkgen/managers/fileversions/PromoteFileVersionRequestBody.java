@@ -1,11 +1,12 @@
 package com.box.sdkgen.managers.fileversions;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class PromoteFileVersionRequestBody {
+public class PromoteFileVersionRequestBody extends SerializableObject {
 
   protected String id;
 
@@ -19,9 +20,12 @@ public class PromoteFileVersionRequestBody {
               .class)
   protected EnumWrapper<PromoteFileVersionRequestBodyTypeField> type;
 
-  public PromoteFileVersionRequestBody() {}
+  public PromoteFileVersionRequestBody() {
+    super();
+  }
 
   protected PromoteFileVersionRequestBody(PromoteFileVersionRequestBodyBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

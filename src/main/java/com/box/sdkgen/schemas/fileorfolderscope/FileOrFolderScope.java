@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.fileorfolderscope;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.fileminiorfoldermini.FileMiniOrFolderMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class FileOrFolderScope {
+public class FileOrFolderScope extends SerializableObject {
 
   @JsonDeserialize(
       using = FileOrFolderScopeScopeField.FileOrFolderScopeScopeFieldDeserializer.class)
@@ -15,9 +16,12 @@ public class FileOrFolderScope {
 
   protected FileMiniOrFolderMini object;
 
-  public FileOrFolderScope() {}
+  public FileOrFolderScope() {
+    super();
+  }
 
   protected FileOrFolderScope(FileOrFolderScopeBuilder builder) {
+    super();
     this.scope = builder.scope;
     this.object = builder.object;
   }

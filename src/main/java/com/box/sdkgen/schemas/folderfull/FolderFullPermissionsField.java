@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.folderfull;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class FolderFullPermissionsField {
+public class FolderFullPermissionsField extends SerializableObject {
 
   @JsonProperty("can_delete")
   protected final boolean canDelete;
@@ -34,6 +35,7 @@ public class FolderFullPermissionsField {
       @JsonProperty("can_set_share_access") boolean canSetShareAccess,
       @JsonProperty("can_share") boolean canShare,
       @JsonProperty("can_upload") boolean canUpload) {
+    super();
     this.canDelete = canDelete;
     this.canDownload = canDownload;
     this.canInviteCollaborator = canInviteCollaborator;

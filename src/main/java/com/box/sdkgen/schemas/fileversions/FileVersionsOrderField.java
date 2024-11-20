@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.fileversions;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class FileVersionsOrderField {
+public class FileVersionsOrderField extends SerializableObject {
 
   protected String by;
 
@@ -15,9 +16,12 @@ public class FileVersionsOrderField {
       using = FileVersionsOrderDirectionField.FileVersionsOrderDirectionFieldSerializer.class)
   protected EnumWrapper<FileVersionsOrderDirectionField> direction;
 
-  public FileVersionsOrderField() {}
+  public FileVersionsOrderField() {
+    super();
+  }
 
   protected FileVersionsOrderField(FileVersionsOrderFieldBuilder builder) {
+    super();
     this.by = builder.by;
     this.direction = builder.direction;
   }

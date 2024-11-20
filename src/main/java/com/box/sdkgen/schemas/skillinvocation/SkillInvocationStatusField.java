@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.skillinvocation;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class SkillInvocationStatusField {
+public class SkillInvocationStatusField extends SerializableObject {
 
   @JsonDeserialize(
       using = SkillInvocationStatusStateField.SkillInvocationStatusStateFieldDeserializer.class)
@@ -22,9 +23,12 @@ public class SkillInvocationStatusField {
   @JsonProperty("additional_info")
   protected String additionalInfo;
 
-  public SkillInvocationStatusField() {}
+  public SkillInvocationStatusField() {
+    super();
+  }
 
   protected SkillInvocationStatusField(SkillInvocationStatusFieldBuilder builder) {
+    super();
     this.state = builder.state;
     this.message = builder.message;
     this.errorCode = builder.errorCode;

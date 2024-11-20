@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.integrationmappingslackoptions;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class IntegrationMappingSlackOptions {
+public class IntegrationMappingSlackOptions extends SerializableObject {
 
   @JsonProperty("is_access_management_disabled")
   protected Boolean isAccessManagementDisabled;
 
-  public IntegrationMappingSlackOptions() {}
+  public IntegrationMappingSlackOptions() {
+    super();
+  }
 
   protected IntegrationMappingSlackOptions(IntegrationMappingSlackOptionsBuilder builder) {
+    super();
     this.isAccessManagementDisabled = builder.isAccessManagementDisabled;
   }
 

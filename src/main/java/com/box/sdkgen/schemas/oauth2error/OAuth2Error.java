@@ -1,18 +1,22 @@
 package com.box.sdkgen.schemas.oauth2error;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class OAuth2Error {
+public class OAuth2Error extends SerializableObject {
 
   protected String error;
 
   @JsonProperty("error_description")
   protected String errorDescription;
 
-  public OAuth2Error() {}
+  public OAuth2Error() {
+    super();
+  }
 
   protected OAuth2Error(OAuth2ErrorBuilder builder) {
+    super();
     this.error = builder.error;
     this.errorDescription = builder.errorDescription;
   }

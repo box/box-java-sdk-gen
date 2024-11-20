@@ -1,12 +1,14 @@
 package com.box.sdkgen.managers.shieldinformationbarriersegmentrestrictions;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
 public
-class CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField {
+class CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField
+    extends SerializableObject {
 
   protected String id;
 
@@ -25,12 +27,15 @@ class CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformati
       type;
 
   public
-  CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField() {}
+  CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField() {
+    super();
+  }
 
   protected
   CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField(
       CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentFieldBuilder
           builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

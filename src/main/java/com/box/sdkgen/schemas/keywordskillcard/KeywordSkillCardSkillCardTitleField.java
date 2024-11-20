@@ -1,20 +1,23 @@
 package com.box.sdkgen.schemas.keywordskillcard;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class KeywordSkillCardSkillCardTitleField {
+public class KeywordSkillCardSkillCardTitleField extends SerializableObject {
 
   protected String code;
 
   protected final String message;
 
   public KeywordSkillCardSkillCardTitleField(@JsonProperty("message") String message) {
+    super();
     this.message = message;
   }
 
   protected KeywordSkillCardSkillCardTitleField(
       KeywordSkillCardSkillCardTitleFieldBuilder builder) {
+    super();
     this.code = builder.code;
     this.message = builder.message;
   }

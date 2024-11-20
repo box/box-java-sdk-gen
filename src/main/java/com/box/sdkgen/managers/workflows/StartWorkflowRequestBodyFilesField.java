@@ -1,11 +1,12 @@
 package com.box.sdkgen.managers.workflows;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class StartWorkflowRequestBodyFilesField {
+public class StartWorkflowRequestBodyFilesField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -19,9 +20,12 @@ public class StartWorkflowRequestBodyFilesField {
 
   protected String id;
 
-  public StartWorkflowRequestBodyFilesField() {}
+  public StartWorkflowRequestBodyFilesField() {
+    super();
+  }
 
   protected StartWorkflowRequestBodyFilesField(StartWorkflowRequestBodyFilesFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
   }

@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.legalholdpolicy;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class LegalHoldPolicyAssignmentCountsField {
+public class LegalHoldPolicyAssignmentCountsField extends SerializableObject {
 
   protected Long user;
 
@@ -14,10 +15,13 @@ public class LegalHoldPolicyAssignmentCountsField {
   @JsonProperty("file_version")
   protected Long fileVersion;
 
-  public LegalHoldPolicyAssignmentCountsField() {}
+  public LegalHoldPolicyAssignmentCountsField() {
+    super();
+  }
 
   protected LegalHoldPolicyAssignmentCountsField(
       LegalHoldPolicyAssignmentCountsFieldBuilder builder) {
+    super();
     this.user = builder.user;
     this.folder = builder.folder;
     this.file = builder.file;

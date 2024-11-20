@@ -1,15 +1,19 @@
 package com.box.sdkgen.managers.invites;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class CreateInviteRequestBodyActionableByField {
+public class CreateInviteRequestBodyActionableByField extends SerializableObject {
 
   protected String login;
 
-  public CreateInviteRequestBodyActionableByField() {}
+  public CreateInviteRequestBodyActionableByField() {
+    super();
+  }
 
   protected CreateInviteRequestBodyActionableByField(
       CreateInviteRequestBodyActionableByFieldBuilder builder) {
+    super();
     this.login = builder.login;
   }
 

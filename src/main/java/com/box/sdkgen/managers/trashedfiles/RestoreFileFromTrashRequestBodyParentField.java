@@ -1,15 +1,19 @@
 package com.box.sdkgen.managers.trashedfiles;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class RestoreFileFromTrashRequestBodyParentField {
+public class RestoreFileFromTrashRequestBodyParentField extends SerializableObject {
 
   protected String id;
 
-  public RestoreFileFromTrashRequestBodyParentField() {}
+  public RestoreFileFromTrashRequestBodyParentField() {
+    super();
+  }
 
   protected RestoreFileFromTrashRequestBodyParentField(
       RestoreFileFromTrashRequestBodyParentFieldBuilder builder) {
+    super();
     this.id = builder.id;
   }
 

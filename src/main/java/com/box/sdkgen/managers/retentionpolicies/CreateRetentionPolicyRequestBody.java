@@ -1,5 +1,6 @@
 package com.box.sdkgen.managers.retentionpolicies;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class CreateRetentionPolicyRequestBody {
+public class CreateRetentionPolicyRequestBody extends SerializableObject {
 
   @JsonProperty("policy_name")
   protected final String policyName;
@@ -67,6 +68,7 @@ public class CreateRetentionPolicyRequestBody {
           EnumWrapper<CreateRetentionPolicyRequestBodyPolicyTypeField> policyType,
       @JsonProperty("disposition_action")
           EnumWrapper<CreateRetentionPolicyRequestBodyDispositionActionField> dispositionAction) {
+    super();
     this.policyName = policyName;
     this.policyType = policyType;
     this.dispositionAction = dispositionAction;
@@ -76,6 +78,7 @@ public class CreateRetentionPolicyRequestBody {
       String policyName,
       CreateRetentionPolicyRequestBodyPolicyTypeField policyType,
       CreateRetentionPolicyRequestBodyDispositionActionField dispositionAction) {
+    super();
     this.policyName = policyName;
     this.policyType =
         new EnumWrapper<CreateRetentionPolicyRequestBodyPolicyTypeField>(
@@ -86,6 +89,7 @@ public class CreateRetentionPolicyRequestBody {
   }
 
   protected CreateRetentionPolicyRequestBody(CreateRetentionPolicyRequestBodyBuilder builder) {
+    super();
     this.policyName = builder.policyName;
     this.description = builder.description;
     this.policyType = builder.policyType;

@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.fileversionretention;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filemini.FileMini;
 import com.box.sdkgen.schemas.fileversionmini.FileVersionMini;
 import com.box.sdkgen.schemas.retentionpolicymini.RetentionPolicyMini;
@@ -9,7 +10,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class FileVersionRetention {
+public class FileVersionRetention extends SerializableObject {
 
   protected String id;
 
@@ -33,9 +34,12 @@ public class FileVersionRetention {
   @JsonProperty("winning_retention_policy")
   protected RetentionPolicyMini winningRetentionPolicy;
 
-  public FileVersionRetention() {}
+  public FileVersionRetention() {
+    super();
+  }
 
   protected FileVersionRetention(FileVersionRetentionBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.fileVersion = builder.fileVersion;

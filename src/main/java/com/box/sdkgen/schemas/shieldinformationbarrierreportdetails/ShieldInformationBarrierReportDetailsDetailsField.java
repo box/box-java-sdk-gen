@@ -1,17 +1,21 @@
 package com.box.sdkgen.schemas.shieldinformationbarrierreportdetails;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class ShieldInformationBarrierReportDetailsDetailsField {
+public class ShieldInformationBarrierReportDetailsDetailsField extends SerializableObject {
 
   @JsonProperty("folder_id")
   protected String folderId;
 
-  public ShieldInformationBarrierReportDetailsDetailsField() {}
+  public ShieldInformationBarrierReportDetailsDetailsField() {
+    super();
+  }
 
   protected ShieldInformationBarrierReportDetailsDetailsField(
       ShieldInformationBarrierReportDetailsDetailsFieldBuilder builder) {
+    super();
     this.folderId = builder.folderId;
   }
 

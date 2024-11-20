@@ -1,5 +1,6 @@
 package com.box.sdkgen.managers.metadatatemplates;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -8,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class UpdateMetadataTemplateRequestBody {
+public class UpdateMetadataTemplateRequestBody extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -36,14 +37,17 @@ public class UpdateMetadataTemplateRequestBody {
 
   public UpdateMetadataTemplateRequestBody(
       @JsonProperty("op") EnumWrapper<UpdateMetadataTemplateRequestBodyOpField> op) {
+    super();
     this.op = op;
   }
 
   public UpdateMetadataTemplateRequestBody(UpdateMetadataTemplateRequestBodyOpField op) {
+    super();
     this.op = new EnumWrapper<UpdateMetadataTemplateRequestBodyOpField>(op.getValue(), op);
   }
 
   protected UpdateMetadataTemplateRequestBody(UpdateMetadataTemplateRequestBodyBuilder builder) {
+    super();
     this.op = builder.op;
     this.data = builder.data;
     this.fieldKey = builder.fieldKey;

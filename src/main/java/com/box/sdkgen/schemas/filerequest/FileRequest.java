@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.filerequest;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class FileRequest {
+public class FileRequest extends SerializableObject {
 
   protected final String id;
 
@@ -56,6 +57,7 @@ public class FileRequest {
       @JsonProperty("folder") FolderMini folder,
       @JsonProperty("created_at") String createdAt,
       @JsonProperty("updated_at") String updatedAt) {
+    super();
     this.id = id;
     this.folder = folder;
     this.createdAt = createdAt;
@@ -66,6 +68,7 @@ public class FileRequest {
   }
 
   protected FileRequest(FileRequestBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.title = builder.title;

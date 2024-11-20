@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.aiextractstructured;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagentextractstructured.AiAgentExtractStructured;
 import com.box.sdkgen.schemas.aiitembase.AiItemBase;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class AiExtractStructured {
+public class AiExtractStructured extends SerializableObject {
 
   protected final List<AiItemBase> items;
 
@@ -19,10 +20,12 @@ public class AiExtractStructured {
   protected AiAgentExtractStructured aiAgent;
 
   public AiExtractStructured(@JsonProperty("items") List<AiItemBase> items) {
+    super();
     this.items = items;
   }
 
   protected AiExtractStructured(AiExtractStructuredBuilder builder) {
+    super();
     this.items = builder.items;
     this.metadataTemplate = builder.metadataTemplate;
     this.fields = builder.fields;

@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.comment;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class CommentItemField {
+public class CommentItemField extends SerializableObject {
 
   protected String id;
 
   protected String type;
 
-  public CommentItemField() {}
+  public CommentItemField() {
+    super();
+  }
 
   protected CommentItemField(CommentItemFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

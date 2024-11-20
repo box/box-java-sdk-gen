@@ -1,16 +1,18 @@
 package com.box.sdkgen.managers.chunkeduploads;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.uploadpart.UploadPart;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class CreateFileUploadSessionCommitByUrlRequestBody {
+public class CreateFileUploadSessionCommitByUrlRequestBody extends SerializableObject {
 
   protected final List<UploadPart> parts;
 
   public CreateFileUploadSessionCommitByUrlRequestBody(
       @JsonProperty("parts") List<UploadPart> parts) {
+    super();
     this.parts = parts;
   }
 

@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.aillmendpointparamsopenai;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class AiLlmEndpointParamsOpenAi {
+public class AiLlmEndpointParamsOpenAi extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -29,6 +30,7 @@ public class AiLlmEndpointParamsOpenAi {
   protected String stop;
 
   public AiLlmEndpointParamsOpenAi() {
+    super();
     this.type =
         new EnumWrapper<AiLlmEndpointParamsOpenAiTypeField>(
             AiLlmEndpointParamsOpenAiTypeField.OPENAI_PARAMS.getValue(),
@@ -36,6 +38,7 @@ public class AiLlmEndpointParamsOpenAi {
   }
 
   protected AiLlmEndpointParamsOpenAi(AiLlmEndpointParamsOpenAiBuilder builder) {
+    super();
     this.type = builder.type;
     this.temperature = builder.temperature;
     this.topP = builder.topP;

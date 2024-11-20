@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.collaboration;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.appitem.AppItem;
 import com.box.sdkgen.schemas.fileorfolderorweblink.FileOrFolderOrWebLink;
 import com.box.sdkgen.schemas.groupminiorusercollaborations.GroupMiniOrUserCollaborations;
@@ -10,7 +11,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class Collaboration {
+public class Collaboration extends SerializableObject {
 
   protected final String id;
 
@@ -59,6 +60,7 @@ public class Collaboration {
   protected CollaborationAcceptanceRequirementsStatusField acceptanceRequirementsStatus;
 
   public Collaboration(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<CollaborationTypeField>(
@@ -66,6 +68,7 @@ public class Collaboration {
   }
 
   protected Collaboration(CollaborationBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.item = builder.item;

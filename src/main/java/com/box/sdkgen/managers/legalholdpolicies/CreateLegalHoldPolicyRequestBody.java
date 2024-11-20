@@ -1,9 +1,10 @@
 package com.box.sdkgen.managers.legalholdpolicies;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateLegalHoldPolicyRequestBody {
+public class CreateLegalHoldPolicyRequestBody extends SerializableObject {
 
   @JsonProperty("policy_name")
   protected final String policyName;
@@ -20,10 +21,12 @@ public class CreateLegalHoldPolicyRequestBody {
   protected Boolean isOngoing;
 
   public CreateLegalHoldPolicyRequestBody(@JsonProperty("policy_name") String policyName) {
+    super();
     this.policyName = policyName;
   }
 
   protected CreateLegalHoldPolicyRequestBody(CreateLegalHoldPolicyRequestBodyBuilder builder) {
+    super();
     this.policyName = builder.policyName;
     this.description = builder.description;
     this.filterStartedAt = builder.filterStartedAt;

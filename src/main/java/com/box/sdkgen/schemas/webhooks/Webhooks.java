@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.webhooks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.webhookmini.WebhookMini;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class Webhooks {
+public class Webhooks extends SerializableObject {
 
   protected Long limit;
 
@@ -17,9 +18,12 @@ public class Webhooks {
 
   protected List<WebhookMini> entries;
 
-  public Webhooks() {}
+  public Webhooks() {
+    super();
+  }
 
   protected Webhooks(WebhooksBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;

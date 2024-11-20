@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.aiagentextractstructured;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagentbasictexttool.AiAgentBasicTextTool;
 import com.box.sdkgen.schemas.aiagentlongtexttool.AiAgentLongTextTool;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class AiAgentExtractStructured {
+public class AiAgentExtractStructured extends SerializableObject {
 
   @JsonDeserialize(
       using = AiAgentExtractStructuredTypeField.AiAgentExtractStructuredTypeFieldDeserializer.class)
@@ -23,6 +24,7 @@ public class AiAgentExtractStructured {
   protected AiAgentBasicTextTool basicText;
 
   public AiAgentExtractStructured() {
+    super();
     this.type =
         new EnumWrapper<AiAgentExtractStructuredTypeField>(
             AiAgentExtractStructuredTypeField.AI_AGENT_EXTRACT_STRUCTURED.getValue(),
@@ -30,6 +32,7 @@ public class AiAgentExtractStructured {
   }
 
   protected AiAgentExtractStructured(AiAgentExtractStructuredBuilder builder) {
+    super();
     this.type = builder.type;
     this.longText = builder.longText;
     this.basicText = builder.basicText;

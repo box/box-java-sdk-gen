@@ -1,15 +1,19 @@
 package com.box.sdkgen.managers.weblinks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class UpdateWebLinkByIdRequestBodyParentField {
+public class UpdateWebLinkByIdRequestBodyParentField extends SerializableObject {
 
   protected String id;
 
-  public UpdateWebLinkByIdRequestBodyParentField() {}
+  public UpdateWebLinkByIdRequestBodyParentField() {
+    super();
+  }
 
   protected UpdateWebLinkByIdRequestBodyParentField(
       UpdateWebLinkByIdRequestBodyParentFieldBuilder builder) {
+    super();
     this.id = builder.id;
   }
 

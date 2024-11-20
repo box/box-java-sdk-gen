@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.fileversionlegalholds;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.fileversionlegalhold.FileVersionLegalHold;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class FileVersionLegalHolds {
+public class FileVersionLegalHolds extends SerializableObject {
 
   protected Long limit;
 
@@ -17,9 +18,12 @@ public class FileVersionLegalHolds {
 
   protected List<FileVersionLegalHold> entries;
 
-  public FileVersionLegalHolds() {}
+  public FileVersionLegalHolds() {
+    super();
+  }
 
   protected FileVersionLegalHolds(FileVersionLegalHoldsBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;

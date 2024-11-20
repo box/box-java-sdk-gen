@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.trackingcode;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class TrackingCode {
+public class TrackingCode extends SerializableObject {
 
   @JsonDeserialize(using = TrackingCodeTypeField.TrackingCodeTypeFieldDeserializer.class)
   @JsonSerialize(using = TrackingCodeTypeField.TrackingCodeTypeFieldSerializer.class)
@@ -15,9 +16,12 @@ public class TrackingCode {
 
   protected String value;
 
-  public TrackingCode() {}
+  public TrackingCode() {
+    super();
+  }
 
   protected TrackingCode(TrackingCodeBuilder builder) {
+    super();
     this.type = builder.type;
     this.name = builder.name;
     this.value = builder.value;

@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.aillmendpointparamsgoogle;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class AiLlmEndpointParamsGoogle {
+public class AiLlmEndpointParamsGoogle extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -24,6 +25,7 @@ public class AiLlmEndpointParamsGoogle {
   protected Double topK;
 
   public AiLlmEndpointParamsGoogle() {
+    super();
     this.type =
         new EnumWrapper<AiLlmEndpointParamsGoogleTypeField>(
             AiLlmEndpointParamsGoogleTypeField.GOOGLE_PARAMS.getValue(),
@@ -31,6 +33,7 @@ public class AiLlmEndpointParamsGoogle {
   }
 
   protected AiLlmEndpointParamsGoogle(AiLlmEndpointParamsGoogleBuilder builder) {
+    super();
     this.type = builder.type;
     this.temperature = builder.temperature;
     this.topP = builder.topP;

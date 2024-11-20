@@ -1,9 +1,11 @@
 package com.box.sdkgen.schemas.collaboration;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementField {
+public class CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementField
+    extends SerializableObject {
 
   @JsonProperty("enterprise_has_strong_password_required_for_external_users")
   protected Boolean enterpriseHasStrongPasswordRequiredForExternalUsers;
@@ -11,10 +13,13 @@ public class CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementF
   @JsonProperty("user_has_strong_password")
   protected Boolean userHasStrongPassword;
 
-  public CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementField() {}
+  public CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementField() {
+    super();
+  }
 
   protected CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementField(
       CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementFieldBuilder builder) {
+    super();
     this.enterpriseHasStrongPasswordRequiredForExternalUsers =
         builder.enterpriseHasStrongPasswordRequiredForExternalUsers;
     this.userHasStrongPassword = builder.userHasStrongPassword;

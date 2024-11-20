@@ -1,17 +1,21 @@
 package com.box.sdkgen.managers.skills;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.keywordskillcardorstatusskillcardortimelineskillcardortranscriptskillcard.KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard;
 import java.util.List;
 import java.util.Objects;
 
-public class UpdateAllSkillCardsOnFileRequestBodyMetadataField {
+public class UpdateAllSkillCardsOnFileRequestBodyMetadataField extends SerializableObject {
 
   protected List<KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard> cards;
 
-  public UpdateAllSkillCardsOnFileRequestBodyMetadataField() {}
+  public UpdateAllSkillCardsOnFileRequestBodyMetadataField() {
+    super();
+  }
 
   protected UpdateAllSkillCardsOnFileRequestBodyMetadataField(
       UpdateAllSkillCardsOnFileRequestBodyMetadataFieldBuilder builder) {
+    super();
     this.cards = builder.cards;
   }
 

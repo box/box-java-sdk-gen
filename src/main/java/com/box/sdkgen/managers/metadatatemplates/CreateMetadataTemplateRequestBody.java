@@ -1,10 +1,11 @@
 package com.box.sdkgen.managers.metadatatemplates;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class CreateMetadataTemplateRequestBody {
+public class CreateMetadataTemplateRequestBody extends SerializableObject {
 
   protected final String scope;
 
@@ -20,11 +21,13 @@ public class CreateMetadataTemplateRequestBody {
 
   public CreateMetadataTemplateRequestBody(
       @JsonProperty("scope") String scope, @JsonProperty("displayName") String displayName) {
+    super();
     this.scope = scope;
     this.displayName = displayName;
   }
 
   protected CreateMetadataTemplateRequestBody(CreateMetadataTemplateRequestBodyBuilder builder) {
+    super();
     this.scope = builder.scope;
     this.templateKey = builder.templateKey;
     this.displayName = builder.displayName;

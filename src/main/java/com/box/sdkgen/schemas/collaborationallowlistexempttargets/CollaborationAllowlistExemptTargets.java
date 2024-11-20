@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.collaborationallowlistexempttargets;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.collaborationallowlistexempttarget.CollaborationAllowlistExemptTarget;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class CollaborationAllowlistExemptTargets {
+public class CollaborationAllowlistExemptTargets extends SerializableObject {
 
   protected Long limit;
 
@@ -17,10 +18,13 @@ public class CollaborationAllowlistExemptTargets {
 
   protected List<CollaborationAllowlistExemptTarget> entries;
 
-  public CollaborationAllowlistExemptTargets() {}
+  public CollaborationAllowlistExemptTargets() {
+    super();
+  }
 
   protected CollaborationAllowlistExemptTargets(
       CollaborationAllowlistExemptTargetsBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;

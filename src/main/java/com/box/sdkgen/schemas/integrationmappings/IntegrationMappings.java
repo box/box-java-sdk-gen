@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.integrationmappings;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.integrationmapping.IntegrationMapping;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class IntegrationMappings {
+public class IntegrationMappings extends SerializableObject {
 
   protected Long limit;
 
@@ -14,9 +15,12 @@ public class IntegrationMappings {
 
   protected List<IntegrationMapping> entries;
 
-  public IntegrationMappings() {}
+  public IntegrationMappings() {
+    super();
+  }
 
   protected IntegrationMappings(IntegrationMappingsBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.entries = builder.entries;

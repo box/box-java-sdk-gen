@@ -1,17 +1,21 @@
 package com.box.sdkgen.managers.taskassignments;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class CreateTaskAssignmentRequestBodyAssignToField {
+public class CreateTaskAssignmentRequestBodyAssignToField extends SerializableObject {
 
   protected String id;
 
   protected String login;
 
-  public CreateTaskAssignmentRequestBodyAssignToField() {}
+  public CreateTaskAssignmentRequestBodyAssignToField() {
+    super();
+  }
 
   protected CreateTaskAssignmentRequestBodyAssignToField(
       CreateTaskAssignmentRequestBodyAssignToFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.login = builder.login;
   }

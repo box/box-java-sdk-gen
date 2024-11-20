@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.metadatafilter;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.metadatafieldfilterdaterangeormetadatafieldfilterfloatrangeorarrayofstringornumberorstring.MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Map;
 import java.util.Objects;
 
-public class MetadataFilter {
+public class MetadataFilter extends SerializableObject {
 
   @JsonDeserialize(using = MetadataFilterScopeField.MetadataFilterScopeFieldDeserializer.class)
   @JsonSerialize(using = MetadataFilterScopeField.MetadataFilterScopeFieldSerializer.class)
@@ -20,9 +21,12 @@ public class MetadataFilter {
           MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString>
       filters;
 
-  public MetadataFilter() {}
+  public MetadataFilter() {
+    super();
+  }
 
   protected MetadataFilter(MetadataFilterBuilder builder) {
+    super();
     this.scope = builder.scope;
     this.templateKey = builder.templateKey;
     this.filters = builder.filters;

@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.timelineskillcard;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class TimelineSkillCardInvocationField {
+public class TimelineSkillCardInvocationField extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -20,6 +21,7 @@ public class TimelineSkillCardInvocationField {
   protected final String id;
 
   public TimelineSkillCardInvocationField(@JsonProperty("id") String id) {
+    super();
     this.id = id;
     this.type =
         new EnumWrapper<TimelineSkillCardInvocationTypeField>(
@@ -28,6 +30,7 @@ public class TimelineSkillCardInvocationField {
   }
 
   protected TimelineSkillCardInvocationField(TimelineSkillCardInvocationFieldBuilder builder) {
+    super();
     this.type = builder.type;
     this.id = builder.id;
   }

@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.groups;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.groupfull.GroupFull;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class Groups {
+public class Groups extends SerializableObject {
 
   @JsonProperty("total_count")
   protected Long totalCount;
@@ -18,9 +19,12 @@ public class Groups {
 
   protected List<GroupFull> entries;
 
-  public Groups() {}
+  public Groups() {
+    super();
+  }
 
   protected Groups(GroupsBuilder builder) {
+    super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
     this.offset = builder.offset;

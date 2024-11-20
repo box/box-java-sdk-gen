@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.workflow;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class WorkflowFlowsField {
+public class WorkflowFlowsField extends SerializableObject {
 
   protected String id;
 
@@ -26,9 +27,12 @@ public class WorkflowFlowsField {
   @JsonProperty("created_by")
   protected UserBase createdBy;
 
-  public WorkflowFlowsField() {}
+  public WorkflowFlowsField() {
+    super();
+  }
 
   protected WorkflowFlowsField(WorkflowFlowsFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.trigger = builder.trigger;

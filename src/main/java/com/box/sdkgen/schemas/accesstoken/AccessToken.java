@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.accesstoken;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.fileorfolderscope.FileOrFolderScope;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
-public class AccessToken {
+public class AccessToken extends SerializableObject {
 
   @JsonProperty("access_token")
   protected String accessToken;
@@ -34,9 +35,12 @@ public class AccessToken {
   @JsonProperty("issued_token_type")
   protected EnumWrapper<AccessTokenIssuedTokenTypeField> issuedTokenType;
 
-  public AccessToken() {}
+  public AccessToken() {
+    super();
+  }
 
   protected AccessToken(AccessTokenBuilder builder) {
+    super();
     this.accessToken = builder.accessToken;
     this.expiresIn = builder.expiresIn;
     this.tokenType = builder.tokenType;

@@ -1,5 +1,6 @@
 package com.box.sdkgen.managers.shieldinformationbarriersegmentmembers;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.shieldinformationbarrierbase.ShieldInformationBarrierBase;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CreateShieldInformationBarrierSegmentMemberRequestBody {
+public class CreateShieldInformationBarrierSegmentMemberRequestBody extends SerializableObject {
 
   @JsonDeserialize(
       using =
@@ -35,12 +36,14 @@ public class CreateShieldInformationBarrierSegmentMemberRequestBody {
           CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField
               shieldInformationBarrierSegment,
       @JsonProperty("user") UserBase user) {
+    super();
     this.shieldInformationBarrierSegment = shieldInformationBarrierSegment;
     this.user = user;
   }
 
   protected CreateShieldInformationBarrierSegmentMemberRequestBody(
       CreateShieldInformationBarrierSegmentMemberRequestBodyBuilder builder) {
+    super();
     this.type = builder.type;
     this.shieldInformationBarrier = builder.shieldInformationBarrier;
     this.shieldInformationBarrierSegment = builder.shieldInformationBarrierSegment;

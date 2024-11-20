@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.fileversionretentions;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.fileversionretention.FileVersionRetention;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class FileVersionRetentions {
+public class FileVersionRetentions extends SerializableObject {
 
   protected Long limit;
 
@@ -17,9 +18,12 @@ public class FileVersionRetentions {
 
   protected List<FileVersionRetention> entries;
 
-  public FileVersionRetentions() {}
+  public FileVersionRetentions() {
+    super();
+  }
 
   protected FileVersionRetentions(FileVersionRetentionsBuilder builder) {
+    super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;

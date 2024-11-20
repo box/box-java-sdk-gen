@@ -1,12 +1,13 @@
 package com.box.sdkgen.managers.usercollaborations;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CreateCollaborationRequestBody {
+public class CreateCollaborationRequestBody extends SerializableObject {
 
   protected final CreateCollaborationRequestBodyItemField item;
 
@@ -36,6 +37,7 @@ public class CreateCollaborationRequestBody {
       @JsonProperty("item") CreateCollaborationRequestBodyItemField item,
       @JsonProperty("accessible_by") CreateCollaborationRequestBodyAccessibleByField accessibleBy,
       @JsonProperty("role") EnumWrapper<CreateCollaborationRequestBodyRoleField> role) {
+    super();
     this.item = item;
     this.accessibleBy = accessibleBy;
     this.role = role;
@@ -45,12 +47,14 @@ public class CreateCollaborationRequestBody {
       CreateCollaborationRequestBodyItemField item,
       CreateCollaborationRequestBodyAccessibleByField accessibleBy,
       CreateCollaborationRequestBodyRoleField role) {
+    super();
     this.item = item;
     this.accessibleBy = accessibleBy;
     this.role = new EnumWrapper<CreateCollaborationRequestBodyRoleField>(role.getValue(), role);
   }
 
   protected CreateCollaborationRequestBody(CreateCollaborationRequestBodyBuilder builder) {
+    super();
     this.item = builder.item;
     this.accessibleBy = builder.accessibleBy;
     this.role = builder.role;

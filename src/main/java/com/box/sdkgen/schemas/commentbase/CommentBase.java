@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.commentbase;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class CommentBase {
+public class CommentBase extends SerializableObject {
 
   protected String id;
 
@@ -13,9 +14,12 @@ public class CommentBase {
   @JsonSerialize(using = CommentBaseTypeField.CommentBaseTypeFieldSerializer.class)
   protected EnumWrapper<CommentBaseTypeField> type;
 
-  public CommentBase() {}
+  public CommentBase() {
+    super();
+  }
 
   protected CommentBase(CommentBaseBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

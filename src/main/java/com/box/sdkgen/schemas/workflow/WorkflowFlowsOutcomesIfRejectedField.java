@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.workflow;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class WorkflowFlowsOutcomesIfRejectedField {
+public class WorkflowFlowsOutcomesIfRejectedField extends SerializableObject {
 
   protected String id;
 
@@ -33,10 +34,13 @@ public class WorkflowFlowsOutcomesIfRejectedField {
   @JsonProperty("action_type")
   protected EnumWrapper<WorkflowFlowsOutcomesIfRejectedActionTypeField> actionType;
 
-  public WorkflowFlowsOutcomesIfRejectedField() {}
+  public WorkflowFlowsOutcomesIfRejectedField() {
+    super();
+  }
 
   protected WorkflowFlowsOutcomesIfRejectedField(
       WorkflowFlowsOutcomesIfRejectedFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.name = builder.name;

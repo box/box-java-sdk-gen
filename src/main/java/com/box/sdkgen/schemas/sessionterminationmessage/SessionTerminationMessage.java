@@ -1,14 +1,18 @@
 package com.box.sdkgen.schemas.sessionterminationmessage;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class SessionTerminationMessage {
+public class SessionTerminationMessage extends SerializableObject {
 
   protected String message;
 
-  public SessionTerminationMessage() {}
+  public SessionTerminationMessage() {
+    super();
+  }
 
   protected SessionTerminationMessage(SessionTerminationMessageBuilder builder) {
+    super();
     this.message = builder.message;
   }
 

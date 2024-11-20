@@ -1,11 +1,12 @@
 package com.box.sdkgen.schemas.skillcardsmetadata;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.keywordskillcardorstatusskillcardortimelineskillcardortranscriptskillcard.KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
-public class SkillCardsMetadata {
+public class SkillCardsMetadata extends SerializableObject {
 
   @JsonProperty("$canEdit")
   protected Boolean canEdit;
@@ -33,9 +34,12 @@ public class SkillCardsMetadata {
 
   protected List<KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard> cards;
 
-  public SkillCardsMetadata() {}
+  public SkillCardsMetadata() {
+    super();
+  }
 
   protected SkillCardsMetadata(SkillCardsMetadataBuilder builder) {
+    super();
     this.canEdit = builder.canEdit;
     this.id = builder.id;
     this.parent = builder.parent;

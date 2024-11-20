@@ -1,17 +1,21 @@
 package com.box.sdkgen.managers.folderclassifications;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class AddClassificationToFolderRequestBody {
+public class AddClassificationToFolderRequestBody extends SerializableObject {
 
   @JsonProperty("Box__Security__Classification__Key")
   protected String boxSecurityClassificationKey;
 
-  public AddClassificationToFolderRequestBody() {}
+  public AddClassificationToFolderRequestBody() {
+    super();
+  }
 
   protected AddClassificationToFolderRequestBody(
       AddClassificationToFolderRequestBodyBuilder builder) {
+    super();
     this.boxSecurityClassificationKey = builder.boxSecurityClassificationKey;
   }
 

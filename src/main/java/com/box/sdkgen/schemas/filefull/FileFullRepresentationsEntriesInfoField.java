@@ -1,15 +1,19 @@
 package com.box.sdkgen.schemas.filefull;
 
+import com.box.sdkgen.internal.SerializableObject;
 import java.util.Objects;
 
-public class FileFullRepresentationsEntriesInfoField {
+public class FileFullRepresentationsEntriesInfoField extends SerializableObject {
 
   protected String url;
 
-  public FileFullRepresentationsEntriesInfoField() {}
+  public FileFullRepresentationsEntriesInfoField() {
+    super();
+  }
 
   protected FileFullRepresentationsEntriesInfoField(
       FileFullRepresentationsEntriesInfoFieldBuilder builder) {
+    super();
     this.url = builder.url;
   }
 

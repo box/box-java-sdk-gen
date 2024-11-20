@@ -1,9 +1,10 @@
 package com.box.sdkgen.schemas.uploadsession;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UploadSessionSessionEndpointsField {
+public class UploadSessionSessionEndpointsField extends SerializableObject {
 
   @JsonProperty("upload_part")
   protected String uploadPart;
@@ -20,9 +21,12 @@ public class UploadSessionSessionEndpointsField {
   @JsonProperty("log_event")
   protected String logEvent;
 
-  public UploadSessionSessionEndpointsField() {}
+  public UploadSessionSessionEndpointsField() {
+    super();
+  }
 
   protected UploadSessionSessionEndpointsField(UploadSessionSessionEndpointsFieldBuilder builder) {
+    super();
     this.uploadPart = builder.uploadPart;
     this.commit = builder.commit;
     this.abort = builder.abort;

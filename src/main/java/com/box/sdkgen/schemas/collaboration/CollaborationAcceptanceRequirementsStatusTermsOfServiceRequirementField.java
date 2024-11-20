@@ -1,10 +1,12 @@
 package com.box.sdkgen.schemas.collaboration;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.termsofservicebase.TermsOfServiceBase;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementField {
+public class CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementField
+    extends SerializableObject {
 
   @JsonProperty("is_accepted")
   protected Boolean isAccepted;
@@ -12,10 +14,13 @@ public class CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementF
   @JsonProperty("terms_of_service")
   protected TermsOfServiceBase termsOfService;
 
-  public CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementField() {}
+  public CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementField() {
+    super();
+  }
 
   protected CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementField(
       CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementFieldBuilder builder) {
+    super();
     this.isAccepted = builder.isAccepted;
     this.termsOfService = builder.termsOfService;
   }

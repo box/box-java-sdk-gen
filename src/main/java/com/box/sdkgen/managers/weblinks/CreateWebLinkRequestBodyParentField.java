@@ -1,13 +1,15 @@
 package com.box.sdkgen.managers.weblinks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class CreateWebLinkRequestBodyParentField {
+public class CreateWebLinkRequestBodyParentField extends SerializableObject {
 
   protected final String id;
 
   public CreateWebLinkRequestBodyParentField(@JsonProperty("id") String id) {
+    super();
     this.id = id;
   }
 

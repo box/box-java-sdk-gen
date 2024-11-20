@@ -1,11 +1,12 @@
 package com.box.sdkgen.managers.webhooks;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class UpdateWebhookByIdRequestBodyTargetField {
+public class UpdateWebhookByIdRequestBodyTargetField extends SerializableObject {
 
   protected String id;
 
@@ -19,10 +20,13 @@ public class UpdateWebhookByIdRequestBodyTargetField {
               .UpdateWebhookByIdRequestBodyTargetTypeFieldSerializer.class)
   protected EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField> type;
 
-  public UpdateWebhookByIdRequestBodyTargetField() {}
+  public UpdateWebhookByIdRequestBodyTargetField() {
+    super();
+  }
 
   protected UpdateWebhookByIdRequestBodyTargetField(
       UpdateWebhookByIdRequestBodyTargetFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
   }

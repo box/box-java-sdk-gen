@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.statusskillcard;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class StatusSkillCard {
+public class StatusSkillCard extends SerializableObject {
 
   @JsonProperty("created_at")
   protected String createdAt;
@@ -35,6 +36,7 @@ public class StatusSkillCard {
       @JsonProperty("status") StatusSkillCardStatusField status,
       @JsonProperty("skill") StatusSkillCardSkillField skill,
       @JsonProperty("invocation") StatusSkillCardInvocationField invocation) {
+    super();
     this.status = status;
     this.skill = skill;
     this.invocation = invocation;
@@ -48,6 +50,7 @@ public class StatusSkillCard {
   }
 
   protected StatusSkillCard(StatusSkillCardBuilder builder) {
+    super();
     this.createdAt = builder.createdAt;
     this.type = builder.type;
     this.skillCardType = builder.skillCardType;

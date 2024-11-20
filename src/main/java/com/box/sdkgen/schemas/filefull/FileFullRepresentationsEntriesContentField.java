@@ -1,17 +1,21 @@
 package com.box.sdkgen.schemas.filefull;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class FileFullRepresentationsEntriesContentField {
+public class FileFullRepresentationsEntriesContentField extends SerializableObject {
 
   @JsonProperty("url_template")
   protected String urlTemplate;
 
-  public FileFullRepresentationsEntriesContentField() {}
+  public FileFullRepresentationsEntriesContentField() {
+    super();
+  }
 
   protected FileFullRepresentationsEntriesContentField(
       FileFullRepresentationsEntriesContentFieldBuilder builder) {
+    super();
     this.urlTemplate = builder.urlTemplate;
   }
 

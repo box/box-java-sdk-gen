@@ -1,6 +1,12 @@
 package com.box.sdkgen.managers.sharedlinksweblinks;
 
-public class RemoveSharedLinkFromWebLinkRequestBodySharedLinkField {
+import com.box.sdkgen.internal.SerializableObject;
+
+public class RemoveSharedLinkFromWebLinkRequestBodySharedLinkField extends SerializableObject {
+
+  public RemoveSharedLinkFromWebLinkRequestBodySharedLinkField() {
+    super();
+  }
 
   @Override
   public String toString() {

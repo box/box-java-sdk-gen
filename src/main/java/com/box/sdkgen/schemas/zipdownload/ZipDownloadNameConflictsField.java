@@ -1,12 +1,13 @@
 package com.box.sdkgen.schemas.zipdownload;
 
+import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
-public class ZipDownloadNameConflictsField {
+public class ZipDownloadNameConflictsField extends SerializableObject {
 
   protected String id;
 
@@ -22,9 +23,12 @@ public class ZipDownloadNameConflictsField {
   @JsonProperty("download_name")
   protected String downloadName;
 
-  public ZipDownloadNameConflictsField() {}
+  public ZipDownloadNameConflictsField() {
+    super();
+  }
 
   protected ZipDownloadNameConflictsField(ZipDownloadNameConflictsFieldBuilder builder) {
+    super();
     this.id = builder.id;
     this.type = builder.type;
     this.originalName = builder.originalName;
