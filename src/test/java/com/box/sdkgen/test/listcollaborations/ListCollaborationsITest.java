@@ -19,6 +19,7 @@ import com.box.sdkgen.managers.usercollaborations.CreateCollaborationRequestBody
 import com.box.sdkgen.managers.usercollaborations.CreateCollaborationRequestBodyRoleField;
 import com.box.sdkgen.schemas.collaboration.Collaboration;
 import com.box.sdkgen.schemas.collaborations.Collaborations;
+import com.box.sdkgen.schemas.collaborationsoffsetpaginated.CollaborationsOffsetPaginated;
 import com.box.sdkgen.schemas.filefull.FileFull;
 import com.box.sdkgen.schemas.folderfull.FolderFull;
 import com.box.sdkgen.schemas.groupfull.GroupFull;
@@ -72,13 +73,13 @@ public class ListCollaborationsITest {
     Collaborations folderCollaborations =
         client.getListCollaborations().getFolderCollaborations(folder.getId());
     assert folderCollaborations.getEntries().size() > 0;
-    Collaborations pendingCollaborations =
+    CollaborationsOffsetPaginated pendingCollaborations =
         client
             .getListCollaborations()
             .getCollaborations(
                 new GetCollaborationsQueryParams(GetCollaborationsQueryParamsStatusField.PENDING));
     assert pendingCollaborations.getEntries().size() >= 0;
-    Collaborations groupCollaborations =
+    CollaborationsOffsetPaginated groupCollaborations =
         client.getListCollaborations().getGroupCollaborations(group.getId());
     assert groupCollaborations.getEntries().size() > 0;
     client.getUserCollaborations().deleteCollaborationById(groupCollaboration.getId());
