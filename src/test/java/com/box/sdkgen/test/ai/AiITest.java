@@ -317,7 +317,8 @@ public class AiITest {
                     .build());
     assert convertToString(getValueFromObjectRawData(response, "firstName")).equals("John");
     assert convertToString(getValueFromObjectRawData(response, "lastName")).equals("Doe");
-    assert convertToString(getValueFromObjectRawData(response, "dateOfBirth")).equals("1990-07-04");
+    assert convertToString(getValueFromObjectRawData(response, "dateOfBirth"))
+        .equals("1990-07-04T00:00:00Z");
     assert convertToString(getValueFromObjectRawData(response, "age")).equals("34");
     assert convertToString(getValueFromObjectRawData(response, "hobby"))
         .equals(convertToString(Arrays.asList("guitar", "books")));
