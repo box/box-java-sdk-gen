@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.filesunderretention.FilesUnderRetention;
 import com.box.sdkgen.schemas.retentionpolicyassignment.RetentionPolicyAssignment;
@@ -71,11 +72,11 @@ public class RetentionPolicyAssignmentsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/retention_policies/",
                         convertToString(retentionPolicyId),
-                        "/assignments"))
-                .method("GET")
+                        "/assignments"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -98,12 +99,12 @@ public class RetentionPolicyAssignmentsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/retention_policy_assignments"))
-                .method("POST")
+                        "/2.0/retention_policy_assignments"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -144,11 +145,11 @@ public class RetentionPolicyAssignmentsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/retention_policy_assignments/",
-                        convertToString(retentionPolicyAssignmentId)))
-                .method("GET")
+                        convertToString(retentionPolicyAssignmentId)),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -170,10 +171,10 @@ public class RetentionPolicyAssignmentsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/retention_policy_assignments/",
-                        convertToString(retentionPolicyAssignmentId)))
-                .method("DELETE")
+                        convertToString(retentionPolicyAssignmentId)),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -222,11 +223,11 @@ public class RetentionPolicyAssignmentsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/retention_policy_assignments/",
                         convertToString(retentionPolicyAssignmentId),
-                        "/files_under_retention"))
-                .method("GET")
+                        "/files_under_retention"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

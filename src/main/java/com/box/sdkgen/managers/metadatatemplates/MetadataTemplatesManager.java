@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.metadatatemplate.MetadataTemplate;
 import com.box.sdkgen.schemas.metadatatemplates.MetadataTemplates;
@@ -55,11 +56,11 @@ public class MetadataTemplatesManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/metadata_templates"))
-                .method("GET")
+                        "/2.0/metadata_templates"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -83,10 +84,10 @@ public class MetadataTemplatesManager {
                         convertToString(scope),
                         "/",
                         convertToString(templateKey),
-                        "/schema"))
-                .method("GET")
+                        "/schema"),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -117,12 +118,12 @@ public class MetadataTemplatesManager {
                         convertToString(scope),
                         "/",
                         convertToString(templateKey),
-                        "/schema"))
-                .method("PUT")
+                        "/schema"),
+                    "PUT")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json-patch+json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -148,10 +149,10 @@ public class MetadataTemplatesManager {
                         convertToString(scope),
                         "/",
                         convertToString(templateKey),
-                        "/schema"))
-                .method("DELETE")
+                        "/schema"),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -171,10 +172,10 @@ public class MetadataTemplatesManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/metadata_templates/",
-                        convertToString(templateId)))
-                .method("GET")
+                        convertToString(templateId)),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -210,11 +211,11 @@ public class MetadataTemplatesManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/metadata_templates/global"))
-                .method("GET")
+                        "/2.0/metadata_templates/global"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -252,11 +253,11 @@ public class MetadataTemplatesManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/metadata_templates/enterprise"))
-                .method("GET")
+                        "/2.0/metadata_templates/enterprise"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -276,12 +277,12 @@ public class MetadataTemplatesManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/metadata_templates/schema"))
-                .method("POST")
+                        "/2.0/metadata_templates/schema"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

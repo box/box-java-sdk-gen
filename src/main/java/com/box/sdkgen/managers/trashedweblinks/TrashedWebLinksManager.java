@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.trashweblink.TrashWebLink;
 import com.box.sdkgen.schemas.trashweblinkrestored.TrashWebLinkRestored;
@@ -105,13 +106,13 @@ public class TrashedWebLinksManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/web_links/",
-                        convertToString(webLinkId)))
-                .method("POST")
+                        convertToString(webLinkId)),
+                    "POST")
                 .params(queryParamsMap)
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -148,11 +149,11 @@ public class TrashedWebLinksManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/web_links/",
                         convertToString(webLinkId),
-                        "/trash"))
-                .method("GET")
+                        "/trash"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -173,10 +174,10 @@ public class TrashedWebLinksManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/web_links/",
                         convertToString(webLinkId),
-                        "/trash"))
-                .method("DELETE")
+                        "/trash"),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

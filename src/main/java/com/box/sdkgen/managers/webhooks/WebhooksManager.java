@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.webhook.Webhook;
 import com.box.sdkgen.schemas.webhooks.Webhooks;
@@ -54,11 +55,11 @@ public class WebhooksManager {
         fetch(
             new FetchOptions.FetchOptionsBuilder(
                     String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/webhooks"))
-                .method("GET")
+                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/webhooks"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -75,12 +76,12 @@ public class WebhooksManager {
         fetch(
             new FetchOptions.FetchOptionsBuilder(
                     String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/webhooks"))
-                .method("POST")
+                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/webhooks"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -100,10 +101,10 @@ public class WebhooksManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/webhooks/",
-                        convertToString(webhookId)))
-                .method("GET")
+                        convertToString(webhookId)),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -135,12 +136,12 @@ public class WebhooksManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/webhooks/",
-                        convertToString(webhookId)))
-                .method("PUT")
+                        convertToString(webhookId)),
+                    "PUT")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -160,10 +161,10 @@ public class WebhooksManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/webhooks/",
-                        convertToString(webhookId)))
-                .method("DELETE")
+                        convertToString(webhookId)),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

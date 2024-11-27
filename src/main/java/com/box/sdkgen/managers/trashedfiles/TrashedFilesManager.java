@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.trashfile.TrashFile;
 import com.box.sdkgen.schemas.trashfilerestored.TrashFileRestored;
@@ -105,13 +106,13 @@ public class TrashedFilesManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/files/",
-                        convertToString(fileId)))
-                .method("POST")
+                        convertToString(fileId)),
+                    "POST")
                 .params(queryParamsMap)
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -144,11 +145,11 @@ public class TrashedFilesManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/files/",
                         convertToString(fileId),
-                        "/trash"))
-                .method("GET")
+                        "/trash"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -169,10 +170,10 @@ public class TrashedFilesManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/files/",
                         convertToString(fileId),
-                        "/trash"))
-                .method("DELETE")
+                        "/trash"),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

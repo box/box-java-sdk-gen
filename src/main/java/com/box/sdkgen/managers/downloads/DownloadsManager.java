@@ -9,8 +9,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.writeInputStreamToOutpu
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -65,11 +66,11 @@ public class DownloadsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/files/",
                         convertToString(fileId),
-                        "/content"))
-                .method("GET")
+                        "/content"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("binary")
+                .responseFormat(ResponseFormat.BINARY)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

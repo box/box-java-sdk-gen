@@ -2,6 +2,7 @@ package com.box.sdkgen.client;
 
 import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
+import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.managers.ai.AiManager;
 import com.box.sdkgen.managers.appitemassociations.AppItemAssociationsManager;
@@ -75,6 +76,8 @@ import com.box.sdkgen.managers.workflows.WorkflowsManager;
 import com.box.sdkgen.managers.zipdownloads.ZipDownloadsManager;
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.baseurls.BaseUrls;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import java.util.Map;
 
@@ -940,6 +943,27 @@ public class BoxClient {
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
+  }
+
+  public FetchResponse makeRequest(FetchOptions fetchOptions) {
+    Authentication auth = (fetchOptions.getAuth() == null ? this.auth : fetchOptions.getAuth());
+    NetworkSession networkSession =
+        (fetchOptions.getNetworkSession() == null
+            ? this.networkSession
+            : fetchOptions.getNetworkSession());
+    FetchOptions enrichedFetchOptions =
+        new FetchOptions.FetchOptionsBuilder(fetchOptions.getUrl(), fetchOptions.getMethod())
+            .params(fetchOptions.getParams())
+            .headers(fetchOptions.getHeaders())
+            .data(fetchOptions.getData())
+            .fileStream(fetchOptions.getFileStream())
+            .multipartData(fetchOptions.getMultipartData())
+            .contentType(fetchOptions.getContentType())
+            .responseFormat(fetchOptions.getResponseFormat())
+            .auth(auth)
+            .networkSession(networkSession)
+            .build();
+    return fetch(enrichedFetchOptions);
   }
 
   public BoxClient withAsUserHeader(String userId) {

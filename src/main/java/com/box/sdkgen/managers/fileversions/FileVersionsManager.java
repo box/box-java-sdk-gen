@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.fileversionfull.FileVersionFull;
 import com.box.sdkgen.schemas.fileversions.FileVersions;
@@ -60,11 +61,11 @@ public class FileVersionsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/files/",
                         convertToString(fileId),
-                        "/versions"))
-                .method("GET")
+                        "/versions"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -106,11 +107,11 @@ public class FileVersionsManager {
                         "/2.0/files/",
                         convertToString(fileId),
                         "/versions/",
-                        convertToString(fileVersionId)))
-                .method("GET")
+                        convertToString(fileVersionId)),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -137,10 +138,10 @@ public class FileVersionsManager {
                         "/2.0/files/",
                         convertToString(fileId),
                         "/versions/",
-                        convertToString(fileVersionId)))
-                .method("DELETE")
+                        convertToString(fileVersionId)),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -181,12 +182,12 @@ public class FileVersionsManager {
                         "/2.0/files/",
                         convertToString(fileId),
                         "/versions/",
-                        convertToString(fileVersionId)))
-                .method("PUT")
+                        convertToString(fileVersionId)),
+                    "PUT")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -251,13 +252,13 @@ public class FileVersionsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/files/",
                         convertToString(fileId),
-                        "/versions/current"))
-                .method("POST")
+                        "/versions/current"),
+                    "POST")
                 .params(queryParamsMap)
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
