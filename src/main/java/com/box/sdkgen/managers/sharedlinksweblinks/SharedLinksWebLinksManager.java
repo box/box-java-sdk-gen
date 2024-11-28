@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.weblink.WebLink;
 import com.box.sdkgen.serialization.json.JsonManager;
@@ -51,11 +52,11 @@ public class SharedLinksWebLinksManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/shared_items#web_links"))
-                .method("GET")
+                        "/2.0/shared_items#web_links"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -82,11 +83,11 @@ public class SharedLinksWebLinksManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/web_links/",
                         convertToString(webLinkId),
-                        "#get_shared_link"))
-                .method("GET")
+                        "#get_shared_link"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -134,13 +135,13 @@ public class SharedLinksWebLinksManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/web_links/",
                         convertToString(webLinkId),
-                        "#add_shared_link"))
-                .method("PUT")
+                        "#add_shared_link"),
+                    "PUT")
                 .params(queryParamsMap)
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -188,13 +189,13 @@ public class SharedLinksWebLinksManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/web_links/",
                         convertToString(webLinkId),
-                        "#update_shared_link"))
-                .method("PUT")
+                        "#update_shared_link"),
+                    "PUT")
                 .params(queryParamsMap)
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -242,13 +243,13 @@ public class SharedLinksWebLinksManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/web_links/",
                         convertToString(webLinkId),
-                        "#remove_shared_link"))
-                .method("PUT")
+                        "#remove_shared_link"),
+                    "PUT")
                 .params(queryParamsMap)
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

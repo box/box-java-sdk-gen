@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.termsofserviceuserstatus.TermsOfServiceUserStatus;
 import com.box.sdkgen.schemas.termsofserviceuserstatuses.TermsOfServiceUserStatuses;
@@ -51,11 +52,11 @@ public class TermsOfServiceUserStatusesManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/terms_of_service_user_statuses"))
-                .method("GET")
+                        "/2.0/terms_of_service_user_statuses"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -78,12 +79,12 @@ public class TermsOfServiceUserStatusesManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/terms_of_service_user_statuses"))
-                .method("POST")
+                        "/2.0/terms_of_service_user_statuses"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -111,12 +112,12 @@ public class TermsOfServiceUserStatusesManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/terms_of_service_user_statuses/",
-                        convertToString(termsOfServiceUserStatusId)))
-                .method("PUT")
+                        convertToString(termsOfServiceUserStatusId)),
+                    "PUT")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

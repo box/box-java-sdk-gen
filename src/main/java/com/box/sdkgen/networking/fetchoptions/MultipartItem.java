@@ -1,19 +1,19 @@
-package com.box.sdkgen.networking.fetch;
+package com.box.sdkgen.networking.fetchoptions;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import java.io.InputStream;
 
 public class MultipartItem {
 
-  protected final String partName;
+  public final String partName;
 
-  protected JsonNode data;
+  public JsonNode data;
 
-  protected InputStream fileStream;
+  public InputStream fileStream;
 
-  protected String fileName;
+  public String fileName;
 
-  protected String contentType;
+  public String contentType;
 
   public MultipartItem(String partName) {
     this.partName = partName;

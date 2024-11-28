@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.signrequest.SignRequest;
 import com.box.sdkgen.schemas.signrequestcreaterequest.SignRequestCreateRequest;
@@ -46,10 +47,10 @@ public class SignRequestsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/sign_requests/",
                         convertToString(signRequestId),
-                        "/cancel"))
-                .method("POST")
+                        "/cancel"),
+                    "POST")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -70,10 +71,10 @@ public class SignRequestsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/sign_requests/",
                         convertToString(signRequestId),
-                        "/resend"))
-                .method("POST")
+                        "/resend"),
+                    "POST")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -92,10 +93,10 @@ public class SignRequestsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/sign_requests/",
-                        convertToString(signRequestId)))
-                .method("GET")
+                        convertToString(signRequestId)),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -126,11 +127,11 @@ public class SignRequestsManager {
         fetch(
             new FetchOptions.FetchOptionsBuilder(
                     String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/sign_requests"))
-                .method("GET")
+                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/sign_requests"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -148,12 +149,12 @@ public class SignRequestsManager {
         fetch(
             new FetchOptions.FetchOptionsBuilder(
                     String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/sign_requests"))
-                .method("POST")
+                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/sign_requests"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

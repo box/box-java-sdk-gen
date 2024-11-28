@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.integrationmapping.IntegrationMapping;
 import com.box.sdkgen.schemas.integrationmappings.IntegrationMappings;
@@ -67,11 +68,11 @@ public class IntegrationMappingsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/integration_mappings/slack"))
-                .method("GET")
+                        "/2.0/integration_mappings/slack"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -93,12 +94,12 @@ public class IntegrationMappingsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/integration_mappings/slack"))
-                .method("POST")
+                        "/2.0/integration_mappings/slack"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -136,12 +137,12 @@ public class IntegrationMappingsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/integration_mappings/slack/",
-                        convertToString(integrationMappingId)))
-                .method("PUT")
+                        convertToString(integrationMappingId)),
+                    "PUT")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -163,10 +164,10 @@ public class IntegrationMappingsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/integration_mappings/slack/",
-                        convertToString(integrationMappingId)))
-                .method("DELETE")
+                        convertToString(integrationMappingId)),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

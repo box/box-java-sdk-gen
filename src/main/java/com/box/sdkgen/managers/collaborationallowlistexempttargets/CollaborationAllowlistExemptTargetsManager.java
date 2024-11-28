@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.collaborationallowlistexempttarget.CollaborationAllowlistExemptTarget;
 import com.box.sdkgen.schemas.collaborationallowlistexempttargets.CollaborationAllowlistExemptTargets;
@@ -65,11 +66,11 @@ public class CollaborationAllowlistExemptTargetsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/collaboration_whitelist_exempt_targets"))
-                .method("GET")
+                        "/2.0/collaboration_whitelist_exempt_targets"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -92,12 +93,12 @@ public class CollaborationAllowlistExemptTargetsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/collaboration_whitelist_exempt_targets"))
-                .method("POST")
+                        "/2.0/collaboration_whitelist_exempt_targets"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -122,10 +123,10 @@ public class CollaborationAllowlistExemptTargetsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/collaboration_whitelist_exempt_targets/",
-                        convertToString(collaborationWhitelistExemptTargetId)))
-                .method("GET")
+                        convertToString(collaborationWhitelistExemptTargetId)),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -150,10 +151,10 @@ public class CollaborationAllowlistExemptTargetsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/collaboration_whitelist_exempt_targets/",
-                        convertToString(collaborationWhitelistExemptTargetId)))
-                .method("DELETE")
+                        convertToString(collaborationWhitelistExemptTargetId)),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

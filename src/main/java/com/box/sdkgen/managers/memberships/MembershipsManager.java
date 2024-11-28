@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.groupmembership.GroupMembership;
 import com.box.sdkgen.schemas.groupmemberships.GroupMemberships;
@@ -61,11 +62,11 @@ public class MembershipsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/users/",
                         convertToString(userId),
-                        "/memberships"))
-                .method("GET")
+                        "/memberships"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -104,11 +105,11 @@ public class MembershipsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/groups/",
                         convertToString(groupId),
-                        "/memberships"))
-                .method("GET")
+                        "/memberships"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -143,13 +144,13 @@ public class MembershipsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/group_memberships"))
-                .method("POST")
+                        "/2.0/group_memberships"),
+                    "POST")
                 .params(queryParamsMap)
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -189,11 +190,11 @@ public class MembershipsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/group_memberships/",
-                        convertToString(groupMembershipId)))
-                .method("GET")
+                        convertToString(groupMembershipId)),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -274,13 +275,13 @@ public class MembershipsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/group_memberships/",
-                        convertToString(groupMembershipId)))
-                .method("PUT")
+                        convertToString(groupMembershipId)),
+                    "PUT")
                 .params(queryParamsMap)
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -301,10 +302,10 @@ public class MembershipsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/group_memberships/",
-                        convertToString(groupMembershipId)))
-                .method("DELETE")
+                        convertToString(groupMembershipId)),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

@@ -6,8 +6,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.classificationtemplate.ClassificationTemplate;
 import com.box.sdkgen.serialization.json.JsonManager;
@@ -42,10 +43,10 @@ public class ClassificationsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema"))
-                .method("GET")
+                        "/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema"),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -65,12 +66,12 @@ public class ClassificationsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema#add"))
-                .method("PUT")
+                        "/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema#add"),
+                    "PUT")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -91,12 +92,12 @@ public class ClassificationsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema#update"))
-                .method("PUT")
+                        "/2.0/metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema#update"),
+                    "PUT")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json-patch+json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -118,12 +119,12 @@ public class ClassificationsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/metadata_templates/schema#classifications"))
-                .method("POST")
+                        "/2.0/metadata_templates/schema#classifications"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

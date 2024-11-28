@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.shieldinformationbarriersegment.ShieldInformationBarrierSegment;
 import com.box.sdkgen.schemas.shieldinformationbarriersegments.ShieldInformationBarrierSegments;
@@ -49,10 +50,10 @@ public class ShieldInformationBarrierSegmentsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/shield_information_barrier_segments/",
-                        convertToString(shieldInformationBarrierSegmentId)))
-                .method("GET")
+                        convertToString(shieldInformationBarrierSegmentId)),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -75,10 +76,10 @@ public class ShieldInformationBarrierSegmentsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/shield_information_barrier_segments/",
-                        convertToString(shieldInformationBarrierSegmentId)))
-                .method("DELETE")
+                        convertToString(shieldInformationBarrierSegmentId)),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -122,12 +123,12 @@ public class ShieldInformationBarrierSegmentsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/shield_information_barrier_segments/",
-                        convertToString(shieldInformationBarrierSegmentId)))
-                .method("PUT")
+                        convertToString(shieldInformationBarrierSegmentId)),
+                    "PUT")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -158,11 +159,11 @@ public class ShieldInformationBarrierSegmentsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/shield_information_barrier_segments"))
-                .method("GET")
+                        "/2.0/shield_information_barrier_segments"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -185,12 +186,12 @@ public class ShieldInformationBarrierSegmentsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/shield_information_barrier_segments"))
-                .method("POST")
+                        "/2.0/shield_information_barrier_segments"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

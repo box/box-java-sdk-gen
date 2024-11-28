@@ -7,8 +7,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.taskassignment.TaskAssignment;
 import com.box.sdkgen.schemas.taskassignments.TaskAssignments;
@@ -44,10 +45,10 @@ public class TaskAssignmentsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/tasks/",
                         convertToString(taskId),
-                        "/assignments"))
-                .method("GET")
+                        "/assignments"),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -67,12 +68,12 @@ public class TaskAssignmentsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/task_assignments"))
-                .method("POST")
+                        "/2.0/task_assignments"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -93,10 +94,10 @@ public class TaskAssignmentsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/task_assignments/",
-                        convertToString(taskAssignmentId)))
-                .method("GET")
+                        convertToString(taskAssignmentId)),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -134,12 +135,12 @@ public class TaskAssignmentsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/task_assignments/",
-                        convertToString(taskAssignmentId)))
-                .method("PUT")
+                        convertToString(taskAssignmentId)),
+                    "PUT")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -160,10 +161,10 @@ public class TaskAssignmentsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/task_assignments/",
-                        convertToString(taskAssignmentId)))
-                .method("DELETE")
+                        convertToString(taskAssignmentId)),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

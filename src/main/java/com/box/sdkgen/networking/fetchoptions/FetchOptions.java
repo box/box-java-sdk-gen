@@ -1,7 +1,8 @@
-package com.box.sdkgen.networking.fetch;
+package com.box.sdkgen.networking.fetchoptions;
 
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.network.NetworkSession;
+import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.io.InputStream;
 import java.util.List;
@@ -9,31 +10,34 @@ import java.util.Map;
 
 public class FetchOptions {
 
-  protected final String url;
+  public final String url;
 
-  protected String method;
+  public final String method;
 
-  protected Map<String, String> params;
+  public Map<String, String> params;
 
-  protected Map<String, String> headers;
+  public Map<String, String> headers;
 
-  protected JsonNode data;
+  public JsonNode data;
 
-  protected InputStream fileStream;
+  public InputStream fileStream;
 
-  protected List<MultipartItem> multipartData;
+  public List<MultipartItem> multipartData;
 
-  protected String contentType;
+  public String contentType;
 
-  protected String responseFormat;
+  public EnumWrapper<ResponseFormat> responseFormat;
 
-  protected Authentication auth;
+  public Authentication auth;
 
-  protected NetworkSession networkSession;
+  public NetworkSession networkSession;
 
-  public FetchOptions(String url) {
-    this.contentType = "application/json";
+  public FetchOptions(String url, String method) {
     this.url = url;
+    this.method = method;
+    this.contentType = "application/json";
+    this.responseFormat =
+        new EnumWrapper<ResponseFormat>(ResponseFormat.JSON.getValue(), ResponseFormat.JSON);
   }
 
   protected FetchOptions(FetchOptionsBuilder builder) {
@@ -82,7 +86,7 @@ public class FetchOptions {
     return contentType;
   }
 
-  public String getResponseFormat() {
+  public EnumWrapper<ResponseFormat> getResponseFormat() {
     return responseFormat;
   }
 
@@ -98,7 +102,7 @@ public class FetchOptions {
 
     protected final String url;
 
-    protected String method;
+    protected final String method;
 
     protected Map<String, String> params;
 
@@ -112,20 +116,18 @@ public class FetchOptions {
 
     protected String contentType;
 
-    protected String responseFormat;
+    protected EnumWrapper<ResponseFormat> responseFormat;
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public FetchOptionsBuilder(String url) {
-      this.contentType = "application/json";
+    public FetchOptionsBuilder(String url, String method) {
       this.url = url;
-    }
-
-    public FetchOptionsBuilder method(String method) {
       this.method = method;
-      return this;
+      this.contentType = "application/json";
+      this.responseFormat =
+          new EnumWrapper<ResponseFormat>(ResponseFormat.JSON.getValue(), ResponseFormat.JSON);
     }
 
     public FetchOptionsBuilder params(Map<String, String> params) {
@@ -158,8 +160,14 @@ public class FetchOptions {
       return this;
     }
 
-    public FetchOptionsBuilder responseFormat(String responseFormat) {
+    public FetchOptionsBuilder responseFormat(EnumWrapper<ResponseFormat> responseFormat) {
       this.responseFormat = responseFormat;
+      return this;
+    }
+
+    public FetchOptionsBuilder responseFormat(ResponseFormat responseFormat) {
+      this.responseFormat =
+          new EnumWrapper<ResponseFormat>(responseFormat.getValue(), responseFormat);
       return this;
     }
 

@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.filefull.FileFull;
 import com.box.sdkgen.serialization.json.JsonManager;
@@ -62,11 +63,11 @@ public class FilesManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/files/",
-                        convertToString(fileId)))
-                .method("GET")
+                        convertToString(fileId)),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -130,13 +131,13 @@ public class FilesManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/files/",
-                        convertToString(fileId)))
-                .method("PUT")
+                        convertToString(fileId)),
+                    "PUT")
                 .params(queryParamsMap)
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -160,10 +161,10 @@ public class FilesManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/files/",
-                        convertToString(fileId)))
-                .method("DELETE")
+                        convertToString(fileId)),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -199,13 +200,13 @@ public class FilesManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/files/",
                         convertToString(fileId),
-                        "/copy"))
-                .method("POST")
+                        "/copy"),
+                    "POST")
                 .params(queryParamsMap)
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -254,11 +255,11 @@ public class FilesManager {
                         "/2.0/files/",
                         convertToString(fileId),
                         "/thumbnail.",
-                        convertToString(extension)))
-                .method("GET")
+                        convertToString(extension)),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("binary")
+                .responseFormat(ResponseFormat.BINARY)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

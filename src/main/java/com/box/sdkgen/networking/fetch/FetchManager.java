@@ -8,6 +8,10 @@ import static com.box.sdkgen.serialization.json.JsonManager.sdToUrlParams;
 
 import com.box.sdkgen.box.errors.BoxAPIError;
 import com.box.sdkgen.box.errors.BoxSDKError;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.MultipartItem;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import java.io.IOException;
 import java.util.Map;
@@ -53,22 +57,23 @@ public class FetchManager {
 
         boolean acceptedWithRetryAfter =
             response.code() == 202 && response.header("Retry-After") != null;
+
         if (response.isSuccessful()
             && (!acceptedWithRetryAfter || attemptNumber >= NetworkSession.MAX_ATTEMPTS)) {
-          if (Objects.equals(options.getResponseFormat(), "binary")) {
-            return new FetchResponse(
-                response.code(),
-                null,
-                response.body().byteStream(),
-                response.headers().toMultimap().entrySet().stream()
-                    .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().get(0))));
+          if (Objects.equals(options.getResponseFormat().getEnumValue(), ResponseFormat.BINARY)) {
+            return new FetchResponse.FetchResponseBuilder(
+                    response.code(),
+                    response.headers().toMultimap().entrySet().stream()
+                        .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().get(0))))
+                .content(response.body().byteStream())
+                .build();
           }
-          return new FetchResponse(
-              response.code(),
-              response.body() != null ? jsonToSerializedData(response.body().string()) : null,
-              null,
-              response.headers().toMultimap().entrySet().stream()
-                  .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().get(0))));
+          return new FetchResponse.FetchResponseBuilder(
+                  response.code(),
+                  response.headers().toMultimap().entrySet().stream()
+                      .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().get(0))))
+              .data(response.body() != null ? jsonToSerializedData(response.body().string()) : null)
+              .build();
         }
 
         if (response.code() == 401 && options.getAuth() != null) {
@@ -124,7 +129,7 @@ public class FetchManager {
 
     requestBuilder.headers(headers);
     requestBuilder.url(url);
-    requestBuilder.method(options.getMethod(), body);
+    requestBuilder.method(options.getMethod().toUpperCase(), body);
     return requestBuilder.build();
   }
 

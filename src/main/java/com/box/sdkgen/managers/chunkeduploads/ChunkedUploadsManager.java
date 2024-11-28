@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.files.Files;
 import com.box.sdkgen.schemas.uploadedpart.UploadedPart;
@@ -47,12 +48,12 @@ public class ChunkedUploadsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getUploadUrl(),
-                        "/2.0/files/upload_sessions"))
-                .method("POST")
+                        "/2.0/files/upload_sessions"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -78,12 +79,12 @@ public class ChunkedUploadsManager {
                         this.networkSession.getBaseUrls().getUploadUrl(),
                         "/2.0/files/",
                         convertToString(fileId),
-                        "/upload_sessions"))
-                .method("POST")
+                        "/upload_sessions"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -99,10 +100,9 @@ public class ChunkedUploadsManager {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
         fetch(
-            new FetchOptions.FetchOptionsBuilder(url)
-                .method("GET")
+            new FetchOptions.FetchOptionsBuilder(url, "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -123,10 +123,10 @@ public class ChunkedUploadsManager {
                         "",
                         this.networkSession.getBaseUrls().getUploadUrl(),
                         "/2.0/files/upload_sessions/",
-                        convertToString(uploadSessionId)))
-                .method("GET")
+                        convertToString(uploadSessionId)),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -144,12 +144,11 @@ public class ChunkedUploadsManager {
                 headers.getExtraHeaders()));
     FetchResponse response =
         fetch(
-            new FetchOptions.FetchOptionsBuilder(url)
-                .method("PUT")
+            new FetchOptions.FetchOptionsBuilder(url, "PUT")
                 .headers(headersMap)
                 .fileStream(requestBody)
                 .contentType("application/octet-stream")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -172,12 +171,12 @@ public class ChunkedUploadsManager {
                         "",
                         this.networkSession.getBaseUrls().getUploadUrl(),
                         "/2.0/files/upload_sessions/",
-                        convertToString(uploadSessionId)))
-                .method("PUT")
+                        convertToString(uploadSessionId)),
+                    "PUT")
                 .headers(headersMap)
                 .fileStream(requestBody)
                 .contentType("application/octet-stream")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -193,10 +192,9 @@ public class ChunkedUploadsManager {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
         fetch(
-            new FetchOptions.FetchOptionsBuilder(url)
-                .method("DELETE")
+            new FetchOptions.FetchOptionsBuilder(url, "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -216,10 +214,10 @@ public class ChunkedUploadsManager {
                         "",
                         this.networkSession.getBaseUrls().getUploadUrl(),
                         "/2.0/files/upload_sessions/",
-                        convertToString(uploadSessionId)))
-                .method("DELETE")
+                        convertToString(uploadSessionId)),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -256,11 +254,10 @@ public class ChunkedUploadsManager {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
         fetch(
-            new FetchOptions.FetchOptionsBuilder(url)
-                .method("GET")
+            new FetchOptions.FetchOptionsBuilder(url, "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -304,11 +301,11 @@ public class ChunkedUploadsManager {
                         this.networkSession.getBaseUrls().getUploadUrl(),
                         "/2.0/files/upload_sessions/",
                         convertToString(uploadSessionId),
-                        "/parts"))
-                .method("GET")
+                        "/parts"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -329,12 +326,11 @@ public class ChunkedUploadsManager {
                 headers.getExtraHeaders()));
     FetchResponse response =
         fetch(
-            new FetchOptions.FetchOptionsBuilder(url)
-                .method("POST")
+            new FetchOptions.FetchOptionsBuilder(url, "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -364,12 +360,12 @@ public class ChunkedUploadsManager {
                         this.networkSession.getBaseUrls().getUploadUrl(),
                         "/2.0/files/upload_sessions/",
                         convertToString(uploadSessionId),
-                        "/commit"))
-                .method("POST")
+                        "/commit"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

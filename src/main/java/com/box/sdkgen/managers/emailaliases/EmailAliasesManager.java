@@ -7,8 +7,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.emailalias.EmailAlias;
 import com.box.sdkgen.schemas.emailaliases.EmailAliases;
@@ -44,10 +45,10 @@ public class EmailAliasesManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/users/",
                         convertToString(userId),
-                        "/email_aliases"))
-                .method("GET")
+                        "/email_aliases"),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -72,12 +73,12 @@ public class EmailAliasesManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/users/",
                         convertToString(userId),
-                        "/email_aliases"))
-                .method("POST")
+                        "/email_aliases"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -100,10 +101,10 @@ public class EmailAliasesManager {
                         "/2.0/users/",
                         convertToString(userId),
                         "/email_aliases/",
-                        convertToString(emailAliasId)))
-                .method("DELETE")
+                        convertToString(emailAliasId)),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

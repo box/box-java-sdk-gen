@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.accesstoken.AccessToken;
 import com.box.sdkgen.schemas.postoauth2revoke.PostOAuth2Revoke;
@@ -50,11 +51,11 @@ public class AuthorizationManager {
     FetchResponse response =
         fetch(
             new FetchOptions.FetchOptionsBuilder(
-                    String.join("", this.networkSession.getBaseUrls().getOauth2Url(), "/authorize"))
-                .method("GET")
+                    String.join("", this.networkSession.getBaseUrls().getOauth2Url(), "/authorize"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -71,12 +72,12 @@ public class AuthorizationManager {
         fetch(
             new FetchOptions.FetchOptionsBuilder(
                     String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/oauth2/token"))
-                .method("POST")
+                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/oauth2/token"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/x-www-form-urlencoded")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -96,12 +97,12 @@ public class AuthorizationManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/oauth2/token#refresh"))
-                .method("POST")
+                        "/oauth2/token#refresh"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/x-www-form-urlencoded")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -118,12 +119,12 @@ public class AuthorizationManager {
         fetch(
             new FetchOptions.FetchOptionsBuilder(
                     String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/oauth2/revoke"))
-                .method("POST")
+                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/oauth2/revoke"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/x-www-form-urlencoded")
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

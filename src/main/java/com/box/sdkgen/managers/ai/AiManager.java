@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.aiagentaskoraiagentextractoraiagentextractstructuredoraiagenttextgen.AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen;
 import com.box.sdkgen.schemas.aiask.AiAsk;
@@ -46,12 +47,12 @@ public class AiManager {
     FetchResponse response =
         fetch(
             new FetchOptions.FetchOptionsBuilder(
-                    String.join("", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/ai/ask"))
-                .method("POST")
+                    String.join("", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/ai/ask"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -68,12 +69,12 @@ public class AiManager {
         fetch(
             new FetchOptions.FetchOptionsBuilder(
                     String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/ai/text_gen"))
-                .method("POST")
+                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/ai/text_gen"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -101,11 +102,11 @@ public class AiManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/ai_agent_default"))
-                .method("GET")
+                        "/2.0/ai_agent_default"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -124,12 +125,12 @@ public class AiManager {
         fetch(
             new FetchOptions.FetchOptionsBuilder(
                     String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/ai/extract"))
-                .method("POST")
+                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/ai/extract"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -149,12 +150,12 @@ public class AiManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/ai/extract_structured"))
-                .method("POST")
+                        "/2.0/ai/extract_structured"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

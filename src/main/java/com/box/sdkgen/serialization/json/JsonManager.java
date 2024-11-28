@@ -63,4 +63,8 @@ public class JsonManager {
     }
     return formData.toString();
   }
+
+  public static String getSdValueByKey(JsonNode jsonNode, String key) {
+    return jsonNode.get(key).asText();
+  }
 }
