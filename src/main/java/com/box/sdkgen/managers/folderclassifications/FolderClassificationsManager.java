@@ -7,8 +7,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.classification.Classification;
 import com.box.sdkgen.serialization.json.JsonManager;
@@ -45,10 +46,10 @@ public class FolderClassificationsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/folders/",
                         convertToString(folderId),
-                        "/metadata/enterprise/securityClassification-6VMVochwUWo"))
-                .method("GET")
+                        "/metadata/enterprise/securityClassification-6VMVochwUWo"),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -85,12 +86,12 @@ public class FolderClassificationsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/folders/",
                         convertToString(folderId),
-                        "/metadata/enterprise/securityClassification-6VMVochwUWo"))
-                .method("POST")
+                        "/metadata/enterprise/securityClassification-6VMVochwUWo"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -116,12 +117,12 @@ public class FolderClassificationsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/folders/",
                         convertToString(folderId),
-                        "/metadata/enterprise/securityClassification-6VMVochwUWo"))
-                .method("PUT")
+                        "/metadata/enterprise/securityClassification-6VMVochwUWo"),
+                    "PUT")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json-patch+json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -143,10 +144,10 @@ public class FolderClassificationsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/folders/",
                         convertToString(folderId),
-                        "/metadata/enterprise/securityClassification-6VMVochwUWo"))
-                .method("DELETE")
+                        "/metadata/enterprise/securityClassification-6VMVochwUWo"),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

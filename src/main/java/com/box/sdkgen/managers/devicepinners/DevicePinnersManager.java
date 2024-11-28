@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.devicepinner.DevicePinner;
 import com.box.sdkgen.schemas.devicepinners.DevicePinners;
@@ -45,10 +46,10 @@ public class DevicePinnersManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/device_pinners/",
-                        convertToString(devicePinnerId)))
-                .method("GET")
+                        convertToString(devicePinnerId)),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -68,10 +69,10 @@ public class DevicePinnersManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/device_pinners/",
-                        convertToString(devicePinnerId)))
-                .method("DELETE")
+                        convertToString(devicePinnerId)),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -115,11 +116,11 @@ public class DevicePinnersManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/enterprises/",
                         convertToString(enterpriseId),
-                        "/device_pinners"))
-                .method("GET")
+                        "/device_pinners"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

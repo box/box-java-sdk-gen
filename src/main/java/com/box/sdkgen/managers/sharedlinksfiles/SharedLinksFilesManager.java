@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.filefull.FileFull;
 import com.box.sdkgen.serialization.json.JsonManager;
@@ -49,11 +50,11 @@ public class SharedLinksFilesManager {
         fetch(
             new FetchOptions.FetchOptionsBuilder(
                     String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/shared_items"))
-                .method("GET")
+                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/shared_items"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -79,11 +80,11 @@ public class SharedLinksFilesManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/files/",
                         convertToString(fileId),
-                        "#get_shared_link"))
-                .method("GET")
+                        "#get_shared_link"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -123,13 +124,13 @@ public class SharedLinksFilesManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/files/",
                         convertToString(fileId),
-                        "#add_shared_link"))
-                .method("PUT")
+                        "#add_shared_link"),
+                    "PUT")
                 .params(queryParamsMap)
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -177,13 +178,13 @@ public class SharedLinksFilesManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/files/",
                         convertToString(fileId),
-                        "#update_shared_link"))
-                .method("PUT")
+                        "#update_shared_link"),
+                    "PUT")
                 .params(queryParamsMap)
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -231,13 +232,13 @@ public class SharedLinksFilesManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/files/",
                         convertToString(fileId),
-                        "#remove_shared_link"))
-                .method("PUT")
+                        "#remove_shared_link"),
+                    "PUT")
                 .params(queryParamsMap)
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

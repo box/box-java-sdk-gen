@@ -4,7 +4,6 @@ import static com.box.sdkgen.serialization.json.JsonManager.jsonToSerializedData
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import java.io.IOException;
 import java.util.Map;
 import java.util.stream.Collectors;
 import okhttp3.Response;
@@ -141,7 +140,7 @@ public class ResponseInfo {
         rawBody = response.body().string();
         body = jsonToSerializedData(rawBody);
       }
-    } catch (IOException ignored) {
+    } catch (Exception ignored) {
     }
 
     return new ResponseInfo.ResponseInfoBuilder(
@@ -150,10 +149,10 @@ public class ResponseInfo {
                 .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().get(0))))
         .body(body)
         .rawBody(rawBody)
-        .code(body.get("code").asText(""))
+        .code(body.get("code") != null ? body.get("code").asText("") : null)
         .contextInfo(body.get("context_info") != null ? body.get("context_info") : null)
-        .requestId(body.get("request_id").asText(""))
-        .helpUrl(body.get("help_url").asText(""))
+        .requestId(body.get("request_id") != null ? body.get("request_id").asText() : null)
+        .helpUrl(body.get("help_url") != null ? body.get("help_url").asText() : null)
         .build();
   }
 }

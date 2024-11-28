@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.collection.Collection;
 import com.box.sdkgen.schemas.collections.Collections;
@@ -57,11 +58,11 @@ public class CollectionsManager {
         fetch(
             new FetchOptions.FetchOptionsBuilder(
                     String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/collections"))
-                .method("GET")
+                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/collections"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -102,11 +103,11 @@ public class CollectionsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/collections/",
                         convertToString(collectionId),
-                        "/items"))
-                .method("GET")
+                        "/items"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -126,10 +127,10 @@ public class CollectionsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/collections/",
-                        convertToString(collectionId)))
-                .method("GET")
+                        convertToString(collectionId)),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

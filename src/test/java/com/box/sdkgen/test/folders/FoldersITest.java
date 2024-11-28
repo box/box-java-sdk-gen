@@ -1,5 +1,6 @@
 package com.box.sdkgen.test.folders;
 
+import static com.box.sdkgen.internal.utils.UtilsManager.convertToString;
 import static com.box.sdkgen.internal.utils.UtilsManager.getUuid;
 import static com.box.sdkgen.test.commons.CommonsManager.getDefaultClient;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -26,6 +27,7 @@ public class FoldersITest {
     FolderFull rootFolder = client.getFolders().getFolderById("0");
     assert rootFolder.getId().equals("0");
     assert rootFolder.getName().equals("All Files");
+    assert convertToString(rootFolder.getType()).equals("folder");
   }
 
   @Test

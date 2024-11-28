@@ -8,8 +8,9 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.filesonhold.FilesOnHold;
 import com.box.sdkgen.schemas.legalholdpolicyassignment.LegalHoldPolicyAssignment;
@@ -56,11 +57,11 @@ public class LegalHoldPolicyAssignmentsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/legal_hold_policy_assignments"))
-                .method("GET")
+                        "/2.0/legal_hold_policy_assignments"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -83,12 +84,12 @@ public class LegalHoldPolicyAssignmentsManager {
                     String.join(
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/legal_hold_policy_assignments"))
-                .method("POST")
+                        "/2.0/legal_hold_policy_assignments"),
+                    "POST")
                 .headers(headersMap)
                 .data(JsonManager.serialize(requestBody))
                 .contentType("application/json")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -111,10 +112,10 @@ public class LegalHoldPolicyAssignmentsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/legal_hold_policy_assignments/",
-                        convertToString(legalHoldPolicyAssignmentId)))
-                .method("GET")
+                        convertToString(legalHoldPolicyAssignmentId)),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -136,10 +137,10 @@ public class LegalHoldPolicyAssignmentsManager {
                         "",
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/legal_hold_policy_assignments/",
-                        convertToString(legalHoldPolicyAssignmentId)))
-                .method("DELETE")
+                        convertToString(legalHoldPolicyAssignmentId)),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -188,11 +189,11 @@ public class LegalHoldPolicyAssignmentsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/legal_hold_policy_assignments/",
                         convertToString(legalHoldPolicyAssignmentId),
-                        "/files_on_hold"))
-                .method("GET")
+                        "/files_on_hold"),
+                    "GET")
                 .params(queryParamsMap)
                 .headers(headersMap)
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

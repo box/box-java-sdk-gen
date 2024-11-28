@@ -7,9 +7,10 @@ import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
-import com.box.sdkgen.networking.fetch.FetchOptions;
-import com.box.sdkgen.networking.fetch.FetchResponse;
-import com.box.sdkgen.networking.fetch.MultipartItem;
+import com.box.sdkgen.networking.fetchoptions.FetchOptions;
+import com.box.sdkgen.networking.fetchoptions.MultipartItem;
+import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.useravatar.UserAvatar;
 import com.box.sdkgen.serialization.json.JsonManager;
@@ -46,10 +47,10 @@ public class AvatarsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/users/",
                         convertToString(userId),
-                        "/avatar"))
-                .method("GET")
+                        "/avatar"),
+                    "GET")
                 .headers(headersMap)
-                .responseFormat("binary")
+                .responseFormat(ResponseFormat.BINARY)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -71,8 +72,8 @@ public class AvatarsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/users/",
                         convertToString(userId),
-                        "/avatar"))
-                .method("POST")
+                        "/avatar"),
+                    "POST")
                 .headers(headersMap)
                 .multipartData(
                     Arrays.asList(
@@ -82,7 +83,7 @@ public class AvatarsManager {
                             .contentType(requestBody.getPicContentType())
                             .build()))
                 .contentType("multipart/form-data")
-                .responseFormat("json")
+                .responseFormat(ResponseFormat.JSON)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());
@@ -103,10 +104,10 @@ public class AvatarsManager {
                         this.networkSession.getBaseUrls().getBaseUrl(),
                         "/2.0/users/",
                         convertToString(userId),
-                        "/avatar"))
-                .method("DELETE")
+                        "/avatar"),
+                    "DELETE")
                 .headers(headersMap)
-                .responseFormat(null)
+                .responseFormat(ResponseFormat.NO_CONTENT)
                 .auth(this.auth)
                 .networkSession(this.networkSession)
                 .build());

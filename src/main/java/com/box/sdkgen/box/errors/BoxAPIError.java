@@ -28,7 +28,9 @@ public class BoxAPIError extends BoxSDKError {
                 "%d %s; Request ID: %s",
                 response.code(),
                 response.message(),
-                responseInfo.getBody().get("request_id").asText("")),
+                responseInfo.getBody().get("request_id") != null
+                    ? responseInfo.getBody().get("request_id").asText()
+                    : ""),
             requestInfo,
             responseInfo)
         .timestamp(LocalDateTime.now().toString())
