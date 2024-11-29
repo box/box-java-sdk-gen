@@ -2,9 +2,9 @@ package com.box.sdkgen.box.errors;
 
 import static java.lang.String.format;
 
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import java.time.LocalDateTime;
 import okhttp3.Request;
-import okhttp3.Response;
 
 public class BoxAPIError extends BoxSDKError {
 
@@ -18,19 +18,15 @@ public class BoxAPIError extends BoxSDKError {
     this.responseInfo = responseInfo;
   }
 
-  public static BoxAPIError fromAPICall(Request request, Response response) {
-
+  public static BoxAPIError fromAPICall(Request request, FetchResponse fetchResponse) {
     RequestInfo requestInfo = RequestInfo.fromRequest(request);
-    ResponseInfo responseInfo = ResponseInfo.fromResponse(response);
-
+    ResponseInfo responseInfo = ResponseInfo.fromResponse(fetchResponse);
+    String requestId =
+        responseInfo.getBody().get("request_id") != null
+            ? responseInfo.getBody().get("request_id").asText()
+            : "";
     return new BoxAPIError.BoxAPIErrorBuilder(
-            format(
-                "%d %s; Request ID: %s",
-                response.code(),
-                response.message(),
-                responseInfo.getBody().get("request_id") != null
-                    ? responseInfo.getBody().get("request_id").asText()
-                    : ""),
+            format("Status %d; Request ID: %s", responseInfo.getStatusCode(), requestId),
             requestInfo,
             responseInfo)
         .timestamp(LocalDateTime.now().toString())
