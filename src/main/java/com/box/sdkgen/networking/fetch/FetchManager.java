@@ -67,16 +67,22 @@ public class FetchManager {
             response.headers().toMultimap().entrySet().stream()
                 .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().get(0)));
 
+        String responseUrl =
+            response.networkResponse() != null
+                ? response.networkResponse().request().url().toString()
+                : response.request().url().toString();
         fetchResponse =
             Objects.equals(fetchOptions.getResponseFormat().getEnumValue(), ResponseFormat.BINARY)
                 ? new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
                     .content(response.body().byteStream())
+                    .url(responseUrl)
                     .build()
                 : new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
                     .data(
                         response.body() != null
                             ? jsonToSerializedData(response.body().string())
                             : null)
+                    .url(responseUrl)
                     .build();
 
         fetchResponse =
