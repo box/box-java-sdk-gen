@@ -78,7 +78,9 @@ import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.baseurls.BaseUrls;
 import com.box.sdkgen.networking.fetchoptions.FetchOptions;
 import com.box.sdkgen.networking.fetchresponse.FetchResponse;
+import com.box.sdkgen.networking.interceptors.Interceptor;
 import com.box.sdkgen.networking.network.NetworkSession;
+import java.util.List;
 import java.util.Map;
 
 public class BoxClient {
@@ -993,6 +995,12 @@ public class BoxClient {
   public BoxClient withCustomBaseUrls(BaseUrls baseUrls) {
     return new BoxClient.BoxClientBuilder(this.auth)
         .networkSession(this.networkSession.withCustomBaseUrls(baseUrls))
+        .build();
+  }
+
+  public BoxClient withInterceptors(List<Interceptor> interceptors) {
+    return new BoxClient.BoxClientBuilder(this.auth)
+        .networkSession(this.networkSession.withInterceptors(interceptors))
         .build();
   }
 

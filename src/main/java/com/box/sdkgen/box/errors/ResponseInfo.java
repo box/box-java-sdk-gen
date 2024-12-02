@@ -1,12 +1,8 @@
 package com.box.sdkgen.box.errors;
 
-import static com.box.sdkgen.serialization.json.JsonManager.jsonToSerializedData;
-
+import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import java.util.Map;
-import java.util.stream.Collectors;
-import okhttp3.Response;
 
 public class ResponseInfo {
 
@@ -132,21 +128,12 @@ public class ResponseInfo {
     }
   }
 
-  public static ResponseInfo fromResponse(Response response) {
-    JsonNode body = JsonNodeFactory.instance.objectNode();
-    String rawBody = null;
-    try {
-      if (response.body() != null) {
-        rawBody = response.body().string();
-        body = jsonToSerializedData(rawBody);
-      }
-    } catch (Exception ignored) {
-    }
+  public static ResponseInfo fromResponse(FetchResponse fetchResponse) {
+    JsonNode body = fetchResponse.getData();
+    String rawBody = body.asText();
 
     return new ResponseInfo.ResponseInfoBuilder(
-            response.code(),
-            response.headers().toMultimap().entrySet().stream()
-                .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().get(0))))
+            fetchResponse.getStatus(), fetchResponse.getHeaders())
         .body(body)
         .rawBody(rawBody)
         .code(body.get("code") != null ? body.get("code").asText("") : null)

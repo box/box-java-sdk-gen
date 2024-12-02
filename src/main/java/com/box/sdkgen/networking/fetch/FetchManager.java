@@ -37,46 +37,78 @@ public class FetchManager {
   private static final double RANDOM_FACTOR = 0.5;
 
   public static FetchResponse fetch(FetchOptions options) {
+    NetworkSession networkSession =
+        options.getNetworkSession() == null ? new NetworkSession() : options.getNetworkSession();
+
+    FetchOptions fetchOptions =
+        networkSession.getInterceptors().stream()
+            .reduce(
+                options,
+                (modifiedOptions, interceptor) -> interceptor.beforeRequest(modifiedOptions),
+                (o1, o2) -> o2);
 
     boolean authenticationNeeded = false;
     Request request;
-    Response response = null;
+    FetchResponse fetchResponse = null;
     Exception exceptionThrown = null;
 
-    NetworkSession networkSession =
-        options.getNetworkSession() == null ? new NetworkSession() : options.getNetworkSession();
     OkHttpClient client = networkSession.getHttpClient();
 
     int attemptNumber = 0;
 
     while (true) {
-      request = prepareRequest(options, authenticationNeeded, networkSession);
+      request = prepareRequest(fetchOptions, authenticationNeeded, networkSession);
 
+      Response response = null;
       try {
         response = executeOnClient(client, request);
 
-        boolean acceptedWithRetryAfter =
-            response.code() == 202 && response.header("Retry-After") != null;
+        Map<String, String> headersMap =
+            response.headers().toMultimap().entrySet().stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().get(0)));
 
-        if (response.isSuccessful()
-            && (!acceptedWithRetryAfter || attemptNumber >= NetworkSession.MAX_ATTEMPTS)) {
-          if (Objects.equals(options.getResponseFormat().getEnumValue(), ResponseFormat.BINARY)) {
-            return new FetchResponse.FetchResponseBuilder(
-                    response.code(),
-                    response.headers().toMultimap().entrySet().stream()
-                        .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().get(0))))
-                .content(response.body().byteStream())
-                .build();
+        fetchResponse =
+            Objects.equals(fetchOptions.getResponseFormat().getEnumValue(), ResponseFormat.BINARY)
+                ? new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
+                    .content(response.body().byteStream())
+                    .build()
+                : new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
+                    .data(
+                        response.body() != null
+                            ? jsonToSerializedData(response.body().string())
+                            : null)
+                    .build();
+
+        fetchResponse =
+            networkSession.getInterceptors().stream()
+                .reduce(
+                    fetchResponse,
+                    (modifiedResponse, interceptor) -> interceptor.afterRequest(modifiedResponse),
+                    (o1, o2) -> o2);
+
+        if (fetchResponse.getStatus() >= 300 && fetchResponse.getStatus() < 400) {
+          if (!fetchResponse.getHeaders().containsKey("Location")) {
+            throw new BoxSDKError(
+                "Redirect response missing Location header for " + fetchOptions.getUrl());
           }
-          return new FetchResponse.FetchResponseBuilder(
-                  response.code(),
-                  response.headers().toMultimap().entrySet().stream()
-                      .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().get(0))))
-              .data(response.body() != null ? jsonToSerializedData(response.body().string()) : null)
-              .build();
+          return fetch(
+              new FetchOptions.FetchOptionsBuilder(
+                      fetchResponse.getHeaders().get("Location"), "GET")
+                  .auth(fetchOptions.getAuth())
+                  .networkSession(networkSession)
+                  .build());
         }
 
-        if (response.code() == 401 && options.getAuth() != null) {
+        boolean acceptedWithRetryAfter =
+            fetchResponse.status == 202 && fetchResponse.getHeaders().get("Retry-After") != null;
+
+        if (fetchResponse.getStatus() >= 200
+            && fetchResponse.getStatus() < 299
+            && (!acceptedWithRetryAfter || attemptNumber >= NetworkSession.MAX_ATTEMPTS)) {
+          return fetchResponse;
+        }
+
+        if (fetchResponse.getStatus() == 401 && fetchOptions.getAuth() != null) {
           authenticationNeeded = true;
         }
 
@@ -91,12 +123,12 @@ public class FetchManager {
         }
       }
 
-      if (response != null
-          && response.code() >= 400
-          && response.code() < 500
-          && response.code() != 429
+      if (fetchResponse != null
+          && fetchResponse.getStatus() >= 400
+          && fetchResponse.getStatus() < 500
+          && fetchResponse.getStatus() != 429
           && !authenticationNeeded) {
-        throwOnUnsuccessfulResponse(request, response, exceptionThrown);
+        throwOnUnsuccessfulResponse(request, fetchResponse, exceptionThrown);
       }
 
       if (attemptNumber >= NetworkSession.MAX_ATTEMPTS) {
@@ -104,19 +136,19 @@ public class FetchManager {
       }
 
       try {
-
         int secondsToSleep =
             getRetryAfterTimeInSeconds(
-                attemptNumber, response != null ? response.header("Retry-After") : null);
+                attemptNumber,
+                fetchResponse != null ? fetchResponse.getHeaders().get("Retry-After") : null);
         TimeUnit.SECONDS.sleep(secondsToSleep);
       } catch (InterruptedException interruptedException) {
-        throwOnUnsuccessfulResponse(request, response, exceptionThrown);
+        throwOnUnsuccessfulResponse(request, fetchResponse, exceptionThrown);
       }
 
       attemptNumber++;
     }
 
-    throwOnUnsuccessfulResponse(request, response, exceptionThrown);
+    throwOnUnsuccessfulResponse(request, fetchResponse, exceptionThrown);
     return null;
   }
 
@@ -211,15 +243,19 @@ public class FetchManager {
   }
 
   private static void throwOnUnsuccessfulResponse(
-      Request request, Response response, Exception exceptionThrown) {
-    if (response == null) {
+      Request request, FetchResponse fetchResponse, Exception exceptionThrown) {
+    if (fetchResponse == null) {
       throw new BoxSDKError(exceptionThrown.getMessage(), exceptionThrown);
     }
-
     try {
-      throw BoxAPIError.fromAPICall(request, response);
+      throw BoxAPIError.fromAPICall(request, fetchResponse);
     } finally {
-      response.close();
+      try {
+        if (fetchResponse.getContent() != null) {
+          fetchResponse.getContent().close();
+        }
+      } catch (IOException ignored) {
+      }
     }
   }
 

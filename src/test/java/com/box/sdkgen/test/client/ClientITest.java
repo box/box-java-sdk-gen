@@ -209,4 +209,27 @@ public class ClientITest {
     BoxClient customBaseClient = client.withCustomBaseUrls(newBaseUrls);
     assertThrows(RuntimeException.class, () -> customBaseClient.getUsers().getUserMe());
   }
+
+  @Test
+  public void testWithInterceptors() {
+    UserFull user = client.getUsers().getUserMe();
+    assert user.getRole() == null;
+    BoxClient clientWithInterceptor =
+        client.withInterceptors(Arrays.asList(new InterceptorAddingRoleToFields()));
+    UserFull newUser = clientWithInterceptor.getUsers().getUserMe();
+    assert !(newUser.getRole() == null);
+    BoxClient clientWithTwoInterceptors =
+        clientWithInterceptor.withInterceptors(Arrays.asList(new InterceptorChangingResponse()));
+    UserFull superNewUser = clientWithTwoInterceptors.getUsers().getUserMe();
+    assert superNewUser.getId().equals("123");
+  }
+
+  @Test
+  public void testWithFailingInterceptors() {
+    UserFull user = client.getUsers().getUserMe();
+    assert !(user.getId() == null);
+    BoxClient clientWithInterceptor =
+        client.withInterceptors(Arrays.asList(new InterceptorThrowingError()));
+    assertThrows(RuntimeException.class, () -> clientWithInterceptor.getUsers().getUserMe());
+  }
 }
