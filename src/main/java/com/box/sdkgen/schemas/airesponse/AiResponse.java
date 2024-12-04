@@ -1,6 +1,7 @@
 package com.box.sdkgen.schemas.airesponse;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.schemas.aiagentinfo.AiAgentInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
@@ -14,6 +15,9 @@ public class AiResponse extends SerializableObject {
   @JsonProperty("completion_reason")
   protected String completionReason;
 
+  @JsonProperty("ai_agent_info")
+  protected AiAgentInfo aiAgentInfo;
+
   public AiResponse(
       @JsonProperty("answer") String answer, @JsonProperty("created_at") String createdAt) {
     super();
@@ -26,6 +30,7 @@ public class AiResponse extends SerializableObject {
     this.answer = builder.answer;
     this.createdAt = builder.createdAt;
     this.completionReason = builder.completionReason;
+    this.aiAgentInfo = builder.aiAgentInfo;
   }
 
   public String getAnswer() {
@@ -40,6 +45,10 @@ public class AiResponse extends SerializableObject {
     return completionReason;
   }
 
+  public AiAgentInfo getAiAgentInfo() {
+    return aiAgentInfo;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -51,12 +60,13 @@ public class AiResponse extends SerializableObject {
     AiResponse casted = (AiResponse) o;
     return Objects.equals(answer, casted.answer)
         && Objects.equals(createdAt, casted.createdAt)
-        && Objects.equals(completionReason, casted.completionReason);
+        && Objects.equals(completionReason, casted.completionReason)
+        && Objects.equals(aiAgentInfo, casted.aiAgentInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(answer, createdAt, completionReason);
+    return Objects.hash(answer, createdAt, completionReason, aiAgentInfo);
   }
 
   @Override
@@ -73,6 +83,10 @@ public class AiResponse extends SerializableObject {
         + "completionReason='"
         + completionReason
         + '\''
+        + ", "
+        + "aiAgentInfo='"
+        + aiAgentInfo
+        + '\''
         + "}";
   }
 
@@ -84,6 +98,8 @@ public class AiResponse extends SerializableObject {
 
     protected String completionReason;
 
+    protected AiAgentInfo aiAgentInfo;
+
     public AiResponseBuilder(String answer, String createdAt) {
       this.answer = answer;
       this.createdAt = createdAt;
@@ -91,6 +107,11 @@ public class AiResponse extends SerializableObject {
 
     public AiResponseBuilder completionReason(String completionReason) {
       this.completionReason = completionReason;
+      return this;
+    }
+
+    public AiResponseBuilder aiAgentInfo(AiAgentInfo aiAgentInfo) {
+      this.aiAgentInfo = aiAgentInfo;
       return this;
     }
 
