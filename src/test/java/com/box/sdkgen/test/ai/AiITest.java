@@ -13,6 +13,7 @@ import com.box.sdkgen.managers.ai.GetAiAgentDefaultConfigQueryParams;
 import com.box.sdkgen.managers.ai.GetAiAgentDefaultConfigQueryParamsModeField;
 import com.box.sdkgen.managers.metadatatemplates.CreateMetadataTemplateRequestBody;
 import com.box.sdkgen.managers.metadatatemplates.CreateMetadataTemplateRequestBodyFieldsField;
+import com.box.sdkgen.managers.metadatatemplates.CreateMetadataTemplateRequestBodyFieldsOptionsField;
 import com.box.sdkgen.managers.metadatatemplates.CreateMetadataTemplateRequestBodyFieldsTypeField;
 import com.box.sdkgen.managers.metadatatemplates.DeleteMetadataTemplateScope;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBody;
@@ -26,6 +27,7 @@ import com.box.sdkgen.schemas.aiextract.AiExtract;
 import com.box.sdkgen.schemas.aiextractresponse.AiExtractResponse;
 import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructured;
 import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructuredFieldsField;
+import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructuredFieldsOptionsField;
 import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructuredMetadataTemplateField;
 import com.box.sdkgen.schemas.aiitembase.AiItemBase;
 import com.box.sdkgen.schemas.aiitembase.AiItemBaseTypeField;
@@ -186,7 +188,7 @@ public class AiITest {
                         String.join("", getUuid(), ".txt"),
                         new UploadFileRequestBodyAttributesParentField("0")),
                     stringToByteStream(
-                        "My name is John Doe. I was born in 4th July 1990. I am 34 years old. My hobby is guitar and books.")));
+                        "My name is John Doe. I was born in 4th July 1990. I am 34 years old. My hobby is guitar.")));
     FileFull file = uploadedFiles.getEntries().get(0);
     delayInSeconds(5);
     AiExtractResponse response =
@@ -231,6 +233,10 @@ public class AiITest {
                                 .displayName("Hobby")
                                 .prompt("What is your hobby?")
                                 .type("multiSelect")
+                                .options(
+                                    Arrays.asList(
+                                        new AiExtractStructuredFieldsOptionsField("guitar"),
+                                        new AiExtractStructuredFieldsOptionsField("books")))
                                 .build()))
                     .build());
     assert convertToString(getValueFromObjectRawData(response, "firstName")).equals("John");
@@ -238,7 +244,7 @@ public class AiITest {
     assert convertToString(getValueFromObjectRawData(response, "dateOfBirth")).equals("1990-07-04");
     assert convertToString(getValueFromObjectRawData(response, "age")).equals("34");
     assert convertToString(getValueFromObjectRawData(response, "hobby"))
-        .equals(convertToString(Arrays.asList("guitar", "books")));
+        .equals(convertToString(Arrays.asList("guitar")));
     client.getFiles().deleteFileById(file.getId());
   }
 
@@ -253,7 +259,7 @@ public class AiITest {
                         String.join("", getUuid(), ".txt"),
                         new UploadFileRequestBodyAttributesParentField("0")),
                     stringToByteStream(
-                        "My name is John Doe. I was born in 4th July 1990. I am 34 years old. My hobby is guitar and books.")));
+                        "My name is John Doe. I was born in 4th July 1990. I am 34 years old. My hobby is guitar.")));
     FileFull file = uploadedFiles.getEntries().get(0);
     delayInSeconds(5);
     String templateKey = String.join("", "key", getUuid());
@@ -300,6 +306,12 @@ public class AiITest {
                                     "hobby",
                                     "Hobby")
                                 .description("Person hobby")
+                                .options(
+                                    Arrays.asList(
+                                        new CreateMetadataTemplateRequestBodyFieldsOptionsField(
+                                            "guitar"),
+                                        new CreateMetadataTemplateRequestBodyFieldsOptionsField(
+                                            "books")))
                                 .build()))
                     .build());
     AiExtractResponse response =
@@ -321,7 +333,7 @@ public class AiITest {
         .equals("1990-07-04T00:00:00Z");
     assert convertToString(getValueFromObjectRawData(response, "age")).equals("34");
     assert convertToString(getValueFromObjectRawData(response, "hobby"))
-        .equals(convertToString(Arrays.asList("guitar", "books")));
+        .equals(convertToString(Arrays.asList("guitar")));
     client
         .getMetadataTemplates()
         .deleteMetadataTemplate(DeleteMetadataTemplateScope.ENTERPRISE, template.getTemplateKey());
