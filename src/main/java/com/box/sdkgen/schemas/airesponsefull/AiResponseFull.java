@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.airesponsefull;
 
+import com.box.sdkgen.schemas.aiagentinfo.AiAgentInfo;
 import com.box.sdkgen.schemas.aicitation.AiCitation;
 import com.box.sdkgen.schemas.airesponse.AiResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,12 +37,13 @@ public class AiResponseFull extends AiResponse {
     return Objects.equals(answer, casted.answer)
         && Objects.equals(createdAt, casted.createdAt)
         && Objects.equals(completionReason, casted.completionReason)
+        && Objects.equals(aiAgentInfo, casted.aiAgentInfo)
         && Objects.equals(citations, casted.citations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(answer, createdAt, completionReason, citations);
+    return Objects.hash(answer, createdAt, completionReason, aiAgentInfo, citations);
   }
 
   @Override
@@ -57,6 +59,10 @@ public class AiResponseFull extends AiResponse {
         + ", "
         + "completionReason='"
         + completionReason
+        + '\''
+        + ", "
+        + "aiAgentInfo='"
+        + aiAgentInfo
         + '\''
         + ", "
         + "citations='"
@@ -81,6 +87,12 @@ public class AiResponseFull extends AiResponse {
     @Override
     public AiResponseFullBuilder completionReason(String completionReason) {
       this.completionReason = completionReason;
+      return this;
+    }
+
+    @Override
+    public AiResponseFullBuilder aiAgentInfo(AiAgentInfo aiAgentInfo) {
+      this.aiAgentInfo = aiAgentInfo;
       return this;
     }
 
