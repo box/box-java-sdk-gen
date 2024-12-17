@@ -57,7 +57,6 @@ public class SignRequestsITest {
                     .name("Sign Request")
                     .daysValid(30L)
                     .externalId("123")
-                    .isPhoneVerificationRequiredToView(false)
                     .externalSystemName("BoxSignIntegration")
                     .build());
     assert createdSignRequest.getAreRemindersEnabled() == true;
@@ -69,7 +68,6 @@ public class SignRequestsITest {
     assert createdSignRequest.getExternalId().equals("123");
     assert createdSignRequest.getExternalSystemName().equals("BoxSignIntegration");
     assert createdSignRequest.getIsDocumentPreparationNeeded() == false;
-    assert createdSignRequest.getIsPhoneVerificationRequiredToView() == false;
     assert createdSignRequest.getName().equals("Sign Request");
     assert createdSignRequest.getRedirectUrl().equals("https://www.box.com");
     assert createdSignRequest
