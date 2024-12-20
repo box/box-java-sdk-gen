@@ -40,9 +40,6 @@ public class SignRequestBase extends SerializableObject {
   @JsonProperty("external_id")
   protected String externalId;
 
-  @JsonProperty("is_phone_verification_required_to_view")
-  protected Boolean isPhoneVerificationRequiredToView;
-
   @JsonProperty("template_id")
   protected String templateId;
 
@@ -66,7 +63,6 @@ public class SignRequestBase extends SerializableObject {
     this.prefillTags = builder.prefillTags;
     this.daysValid = builder.daysValid;
     this.externalId = builder.externalId;
-    this.isPhoneVerificationRequiredToView = builder.isPhoneVerificationRequiredToView;
     this.templateId = builder.templateId;
     this.externalSystemName = builder.externalSystemName;
   }
@@ -115,10 +111,6 @@ public class SignRequestBase extends SerializableObject {
     return externalId;
   }
 
-  public Boolean getIsPhoneVerificationRequiredToView() {
-    return isPhoneVerificationRequiredToView;
-  }
-
   public String getTemplateId() {
     return templateId;
   }
@@ -147,8 +139,6 @@ public class SignRequestBase extends SerializableObject {
         && Objects.equals(prefillTags, casted.prefillTags)
         && Objects.equals(daysValid, casted.daysValid)
         && Objects.equals(externalId, casted.externalId)
-        && Objects.equals(
-            isPhoneVerificationRequiredToView, casted.isPhoneVerificationRequiredToView)
         && Objects.equals(templateId, casted.templateId)
         && Objects.equals(externalSystemName, casted.externalSystemName);
   }
@@ -167,7 +157,6 @@ public class SignRequestBase extends SerializableObject {
         prefillTags,
         daysValid,
         externalId,
-        isPhoneVerificationRequiredToView,
         templateId,
         externalSystemName);
   }
@@ -219,10 +208,6 @@ public class SignRequestBase extends SerializableObject {
         + externalId
         + '\''
         + ", "
-        + "isPhoneVerificationRequiredToView='"
-        + isPhoneVerificationRequiredToView
-        + '\''
-        + ", "
         + "templateId='"
         + templateId
         + '\''
@@ -256,8 +241,6 @@ public class SignRequestBase extends SerializableObject {
     protected Long daysValid;
 
     protected String externalId;
-
-    protected Boolean isPhoneVerificationRequiredToView;
 
     protected String templateId;
 
@@ -315,12 +298,6 @@ public class SignRequestBase extends SerializableObject {
 
     public SignRequestBaseBuilder externalId(String externalId) {
       this.externalId = externalId;
-      return this;
-    }
-
-    public SignRequestBaseBuilder isPhoneVerificationRequiredToView(
-        Boolean isPhoneVerificationRequiredToView) {
-      this.isPhoneVerificationRequiredToView = isPhoneVerificationRequiredToView;
       return this;
     }
 

@@ -34,9 +34,6 @@ public class SignRequestCreateSigner extends SerializableObject {
   @JsonProperty("login_required")
   protected Boolean loginRequired;
 
-  @JsonProperty("verification_phone_number")
-  protected String verificationPhoneNumber;
-
   protected String password;
 
   @JsonProperty("signer_group_id")
@@ -59,7 +56,6 @@ public class SignRequestCreateSigner extends SerializableObject {
     this.redirectUrl = builder.redirectUrl;
     this.declinedRedirectUrl = builder.declinedRedirectUrl;
     this.loginRequired = builder.loginRequired;
-    this.verificationPhoneNumber = builder.verificationPhoneNumber;
     this.password = builder.password;
     this.signerGroupId = builder.signerGroupId;
     this.suppressNotifications = builder.suppressNotifications;
@@ -97,10 +93,6 @@ public class SignRequestCreateSigner extends SerializableObject {
     return loginRequired;
   }
 
-  public String getVerificationPhoneNumber() {
-    return verificationPhoneNumber;
-  }
-
   public String getPassword() {
     return password;
   }
@@ -130,7 +122,6 @@ public class SignRequestCreateSigner extends SerializableObject {
         && Objects.equals(redirectUrl, casted.redirectUrl)
         && Objects.equals(declinedRedirectUrl, casted.declinedRedirectUrl)
         && Objects.equals(loginRequired, casted.loginRequired)
-        && Objects.equals(verificationPhoneNumber, casted.verificationPhoneNumber)
         && Objects.equals(password, casted.password)
         && Objects.equals(signerGroupId, casted.signerGroupId)
         && Objects.equals(suppressNotifications, casted.suppressNotifications);
@@ -147,7 +138,6 @@ public class SignRequestCreateSigner extends SerializableObject {
         redirectUrl,
         declinedRedirectUrl,
         loginRequired,
-        verificationPhoneNumber,
         password,
         signerGroupId,
         suppressNotifications);
@@ -188,10 +178,6 @@ public class SignRequestCreateSigner extends SerializableObject {
         + loginRequired
         + '\''
         + ", "
-        + "verificationPhoneNumber='"
-        + verificationPhoneNumber
-        + '\''
-        + ", "
         + "password='"
         + password
         + '\''
@@ -223,8 +209,6 @@ public class SignRequestCreateSigner extends SerializableObject {
     protected String declinedRedirectUrl;
 
     protected Boolean loginRequired;
-
-    protected String verificationPhoneNumber;
 
     protected String password;
 
@@ -274,11 +258,6 @@ public class SignRequestCreateSigner extends SerializableObject {
 
     public SignRequestCreateSignerBuilder loginRequired(Boolean loginRequired) {
       this.loginRequired = loginRequired;
-      return this;
-    }
-
-    public SignRequestCreateSignerBuilder verificationPhoneNumber(String verificationPhoneNumber) {
-      this.verificationPhoneNumber = verificationPhoneNumber;
       return this;
     }
 

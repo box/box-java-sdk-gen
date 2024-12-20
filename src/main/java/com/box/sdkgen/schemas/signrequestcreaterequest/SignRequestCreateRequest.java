@@ -82,8 +82,6 @@ public class SignRequestCreateRequest extends SignRequestBase {
         && Objects.equals(prefillTags, casted.prefillTags)
         && Objects.equals(daysValid, casted.daysValid)
         && Objects.equals(externalId, casted.externalId)
-        && Objects.equals(
-            isPhoneVerificationRequiredToView, casted.isPhoneVerificationRequiredToView)
         && Objects.equals(templateId, casted.templateId)
         && Objects.equals(externalSystemName, casted.externalSystemName)
         && Objects.equals(sourceFiles, casted.sourceFiles)
@@ -106,7 +104,6 @@ public class SignRequestCreateRequest extends SignRequestBase {
         prefillTags,
         daysValid,
         externalId,
-        isPhoneVerificationRequiredToView,
         templateId,
         externalSystemName,
         sourceFiles,
@@ -160,10 +157,6 @@ public class SignRequestCreateRequest extends SignRequestBase {
         + ", "
         + "externalId='"
         + externalId
-        + '\''
-        + ", "
-        + "isPhoneVerificationRequiredToView='"
-        + isPhoneVerificationRequiredToView
         + '\''
         + ", "
         + "templateId='"
@@ -296,13 +289,6 @@ public class SignRequestCreateRequest extends SignRequestBase {
     @Override
     public SignRequestCreateRequestBuilder externalId(String externalId) {
       this.externalId = externalId;
-      return this;
-    }
-
-    @Override
-    public SignRequestCreateRequestBuilder isPhoneVerificationRequiredToView(
-        Boolean isPhoneVerificationRequiredToView) {
-      this.isPhoneVerificationRequiredToView = isPhoneVerificationRequiredToView;
       return this;
     }
 
