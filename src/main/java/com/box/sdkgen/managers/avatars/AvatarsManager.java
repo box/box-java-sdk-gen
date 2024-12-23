@@ -4,7 +4,6 @@ import static com.box.sdkgen.internal.utils.UtilsManager.convertToString;
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
-import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetchoptions.FetchOptions;
@@ -40,20 +39,22 @@ public class AvatarsManager {
   public InputStream getUserAvatar(String userId, GetUserAvatarHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/users/",
-                        convertToString(userId),
-                        "/avatar"),
-                    "GET")
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.BINARY)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/users/",
+                            convertToString(userId),
+                            "/avatar"),
+                        "GET")
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.BINARY)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return response.getContent();
   }
 
@@ -65,28 +66,30 @@ public class AvatarsManager {
       String userId, CreateUserAvatarRequestBody requestBody, CreateUserAvatarHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/users/",
-                        convertToString(userId),
-                        "/avatar"),
-                    "POST")
-                .headers(headersMap)
-                .multipartData(
-                    Arrays.asList(
-                        new MultipartItem.MultipartItemBuilder("pic")
-                            .fileStream(requestBody.getPic())
-                            .fileName(requestBody.getPicFileName())
-                            .contentType(requestBody.getPicContentType())
-                            .build()))
-                .contentType("multipart/form-data")
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/users/",
+                            convertToString(userId),
+                            "/avatar"),
+                        "POST")
+                    .headers(headersMap)
+                    .multipartData(
+                        Arrays.asList(
+                            new MultipartItem.MultipartItemBuilder("pic")
+                                .fileStream(requestBody.getPic())
+                                .fileName(requestBody.getPicFileName())
+                                .contentType(requestBody.getPicContentType())
+                                .build()))
+                    .contentType("multipart/form-data")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), UserAvatar.class);
   }
 
@@ -97,20 +100,22 @@ public class AvatarsManager {
   public void deleteUserAvatar(String userId, DeleteUserAvatarHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/users/",
-                        convertToString(userId),
-                        "/avatar"),
-                    "DELETE")
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.NO_CONTENT)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/users/",
+                            convertToString(userId),
+                            "/avatar"),
+                        "DELETE")
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.NO_CONTENT)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
   }
 
   public Authentication getAuth() {

@@ -2,7 +2,6 @@ package com.box.sdkgen.client;
 
 import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
-import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.managers.ai.AiManager;
 import com.box.sdkgen.managers.appitemassociations.AppItemAssociationsManager;
@@ -965,7 +964,7 @@ public class BoxClient {
             .auth(auth)
             .networkSession(networkSession)
             .build();
-    return fetch(enrichedFetchOptions);
+    return networkSession.getNetworkClient().fetch(enrichedFetchOptions);
   }
 
   public BoxClient withAsUserHeader(String userId) {

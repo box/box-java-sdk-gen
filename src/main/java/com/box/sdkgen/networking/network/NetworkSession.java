@@ -1,17 +1,15 @@
 package com.box.sdkgen.networking.network;
 
-import static java.util.Collections.singletonList;
-import static okhttp3.ConnectionSpec.MODERN_TLS;
-
 import com.box.sdkgen.networking.baseurls.BaseUrls;
+import com.box.sdkgen.networking.boxnetworkclient.BoxNetworkClient;
 import com.box.sdkgen.networking.interceptors.Interceptor;
+import com.box.sdkgen.networking.networkclient.NetworkClient;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import okhttp3.OkHttpClient;
 
 public class NetworkSession {
 
@@ -21,23 +19,18 @@ public class NetworkSession {
 
   protected BaseUrls baseUrls = new BaseUrls();
 
-  protected OkHttpClient httpClient;
-
   protected List<Interceptor> interceptors = new ArrayList<>();
 
+  protected NetworkClient networkClient;
+
   public NetworkSession() {
-    OkHttpClient.Builder builder =
-        new OkHttpClient.Builder()
-            .followSslRedirects(true)
-            .followRedirects(false)
-            .connectionSpecs(singletonList(MODERN_TLS));
-    httpClient = builder.build();
+    networkClient = new BoxNetworkClient();
   }
 
   protected NetworkSession(NetworkSessionBuilder builder) {
     this.additionalHeaders = builder.additionalHeaders;
     this.baseUrls = builder.baseUrls;
-    this.httpClient = builder.httpClient;
+    this.networkClient = builder.networkClient;
     this.interceptors = builder.interceptors;
   }
 
@@ -75,6 +68,15 @@ public class NetworkSession {
         .build();
   }
 
+  public NetworkSession withNetworkClient(NetworkClient networkClient) {
+    return new NetworkSessionBuilder()
+        .additionalHeaders(this.additionalHeaders)
+        .baseUrls(this.baseUrls)
+        .interceptors(this.interceptors)
+        .networkClient(networkClient)
+        .build();
+  }
+
   public Map<String, String> getAdditionalHeaders() {
     return additionalHeaders;
   }
@@ -83,8 +85,8 @@ public class NetworkSession {
     return baseUrls;
   }
 
-  public OkHttpClient getHttpClient() {
-    return httpClient;
+  public NetworkClient getNetworkClient() {
+    return networkClient;
   }
 
   public List<Interceptor> getInterceptors() {
@@ -97,17 +99,12 @@ public class NetworkSession {
 
     protected BaseUrls baseUrls = new BaseUrls();
 
-    protected OkHttpClient httpClient;
+    protected NetworkClient networkClient;
 
     protected List<Interceptor> interceptors = new ArrayList<>();
 
     public NetworkSessionBuilder() {
-      OkHttpClient.Builder builder =
-          new OkHttpClient.Builder()
-              .followSslRedirects(true)
-              .followRedirects(true)
-              .connectionSpecs(singletonList(MODERN_TLS));
-      httpClient = builder.build();
+      networkClient = new BoxNetworkClient();
     }
 
     public NetworkSessionBuilder additionalHeaders(Map<String, String> additionalHeaders) {
@@ -120,8 +117,8 @@ public class NetworkSession {
       return this;
     }
 
-    public NetworkSessionBuilder httpClient(OkHttpClient httpClient) {
-      this.httpClient = httpClient;
+    public NetworkSessionBuilder networkClient(NetworkClient networkClient) {
+      this.networkClient = networkClient;
       return this;
     }
 
