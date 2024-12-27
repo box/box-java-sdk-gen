@@ -32,12 +32,15 @@ public class FetchOptions {
 
   public NetworkSession networkSession;
 
+  public Boolean followRedirects;
+
   public FetchOptions(String url, String method) {
     this.url = url;
     this.method = method;
     this.contentType = "application/json";
     this.responseFormat =
         new EnumWrapper<ResponseFormat>(ResponseFormat.JSON.getValue(), ResponseFormat.JSON);
+    this.followRedirects = true;
   }
 
   protected FetchOptions(FetchOptionsBuilder builder) {
@@ -52,6 +55,7 @@ public class FetchOptions {
     this.responseFormat = builder.responseFormat;
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
+    this.followRedirects = builder.followRedirects;
   }
 
   public String getUrl() {
@@ -98,6 +102,10 @@ public class FetchOptions {
     return networkSession;
   }
 
+  public Boolean getFollowRedirects() {
+    return followRedirects;
+  }
+
   public static class FetchOptionsBuilder {
 
     protected final String url;
@@ -122,12 +130,15 @@ public class FetchOptions {
 
     protected NetworkSession networkSession;
 
+    protected Boolean followRedirects;
+
     public FetchOptionsBuilder(String url, String method) {
       this.url = url;
       this.method = method;
       this.contentType = "application/json";
       this.responseFormat =
           new EnumWrapper<ResponseFormat>(ResponseFormat.JSON.getValue(), ResponseFormat.JSON);
+      this.followRedirects = true;
     }
 
     public FetchOptionsBuilder params(Map<String, String> params) {
@@ -178,6 +189,11 @@ public class FetchOptions {
 
     public FetchOptionsBuilder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
+      return this;
+    }
+
+    public FetchOptionsBuilder followRedirects(Boolean followRedirects) {
+      this.followRedirects = followRedirects;
       return this;
     }
 
