@@ -9,6 +9,7 @@ import static com.box.sdkgen.internal.utils.UtilsManager.getUuid;
 import static com.box.sdkgen.internal.utils.UtilsManager.readBufferFromFile;
 import static com.box.sdkgen.internal.utils.UtilsManager.readByteStream;
 import static com.box.sdkgen.test.commons.CommonsManager.getDefaultClient;
+import static com.box.sdkgen.test.commons.CommonsManager.uploadNewFile;
 
 import com.box.sdkgen.client.BoxClient;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBody;
@@ -40,6 +41,15 @@ public class DownloadsITest {
     FileFull uploadedFile = uploadedFiles.getEntries().get(0);
     InputStream downloadedFileContent = client.getDownloads().downloadFile(uploadedFile.getId());
     assert bufferEquals(readByteStream(downloadedFileContent), fileBuffer);
+    client.getFiles().deleteFileById(uploadedFile.getId());
+  }
+
+  @Test
+  public void testGetDownloadUrl() {
+    FileFull uploadedFile = uploadNewFile();
+    String downloadUrl = client.getDownloads().getDownloadFileUrl(uploadedFile.getId());
+    assert !(downloadUrl == null);
+    assert downloadUrl.contains("https://");
     client.getFiles().deleteFileById(uploadedFile.getId());
   }
 

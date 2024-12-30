@@ -6,6 +6,7 @@ import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 
+import com.box.sdkgen.box.errors.BoxSDKError;
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetchoptions.FetchOptions;
 import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
@@ -218,6 +219,62 @@ public class FilesManager {
                     .networkSession(this.networkSession)
                     .build());
     return JsonManager.deserialize(response.getData(), FileFull.class);
+  }
+
+  public String getFileThumbnailUrl(String fileId, GetFileThumbnailUrlExtension extension) {
+    return getFileThumbnailUrl(
+        fileId, extension, new GetFileThumbnailUrlQueryParams(), new GetFileThumbnailUrlHeaders());
+  }
+
+  public String getFileThumbnailUrl(
+      String fileId,
+      GetFileThumbnailUrlExtension extension,
+      GetFileThumbnailUrlQueryParams queryParams) {
+    return getFileThumbnailUrl(fileId, extension, queryParams, new GetFileThumbnailUrlHeaders());
+  }
+
+  public String getFileThumbnailUrl(
+      String fileId, GetFileThumbnailUrlExtension extension, GetFileThumbnailUrlHeaders headers) {
+    return getFileThumbnailUrl(fileId, extension, new GetFileThumbnailUrlQueryParams(), headers);
+  }
+
+  public String getFileThumbnailUrl(
+      String fileId,
+      GetFileThumbnailUrlExtension extension,
+      GetFileThumbnailUrlQueryParams queryParams,
+      GetFileThumbnailUrlHeaders headers) {
+    Map<String, String> queryParamsMap =
+        prepareParams(
+            mapOf(
+                entryOf("min_height", convertToString(queryParams.getMinHeight())),
+                entryOf("min_width", convertToString(queryParams.getMinWidth())),
+                entryOf("max_height", convertToString(queryParams.getMaxHeight())),
+                entryOf("max_width", convertToString(queryParams.getMaxWidth()))));
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response =
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/files/",
+                            convertToString(fileId),
+                            "/thumbnail.",
+                            convertToString(extension)),
+                        "GET")
+                    .params(queryParamsMap)
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.NO_CONTENT)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .followRedirects(false)
+                    .build());
+    if (response.getHeaders().get("location") == null) {
+      throw new BoxSDKError("No location header in response");
+    }
+    return response.getHeaders().get("location");
   }
 
   public InputStream getFileThumbnailById(String fileId, GetFileThumbnailByIdExtension extension) {
