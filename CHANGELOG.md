@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/box/box-java-sdk-gen/compare/v0.2.0...v0.3.0) (2024-12-30)
+
+
+### Bug Fixes
+
+* Remove unused parameter from `SignRequest` (box/box-openapi[#489](https://github.com/box/box-java-sdk-gen/issues/489)) ([#107](https://github.com/box/box-java-sdk-gen/issues/107)) ([77bf54d](https://github.com/box/box-java-sdk-gen/commit/77bf54d27f48dc2752b95d43a4f65488de2c4d21))
+
+
+### New Features and Enhancements
+
+* Add `aiAgent` info to `AiResponse` (box/box-openapi[#485](https://github.com/box/box-java-sdk-gen/issues/485)) ([#93](https://github.com/box/box-java-sdk-gen/issues/93)) ([a7fe95f](https://github.com/box/box-java-sdk-gen/commit/a7fe95f6f264ec834f28b16c57ccb7ac11b98554))
+* Add support for replacing the network client implementation (box/box-codegen[#629](https://github.com/box/box-java-sdk-gen/issues/629)) ([#115](https://github.com/box/box-java-sdk-gen/issues/115)) ([1bfa6ef](https://github.com/box/box-java-sdk-gen/commit/1bfa6efdff2da6af670f5841fefc7f9e51a3b804))
+* Allow for customizing retry strategy (box/box-codegen[#635](https://github.com/box/box-java-sdk-gen/issues/635)) ([#120](https://github.com/box/box-java-sdk-gen/issues/120)) ([78946c0](https://github.com/box/box-java-sdk-gen/commit/78946c08c37834462a2fb700dd587a353b26052d))
+* Support get download URL in Java (box/box-codegen[#634](https://github.com/box/box-java-sdk-gen/issues/634)) ([#119](https://github.com/box/box-java-sdk-gen/issues/119)) ([d62645e](https://github.com/box/box-java-sdk-gen/commit/d62645eaf7d4a5b4c1ab92fc602bd8bbcb4b253a))
+* Support optional `userId` parameter for updating files, folders and web links ([#106](https://github.com/box/box-java-sdk-gen/issues/106)) ([50f7521](https://github.com/box/box-java-sdk-gen/commit/50f7521427f6019e588286eb9e9be20a8e28c3c1))
+
 ## 0.2.0 (2024-12-03)
 
 
