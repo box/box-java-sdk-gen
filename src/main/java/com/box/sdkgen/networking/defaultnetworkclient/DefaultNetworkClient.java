@@ -6,6 +6,7 @@ import static com.box.sdkgen.serialization.json.JsonManager.sdToUrlParams;
 import static java.util.Collections.singletonList;
 import static okhttp3.ConnectionSpec.MODERN_TLS;
 
+import com.box.sdkgen.box.errors.BoxSDKError;
 import com.box.sdkgen.networking.fetchoptions.FetchOptions;
 import com.box.sdkgen.networking.fetchoptions.MultipartItem;
 import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import okhttp3.Call;
 import okhttp3.Headers;
@@ -49,9 +51,7 @@ public class DefaultNetworkClient implements NetworkClient {
 
   public FetchResponse fetch(FetchOptions options) {
     NetworkSession networkSession =
-        options.getNetworkSession() == null
-            ? new NetworkSession.NetworkSessionBuilder().networkClient(this).build()
-            : options.getNetworkSession();
+        options.getNetworkSession() == null ? new NetworkSession() : options.getNetworkSession();
 
     FetchOptions fetchOptions =
         networkSession.getInterceptors().stream()
@@ -62,51 +62,101 @@ public class DefaultNetworkClient implements NetworkClient {
 
     boolean authenticationNeeded = false;
     Request request;
+    FetchResponse fetchResponse = null;
+    Exception exceptionThrown = null;
 
-    request = prepareRequest(fetchOptions, authenticationNeeded, networkSession);
+    int attemptNumber = 0;
 
-    try {
+    while (true) {
+      request = prepareRequest(fetchOptions, authenticationNeeded, networkSession);
 
-      Response response = executeOnClient(request);
+      Response response = null;
+      try {
+        response = executeOnClient(request);
 
-      Map<String, String> headersMap =
-          response.headers().toMultimap().entrySet().stream()
-              .collect(
-                  Collectors.toMap(
-                      Map.Entry::getKey,
-                      e -> e.getValue().get(0),
-                      (existing, replacement) -> existing,
-                      () -> new TreeMap<>(String.CASE_INSENSITIVE_ORDER)));
+        Map<String, String> headersMap =
+            response.headers().toMultimap().entrySet().stream()
+                .collect(
+                    Collectors.toMap(
+                        Map.Entry::getKey,
+                        e -> e.getValue().get(0),
+                        (existing, replacement) -> existing,
+                        () -> new TreeMap<>(String.CASE_INSENSITIVE_ORDER)));
 
-      String responseUrl =
-          response.networkResponse() != null
-              ? response.networkResponse().request().url().toString()
-              : response.request().url().toString();
+        String responseUrl =
+            response.networkResponse() != null
+                ? response.networkResponse().request().url().toString()
+                : response.request().url().toString();
+        fetchResponse =
+            Objects.equals(fetchOptions.getResponseFormat().getEnumValue(), ResponseFormat.BINARY)
+                ? new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
+                    .content(response.body().byteStream())
+                    .url(responseUrl)
+                    .build()
+                : new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
+                    .data(
+                        response.body() != null
+                            ? jsonToSerializedData(response.body().string())
+                            : null)
+                    .url(responseUrl)
+                    .build();
 
-      FetchResponse fetchResponse =
-          Objects.equals(fetchOptions.getResponseFormat().getEnumValue(), ResponseFormat.BINARY)
-              ? new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
-                  .content(response.body().byteStream())
-                  .url(responseUrl)
-                  .build()
-              : new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
-                  .data(
-                      response.body() != null
-                          ? jsonToSerializedData(response.body().string())
-                          : null)
-                  .url(responseUrl)
-                  .build();
+        fetchResponse =
+            networkSession.getInterceptors().stream()
+                .reduce(
+                    fetchResponse,
+                    (modifiedResponse, interceptor) -> interceptor.afterRequest(modifiedResponse),
+                    (o1, o2) -> o2);
 
-      fetchResponse =
-          networkSession.getInterceptors().stream()
-              .reduce(
-                  fetchResponse,
-                  (modifiedResponse, interceptor) -> interceptor.afterRequest(modifiedResponse),
-                  (o1, o2) -> o2);
+        boolean shouldRetry =
+            networkSession
+                .getRetryStrategy()
+                .shouldRetry(fetchOptions, fetchResponse, attemptNumber);
 
-      return fetchResponse;
-    } catch (Exception e) {
-      throw new RuntimeException(e);
+        if (shouldRetry) {
+          TimeUnit.SECONDS.sleep(
+              (long)
+                  networkSession
+                      .getRetryStrategy()
+                      .retryAfter(fetchOptions, fetchResponse, attemptNumber));
+          attemptNumber++;
+          continue;
+        }
+
+        if (fetchResponse.getStatus() >= 300
+            && fetchResponse.getStatus() < 400
+            && fetchOptions.followRedirects) {
+          if (!fetchResponse.getHeaders().containsKey("Location")) {
+            throw new BoxSDKError(
+                "Redirect response missing Location header for " + fetchOptions.getUrl());
+          }
+          return fetch(
+              new FetchOptions.FetchOptionsBuilder(
+                      fetchResponse.getHeaders().get("Location"), "GET")
+                  .responseFormat(fetchOptions.getResponseFormat())
+                  .auth(fetchOptions.getAuth())
+                  .networkSession(networkSession)
+                  .build());
+        }
+
+      } catch (Exception e) {
+        exceptionThrown = e;
+        // Retry network exception only once
+        if (attemptNumber > 1) {
+          if (response != null) {
+            response.close();
+          }
+          throw new BoxSDKError(e.getMessage(), e);
+        }
+      }
+
+      if (fetchResponse != null
+          && fetchResponse.getStatus() >= 200
+          && fetchResponse.getStatus() < 400) {
+        return fetchResponse;
+      }
+
+      throwOnUnsuccessfulResponse(request, fetchResponse, exceptionThrown);
     }
   }
 
@@ -218,5 +268,13 @@ public class DefaultNetworkClient implements NetworkClient {
         }
       }
     };
+  }
+
+  private static void throwOnUnsuccessfulResponse(
+      Request request, FetchResponse fetchResponse, Exception exceptionThrown) {
+    if (fetchResponse == null) {
+      throw new RuntimeException(exceptionThrown.getMessage(), exceptionThrown);
+    }
+    throw new RuntimeException(fetchResponse.getData().toString());
   }
 }

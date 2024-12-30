@@ -4,6 +4,8 @@ import com.box.sdkgen.networking.baseurls.BaseUrls;
 import com.box.sdkgen.networking.boxnetworkclient.BoxNetworkClient;
 import com.box.sdkgen.networking.interceptors.Interceptor;
 import com.box.sdkgen.networking.networkclient.NetworkClient;
+import com.box.sdkgen.networking.retries.BoxRetryStrategy;
+import com.box.sdkgen.networking.retries.RetryStrategy;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,9 +14,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class NetworkSession {
-
-  public static int MAX_ATTEMPTS = 5;
-
   protected Map<String, String> additionalHeaders = new HashMap<>();
 
   protected BaseUrls baseUrls = new BaseUrls();
@@ -23,8 +22,11 @@ public class NetworkSession {
 
   protected NetworkClient networkClient;
 
+  protected RetryStrategy retryStrategy;
+
   public NetworkSession() {
     networkClient = new BoxNetworkClient();
+    retryStrategy = new BoxRetryStrategy();
   }
 
   protected NetworkSession(NetworkSessionBuilder builder) {
@@ -32,6 +34,7 @@ public class NetworkSession {
     this.baseUrls = builder.baseUrls;
     this.networkClient = builder.networkClient;
     this.interceptors = builder.interceptors;
+    this.retryStrategy = builder.retryStrategy;
   }
 
   public NetworkSession withAdditionalHeaders() {
@@ -45,6 +48,7 @@ public class NetworkSession {
     return new NetworkSession.NetworkSessionBuilder()
         .baseUrls(this.baseUrls)
         .interceptors(this.interceptors)
+        .retryStrategy(this.retryStrategy)
         .additionalHeaders(newHeaders)
         .build();
   }
@@ -53,6 +57,7 @@ public class NetworkSession {
     return new NetworkSessionBuilder()
         .additionalHeaders(this.additionalHeaders)
         .interceptors(this.interceptors)
+        .retryStrategy(this.retryStrategy)
         .baseUrls(baseUrls)
         .build();
   }
@@ -64,6 +69,7 @@ public class NetworkSession {
     return new NetworkSessionBuilder()
         .additionalHeaders(this.additionalHeaders)
         .baseUrls(this.baseUrls)
+        .retryStrategy(this.retryStrategy)
         .interceptors(newInterceptors)
         .build();
   }
@@ -73,7 +79,18 @@ public class NetworkSession {
         .additionalHeaders(this.additionalHeaders)
         .baseUrls(this.baseUrls)
         .interceptors(this.interceptors)
+        .retryStrategy(this.retryStrategy)
         .networkClient(networkClient)
+        .build();
+  }
+
+  public NetworkSession withRetryStrategy(RetryStrategy retryStrategy) {
+    return new NetworkSessionBuilder()
+        .additionalHeaders(this.additionalHeaders)
+        .baseUrls(this.baseUrls)
+        .interceptors(this.interceptors)
+        .networkClient(this.networkClient)
+        .retryStrategy(retryStrategy)
         .build();
   }
 
@@ -93,6 +110,10 @@ public class NetworkSession {
     return interceptors;
   }
 
+  public RetryStrategy getRetryStrategy() {
+    return retryStrategy;
+  }
+
   public static class NetworkSessionBuilder {
 
     protected Map<String, String> additionalHeaders = new HashMap<>();
@@ -103,8 +124,11 @@ public class NetworkSession {
 
     protected List<Interceptor> interceptors = new ArrayList<>();
 
+    protected RetryStrategy retryStrategy;
+
     public NetworkSessionBuilder() {
       networkClient = new BoxNetworkClient();
+      retryStrategy = new BoxRetryStrategy();
     }
 
     public NetworkSessionBuilder additionalHeaders(Map<String, String> additionalHeaders) {
@@ -124,6 +148,11 @@ public class NetworkSession {
 
     public NetworkSessionBuilder interceptors(List<Interceptor> interceptors) {
       this.interceptors = interceptors;
+      return this;
+    }
+
+    public NetworkSessionBuilder retryStrategy(RetryStrategy retryStrategy) {
+      this.retryStrategy = retryStrategy;
       return this;
     }
 
