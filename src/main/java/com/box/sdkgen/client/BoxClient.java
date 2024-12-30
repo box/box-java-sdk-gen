@@ -963,6 +963,7 @@ public class BoxClient {
             .responseFormat(fetchOptions.getResponseFormat())
             .auth(auth)
             .networkSession(networkSession)
+            .followRedirects(fetchOptions.getFollowRedirects())
             .build();
     return networkSession.getNetworkClient().fetch(enrichedFetchOptions);
   }

@@ -7,6 +7,7 @@ import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.internal.utils.UtilsManager.writeInputStreamToOutputStream;
 
+import com.box.sdkgen.box.errors.BoxSDKError;
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetchoptions.FetchOptions;
 import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
@@ -29,6 +30,58 @@ public class DownloadsManager {
   protected DownloadsManager(DownloadsManagerBuilder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
+  }
+
+  public String getDownloadFileUrl(String fileId) {
+    return getDownloadFileUrl(
+        fileId, new GetDownloadFileUrlQueryParams(), new GetDownloadFileUrlHeaders());
+  }
+
+  public String getDownloadFileUrl(String fileId, GetDownloadFileUrlQueryParams queryParams) {
+    return getDownloadFileUrl(fileId, queryParams, new GetDownloadFileUrlHeaders());
+  }
+
+  public String getDownloadFileUrl(String fileId, GetDownloadFileUrlHeaders headers) {
+    return getDownloadFileUrl(fileId, new GetDownloadFileUrlQueryParams(), headers);
+  }
+
+  public String getDownloadFileUrl(
+      String fileId, GetDownloadFileUrlQueryParams queryParams, GetDownloadFileUrlHeaders headers) {
+    Map<String, String> queryParamsMap =
+        prepareParams(
+            mapOf(
+                entryOf("version", convertToString(queryParams.getVersion())),
+                entryOf("access_token", convertToString(queryParams.getAccessToken()))));
+    Map<String, String> headersMap =
+        prepareParams(
+            mergeMaps(
+                mapOf(
+                    entryOf("range", convertToString(headers.getRange())),
+                    entryOf("boxapi", convertToString(headers.getBoxapi()))),
+                headers.getExtraHeaders()));
+    FetchResponse response =
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/files/",
+                            convertToString(fileId),
+                            "/content"),
+                        "GET")
+                    .params(queryParamsMap)
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.NO_CONTENT)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .followRedirects(false)
+                    .build());
+    if (response.getHeaders().get("location") == null) {
+      throw new BoxSDKError("No location header in response");
+    }
+    return response.getHeaders().get("location");
   }
 
   public InputStream downloadFile(String fileId) {
