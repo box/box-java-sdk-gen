@@ -118,10 +118,24 @@ public class BoxNetworkClient implements NetworkClient {
                     (modifiedResponse, interceptor) -> interceptor.afterRequest(modifiedResponse),
                     (o1, o2) -> o2);
 
-        if (fetchResponse.getStatus() >= 300 && fetchResponse.getStatus() < 400) {
-          if (fetchOptions.followRedirects == false) {
-            return fetchResponse;
-          }
+        boolean shouldRetry =
+            networkSession
+                .getRetryStrategy()
+                .shouldRetry(fetchOptions, fetchResponse, attemptNumber);
+
+        if (shouldRetry) {
+          TimeUnit.SECONDS.sleep(
+              (long)
+                  networkSession
+                      .getRetryStrategy()
+                      .retryAfter(fetchOptions, fetchResponse, attemptNumber));
+          attemptNumber++;
+          continue;
+        }
+
+        if (fetchResponse.getStatus() >= 300
+            && fetchResponse.getStatus() < 400
+            && fetchOptions.followRedirects) {
           if (!fetchResponse.getHeaders().containsKey("Location")) {
             throw new BoxSDKError(
                 "Redirect response missing Location header for " + fetchOptions.getUrl());
@@ -133,19 +147,6 @@ public class BoxNetworkClient implements NetworkClient {
                   .auth(fetchOptions.getAuth())
                   .networkSession(networkSession)
                   .build());
-        }
-
-        boolean acceptedWithRetryAfter =
-            fetchResponse.status == 202 && fetchResponse.getHeaders().get("Retry-After") != null;
-
-        if (fetchResponse.getStatus() >= 200
-            && fetchResponse.getStatus() < 299
-            && (!acceptedWithRetryAfter || attemptNumber >= NetworkSession.MAX_ATTEMPTS)) {
-          return fetchResponse;
-        }
-
-        if (fetchResponse.getStatus() == 401 && fetchOptions.getAuth() != null) {
-          authenticationNeeded = true;
         }
 
       } catch (Exception e) {
@@ -160,32 +161,13 @@ public class BoxNetworkClient implements NetworkClient {
       }
 
       if (fetchResponse != null
-          && fetchResponse.getStatus() >= 400
-          && fetchResponse.getStatus() < 500
-          && fetchResponse.getStatus() != 429
-          && !authenticationNeeded) {
-        throwOnUnsuccessfulResponse(request, fetchResponse, exceptionThrown);
+          && fetchResponse.getStatus() >= 200
+          && fetchResponse.getStatus() < 400) {
+        return fetchResponse;
       }
 
-      if (attemptNumber >= NetworkSession.MAX_ATTEMPTS) {
-        break;
-      }
-
-      try {
-        int secondsToSleep =
-            getRetryAfterTimeInSeconds(
-                attemptNumber,
-                fetchResponse != null ? fetchResponse.getHeaders().get("Retry-After") : null);
-        TimeUnit.SECONDS.sleep(secondsToSleep);
-      } catch (InterruptedException interruptedException) {
-        throwOnUnsuccessfulResponse(request, fetchResponse, exceptionThrown);
-      }
-
-      attemptNumber++;
+      throwOnUnsuccessfulResponse(request, fetchResponse, exceptionThrown);
     }
-
-    throwOnUnsuccessfulResponse(request, fetchResponse, exceptionThrown);
-    return null;
   }
 
   private static Request prepareRequest(

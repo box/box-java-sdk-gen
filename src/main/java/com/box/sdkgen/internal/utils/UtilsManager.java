@@ -302,4 +302,8 @@ public class UtilsManager {
   public static JsonNode getValueFromObjectRawData(SerializableObject obj, String key) {
     return obj.getRawData().get(key);
   }
+
+  public static double random(double min, double max) {
+    return Math.random() * (max - min) + min;
+  }
 }
