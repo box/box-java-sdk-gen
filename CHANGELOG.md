@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* remove unused parameter from `SignRequest` (box/box-openapi[#489](https://github.com/box/box-java-sdk-gen/issues/489)) ([#107](https://github.com/box/box-java-sdk-gen/issues/107)) ([77bf54d](https://github.com/box/box-java-sdk-gen/commit/77bf54d27f48dc2752b95d43a4f65488de2c4d21))
+* Remove unused parameter from `SignRequest` (box/box-openapi[#489](https://github.com/box/box-java-sdk-gen/issues/489)) ([#107](https://github.com/box/box-java-sdk-gen/issues/107)) ([77bf54d](https://github.com/box/box-java-sdk-gen/commit/77bf54d27f48dc2752b95d43a4f65488de2c4d21))
 
 
 ### New Features and Enhancements
