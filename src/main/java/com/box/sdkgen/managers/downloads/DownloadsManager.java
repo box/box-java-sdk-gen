@@ -6,7 +6,6 @@ import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 import static com.box.sdkgen.internal.utils.UtilsManager.writeInputStreamToOutputStream;
-import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetchoptions.FetchOptions;
@@ -59,21 +58,23 @@ public class DownloadsManager {
                     entryOf("boxapi", convertToString(headers.getBoxapi()))),
                 headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/files/",
-                        convertToString(fileId),
-                        "/content"),
-                    "GET")
-                .params(queryParamsMap)
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.BINARY)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/files/",
+                            convertToString(fileId),
+                            "/content"),
+                        "GET")
+                    .params(queryParamsMap)
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.BINARY)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     if (convertToString(response.getStatus()).equals("202")) {
       return null;
     }

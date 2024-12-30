@@ -5,7 +5,6 @@ import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
-import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetchoptions.FetchOptions;
@@ -66,32 +65,34 @@ public class UploadsManager {
                     entryOf("content-md5", convertToString(headers.getContentMd5()))),
                 headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getUploadUrl(),
-                        "/2.0/files/",
-                        convertToString(fileId),
-                        "/content"),
-                    "POST")
-                .params(queryParamsMap)
-                .headers(headersMap)
-                .multipartData(
-                    Arrays.asList(
-                        new MultipartItem.MultipartItemBuilder("attributes")
-                            .data(JsonManager.serialize(requestBody.getAttributes()))
-                            .build(),
-                        new MultipartItem.MultipartItemBuilder("file")
-                            .fileStream(requestBody.getFile())
-                            .fileName(requestBody.getFileFileName())
-                            .contentType(requestBody.getFileContentType())
-                            .build()))
-                .contentType("multipart/form-data")
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getUploadUrl(),
+                            "/2.0/files/",
+                            convertToString(fileId),
+                            "/content"),
+                        "POST")
+                    .params(queryParamsMap)
+                    .headers(headersMap)
+                    .multipartData(
+                        Arrays.asList(
+                            new MultipartItem.MultipartItemBuilder("attributes")
+                                .data(JsonManager.serialize(requestBody.getAttributes()))
+                                .build(),
+                            new MultipartItem.MultipartItemBuilder("file")
+                                .fileStream(requestBody.getFile())
+                                .fileName(requestBody.getFileFileName())
+                                .contentType(requestBody.getFileContentType())
+                                .build()))
+                    .contentType("multipart/form-data")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), Files.class);
   }
 
@@ -112,18 +113,22 @@ public class UploadsManager {
       PreflightFileUploadCheckRequestBody requestBody, PreflightFileUploadCheckHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/files/content"),
-                    "OPTIONS")
-                .headers(headersMap)
-                .data(JsonManager.serialize(requestBody))
-                .contentType("application/json")
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/files/content"),
+                        "OPTIONS")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), UploadUrl.class);
   }
 
@@ -151,28 +156,32 @@ public class UploadsManager {
                 mapOf(entryOf("content-md5", convertToString(headers.getContentMd5()))),
                 headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "", this.networkSession.getBaseUrls().getUploadUrl(), "/2.0/files/content"),
-                    "POST")
-                .params(queryParamsMap)
-                .headers(headersMap)
-                .multipartData(
-                    Arrays.asList(
-                        new MultipartItem.MultipartItemBuilder("attributes")
-                            .data(JsonManager.serialize(requestBody.getAttributes()))
-                            .build(),
-                        new MultipartItem.MultipartItemBuilder("file")
-                            .fileStream(requestBody.getFile())
-                            .fileName(requestBody.getFileFileName())
-                            .contentType(requestBody.getFileContentType())
-                            .build()))
-                .contentType("multipart/form-data")
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getUploadUrl(),
+                            "/2.0/files/content"),
+                        "POST")
+                    .params(queryParamsMap)
+                    .headers(headersMap)
+                    .multipartData(
+                        Arrays.asList(
+                            new MultipartItem.MultipartItemBuilder("attributes")
+                                .data(JsonManager.serialize(requestBody.getAttributes()))
+                                .build(),
+                            new MultipartItem.MultipartItemBuilder("file")
+                                .fileStream(requestBody.getFile())
+                                .fileName(requestBody.getFileFileName())
+                                .contentType(requestBody.getFileContentType())
+                                .build()))
+                    .contentType("multipart/form-data")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), Files.class);
   }
 

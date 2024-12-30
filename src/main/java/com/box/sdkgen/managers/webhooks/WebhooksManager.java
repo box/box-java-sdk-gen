@@ -5,7 +5,6 @@ import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
-import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetchoptions.FetchOptions;
@@ -52,17 +51,19 @@ public class WebhooksManager {
                 entryOf("limit", convertToString(queryParams.getLimit()))));
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/webhooks"),
-                    "GET")
-                .params(queryParamsMap)
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/webhooks"),
+                        "GET")
+                    .params(queryParamsMap)
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), Webhooks.class);
   }
 
@@ -73,18 +74,20 @@ public class WebhooksManager {
   public Webhook createWebhook(CreateWebhookRequestBody requestBody, CreateWebhookHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/webhooks"),
-                    "POST")
-                .headers(headersMap)
-                .data(JsonManager.serialize(requestBody))
-                .contentType("application/json")
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/webhooks"),
+                        "POST")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), Webhook.class);
   }
 
@@ -95,19 +98,21 @@ public class WebhooksManager {
   public Webhook getWebhookById(String webhookId, GetWebhookByIdHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/webhooks/",
-                        convertToString(webhookId)),
-                    "GET")
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/webhooks/",
+                            convertToString(webhookId)),
+                        "GET")
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), Webhook.class);
   }
 
@@ -130,21 +135,23 @@ public class WebhooksManager {
       UpdateWebhookByIdHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/webhooks/",
-                        convertToString(webhookId)),
-                    "PUT")
-                .headers(headersMap)
-                .data(JsonManager.serialize(requestBody))
-                .contentType("application/json")
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/webhooks/",
+                            convertToString(webhookId)),
+                        "PUT")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), Webhook.class);
   }
 
@@ -155,19 +162,21 @@ public class WebhooksManager {
   public void deleteWebhookById(String webhookId, DeleteWebhookByIdHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/webhooks/",
-                        convertToString(webhookId)),
-                    "DELETE")
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.NO_CONTENT)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/webhooks/",
+                            convertToString(webhookId)),
+                        "DELETE")
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.NO_CONTENT)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
   }
 
   public Authentication getAuth() {

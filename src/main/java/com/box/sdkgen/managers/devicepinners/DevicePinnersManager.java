@@ -5,7 +5,6 @@ import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
-import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetchoptions.FetchOptions;
@@ -40,19 +39,21 @@ public class DevicePinnersManager {
       String devicePinnerId, GetDevicePinnerByIdHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/device_pinners/",
-                        convertToString(devicePinnerId)),
-                    "GET")
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/device_pinners/",
+                            convertToString(devicePinnerId)),
+                        "GET")
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), DevicePinner.class);
   }
 
@@ -63,19 +64,21 @@ public class DevicePinnersManager {
   public void deleteDevicePinnerById(String devicePinnerId, DeleteDevicePinnerByIdHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/device_pinners/",
-                        convertToString(devicePinnerId)),
-                    "DELETE")
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.NO_CONTENT)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/device_pinners/",
+                            convertToString(devicePinnerId)),
+                        "DELETE")
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.NO_CONTENT)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
   }
 
   public DevicePinners getEnterpriseDevicePinners(String enterpriseId) {
@@ -109,21 +112,23 @@ public class DevicePinnersManager {
                 entryOf("direction", convertToString(queryParams.getDirection()))));
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/enterprises/",
-                        convertToString(enterpriseId),
-                        "/device_pinners"),
-                    "GET")
-                .params(queryParamsMap)
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/enterprises/",
+                            convertToString(enterpriseId),
+                            "/device_pinners"),
+                        "GET")
+                    .params(queryParamsMap)
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), DevicePinners.class);
   }
 

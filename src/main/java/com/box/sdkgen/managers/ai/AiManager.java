@@ -5,7 +5,6 @@ import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
-import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetchoptions.FetchOptions;
@@ -45,17 +44,20 @@ public class AiManager {
   public AiResponseFull createAiAsk(AiAsk requestBody, CreateAiAskHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join("", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/ai/ask"),
-                    "POST")
-                .headers(headersMap)
-                .data(JsonManager.serialize(requestBody))
-                .contentType("application/json")
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/ai/ask"),
+                        "POST")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), AiResponseFull.class);
   }
 
@@ -66,18 +68,20 @@ public class AiManager {
   public AiResponse createAiTextGen(AiTextGen requestBody, CreateAiTextGenHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/ai/text_gen"),
-                    "POST")
-                .headers(headersMap)
-                .data(JsonManager.serialize(requestBody))
-                .contentType("application/json")
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/ai/text_gen"),
+                        "POST")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), AiResponse.class);
   }
 
@@ -97,19 +101,21 @@ public class AiManager {
                 entryOf("model", convertToString(queryParams.getModel()))));
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/ai_agent_default"),
-                    "GET")
-                .params(queryParamsMap)
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/ai_agent_default"),
+                        "GET")
+                    .params(queryParamsMap)
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(
         response.getData(),
         AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen.class);
@@ -122,18 +128,20 @@ public class AiManager {
   public AiResponse createAiExtract(AiExtract requestBody, CreateAiExtractHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/ai/extract"),
-                    "POST")
-                .headers(headersMap)
-                .data(JsonManager.serialize(requestBody))
-                .contentType("application/json")
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/ai/extract"),
+                        "POST")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), AiResponse.class);
   }
 
@@ -145,20 +153,22 @@ public class AiManager {
       AiExtractStructured requestBody, CreateAiExtractStructuredHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/ai/extract_structured"),
-                    "POST")
-                .headers(headersMap)
-                .data(JsonManager.serialize(requestBody))
-                .contentType("application/json")
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/ai/extract_structured"),
+                        "POST")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), AiExtractResponse.class);
   }
 

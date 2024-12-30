@@ -4,7 +4,6 @@ import static com.box.sdkgen.internal.utils.UtilsManager.convertToString;
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
-import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetchoptions.FetchOptions;
@@ -39,20 +38,22 @@ public class SkillsManager {
       String fileId, GetBoxSkillCardsOnFileHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/files/",
-                        convertToString(fileId),
-                        "/metadata/global/boxSkillsCards"),
-                    "GET")
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/files/",
+                            convertToString(fileId),
+                            "/metadata/global/boxSkillsCards"),
+                        "GET")
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), SkillCardsMetadata.class);
   }
 
@@ -67,22 +68,24 @@ public class SkillsManager {
       CreateBoxSkillCardsOnFileHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/files/",
-                        convertToString(fileId),
-                        "/metadata/global/boxSkillsCards"),
-                    "POST")
-                .headers(headersMap)
-                .data(JsonManager.serialize(requestBody))
-                .contentType("application/json")
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/files/",
+                            convertToString(fileId),
+                            "/metadata/global/boxSkillsCards"),
+                        "POST")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), SkillCardsMetadata.class);
   }
 
@@ -97,22 +100,24 @@ public class SkillsManager {
       UpdateBoxSkillCardsOnFileHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/files/",
-                        convertToString(fileId),
-                        "/metadata/global/boxSkillsCards"),
-                    "PUT")
-                .headers(headersMap)
-                .data(JsonManager.serialize(requestBody))
-                .contentType("application/json-patch+json")
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/files/",
+                            convertToString(fileId),
+                            "/metadata/global/boxSkillsCards"),
+                        "PUT")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json-patch+json")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), SkillCardsMetadata.class);
   }
 
@@ -124,20 +129,22 @@ public class SkillsManager {
       String fileId, DeleteBoxSkillCardsFromFileHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/files/",
-                        convertToString(fileId),
-                        "/metadata/global/boxSkillsCards"),
-                    "DELETE")
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.NO_CONTENT)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/files/",
+                            convertToString(fileId),
+                            "/metadata/global/boxSkillsCards"),
+                        "DELETE")
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.NO_CONTENT)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
   }
 
   public void updateAllSkillCardsOnFile(
@@ -151,21 +158,23 @@ public class SkillsManager {
       UpdateAllSkillCardsOnFileHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/skill_invocations/",
-                        convertToString(skillId)),
-                    "PUT")
-                .headers(headersMap)
-                .data(JsonManager.serialize(requestBody))
-                .contentType("application/json")
-                .responseFormat(ResponseFormat.NO_CONTENT)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/skill_invocations/",
+                            convertToString(skillId)),
+                        "PUT")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json")
+                    .responseFormat(ResponseFormat.NO_CONTENT)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
   }
 
   public Authentication getAuth() {

@@ -5,7 +5,6 @@ import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
-import static com.box.sdkgen.networking.fetch.FetchManager.fetch;
 
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetchoptions.FetchOptions;
@@ -40,20 +39,22 @@ public class SignRequestsManager {
   public SignRequest cancelSignRequest(String signRequestId, CancelSignRequestHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/sign_requests/",
-                        convertToString(signRequestId),
-                        "/cancel"),
-                    "POST")
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/sign_requests/",
+                            convertToString(signRequestId),
+                            "/cancel"),
+                        "POST")
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), SignRequest.class);
   }
 
@@ -64,20 +65,22 @@ public class SignRequestsManager {
   public void resendSignRequest(String signRequestId, ResendSignRequestHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/sign_requests/",
-                        convertToString(signRequestId),
-                        "/resend"),
-                    "POST")
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.NO_CONTENT)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/sign_requests/",
+                            convertToString(signRequestId),
+                            "/resend"),
+                        "POST")
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.NO_CONTENT)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
   }
 
   public SignRequest getSignRequestById(String signRequestId) {
@@ -87,19 +90,21 @@ public class SignRequestsManager {
   public SignRequest getSignRequestById(String signRequestId, GetSignRequestByIdHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "",
-                        this.networkSession.getBaseUrls().getBaseUrl(),
-                        "/2.0/sign_requests/",
-                        convertToString(signRequestId)),
-                    "GET")
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/sign_requests/",
+                            convertToString(signRequestId)),
+                        "GET")
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), SignRequest.class);
   }
 
@@ -124,17 +129,21 @@ public class SignRequestsManager {
                 entryOf("limit", convertToString(queryParams.getLimit()))));
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/sign_requests"),
-                    "GET")
-                .params(queryParamsMap)
-                .headers(headersMap)
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/sign_requests"),
+                        "GET")
+                    .params(queryParamsMap)
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), SignRequests.class);
   }
 
@@ -146,18 +155,22 @@ public class SignRequestsManager {
       SignRequestCreateRequest requestBody, CreateSignRequestHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
-        fetch(
-            new FetchOptions.FetchOptionsBuilder(
-                    String.join(
-                        "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/sign_requests"),
-                    "POST")
-                .headers(headersMap)
-                .data(JsonManager.serialize(requestBody))
-                .contentType("application/json")
-                .responseFormat(ResponseFormat.JSON)
-                .auth(this.auth)
-                .networkSession(this.networkSession)
-                .build());
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/sign_requests"),
+                        "POST")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
     return JsonManager.deserialize(response.getData(), SignRequest.class);
   }
 
