@@ -1,10 +1,12 @@
-package com.box.sdkgen.networking.fetch;
+package com.box.sdkgen.networking.boxnetworkclient;
 
 import static com.box.sdkgen.box.BoxConstants.USER_AGENT_HEADER;
 import static com.box.sdkgen.box.BoxConstants.X_BOX_UA_HEADER;
 import static com.box.sdkgen.serialization.json.JsonManager.jsonToSerializedData;
 import static com.box.sdkgen.serialization.json.JsonManager.sdToJson;
 import static com.box.sdkgen.serialization.json.JsonManager.sdToUrlParams;
+import static java.util.Collections.singletonList;
+import static okhttp3.ConnectionSpec.MODERN_TLS;
 
 import com.box.sdkgen.box.errors.BoxAPIError;
 import com.box.sdkgen.box.errors.BoxSDKError;
@@ -13,9 +15,11 @@ import com.box.sdkgen.networking.fetchoptions.MultipartItem;
 import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
 import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
+import com.box.sdkgen.networking.networkclient.NetworkClient;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Objects;
+import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import okhttp3.Call;
@@ -31,12 +35,31 @@ import okio.BufferedSink;
 import okio.Okio;
 import okio.Source;
 
-public class FetchManager {
+public class BoxNetworkClient implements NetworkClient {
 
   private static final int BASE_TIMEOUT = 1;
   private static final double RANDOM_FACTOR = 0.5;
 
-  public static FetchResponse fetch(FetchOptions options) {
+  protected OkHttpClient httpClient;
+
+  public BoxNetworkClient(OkHttpClient httpClient) {
+    this.httpClient = httpClient;
+  }
+
+  public BoxNetworkClient() {
+    OkHttpClient.Builder builder =
+        new OkHttpClient.Builder()
+            .followSslRedirects(true)
+            .followRedirects(false)
+            .connectionSpecs(singletonList(MODERN_TLS));
+    httpClient = builder.build();
+  }
+
+  public OkHttpClient getHttpClient() {
+    return httpClient;
+  }
+
+  public FetchResponse fetch(FetchOptions options) {
     NetworkSession networkSession =
         options.getNetworkSession() == null ? new NetworkSession() : options.getNetworkSession();
 
@@ -52,8 +75,6 @@ public class FetchManager {
     FetchResponse fetchResponse = null;
     Exception exceptionThrown = null;
 
-    OkHttpClient client = networkSession.getHttpClient();
-
     int attemptNumber = 0;
 
     while (true) {
@@ -61,11 +82,16 @@ public class FetchManager {
 
       Response response = null;
       try {
-        response = executeOnClient(client, request);
+        response = executeOnClient(request);
 
         Map<String, String> headersMap =
             response.headers().toMultimap().entrySet().stream()
-                .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().get(0)));
+                .collect(
+                    Collectors.toMap(
+                        Map.Entry::getKey,
+                        e -> e.getValue().get(0),
+                        (existing, replacement) -> existing,
+                        () -> new TreeMap<>(String.CASE_INSENSITIVE_ORDER)));
 
         String responseUrl =
             response.networkResponse() != null
@@ -100,6 +126,7 @@ public class FetchManager {
           return fetch(
               new FetchOptions.FetchOptionsBuilder(
                       fetchResponse.getHeaders().get("Location"), "GET")
+                  .responseFormat(fetchOptions.getResponseFormat())
                   .auth(fetchOptions.getAuth())
                   .networkSession(networkSession)
                   .build());
@@ -239,13 +266,12 @@ public class FetchManager {
     }
   }
 
-  protected static Call createNewCall(OkHttpClient httpClient, Request request) {
-    return httpClient.newCall(request);
+  protected Call createNewCall(Request request) {
+    return this.httpClient.newCall(request);
   }
 
-  private static Response executeOnClient(OkHttpClient httpClient, Request request)
-      throws IOException {
-    return createNewCall(httpClient, request).execute();
+  private Response executeOnClient(Request request) throws IOException {
+    return createNewCall(request).execute();
   }
 
   private static void throwOnUnsuccessfulResponse(
