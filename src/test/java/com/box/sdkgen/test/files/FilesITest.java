@@ -16,6 +16,7 @@ import com.box.sdkgen.managers.files.CopyFileRequestBodyParentField;
 import com.box.sdkgen.managers.files.GetFileByIdHeaders;
 import com.box.sdkgen.managers.files.GetFileByIdQueryParams;
 import com.box.sdkgen.managers.files.GetFileThumbnailByIdExtension;
+import com.box.sdkgen.managers.files.GetFileThumbnailUrlExtension;
 import com.box.sdkgen.managers.files.UpdateFileByIdRequestBody;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBody;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBodyAttributesField;
@@ -41,6 +42,20 @@ public class FilesITest {
                         fileName, new UploadFileRequestBodyAttributesParentField("0")),
                     fileStream));
     return uploadedFiles.getEntries().get(0);
+  }
+
+  @Test
+  public void testGetFileThumbnailUrl() {
+    String thumbnailFileName = getUuid();
+    InputStream thumbnailContentStream = generateByteStream(1024 * 1024);
+    FileFull thumbnailFile = uploadFile(thumbnailFileName, thumbnailContentStream);
+    String downloadUrl =
+        client
+            .getFiles()
+            .getFileThumbnailUrl(thumbnailFile.getId(), GetFileThumbnailUrlExtension.PNG);
+    assert !(downloadUrl == null);
+    assert downloadUrl.contains("https://");
+    client.getFiles().deleteFileById(thumbnailFile.getId());
   }
 
   @Test

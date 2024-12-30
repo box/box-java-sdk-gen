@@ -119,6 +119,9 @@ public class BoxNetworkClient implements NetworkClient {
                     (o1, o2) -> o2);
 
         if (fetchResponse.getStatus() >= 300 && fetchResponse.getStatus() < 400) {
+          if (fetchOptions.followRedirects == false) {
+            return fetchResponse;
+          }
           if (!fetchResponse.getHeaders().containsKey("Location")) {
             throw new BoxSDKError(
                 "Redirect response missing Location header for " + fetchOptions.getUrl());
