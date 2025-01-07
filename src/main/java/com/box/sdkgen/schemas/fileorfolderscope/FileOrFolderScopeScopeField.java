@@ -24,7 +24,8 @@ public enum FileOrFolderScopeScopeField implements Valuable {
   ITEM_PREVIEW("item_preview"),
   ITEM_RENAME("item_rename"),
   ITEM_SHARE("item_share"),
-  ITEM_UPLOAD("item_upload");
+  ITEM_UPLOAD("item_upload"),
+  ITEM_READ("item_read");
 
   private final String value;
 
