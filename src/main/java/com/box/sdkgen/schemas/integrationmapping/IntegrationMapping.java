@@ -14,6 +14,15 @@ import java.util.Objects;
 
 public class IntegrationMapping extends IntegrationMappingBase {
 
+  @JsonProperty("box_item")
+  protected final FolderMini boxItem;
+
+  @JsonProperty("created_at")
+  protected String createdAt;
+
+  @JsonProperty("modified_at")
+  protected String modifiedAt;
+
   @JsonDeserialize(
       using =
           IntegrationMappingIntegrationTypeField.IntegrationMappingIntegrationTypeFieldDeserializer
@@ -39,35 +48,38 @@ public class IntegrationMapping extends IntegrationMappingBase {
   @JsonProperty("partner_item")
   protected final IntegrationMappingPartnerItemSlackUnion partnerItem;
 
-  @JsonProperty("box_item")
-  protected final FolderMini boxItem;
-
-  @JsonProperty("created_at")
-  protected String createdAt;
-
-  @JsonProperty("modified_at")
-  protected String modifiedAt;
-
   public IntegrationMapping(
       @JsonProperty("id") String id,
-      @JsonProperty("partner_item") IntegrationMappingPartnerItemSlackUnion partnerItem,
-      @JsonProperty("box_item") FolderMini boxItem) {
+      @JsonProperty("box_item") FolderMini boxItem,
+      @JsonProperty("partner_item") IntegrationMappingPartnerItemSlackUnion partnerItem) {
     super(id);
-    this.partnerItem = partnerItem;
     this.boxItem = boxItem;
+    this.partnerItem = partnerItem;
   }
 
   protected IntegrationMapping(IntegrationMappingBuilder builder) {
     super(builder);
+    this.boxItem = builder.boxItem;
+    this.createdAt = builder.createdAt;
+    this.modifiedAt = builder.modifiedAt;
     this.integrationType = builder.integrationType;
     this.isManuallyCreated = builder.isManuallyCreated;
     this.options = builder.options;
     this.createdBy = builder.createdBy;
     this.modifiedBy = builder.modifiedBy;
     this.partnerItem = builder.partnerItem;
-    this.boxItem = builder.boxItem;
-    this.createdAt = builder.createdAt;
-    this.modifiedAt = builder.modifiedAt;
+  }
+
+  public FolderMini getBoxItem() {
+    return boxItem;
+  }
+
+  public String getCreatedAt() {
+    return createdAt;
+  }
+
+  public String getModifiedAt() {
+    return modifiedAt;
   }
 
   public EnumWrapper<IntegrationMappingIntegrationTypeField> getIntegrationType() {
@@ -94,18 +106,6 @@ public class IntegrationMapping extends IntegrationMappingBase {
     return partnerItem;
   }
 
-  public FolderMini getBoxItem() {
-    return boxItem;
-  }
-
-  public String getCreatedAt() {
-    return createdAt;
-  }
-
-  public String getModifiedAt() {
-    return modifiedAt;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,15 +117,15 @@ public class IntegrationMapping extends IntegrationMappingBase {
     IntegrationMapping casted = (IntegrationMapping) o;
     return Objects.equals(id, casted.id)
         && Objects.equals(type, casted.type)
+        && Objects.equals(boxItem, casted.boxItem)
+        && Objects.equals(createdAt, casted.createdAt)
+        && Objects.equals(modifiedAt, casted.modifiedAt)
         && Objects.equals(integrationType, casted.integrationType)
         && Objects.equals(isManuallyCreated, casted.isManuallyCreated)
         && Objects.equals(options, casted.options)
         && Objects.equals(createdBy, casted.createdBy)
         && Objects.equals(modifiedBy, casted.modifiedBy)
-        && Objects.equals(partnerItem, casted.partnerItem)
-        && Objects.equals(boxItem, casted.boxItem)
-        && Objects.equals(createdAt, casted.createdAt)
-        && Objects.equals(modifiedAt, casted.modifiedAt);
+        && Objects.equals(partnerItem, casted.partnerItem);
   }
 
   @Override
@@ -133,15 +133,15 @@ public class IntegrationMapping extends IntegrationMappingBase {
     return Objects.hash(
         id,
         type,
+        boxItem,
+        createdAt,
+        modifiedAt,
         integrationType,
         isManuallyCreated,
         options,
         createdBy,
         modifiedBy,
-        partnerItem,
-        boxItem,
-        createdAt,
-        modifiedAt);
+        partnerItem);
   }
 
   @Override
@@ -153,6 +153,18 @@ public class IntegrationMapping extends IntegrationMappingBase {
         + ", "
         + "type='"
         + type
+        + '\''
+        + ", "
+        + "boxItem='"
+        + boxItem
+        + '\''
+        + ", "
+        + "createdAt='"
+        + createdAt
+        + '\''
+        + ", "
+        + "modifiedAt='"
+        + modifiedAt
         + '\''
         + ", "
         + "integrationType='"
@@ -178,22 +190,16 @@ public class IntegrationMapping extends IntegrationMappingBase {
         + "partnerItem='"
         + partnerItem
         + '\''
-        + ", "
-        + "boxItem='"
-        + boxItem
-        + '\''
-        + ", "
-        + "createdAt='"
-        + createdAt
-        + '\''
-        + ", "
-        + "modifiedAt='"
-        + modifiedAt
-        + '\''
         + "}";
   }
 
   public static class IntegrationMappingBuilder extends IntegrationMappingBaseBuilder {
+
+    protected final FolderMini boxItem;
+
+    protected String createdAt;
+
+    protected String modifiedAt;
 
     protected EnumWrapper<IntegrationMappingIntegrationTypeField> integrationType;
 
@@ -207,17 +213,21 @@ public class IntegrationMapping extends IntegrationMappingBase {
 
     protected final IntegrationMappingPartnerItemSlackUnion partnerItem;
 
-    protected final FolderMini boxItem;
-
-    protected String createdAt;
-
-    protected String modifiedAt;
-
     public IntegrationMappingBuilder(
-        String id, IntegrationMappingPartnerItemSlackUnion partnerItem, FolderMini boxItem) {
+        String id, FolderMini boxItem, IntegrationMappingPartnerItemSlackUnion partnerItem) {
       super(id);
-      this.partnerItem = partnerItem;
       this.boxItem = boxItem;
+      this.partnerItem = partnerItem;
+    }
+
+    public IntegrationMappingBuilder createdAt(String createdAt) {
+      this.createdAt = createdAt;
+      return this;
+    }
+
+    public IntegrationMappingBuilder modifiedAt(String modifiedAt) {
+      this.modifiedAt = modifiedAt;
+      return this;
     }
 
     public IntegrationMappingBuilder integrationType(
@@ -251,16 +261,6 @@ public class IntegrationMapping extends IntegrationMappingBase {
 
     public IntegrationMappingBuilder modifiedBy(UserIntegrationMappings modifiedBy) {
       this.modifiedBy = modifiedBy;
-      return this;
-    }
-
-    public IntegrationMappingBuilder createdAt(String createdAt) {
-      this.createdAt = createdAt;
-      return this;
-    }
-
-    public IntegrationMappingBuilder modifiedAt(String modifiedAt) {
-      this.modifiedAt = modifiedAt;
       return this;
     }
 
