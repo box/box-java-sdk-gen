@@ -14,6 +14,7 @@ This is a manager for chunked uploads (allowed for files at least 20MB).
 - [List parts](#list-parts)
 - [Commit upload session by URL](#commit-upload-session-by-url)
 - [Commit upload session](#commit-upload-session)
+- [Upload big file](#upload-big-file)
 
 ## Create upload session
 
@@ -24,7 +25,10 @@ This operation is performed by calling function `createFileUploadSession`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-upload-sessions/).
 
-*Currently we don't have an example for calling `createFileUploadSession` in integration tests*
+<!-- sample post_files_upload_sessions -->
+```
+client.getChunkedUploads().createFileUploadSession(new CreateFileUploadSessionRequestBody(parentFolderId, fileSize, fileName))
+```
 
 ### Arguments
 
@@ -80,7 +84,10 @@ This operation is performed by calling function `getFileUploadSessionByUrl`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-upload-sessions-id/).
 
-*Currently we don't have an example for calling `getFileUploadSessionByUrl` in integration tests*
+<!-- sample get_files_upload_sessions_id -->
+```
+client.getChunkedUploads().getFileUploadSessionByUrl(statusUrl)
+```
 
 ### Arguments
 
@@ -108,7 +115,10 @@ This operation is performed by calling function `getFileUploadSessionById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-upload-sessions-id/).
 
-*Currently we don't have an example for calling `getFileUploadSessionById` in integration tests*
+<!-- sample get_files_upload_sessions_id -->
+```
+client.getChunkedUploads().getFileUploadSessionById(uploadSessionId)
+```
 
 ### Arguments
 
@@ -137,7 +147,10 @@ This operation is performed by calling function `uploadFilePartByUrl`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-upload-sessions-id/).
 
-*Currently we don't have an example for calling `uploadFilePartByUrl` in integration tests*
+<!-- sample put_files_upload_sessions_id -->
+```
+client.getChunkedUploads().uploadFilePartByUrl(acc.getUploadPartUrl(), generateByteStreamFromBuffer(chunkBuffer), new UploadFilePartByUrlHeaders(digest, contentRange))
+```
 
 ### Arguments
 
@@ -168,7 +181,10 @@ This operation is performed by calling function `uploadFilePart`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-upload-sessions-id/).
 
-*Currently we don't have an example for calling `uploadFilePart` in integration tests*
+<!-- sample put_files_upload_sessions_id -->
+```
+client.getChunkedUploads().uploadFilePart(acc.getUploadSessionId(), generateByteStreamFromBuffer(chunkBuffer), new UploadFilePartHeaders(digest, contentRange))
+```
 
 ### Arguments
 
@@ -201,7 +217,10 @@ This operation is performed by calling function `deleteFileUploadSessionByUrl`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-files-upload-sessions-id/).
 
-*Currently we don't have an example for calling `deleteFileUploadSessionByUrl` in integration tests*
+<!-- sample delete_files_upload_sessions_id -->
+```
+client.getChunkedUploads().deleteFileUploadSessionByUrl(abortUrl)
+```
 
 ### Arguments
 
@@ -233,7 +252,10 @@ This operation is performed by calling function `deleteFileUploadSessionById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-files-upload-sessions-id/).
 
-*Currently we don't have an example for calling `deleteFileUploadSessionById` in integration tests*
+<!-- sample delete_files_upload_sessions_id -->
+```
+client.getChunkedUploads().deleteFileUploadSessionById(uploadSessionId)
+```
 
 ### Arguments
 
@@ -263,7 +285,10 @@ This operation is performed by calling function `getFileUploadSessionPartsByUrl`
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-upload-sessions-id-parts/).
 
-*Currently we don't have an example for calling `getFileUploadSessionPartsByUrl` in integration tests*
+<!-- sample get_files_upload_sessions_id_parts -->
+```
+client.getChunkedUploads().getFileUploadSessionPartsByUrl(listPartsUrl)
+```
 
 ### Arguments
 
@@ -294,7 +319,10 @@ This operation is performed by calling function `getFileUploadSessionParts`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-upload-sessions-id-parts/).
 
-*Currently we don't have an example for calling `getFileUploadSessionParts` in integration tests*
+<!-- sample get_files_upload_sessions_id_parts -->
+```
+client.getChunkedUploads().getFileUploadSessionParts(uploadSessionId)
+```
 
 ### Arguments
 
@@ -325,7 +353,10 @@ This operation is performed by calling function `createFileUploadSessionCommitBy
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-upload-sessions-id-commit/).
 
-*Currently we don't have an example for calling `createFileUploadSessionCommitByUrl` in integration tests*
+<!-- sample post_files_upload_sessions_id_commit -->
+```
+client.getChunkedUploads().createFileUploadSessionCommitByUrl(commitUrl, new CreateFileUploadSessionCommitByUrlRequestBody(parts), new CreateFileUploadSessionCommitByUrlHeaders(digest))
+```
 
 ### Arguments
 
@@ -360,7 +391,10 @@ This operation is performed by calling function `createFileUploadSessionCommit`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-upload-sessions-id-commit/).
 
-*Currently we don't have an example for calling `createFileUploadSessionCommit` in integration tests*
+<!-- sample post_files_upload_sessions_id_commit -->
+```
+client.getChunkedUploads().createFileUploadSessionCommit(uploadSessionId, new CreateFileUploadSessionCommitRequestBody(parts), new CreateFileUploadSessionCommitHeaders(digest))
+```
 
 ### Arguments
 
@@ -381,5 +415,36 @@ Returns the file object in a list.Returns when all chunks have been uploaded but
 Inspect the upload session to get more information about the
 progress of processing the chunks, then retry committing the file
 when all chunks have processed.
+
+
+## Upload big file
+
+Starts the process of chunk uploading a big file. Should return a File object representing uploaded file.
+
+This operation is performed by calling function `uploadBigFile`.
+
+
+
+```
+client.getChunkedUploads().uploadBigFile(fileByteStream, fileName, fileSize, parentFolderId)
+```
+
+### Arguments
+
+- file `InputStream`
+  - The stream of the file to upload.
+- fileName `String`
+  - The name of the file, which will be used for storage in Box.
+- fileSize `long`
+  - The total size of the file for the chunked upload in bytes.
+- parentFolderId `String`
+  - The ID of the folder where the file should be uploaded.
+
+
+### Returns
+
+This function returns a value of type `FileFull`.
+
+
 
 
