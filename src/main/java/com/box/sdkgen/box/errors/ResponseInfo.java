@@ -130,6 +130,9 @@ public class ResponseInfo {
 
   public static ResponseInfo fromResponse(FetchResponse fetchResponse) {
     JsonNode body = fetchResponse.getData();
+    if (body == null) {
+      return new ResponseInfo(fetchResponse.getStatus(), fetchResponse.getHeaders());
+    }
     String rawBody = body.asText();
 
     return new ResponseInfo.ResponseInfoBuilder(
