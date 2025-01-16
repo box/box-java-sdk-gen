@@ -1,9 +1,9 @@
 package com.box.sdkgen.box.errors;
 
-import static java.lang.String.format;
-
 import com.box.sdkgen.networking.fetchresponse.FetchResponse;
+import com.fasterxml.jackson.databind.JsonNode;
 import java.time.LocalDateTime;
+import java.util.Optional;
 import okhttp3.Request;
 
 public class BoxAPIError extends BoxSDKError {
@@ -21,12 +21,15 @@ public class BoxAPIError extends BoxSDKError {
   public static BoxAPIError fromAPICall(Request request, FetchResponse fetchResponse) {
     RequestInfo requestInfo = RequestInfo.fromRequest(request);
     ResponseInfo responseInfo = ResponseInfo.fromResponse(fetchResponse);
+
     String requestId =
-        responseInfo.getBody().get("request_id") != null
-            ? responseInfo.getBody().get("request_id").asText()
-            : "";
+        Optional.ofNullable(responseInfo.getBody())
+            .map(body -> body.get("request_id"))
+            .map(JsonNode::asText)
+            .orElse("");
+
     return new BoxAPIError.BoxAPIErrorBuilder(
-            format("Status %d; Request ID: %s", responseInfo.getStatusCode(), requestId),
+            String.format("Status %d; Request ID: %s", responseInfo.getStatusCode(), requestId),
             requestInfo,
             responseInfo)
         .timestamp(LocalDateTime.now().toString())
