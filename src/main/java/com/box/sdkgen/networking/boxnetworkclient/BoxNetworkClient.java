@@ -2,6 +2,7 @@ package com.box.sdkgen.networking.boxnetworkclient;
 
 import static com.box.sdkgen.box.BoxConstants.USER_AGENT_HEADER;
 import static com.box.sdkgen.box.BoxConstants.X_BOX_UA_HEADER;
+import static com.box.sdkgen.internal.utils.UtilsManager.readByteStream;
 import static com.box.sdkgen.serialization.json.JsonManager.jsonToSerializedData;
 import static com.box.sdkgen.serialization.json.JsonManager.sdToJson;
 import static com.box.sdkgen.serialization.json.JsonManager.sdToUrlParams;
@@ -246,6 +247,8 @@ public class BoxNetworkClient implements NetworkClient {
           }
         }
         return bodyBuilder.build();
+      case "application/octet-stream":
+        return RequestBody.create(readByteStream(options.getFileStream()), mediaType);
       default:
         throw new IllegalArgumentException("Unsupported content type " + contentType);
     }

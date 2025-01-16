@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.StringReader;
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.PrivateKey;
@@ -22,10 +23,12 @@ import java.security.Security;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
@@ -305,5 +308,74 @@ public class UtilsManager {
 
   public static double random(double min, double max) {
     return Math.random() * (max - min) + min;
+  }
+
+  public static String hexToBase64(String hex) {
+    return Base64.getEncoder().encodeToString(new BigInteger(hex, 16).toByteArray());
+  }
+
+  public static Iterator<InputStream> iterateChunks(
+      InputStream stream, long chunkSize, long fileSize) {
+    return new Iterator<InputStream>() {
+      private boolean streamIsFinished = false;
+
+      @Override
+      public boolean hasNext() {
+        return !streamIsFinished;
+      }
+
+      @Override
+      public InputStream next() {
+        try {
+          byte[] buffer = new byte[(int) chunkSize];
+          int bytesRead = 0;
+
+          while (bytesRead < chunkSize) {
+            int read = stream.read(buffer, bytesRead, (int) (chunkSize - bytesRead));
+            if (read == -1) {
+              // End of stream
+              streamIsFinished = true;
+              break;
+            }
+            bytesRead += read;
+          }
+
+          if (bytesRead == 0) {
+            // No more data to yield
+            streamIsFinished = true;
+            return null;
+          }
+
+          // Return the chunk as a ByteArrayInputStream
+          return new ByteArrayInputStream(buffer, 0, bytesRead);
+        } catch (Exception e) {
+          throw new RuntimeException("Error reading from stream", e);
+        }
+      }
+    };
+  }
+
+  /**
+   * Reduces an iterator using a reducer function and an initial value.
+   *
+   * @param <Accumulator> The type of the accumulator (result)
+   * @param <T> The type of the items in the iterator
+   * @param iterator The iterator to process
+   * @param reducer The reducer function
+   * @param initialValue The initial value for the accumulator
+   * @return The accumulated result
+   */
+  public static <Accumulator, T> Accumulator reduceIterator(
+      Iterator<T> iterator,
+      BiFunction<Accumulator, T, Accumulator> reducer,
+      Accumulator initialValue) {
+    Accumulator result = initialValue;
+
+    while (iterator.hasNext()) {
+      T item = iterator.next();
+      result = reducer.apply(result, item);
+    }
+
+    return result;
   }
 }
