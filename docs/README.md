@@ -16,6 +16,8 @@ the SDK are available by topic:
 * [Collections](collections.md)
 * [Comments](comments.md)
 * [Devicepinners](devicepinners.md)
+* [Docgen](docgen.md)
+* [Docgentemplate](docgentemplate.md)
 * [Downloads](downloads.md)
 * [Emailaliases](emailaliases.md)
 * [Events](events.md)
