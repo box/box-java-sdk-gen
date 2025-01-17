@@ -14,6 +14,8 @@ import com.box.sdkgen.managers.collaborationallowlistexempttargets.Collaboration
 import com.box.sdkgen.managers.collections.CollectionsManager;
 import com.box.sdkgen.managers.comments.CommentsManager;
 import com.box.sdkgen.managers.devicepinners.DevicePinnersManager;
+import com.box.sdkgen.managers.docgen.DocgenManager;
+import com.box.sdkgen.managers.docgentemplate.DocgenTemplateManager;
 import com.box.sdkgen.managers.downloads.DownloadsManager;
 import com.box.sdkgen.managers.emailaliases.EmailAliasesManager;
 import com.box.sdkgen.managers.events.EventsManager;
@@ -228,6 +230,10 @@ public class BoxClient {
   public final IntegrationMappingsManager integrationMappings;
 
   public final AiManager ai;
+
+  public final DocgenTemplateManager docgenTemplate;
+
+  public final DocgenManager docgen;
 
   public BoxClient(Authentication auth) {
     this.auth = auth;
@@ -583,6 +589,16 @@ public class BoxClient {
             .build();
     this.ai =
         new AiManager.AiManagerBuilder()
+            .auth(this.auth)
+            .networkSession(this.networkSession)
+            .build();
+    this.docgenTemplate =
+        new DocgenTemplateManager.DocgenTemplateManagerBuilder()
+            .auth(this.auth)
+            .networkSession(this.networkSession)
+            .build();
+    this.docgen =
+        new DocgenManager.DocgenManagerBuilder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
@@ -944,6 +960,16 @@ public class BoxClient {
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
+    this.docgenTemplate =
+        new DocgenTemplateManager.DocgenTemplateManagerBuilder()
+            .auth(this.auth)
+            .networkSession(this.networkSession)
+            .build();
+    this.docgen =
+        new DocgenManager.DocgenManagerBuilder()
+            .auth(this.auth)
+            .networkSession(this.networkSession)
+            .build();
   }
 
   public FetchResponse makeRequest(FetchOptions fetchOptions) {
@@ -1291,6 +1317,14 @@ public class BoxClient {
 
   public AiManager getAi() {
     return ai;
+  }
+
+  public DocgenTemplateManager getDocgenTemplate() {
+    return docgenTemplate;
+  }
+
+  public DocgenManager getDocgen() {
+    return docgen;
   }
 
   public static class BoxClientBuilder {
