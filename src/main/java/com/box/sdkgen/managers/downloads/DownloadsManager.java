@@ -78,10 +78,13 @@ public class DownloadsManager {
                     .networkSession(this.networkSession)
                     .followRedirects(false)
                     .build());
-    if (response.getHeaders().get("location") == null) {
-      throw new BoxSDKError("No location header in response");
+    if (response.getHeaders().containsKey("location")) {
+      return response.getHeaders().get("location");
     }
-    return response.getHeaders().get("location");
+    if (response.getHeaders().containsKey("Location")) {
+      return response.getHeaders().get("Location");
+    }
+    throw new BoxSDKError("No location header in response");
   }
 
   public InputStream downloadFile(String fileId) {
