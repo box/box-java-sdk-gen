@@ -68,14 +68,14 @@ public class SignRequestsITest {
     assert createdSignRequest.getExternalId().equals("123");
     assert createdSignRequest.getExternalSystemName().equals("BoxSignIntegration");
     assert createdSignRequest.getIsDocumentPreparationNeeded() == false;
-    assert createdSignRequest.getName().equals("Sign Request");
+    assert createdSignRequest.getName().equals("Sign Request.pdf");
     assert createdSignRequest.getRedirectUrl().equals("https://www.box.com");
     assert createdSignRequest
         .getSignFiles()
         .getFiles()
         .get(0)
         .getName()
-        .equals(fileToSign.getName());
+        .equals(createdSignRequest.getName());
     assert createdSignRequest.getSigners().get(1).getEmail().equals(signerEmail);
     assert createdSignRequest.getSigners().get(1).getSuppressNotifications() == true;
     assert createdSignRequest
@@ -90,7 +90,12 @@ public class SignRequestsITest {
     assert createdSignRequest.getParentFolder().getId().equals(destinationFolder.getId());
     SignRequest newSignRequest =
         client.getSignRequests().getSignRequestById(createdSignRequest.getId());
-    assert newSignRequest.getSignFiles().getFiles().get(0).getName().equals(fileToSign.getName());
+    assert newSignRequest
+        .getSignFiles()
+        .getFiles()
+        .get(0)
+        .getName()
+        .equals(createdSignRequest.getName());
     assert newSignRequest.getSigners().get(1).getEmail().equals(signerEmail);
     assert newSignRequest.getParentFolder().getId().equals(destinationFolder.getId());
     SignRequest cancelledSignRequest =
