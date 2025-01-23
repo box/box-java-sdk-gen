@@ -18,6 +18,7 @@ import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.networking.networkclient.NetworkClient;
 import java.io.IOException;
+import java.net.URI;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
@@ -141,11 +142,17 @@ public class BoxNetworkClient implements NetworkClient {
             throw new BoxSDKError(
                 "Redirect response missing Location header for " + fetchOptions.getUrl());
           }
+          URI originalUri = URI.create(fetchOptions.getUrl());
+          URI redirectUri = URI.create(fetchResponse.getHeaders().get("Location"));
+          boolean sameOrigin =
+              originalUri.getHost().equals(redirectUri.getHost())
+                  && originalUri.getPort() == redirectUri.getPort()
+                  && originalUri.getScheme().equals(redirectUri.getScheme());
           return fetch(
               new FetchOptions.FetchOptionsBuilder(
                       fetchResponse.getHeaders().get("Location"), "GET")
                   .responseFormat(fetchOptions.getResponseFormat())
-                  .auth(fetchOptions.getAuth())
+                  .auth(sameOrigin ? fetchOptions.getAuth() : null)
                   .networkSession(networkSession)
                   .build());
         }
