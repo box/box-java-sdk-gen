@@ -48,6 +48,15 @@ public class SignRequest extends SignRequestBase {
   @JsonProperty("parent_folder")
   protected FolderMini parentFolder;
 
+  @JsonProperty("collaborator_level")
+  protected String collaboratorLevel;
+
+  @JsonProperty("sender_email")
+  protected String senderEmail;
+
+  @JsonProperty("sender_id")
+  protected Long senderId;
+
   public SignRequest() {
     super();
   }
@@ -65,6 +74,9 @@ public class SignRequest extends SignRequestBase {
     this.signFiles = builder.signFiles;
     this.autoExpireAt = builder.autoExpireAt;
     this.parentFolder = builder.parentFolder;
+    this.collaboratorLevel = builder.collaboratorLevel;
+    this.senderEmail = builder.senderEmail;
+    this.senderId = builder.senderId;
   }
 
   public EnumWrapper<SignRequestTypeField> getType() {
@@ -111,6 +123,18 @@ public class SignRequest extends SignRequestBase {
     return parentFolder;
   }
 
+  public String getCollaboratorLevel() {
+    return collaboratorLevel;
+  }
+
+  public String getSenderEmail() {
+    return senderEmail;
+  }
+
+  public Long getSenderId() {
+    return senderId;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -143,7 +167,10 @@ public class SignRequest extends SignRequestBase {
         && Objects.equals(status, casted.status)
         && Objects.equals(signFiles, casted.signFiles)
         && Objects.equals(autoExpireAt, casted.autoExpireAt)
-        && Objects.equals(parentFolder, casted.parentFolder);
+        && Objects.equals(parentFolder, casted.parentFolder)
+        && Objects.equals(collaboratorLevel, casted.collaboratorLevel)
+        && Objects.equals(senderEmail, casted.senderEmail)
+        && Objects.equals(senderId, casted.senderId);
   }
 
   @Override
@@ -172,7 +199,10 @@ public class SignRequest extends SignRequestBase {
         status,
         signFiles,
         autoExpireAt,
-        parentFolder);
+        parentFolder,
+        collaboratorLevel,
+        senderEmail,
+        senderId);
   }
 
   @Override
@@ -273,6 +303,18 @@ public class SignRequest extends SignRequestBase {
         + "parentFolder='"
         + parentFolder
         + '\''
+        + ", "
+        + "collaboratorLevel='"
+        + collaboratorLevel
+        + '\''
+        + ", "
+        + "senderEmail='"
+        + senderEmail
+        + '\''
+        + ", "
+        + "senderId='"
+        + senderId
+        + '\''
         + "}";
   }
 
@@ -299,6 +341,12 @@ public class SignRequest extends SignRequestBase {
     protected String autoExpireAt;
 
     protected FolderMini parentFolder;
+
+    protected String collaboratorLevel;
+
+    protected String senderEmail;
+
+    protected Long senderId;
 
     public SignRequestBuilder type(EnumWrapper<SignRequestTypeField> type) {
       this.type = type;
@@ -362,6 +410,21 @@ public class SignRequest extends SignRequestBase {
 
     public SignRequestBuilder parentFolder(FolderMini parentFolder) {
       this.parentFolder = parentFolder;
+      return this;
+    }
+
+    public SignRequestBuilder collaboratorLevel(String collaboratorLevel) {
+      this.collaboratorLevel = collaboratorLevel;
+      return this;
+    }
+
+    public SignRequestBuilder senderEmail(String senderEmail) {
+      this.senderEmail = senderEmail;
+      return this;
+    }
+
+    public SignRequestBuilder senderId(Long senderId) {
+      this.senderId = senderId;
       return this;
     }
 
