@@ -126,7 +126,9 @@ public class SignRequestsManager {
         prepareParams(
             mapOf(
                 entryOf("marker", convertToString(queryParams.getMarker())),
-                entryOf("limit", convertToString(queryParams.getLimit()))));
+                entryOf("limit", convertToString(queryParams.getLimit())),
+                entryOf("senders", convertToString(queryParams.getSenders())),
+                entryOf("shared_requests", convertToString(queryParams.getSharedRequests()))));
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
         this.networkSession
