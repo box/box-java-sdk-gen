@@ -20,9 +20,7 @@ public class AiItemBase extends SerializableObject {
   public AiItemBase(@JsonProperty("id") String id) {
     super();
     this.id = id;
-    this.type =
-        new EnumWrapper<AiItemBaseTypeField>(
-            AiItemBaseTypeField.FILE.getValue(), AiItemBaseTypeField.FILE);
+    this.type = new EnumWrapper<AiItemBaseTypeField>(AiItemBaseTypeField.FILE);
   }
 
   protected AiItemBase(AiItemBaseBuilder builder) {
@@ -90,18 +88,16 @@ public class AiItemBase extends SerializableObject {
 
     public AiItemBaseBuilder(String id) {
       this.id = id;
-      this.type =
-          new EnumWrapper<AiItemBaseTypeField>(
-              AiItemBaseTypeField.FILE.getValue(), AiItemBaseTypeField.FILE);
+      this.type = new EnumWrapper<AiItemBaseTypeField>(AiItemBaseTypeField.FILE);
+    }
+
+    public AiItemBaseBuilder type(AiItemBaseTypeField type) {
+      this.type = new EnumWrapper<AiItemBaseTypeField>(type);
+      return this;
     }
 
     public AiItemBaseBuilder type(EnumWrapper<AiItemBaseTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public AiItemBaseBuilder type(AiItemBaseTypeField type) {
-      this.type = new EnumWrapper<AiItemBaseTypeField>(type.getValue(), type);
       return this;
     }
 

@@ -104,13 +104,13 @@ public class EmailAlias extends SerializableObject {
       return this;
     }
 
-    public EmailAliasBuilder type(EnumWrapper<EmailAliasTypeField> type) {
-      this.type = type;
+    public EmailAliasBuilder type(EmailAliasTypeField type) {
+      this.type = new EnumWrapper<EmailAliasTypeField>(type);
       return this;
     }
 
-    public EmailAliasBuilder type(EmailAliasTypeField type) {
-      this.type = new EnumWrapper<EmailAliasTypeField>(type.getValue(), type);
+    public EmailAliasBuilder type(EnumWrapper<EmailAliasTypeField> type) {
+      this.type = type;
       return this;
     }
 

@@ -40,7 +40,7 @@ public enum CreateFolderRequestBodySyncStateField implements Valuable {
       return Arrays.stream(CreateFolderRequestBodySyncStateField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateFolderRequestBodySyncStateField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateFolderRequestBodySyncStateField>(value));
     }
   }

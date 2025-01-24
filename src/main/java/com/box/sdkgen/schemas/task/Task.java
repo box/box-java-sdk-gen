@@ -225,13 +225,13 @@ public class Task extends SerializableObject {
       return this;
     }
 
-    public TaskBuilder type(EnumWrapper<TaskTypeField> type) {
-      this.type = type;
+    public TaskBuilder type(TaskTypeField type) {
+      this.type = new EnumWrapper<TaskTypeField>(type);
       return this;
     }
 
-    public TaskBuilder type(TaskTypeField type) {
-      this.type = new EnumWrapper<TaskTypeField>(type.getValue(), type);
+    public TaskBuilder type(EnumWrapper<TaskTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -245,13 +245,13 @@ public class Task extends SerializableObject {
       return this;
     }
 
-    public TaskBuilder action(EnumWrapper<TaskActionField> action) {
-      this.action = action;
+    public TaskBuilder action(TaskActionField action) {
+      this.action = new EnumWrapper<TaskActionField>(action);
       return this;
     }
 
-    public TaskBuilder action(TaskActionField action) {
-      this.action = new EnumWrapper<TaskActionField>(action.getValue(), action);
+    public TaskBuilder action(EnumWrapper<TaskActionField> action) {
+      this.action = action;
       return this;
     }
 
@@ -280,14 +280,13 @@ public class Task extends SerializableObject {
       return this;
     }
 
-    public TaskBuilder completionRule(EnumWrapper<TaskCompletionRuleField> completionRule) {
-      this.completionRule = completionRule;
+    public TaskBuilder completionRule(TaskCompletionRuleField completionRule) {
+      this.completionRule = new EnumWrapper<TaskCompletionRuleField>(completionRule);
       return this;
     }
 
-    public TaskBuilder completionRule(TaskCompletionRuleField completionRule) {
-      this.completionRule =
-          new EnumWrapper<TaskCompletionRuleField>(completionRule.getValue(), completionRule);
+    public TaskBuilder completionRule(EnumWrapper<TaskCompletionRuleField> completionRule) {
+      this.completionRule = completionRule;
       return this;
     }
 

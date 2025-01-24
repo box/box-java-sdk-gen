@@ -72,16 +72,14 @@ public class GetRetentionPoliciesQueryParams {
     }
 
     public GetRetentionPoliciesQueryParamsBuilder policyType(
-        EnumWrapper<GetRetentionPoliciesQueryParamsPolicyTypeField> policyType) {
-      this.policyType = policyType;
+        GetRetentionPoliciesQueryParamsPolicyTypeField policyType) {
+      this.policyType = new EnumWrapper<GetRetentionPoliciesQueryParamsPolicyTypeField>(policyType);
       return this;
     }
 
     public GetRetentionPoliciesQueryParamsBuilder policyType(
-        GetRetentionPoliciesQueryParamsPolicyTypeField policyType) {
-      this.policyType =
-          new EnumWrapper<GetRetentionPoliciesQueryParamsPolicyTypeField>(
-              policyType.getValue(), policyType);
+        EnumWrapper<GetRetentionPoliciesQueryParamsPolicyTypeField> policyType) {
+      this.policyType = policyType;
       return this;
     }
 

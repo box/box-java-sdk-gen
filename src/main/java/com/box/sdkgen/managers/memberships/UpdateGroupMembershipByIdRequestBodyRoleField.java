@@ -39,7 +39,7 @@ public enum UpdateGroupMembershipByIdRequestBodyRoleField implements Valuable {
       return Arrays.stream(UpdateGroupMembershipByIdRequestBodyRoleField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateGroupMembershipByIdRequestBodyRoleField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateGroupMembershipByIdRequestBodyRoleField>(value));
     }
   }

@@ -40,7 +40,7 @@ public enum WebLinkItemStatusField implements Valuable {
       return Arrays.stream(WebLinkItemStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<WebLinkItemStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<WebLinkItemStatusField>(value));
     }
   }

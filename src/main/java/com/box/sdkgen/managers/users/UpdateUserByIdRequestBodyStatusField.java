@@ -41,7 +41,7 @@ public enum UpdateUserByIdRequestBodyStatusField implements Valuable {
       return Arrays.stream(UpdateUserByIdRequestBodyStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateUserByIdRequestBodyStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateUserByIdRequestBodyStatusField>(value));
     }
   }

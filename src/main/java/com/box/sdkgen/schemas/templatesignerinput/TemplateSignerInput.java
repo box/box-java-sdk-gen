@@ -252,25 +252,24 @@ public class TemplateSignerInput extends SignRequestPrefillTag {
       this.pageIndex = pageIndex;
     }
 
+    public TemplateSignerInputBuilder type(TemplateSignerInputTypeField type) {
+      this.type = new EnumWrapper<TemplateSignerInputTypeField>(type);
+      return this;
+    }
+
     public TemplateSignerInputBuilder type(EnumWrapper<TemplateSignerInputTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TemplateSignerInputBuilder type(TemplateSignerInputTypeField type) {
-      this.type = new EnumWrapper<TemplateSignerInputTypeField>(type.getValue(), type);
+    public TemplateSignerInputBuilder contentType(TemplateSignerInputContentTypeField contentType) {
+      this.contentType = new EnumWrapper<TemplateSignerInputContentTypeField>(contentType);
       return this;
     }
 
     public TemplateSignerInputBuilder contentType(
         EnumWrapper<TemplateSignerInputContentTypeField> contentType) {
       this.contentType = contentType;
-      return this;
-    }
-
-    public TemplateSignerInputBuilder contentType(TemplateSignerInputContentTypeField contentType) {
-      this.contentType =
-          new EnumWrapper<TemplateSignerInputContentTypeField>(contentType.getValue(), contentType);
       return this;
     }
 

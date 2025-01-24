@@ -155,13 +155,13 @@ public class FileVersionRetention extends SerializableObject {
       return this;
     }
 
-    public FileVersionRetentionBuilder type(EnumWrapper<FileVersionRetentionTypeField> type) {
-      this.type = type;
+    public FileVersionRetentionBuilder type(FileVersionRetentionTypeField type) {
+      this.type = new EnumWrapper<FileVersionRetentionTypeField>(type);
       return this;
     }
 
-    public FileVersionRetentionBuilder type(FileVersionRetentionTypeField type) {
-      this.type = new EnumWrapper<FileVersionRetentionTypeField>(type.getValue(), type);
+    public FileVersionRetentionBuilder type(EnumWrapper<FileVersionRetentionTypeField> type) {
+      this.type = type;
       return this;
     }
 

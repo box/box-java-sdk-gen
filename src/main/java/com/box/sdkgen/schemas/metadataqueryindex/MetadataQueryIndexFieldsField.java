@@ -82,16 +82,15 @@ public class MetadataQueryIndexFieldsField extends SerializableObject {
     }
 
     public MetadataQueryIndexFieldsFieldBuilder sortDirection(
-        EnumWrapper<MetadataQueryIndexFieldsSortDirectionField> sortDirection) {
-      this.sortDirection = sortDirection;
+        MetadataQueryIndexFieldsSortDirectionField sortDirection) {
+      this.sortDirection =
+          new EnumWrapper<MetadataQueryIndexFieldsSortDirectionField>(sortDirection);
       return this;
     }
 
     public MetadataQueryIndexFieldsFieldBuilder sortDirection(
-        MetadataQueryIndexFieldsSortDirectionField sortDirection) {
-      this.sortDirection =
-          new EnumWrapper<MetadataQueryIndexFieldsSortDirectionField>(
-              sortDirection.getValue(), sortDirection);
+        EnumWrapper<MetadataQueryIndexFieldsSortDirectionField> sortDirection) {
+      this.sortDirection = sortDirection;
       return this;
     }
 

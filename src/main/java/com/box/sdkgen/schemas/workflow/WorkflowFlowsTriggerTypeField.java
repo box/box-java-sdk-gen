@@ -38,7 +38,7 @@ public enum WorkflowFlowsTriggerTypeField implements Valuable {
       return Arrays.stream(WorkflowFlowsTriggerTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<WorkflowFlowsTriggerTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<WorkflowFlowsTriggerTypeField>(value));
     }
   }

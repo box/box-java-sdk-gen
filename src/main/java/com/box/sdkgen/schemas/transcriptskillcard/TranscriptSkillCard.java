@@ -49,12 +49,9 @@ public class TranscriptSkillCard extends SerializableObject {
     this.invocation = invocation;
     this.entries = entries;
     this.type =
-        new EnumWrapper<TranscriptSkillCardTypeField>(
-            TranscriptSkillCardTypeField.SKILL_CARD.getValue(),
-            TranscriptSkillCardTypeField.SKILL_CARD);
+        new EnumWrapper<TranscriptSkillCardTypeField>(TranscriptSkillCardTypeField.SKILL_CARD);
     this.skillCardType =
         new EnumWrapper<TranscriptSkillCardSkillCardTypeField>(
-            TranscriptSkillCardSkillCardTypeField.TRANSCRIPT.getValue(),
             TranscriptSkillCardSkillCardTypeField.TRANSCRIPT);
   }
 
@@ -190,12 +187,9 @@ public class TranscriptSkillCard extends SerializableObject {
       this.invocation = invocation;
       this.entries = entries;
       this.type =
-          new EnumWrapper<TranscriptSkillCardTypeField>(
-              TranscriptSkillCardTypeField.SKILL_CARD.getValue(),
-              TranscriptSkillCardTypeField.SKILL_CARD);
+          new EnumWrapper<TranscriptSkillCardTypeField>(TranscriptSkillCardTypeField.SKILL_CARD);
       this.skillCardType =
           new EnumWrapper<TranscriptSkillCardSkillCardTypeField>(
-              TranscriptSkillCardSkillCardTypeField.TRANSCRIPT.getValue(),
               TranscriptSkillCardSkillCardTypeField.TRANSCRIPT);
     }
 
@@ -204,27 +198,25 @@ public class TranscriptSkillCard extends SerializableObject {
       return this;
     }
 
+    public TranscriptSkillCardBuilder type(TranscriptSkillCardTypeField type) {
+      this.type = new EnumWrapper<TranscriptSkillCardTypeField>(type);
+      return this;
+    }
+
     public TranscriptSkillCardBuilder type(EnumWrapper<TranscriptSkillCardTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TranscriptSkillCardBuilder type(TranscriptSkillCardTypeField type) {
-      this.type = new EnumWrapper<TranscriptSkillCardTypeField>(type.getValue(), type);
+    public TranscriptSkillCardBuilder skillCardType(
+        TranscriptSkillCardSkillCardTypeField skillCardType) {
+      this.skillCardType = new EnumWrapper<TranscriptSkillCardSkillCardTypeField>(skillCardType);
       return this;
     }
 
     public TranscriptSkillCardBuilder skillCardType(
         EnumWrapper<TranscriptSkillCardSkillCardTypeField> skillCardType) {
       this.skillCardType = skillCardType;
-      return this;
-    }
-
-    public TranscriptSkillCardBuilder skillCardType(
-        TranscriptSkillCardSkillCardTypeField skillCardType) {
-      this.skillCardType =
-          new EnumWrapper<TranscriptSkillCardSkillCardTypeField>(
-              skillCardType.getValue(), skillCardType);
       return this;
     }
 

@@ -173,22 +173,15 @@ public class UpdateGroupByIdRequestBody extends SerializableObject {
     }
 
     public UpdateGroupByIdRequestBodyBuilder invitabilityLevel(
-        EnumWrapper<UpdateGroupByIdRequestBodyInvitabilityLevelField> invitabilityLevel) {
-      this.invitabilityLevel = invitabilityLevel;
+        UpdateGroupByIdRequestBodyInvitabilityLevelField invitabilityLevel) {
+      this.invitabilityLevel =
+          new EnumWrapper<UpdateGroupByIdRequestBodyInvitabilityLevelField>(invitabilityLevel);
       return this;
     }
 
     public UpdateGroupByIdRequestBodyBuilder invitabilityLevel(
-        UpdateGroupByIdRequestBodyInvitabilityLevelField invitabilityLevel) {
-      this.invitabilityLevel =
-          new EnumWrapper<UpdateGroupByIdRequestBodyInvitabilityLevelField>(
-              invitabilityLevel.getValue(), invitabilityLevel);
-      return this;
-    }
-
-    public UpdateGroupByIdRequestBodyBuilder memberViewabilityLevel(
-        EnumWrapper<UpdateGroupByIdRequestBodyMemberViewabilityLevelField> memberViewabilityLevel) {
-      this.memberViewabilityLevel = memberViewabilityLevel;
+        EnumWrapper<UpdateGroupByIdRequestBodyInvitabilityLevelField> invitabilityLevel) {
+      this.invitabilityLevel = invitabilityLevel;
       return this;
     }
 
@@ -196,7 +189,13 @@ public class UpdateGroupByIdRequestBody extends SerializableObject {
         UpdateGroupByIdRequestBodyMemberViewabilityLevelField memberViewabilityLevel) {
       this.memberViewabilityLevel =
           new EnumWrapper<UpdateGroupByIdRequestBodyMemberViewabilityLevelField>(
-              memberViewabilityLevel.getValue(), memberViewabilityLevel);
+              memberViewabilityLevel);
+      return this;
+    }
+
+    public UpdateGroupByIdRequestBodyBuilder memberViewabilityLevel(
+        EnumWrapper<UpdateGroupByIdRequestBodyMemberViewabilityLevelField> memberViewabilityLevel) {
+      this.memberViewabilityLevel = memberViewabilityLevel;
       return this;
     }
 

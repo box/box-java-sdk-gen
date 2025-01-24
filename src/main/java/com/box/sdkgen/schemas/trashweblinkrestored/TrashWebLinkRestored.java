@@ -343,13 +343,13 @@ public class TrashWebLinkRestored extends SerializableObject {
       this.pathCollection = pathCollection;
     }
 
-    public TrashWebLinkRestoredBuilder type(EnumWrapper<TrashWebLinkRestoredTypeField> type) {
-      this.type = type;
+    public TrashWebLinkRestoredBuilder type(TrashWebLinkRestoredTypeField type) {
+      this.type = new EnumWrapper<TrashWebLinkRestoredTypeField>(type);
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder type(TrashWebLinkRestoredTypeField type) {
-      this.type = new EnumWrapper<TrashWebLinkRestoredTypeField>(type.getValue(), type);
+    public TrashWebLinkRestoredBuilder type(EnumWrapper<TrashWebLinkRestoredTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -423,15 +423,14 @@ public class TrashWebLinkRestored extends SerializableObject {
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder itemStatus(
-        EnumWrapper<TrashWebLinkRestoredItemStatusField> itemStatus) {
-      this.itemStatus = itemStatus;
+    public TrashWebLinkRestoredBuilder itemStatus(TrashWebLinkRestoredItemStatusField itemStatus) {
+      this.itemStatus = new EnumWrapper<TrashWebLinkRestoredItemStatusField>(itemStatus);
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder itemStatus(TrashWebLinkRestoredItemStatusField itemStatus) {
-      this.itemStatus =
-          new EnumWrapper<TrashWebLinkRestoredItemStatusField>(itemStatus.getValue(), itemStatus);
+    public TrashWebLinkRestoredBuilder itemStatus(
+        EnumWrapper<TrashWebLinkRestoredItemStatusField> itemStatus) {
+      this.itemStatus = itemStatus;
       return this;
     }
 

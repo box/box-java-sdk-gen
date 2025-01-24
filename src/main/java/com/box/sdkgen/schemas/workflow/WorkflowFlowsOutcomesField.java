@@ -129,14 +129,14 @@ public class WorkflowFlowsOutcomesField extends SerializableObject {
       return this;
     }
 
-    public WorkflowFlowsOutcomesFieldBuilder type(
-        EnumWrapper<WorkflowFlowsOutcomesTypeField> type) {
-      this.type = type;
+    public WorkflowFlowsOutcomesFieldBuilder type(WorkflowFlowsOutcomesTypeField type) {
+      this.type = new EnumWrapper<WorkflowFlowsOutcomesTypeField>(type);
       return this;
     }
 
-    public WorkflowFlowsOutcomesFieldBuilder type(WorkflowFlowsOutcomesTypeField type) {
-      this.type = new EnumWrapper<WorkflowFlowsOutcomesTypeField>(type.getValue(), type);
+    public WorkflowFlowsOutcomesFieldBuilder type(
+        EnumWrapper<WorkflowFlowsOutcomesTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -146,15 +146,14 @@ public class WorkflowFlowsOutcomesField extends SerializableObject {
     }
 
     public WorkflowFlowsOutcomesFieldBuilder actionType(
-        EnumWrapper<WorkflowFlowsOutcomesActionTypeField> actionType) {
-      this.actionType = actionType;
+        WorkflowFlowsOutcomesActionTypeField actionType) {
+      this.actionType = new EnumWrapper<WorkflowFlowsOutcomesActionTypeField>(actionType);
       return this;
     }
 
     public WorkflowFlowsOutcomesFieldBuilder actionType(
-        WorkflowFlowsOutcomesActionTypeField actionType) {
-      this.actionType =
-          new EnumWrapper<WorkflowFlowsOutcomesActionTypeField>(actionType.getValue(), actionType);
+        EnumWrapper<WorkflowFlowsOutcomesActionTypeField> actionType) {
+      this.actionType = actionType;
       return this;
     }
 

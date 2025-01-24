@@ -77,7 +77,7 @@ public enum CreateWebhookRequestBodyTriggersField implements Valuable {
       return Arrays.stream(CreateWebhookRequestBodyTriggersField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateWebhookRequestBodyTriggersField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateWebhookRequestBodyTriggersField>(value));
     }
   }

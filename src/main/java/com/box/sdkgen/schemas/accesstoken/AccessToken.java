@@ -149,13 +149,13 @@ public class AccessToken extends SerializableObject {
       return this;
     }
 
-    public AccessTokenBuilder tokenType(EnumWrapper<AccessTokenTokenTypeField> tokenType) {
-      this.tokenType = tokenType;
+    public AccessTokenBuilder tokenType(AccessTokenTokenTypeField tokenType) {
+      this.tokenType = new EnumWrapper<AccessTokenTokenTypeField>(tokenType);
       return this;
     }
 
-    public AccessTokenBuilder tokenType(AccessTokenTokenTypeField tokenType) {
-      this.tokenType = new EnumWrapper<AccessTokenTokenTypeField>(tokenType.getValue(), tokenType);
+    public AccessTokenBuilder tokenType(EnumWrapper<AccessTokenTokenTypeField> tokenType) {
+      this.tokenType = tokenType;
       return this;
     }
 
@@ -169,16 +169,14 @@ public class AccessToken extends SerializableObject {
       return this;
     }
 
-    public AccessTokenBuilder issuedTokenType(
-        EnumWrapper<AccessTokenIssuedTokenTypeField> issuedTokenType) {
-      this.issuedTokenType = issuedTokenType;
+    public AccessTokenBuilder issuedTokenType(AccessTokenIssuedTokenTypeField issuedTokenType) {
+      this.issuedTokenType = new EnumWrapper<AccessTokenIssuedTokenTypeField>(issuedTokenType);
       return this;
     }
 
-    public AccessTokenBuilder issuedTokenType(AccessTokenIssuedTokenTypeField issuedTokenType) {
-      this.issuedTokenType =
-          new EnumWrapper<AccessTokenIssuedTokenTypeField>(
-              issuedTokenType.getValue(), issuedTokenType);
+    public AccessTokenBuilder issuedTokenType(
+        EnumWrapper<AccessTokenIssuedTokenTypeField> issuedTokenType) {
+      this.issuedTokenType = issuedTokenType;
       return this;
     }
 

@@ -42,7 +42,7 @@ public enum CreateMetadataTemplateRequestBodyFieldsTypeField implements Valuable
       return Arrays.stream(CreateMetadataTemplateRequestBodyFieldsTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(value));
     }
   }

@@ -38,7 +38,7 @@ public enum FileVersionBaseTypeField implements Valuable {
       return Arrays.stream(FileVersionBaseTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileVersionBaseTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileVersionBaseTypeField>(value));
     }
   }

@@ -40,7 +40,7 @@ public enum UserFullRoleField implements Valuable {
       return Arrays.stream(UserFullRoleField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UserFullRoleField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UserFullRoleField>(value));
     }
   }

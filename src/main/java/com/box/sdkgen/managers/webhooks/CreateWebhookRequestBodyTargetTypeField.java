@@ -39,7 +39,7 @@ public enum CreateWebhookRequestBodyTargetTypeField implements Valuable {
       return Arrays.stream(CreateWebhookRequestBodyTargetTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateWebhookRequestBodyTargetTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateWebhookRequestBodyTargetTypeField>(value));
     }
   }

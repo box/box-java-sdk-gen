@@ -39,10 +39,7 @@ public enum GetSlackIntegrationMappingQueryParamsPartnerItemTypeField implements
       return Arrays.stream(GetSlackIntegrationMappingQueryParamsPartnerItemTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<GetSlackIntegrationMappingQueryParamsPartnerItemTypeField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(
               new EnumWrapper<GetSlackIntegrationMappingQueryParamsPartnerItemTypeField>(value));
     }

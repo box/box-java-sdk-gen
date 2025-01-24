@@ -221,13 +221,13 @@ public class SignRequestCreateSigner extends SerializableObject {
       return this;
     }
 
-    public SignRequestCreateSignerBuilder role(EnumWrapper<SignRequestCreateSignerRoleField> role) {
-      this.role = role;
+    public SignRequestCreateSignerBuilder role(SignRequestCreateSignerRoleField role) {
+      this.role = new EnumWrapper<SignRequestCreateSignerRoleField>(role);
       return this;
     }
 
-    public SignRequestCreateSignerBuilder role(SignRequestCreateSignerRoleField role) {
-      this.role = new EnumWrapper<SignRequestCreateSignerRoleField>(role.getValue(), role);
+    public SignRequestCreateSignerBuilder role(EnumWrapper<SignRequestCreateSignerRoleField> role) {
+      this.role = role;
       return this;
     }
 

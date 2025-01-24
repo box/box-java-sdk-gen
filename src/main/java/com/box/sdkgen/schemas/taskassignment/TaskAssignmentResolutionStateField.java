@@ -41,7 +41,7 @@ public enum TaskAssignmentResolutionStateField implements Valuable {
       return Arrays.stream(TaskAssignmentResolutionStateField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<TaskAssignmentResolutionStateField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<TaskAssignmentResolutionStateField>(value));
     }
   }

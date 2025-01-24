@@ -169,14 +169,14 @@ public class WorkflowFull extends Workflow {
     }
 
     @Override
-    public WorkflowFullBuilder type(EnumWrapper<WorkflowMiniTypeField> type) {
-      this.type = type;
+    public WorkflowFullBuilder type(WorkflowMiniTypeField type) {
+      this.type = new EnumWrapper<WorkflowMiniTypeField>(type);
       return this;
     }
 
     @Override
-    public WorkflowFullBuilder type(WorkflowMiniTypeField type) {
-      this.type = new EnumWrapper<WorkflowMiniTypeField>(type.getValue(), type);
+    public WorkflowFullBuilder type(EnumWrapper<WorkflowMiniTypeField> type) {
+      this.type = type;
       return this;
     }
 

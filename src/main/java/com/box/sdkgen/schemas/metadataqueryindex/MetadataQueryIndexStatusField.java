@@ -40,7 +40,7 @@ public enum MetadataQueryIndexStatusField implements Valuable {
       return Arrays.stream(MetadataQueryIndexStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<MetadataQueryIndexStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<MetadataQueryIndexStatusField>(value));
     }
   }

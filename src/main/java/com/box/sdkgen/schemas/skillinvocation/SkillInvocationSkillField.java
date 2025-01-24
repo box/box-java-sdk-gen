@@ -106,13 +106,13 @@ public class SkillInvocationSkillField extends SerializableObject {
       return this;
     }
 
-    public SkillInvocationSkillFieldBuilder type(EnumWrapper<SkillInvocationSkillTypeField> type) {
-      this.type = type;
+    public SkillInvocationSkillFieldBuilder type(SkillInvocationSkillTypeField type) {
+      this.type = new EnumWrapper<SkillInvocationSkillTypeField>(type);
       return this;
     }
 
-    public SkillInvocationSkillFieldBuilder type(SkillInvocationSkillTypeField type) {
-      this.type = new EnumWrapper<SkillInvocationSkillTypeField>(type.getValue(), type);
+    public SkillInvocationSkillFieldBuilder type(EnumWrapper<SkillInvocationSkillTypeField> type) {
+      this.type = type;
       return this;
     }
 

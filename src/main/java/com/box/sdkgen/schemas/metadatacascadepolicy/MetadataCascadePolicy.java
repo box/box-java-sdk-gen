@@ -31,7 +31,6 @@ public class MetadataCascadePolicy extends SerializableObject {
     this.id = id;
     this.type =
         new EnumWrapper<MetadataCascadePolicyTypeField>(
-            MetadataCascadePolicyTypeField.METADATA_CASCADE_POLICY.getValue(),
             MetadataCascadePolicyTypeField.METADATA_CASCADE_POLICY);
   }
 
@@ -138,17 +137,16 @@ public class MetadataCascadePolicy extends SerializableObject {
       this.id = id;
       this.type =
           new EnumWrapper<MetadataCascadePolicyTypeField>(
-              MetadataCascadePolicyTypeField.METADATA_CASCADE_POLICY.getValue(),
               MetadataCascadePolicyTypeField.METADATA_CASCADE_POLICY);
+    }
+
+    public MetadataCascadePolicyBuilder type(MetadataCascadePolicyTypeField type) {
+      this.type = new EnumWrapper<MetadataCascadePolicyTypeField>(type);
+      return this;
     }
 
     public MetadataCascadePolicyBuilder type(EnumWrapper<MetadataCascadePolicyTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public MetadataCascadePolicyBuilder type(MetadataCascadePolicyTypeField type) {
-      this.type = new EnumWrapper<MetadataCascadePolicyTypeField>(type.getValue(), type);
       return this;
     }
 

@@ -38,7 +38,7 @@ public enum StoragePolicyMiniTypeField implements Valuable {
       return Arrays.stream(StoragePolicyMiniTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<StoragePolicyMiniTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<StoragePolicyMiniTypeField>(value));
     }
   }

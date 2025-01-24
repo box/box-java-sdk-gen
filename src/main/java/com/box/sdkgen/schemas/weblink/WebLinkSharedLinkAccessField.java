@@ -40,7 +40,7 @@ public enum WebLinkSharedLinkAccessField implements Valuable {
       return Arrays.stream(WebLinkSharedLinkAccessField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<WebLinkSharedLinkAccessField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<WebLinkSharedLinkAccessField>(value));
     }
   }

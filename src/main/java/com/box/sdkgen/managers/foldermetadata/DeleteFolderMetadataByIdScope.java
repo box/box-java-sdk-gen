@@ -39,7 +39,7 @@ public enum DeleteFolderMetadataByIdScope implements Valuable {
       return Arrays.stream(DeleteFolderMetadataByIdScope.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<DeleteFolderMetadataByIdScope>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<DeleteFolderMetadataByIdScope>(value));
     }
   }

@@ -153,13 +153,13 @@ public class FileFullLockField extends SerializableObject {
       return this;
     }
 
-    public FileFullLockFieldBuilder type(EnumWrapper<FileFullLockTypeField> type) {
-      this.type = type;
+    public FileFullLockFieldBuilder type(FileFullLockTypeField type) {
+      this.type = new EnumWrapper<FileFullLockTypeField>(type);
       return this;
     }
 
-    public FileFullLockFieldBuilder type(FileFullLockTypeField type) {
-      this.type = new EnumWrapper<FileFullLockTypeField>(type.getValue(), type);
+    public FileFullLockFieldBuilder type(EnumWrapper<FileFullLockTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -183,13 +183,13 @@ public class FileFullLockField extends SerializableObject {
       return this;
     }
 
-    public FileFullLockFieldBuilder appType(EnumWrapper<FileFullLockAppTypeField> appType) {
-      this.appType = appType;
+    public FileFullLockFieldBuilder appType(FileFullLockAppTypeField appType) {
+      this.appType = new EnumWrapper<FileFullLockAppTypeField>(appType);
       return this;
     }
 
-    public FileFullLockFieldBuilder appType(FileFullLockAppTypeField appType) {
-      this.appType = new EnumWrapper<FileFullLockAppTypeField>(appType.getValue(), appType);
+    public FileFullLockFieldBuilder appType(EnumWrapper<FileFullLockAppTypeField> appType) {
+      this.appType = appType;
       return this;
     }
 

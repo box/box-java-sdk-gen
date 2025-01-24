@@ -38,7 +38,7 @@ public enum UpdateBoxSkillCardsOnFileRequestBodyOpField implements Valuable {
       return Arrays.stream(UpdateBoxSkillCardsOnFileRequestBodyOpField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateBoxSkillCardsOnFileRequestBodyOpField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateBoxSkillCardsOnFileRequestBodyOpField>(value));
     }
   }

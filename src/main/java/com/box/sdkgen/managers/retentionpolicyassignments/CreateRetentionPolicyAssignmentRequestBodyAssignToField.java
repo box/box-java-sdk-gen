@@ -31,9 +31,7 @@ public class CreateRetentionPolicyAssignmentRequestBodyAssignToField extends Ser
   public CreateRetentionPolicyAssignmentRequestBodyAssignToField(
       CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField type) {
     super();
-    this.type =
-        new EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField>(
-            type.getValue(), type);
+    this.type = new EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField>(type);
   }
 
   protected CreateRetentionPolicyAssignmentRequestBodyAssignToField(
@@ -89,10 +87,14 @@ public class CreateRetentionPolicyAssignmentRequestBodyAssignToField extends Ser
     protected String id;
 
     public CreateRetentionPolicyAssignmentRequestBodyAssignToFieldBuilder(
+        EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField> type) {
+      this.type = type;
+    }
+
+    public CreateRetentionPolicyAssignmentRequestBodyAssignToFieldBuilder(
         CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField type) {
       this.type =
-          new EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField>(
-              type.getValue(), type);
+          new EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField>(type);
     }
 
     public CreateRetentionPolicyAssignmentRequestBodyAssignToFieldBuilder id(String id) {

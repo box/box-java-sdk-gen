@@ -194,6 +194,22 @@ public class DocGenJobFullV2025R0 extends DocGenJobV2025R0 {
         DocGenBatchBaseV2025R0 batch,
         FileReferenceV2025R0 templateFile,
         FileVersionBaseV2025R0 templateFileVersion,
+        EnumWrapper<DocGenJobV2025R0StatusField> status,
+        String outputType,
+        UserBaseV2025R0 createdBy,
+        EnterpriseReferenceV2025R0 enterprise,
+        String source) {
+      super(id, batch, templateFile, templateFileVersion, status, outputType);
+      this.createdBy = createdBy;
+      this.enterprise = enterprise;
+      this.source = source;
+    }
+
+    public DocGenJobFullV2025R0Builder(
+        String id,
+        DocGenBatchBaseV2025R0 batch,
+        FileReferenceV2025R0 templateFile,
+        FileVersionBaseV2025R0 templateFileVersion,
         DocGenJobV2025R0StatusField status,
         String outputType,
         UserBaseV2025R0 createdBy,
@@ -211,14 +227,14 @@ public class DocGenJobFullV2025R0 extends DocGenJobV2025R0 {
     }
 
     @Override
-    public DocGenJobFullV2025R0Builder type(EnumWrapper<DocGenJobBaseV2025R0TypeField> type) {
-      this.type = type;
+    public DocGenJobFullV2025R0Builder type(DocGenJobBaseV2025R0TypeField type) {
+      this.type = new EnumWrapper<DocGenJobBaseV2025R0TypeField>(type);
       return this;
     }
 
     @Override
-    public DocGenJobFullV2025R0Builder type(DocGenJobBaseV2025R0TypeField type) {
-      this.type = new EnumWrapper<DocGenJobBaseV2025R0TypeField>(type.getValue(), type);
+    public DocGenJobFullV2025R0Builder type(EnumWrapper<DocGenJobBaseV2025R0TypeField> type) {
+      this.type = type;
       return this;
     }
 

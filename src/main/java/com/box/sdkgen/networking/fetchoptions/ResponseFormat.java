@@ -40,7 +40,7 @@ public enum ResponseFormat implements Valuable {
       return Arrays.stream(ResponseFormat.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<ResponseFormat>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<ResponseFormat>(value));
     }
   }

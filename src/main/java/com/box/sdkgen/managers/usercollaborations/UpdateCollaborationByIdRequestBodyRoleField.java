@@ -45,7 +45,7 @@ public enum UpdateCollaborationByIdRequestBodyRoleField implements Valuable {
       return Arrays.stream(UpdateCollaborationByIdRequestBodyRoleField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField>(value));
     }
   }

@@ -1,14 +1,29 @@
 package com.box.sdkgen.schemas.signtemplate;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.box.sdkgen.serialization.json.Valuable;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class SignTemplateAdditionalInfoField extends SerializableObject {
 
+  @JsonDeserialize(using = NonEditableDeserializer.class)
+  @JsonSerialize(using = NonEditableSerializer.class)
   @JsonProperty("non_editable")
-  protected List<SignTemplateAdditionalInfoNonEditableField> nonEditable;
+  protected List<EnumWrapper<SignTemplateAdditionalInfoNonEditableField>> nonEditable;
 
   protected SignTemplateAdditionalInfoRequiredField required;
 
@@ -22,7 +37,7 @@ public class SignTemplateAdditionalInfoField extends SerializableObject {
     this.required = builder.required;
   }
 
-  public List<SignTemplateAdditionalInfoNonEditableField> getNonEditable() {
+  public List<EnumWrapper<SignTemplateAdditionalInfoNonEditableField>> getNonEditable() {
     return nonEditable;
   }
 
@@ -63,13 +78,15 @@ public class SignTemplateAdditionalInfoField extends SerializableObject {
 
   public static class SignTemplateAdditionalInfoFieldBuilder {
 
-    protected List<SignTemplateAdditionalInfoNonEditableField> nonEditable;
+    protected List<EnumWrapper<SignTemplateAdditionalInfoNonEditableField>> nonEditable;
 
     protected SignTemplateAdditionalInfoRequiredField required;
 
     public SignTemplateAdditionalInfoFieldBuilder nonEditable(
-        List<SignTemplateAdditionalInfoNonEditableField> nonEditable) {
-      this.nonEditable = nonEditable;
+        List<? extends Valuable> nonEditable) {
+      this.nonEditable =
+          EnumWrapper.wrapValuableEnumList(
+              nonEditable, SignTemplateAdditionalInfoNonEditableField.class);
       return this;
     }
 
@@ -81,6 +98,60 @@ public class SignTemplateAdditionalInfoField extends SerializableObject {
 
     public SignTemplateAdditionalInfoField build() {
       return new SignTemplateAdditionalInfoField(this);
+    }
+  }
+
+  public static class NonEditableDeserializer
+      extends JsonDeserializer<List<EnumWrapper<SignTemplateAdditionalInfoNonEditableField>>> {
+
+    public final JsonDeserializer<EnumWrapper<SignTemplateAdditionalInfoNonEditableField>>
+        elementDeserializer;
+
+    public NonEditableDeserializer() {
+      super();
+      this.elementDeserializer =
+          new SignTemplateAdditionalInfoNonEditableField
+              .SignTemplateAdditionalInfoNonEditableFieldDeserializer();
+    }
+
+    @Override
+    public List<EnumWrapper<SignTemplateAdditionalInfoNonEditableField>> deserialize(
+        JsonParser p, DeserializationContext ctxt) throws IOException {
+      JsonNode node = p.getCodec().readTree(p);
+      List<EnumWrapper<SignTemplateAdditionalInfoNonEditableField>> elements = new ArrayList<>();
+      for (JsonNode item : node) {
+        JsonParser pa = item.traverse(p.getCodec());
+        pa.nextToken();
+        elements.add(elementDeserializer.deserialize(pa, ctxt));
+      }
+      return elements;
+    }
+  }
+
+  public static class NonEditableSerializer
+      extends JsonSerializer<List<EnumWrapper<SignTemplateAdditionalInfoNonEditableField>>> {
+
+    public final JsonSerializer<EnumWrapper<SignTemplateAdditionalInfoNonEditableField>>
+        elementSerializer;
+
+    public NonEditableSerializer() {
+      super();
+      this.elementSerializer =
+          new SignTemplateAdditionalInfoNonEditableField
+              .SignTemplateAdditionalInfoNonEditableFieldSerializer();
+    }
+
+    @Override
+    public void serialize(
+        List<EnumWrapper<SignTemplateAdditionalInfoNonEditableField>> value,
+        JsonGenerator gen,
+        SerializerProvider serializers)
+        throws IOException {
+      gen.writeStartArray();
+      for (EnumWrapper<SignTemplateAdditionalInfoNonEditableField> item : value) {
+        elementSerializer.serialize(item, gen, serializers);
+      }
+      gen.writeEndArray();
     }
   }
 }

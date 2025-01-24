@@ -86,14 +86,14 @@ public class FileConflict extends FileMini {
     }
 
     @Override
-    public FileConflictBuilder type(EnumWrapper<FileBaseTypeField> type) {
-      this.type = type;
+    public FileConflictBuilder type(FileBaseTypeField type) {
+      this.type = new EnumWrapper<FileBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FileConflictBuilder type(FileBaseTypeField type) {
-      this.type = new EnumWrapper<FileBaseTypeField>(type.getValue(), type);
+    public FileConflictBuilder type(EnumWrapper<FileBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

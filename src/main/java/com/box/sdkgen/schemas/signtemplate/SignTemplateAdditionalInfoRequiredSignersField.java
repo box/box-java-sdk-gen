@@ -38,7 +38,7 @@ public enum SignTemplateAdditionalInfoRequiredSignersField implements Valuable {
       return Arrays.stream(SignTemplateAdditionalInfoRequiredSignersField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<SignTemplateAdditionalInfoRequiredSignersField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<SignTemplateAdditionalInfoRequiredSignersField>(value));
     }
   }

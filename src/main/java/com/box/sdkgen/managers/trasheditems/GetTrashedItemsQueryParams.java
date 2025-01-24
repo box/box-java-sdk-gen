@@ -101,27 +101,25 @@ public class GetTrashedItemsQueryParams {
     }
 
     public GetTrashedItemsQueryParamsBuilder direction(
+        GetTrashedItemsQueryParamsDirectionField direction) {
+      this.direction = new EnumWrapper<GetTrashedItemsQueryParamsDirectionField>(direction);
+      return this;
+    }
+
+    public GetTrashedItemsQueryParamsBuilder direction(
         EnumWrapper<GetTrashedItemsQueryParamsDirectionField> direction) {
       this.direction = direction;
       return this;
     }
 
-    public GetTrashedItemsQueryParamsBuilder direction(
-        GetTrashedItemsQueryParamsDirectionField direction) {
-      this.direction =
-          new EnumWrapper<GetTrashedItemsQueryParamsDirectionField>(
-              direction.getValue(), direction);
+    public GetTrashedItemsQueryParamsBuilder sort(GetTrashedItemsQueryParamsSortField sort) {
+      this.sort = new EnumWrapper<GetTrashedItemsQueryParamsSortField>(sort);
       return this;
     }
 
     public GetTrashedItemsQueryParamsBuilder sort(
         EnumWrapper<GetTrashedItemsQueryParamsSortField> sort) {
       this.sort = sort;
-      return this;
-    }
-
-    public GetTrashedItemsQueryParamsBuilder sort(GetTrashedItemsQueryParamsSortField sort) {
-      this.sort = new EnumWrapper<GetTrashedItemsQueryParamsSortField>(sort.getValue(), sort);
       return this;
     }
 

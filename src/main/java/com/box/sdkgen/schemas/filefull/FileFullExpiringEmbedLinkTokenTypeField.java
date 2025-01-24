@@ -38,7 +38,7 @@ public enum FileFullExpiringEmbedLinkTokenTypeField implements Valuable {
       return Arrays.stream(FileFullExpiringEmbedLinkTokenTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileFullExpiringEmbedLinkTokenTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileFullExpiringEmbedLinkTokenTypeField>(value));
     }
   }

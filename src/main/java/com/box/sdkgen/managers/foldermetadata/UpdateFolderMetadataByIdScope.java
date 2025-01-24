@@ -39,7 +39,7 @@ public enum UpdateFolderMetadataByIdScope implements Valuable {
       return Arrays.stream(UpdateFolderMetadataByIdScope.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateFolderMetadataByIdScope>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateFolderMetadataByIdScope>(value));
     }
   }

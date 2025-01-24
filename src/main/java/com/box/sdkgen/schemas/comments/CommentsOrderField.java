@@ -74,14 +74,13 @@ public class CommentsOrderField extends SerializableObject {
       return this;
     }
 
-    public CommentsOrderFieldBuilder direction(EnumWrapper<CommentsOrderDirectionField> direction) {
-      this.direction = direction;
+    public CommentsOrderFieldBuilder direction(CommentsOrderDirectionField direction) {
+      this.direction = new EnumWrapper<CommentsOrderDirectionField>(direction);
       return this;
     }
 
-    public CommentsOrderFieldBuilder direction(CommentsOrderDirectionField direction) {
-      this.direction =
-          new EnumWrapper<CommentsOrderDirectionField>(direction.getValue(), direction);
+    public CommentsOrderFieldBuilder direction(EnumWrapper<CommentsOrderDirectionField> direction) {
+      this.direction = direction;
       return this;
     }
 

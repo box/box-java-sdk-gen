@@ -38,7 +38,7 @@ public enum SearchResultsWithSharedLinksTypeField implements Valuable {
       return Arrays.stream(SearchResultsWithSharedLinksTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<SearchResultsWithSharedLinksTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<SearchResultsWithSharedLinksTypeField>(value));
     }
   }

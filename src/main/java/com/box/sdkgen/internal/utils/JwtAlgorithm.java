@@ -1,6 +1,8 @@
 package com.box.sdkgen.internal.utils;
 
-public enum JwtAlgorithm {
+import com.box.sdkgen.serialization.json.Valuable;
+
+public enum JwtAlgorithm implements Valuable {
   HS256("HS256"),
   HS384("HS384"),
   HS512("HS512"),

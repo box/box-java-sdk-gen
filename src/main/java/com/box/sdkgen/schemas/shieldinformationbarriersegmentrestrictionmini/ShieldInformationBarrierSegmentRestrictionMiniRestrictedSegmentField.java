@@ -89,17 +89,17 @@ public class ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFiel
     }
 
     public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFieldBuilder type(
-        EnumWrapper<ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField>
-            type) {
-      this.type = type;
+        ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField type) {
+      this.type =
+          new EnumWrapper<ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField>(
+              type);
       return this;
     }
 
     public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFieldBuilder type(
-        ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField type) {
-      this.type =
-          new EnumWrapper<ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField>(
-              type.getValue(), type);
+        EnumWrapper<ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField>
+            type) {
+      this.type = type;
       return this;
     }
 

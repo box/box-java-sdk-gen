@@ -40,10 +40,7 @@ public enum CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField implemen
       return Arrays.stream(CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(
               new EnumWrapper<CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField>(value));
     }

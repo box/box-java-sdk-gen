@@ -39,7 +39,7 @@ public enum GetRetentionPoliciesQueryParamsPolicyTypeField implements Valuable {
       return Arrays.stream(GetRetentionPoliciesQueryParamsPolicyTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GetRetentionPoliciesQueryParamsPolicyTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GetRetentionPoliciesQueryParamsPolicyTypeField>(value));
     }
   }

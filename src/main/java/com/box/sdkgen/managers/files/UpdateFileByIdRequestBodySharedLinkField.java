@@ -122,16 +122,14 @@ public class UpdateFileByIdRequestBodySharedLinkField extends SerializableObject
     protected UpdateFileByIdRequestBodySharedLinkPermissionsField permissions;
 
     public UpdateFileByIdRequestBodySharedLinkFieldBuilder access(
-        EnumWrapper<UpdateFileByIdRequestBodySharedLinkAccessField> access) {
-      this.access = access;
+        UpdateFileByIdRequestBodySharedLinkAccessField access) {
+      this.access = new EnumWrapper<UpdateFileByIdRequestBodySharedLinkAccessField>(access);
       return this;
     }
 
     public UpdateFileByIdRequestBodySharedLinkFieldBuilder access(
-        UpdateFileByIdRequestBodySharedLinkAccessField access) {
-      this.access =
-          new EnumWrapper<UpdateFileByIdRequestBodySharedLinkAccessField>(
-              access.getValue(), access);
+        EnumWrapper<UpdateFileByIdRequestBodySharedLinkAccessField> access) {
+      this.access = access;
       return this;
     }
 

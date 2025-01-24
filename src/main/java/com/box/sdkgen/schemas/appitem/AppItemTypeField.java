@@ -38,7 +38,7 @@ public enum AppItemTypeField implements Valuable {
       return Arrays.stream(AppItemTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<AppItemTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AppItemTypeField>(value));
     }
   }

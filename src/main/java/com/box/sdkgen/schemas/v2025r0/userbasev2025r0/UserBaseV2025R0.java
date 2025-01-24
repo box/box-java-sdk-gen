@@ -18,9 +18,7 @@ public class UserBaseV2025R0 extends SerializableObject {
   public UserBaseV2025R0(@JsonProperty("id") String id) {
     super();
     this.id = id;
-    this.type =
-        new EnumWrapper<UserBaseV2025R0TypeField>(
-            UserBaseV2025R0TypeField.USER.getValue(), UserBaseV2025R0TypeField.USER);
+    this.type = new EnumWrapper<UserBaseV2025R0TypeField>(UserBaseV2025R0TypeField.USER);
   }
 
   protected UserBaseV2025R0(UserBaseV2025R0Builder builder) {
@@ -67,18 +65,16 @@ public class UserBaseV2025R0 extends SerializableObject {
 
     public UserBaseV2025R0Builder(String id) {
       this.id = id;
-      this.type =
-          new EnumWrapper<UserBaseV2025R0TypeField>(
-              UserBaseV2025R0TypeField.USER.getValue(), UserBaseV2025R0TypeField.USER);
+      this.type = new EnumWrapper<UserBaseV2025R0TypeField>(UserBaseV2025R0TypeField.USER);
+    }
+
+    public UserBaseV2025R0Builder type(UserBaseV2025R0TypeField type) {
+      this.type = new EnumWrapper<UserBaseV2025R0TypeField>(type);
+      return this;
     }
 
     public UserBaseV2025R0Builder type(EnumWrapper<UserBaseV2025R0TypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public UserBaseV2025R0Builder type(UserBaseV2025R0TypeField type) {
-      this.type = new EnumWrapper<UserBaseV2025R0TypeField>(type.getValue(), type);
       return this;
     }
 

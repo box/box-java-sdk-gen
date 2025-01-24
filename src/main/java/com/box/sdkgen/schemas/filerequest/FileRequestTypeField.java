@@ -38,7 +38,7 @@ public enum FileRequestTypeField implements Valuable {
       return Arrays.stream(FileRequestTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileRequestTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileRequestTypeField>(value));
     }
   }

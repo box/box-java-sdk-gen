@@ -45,13 +45,9 @@ public class TimelineSkillCard extends SerializableObject {
     this.skill = skill;
     this.invocation = invocation;
     this.entries = entries;
-    this.type =
-        new EnumWrapper<TimelineSkillCardTypeField>(
-            TimelineSkillCardTypeField.SKILL_CARD.getValue(),
-            TimelineSkillCardTypeField.SKILL_CARD);
+    this.type = new EnumWrapper<TimelineSkillCardTypeField>(TimelineSkillCardTypeField.SKILL_CARD);
     this.skillCardType =
         new EnumWrapper<TimelineSkillCardSkillCardTypeField>(
-            TimelineSkillCardSkillCardTypeField.TIMELINE.getValue(),
             TimelineSkillCardSkillCardTypeField.TIMELINE);
   }
 
@@ -187,12 +183,9 @@ public class TimelineSkillCard extends SerializableObject {
       this.invocation = invocation;
       this.entries = entries;
       this.type =
-          new EnumWrapper<TimelineSkillCardTypeField>(
-              TimelineSkillCardTypeField.SKILL_CARD.getValue(),
-              TimelineSkillCardTypeField.SKILL_CARD);
+          new EnumWrapper<TimelineSkillCardTypeField>(TimelineSkillCardTypeField.SKILL_CARD);
       this.skillCardType =
           new EnumWrapper<TimelineSkillCardSkillCardTypeField>(
-              TimelineSkillCardSkillCardTypeField.TIMELINE.getValue(),
               TimelineSkillCardSkillCardTypeField.TIMELINE);
     }
 
@@ -201,27 +194,25 @@ public class TimelineSkillCard extends SerializableObject {
       return this;
     }
 
+    public TimelineSkillCardBuilder type(TimelineSkillCardTypeField type) {
+      this.type = new EnumWrapper<TimelineSkillCardTypeField>(type);
+      return this;
+    }
+
     public TimelineSkillCardBuilder type(EnumWrapper<TimelineSkillCardTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TimelineSkillCardBuilder type(TimelineSkillCardTypeField type) {
-      this.type = new EnumWrapper<TimelineSkillCardTypeField>(type.getValue(), type);
+    public TimelineSkillCardBuilder skillCardType(
+        TimelineSkillCardSkillCardTypeField skillCardType) {
+      this.skillCardType = new EnumWrapper<TimelineSkillCardSkillCardTypeField>(skillCardType);
       return this;
     }
 
     public TimelineSkillCardBuilder skillCardType(
         EnumWrapper<TimelineSkillCardSkillCardTypeField> skillCardType) {
       this.skillCardType = skillCardType;
-      return this;
-    }
-
-    public TimelineSkillCardBuilder skillCardType(
-        TimelineSkillCardSkillCardTypeField skillCardType) {
-      this.skillCardType =
-          new EnumWrapper<TimelineSkillCardSkillCardTypeField>(
-              skillCardType.getValue(), skillCardType);
       return this;
     }
 

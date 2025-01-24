@@ -38,7 +38,7 @@ public enum MetadataCascadePolicyParentTypeField implements Valuable {
       return Arrays.stream(MetadataCascadePolicyParentTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<MetadataCascadePolicyParentTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<MetadataCascadePolicyParentTypeField>(value));
     }
   }

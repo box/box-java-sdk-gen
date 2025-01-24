@@ -50,16 +50,15 @@ public class GetEnterpriseDevicePinnersQueryParams {
     }
 
     public GetEnterpriseDevicePinnersQueryParamsBuilder direction(
-        EnumWrapper<GetEnterpriseDevicePinnersQueryParamsDirectionField> direction) {
-      this.direction = direction;
+        GetEnterpriseDevicePinnersQueryParamsDirectionField direction) {
+      this.direction =
+          new EnumWrapper<GetEnterpriseDevicePinnersQueryParamsDirectionField>(direction);
       return this;
     }
 
     public GetEnterpriseDevicePinnersQueryParamsBuilder direction(
-        GetEnterpriseDevicePinnersQueryParamsDirectionField direction) {
-      this.direction =
-          new EnumWrapper<GetEnterpriseDevicePinnersQueryParamsDirectionField>(
-              direction.getValue(), direction);
+        EnumWrapper<GetEnterpriseDevicePinnersQueryParamsDirectionField> direction) {
+      this.direction = direction;
       return this;
     }
 

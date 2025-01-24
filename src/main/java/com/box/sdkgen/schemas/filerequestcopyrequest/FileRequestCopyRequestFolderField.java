@@ -81,14 +81,14 @@ public class FileRequestCopyRequestFolderField extends SerializableObject {
     }
 
     public FileRequestCopyRequestFolderFieldBuilder type(
-        EnumWrapper<FileRequestCopyRequestFolderTypeField> type) {
-      this.type = type;
+        FileRequestCopyRequestFolderTypeField type) {
+      this.type = new EnumWrapper<FileRequestCopyRequestFolderTypeField>(type);
       return this;
     }
 
     public FileRequestCopyRequestFolderFieldBuilder type(
-        FileRequestCopyRequestFolderTypeField type) {
-      this.type = new EnumWrapper<FileRequestCopyRequestFolderTypeField>(type.getValue(), type);
+        EnumWrapper<FileRequestCopyRequestFolderTypeField> type) {
+      this.type = type;
       return this;
     }
 

@@ -35,8 +35,7 @@ public class UpdateShieldInformationBarrierStatusRequestBody extends Serializabl
     super();
     this.id = id;
     this.status =
-        new EnumWrapper<UpdateShieldInformationBarrierStatusRequestBodyStatusField>(
-            status.getValue(), status);
+        new EnumWrapper<UpdateShieldInformationBarrierStatusRequestBodyStatusField>(status);
   }
 
   public String getId() {

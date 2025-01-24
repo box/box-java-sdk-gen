@@ -135,15 +135,14 @@ public class FileFullExpiringEmbedLinkField extends SerializableObject {
     }
 
     public FileFullExpiringEmbedLinkFieldBuilder tokenType(
-        EnumWrapper<FileFullExpiringEmbedLinkTokenTypeField> tokenType) {
-      this.tokenType = tokenType;
+        FileFullExpiringEmbedLinkTokenTypeField tokenType) {
+      this.tokenType = new EnumWrapper<FileFullExpiringEmbedLinkTokenTypeField>(tokenType);
       return this;
     }
 
     public FileFullExpiringEmbedLinkFieldBuilder tokenType(
-        FileFullExpiringEmbedLinkTokenTypeField tokenType) {
-      this.tokenType =
-          new EnumWrapper<FileFullExpiringEmbedLinkTokenTypeField>(tokenType.getValue(), tokenType);
+        EnumWrapper<FileFullExpiringEmbedLinkTokenTypeField> tokenType) {
+      this.tokenType = tokenType;
       return this;
     }
 

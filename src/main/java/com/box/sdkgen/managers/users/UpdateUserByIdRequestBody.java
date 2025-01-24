@@ -400,14 +400,14 @@ public class UpdateUserByIdRequestBody extends SerializableObject {
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder role(
-        EnumWrapper<UpdateUserByIdRequestBodyRoleField> role) {
-      this.role = role;
+    public UpdateUserByIdRequestBodyBuilder role(UpdateUserByIdRequestBodyRoleField role) {
+      this.role = new EnumWrapper<UpdateUserByIdRequestBodyRoleField>(role);
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder role(UpdateUserByIdRequestBodyRoleField role) {
-      this.role = new EnumWrapper<UpdateUserByIdRequestBodyRoleField>(role.getValue(), role);
+    public UpdateUserByIdRequestBodyBuilder role(
+        EnumWrapper<UpdateUserByIdRequestBodyRoleField> role) {
+      this.role = role;
       return this;
     }
 
@@ -475,15 +475,14 @@ public class UpdateUserByIdRequestBody extends SerializableObject {
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder status(
-        EnumWrapper<UpdateUserByIdRequestBodyStatusField> status) {
-      this.status = status;
+    public UpdateUserByIdRequestBodyBuilder status(UpdateUserByIdRequestBodyStatusField status) {
+      this.status = new EnumWrapper<UpdateUserByIdRequestBodyStatusField>(status);
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder status(UpdateUserByIdRequestBodyStatusField status) {
-      this.status =
-          new EnumWrapper<UpdateUserByIdRequestBodyStatusField>(status.getValue(), status);
+    public UpdateUserByIdRequestBodyBuilder status(
+        EnumWrapper<UpdateUserByIdRequestBodyStatusField> status) {
+      this.status = status;
       return this;
     }
 

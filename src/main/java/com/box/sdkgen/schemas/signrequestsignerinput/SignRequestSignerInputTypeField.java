@@ -43,7 +43,7 @@ public enum SignRequestSignerInputTypeField implements Valuable {
       return Arrays.stream(SignRequestSignerInputTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<SignRequestSignerInputTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<SignRequestSignerInputTypeField>(value));
     }
   }

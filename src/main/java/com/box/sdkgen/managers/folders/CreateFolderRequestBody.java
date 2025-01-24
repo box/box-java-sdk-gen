@@ -122,15 +122,14 @@ public class CreateFolderRequestBody extends SerializableObject {
     }
 
     public CreateFolderRequestBodyBuilder syncState(
-        EnumWrapper<CreateFolderRequestBodySyncStateField> syncState) {
-      this.syncState = syncState;
+        CreateFolderRequestBodySyncStateField syncState) {
+      this.syncState = new EnumWrapper<CreateFolderRequestBodySyncStateField>(syncState);
       return this;
     }
 
     public CreateFolderRequestBodyBuilder syncState(
-        CreateFolderRequestBodySyncStateField syncState) {
-      this.syncState =
-          new EnumWrapper<CreateFolderRequestBodySyncStateField>(syncState.getValue(), syncState);
+        EnumWrapper<CreateFolderRequestBodySyncStateField> syncState) {
+      this.syncState = syncState;
       return this;
     }
 

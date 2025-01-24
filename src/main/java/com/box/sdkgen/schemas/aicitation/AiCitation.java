@@ -107,13 +107,13 @@ public class AiCitation extends SerializableObject {
       return this;
     }
 
-    public AiCitationBuilder type(EnumWrapper<AiCitationTypeField> type) {
-      this.type = type;
+    public AiCitationBuilder type(AiCitationTypeField type) {
+      this.type = new EnumWrapper<AiCitationTypeField>(type);
       return this;
     }
 
-    public AiCitationBuilder type(AiCitationTypeField type) {
-      this.type = new EnumWrapper<AiCitationTypeField>(type.getValue(), type);
+    public AiCitationBuilder type(EnumWrapper<AiCitationTypeField> type) {
+      this.type = type;
       return this;
     }
 

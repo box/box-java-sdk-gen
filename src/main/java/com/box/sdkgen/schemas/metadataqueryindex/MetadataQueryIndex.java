@@ -33,7 +33,7 @@ public class MetadataQueryIndex extends SerializableObject {
   public MetadataQueryIndex(String type, MetadataQueryIndexStatusField status) {
     super();
     this.type = type;
-    this.status = new EnumWrapper<MetadataQueryIndexStatusField>(status.getValue(), status);
+    this.status = new EnumWrapper<MetadataQueryIndexStatusField>(status);
   }
 
   protected MetadataQueryIndex(MetadataQueryIndexBuilder builder) {
@@ -111,9 +111,15 @@ public class MetadataQueryIndex extends SerializableObject {
 
     protected List<MetadataQueryIndexFieldsField> fields;
 
+    public MetadataQueryIndexBuilder(
+        String type, EnumWrapper<MetadataQueryIndexStatusField> status) {
+      this.type = type;
+      this.status = status;
+    }
+
     public MetadataQueryIndexBuilder(String type, MetadataQueryIndexStatusField status) {
       this.type = type;
-      this.status = new EnumWrapper<MetadataQueryIndexStatusField>(status.getValue(), status);
+      this.status = new EnumWrapper<MetadataQueryIndexStatusField>(status);
     }
 
     public MetadataQueryIndexBuilder id(String id) {

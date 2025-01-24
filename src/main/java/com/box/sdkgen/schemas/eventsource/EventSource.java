@@ -41,7 +41,7 @@ public class EventSource extends SerializableObject {
 
   public EventSource(EventSourceItemTypeField itemType, String itemId, String itemName) {
     super();
-    this.itemType = new EnumWrapper<EventSourceItemTypeField>(itemType.getValue(), itemType);
+    this.itemType = new EnumWrapper<EventSourceItemTypeField>(itemType);
     this.itemId = itemId;
     this.itemName = itemName;
   }
@@ -145,8 +145,15 @@ public class EventSource extends SerializableObject {
 
     protected UserMini ownedBy;
 
+    public EventSourceBuilder(
+        EnumWrapper<EventSourceItemTypeField> itemType, String itemId, String itemName) {
+      this.itemType = itemType;
+      this.itemId = itemId;
+      this.itemName = itemName;
+    }
+
     public EventSourceBuilder(EventSourceItemTypeField itemType, String itemId, String itemName) {
-      this.itemType = new EnumWrapper<EventSourceItemTypeField>(itemType.getValue(), itemType);
+      this.itemType = new EnumWrapper<EventSourceItemTypeField>(itemType);
       this.itemId = itemId;
       this.itemName = itemName;
     }

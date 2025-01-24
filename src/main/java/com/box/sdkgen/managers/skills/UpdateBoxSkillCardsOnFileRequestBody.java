@@ -92,14 +92,14 @@ public class UpdateBoxSkillCardsOnFileRequestBody extends SerializableObject {
     protected KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard value;
 
     public UpdateBoxSkillCardsOnFileRequestBodyBuilder op(
-        EnumWrapper<UpdateBoxSkillCardsOnFileRequestBodyOpField> op) {
-      this.op = op;
+        UpdateBoxSkillCardsOnFileRequestBodyOpField op) {
+      this.op = new EnumWrapper<UpdateBoxSkillCardsOnFileRequestBodyOpField>(op);
       return this;
     }
 
     public UpdateBoxSkillCardsOnFileRequestBodyBuilder op(
-        UpdateBoxSkillCardsOnFileRequestBodyOpField op) {
-      this.op = new EnumWrapper<UpdateBoxSkillCardsOnFileRequestBodyOpField>(op.getValue(), op);
+        EnumWrapper<UpdateBoxSkillCardsOnFileRequestBodyOpField> op) {
+      this.op = op;
       return this;
     }
 

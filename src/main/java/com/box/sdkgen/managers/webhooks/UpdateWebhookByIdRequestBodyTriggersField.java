@@ -77,7 +77,7 @@ public enum UpdateWebhookByIdRequestBodyTriggersField implements Valuable {
       return Arrays.stream(UpdateWebhookByIdRequestBodyTriggersField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateWebhookByIdRequestBodyTriggersField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateWebhookByIdRequestBodyTriggersField>(value));
     }
   }

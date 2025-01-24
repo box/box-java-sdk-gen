@@ -22,9 +22,7 @@ public class AuthorizeUserQueryParams {
 
   public AuthorizeUserQueryParams(
       AuthorizeUserQueryParamsResponseTypeField responseType, String clientId) {
-    this.responseType =
-        new EnumWrapper<AuthorizeUserQueryParamsResponseTypeField>(
-            responseType.getValue(), responseType);
+    this.responseType = new EnumWrapper<AuthorizeUserQueryParamsResponseTypeField>(responseType);
     this.clientId = clientId;
   }
 
@@ -69,10 +67,14 @@ public class AuthorizeUserQueryParams {
     protected String scope;
 
     public AuthorizeUserQueryParamsBuilder(
+        EnumWrapper<AuthorizeUserQueryParamsResponseTypeField> responseType, String clientId) {
+      this.responseType = responseType;
+      this.clientId = clientId;
+    }
+
+    public AuthorizeUserQueryParamsBuilder(
         AuthorizeUserQueryParamsResponseTypeField responseType, String clientId) {
-      this.responseType =
-          new EnumWrapper<AuthorizeUserQueryParamsResponseTypeField>(
-              responseType.getValue(), responseType);
+      this.responseType = new EnumWrapper<AuthorizeUserQueryParamsResponseTypeField>(responseType);
       this.clientId = clientId;
     }
 

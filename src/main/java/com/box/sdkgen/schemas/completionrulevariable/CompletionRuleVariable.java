@@ -43,27 +43,19 @@ public class CompletionRuleVariable extends SerializableObject {
     super();
     this.variableValue = variableValue;
     this.type =
-        new EnumWrapper<CompletionRuleVariableTypeField>(
-            CompletionRuleVariableTypeField.VARIABLE.getValue(),
-            CompletionRuleVariableTypeField.VARIABLE);
+        new EnumWrapper<CompletionRuleVariableTypeField>(CompletionRuleVariableTypeField.VARIABLE);
     this.variableType =
         new EnumWrapper<CompletionRuleVariableVariableTypeField>(
-            CompletionRuleVariableVariableTypeField.TASK_COMPLETION_RULE.getValue(),
             CompletionRuleVariableVariableTypeField.TASK_COMPLETION_RULE);
   }
 
   public CompletionRuleVariable(CompletionRuleVariableVariableValueField variableValue) {
     super();
-    this.variableValue =
-        new EnumWrapper<CompletionRuleVariableVariableValueField>(
-            variableValue.getValue(), variableValue);
+    this.variableValue = new EnumWrapper<CompletionRuleVariableVariableValueField>(variableValue);
     this.type =
-        new EnumWrapper<CompletionRuleVariableTypeField>(
-            CompletionRuleVariableTypeField.VARIABLE.getValue(),
-            CompletionRuleVariableTypeField.VARIABLE);
+        new EnumWrapper<CompletionRuleVariableTypeField>(CompletionRuleVariableTypeField.VARIABLE);
     this.variableType =
         new EnumWrapper<CompletionRuleVariableVariableTypeField>(
-            CompletionRuleVariableVariableTypeField.TASK_COMPLETION_RULE.getValue(),
             CompletionRuleVariableVariableTypeField.TASK_COMPLETION_RULE);
   }
 
@@ -130,18 +122,30 @@ public class CompletionRuleVariable extends SerializableObject {
 
     protected final EnumWrapper<CompletionRuleVariableVariableValueField> variableValue;
 
-    public CompletionRuleVariableBuilder(CompletionRuleVariableVariableValueField variableValue) {
-      this.variableValue =
-          new EnumWrapper<CompletionRuleVariableVariableValueField>(
-              variableValue.getValue(), variableValue);
+    public CompletionRuleVariableBuilder(
+        EnumWrapper<CompletionRuleVariableVariableValueField> variableValue) {
+      this.variableValue = variableValue;
       this.type =
           new EnumWrapper<CompletionRuleVariableTypeField>(
-              CompletionRuleVariableTypeField.VARIABLE.getValue(),
               CompletionRuleVariableTypeField.VARIABLE);
       this.variableType =
           new EnumWrapper<CompletionRuleVariableVariableTypeField>(
-              CompletionRuleVariableVariableTypeField.TASK_COMPLETION_RULE.getValue(),
               CompletionRuleVariableVariableTypeField.TASK_COMPLETION_RULE);
+    }
+
+    public CompletionRuleVariableBuilder(CompletionRuleVariableVariableValueField variableValue) {
+      this.variableValue = new EnumWrapper<CompletionRuleVariableVariableValueField>(variableValue);
+      this.type =
+          new EnumWrapper<CompletionRuleVariableTypeField>(
+              CompletionRuleVariableTypeField.VARIABLE);
+      this.variableType =
+          new EnumWrapper<CompletionRuleVariableVariableTypeField>(
+              CompletionRuleVariableVariableTypeField.TASK_COMPLETION_RULE);
+    }
+
+    public CompletionRuleVariableBuilder type(CompletionRuleVariableTypeField type) {
+      this.type = new EnumWrapper<CompletionRuleVariableTypeField>(type);
+      return this;
     }
 
     public CompletionRuleVariableBuilder type(EnumWrapper<CompletionRuleVariableTypeField> type) {
@@ -149,22 +153,15 @@ public class CompletionRuleVariable extends SerializableObject {
       return this;
     }
 
-    public CompletionRuleVariableBuilder type(CompletionRuleVariableTypeField type) {
-      this.type = new EnumWrapper<CompletionRuleVariableTypeField>(type.getValue(), type);
+    public CompletionRuleVariableBuilder variableType(
+        CompletionRuleVariableVariableTypeField variableType) {
+      this.variableType = new EnumWrapper<CompletionRuleVariableVariableTypeField>(variableType);
       return this;
     }
 
     public CompletionRuleVariableBuilder variableType(
         EnumWrapper<CompletionRuleVariableVariableTypeField> variableType) {
       this.variableType = variableType;
-      return this;
-    }
-
-    public CompletionRuleVariableBuilder variableType(
-        CompletionRuleVariableVariableTypeField variableType) {
-      this.variableType =
-          new EnumWrapper<CompletionRuleVariableVariableTypeField>(
-              variableType.getValue(), variableType);
       return this;
     }
 

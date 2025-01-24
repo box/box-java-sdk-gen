@@ -32,8 +32,7 @@ public class UpdateTermsOfServiceByIdRequestBody extends SerializableObject {
   public UpdateTermsOfServiceByIdRequestBody(
       UpdateTermsOfServiceByIdRequestBodyStatusField status, String text) {
     super();
-    this.status =
-        new EnumWrapper<UpdateTermsOfServiceByIdRequestBodyStatusField>(status.getValue(), status);
+    this.status = new EnumWrapper<UpdateTermsOfServiceByIdRequestBodyStatusField>(status);
     this.text = text;
   }
 

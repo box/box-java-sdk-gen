@@ -21,9 +21,7 @@ public class TimelineSkillCardSkillField extends SerializableObject {
     super();
     this.id = id;
     this.type =
-        new EnumWrapper<TimelineSkillCardSkillTypeField>(
-            TimelineSkillCardSkillTypeField.SERVICE.getValue(),
-            TimelineSkillCardSkillTypeField.SERVICE);
+        new EnumWrapper<TimelineSkillCardSkillTypeField>(TimelineSkillCardSkillTypeField.SERVICE);
   }
 
   protected TimelineSkillCardSkillField(TimelineSkillCardSkillFieldBuilder builder) {
@@ -79,19 +77,17 @@ public class TimelineSkillCardSkillField extends SerializableObject {
     public TimelineSkillCardSkillFieldBuilder(String id) {
       this.id = id;
       this.type =
-          new EnumWrapper<TimelineSkillCardSkillTypeField>(
-              TimelineSkillCardSkillTypeField.SERVICE.getValue(),
-              TimelineSkillCardSkillTypeField.SERVICE);
+          new EnumWrapper<TimelineSkillCardSkillTypeField>(TimelineSkillCardSkillTypeField.SERVICE);
+    }
+
+    public TimelineSkillCardSkillFieldBuilder type(TimelineSkillCardSkillTypeField type) {
+      this.type = new EnumWrapper<TimelineSkillCardSkillTypeField>(type);
+      return this;
     }
 
     public TimelineSkillCardSkillFieldBuilder type(
         EnumWrapper<TimelineSkillCardSkillTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public TimelineSkillCardSkillFieldBuilder type(TimelineSkillCardSkillTypeField type) {
-      this.type = new EnumWrapper<TimelineSkillCardSkillTypeField>(type.getValue(), type);
       return this;
     }
 

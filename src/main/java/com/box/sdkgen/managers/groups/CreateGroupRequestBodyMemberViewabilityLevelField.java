@@ -40,7 +40,7 @@ public enum CreateGroupRequestBodyMemberViewabilityLevelField implements Valuabl
       return Arrays.stream(CreateGroupRequestBodyMemberViewabilityLevelField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateGroupRequestBodyMemberViewabilityLevelField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateGroupRequestBodyMemberViewabilityLevelField>(value));
     }
   }

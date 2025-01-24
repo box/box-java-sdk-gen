@@ -91,14 +91,14 @@ public class SkillInvocationEnterpriseField extends SerializableObject {
       return this;
     }
 
-    public SkillInvocationEnterpriseFieldBuilder type(
-        EnumWrapper<SkillInvocationEnterpriseTypeField> type) {
-      this.type = type;
+    public SkillInvocationEnterpriseFieldBuilder type(SkillInvocationEnterpriseTypeField type) {
+      this.type = new EnumWrapper<SkillInvocationEnterpriseTypeField>(type);
       return this;
     }
 
-    public SkillInvocationEnterpriseFieldBuilder type(SkillInvocationEnterpriseTypeField type) {
-      this.type = new EnumWrapper<SkillInvocationEnterpriseTypeField>(type.getValue(), type);
+    public SkillInvocationEnterpriseFieldBuilder type(
+        EnumWrapper<SkillInvocationEnterpriseTypeField> type) {
+      this.type = type;
       return this;
     }
 

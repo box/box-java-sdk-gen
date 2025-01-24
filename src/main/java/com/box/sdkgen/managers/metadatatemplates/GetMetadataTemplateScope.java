@@ -39,7 +39,7 @@ public enum GetMetadataTemplateScope implements Valuable {
       return Arrays.stream(GetMetadataTemplateScope.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GetMetadataTemplateScope>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GetMetadataTemplateScope>(value));
     }
   }

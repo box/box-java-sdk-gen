@@ -102,14 +102,14 @@ public class SkillInvocationStatusField extends SerializableObject {
 
     protected String additionalInfo;
 
-    public SkillInvocationStatusFieldBuilder state(
-        EnumWrapper<SkillInvocationStatusStateField> state) {
-      this.state = state;
+    public SkillInvocationStatusFieldBuilder state(SkillInvocationStatusStateField state) {
+      this.state = new EnumWrapper<SkillInvocationStatusStateField>(state);
       return this;
     }
 
-    public SkillInvocationStatusFieldBuilder state(SkillInvocationStatusStateField state) {
-      this.state = new EnumWrapper<SkillInvocationStatusStateField>(state.getValue(), state);
+    public SkillInvocationStatusFieldBuilder state(
+        EnumWrapper<SkillInvocationStatusStateField> state) {
+      this.state = state;
       return this;
     }
 

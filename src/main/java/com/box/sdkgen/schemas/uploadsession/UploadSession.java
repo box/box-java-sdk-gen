@@ -151,13 +151,13 @@ public class UploadSession extends SerializableObject {
       return this;
     }
 
-    public UploadSessionBuilder type(EnumWrapper<UploadSessionTypeField> type) {
-      this.type = type;
+    public UploadSessionBuilder type(UploadSessionTypeField type) {
+      this.type = new EnumWrapper<UploadSessionTypeField>(type);
       return this;
     }
 
-    public UploadSessionBuilder type(UploadSessionTypeField type) {
-      this.type = new EnumWrapper<UploadSessionTypeField>(type.getValue(), type);
+    public UploadSessionBuilder type(EnumWrapper<UploadSessionTypeField> type) {
+      this.type = type;
       return this;
     }
 

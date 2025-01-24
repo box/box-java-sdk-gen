@@ -26,7 +26,6 @@ public class RetentionPolicyAssignmentBase extends SerializableObject {
     this.id = id;
     this.type =
         new EnumWrapper<RetentionPolicyAssignmentBaseTypeField>(
-            RetentionPolicyAssignmentBaseTypeField.RETENTION_POLICY_ASSIGNMENT.getValue(),
             RetentionPolicyAssignmentBaseTypeField.RETENTION_POLICY_ASSIGNMENT);
   }
 
@@ -84,18 +83,17 @@ public class RetentionPolicyAssignmentBase extends SerializableObject {
       this.id = id;
       this.type =
           new EnumWrapper<RetentionPolicyAssignmentBaseTypeField>(
-              RetentionPolicyAssignmentBaseTypeField.RETENTION_POLICY_ASSIGNMENT.getValue(),
               RetentionPolicyAssignmentBaseTypeField.RETENTION_POLICY_ASSIGNMENT);
+    }
+
+    public RetentionPolicyAssignmentBaseBuilder type(RetentionPolicyAssignmentBaseTypeField type) {
+      this.type = new EnumWrapper<RetentionPolicyAssignmentBaseTypeField>(type);
+      return this;
     }
 
     public RetentionPolicyAssignmentBaseBuilder type(
         EnumWrapper<RetentionPolicyAssignmentBaseTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public RetentionPolicyAssignmentBaseBuilder type(RetentionPolicyAssignmentBaseTypeField type) {
-      this.type = new EnumWrapper<RetentionPolicyAssignmentBaseTypeField>(type.getValue(), type);
       return this;
     }
 

@@ -38,7 +38,7 @@ public enum FileVersionRetentionTypeField implements Valuable {
       return Arrays.stream(FileVersionRetentionTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileVersionRetentionTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileVersionRetentionTypeField>(value));
     }
   }

@@ -100,9 +100,7 @@ public class TrashFileRestored extends SerializableObject {
     this.modifiedBy = modifiedBy;
     this.ownedBy = ownedBy;
     this.itemStatus = itemStatus;
-    this.type =
-        new EnumWrapper<TrashFileRestoredTypeField>(
-            TrashFileRestoredTypeField.FILE.getValue(), TrashFileRestoredTypeField.FILE);
+    this.type = new EnumWrapper<TrashFileRestoredTypeField>(TrashFileRestoredTypeField.FILE);
   }
 
   public TrashFileRestored(
@@ -128,11 +126,8 @@ public class TrashFileRestored extends SerializableObject {
     this.modifiedAt = modifiedAt;
     this.modifiedBy = modifiedBy;
     this.ownedBy = ownedBy;
-    this.itemStatus =
-        new EnumWrapper<TrashFileRestoredItemStatusField>(itemStatus.getValue(), itemStatus);
-    this.type =
-        new EnumWrapper<TrashFileRestoredTypeField>(
-            TrashFileRestoredTypeField.FILE.getValue(), TrashFileRestoredTypeField.FILE);
+    this.itemStatus = new EnumWrapper<TrashFileRestoredItemStatusField>(itemStatus);
+    this.type = new EnumWrapper<TrashFileRestoredTypeField>(TrashFileRestoredTypeField.FILE);
   }
 
   protected TrashFileRestored(TrashFileRestoredBuilder builder) {
@@ -459,6 +454,32 @@ public class TrashFileRestored extends SerializableObject {
         String modifiedAt,
         UserMini modifiedBy,
         UserMini ownedBy,
+        EnumWrapper<TrashFileRestoredItemStatusField> itemStatus) {
+      this.id = id;
+      this.sequenceId = sequenceId;
+      this.sha1 = sha1;
+      this.description = description;
+      this.size = size;
+      this.pathCollection = pathCollection;
+      this.createdAt = createdAt;
+      this.modifiedAt = modifiedAt;
+      this.modifiedBy = modifiedBy;
+      this.ownedBy = ownedBy;
+      this.itemStatus = itemStatus;
+      this.type = new EnumWrapper<TrashFileRestoredTypeField>(TrashFileRestoredTypeField.FILE);
+    }
+
+    public TrashFileRestoredBuilder(
+        String id,
+        String sequenceId,
+        String sha1,
+        String description,
+        long size,
+        TrashFileRestoredPathCollectionField pathCollection,
+        String createdAt,
+        String modifiedAt,
+        UserMini modifiedBy,
+        UserMini ownedBy,
         TrashFileRestoredItemStatusField itemStatus) {
       this.id = id;
       this.sequenceId = sequenceId;
@@ -470,11 +491,8 @@ public class TrashFileRestored extends SerializableObject {
       this.modifiedAt = modifiedAt;
       this.modifiedBy = modifiedBy;
       this.ownedBy = ownedBy;
-      this.itemStatus =
-          new EnumWrapper<TrashFileRestoredItemStatusField>(itemStatus.getValue(), itemStatus);
-      this.type =
-          new EnumWrapper<TrashFileRestoredTypeField>(
-              TrashFileRestoredTypeField.FILE.getValue(), TrashFileRestoredTypeField.FILE);
+      this.itemStatus = new EnumWrapper<TrashFileRestoredItemStatusField>(itemStatus);
+      this.type = new EnumWrapper<TrashFileRestoredTypeField>(TrashFileRestoredTypeField.FILE);
     }
 
     public TrashFileRestoredBuilder etag(String etag) {
@@ -482,13 +500,13 @@ public class TrashFileRestored extends SerializableObject {
       return this;
     }
 
-    public TrashFileRestoredBuilder type(EnumWrapper<TrashFileRestoredTypeField> type) {
-      this.type = type;
+    public TrashFileRestoredBuilder type(TrashFileRestoredTypeField type) {
+      this.type = new EnumWrapper<TrashFileRestoredTypeField>(type);
       return this;
     }
 
-    public TrashFileRestoredBuilder type(TrashFileRestoredTypeField type) {
-      this.type = new EnumWrapper<TrashFileRestoredTypeField>(type.getValue(), type);
+    public TrashFileRestoredBuilder type(EnumWrapper<TrashFileRestoredTypeField> type) {
+      this.type = type;
       return this;
     }
 

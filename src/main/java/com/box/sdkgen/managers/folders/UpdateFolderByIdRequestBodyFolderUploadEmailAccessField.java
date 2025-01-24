@@ -40,10 +40,7 @@ public enum UpdateFolderByIdRequestBodyFolderUploadEmailAccessField implements V
       return Arrays.stream(UpdateFolderByIdRequestBodyFolderUploadEmailAccessField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<UpdateFolderByIdRequestBodyFolderUploadEmailAccessField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateFolderByIdRequestBodyFolderUploadEmailAccessField>(value));
     }
   }

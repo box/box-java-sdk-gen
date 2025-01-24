@@ -211,13 +211,13 @@ public class Event extends SerializableObject {
       return this;
     }
 
-    public EventBuilder eventType(EnumWrapper<EventEventTypeField> eventType) {
-      this.eventType = eventType;
+    public EventBuilder eventType(EventEventTypeField eventType) {
+      this.eventType = new EnumWrapper<EventEventTypeField>(eventType);
       return this;
     }
 
-    public EventBuilder eventType(EventEventTypeField eventType) {
-      this.eventType = new EnumWrapper<EventEventTypeField>(eventType.getValue(), eventType);
+    public EventBuilder eventType(EnumWrapper<EventEventTypeField> eventType) {
+      this.eventType = eventType;
       return this;
     }
 

@@ -18,9 +18,7 @@ public class GroupBase extends SerializableObject {
   public GroupBase(@JsonProperty("id") String id) {
     super();
     this.id = id;
-    this.type =
-        new EnumWrapper<GroupBaseTypeField>(
-            GroupBaseTypeField.GROUP.getValue(), GroupBaseTypeField.GROUP);
+    this.type = new EnumWrapper<GroupBaseTypeField>(GroupBaseTypeField.GROUP);
   }
 
   protected GroupBase(GroupBaseBuilder builder) {
@@ -67,18 +65,16 @@ public class GroupBase extends SerializableObject {
 
     public GroupBaseBuilder(String id) {
       this.id = id;
-      this.type =
-          new EnumWrapper<GroupBaseTypeField>(
-              GroupBaseTypeField.GROUP.getValue(), GroupBaseTypeField.GROUP);
+      this.type = new EnumWrapper<GroupBaseTypeField>(GroupBaseTypeField.GROUP);
+    }
+
+    public GroupBaseBuilder type(GroupBaseTypeField type) {
+      this.type = new EnumWrapper<GroupBaseTypeField>(type);
+      return this;
     }
 
     public GroupBaseBuilder type(EnumWrapper<GroupBaseTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public GroupBaseBuilder type(GroupBaseTypeField type) {
-      this.type = new EnumWrapper<GroupBaseTypeField>(type.getValue(), type);
       return this;
     }
 

@@ -39,7 +39,7 @@ public enum CreateTaskRequestBodyCompletionRuleField implements Valuable {
       return Arrays.stream(CreateTaskRequestBodyCompletionRuleField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateTaskRequestBodyCompletionRuleField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateTaskRequestBodyCompletionRuleField>(value));
     }
   }

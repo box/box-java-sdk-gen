@@ -50,7 +50,7 @@ public enum UpdateMetadataTemplateRequestBodyOpField implements Valuable {
       return Arrays.stream(UpdateMetadataTemplateRequestBodyOpField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateMetadataTemplateRequestBodyOpField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateMetadataTemplateRequestBodyOpField>(value));
     }
   }

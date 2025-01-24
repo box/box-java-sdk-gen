@@ -118,14 +118,14 @@ public class CreateGroupMembershipRequestBody extends SerializableObject {
     }
 
     public CreateGroupMembershipRequestBodyBuilder role(
-        EnumWrapper<CreateGroupMembershipRequestBodyRoleField> role) {
-      this.role = role;
+        CreateGroupMembershipRequestBodyRoleField role) {
+      this.role = new EnumWrapper<CreateGroupMembershipRequestBodyRoleField>(role);
       return this;
     }
 
     public CreateGroupMembershipRequestBodyBuilder role(
-        CreateGroupMembershipRequestBodyRoleField role) {
-      this.role = new EnumWrapper<CreateGroupMembershipRequestBodyRoleField>(role.getValue(), role);
+        EnumWrapper<CreateGroupMembershipRequestBodyRoleField> role) {
+      this.role = role;
       return this;
     }
 

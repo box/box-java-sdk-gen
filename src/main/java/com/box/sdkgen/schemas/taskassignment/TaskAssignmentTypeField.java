@@ -38,7 +38,7 @@ public enum TaskAssignmentTypeField implements Valuable {
       return Arrays.stream(TaskAssignmentTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<TaskAssignmentTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<TaskAssignmentTypeField>(value));
     }
   }

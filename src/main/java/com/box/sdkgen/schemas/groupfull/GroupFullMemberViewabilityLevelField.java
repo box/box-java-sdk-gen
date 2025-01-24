@@ -40,7 +40,7 @@ public enum GroupFullMemberViewabilityLevelField implements Valuable {
       return Arrays.stream(GroupFullMemberViewabilityLevelField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GroupFullMemberViewabilityLevelField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GroupFullMemberViewabilityLevelField>(value));
     }
   }

@@ -39,7 +39,7 @@ public enum TaskActionField implements Valuable {
       return Arrays.stream(TaskActionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<TaskActionField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<TaskActionField>(value));
     }
   }

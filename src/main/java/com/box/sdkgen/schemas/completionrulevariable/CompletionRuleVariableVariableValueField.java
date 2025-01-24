@@ -39,7 +39,7 @@ public enum CompletionRuleVariableVariableValueField implements Valuable {
       return Arrays.stream(CompletionRuleVariableVariableValueField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CompletionRuleVariableVariableValueField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CompletionRuleVariableVariableValueField>(value));
     }
   }

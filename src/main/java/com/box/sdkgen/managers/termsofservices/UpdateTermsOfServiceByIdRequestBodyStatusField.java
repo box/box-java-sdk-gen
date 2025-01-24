@@ -39,7 +39,7 @@ public enum UpdateTermsOfServiceByIdRequestBodyStatusField implements Valuable {
       return Arrays.stream(UpdateTermsOfServiceByIdRequestBodyStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateTermsOfServiceByIdRequestBodyStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateTermsOfServiceByIdRequestBodyStatusField>(value));
     }
   }

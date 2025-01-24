@@ -38,7 +38,7 @@ public enum StatusSkillCardInvocationTypeField implements Valuable {
       return Arrays.stream(StatusSkillCardInvocationTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<StatusSkillCardInvocationTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<StatusSkillCardInvocationTypeField>(value));
     }
   }

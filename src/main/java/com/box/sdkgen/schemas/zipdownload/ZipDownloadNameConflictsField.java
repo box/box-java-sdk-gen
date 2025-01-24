@@ -107,14 +107,14 @@ public class ZipDownloadNameConflictsField extends SerializableObject {
       return this;
     }
 
-    public ZipDownloadNameConflictsFieldBuilder type(
-        EnumWrapper<ZipDownloadNameConflictsTypeField> type) {
-      this.type = type;
+    public ZipDownloadNameConflictsFieldBuilder type(ZipDownloadNameConflictsTypeField type) {
+      this.type = new EnumWrapper<ZipDownloadNameConflictsTypeField>(type);
       return this;
     }
 
-    public ZipDownloadNameConflictsFieldBuilder type(ZipDownloadNameConflictsTypeField type) {
-      this.type = new EnumWrapper<ZipDownloadNameConflictsTypeField>(type.getValue(), type);
+    public ZipDownloadNameConflictsFieldBuilder type(
+        EnumWrapper<ZipDownloadNameConflictsTypeField> type) {
+      this.type = type;
       return this;
     }
 

@@ -30,9 +30,7 @@ public class AppItemEventSource extends SerializableObject {
     super();
     this.id = id;
     this.appItemType = appItemType;
-    this.type =
-        new EnumWrapper<AppItemEventSourceTypeField>(
-            AppItemEventSourceTypeField.APP_ITEM.getValue(), AppItemEventSourceTypeField.APP_ITEM);
+    this.type = new EnumWrapper<AppItemEventSourceTypeField>(AppItemEventSourceTypeField.APP_ITEM);
   }
 
   protected AppItemEventSource(AppItemEventSourceBuilder builder) {
@@ -126,18 +124,16 @@ public class AppItemEventSource extends SerializableObject {
       this.id = id;
       this.appItemType = appItemType;
       this.type =
-          new EnumWrapper<AppItemEventSourceTypeField>(
-              AppItemEventSourceTypeField.APP_ITEM.getValue(),
-              AppItemEventSourceTypeField.APP_ITEM);
+          new EnumWrapper<AppItemEventSourceTypeField>(AppItemEventSourceTypeField.APP_ITEM);
+    }
+
+    public AppItemEventSourceBuilder type(AppItemEventSourceTypeField type) {
+      this.type = new EnumWrapper<AppItemEventSourceTypeField>(type);
+      return this;
     }
 
     public AppItemEventSourceBuilder type(EnumWrapper<AppItemEventSourceTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public AppItemEventSourceBuilder type(AppItemEventSourceTypeField type) {
-      this.type = new EnumWrapper<AppItemEventSourceTypeField>(type.getValue(), type);
       return this;
     }
 

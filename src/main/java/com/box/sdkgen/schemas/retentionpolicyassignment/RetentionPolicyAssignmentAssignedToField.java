@@ -81,15 +81,14 @@ public class RetentionPolicyAssignmentAssignedToField extends SerializableObject
     }
 
     public RetentionPolicyAssignmentAssignedToFieldBuilder type(
-        EnumWrapper<RetentionPolicyAssignmentAssignedToTypeField> type) {
-      this.type = type;
+        RetentionPolicyAssignmentAssignedToTypeField type) {
+      this.type = new EnumWrapper<RetentionPolicyAssignmentAssignedToTypeField>(type);
       return this;
     }
 
     public RetentionPolicyAssignmentAssignedToFieldBuilder type(
-        RetentionPolicyAssignmentAssignedToTypeField type) {
-      this.type =
-          new EnumWrapper<RetentionPolicyAssignmentAssignedToTypeField>(type.getValue(), type);
+        EnumWrapper<RetentionPolicyAssignmentAssignedToTypeField> type) {
+      this.type = type;
       return this;
     }
 

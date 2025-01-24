@@ -38,7 +38,7 @@ public enum ClientErrorV2025R0TypeField implements Valuable {
       return Arrays.stream(ClientErrorV2025R0TypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<ClientErrorV2025R0TypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<ClientErrorV2025R0TypeField>(value));
     }
   }

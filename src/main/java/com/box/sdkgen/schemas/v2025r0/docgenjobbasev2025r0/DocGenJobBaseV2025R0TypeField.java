@@ -38,7 +38,7 @@ public enum DocGenJobBaseV2025R0TypeField implements Valuable {
       return Arrays.stream(DocGenJobBaseV2025R0TypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<DocGenJobBaseV2025R0TypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<DocGenJobBaseV2025R0TypeField>(value));
     }
   }

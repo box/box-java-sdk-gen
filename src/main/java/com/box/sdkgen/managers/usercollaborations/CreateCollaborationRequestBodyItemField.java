@@ -76,15 +76,14 @@ public class CreateCollaborationRequestBodyItemField extends SerializableObject 
     protected String id;
 
     public CreateCollaborationRequestBodyItemFieldBuilder type(
-        EnumWrapper<CreateCollaborationRequestBodyItemTypeField> type) {
-      this.type = type;
+        CreateCollaborationRequestBodyItemTypeField type) {
+      this.type = new EnumWrapper<CreateCollaborationRequestBodyItemTypeField>(type);
       return this;
     }
 
     public CreateCollaborationRequestBodyItemFieldBuilder type(
-        CreateCollaborationRequestBodyItemTypeField type) {
-      this.type =
-          new EnumWrapper<CreateCollaborationRequestBodyItemTypeField>(type.getValue(), type);
+        EnumWrapper<CreateCollaborationRequestBodyItemTypeField> type) {
+      this.type = type;
       return this;
     }
 

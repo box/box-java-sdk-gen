@@ -41,10 +41,7 @@ public enum UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField implements
       return Arrays.stream(UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(
               new EnumWrapper<UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField>(value));
     }

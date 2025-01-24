@@ -80,15 +80,14 @@ public class ItemsOffsetPaginatedOrderField extends SerializableObject {
     }
 
     public ItemsOffsetPaginatedOrderFieldBuilder direction(
-        EnumWrapper<ItemsOffsetPaginatedOrderDirectionField> direction) {
-      this.direction = direction;
+        ItemsOffsetPaginatedOrderDirectionField direction) {
+      this.direction = new EnumWrapper<ItemsOffsetPaginatedOrderDirectionField>(direction);
       return this;
     }
 
     public ItemsOffsetPaginatedOrderFieldBuilder direction(
-        ItemsOffsetPaginatedOrderDirectionField direction) {
-      this.direction =
-          new EnumWrapper<ItemsOffsetPaginatedOrderDirectionField>(direction.getValue(), direction);
+        EnumWrapper<ItemsOffsetPaginatedOrderDirectionField> direction) {
+      this.direction = direction;
       return this;
     }
 

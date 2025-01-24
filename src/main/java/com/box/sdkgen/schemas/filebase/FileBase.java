@@ -20,9 +20,7 @@ public class FileBase extends SerializableObject {
   public FileBase(@JsonProperty("id") String id) {
     super();
     this.id = id;
-    this.type =
-        new EnumWrapper<FileBaseTypeField>(
-            FileBaseTypeField.FILE.getValue(), FileBaseTypeField.FILE);
+    this.type = new EnumWrapper<FileBaseTypeField>(FileBaseTypeField.FILE);
   }
 
   protected FileBase(FileBaseBuilder builder) {
@@ -90,9 +88,7 @@ public class FileBase extends SerializableObject {
 
     public FileBaseBuilder(String id) {
       this.id = id;
-      this.type =
-          new EnumWrapper<FileBaseTypeField>(
-              FileBaseTypeField.FILE.getValue(), FileBaseTypeField.FILE);
+      this.type = new EnumWrapper<FileBaseTypeField>(FileBaseTypeField.FILE);
     }
 
     public FileBaseBuilder etag(String etag) {
@@ -100,13 +96,13 @@ public class FileBase extends SerializableObject {
       return this;
     }
 
-    public FileBaseBuilder type(EnumWrapper<FileBaseTypeField> type) {
-      this.type = type;
+    public FileBaseBuilder type(FileBaseTypeField type) {
+      this.type = new EnumWrapper<FileBaseTypeField>(type);
       return this;
     }
 
-    public FileBaseBuilder type(FileBaseTypeField type) {
-      this.type = new EnumWrapper<FileBaseTypeField>(type.getValue(), type);
+    public FileBaseBuilder type(EnumWrapper<FileBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

@@ -38,7 +38,7 @@ public enum SkillInvocationTokenWriteTokenTypeField implements Valuable {
       return Arrays.stream(SkillInvocationTokenWriteTokenTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<SkillInvocationTokenWriteTokenTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<SkillInvocationTokenWriteTokenTypeField>(value));
     }
   }

@@ -39,7 +39,7 @@ public enum WebhookMiniTargetTypeField implements Valuable {
       return Arrays.stream(WebhookMiniTargetTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<WebhookMiniTargetTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<WebhookMiniTargetTypeField>(value));
     }
   }

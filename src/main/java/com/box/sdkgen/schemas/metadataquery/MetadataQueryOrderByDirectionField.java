@@ -39,7 +39,7 @@ public enum MetadataQueryOrderByDirectionField implements Valuable {
       return Arrays.stream(MetadataQueryOrderByDirectionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<MetadataQueryOrderByDirectionField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<MetadataQueryOrderByDirectionField>(value));
     }
   }

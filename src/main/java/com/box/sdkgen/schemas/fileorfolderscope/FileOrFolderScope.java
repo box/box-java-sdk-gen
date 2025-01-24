@@ -70,13 +70,13 @@ public class FileOrFolderScope extends SerializableObject {
 
     protected FileMiniOrFolderMini object;
 
-    public FileOrFolderScopeBuilder scope(EnumWrapper<FileOrFolderScopeScopeField> scope) {
-      this.scope = scope;
+    public FileOrFolderScopeBuilder scope(FileOrFolderScopeScopeField scope) {
+      this.scope = new EnumWrapper<FileOrFolderScopeScopeField>(scope);
       return this;
     }
 
-    public FileOrFolderScopeBuilder scope(FileOrFolderScopeScopeField scope) {
-      this.scope = new EnumWrapper<FileOrFolderScopeScopeField>(scope.getValue(), scope);
+    public FileOrFolderScopeBuilder scope(EnumWrapper<FileOrFolderScopeScopeField> scope) {
+      this.scope = scope;
       return this;
     }
 

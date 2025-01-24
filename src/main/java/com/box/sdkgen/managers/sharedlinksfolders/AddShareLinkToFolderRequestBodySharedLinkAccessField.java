@@ -40,9 +40,7 @@ public enum AddShareLinkToFolderRequestBodySharedLinkAccessField implements Valu
       return Arrays.stream(AddShareLinkToFolderRequestBodySharedLinkAccessField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<AddShareLinkToFolderRequestBodySharedLinkAccessField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AddShareLinkToFolderRequestBodySharedLinkAccessField>(value));
     }
   }

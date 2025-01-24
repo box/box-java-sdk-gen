@@ -92,18 +92,17 @@ public class ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmen
     }
 
     public ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentFieldBuilder type(
-        EnumWrapper<ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentTypeField>
-            type) {
-      this.type = type;
+        ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentTypeField type) {
+      this.type =
+          new EnumWrapper<
+              ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentTypeField>(type);
       return this;
     }
 
     public ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentFieldBuilder type(
-        ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentTypeField type) {
-      this.type =
-          new EnumWrapper<
-              ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentTypeField>(
-              type.getValue(), type);
+        EnumWrapper<ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentTypeField>
+            type) {
+      this.type = type;
       return this;
     }
 

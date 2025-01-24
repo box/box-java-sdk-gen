@@ -160,15 +160,15 @@ public class LegalHoldPolicyAssignment extends LegalHoldPolicyAssignmentBase {
     }
 
     @Override
-    public LegalHoldPolicyAssignmentBuilder type(
-        EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField> type) {
-      this.type = type;
+    public LegalHoldPolicyAssignmentBuilder type(LegalHoldPolicyAssignmentBaseTypeField type) {
+      this.type = new EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public LegalHoldPolicyAssignmentBuilder type(LegalHoldPolicyAssignmentBaseTypeField type) {
-      this.type = new EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField>(type.getValue(), type);
+    public LegalHoldPolicyAssignmentBuilder type(
+        EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

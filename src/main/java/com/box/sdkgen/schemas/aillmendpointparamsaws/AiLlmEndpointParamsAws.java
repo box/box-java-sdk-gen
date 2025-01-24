@@ -24,7 +24,6 @@ public class AiLlmEndpointParamsAws extends SerializableObject {
     super();
     this.type =
         new EnumWrapper<AiLlmEndpointParamsAwsTypeField>(
-            AiLlmEndpointParamsAwsTypeField.AWS_PARAMS.getValue(),
             AiLlmEndpointParamsAwsTypeField.AWS_PARAMS);
   }
 
@@ -91,13 +90,13 @@ public class AiLlmEndpointParamsAws extends SerializableObject {
 
     protected Double topP;
 
-    public AiLlmEndpointParamsAwsBuilder type(EnumWrapper<AiLlmEndpointParamsAwsTypeField> type) {
-      this.type = type;
+    public AiLlmEndpointParamsAwsBuilder type(AiLlmEndpointParamsAwsTypeField type) {
+      this.type = new EnumWrapper<AiLlmEndpointParamsAwsTypeField>(type);
       return this;
     }
 
-    public AiLlmEndpointParamsAwsBuilder type(AiLlmEndpointParamsAwsTypeField type) {
-      this.type = new EnumWrapper<AiLlmEndpointParamsAwsTypeField>(type.getValue(), type);
+    public AiLlmEndpointParamsAwsBuilder type(EnumWrapper<AiLlmEndpointParamsAwsTypeField> type) {
+      this.type = type;
       return this;
     }
 

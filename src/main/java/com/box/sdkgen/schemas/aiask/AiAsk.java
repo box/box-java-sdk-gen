@@ -42,7 +42,7 @@ public class AiAsk extends SerializableObject {
 
   public AiAsk(AiAskModeField mode, String prompt, List<AiItemBase> items) {
     super();
-    this.mode = new EnumWrapper<AiAskModeField>(mode.getValue(), mode);
+    this.mode = new EnumWrapper<AiAskModeField>(mode);
     this.prompt = prompt;
     this.items = items;
   }
@@ -146,8 +146,14 @@ public class AiAsk extends SerializableObject {
 
     protected AiAgentAsk aiAgent;
 
+    public AiAskBuilder(EnumWrapper<AiAskModeField> mode, String prompt, List<AiItemBase> items) {
+      this.mode = mode;
+      this.prompt = prompt;
+      this.items = items;
+    }
+
     public AiAskBuilder(AiAskModeField mode, String prompt, List<AiItemBase> items) {
-      this.mode = new EnumWrapper<AiAskModeField>(mode.getValue(), mode);
+      this.mode = new EnumWrapper<AiAskModeField>(mode);
       this.prompt = prompt;
       this.items = items;
     }

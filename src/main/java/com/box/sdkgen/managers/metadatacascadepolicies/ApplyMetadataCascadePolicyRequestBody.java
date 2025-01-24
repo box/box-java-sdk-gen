@@ -34,7 +34,7 @@ public class ApplyMetadataCascadePolicyRequestBody extends SerializableObject {
     super();
     this.conflictResolution =
         new EnumWrapper<ApplyMetadataCascadePolicyRequestBodyConflictResolutionField>(
-            conflictResolution.getValue(), conflictResolution);
+            conflictResolution);
   }
 
   public EnumWrapper<ApplyMetadataCascadePolicyRequestBodyConflictResolutionField>

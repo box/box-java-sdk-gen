@@ -44,7 +44,7 @@ public enum FileFullAllowedInviteeRolesField implements Valuable {
       return Arrays.stream(FileFullAllowedInviteeRolesField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileFullAllowedInviteeRolesField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileFullAllowedInviteeRolesField>(value));
     }
   }

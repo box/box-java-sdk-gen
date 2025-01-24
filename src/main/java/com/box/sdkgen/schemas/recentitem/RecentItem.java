@@ -128,16 +128,14 @@ public class RecentItem extends SerializableObject {
       return this;
     }
 
-    public RecentItemBuilder interactionType(
-        EnumWrapper<RecentItemInteractionTypeField> interactionType) {
-      this.interactionType = interactionType;
+    public RecentItemBuilder interactionType(RecentItemInteractionTypeField interactionType) {
+      this.interactionType = new EnumWrapper<RecentItemInteractionTypeField>(interactionType);
       return this;
     }
 
-    public RecentItemBuilder interactionType(RecentItemInteractionTypeField interactionType) {
-      this.interactionType =
-          new EnumWrapper<RecentItemInteractionTypeField>(
-              interactionType.getValue(), interactionType);
+    public RecentItemBuilder interactionType(
+        EnumWrapper<RecentItemInteractionTypeField> interactionType) {
+      this.interactionType = interactionType;
       return this;
     }
 

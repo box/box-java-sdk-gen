@@ -39,7 +39,7 @@ public enum EventSourceItemTypeField implements Valuable {
       return Arrays.stream(EventSourceItemTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<EventSourceItemTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<EventSourceItemTypeField>(value));
     }
   }

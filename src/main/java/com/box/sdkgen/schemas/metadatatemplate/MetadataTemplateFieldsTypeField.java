@@ -43,7 +43,7 @@ public enum MetadataTemplateFieldsTypeField implements Valuable {
       return Arrays.stream(MetadataTemplateFieldsTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<MetadataTemplateFieldsTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<MetadataTemplateFieldsTypeField>(value));
     }
   }

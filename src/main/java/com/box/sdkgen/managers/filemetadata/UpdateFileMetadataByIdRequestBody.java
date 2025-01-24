@@ -104,14 +104,14 @@ public class UpdateFileMetadataByIdRequestBody extends SerializableObject {
     protected String from;
 
     public UpdateFileMetadataByIdRequestBodyBuilder op(
-        EnumWrapper<UpdateFileMetadataByIdRequestBodyOpField> op) {
-      this.op = op;
+        UpdateFileMetadataByIdRequestBodyOpField op) {
+      this.op = new EnumWrapper<UpdateFileMetadataByIdRequestBodyOpField>(op);
       return this;
     }
 
     public UpdateFileMetadataByIdRequestBodyBuilder op(
-        UpdateFileMetadataByIdRequestBodyOpField op) {
-      this.op = new EnumWrapper<UpdateFileMetadataByIdRequestBodyOpField>(op.getValue(), op);
+        EnumWrapper<UpdateFileMetadataByIdRequestBodyOpField> op) {
+      this.op = op;
       return this;
     }
 

@@ -39,10 +39,7 @@ public enum CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField impl
       return Arrays.stream(CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(
               new EnumWrapper<CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField>(
                   value));

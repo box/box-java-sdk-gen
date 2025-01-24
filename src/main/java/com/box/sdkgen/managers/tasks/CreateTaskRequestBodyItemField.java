@@ -76,14 +76,14 @@ public class CreateTaskRequestBodyItemField extends SerializableObject {
       return this;
     }
 
-    public CreateTaskRequestBodyItemFieldBuilder type(
-        EnumWrapper<CreateTaskRequestBodyItemTypeField> type) {
-      this.type = type;
+    public CreateTaskRequestBodyItemFieldBuilder type(CreateTaskRequestBodyItemTypeField type) {
+      this.type = new EnumWrapper<CreateTaskRequestBodyItemTypeField>(type);
       return this;
     }
 
-    public CreateTaskRequestBodyItemFieldBuilder type(CreateTaskRequestBodyItemTypeField type) {
-      this.type = new EnumWrapper<CreateTaskRequestBodyItemTypeField>(type.getValue(), type);
+    public CreateTaskRequestBodyItemFieldBuilder type(
+        EnumWrapper<CreateTaskRequestBodyItemTypeField> type) {
+      this.type = type;
       return this;
     }
 

@@ -119,15 +119,14 @@ public class SkillInvocationTokenReadField extends SerializableObject {
     }
 
     public SkillInvocationTokenReadFieldBuilder tokenType(
-        EnumWrapper<SkillInvocationTokenReadTokenTypeField> tokenType) {
-      this.tokenType = tokenType;
+        SkillInvocationTokenReadTokenTypeField tokenType) {
+      this.tokenType = new EnumWrapper<SkillInvocationTokenReadTokenTypeField>(tokenType);
       return this;
     }
 
     public SkillInvocationTokenReadFieldBuilder tokenType(
-        SkillInvocationTokenReadTokenTypeField tokenType) {
-      this.tokenType =
-          new EnumWrapper<SkillInvocationTokenReadTokenTypeField>(tokenType.getValue(), tokenType);
+        EnumWrapper<SkillInvocationTokenReadTokenTypeField> tokenType) {
+      this.tokenType = tokenType;
       return this;
     }
 

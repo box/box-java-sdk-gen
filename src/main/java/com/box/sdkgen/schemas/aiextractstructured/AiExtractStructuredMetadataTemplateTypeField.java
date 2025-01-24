@@ -38,7 +38,7 @@ public enum AiExtractStructuredMetadataTemplateTypeField implements Valuable {
       return Arrays.stream(AiExtractStructuredMetadataTemplateTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<AiExtractStructuredMetadataTemplateTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AiExtractStructuredMetadataTemplateTypeField>(value));
     }
   }

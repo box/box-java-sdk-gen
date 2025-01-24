@@ -38,7 +38,7 @@ public enum PostOAuth2TokenRefreshAccessTokenGrantTypeField implements Valuable 
       return Arrays.stream(PostOAuth2TokenRefreshAccessTokenGrantTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<PostOAuth2TokenRefreshAccessTokenGrantTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<PostOAuth2TokenRefreshAccessTokenGrantTypeField>(value));
     }
   }

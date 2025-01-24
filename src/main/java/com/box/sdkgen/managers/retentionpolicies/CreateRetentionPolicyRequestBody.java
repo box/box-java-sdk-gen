@@ -80,12 +80,9 @@ public class CreateRetentionPolicyRequestBody extends SerializableObject {
       CreateRetentionPolicyRequestBodyDispositionActionField dispositionAction) {
     super();
     this.policyName = policyName;
-    this.policyType =
-        new EnumWrapper<CreateRetentionPolicyRequestBodyPolicyTypeField>(
-            policyType.getValue(), policyType);
+    this.policyType = new EnumWrapper<CreateRetentionPolicyRequestBodyPolicyTypeField>(policyType);
     this.dispositionAction =
-        new EnumWrapper<CreateRetentionPolicyRequestBodyDispositionActionField>(
-            dispositionAction.getValue(), dispositionAction);
+        new EnumWrapper<CreateRetentionPolicyRequestBodyDispositionActionField>(dispositionAction);
   }
 
   protected CreateRetentionPolicyRequestBody(CreateRetentionPolicyRequestBodyBuilder builder) {
@@ -236,15 +233,23 @@ public class CreateRetentionPolicyRequestBody extends SerializableObject {
 
     public CreateRetentionPolicyRequestBodyBuilder(
         String policyName,
+        EnumWrapper<CreateRetentionPolicyRequestBodyPolicyTypeField> policyType,
+        EnumWrapper<CreateRetentionPolicyRequestBodyDispositionActionField> dispositionAction) {
+      this.policyName = policyName;
+      this.policyType = policyType;
+      this.dispositionAction = dispositionAction;
+    }
+
+    public CreateRetentionPolicyRequestBodyBuilder(
+        String policyName,
         CreateRetentionPolicyRequestBodyPolicyTypeField policyType,
         CreateRetentionPolicyRequestBodyDispositionActionField dispositionAction) {
       this.policyName = policyName;
       this.policyType =
-          new EnumWrapper<CreateRetentionPolicyRequestBodyPolicyTypeField>(
-              policyType.getValue(), policyType);
+          new EnumWrapper<CreateRetentionPolicyRequestBodyPolicyTypeField>(policyType);
       this.dispositionAction =
           new EnumWrapper<CreateRetentionPolicyRequestBodyDispositionActionField>(
-              dispositionAction.getValue(), dispositionAction);
+              dispositionAction);
     }
 
     public CreateRetentionPolicyRequestBodyBuilder description(String description) {
@@ -258,16 +263,15 @@ public class CreateRetentionPolicyRequestBody extends SerializableObject {
     }
 
     public CreateRetentionPolicyRequestBodyBuilder retentionType(
-        EnumWrapper<CreateRetentionPolicyRequestBodyRetentionTypeField> retentionType) {
-      this.retentionType = retentionType;
+        CreateRetentionPolicyRequestBodyRetentionTypeField retentionType) {
+      this.retentionType =
+          new EnumWrapper<CreateRetentionPolicyRequestBodyRetentionTypeField>(retentionType);
       return this;
     }
 
     public CreateRetentionPolicyRequestBodyBuilder retentionType(
-        CreateRetentionPolicyRequestBodyRetentionTypeField retentionType) {
-      this.retentionType =
-          new EnumWrapper<CreateRetentionPolicyRequestBodyRetentionTypeField>(
-              retentionType.getValue(), retentionType);
+        EnumWrapper<CreateRetentionPolicyRequestBodyRetentionTypeField> retentionType) {
+      this.retentionType = retentionType;
       return this;
     }
 

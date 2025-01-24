@@ -43,7 +43,7 @@ public enum UpdateFileMetadataByIdRequestBodyOpField implements Valuable {
       return Arrays.stream(UpdateFileMetadataByIdRequestBodyOpField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateFileMetadataByIdRequestBodyOpField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateFileMetadataByIdRequestBodyOpField>(value));
     }
   }

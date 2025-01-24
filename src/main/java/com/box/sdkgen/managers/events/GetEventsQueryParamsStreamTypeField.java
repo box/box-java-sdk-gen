@@ -42,7 +42,7 @@ public enum GetEventsQueryParamsStreamTypeField implements Valuable {
       return Arrays.stream(GetEventsQueryParamsStreamTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GetEventsQueryParamsStreamTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GetEventsQueryParamsStreamTypeField>(value));
     }
   }

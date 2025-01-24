@@ -97,16 +97,14 @@ public class CollaborationAllowlistExemptTargetEnterpriseField extends Serializa
     }
 
     public CollaborationAllowlistExemptTargetEnterpriseFieldBuilder type(
-        EnumWrapper<CollaborationAllowlistExemptTargetEnterpriseTypeField> type) {
-      this.type = type;
+        CollaborationAllowlistExemptTargetEnterpriseTypeField type) {
+      this.type = new EnumWrapper<CollaborationAllowlistExemptTargetEnterpriseTypeField>(type);
       return this;
     }
 
     public CollaborationAllowlistExemptTargetEnterpriseFieldBuilder type(
-        CollaborationAllowlistExemptTargetEnterpriseTypeField type) {
-      this.type =
-          new EnumWrapper<CollaborationAllowlistExemptTargetEnterpriseTypeField>(
-              type.getValue(), type);
+        EnumWrapper<CollaborationAllowlistExemptTargetEnterpriseTypeField> type) {
+      this.type = type;
       return this;
     }
 

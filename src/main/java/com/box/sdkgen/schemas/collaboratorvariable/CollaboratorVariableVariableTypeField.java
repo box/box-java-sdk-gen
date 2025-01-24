@@ -38,7 +38,7 @@ public enum CollaboratorVariableVariableTypeField implements Valuable {
       return Arrays.stream(CollaboratorVariableVariableTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CollaboratorVariableVariableTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CollaboratorVariableVariableTypeField>(value));
     }
   }

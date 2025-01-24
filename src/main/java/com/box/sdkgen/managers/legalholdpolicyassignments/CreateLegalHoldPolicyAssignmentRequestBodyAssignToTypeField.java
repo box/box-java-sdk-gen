@@ -42,10 +42,7 @@ public enum CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField implemen
       return Arrays.stream(CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(
               new EnumWrapper<CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField>(value));
     }

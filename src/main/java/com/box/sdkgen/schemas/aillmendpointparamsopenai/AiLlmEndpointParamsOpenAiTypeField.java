@@ -38,7 +38,7 @@ public enum AiLlmEndpointParamsOpenAiTypeField implements Valuable {
       return Arrays.stream(AiLlmEndpointParamsOpenAiTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<AiLlmEndpointParamsOpenAiTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AiLlmEndpointParamsOpenAiTypeField>(value));
     }
   }

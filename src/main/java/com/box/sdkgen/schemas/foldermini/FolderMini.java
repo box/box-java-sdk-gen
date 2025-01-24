@@ -104,14 +104,14 @@ public class FolderMini extends FolderBase {
     }
 
     @Override
-    public FolderMiniBuilder type(EnumWrapper<FolderBaseTypeField> type) {
-      this.type = type;
+    public FolderMiniBuilder type(FolderBaseTypeField type) {
+      this.type = new EnumWrapper<FolderBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FolderMiniBuilder type(FolderBaseTypeField type) {
-      this.type = new EnumWrapper<FolderBaseTypeField>(type.getValue(), type);
+    public FolderMiniBuilder type(EnumWrapper<FolderBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

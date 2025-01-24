@@ -88,16 +88,16 @@ public class GetSlackIntegrationMappingQueryParams {
     }
 
     public GetSlackIntegrationMappingQueryParamsBuilder partnerItemType(
-        EnumWrapper<GetSlackIntegrationMappingQueryParamsPartnerItemTypeField> partnerItemType) {
-      this.partnerItemType = partnerItemType;
+        GetSlackIntegrationMappingQueryParamsPartnerItemTypeField partnerItemType) {
+      this.partnerItemType =
+          new EnumWrapper<GetSlackIntegrationMappingQueryParamsPartnerItemTypeField>(
+              partnerItemType);
       return this;
     }
 
     public GetSlackIntegrationMappingQueryParamsBuilder partnerItemType(
-        GetSlackIntegrationMappingQueryParamsPartnerItemTypeField partnerItemType) {
-      this.partnerItemType =
-          new EnumWrapper<GetSlackIntegrationMappingQueryParamsPartnerItemTypeField>(
-              partnerItemType.getValue(), partnerItemType);
+        EnumWrapper<GetSlackIntegrationMappingQueryParamsPartnerItemTypeField> partnerItemType) {
+      this.partnerItemType = partnerItemType;
       return this;
     }
 
@@ -112,16 +112,15 @@ public class GetSlackIntegrationMappingQueryParams {
     }
 
     public GetSlackIntegrationMappingQueryParamsBuilder boxItemType(
-        EnumWrapper<GetSlackIntegrationMappingQueryParamsBoxItemTypeField> boxItemType) {
-      this.boxItemType = boxItemType;
+        GetSlackIntegrationMappingQueryParamsBoxItemTypeField boxItemType) {
+      this.boxItemType =
+          new EnumWrapper<GetSlackIntegrationMappingQueryParamsBoxItemTypeField>(boxItemType);
       return this;
     }
 
     public GetSlackIntegrationMappingQueryParamsBuilder boxItemType(
-        GetSlackIntegrationMappingQueryParamsBoxItemTypeField boxItemType) {
-      this.boxItemType =
-          new EnumWrapper<GetSlackIntegrationMappingQueryParamsBoxItemTypeField>(
-              boxItemType.getValue(), boxItemType);
+        EnumWrapper<GetSlackIntegrationMappingQueryParamsBoxItemTypeField> boxItemType) {
+      this.boxItemType = boxItemType;
       return this;
     }
 

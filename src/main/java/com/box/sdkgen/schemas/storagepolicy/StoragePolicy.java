@@ -73,14 +73,14 @@ public class StoragePolicy extends StoragePolicyMini {
     }
 
     @Override
-    public StoragePolicyBuilder type(EnumWrapper<StoragePolicyMiniTypeField> type) {
-      this.type = type;
+    public StoragePolicyBuilder type(StoragePolicyMiniTypeField type) {
+      this.type = new EnumWrapper<StoragePolicyMiniTypeField>(type);
       return this;
     }
 
     @Override
-    public StoragePolicyBuilder type(StoragePolicyMiniTypeField type) {
-      this.type = new EnumWrapper<StoragePolicyMiniTypeField>(type.getValue(), type);
+    public StoragePolicyBuilder type(EnumWrapper<StoragePolicyMiniTypeField> type) {
+      this.type = type;
       return this;
     }
 

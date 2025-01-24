@@ -36,7 +36,7 @@ public class DocGenTagV2025R0 extends SerializableObject {
       String tagContent, DocGenTagV2025R0TagTypeField tagType, List<String> jsonPaths) {
     super();
     this.tagContent = tagContent;
-    this.tagType = new EnumWrapper<DocGenTagV2025R0TagTypeField>(tagType.getValue(), tagType);
+    this.tagType = new EnumWrapper<DocGenTagV2025R0TagTypeField>(tagType);
     this.jsonPaths = jsonPaths;
   }
 

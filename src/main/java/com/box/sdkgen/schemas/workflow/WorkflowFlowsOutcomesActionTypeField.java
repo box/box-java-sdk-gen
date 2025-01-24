@@ -60,7 +60,7 @@ public enum WorkflowFlowsOutcomesActionTypeField implements Valuable {
       return Arrays.stream(WorkflowFlowsOutcomesActionTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<WorkflowFlowsOutcomesActionTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<WorkflowFlowsOutcomesActionTypeField>(value));
     }
   }

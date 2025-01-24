@@ -43,8 +43,7 @@ public class CreateMetadataTemplateRequestBodyFieldsField extends SerializableOb
   public CreateMetadataTemplateRequestBodyFieldsField(
       CreateMetadataTemplateRequestBodyFieldsTypeField type, String key, String displayName) {
     super();
-    this.type =
-        new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(type.getValue(), type);
+    this.type = new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(type);
     this.key = key;
     this.displayName = displayName;
   }
@@ -151,9 +150,17 @@ public class CreateMetadataTemplateRequestBodyFieldsField extends SerializableOb
     protected List<CreateMetadataTemplateRequestBodyFieldsOptionsField> options;
 
     public CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+        EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField> type,
+        String key,
+        String displayName) {
+      this.type = type;
+      this.key = key;
+      this.displayName = displayName;
+    }
+
+    public CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
         CreateMetadataTemplateRequestBodyFieldsTypeField type, String key, String displayName) {
-      this.type =
-          new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(type.getValue(), type);
+      this.type = new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(type);
       this.key = key;
       this.displayName = displayName;
     }

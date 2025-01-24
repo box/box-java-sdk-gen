@@ -20,9 +20,7 @@ public class FileReferenceV2025R0 extends SerializableObject {
   public FileReferenceV2025R0(@JsonProperty("id") String id) {
     super();
     this.id = id;
-    this.type =
-        new EnumWrapper<FileReferenceV2025R0TypeField>(
-            FileReferenceV2025R0TypeField.FILE.getValue(), FileReferenceV2025R0TypeField.FILE);
+    this.type = new EnumWrapper<FileReferenceV2025R0TypeField>(FileReferenceV2025R0TypeField.FILE);
   }
 
   protected FileReferenceV2025R0(FileReferenceV2025R0Builder builder) {
@@ -70,17 +68,16 @@ public class FileReferenceV2025R0 extends SerializableObject {
     public FileReferenceV2025R0Builder(String id) {
       this.id = id;
       this.type =
-          new EnumWrapper<FileReferenceV2025R0TypeField>(
-              FileReferenceV2025R0TypeField.FILE.getValue(), FileReferenceV2025R0TypeField.FILE);
+          new EnumWrapper<FileReferenceV2025R0TypeField>(FileReferenceV2025R0TypeField.FILE);
+    }
+
+    public FileReferenceV2025R0Builder type(FileReferenceV2025R0TypeField type) {
+      this.type = new EnumWrapper<FileReferenceV2025R0TypeField>(type);
+      return this;
     }
 
     public FileReferenceV2025R0Builder type(EnumWrapper<FileReferenceV2025R0TypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public FileReferenceV2025R0Builder type(FileReferenceV2025R0TypeField type) {
-      this.type = new EnumWrapper<FileReferenceV2025R0TypeField>(type.getValue(), type);
       return this;
     }
 

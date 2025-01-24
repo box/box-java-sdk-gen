@@ -118,13 +118,13 @@ public class WorkflowMini extends SerializableObject {
       return this;
     }
 
-    public WorkflowMiniBuilder type(EnumWrapper<WorkflowMiniTypeField> type) {
-      this.type = type;
+    public WorkflowMiniBuilder type(WorkflowMiniTypeField type) {
+      this.type = new EnumWrapper<WorkflowMiniTypeField>(type);
       return this;
     }
 
-    public WorkflowMiniBuilder type(WorkflowMiniTypeField type) {
-      this.type = new EnumWrapper<WorkflowMiniTypeField>(type.getValue(), type);
+    public WorkflowMiniBuilder type(EnumWrapper<WorkflowMiniTypeField> type) {
+      this.type = type;
       return this;
     }
 

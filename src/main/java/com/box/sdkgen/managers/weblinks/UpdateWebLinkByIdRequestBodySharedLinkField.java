@@ -109,16 +109,14 @@ public class UpdateWebLinkByIdRequestBodySharedLinkField extends SerializableObj
     protected String unsharedAt;
 
     public UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder access(
-        EnumWrapper<UpdateWebLinkByIdRequestBodySharedLinkAccessField> access) {
-      this.access = access;
+        UpdateWebLinkByIdRequestBodySharedLinkAccessField access) {
+      this.access = new EnumWrapper<UpdateWebLinkByIdRequestBodySharedLinkAccessField>(access);
       return this;
     }
 
     public UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder access(
-        UpdateWebLinkByIdRequestBodySharedLinkAccessField access) {
-      this.access =
-          new EnumWrapper<UpdateWebLinkByIdRequestBodySharedLinkAccessField>(
-              access.getValue(), access);
+        EnumWrapper<UpdateWebLinkByIdRequestBodySharedLinkAccessField> access) {
+      this.access = access;
       return this;
     }
 

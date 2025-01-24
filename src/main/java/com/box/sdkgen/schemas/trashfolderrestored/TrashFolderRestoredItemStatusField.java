@@ -40,7 +40,7 @@ public enum TrashFolderRestoredItemStatusField implements Valuable {
       return Arrays.stream(TrashFolderRestoredItemStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<TrashFolderRestoredItemStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<TrashFolderRestoredItemStatusField>(value));
     }
   }

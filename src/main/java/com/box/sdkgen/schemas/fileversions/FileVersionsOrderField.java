@@ -75,15 +75,14 @@ public class FileVersionsOrderField extends SerializableObject {
       return this;
     }
 
-    public FileVersionsOrderFieldBuilder direction(
-        EnumWrapper<FileVersionsOrderDirectionField> direction) {
-      this.direction = direction;
+    public FileVersionsOrderFieldBuilder direction(FileVersionsOrderDirectionField direction) {
+      this.direction = new EnumWrapper<FileVersionsOrderDirectionField>(direction);
       return this;
     }
 
-    public FileVersionsOrderFieldBuilder direction(FileVersionsOrderDirectionField direction) {
-      this.direction =
-          new EnumWrapper<FileVersionsOrderDirectionField>(direction.getValue(), direction);
+    public FileVersionsOrderFieldBuilder direction(
+        EnumWrapper<FileVersionsOrderDirectionField> direction) {
+      this.direction = direction;
       return this;
     }
 

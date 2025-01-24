@@ -39,7 +39,7 @@ public enum ZipDownloadNameConflictsTypeField implements Valuable {
       return Arrays.stream(ZipDownloadNameConflictsTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<ZipDownloadNameConflictsTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<ZipDownloadNameConflictsTypeField>(value));
     }
   }

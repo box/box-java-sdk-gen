@@ -26,7 +26,6 @@ public class CreateTermsOfServiceStatusForUserRequestBodyUserField extends Seria
     this.id = id;
     this.type =
         new EnumWrapper<CreateTermsOfServiceStatusForUserRequestBodyUserTypeField>(
-            CreateTermsOfServiceStatusForUserRequestBodyUserTypeField.USER.getValue(),
             CreateTermsOfServiceStatusForUserRequestBodyUserTypeField.USER);
   }
 
@@ -86,21 +85,18 @@ public class CreateTermsOfServiceStatusForUserRequestBodyUserField extends Seria
       this.id = id;
       this.type =
           new EnumWrapper<CreateTermsOfServiceStatusForUserRequestBodyUserTypeField>(
-              CreateTermsOfServiceStatusForUserRequestBodyUserTypeField.USER.getValue(),
               CreateTermsOfServiceStatusForUserRequestBodyUserTypeField.USER);
+    }
+
+    public CreateTermsOfServiceStatusForUserRequestBodyUserFieldBuilder type(
+        CreateTermsOfServiceStatusForUserRequestBodyUserTypeField type) {
+      this.type = new EnumWrapper<CreateTermsOfServiceStatusForUserRequestBodyUserTypeField>(type);
+      return this;
     }
 
     public CreateTermsOfServiceStatusForUserRequestBodyUserFieldBuilder type(
         EnumWrapper<CreateTermsOfServiceStatusForUserRequestBodyUserTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public CreateTermsOfServiceStatusForUserRequestBodyUserFieldBuilder type(
-        CreateTermsOfServiceStatusForUserRequestBodyUserTypeField type) {
-      this.type =
-          new EnumWrapper<CreateTermsOfServiceStatusForUserRequestBodyUserTypeField>(
-              type.getValue(), type);
       return this;
     }
 

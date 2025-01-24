@@ -40,7 +40,7 @@ public enum FolderFullSyncStateField implements Valuable {
       return Arrays.stream(FolderFullSyncStateField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FolderFullSyncStateField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FolderFullSyncStateField>(value));
     }
   }

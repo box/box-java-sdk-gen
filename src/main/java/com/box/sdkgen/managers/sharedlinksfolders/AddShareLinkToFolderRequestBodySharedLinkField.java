@@ -123,16 +123,14 @@ public class AddShareLinkToFolderRequestBodySharedLinkField extends Serializable
     protected AddShareLinkToFolderRequestBodySharedLinkPermissionsField permissions;
 
     public AddShareLinkToFolderRequestBodySharedLinkFieldBuilder access(
-        EnumWrapper<AddShareLinkToFolderRequestBodySharedLinkAccessField> access) {
-      this.access = access;
+        AddShareLinkToFolderRequestBodySharedLinkAccessField access) {
+      this.access = new EnumWrapper<AddShareLinkToFolderRequestBodySharedLinkAccessField>(access);
       return this;
     }
 
     public AddShareLinkToFolderRequestBodySharedLinkFieldBuilder access(
-        AddShareLinkToFolderRequestBodySharedLinkAccessField access) {
-      this.access =
-          new EnumWrapper<AddShareLinkToFolderRequestBodySharedLinkAccessField>(
-              access.getValue(), access);
+        EnumWrapper<AddShareLinkToFolderRequestBodySharedLinkAccessField> access) {
+      this.access = access;
       return this;
     }
 

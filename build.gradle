@@ -44,11 +44,6 @@ test {
       // Additional params are not supported
       excludeTestsMatching 'com.box.sdkgen.test.filemetadata.FileMetadataITest.testGlobalFileMetadata'
       excludeTestsMatching 'com.box.sdkgen.test.foldermetadata.FolderMetadataITest.testGlobalFolderMetadata'
-      
-      // List of enums is not wrapped with EnumWrapper
-      excludeTestsMatching 'com.box.sdkgen.test.signtemplates.SignTemplatesITest.testGetSignTemplates'
-      excludeTestsMatching 'com.box.sdkgen.test.signtemplates.SignTemplatesITest.testGetSignTemplate'
-      excludeTestsMatching 'com.box.sdkgen.test.webhooks.WebhooksITest.testWebhooksCrud'
 
       // Socket timeout
       excludeTestsMatching 'com.box.sdkgen.test.transfer.TransferITest.testTransferUserContent'

@@ -65,13 +65,13 @@ public class WebhookMiniTargetField extends SerializableObject {
       return this;
     }
 
-    public WebhookMiniTargetFieldBuilder type(EnumWrapper<WebhookMiniTargetTypeField> type) {
-      this.type = type;
+    public WebhookMiniTargetFieldBuilder type(WebhookMiniTargetTypeField type) {
+      this.type = new EnumWrapper<WebhookMiniTargetTypeField>(type);
       return this;
     }
 
-    public WebhookMiniTargetFieldBuilder type(WebhookMiniTargetTypeField type) {
-      this.type = new EnumWrapper<WebhookMiniTargetTypeField>(type.getValue(), type);
+    public WebhookMiniTargetFieldBuilder type(EnumWrapper<WebhookMiniTargetTypeField> type) {
+      this.type = type;
       return this;
     }
 

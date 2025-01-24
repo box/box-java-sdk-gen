@@ -38,7 +38,7 @@ public enum TermsOfServiceUserStatusTypeField implements Valuable {
       return Arrays.stream(TermsOfServiceUserStatusTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<TermsOfServiceUserStatusTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<TermsOfServiceUserStatusTypeField>(value));
     }
   }

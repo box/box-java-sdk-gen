@@ -39,7 +39,7 @@ public enum GroupMiniGroupTypeField implements Valuable {
       return Arrays.stream(GroupMiniGroupTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GroupMiniGroupTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GroupMiniGroupTypeField>(value));
     }
   }

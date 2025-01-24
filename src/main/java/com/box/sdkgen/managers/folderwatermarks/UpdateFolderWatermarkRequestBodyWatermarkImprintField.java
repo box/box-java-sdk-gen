@@ -38,9 +38,7 @@ public enum UpdateFolderWatermarkRequestBodyWatermarkImprintField implements Val
       return Arrays.stream(UpdateFolderWatermarkRequestBodyWatermarkImprintField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<UpdateFolderWatermarkRequestBodyWatermarkImprintField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateFolderWatermarkRequestBodyWatermarkImprintField>(value));
     }
   }

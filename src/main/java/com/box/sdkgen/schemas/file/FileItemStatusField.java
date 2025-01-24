@@ -40,7 +40,7 @@ public enum FileItemStatusField implements Valuable {
       return Arrays.stream(FileItemStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileItemStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileItemStatusField>(value));
     }
   }

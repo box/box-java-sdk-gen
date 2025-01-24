@@ -97,15 +97,14 @@ public class CollaborationAllowlistEntryEnterpriseField extends SerializableObje
     }
 
     public CollaborationAllowlistEntryEnterpriseFieldBuilder type(
-        EnumWrapper<CollaborationAllowlistEntryEnterpriseTypeField> type) {
-      this.type = type;
+        CollaborationAllowlistEntryEnterpriseTypeField type) {
+      this.type = new EnumWrapper<CollaborationAllowlistEntryEnterpriseTypeField>(type);
       return this;
     }
 
     public CollaborationAllowlistEntryEnterpriseFieldBuilder type(
-        CollaborationAllowlistEntryEnterpriseTypeField type) {
-      this.type =
-          new EnumWrapper<CollaborationAllowlistEntryEnterpriseTypeField>(type.getValue(), type);
+        EnumWrapper<CollaborationAllowlistEntryEnterpriseTypeField> type) {
+      this.type = type;
       return this;
     }
 

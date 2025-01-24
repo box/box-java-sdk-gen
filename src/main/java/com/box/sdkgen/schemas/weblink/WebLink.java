@@ -330,25 +330,25 @@ public class WebLink extends WebLinkMini {
       return this;
     }
 
+    public WebLinkBuilder itemStatus(WebLinkItemStatusField itemStatus) {
+      this.itemStatus = new EnumWrapper<WebLinkItemStatusField>(itemStatus);
+      return this;
+    }
+
     public WebLinkBuilder itemStatus(EnumWrapper<WebLinkItemStatusField> itemStatus) {
       this.itemStatus = itemStatus;
       return this;
     }
 
-    public WebLinkBuilder itemStatus(WebLinkItemStatusField itemStatus) {
-      this.itemStatus = new EnumWrapper<WebLinkItemStatusField>(itemStatus.getValue(), itemStatus);
+    @Override
+    public WebLinkBuilder type(WebLinkBaseTypeField type) {
+      this.type = new EnumWrapper<WebLinkBaseTypeField>(type);
       return this;
     }
 
     @Override
     public WebLinkBuilder type(EnumWrapper<WebLinkBaseTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    @Override
-    public WebLinkBuilder type(WebLinkBaseTypeField type) {
-      this.type = new EnumWrapper<WebLinkBaseTypeField>(type.getValue(), type);
       return this;
     }
 

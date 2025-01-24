@@ -38,7 +38,7 @@ public enum UpdateFileByIdRequestBodyLockAccessField implements Valuable {
       return Arrays.stream(UpdateFileByIdRequestBodyLockAccessField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateFileByIdRequestBodyLockAccessField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateFileByIdRequestBodyLockAccessField>(value));
     }
   }

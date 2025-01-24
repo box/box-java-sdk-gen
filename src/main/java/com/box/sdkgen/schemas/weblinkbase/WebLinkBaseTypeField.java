@@ -38,7 +38,7 @@ public enum WebLinkBaseTypeField implements Valuable {
       return Arrays.stream(WebLinkBaseTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<WebLinkBaseTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<WebLinkBaseTypeField>(value));
     }
   }

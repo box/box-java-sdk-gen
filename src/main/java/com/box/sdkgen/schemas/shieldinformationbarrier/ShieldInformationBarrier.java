@@ -213,14 +213,14 @@ public class ShieldInformationBarrier extends SerializableObject {
       return this;
     }
 
-    public ShieldInformationBarrierBuilder type(
-        EnumWrapper<ShieldInformationBarrierTypeField> type) {
-      this.type = type;
+    public ShieldInformationBarrierBuilder type(ShieldInformationBarrierTypeField type) {
+      this.type = new EnumWrapper<ShieldInformationBarrierTypeField>(type);
       return this;
     }
 
-    public ShieldInformationBarrierBuilder type(ShieldInformationBarrierTypeField type) {
-      this.type = new EnumWrapper<ShieldInformationBarrierTypeField>(type.getValue(), type);
+    public ShieldInformationBarrierBuilder type(
+        EnumWrapper<ShieldInformationBarrierTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -229,14 +229,14 @@ public class ShieldInformationBarrier extends SerializableObject {
       return this;
     }
 
-    public ShieldInformationBarrierBuilder status(
-        EnumWrapper<ShieldInformationBarrierStatusField> status) {
-      this.status = status;
+    public ShieldInformationBarrierBuilder status(ShieldInformationBarrierStatusField status) {
+      this.status = new EnumWrapper<ShieldInformationBarrierStatusField>(status);
       return this;
     }
 
-    public ShieldInformationBarrierBuilder status(ShieldInformationBarrierStatusField status) {
-      this.status = new EnumWrapper<ShieldInformationBarrierStatusField>(status.getValue(), status);
+    public ShieldInformationBarrierBuilder status(
+        EnumWrapper<ShieldInformationBarrierStatusField> status) {
+      this.status = status;
       return this;
     }
 

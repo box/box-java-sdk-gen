@@ -40,7 +40,7 @@ public enum SignRequestCreateSignerRoleField implements Valuable {
       return Arrays.stream(SignRequestCreateSignerRoleField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<SignRequestCreateSignerRoleField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<SignRequestCreateSignerRoleField>(value));
     }
   }

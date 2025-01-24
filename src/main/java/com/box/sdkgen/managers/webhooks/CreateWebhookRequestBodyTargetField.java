@@ -81,14 +81,14 @@ public class CreateWebhookRequestBodyTargetField extends SerializableObject {
     }
 
     public CreateWebhookRequestBodyTargetFieldBuilder type(
-        EnumWrapper<CreateWebhookRequestBodyTargetTypeField> type) {
-      this.type = type;
+        CreateWebhookRequestBodyTargetTypeField type) {
+      this.type = new EnumWrapper<CreateWebhookRequestBodyTargetTypeField>(type);
       return this;
     }
 
     public CreateWebhookRequestBodyTargetFieldBuilder type(
-        CreateWebhookRequestBodyTargetTypeField type) {
-      this.type = new EnumWrapper<CreateWebhookRequestBodyTargetTypeField>(type.getValue(), type);
+        EnumWrapper<CreateWebhookRequestBodyTargetTypeField> type) {
+      this.type = type;
       return this;
     }
 

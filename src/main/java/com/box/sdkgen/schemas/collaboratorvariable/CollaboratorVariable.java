@@ -35,12 +35,9 @@ public class CollaboratorVariable extends SerializableObject {
     super();
     this.variableValue = variableValue;
     this.type =
-        new EnumWrapper<CollaboratorVariableTypeField>(
-            CollaboratorVariableTypeField.VARIABLE.getValue(),
-            CollaboratorVariableTypeField.VARIABLE);
+        new EnumWrapper<CollaboratorVariableTypeField>(CollaboratorVariableTypeField.VARIABLE);
     this.variableType =
         new EnumWrapper<CollaboratorVariableVariableTypeField>(
-            CollaboratorVariableVariableTypeField.USER_LIST.getValue(),
             CollaboratorVariableVariableTypeField.USER_LIST);
   }
 
@@ -110,13 +107,15 @@ public class CollaboratorVariable extends SerializableObject {
     public CollaboratorVariableBuilder(List<CollaboratorVariableVariableValueField> variableValue) {
       this.variableValue = variableValue;
       this.type =
-          new EnumWrapper<CollaboratorVariableTypeField>(
-              CollaboratorVariableTypeField.VARIABLE.getValue(),
-              CollaboratorVariableTypeField.VARIABLE);
+          new EnumWrapper<CollaboratorVariableTypeField>(CollaboratorVariableTypeField.VARIABLE);
       this.variableType =
           new EnumWrapper<CollaboratorVariableVariableTypeField>(
-              CollaboratorVariableVariableTypeField.USER_LIST.getValue(),
               CollaboratorVariableVariableTypeField.USER_LIST);
+    }
+
+    public CollaboratorVariableBuilder type(CollaboratorVariableTypeField type) {
+      this.type = new EnumWrapper<CollaboratorVariableTypeField>(type);
+      return this;
     }
 
     public CollaboratorVariableBuilder type(EnumWrapper<CollaboratorVariableTypeField> type) {
@@ -124,22 +123,15 @@ public class CollaboratorVariable extends SerializableObject {
       return this;
     }
 
-    public CollaboratorVariableBuilder type(CollaboratorVariableTypeField type) {
-      this.type = new EnumWrapper<CollaboratorVariableTypeField>(type.getValue(), type);
+    public CollaboratorVariableBuilder variableType(
+        CollaboratorVariableVariableTypeField variableType) {
+      this.variableType = new EnumWrapper<CollaboratorVariableVariableTypeField>(variableType);
       return this;
     }
 
     public CollaboratorVariableBuilder variableType(
         EnumWrapper<CollaboratorVariableVariableTypeField> variableType) {
       this.variableType = variableType;
-      return this;
-    }
-
-    public CollaboratorVariableBuilder variableType(
-        CollaboratorVariableVariableTypeField variableType) {
-      this.variableType =
-          new EnumWrapper<CollaboratorVariableVariableTypeField>(
-              variableType.getValue(), variableType);
       return this;
     }
 

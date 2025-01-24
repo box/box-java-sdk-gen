@@ -42,7 +42,7 @@ public enum RecentItemInteractionTypeField implements Valuable {
       return Arrays.stream(RecentItemInteractionTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<RecentItemInteractionTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<RecentItemInteractionTypeField>(value));
     }
   }

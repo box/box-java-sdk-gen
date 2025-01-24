@@ -40,7 +40,7 @@ public enum TrashFileItemStatusField implements Valuable {
       return Arrays.stream(TrashFileItemStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<TrashFileItemStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<TrashFileItemStatusField>(value));
     }
   }

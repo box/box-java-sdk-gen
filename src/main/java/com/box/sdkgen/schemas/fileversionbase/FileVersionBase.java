@@ -18,10 +18,7 @@ public class FileVersionBase extends SerializableObject {
   public FileVersionBase(@JsonProperty("id") String id) {
     super();
     this.id = id;
-    this.type =
-        new EnumWrapper<FileVersionBaseTypeField>(
-            FileVersionBaseTypeField.FILE_VERSION.getValue(),
-            FileVersionBaseTypeField.FILE_VERSION);
+    this.type = new EnumWrapper<FileVersionBaseTypeField>(FileVersionBaseTypeField.FILE_VERSION);
   }
 
   protected FileVersionBase(FileVersionBaseBuilder builder) {
@@ -68,19 +65,16 @@ public class FileVersionBase extends SerializableObject {
 
     public FileVersionBaseBuilder(String id) {
       this.id = id;
-      this.type =
-          new EnumWrapper<FileVersionBaseTypeField>(
-              FileVersionBaseTypeField.FILE_VERSION.getValue(),
-              FileVersionBaseTypeField.FILE_VERSION);
+      this.type = new EnumWrapper<FileVersionBaseTypeField>(FileVersionBaseTypeField.FILE_VERSION);
+    }
+
+    public FileVersionBaseBuilder type(FileVersionBaseTypeField type) {
+      this.type = new EnumWrapper<FileVersionBaseTypeField>(type);
+      return this;
     }
 
     public FileVersionBaseBuilder type(EnumWrapper<FileVersionBaseTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public FileVersionBaseBuilder type(FileVersionBaseTypeField type) {
-      this.type = new EnumWrapper<FileVersionBaseTypeField>(type.getValue(), type);
       return this;
     }
 

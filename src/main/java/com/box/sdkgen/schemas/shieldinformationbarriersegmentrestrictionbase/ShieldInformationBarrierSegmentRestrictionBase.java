@@ -77,16 +77,14 @@ public class ShieldInformationBarrierSegmentRestrictionBase extends Serializable
     protected String id;
 
     public ShieldInformationBarrierSegmentRestrictionBaseBuilder type(
-        EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField> type) {
-      this.type = type;
+        ShieldInformationBarrierSegmentRestrictionBaseTypeField type) {
+      this.type = new EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField>(type);
       return this;
     }
 
     public ShieldInformationBarrierSegmentRestrictionBaseBuilder type(
-        ShieldInformationBarrierSegmentRestrictionBaseTypeField type) {
-      this.type =
-          new EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField>(
-              type.getValue(), type);
+        EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

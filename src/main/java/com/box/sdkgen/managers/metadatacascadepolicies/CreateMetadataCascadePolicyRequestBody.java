@@ -38,8 +38,7 @@ public class CreateMetadataCascadePolicyRequestBody extends SerializableObject {
       String folderId, CreateMetadataCascadePolicyRequestBodyScopeField scope, String templateKey) {
     super();
     this.folderId = folderId;
-    this.scope =
-        new EnumWrapper<CreateMetadataCascadePolicyRequestBodyScopeField>(scope.getValue(), scope);
+    this.scope = new EnumWrapper<CreateMetadataCascadePolicyRequestBodyScopeField>(scope);
     this.templateKey = templateKey;
   }
 

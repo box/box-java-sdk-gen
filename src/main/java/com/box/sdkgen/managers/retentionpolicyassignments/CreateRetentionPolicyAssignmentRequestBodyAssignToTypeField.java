@@ -41,10 +41,7 @@ public enum CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField implemen
       return Arrays.stream(CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(
               new EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField>(value));
     }

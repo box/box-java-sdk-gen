@@ -38,7 +38,7 @@ public enum CollectionCollectionTypeField implements Valuable {
       return Arrays.stream(CollectionCollectionTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CollectionCollectionTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CollectionCollectionTypeField>(value));
     }
   }

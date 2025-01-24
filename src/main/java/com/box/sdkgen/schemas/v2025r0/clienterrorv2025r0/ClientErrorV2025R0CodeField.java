@@ -54,7 +54,7 @@ public enum ClientErrorV2025R0CodeField implements Valuable {
       return Arrays.stream(ClientErrorV2025R0CodeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<ClientErrorV2025R0CodeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<ClientErrorV2025R0CodeField>(value));
     }
   }

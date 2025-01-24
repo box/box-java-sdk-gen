@@ -232,16 +232,14 @@ public class UpdateFolderByIdRequestBody extends SerializableObject {
     }
 
     public UpdateFolderByIdRequestBodyBuilder syncState(
-        EnumWrapper<UpdateFolderByIdRequestBodySyncStateField> syncState) {
-      this.syncState = syncState;
+        UpdateFolderByIdRequestBodySyncStateField syncState) {
+      this.syncState = new EnumWrapper<UpdateFolderByIdRequestBodySyncStateField>(syncState);
       return this;
     }
 
     public UpdateFolderByIdRequestBodyBuilder syncState(
-        UpdateFolderByIdRequestBodySyncStateField syncState) {
-      this.syncState =
-          new EnumWrapper<UpdateFolderByIdRequestBodySyncStateField>(
-              syncState.getValue(), syncState);
+        EnumWrapper<UpdateFolderByIdRequestBodySyncStateField> syncState) {
+      this.syncState = syncState;
       return this;
     }
 

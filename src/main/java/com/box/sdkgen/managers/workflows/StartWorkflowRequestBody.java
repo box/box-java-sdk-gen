@@ -131,14 +131,14 @@ public class StartWorkflowRequestBody extends SerializableObject {
       this.folder = folder;
     }
 
-    public StartWorkflowRequestBodyBuilder type(
-        EnumWrapper<StartWorkflowRequestBodyTypeField> type) {
-      this.type = type;
+    public StartWorkflowRequestBodyBuilder type(StartWorkflowRequestBodyTypeField type) {
+      this.type = new EnumWrapper<StartWorkflowRequestBodyTypeField>(type);
       return this;
     }
 
-    public StartWorkflowRequestBodyBuilder type(StartWorkflowRequestBodyTypeField type) {
-      this.type = new EnumWrapper<StartWorkflowRequestBodyTypeField>(type.getValue(), type);
+    public StartWorkflowRequestBodyBuilder type(
+        EnumWrapper<StartWorkflowRequestBodyTypeField> type) {
+      this.type = type;
       return this;
     }
 

@@ -43,8 +43,7 @@ public class CreateTermsOfServiceRequestBody extends SerializableObject {
   public CreateTermsOfServiceRequestBody(
       CreateTermsOfServiceRequestBodyStatusField status, String text) {
     super();
-    this.status =
-        new EnumWrapper<CreateTermsOfServiceRequestBodyStatusField>(status.getValue(), status);
+    this.status = new EnumWrapper<CreateTermsOfServiceRequestBodyStatusField>(status);
     this.text = text;
   }
 
@@ -112,22 +111,26 @@ public class CreateTermsOfServiceRequestBody extends SerializableObject {
     protected final String text;
 
     public CreateTermsOfServiceRequestBodyBuilder(
-        CreateTermsOfServiceRequestBodyStatusField status, String text) {
-      this.status =
-          new EnumWrapper<CreateTermsOfServiceRequestBodyStatusField>(status.getValue(), status);
+        EnumWrapper<CreateTermsOfServiceRequestBodyStatusField> status, String text) {
+      this.status = status;
       this.text = text;
+    }
+
+    public CreateTermsOfServiceRequestBodyBuilder(
+        CreateTermsOfServiceRequestBodyStatusField status, String text) {
+      this.status = new EnumWrapper<CreateTermsOfServiceRequestBodyStatusField>(status);
+      this.text = text;
+    }
+
+    public CreateTermsOfServiceRequestBodyBuilder tosType(
+        CreateTermsOfServiceRequestBodyTosTypeField tosType) {
+      this.tosType = new EnumWrapper<CreateTermsOfServiceRequestBodyTosTypeField>(tosType);
+      return this;
     }
 
     public CreateTermsOfServiceRequestBodyBuilder tosType(
         EnumWrapper<CreateTermsOfServiceRequestBodyTosTypeField> tosType) {
       this.tosType = tosType;
-      return this;
-    }
-
-    public CreateTermsOfServiceRequestBodyBuilder tosType(
-        CreateTermsOfServiceRequestBodyTosTypeField tosType) {
-      this.tosType =
-          new EnumWrapper<CreateTermsOfServiceRequestBodyTosTypeField>(tosType.getValue(), tosType);
       return this;
     }
 

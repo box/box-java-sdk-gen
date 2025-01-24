@@ -39,10 +39,7 @@ public enum DocGenBatchCreateRequestV2025R0DestinationFolderTypeField implements
       return Arrays.stream(DocGenBatchCreateRequestV2025R0DestinationFolderTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<DocGenBatchCreateRequestV2025R0DestinationFolderTypeField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(
               new EnumWrapper<DocGenBatchCreateRequestV2025R0DestinationFolderTypeField>(value));
     }

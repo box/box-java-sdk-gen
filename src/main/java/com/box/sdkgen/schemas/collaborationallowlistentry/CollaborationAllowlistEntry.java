@@ -145,14 +145,14 @@ public class CollaborationAllowlistEntry extends SerializableObject {
       return this;
     }
 
-    public CollaborationAllowlistEntryBuilder type(
-        EnumWrapper<CollaborationAllowlistEntryTypeField> type) {
-      this.type = type;
+    public CollaborationAllowlistEntryBuilder type(CollaborationAllowlistEntryTypeField type) {
+      this.type = new EnumWrapper<CollaborationAllowlistEntryTypeField>(type);
       return this;
     }
 
-    public CollaborationAllowlistEntryBuilder type(CollaborationAllowlistEntryTypeField type) {
-      this.type = new EnumWrapper<CollaborationAllowlistEntryTypeField>(type.getValue(), type);
+    public CollaborationAllowlistEntryBuilder type(
+        EnumWrapper<CollaborationAllowlistEntryTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -162,16 +162,14 @@ public class CollaborationAllowlistEntry extends SerializableObject {
     }
 
     public CollaborationAllowlistEntryBuilder direction(
-        EnumWrapper<CollaborationAllowlistEntryDirectionField> direction) {
-      this.direction = direction;
+        CollaborationAllowlistEntryDirectionField direction) {
+      this.direction = new EnumWrapper<CollaborationAllowlistEntryDirectionField>(direction);
       return this;
     }
 
     public CollaborationAllowlistEntryBuilder direction(
-        CollaborationAllowlistEntryDirectionField direction) {
-      this.direction =
-          new EnumWrapper<CollaborationAllowlistEntryDirectionField>(
-              direction.getValue(), direction);
+        EnumWrapper<CollaborationAllowlistEntryDirectionField> direction) {
+      this.direction = direction;
       return this;
     }
 

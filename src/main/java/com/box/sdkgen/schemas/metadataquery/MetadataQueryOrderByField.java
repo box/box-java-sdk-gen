@@ -79,15 +79,14 @@ public class MetadataQueryOrderByField extends SerializableObject {
     }
 
     public MetadataQueryOrderByFieldBuilder direction(
-        EnumWrapper<MetadataQueryOrderByDirectionField> direction) {
-      this.direction = direction;
+        MetadataQueryOrderByDirectionField direction) {
+      this.direction = new EnumWrapper<MetadataQueryOrderByDirectionField>(direction);
       return this;
     }
 
     public MetadataQueryOrderByFieldBuilder direction(
-        MetadataQueryOrderByDirectionField direction) {
-      this.direction =
-          new EnumWrapper<MetadataQueryOrderByDirectionField>(direction.getValue(), direction);
+        EnumWrapper<MetadataQueryOrderByDirectionField> direction) {
+      this.direction = direction;
       return this;
     }
 

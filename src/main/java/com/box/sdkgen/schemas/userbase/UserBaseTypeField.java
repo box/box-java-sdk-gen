@@ -38,7 +38,7 @@ public enum UserBaseTypeField implements Valuable {
       return Arrays.stream(UserBaseTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UserBaseTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UserBaseTypeField>(value));
     }
   }

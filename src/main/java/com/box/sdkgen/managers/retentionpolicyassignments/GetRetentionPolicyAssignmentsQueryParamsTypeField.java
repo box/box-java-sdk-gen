@@ -40,7 +40,7 @@ public enum GetRetentionPolicyAssignmentsQueryParamsTypeField implements Valuabl
       return Arrays.stream(GetRetentionPolicyAssignmentsQueryParamsTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GetRetentionPolicyAssignmentsQueryParamsTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GetRetentionPolicyAssignmentsQueryParamsTypeField>(value));
     }
   }

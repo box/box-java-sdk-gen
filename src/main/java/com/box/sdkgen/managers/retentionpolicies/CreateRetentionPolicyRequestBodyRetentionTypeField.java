@@ -39,7 +39,7 @@ public enum CreateRetentionPolicyRequestBodyRetentionTypeField implements Valuab
       return Arrays.stream(CreateRetentionPolicyRequestBodyRetentionTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateRetentionPolicyRequestBodyRetentionTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateRetentionPolicyRequestBodyRetentionTypeField>(value));
     }
   }

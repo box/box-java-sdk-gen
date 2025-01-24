@@ -39,7 +39,7 @@ public enum TaskCompletionRuleField implements Valuable {
       return Arrays.stream(TaskCompletionRuleField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<TaskCompletionRuleField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<TaskCompletionRuleField>(value));
     }
   }

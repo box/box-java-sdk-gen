@@ -147,13 +147,13 @@ public class ClientErrorV2025R0 extends SerializableObject {
 
     protected String requestId;
 
-    public ClientErrorV2025R0Builder type(EnumWrapper<ClientErrorV2025R0TypeField> type) {
-      this.type = type;
+    public ClientErrorV2025R0Builder type(ClientErrorV2025R0TypeField type) {
+      this.type = new EnumWrapper<ClientErrorV2025R0TypeField>(type);
       return this;
     }
 
-    public ClientErrorV2025R0Builder type(ClientErrorV2025R0TypeField type) {
-      this.type = new EnumWrapper<ClientErrorV2025R0TypeField>(type.getValue(), type);
+    public ClientErrorV2025R0Builder type(EnumWrapper<ClientErrorV2025R0TypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -162,13 +162,13 @@ public class ClientErrorV2025R0 extends SerializableObject {
       return this;
     }
 
-    public ClientErrorV2025R0Builder code(EnumWrapper<ClientErrorV2025R0CodeField> code) {
-      this.code = code;
+    public ClientErrorV2025R0Builder code(ClientErrorV2025R0CodeField code) {
+      this.code = new EnumWrapper<ClientErrorV2025R0CodeField>(code);
       return this;
     }
 
-    public ClientErrorV2025R0Builder code(ClientErrorV2025R0CodeField code) {
-      this.code = new EnumWrapper<ClientErrorV2025R0CodeField>(code.getValue(), code);
+    public ClientErrorV2025R0Builder code(EnumWrapper<ClientErrorV2025R0CodeField> code) {
+      this.code = code;
       return this;
     }
 

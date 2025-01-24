@@ -38,7 +38,7 @@ public enum TimelineSkillCardSkillTypeField implements Valuable {
       return Arrays.stream(TimelineSkillCardSkillTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<TimelineSkillCardSkillTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<TimelineSkillCardSkillTypeField>(value));
     }
   }

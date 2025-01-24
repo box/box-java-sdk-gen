@@ -119,28 +119,27 @@ public class RetentionPolicyMini extends RetentionPolicyBase {
     }
 
     public RetentionPolicyMiniBuilder dispositionAction(
+        RetentionPolicyMiniDispositionActionField dispositionAction) {
+      this.dispositionAction =
+          new EnumWrapper<RetentionPolicyMiniDispositionActionField>(dispositionAction);
+      return this;
+    }
+
+    public RetentionPolicyMiniBuilder dispositionAction(
         EnumWrapper<RetentionPolicyMiniDispositionActionField> dispositionAction) {
       this.dispositionAction = dispositionAction;
       return this;
     }
 
-    public RetentionPolicyMiniBuilder dispositionAction(
-        RetentionPolicyMiniDispositionActionField dispositionAction) {
-      this.dispositionAction =
-          new EnumWrapper<RetentionPolicyMiniDispositionActionField>(
-              dispositionAction.getValue(), dispositionAction);
+    @Override
+    public RetentionPolicyMiniBuilder type(RetentionPolicyBaseTypeField type) {
+      this.type = new EnumWrapper<RetentionPolicyBaseTypeField>(type);
       return this;
     }
 
     @Override
     public RetentionPolicyMiniBuilder type(EnumWrapper<RetentionPolicyBaseTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    @Override
-    public RetentionPolicyMiniBuilder type(RetentionPolicyBaseTypeField type) {
-      this.type = new EnumWrapper<RetentionPolicyBaseTypeField>(type.getValue(), type);
       return this;
     }
 

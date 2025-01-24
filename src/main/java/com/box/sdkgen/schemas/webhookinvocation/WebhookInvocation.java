@@ -154,13 +154,13 @@ public class WebhookInvocation extends SerializableObject {
       return this;
     }
 
-    public WebhookInvocationBuilder type(EnumWrapper<WebhookInvocationTypeField> type) {
-      this.type = type;
+    public WebhookInvocationBuilder type(WebhookInvocationTypeField type) {
+      this.type = new EnumWrapper<WebhookInvocationTypeField>(type);
       return this;
     }
 
-    public WebhookInvocationBuilder type(WebhookInvocationTypeField type) {
-      this.type = new EnumWrapper<WebhookInvocationTypeField>(type.getValue(), type);
+    public WebhookInvocationBuilder type(EnumWrapper<WebhookInvocationTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -179,13 +179,13 @@ public class WebhookInvocation extends SerializableObject {
       return this;
     }
 
-    public WebhookInvocationBuilder trigger(EnumWrapper<WebhookInvocationTriggerField> trigger) {
-      this.trigger = trigger;
+    public WebhookInvocationBuilder trigger(WebhookInvocationTriggerField trigger) {
+      this.trigger = new EnumWrapper<WebhookInvocationTriggerField>(trigger);
       return this;
     }
 
-    public WebhookInvocationBuilder trigger(WebhookInvocationTriggerField trigger) {
-      this.trigger = new EnumWrapper<WebhookInvocationTriggerField>(trigger.getValue(), trigger);
+    public WebhookInvocationBuilder trigger(EnumWrapper<WebhookInvocationTriggerField> trigger) {
+      this.trigger = trigger;
       return this;
     }
 

@@ -33,9 +33,7 @@ public class CreateStoragePolicyAssignmentRequestBodyAssignedToField extends Ser
   public CreateStoragePolicyAssignmentRequestBodyAssignedToField(
       CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField type, String id) {
     super();
-    this.type =
-        new EnumWrapper<CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField>(
-            type.getValue(), type);
+    this.type = new EnumWrapper<CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField>(type);
     this.id = id;
   }
 

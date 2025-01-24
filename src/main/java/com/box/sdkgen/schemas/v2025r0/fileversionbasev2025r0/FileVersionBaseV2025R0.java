@@ -22,7 +22,6 @@ public class FileVersionBaseV2025R0 extends SerializableObject {
     this.id = id;
     this.type =
         new EnumWrapper<FileVersionBaseV2025R0TypeField>(
-            FileVersionBaseV2025R0TypeField.FILE_VERSION.getValue(),
             FileVersionBaseV2025R0TypeField.FILE_VERSION);
   }
 
@@ -72,17 +71,16 @@ public class FileVersionBaseV2025R0 extends SerializableObject {
       this.id = id;
       this.type =
           new EnumWrapper<FileVersionBaseV2025R0TypeField>(
-              FileVersionBaseV2025R0TypeField.FILE_VERSION.getValue(),
               FileVersionBaseV2025R0TypeField.FILE_VERSION);
+    }
+
+    public FileVersionBaseV2025R0Builder type(FileVersionBaseV2025R0TypeField type) {
+      this.type = new EnumWrapper<FileVersionBaseV2025R0TypeField>(type);
+      return this;
     }
 
     public FileVersionBaseV2025R0Builder type(EnumWrapper<FileVersionBaseV2025R0TypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public FileVersionBaseV2025R0Builder type(FileVersionBaseV2025R0TypeField type) {
-      this.type = new EnumWrapper<FileVersionBaseV2025R0TypeField>(type.getValue(), type);
       return this;
     }
 

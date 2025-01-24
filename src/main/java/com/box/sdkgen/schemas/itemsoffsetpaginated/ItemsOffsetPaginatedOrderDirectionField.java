@@ -39,7 +39,7 @@ public enum ItemsOffsetPaginatedOrderDirectionField implements Valuable {
       return Arrays.stream(ItemsOffsetPaginatedOrderDirectionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<ItemsOffsetPaginatedOrderDirectionField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<ItemsOffsetPaginatedOrderDirectionField>(value));
     }
   }

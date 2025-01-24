@@ -34,7 +34,6 @@ public class SearchResultsWithSharedLinks extends SerializableObject {
     super();
     this.type =
         new EnumWrapper<SearchResultsWithSharedLinksTypeField>(
-            SearchResultsWithSharedLinksTypeField.SEARCH_RESULTS_WITH_SHARED_LINKS.getValue(),
             SearchResultsWithSharedLinksTypeField.SEARCH_RESULTS_WITH_SHARED_LINKS);
   }
 
@@ -140,14 +139,14 @@ public class SearchResultsWithSharedLinks extends SerializableObject {
       return this;
     }
 
-    public SearchResultsWithSharedLinksBuilder type(
-        EnumWrapper<SearchResultsWithSharedLinksTypeField> type) {
-      this.type = type;
+    public SearchResultsWithSharedLinksBuilder type(SearchResultsWithSharedLinksTypeField type) {
+      this.type = new EnumWrapper<SearchResultsWithSharedLinksTypeField>(type);
       return this;
     }
 
-    public SearchResultsWithSharedLinksBuilder type(SearchResultsWithSharedLinksTypeField type) {
-      this.type = new EnumWrapper<SearchResultsWithSharedLinksTypeField>(type.getValue(), type);
+    public SearchResultsWithSharedLinksBuilder type(
+        EnumWrapper<SearchResultsWithSharedLinksTypeField> type) {
+      this.type = type;
       return this;
     }
 

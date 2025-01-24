@@ -83,13 +83,13 @@ public class TrackingCode extends SerializableObject {
 
     protected String value;
 
-    public TrackingCodeBuilder type(EnumWrapper<TrackingCodeTypeField> type) {
-      this.type = type;
+    public TrackingCodeBuilder type(TrackingCodeTypeField type) {
+      this.type = new EnumWrapper<TrackingCodeTypeField>(type);
       return this;
     }
 
-    public TrackingCodeBuilder type(TrackingCodeTypeField type) {
-      this.type = new EnumWrapper<TrackingCodeTypeField>(type.getValue(), type);
+    public TrackingCodeBuilder type(EnumWrapper<TrackingCodeTypeField> type) {
+      this.type = type;
       return this;
     }
 

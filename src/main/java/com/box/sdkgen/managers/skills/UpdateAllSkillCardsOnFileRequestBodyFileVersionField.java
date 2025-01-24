@@ -77,16 +77,14 @@ public class UpdateAllSkillCardsOnFileRequestBodyFileVersionField extends Serial
     protected String id;
 
     public UpdateAllSkillCardsOnFileRequestBodyFileVersionFieldBuilder type(
-        EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField> type) {
-      this.type = type;
+        UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField type) {
+      this.type = new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField>(type);
       return this;
     }
 
     public UpdateAllSkillCardsOnFileRequestBodyFileVersionFieldBuilder type(
-        UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField type) {
-      this.type =
-          new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField>(
-              type.getValue(), type);
+        EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField> type) {
+      this.type = type;
       return this;
     }
 

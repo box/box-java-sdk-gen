@@ -39,7 +39,7 @@ public enum CreateMetadataCascadePolicyRequestBodyScopeField implements Valuable
       return Arrays.stream(CreateMetadataCascadePolicyRequestBodyScopeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateMetadataCascadePolicyRequestBodyScopeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateMetadataCascadePolicyRequestBodyScopeField>(value));
     }
   }

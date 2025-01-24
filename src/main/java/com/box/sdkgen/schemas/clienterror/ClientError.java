@@ -146,13 +146,13 @@ public class ClientError extends SerializableObject {
 
     protected String requestId;
 
-    public ClientErrorBuilder type(EnumWrapper<ClientErrorTypeField> type) {
-      this.type = type;
+    public ClientErrorBuilder type(ClientErrorTypeField type) {
+      this.type = new EnumWrapper<ClientErrorTypeField>(type);
       return this;
     }
 
-    public ClientErrorBuilder type(ClientErrorTypeField type) {
-      this.type = new EnumWrapper<ClientErrorTypeField>(type.getValue(), type);
+    public ClientErrorBuilder type(EnumWrapper<ClientErrorTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -161,13 +161,13 @@ public class ClientError extends SerializableObject {
       return this;
     }
 
-    public ClientErrorBuilder code(EnumWrapper<ClientErrorCodeField> code) {
-      this.code = code;
+    public ClientErrorBuilder code(ClientErrorCodeField code) {
+      this.code = new EnumWrapper<ClientErrorCodeField>(code);
       return this;
     }
 
-    public ClientErrorBuilder code(ClientErrorCodeField code) {
-      this.code = new EnumWrapper<ClientErrorCodeField>(code.getValue(), code);
+    public ClientErrorBuilder code(EnumWrapper<ClientErrorCodeField> code) {
+      this.code = code;
       return this;
     }
 

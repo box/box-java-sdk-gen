@@ -123,16 +123,15 @@ public class UpdateSharedLinkOnFolderRequestBodySharedLinkField extends Serializ
     protected UpdateSharedLinkOnFolderRequestBodySharedLinkPermissionsField permissions;
 
     public UpdateSharedLinkOnFolderRequestBodySharedLinkFieldBuilder access(
-        EnumWrapper<UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField> access) {
-      this.access = access;
+        UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField access) {
+      this.access =
+          new EnumWrapper<UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField>(access);
       return this;
     }
 
     public UpdateSharedLinkOnFolderRequestBodySharedLinkFieldBuilder access(
-        UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField access) {
-      this.access =
-          new EnumWrapper<UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField>(
-              access.getValue(), access);
+        EnumWrapper<UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField> access) {
+      this.access = access;
       return this;
     }
 

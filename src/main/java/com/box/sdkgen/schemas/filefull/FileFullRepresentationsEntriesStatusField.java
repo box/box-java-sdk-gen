@@ -60,15 +60,14 @@ public class FileFullRepresentationsEntriesStatusField extends SerializableObjec
     protected EnumWrapper<FileFullRepresentationsEntriesStatusStateField> state;
 
     public FileFullRepresentationsEntriesStatusFieldBuilder state(
-        EnumWrapper<FileFullRepresentationsEntriesStatusStateField> state) {
-      this.state = state;
+        FileFullRepresentationsEntriesStatusStateField state) {
+      this.state = new EnumWrapper<FileFullRepresentationsEntriesStatusStateField>(state);
       return this;
     }
 
     public FileFullRepresentationsEntriesStatusFieldBuilder state(
-        FileFullRepresentationsEntriesStatusStateField state) {
-      this.state =
-          new EnumWrapper<FileFullRepresentationsEntriesStatusStateField>(state.getValue(), state);
+        EnumWrapper<FileFullRepresentationsEntriesStatusStateField> state) {
+      this.state = state;
       return this;
     }
 

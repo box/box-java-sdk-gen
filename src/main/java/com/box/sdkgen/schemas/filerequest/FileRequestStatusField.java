@@ -39,7 +39,7 @@ public enum FileRequestStatusField implements Valuable {
       return Arrays.stream(FileRequestStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileRequestStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileRequestStatusField>(value));
     }
   }

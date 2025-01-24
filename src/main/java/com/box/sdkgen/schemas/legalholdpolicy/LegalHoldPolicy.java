@@ -244,13 +244,13 @@ public class LegalHoldPolicy extends LegalHoldPolicyMini {
       return this;
     }
 
-    public LegalHoldPolicyBuilder status(EnumWrapper<LegalHoldPolicyStatusField> status) {
-      this.status = status;
+    public LegalHoldPolicyBuilder status(LegalHoldPolicyStatusField status) {
+      this.status = new EnumWrapper<LegalHoldPolicyStatusField>(status);
       return this;
     }
 
-    public LegalHoldPolicyBuilder status(LegalHoldPolicyStatusField status) {
-      this.status = new EnumWrapper<LegalHoldPolicyStatusField>(status.getValue(), status);
+    public LegalHoldPolicyBuilder status(EnumWrapper<LegalHoldPolicyStatusField> status) {
+      this.status = status;
       return this;
     }
 
@@ -296,14 +296,14 @@ public class LegalHoldPolicy extends LegalHoldPolicyMini {
     }
 
     @Override
-    public LegalHoldPolicyBuilder type(EnumWrapper<LegalHoldPolicyMiniTypeField> type) {
-      this.type = type;
+    public LegalHoldPolicyBuilder type(LegalHoldPolicyMiniTypeField type) {
+      this.type = new EnumWrapper<LegalHoldPolicyMiniTypeField>(type);
       return this;
     }
 
     @Override
-    public LegalHoldPolicyBuilder type(LegalHoldPolicyMiniTypeField type) {
-      this.type = new EnumWrapper<LegalHoldPolicyMiniTypeField>(type.getValue(), type);
+    public LegalHoldPolicyBuilder type(EnumWrapper<LegalHoldPolicyMiniTypeField> type) {
+      this.type = type;
       return this;
     }
 

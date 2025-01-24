@@ -84,16 +84,15 @@ public class UpdateTaskAssignmentByIdRequestBody extends SerializableObject {
     }
 
     public UpdateTaskAssignmentByIdRequestBodyBuilder resolutionState(
-        EnumWrapper<UpdateTaskAssignmentByIdRequestBodyResolutionStateField> resolutionState) {
-      this.resolutionState = resolutionState;
+        UpdateTaskAssignmentByIdRequestBodyResolutionStateField resolutionState) {
+      this.resolutionState =
+          new EnumWrapper<UpdateTaskAssignmentByIdRequestBodyResolutionStateField>(resolutionState);
       return this;
     }
 
     public UpdateTaskAssignmentByIdRequestBodyBuilder resolutionState(
-        UpdateTaskAssignmentByIdRequestBodyResolutionStateField resolutionState) {
-      this.resolutionState =
-          new EnumWrapper<UpdateTaskAssignmentByIdRequestBodyResolutionStateField>(
-              resolutionState.getValue(), resolutionState);
+        EnumWrapper<UpdateTaskAssignmentByIdRequestBodyResolutionStateField> resolutionState) {
+      this.resolutionState = resolutionState;
       return this;
     }
 

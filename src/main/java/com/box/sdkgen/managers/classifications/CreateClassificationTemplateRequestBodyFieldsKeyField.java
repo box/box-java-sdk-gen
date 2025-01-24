@@ -38,9 +38,7 @@ public enum CreateClassificationTemplateRequestBodyFieldsKeyField implements Val
       return Arrays.stream(CreateClassificationTemplateRequestBodyFieldsKeyField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsKeyField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsKeyField>(value));
     }
   }

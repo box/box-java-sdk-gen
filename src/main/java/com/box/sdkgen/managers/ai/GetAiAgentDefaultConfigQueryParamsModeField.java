@@ -41,7 +41,7 @@ public enum GetAiAgentDefaultConfigQueryParamsModeField implements Valuable {
       return Arrays.stream(GetAiAgentDefaultConfigQueryParamsModeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GetAiAgentDefaultConfigQueryParamsModeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GetAiAgentDefaultConfigQueryParamsModeField>(value));
     }
   }

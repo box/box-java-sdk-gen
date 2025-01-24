@@ -27,9 +27,7 @@ public class SearchResults extends SerializableObject {
   public SearchResults() {
     super();
     this.type =
-        new EnumWrapper<SearchResultsTypeField>(
-            SearchResultsTypeField.SEARCH_RESULTS_ITEMS.getValue(),
-            SearchResultsTypeField.SEARCH_RESULTS_ITEMS);
+        new EnumWrapper<SearchResultsTypeField>(SearchResultsTypeField.SEARCH_RESULTS_ITEMS);
   }
 
   protected SearchResults(SearchResultsBuilder builder) {
@@ -134,13 +132,13 @@ public class SearchResults extends SerializableObject {
       return this;
     }
 
-    public SearchResultsBuilder type(EnumWrapper<SearchResultsTypeField> type) {
-      this.type = type;
+    public SearchResultsBuilder type(SearchResultsTypeField type) {
+      this.type = new EnumWrapper<SearchResultsTypeField>(type);
       return this;
     }
 
-    public SearchResultsBuilder type(SearchResultsTypeField type) {
-      this.type = new EnumWrapper<SearchResultsTypeField>(type.getValue(), type);
+    public SearchResultsBuilder type(EnumWrapper<SearchResultsTypeField> type) {
+      this.type = type;
       return this;
     }
 

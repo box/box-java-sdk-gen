@@ -60,16 +60,14 @@ public class CreateFolderRequestBodyFolderUploadEmailField extends SerializableO
     protected EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField> access;
 
     public CreateFolderRequestBodyFolderUploadEmailFieldBuilder access(
-        EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField> access) {
-      this.access = access;
+        CreateFolderRequestBodyFolderUploadEmailAccessField access) {
+      this.access = new EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField>(access);
       return this;
     }
 
     public CreateFolderRequestBodyFolderUploadEmailFieldBuilder access(
-        CreateFolderRequestBodyFolderUploadEmailAccessField access) {
-      this.access =
-          new EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField>(
-              access.getValue(), access);
+        EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField> access) {
+      this.access = access;
       return this;
     }
 

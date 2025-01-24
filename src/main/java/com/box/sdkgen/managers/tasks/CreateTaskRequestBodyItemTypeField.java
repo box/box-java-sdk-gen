@@ -38,7 +38,7 @@ public enum CreateTaskRequestBodyItemTypeField implements Valuable {
       return Arrays.stream(CreateTaskRequestBodyItemTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateTaskRequestBodyItemTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateTaskRequestBodyItemTypeField>(value));
     }
   }

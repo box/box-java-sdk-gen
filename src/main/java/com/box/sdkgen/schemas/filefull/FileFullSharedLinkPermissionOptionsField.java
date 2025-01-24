@@ -40,7 +40,7 @@ public enum FileFullSharedLinkPermissionOptionsField implements Valuable {
       return Arrays.stream(FileFullSharedLinkPermissionOptionsField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileFullSharedLinkPermissionOptionsField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileFullSharedLinkPermissionOptionsField>(value));
     }
   }

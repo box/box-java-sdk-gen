@@ -86,14 +86,14 @@ public class WorkflowFlowsTriggerScopeField extends SerializableObject {
 
     protected WorkflowFlowsTriggerScopeObjectField object;
 
-    public WorkflowFlowsTriggerScopeFieldBuilder type(
-        EnumWrapper<WorkflowFlowsTriggerScopeTypeField> type) {
-      this.type = type;
+    public WorkflowFlowsTriggerScopeFieldBuilder type(WorkflowFlowsTriggerScopeTypeField type) {
+      this.type = new EnumWrapper<WorkflowFlowsTriggerScopeTypeField>(type);
       return this;
     }
 
-    public WorkflowFlowsTriggerScopeFieldBuilder type(WorkflowFlowsTriggerScopeTypeField type) {
-      this.type = new EnumWrapper<WorkflowFlowsTriggerScopeTypeField>(type.getValue(), type);
+    public WorkflowFlowsTriggerScopeFieldBuilder type(
+        EnumWrapper<WorkflowFlowsTriggerScopeTypeField> type) {
+      this.type = type;
       return this;
     }
 

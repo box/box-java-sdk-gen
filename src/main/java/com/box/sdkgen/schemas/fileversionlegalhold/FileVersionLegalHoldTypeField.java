@@ -38,7 +38,7 @@ public enum FileVersionLegalHoldTypeField implements Valuable {
       return Arrays.stream(FileVersionLegalHoldTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileVersionLegalHoldTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileVersionLegalHoldTypeField>(value));
     }
   }

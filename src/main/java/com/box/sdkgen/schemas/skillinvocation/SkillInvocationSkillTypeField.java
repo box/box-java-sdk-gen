@@ -38,7 +38,7 @@ public enum SkillInvocationSkillTypeField implements Valuable {
       return Arrays.stream(SkillInvocationSkillTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<SkillInvocationSkillTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<SkillInvocationSkillTypeField>(value));
     }
   }

@@ -113,15 +113,14 @@ public class UpdateTaskByIdRequestBody extends SerializableObject {
 
     protected EnumWrapper<UpdateTaskByIdRequestBodyCompletionRuleField> completionRule;
 
-    public UpdateTaskByIdRequestBodyBuilder action(
-        EnumWrapper<UpdateTaskByIdRequestBodyActionField> action) {
-      this.action = action;
+    public UpdateTaskByIdRequestBodyBuilder action(UpdateTaskByIdRequestBodyActionField action) {
+      this.action = new EnumWrapper<UpdateTaskByIdRequestBodyActionField>(action);
       return this;
     }
 
-    public UpdateTaskByIdRequestBodyBuilder action(UpdateTaskByIdRequestBodyActionField action) {
-      this.action =
-          new EnumWrapper<UpdateTaskByIdRequestBodyActionField>(action.getValue(), action);
+    public UpdateTaskByIdRequestBodyBuilder action(
+        EnumWrapper<UpdateTaskByIdRequestBodyActionField> action) {
+      this.action = action;
       return this;
     }
 
@@ -136,16 +135,15 @@ public class UpdateTaskByIdRequestBody extends SerializableObject {
     }
 
     public UpdateTaskByIdRequestBodyBuilder completionRule(
-        EnumWrapper<UpdateTaskByIdRequestBodyCompletionRuleField> completionRule) {
-      this.completionRule = completionRule;
+        UpdateTaskByIdRequestBodyCompletionRuleField completionRule) {
+      this.completionRule =
+          new EnumWrapper<UpdateTaskByIdRequestBodyCompletionRuleField>(completionRule);
       return this;
     }
 
     public UpdateTaskByIdRequestBodyBuilder completionRule(
-        UpdateTaskByIdRequestBodyCompletionRuleField completionRule) {
-      this.completionRule =
-          new EnumWrapper<UpdateTaskByIdRequestBodyCompletionRuleField>(
-              completionRule.getValue(), completionRule);
+        EnumWrapper<UpdateTaskByIdRequestBodyCompletionRuleField> completionRule) {
+      this.completionRule = completionRule;
       return this;
     }
 

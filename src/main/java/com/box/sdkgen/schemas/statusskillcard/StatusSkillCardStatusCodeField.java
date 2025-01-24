@@ -42,7 +42,7 @@ public enum StatusSkillCardStatusCodeField implements Valuable {
       return Arrays.stream(StatusSkillCardStatusCodeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<StatusSkillCardStatusCodeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<StatusSkillCardStatusCodeField>(value));
     }
   }

@@ -43,7 +43,7 @@ public class UpdateCollaborationByIdRequestBody extends SerializableObject {
 
   public UpdateCollaborationByIdRequestBody(UpdateCollaborationByIdRequestBodyRoleField role) {
     super();
-    this.role = new EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField>(role.getValue(), role);
+    this.role = new EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField>(role);
   }
 
   protected UpdateCollaborationByIdRequestBody(UpdateCollaborationByIdRequestBodyBuilder builder) {
@@ -122,21 +122,24 @@ public class UpdateCollaborationByIdRequestBody extends SerializableObject {
     protected Boolean canViewPath;
 
     public UpdateCollaborationByIdRequestBodyBuilder(
+        EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField> role) {
+      this.role = role;
+    }
+
+    public UpdateCollaborationByIdRequestBodyBuilder(
         UpdateCollaborationByIdRequestBodyRoleField role) {
-      this.role =
-          new EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField>(role.getValue(), role);
+      this.role = new EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField>(role);
+    }
+
+    public UpdateCollaborationByIdRequestBodyBuilder status(
+        UpdateCollaborationByIdRequestBodyStatusField status) {
+      this.status = new EnumWrapper<UpdateCollaborationByIdRequestBodyStatusField>(status);
+      return this;
     }
 
     public UpdateCollaborationByIdRequestBodyBuilder status(
         EnumWrapper<UpdateCollaborationByIdRequestBodyStatusField> status) {
       this.status = status;
-      return this;
-    }
-
-    public UpdateCollaborationByIdRequestBodyBuilder status(
-        UpdateCollaborationByIdRequestBodyStatusField status) {
-      this.status =
-          new EnumWrapper<UpdateCollaborationByIdRequestBodyStatusField>(status.getValue(), status);
       return this;
     }
 

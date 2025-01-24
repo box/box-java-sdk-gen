@@ -196,14 +196,14 @@ public class ShieldInformationBarrierSegment extends SerializableObject {
     }
 
     public ShieldInformationBarrierSegmentBuilder type(
-        EnumWrapper<ShieldInformationBarrierSegmentTypeField> type) {
-      this.type = type;
+        ShieldInformationBarrierSegmentTypeField type) {
+      this.type = new EnumWrapper<ShieldInformationBarrierSegmentTypeField>(type);
       return this;
     }
 
     public ShieldInformationBarrierSegmentBuilder type(
-        ShieldInformationBarrierSegmentTypeField type) {
-      this.type = new EnumWrapper<ShieldInformationBarrierSegmentTypeField>(type.getValue(), type);
+        EnumWrapper<ShieldInformationBarrierSegmentTypeField> type) {
+      this.type = type;
       return this;
     }
 

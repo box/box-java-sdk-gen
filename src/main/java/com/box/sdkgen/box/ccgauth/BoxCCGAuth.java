@@ -35,10 +35,6 @@ public class BoxCCGAuth implements Authentication {
     this.subjectType =
         new EnumWrapper<PostOAuth2TokenBoxSubjectTypeField>(
             (!(this.config.getUserId() == null)
-                    ? PostOAuth2TokenBoxSubjectTypeField.USER
-                    : PostOAuth2TokenBoxSubjectTypeField.ENTERPRISE)
-                .getValue(),
-            (!(this.config.getUserId() == null)
                 ? PostOAuth2TokenBoxSubjectTypeField.USER
                 : PostOAuth2TokenBoxSubjectTypeField.ENTERPRISE));
   }

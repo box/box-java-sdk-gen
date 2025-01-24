@@ -32,7 +32,7 @@ public class CreateCommentRequestBodyItemField extends SerializableObject {
   public CreateCommentRequestBodyItemField(String id, CreateCommentRequestBodyItemTypeField type) {
     super();
     this.id = id;
-    this.type = new EnumWrapper<CreateCommentRequestBodyItemTypeField>(type.getValue(), type);
+    this.type = new EnumWrapper<CreateCommentRequestBodyItemTypeField>(type);
   }
 
   public String getId() {

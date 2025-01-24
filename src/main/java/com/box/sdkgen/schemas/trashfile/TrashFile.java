@@ -98,9 +98,7 @@ public class TrashFile extends SerializableObject {
     this.modifiedBy = modifiedBy;
     this.ownedBy = ownedBy;
     this.itemStatus = itemStatus;
-    this.type =
-        new EnumWrapper<TrashFileTypeField>(
-            TrashFileTypeField.FILE.getValue(), TrashFileTypeField.FILE);
+    this.type = new EnumWrapper<TrashFileTypeField>(TrashFileTypeField.FILE);
   }
 
   public TrashFile(
@@ -126,10 +124,8 @@ public class TrashFile extends SerializableObject {
     this.modifiedAt = modifiedAt;
     this.modifiedBy = modifiedBy;
     this.ownedBy = ownedBy;
-    this.itemStatus = new EnumWrapper<TrashFileItemStatusField>(itemStatus.getValue(), itemStatus);
-    this.type =
-        new EnumWrapper<TrashFileTypeField>(
-            TrashFileTypeField.FILE.getValue(), TrashFileTypeField.FILE);
+    this.itemStatus = new EnumWrapper<TrashFileItemStatusField>(itemStatus);
+    this.type = new EnumWrapper<TrashFileTypeField>(TrashFileTypeField.FILE);
   }
 
   protected TrashFile(TrashFileBuilder builder) {
@@ -456,6 +452,32 @@ public class TrashFile extends SerializableObject {
         String modifiedAt,
         UserMini modifiedBy,
         UserMini ownedBy,
+        EnumWrapper<TrashFileItemStatusField> itemStatus) {
+      this.id = id;
+      this.sequenceId = sequenceId;
+      this.sha1 = sha1;
+      this.description = description;
+      this.size = size;
+      this.pathCollection = pathCollection;
+      this.createdAt = createdAt;
+      this.modifiedAt = modifiedAt;
+      this.modifiedBy = modifiedBy;
+      this.ownedBy = ownedBy;
+      this.itemStatus = itemStatus;
+      this.type = new EnumWrapper<TrashFileTypeField>(TrashFileTypeField.FILE);
+    }
+
+    public TrashFileBuilder(
+        String id,
+        String sequenceId,
+        String sha1,
+        String description,
+        long size,
+        TrashFilePathCollectionField pathCollection,
+        String createdAt,
+        String modifiedAt,
+        UserMini modifiedBy,
+        UserMini ownedBy,
         TrashFileItemStatusField itemStatus) {
       this.id = id;
       this.sequenceId = sequenceId;
@@ -467,11 +489,8 @@ public class TrashFile extends SerializableObject {
       this.modifiedAt = modifiedAt;
       this.modifiedBy = modifiedBy;
       this.ownedBy = ownedBy;
-      this.itemStatus =
-          new EnumWrapper<TrashFileItemStatusField>(itemStatus.getValue(), itemStatus);
-      this.type =
-          new EnumWrapper<TrashFileTypeField>(
-              TrashFileTypeField.FILE.getValue(), TrashFileTypeField.FILE);
+      this.itemStatus = new EnumWrapper<TrashFileItemStatusField>(itemStatus);
+      this.type = new EnumWrapper<TrashFileTypeField>(TrashFileTypeField.FILE);
     }
 
     public TrashFileBuilder etag(String etag) {
@@ -479,13 +498,13 @@ public class TrashFile extends SerializableObject {
       return this;
     }
 
-    public TrashFileBuilder type(EnumWrapper<TrashFileTypeField> type) {
-      this.type = type;
+    public TrashFileBuilder type(TrashFileTypeField type) {
+      this.type = new EnumWrapper<TrashFileTypeField>(type);
       return this;
     }
 
-    public TrashFileBuilder type(TrashFileTypeField type) {
-      this.type = new EnumWrapper<TrashFileTypeField>(type.getValue(), type);
+    public TrashFileBuilder type(EnumWrapper<TrashFileTypeField> type) {
+      this.type = type;
       return this;
     }
 

@@ -40,7 +40,7 @@ public enum FolderSharedLinkAccessField implements Valuable {
       return Arrays.stream(FolderSharedLinkAccessField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FolderSharedLinkAccessField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FolderSharedLinkAccessField>(value));
     }
   }

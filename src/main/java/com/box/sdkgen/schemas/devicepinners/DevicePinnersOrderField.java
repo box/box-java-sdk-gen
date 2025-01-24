@@ -72,25 +72,24 @@ public class DevicePinnersOrderField extends SerializableObject {
 
     protected EnumWrapper<DevicePinnersOrderDirectionField> direction;
 
+    public DevicePinnersOrderFieldBuilder by(DevicePinnersOrderByField by) {
+      this.by = new EnumWrapper<DevicePinnersOrderByField>(by);
+      return this;
+    }
+
     public DevicePinnersOrderFieldBuilder by(EnumWrapper<DevicePinnersOrderByField> by) {
       this.by = by;
       return this;
     }
 
-    public DevicePinnersOrderFieldBuilder by(DevicePinnersOrderByField by) {
-      this.by = new EnumWrapper<DevicePinnersOrderByField>(by.getValue(), by);
+    public DevicePinnersOrderFieldBuilder direction(DevicePinnersOrderDirectionField direction) {
+      this.direction = new EnumWrapper<DevicePinnersOrderDirectionField>(direction);
       return this;
     }
 
     public DevicePinnersOrderFieldBuilder direction(
         EnumWrapper<DevicePinnersOrderDirectionField> direction) {
       this.direction = direction;
-      return this;
-    }
-
-    public DevicePinnersOrderFieldBuilder direction(DevicePinnersOrderDirectionField direction) {
-      this.direction =
-          new EnumWrapper<DevicePinnersOrderDirectionField>(direction.getValue(), direction);
       return this;
     }
 

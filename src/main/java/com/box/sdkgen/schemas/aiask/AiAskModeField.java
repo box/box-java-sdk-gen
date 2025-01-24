@@ -39,7 +39,7 @@ public enum AiAskModeField implements Valuable {
       return Arrays.stream(AiAskModeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<AiAskModeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AiAskModeField>(value));
     }
   }

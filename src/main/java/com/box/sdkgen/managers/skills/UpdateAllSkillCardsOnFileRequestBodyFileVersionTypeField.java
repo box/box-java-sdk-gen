@@ -39,10 +39,7 @@ public enum UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField implements 
       return Arrays.stream(UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField>(value));
     }
   }

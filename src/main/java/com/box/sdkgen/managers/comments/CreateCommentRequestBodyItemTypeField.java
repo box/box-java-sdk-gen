@@ -39,7 +39,7 @@ public enum CreateCommentRequestBodyItemTypeField implements Valuable {
       return Arrays.stream(CreateCommentRequestBodyItemTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateCommentRequestBodyItemTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateCommentRequestBodyItemTypeField>(value));
     }
   }

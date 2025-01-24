@@ -38,7 +38,7 @@ public enum TrashFolderPathCollectionEntriesTypeField implements Valuable {
       return Arrays.stream(TrashFolderPathCollectionEntriesTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<TrashFolderPathCollectionEntriesTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<TrashFolderPathCollectionEntriesTypeField>(value));
     }
   }

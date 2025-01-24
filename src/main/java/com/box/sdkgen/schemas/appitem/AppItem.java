@@ -23,9 +23,7 @@ public class AppItem extends SerializableObject {
     super();
     this.id = id;
     this.applicationType = applicationType;
-    this.type =
-        new EnumWrapper<AppItemTypeField>(
-            AppItemTypeField.APP_ITEM.getValue(), AppItemTypeField.APP_ITEM);
+    this.type = new EnumWrapper<AppItemTypeField>(AppItemTypeField.APP_ITEM);
   }
 
   protected AppItem(AppItemBuilder builder) {
@@ -94,18 +92,16 @@ public class AppItem extends SerializableObject {
     public AppItemBuilder(String id, String applicationType) {
       this.id = id;
       this.applicationType = applicationType;
-      this.type =
-          new EnumWrapper<AppItemTypeField>(
-              AppItemTypeField.APP_ITEM.getValue(), AppItemTypeField.APP_ITEM);
+      this.type = new EnumWrapper<AppItemTypeField>(AppItemTypeField.APP_ITEM);
+    }
+
+    public AppItemBuilder type(AppItemTypeField type) {
+      this.type = new EnumWrapper<AppItemTypeField>(type);
+      return this;
     }
 
     public AppItemBuilder type(EnumWrapper<AppItemTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public AppItemBuilder type(AppItemTypeField type) {
-      this.type = new EnumWrapper<AppItemTypeField>(type.getValue(), type);
       return this;
     }
 

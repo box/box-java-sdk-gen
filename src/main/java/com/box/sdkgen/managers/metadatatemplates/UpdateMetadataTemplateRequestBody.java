@@ -43,7 +43,7 @@ public class UpdateMetadataTemplateRequestBody extends SerializableObject {
 
   public UpdateMetadataTemplateRequestBody(UpdateMetadataTemplateRequestBodyOpField op) {
     super();
-    this.op = new EnumWrapper<UpdateMetadataTemplateRequestBodyOpField>(op.getValue(), op);
+    this.op = new EnumWrapper<UpdateMetadataTemplateRequestBodyOpField>(op);
   }
 
   protected UpdateMetadataTemplateRequestBody(UpdateMetadataTemplateRequestBodyBuilder builder) {
@@ -177,8 +177,13 @@ public class UpdateMetadataTemplateRequestBody extends SerializableObject {
 
     protected List<String> multiSelectOptionKeys;
 
+    public UpdateMetadataTemplateRequestBodyBuilder(
+        EnumWrapper<UpdateMetadataTemplateRequestBodyOpField> op) {
+      this.op = op;
+    }
+
     public UpdateMetadataTemplateRequestBodyBuilder(UpdateMetadataTemplateRequestBodyOpField op) {
-      this.op = new EnumWrapper<UpdateMetadataTemplateRequestBodyOpField>(op.getValue(), op);
+      this.op = new EnumWrapper<UpdateMetadataTemplateRequestBodyOpField>(op);
     }
 
     public UpdateMetadataTemplateRequestBodyBuilder data(Map<String, String> data) {

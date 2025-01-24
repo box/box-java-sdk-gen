@@ -23,10 +23,7 @@ public class AiAgentExtract extends SerializableObject {
 
   public AiAgentExtract() {
     super();
-    this.type =
-        new EnumWrapper<AiAgentExtractTypeField>(
-            AiAgentExtractTypeField.AI_AGENT_EXTRACT.getValue(),
-            AiAgentExtractTypeField.AI_AGENT_EXTRACT);
+    this.type = new EnumWrapper<AiAgentExtractTypeField>(AiAgentExtractTypeField.AI_AGENT_EXTRACT);
   }
 
   protected AiAgentExtract(AiAgentExtractBuilder builder) {
@@ -92,13 +89,13 @@ public class AiAgentExtract extends SerializableObject {
 
     protected AiAgentBasicTextTool basicText;
 
-    public AiAgentExtractBuilder type(EnumWrapper<AiAgentExtractTypeField> type) {
-      this.type = type;
+    public AiAgentExtractBuilder type(AiAgentExtractTypeField type) {
+      this.type = new EnumWrapper<AiAgentExtractTypeField>(type);
       return this;
     }
 
-    public AiAgentExtractBuilder type(AiAgentExtractTypeField type) {
-      this.type = new EnumWrapper<AiAgentExtractTypeField>(type.getValue(), type);
+    public AiAgentExtractBuilder type(EnumWrapper<AiAgentExtractTypeField> type) {
+      this.type = type;
       return this;
     }
 

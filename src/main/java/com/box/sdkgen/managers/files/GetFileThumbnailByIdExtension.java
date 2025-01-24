@@ -39,7 +39,7 @@ public enum GetFileThumbnailByIdExtension implements Valuable {
       return Arrays.stream(GetFileThumbnailByIdExtension.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GetFileThumbnailByIdExtension>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GetFileThumbnailByIdExtension>(value));
     }
   }

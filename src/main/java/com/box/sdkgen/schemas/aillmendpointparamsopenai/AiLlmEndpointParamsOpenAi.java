@@ -33,7 +33,6 @@ public class AiLlmEndpointParamsOpenAi extends SerializableObject {
     super();
     this.type =
         new EnumWrapper<AiLlmEndpointParamsOpenAiTypeField>(
-            AiLlmEndpointParamsOpenAiTypeField.OPENAI_PARAMS.getValue(),
             AiLlmEndpointParamsOpenAiTypeField.OPENAI_PARAMS);
   }
 
@@ -136,14 +135,14 @@ public class AiLlmEndpointParamsOpenAi extends SerializableObject {
 
     protected String stop;
 
-    public AiLlmEndpointParamsOpenAiBuilder type(
-        EnumWrapper<AiLlmEndpointParamsOpenAiTypeField> type) {
-      this.type = type;
+    public AiLlmEndpointParamsOpenAiBuilder type(AiLlmEndpointParamsOpenAiTypeField type) {
+      this.type = new EnumWrapper<AiLlmEndpointParamsOpenAiTypeField>(type);
       return this;
     }
 
-    public AiLlmEndpointParamsOpenAiBuilder type(AiLlmEndpointParamsOpenAiTypeField type) {
-      this.type = new EnumWrapper<AiLlmEndpointParamsOpenAiTypeField>(type.getValue(), type);
+    public AiLlmEndpointParamsOpenAiBuilder type(
+        EnumWrapper<AiLlmEndpointParamsOpenAiTypeField> type) {
+      this.type = type;
       return this;
     }
 

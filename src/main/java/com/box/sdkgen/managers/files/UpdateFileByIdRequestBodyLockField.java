@@ -93,15 +93,14 @@ public class UpdateFileByIdRequestBodyLockField extends SerializableObject {
     protected Boolean isDownloadPrevented;
 
     public UpdateFileByIdRequestBodyLockFieldBuilder access(
-        EnumWrapper<UpdateFileByIdRequestBodyLockAccessField> access) {
-      this.access = access;
+        UpdateFileByIdRequestBodyLockAccessField access) {
+      this.access = new EnumWrapper<UpdateFileByIdRequestBodyLockAccessField>(access);
       return this;
     }
 
     public UpdateFileByIdRequestBodyLockFieldBuilder access(
-        UpdateFileByIdRequestBodyLockAccessField access) {
-      this.access =
-          new EnumWrapper<UpdateFileByIdRequestBodyLockAccessField>(access.getValue(), access);
+        EnumWrapper<UpdateFileByIdRequestBodyLockAccessField> access) {
+      this.access = access;
       return this;
     }
 

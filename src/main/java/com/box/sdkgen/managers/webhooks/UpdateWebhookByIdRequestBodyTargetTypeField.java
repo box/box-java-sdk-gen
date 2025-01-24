@@ -39,7 +39,7 @@ public enum UpdateWebhookByIdRequestBodyTargetTypeField implements Valuable {
       return Arrays.stream(UpdateWebhookByIdRequestBodyTargetTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField>(value));
     }
   }

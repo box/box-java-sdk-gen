@@ -210,13 +210,13 @@ public class TaskAssignment extends SerializableObject {
       return this;
     }
 
-    public TaskAssignmentBuilder type(EnumWrapper<TaskAssignmentTypeField> type) {
-      this.type = type;
+    public TaskAssignmentBuilder type(TaskAssignmentTypeField type) {
+      this.type = new EnumWrapper<TaskAssignmentTypeField>(type);
       return this;
     }
 
-    public TaskAssignmentBuilder type(TaskAssignmentTypeField type) {
-      this.type = new EnumWrapper<TaskAssignmentTypeField>(type.getValue(), type);
+    public TaskAssignmentBuilder type(EnumWrapper<TaskAssignmentTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -251,16 +251,14 @@ public class TaskAssignment extends SerializableObject {
     }
 
     public TaskAssignmentBuilder resolutionState(
-        EnumWrapper<TaskAssignmentResolutionStateField> resolutionState) {
-      this.resolutionState = resolutionState;
+        TaskAssignmentResolutionStateField resolutionState) {
+      this.resolutionState = new EnumWrapper<TaskAssignmentResolutionStateField>(resolutionState);
       return this;
     }
 
     public TaskAssignmentBuilder resolutionState(
-        TaskAssignmentResolutionStateField resolutionState) {
-      this.resolutionState =
-          new EnumWrapper<TaskAssignmentResolutionStateField>(
-              resolutionState.getValue(), resolutionState);
+        EnumWrapper<TaskAssignmentResolutionStateField> resolutionState) {
+      this.resolutionState = resolutionState;
       return this;
     }
 

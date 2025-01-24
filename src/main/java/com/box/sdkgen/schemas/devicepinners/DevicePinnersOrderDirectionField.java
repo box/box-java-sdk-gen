@@ -39,7 +39,7 @@ public enum DevicePinnersOrderDirectionField implements Valuable {
       return Arrays.stream(DevicePinnersOrderDirectionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<DevicePinnersOrderDirectionField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<DevicePinnersOrderDirectionField>(value));
     }
   }

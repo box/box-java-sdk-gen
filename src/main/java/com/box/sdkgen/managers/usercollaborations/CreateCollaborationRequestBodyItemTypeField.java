@@ -39,7 +39,7 @@ public enum CreateCollaborationRequestBodyItemTypeField implements Valuable {
       return Arrays.stream(CreateCollaborationRequestBodyItemTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateCollaborationRequestBodyItemTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateCollaborationRequestBodyItemTypeField>(value));
     }
   }

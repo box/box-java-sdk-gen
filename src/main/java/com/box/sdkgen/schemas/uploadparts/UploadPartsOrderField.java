@@ -75,15 +75,14 @@ public class UploadPartsOrderField extends SerializableObject {
       return this;
     }
 
-    public UploadPartsOrderFieldBuilder direction(
-        EnumWrapper<UploadPartsOrderDirectionField> direction) {
-      this.direction = direction;
+    public UploadPartsOrderFieldBuilder direction(UploadPartsOrderDirectionField direction) {
+      this.direction = new EnumWrapper<UploadPartsOrderDirectionField>(direction);
       return this;
     }
 
-    public UploadPartsOrderFieldBuilder direction(UploadPartsOrderDirectionField direction) {
-      this.direction =
-          new EnumWrapper<UploadPartsOrderDirectionField>(direction.getValue(), direction);
+    public UploadPartsOrderFieldBuilder direction(
+        EnumWrapper<UploadPartsOrderDirectionField> direction) {
+      this.direction = direction;
       return this;
     }
 
