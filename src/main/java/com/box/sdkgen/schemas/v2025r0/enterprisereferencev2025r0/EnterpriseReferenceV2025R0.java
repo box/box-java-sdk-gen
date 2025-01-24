@@ -69,14 +69,14 @@ public class EnterpriseReferenceV2025R0 extends SerializableObject {
       return this;
     }
 
-    public EnterpriseReferenceV2025R0Builder type(
-        EnumWrapper<EnterpriseReferenceV2025R0TypeField> type) {
-      this.type = type;
+    public EnterpriseReferenceV2025R0Builder type(EnterpriseReferenceV2025R0TypeField type) {
+      this.type = new EnumWrapper<EnterpriseReferenceV2025R0TypeField>(type);
       return this;
     }
 
-    public EnterpriseReferenceV2025R0Builder type(EnterpriseReferenceV2025R0TypeField type) {
-      this.type = new EnumWrapper<EnterpriseReferenceV2025R0TypeField>(type.getValue(), type);
+    public EnterpriseReferenceV2025R0Builder type(
+        EnumWrapper<EnterpriseReferenceV2025R0TypeField> type) {
+      this.type = type;
       return this;
     }
 

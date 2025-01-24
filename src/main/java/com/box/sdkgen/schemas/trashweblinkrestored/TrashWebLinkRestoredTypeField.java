@@ -38,7 +38,7 @@ public enum TrashWebLinkRestoredTypeField implements Valuable {
       return Arrays.stream(TrashWebLinkRestoredTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<TrashWebLinkRestoredTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<TrashWebLinkRestoredTypeField>(value));
     }
   }

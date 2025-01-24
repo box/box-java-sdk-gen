@@ -38,7 +38,7 @@ public enum AccessTokenTokenTypeField implements Valuable {
       return Arrays.stream(AccessTokenTokenTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<AccessTokenTokenTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AccessTokenTokenTypeField>(value));
     }
   }

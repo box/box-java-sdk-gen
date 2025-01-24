@@ -65,13 +65,13 @@ public class EnterpriseBase extends SerializableObject {
       return this;
     }
 
-    public EnterpriseBaseBuilder type(EnumWrapper<EnterpriseBaseTypeField> type) {
-      this.type = type;
+    public EnterpriseBaseBuilder type(EnterpriseBaseTypeField type) {
+      this.type = new EnumWrapper<EnterpriseBaseTypeField>(type);
       return this;
     }
 
-    public EnterpriseBaseBuilder type(EnterpriseBaseTypeField type) {
-      this.type = new EnumWrapper<EnterpriseBaseTypeField>(type.getValue(), type);
+    public EnterpriseBaseBuilder type(EnumWrapper<EnterpriseBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

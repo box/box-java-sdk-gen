@@ -33,9 +33,7 @@ public class CreateLegalHoldPolicyAssignmentRequestBodyAssignToField extends Ser
   public CreateLegalHoldPolicyAssignmentRequestBodyAssignToField(
       CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField type, String id) {
     super();
-    this.type =
-        new EnumWrapper<CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField>(
-            type.getValue(), type);
+    this.type = new EnumWrapper<CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField>(type);
     this.id = id;
   }
 

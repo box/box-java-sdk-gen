@@ -38,7 +38,7 @@ public enum DocGenBatchBaseV2025R0TypeField implements Valuable {
       return Arrays.stream(DocGenBatchBaseV2025R0TypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<DocGenBatchBaseV2025R0TypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<DocGenBatchBaseV2025R0TypeField>(value));
     }
   }

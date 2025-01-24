@@ -152,7 +152,7 @@ public enum GetEventsQueryParamsEventTypeField implements Valuable {
       return Arrays.stream(GetEventsQueryParamsEventTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GetEventsQueryParamsEventTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GetEventsQueryParamsEventTypeField>(value));
     }
   }

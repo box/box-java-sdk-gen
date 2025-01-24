@@ -144,14 +144,14 @@ public class FileRequestUpdateRequest extends SerializableObject {
       return this;
     }
 
-    public FileRequestUpdateRequestBuilder status(
-        EnumWrapper<FileRequestUpdateRequestStatusField> status) {
-      this.status = status;
+    public FileRequestUpdateRequestBuilder status(FileRequestUpdateRequestStatusField status) {
+      this.status = new EnumWrapper<FileRequestUpdateRequestStatusField>(status);
       return this;
     }
 
-    public FileRequestUpdateRequestBuilder status(FileRequestUpdateRequestStatusField status) {
-      this.status = new EnumWrapper<FileRequestUpdateRequestStatusField>(status.getValue(), status);
+    public FileRequestUpdateRequestBuilder status(
+        EnumWrapper<FileRequestUpdateRequestStatusField> status) {
+      this.status = status;
       return this;
     }
 

@@ -95,27 +95,25 @@ public class WorkflowFlowsTriggerField extends SerializableObject {
 
     protected List<WorkflowFlowsTriggerScopeField> scope;
 
+    public WorkflowFlowsTriggerFieldBuilder type(WorkflowFlowsTriggerTypeField type) {
+      this.type = new EnumWrapper<WorkflowFlowsTriggerTypeField>(type);
+      return this;
+    }
+
     public WorkflowFlowsTriggerFieldBuilder type(EnumWrapper<WorkflowFlowsTriggerTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public WorkflowFlowsTriggerFieldBuilder type(WorkflowFlowsTriggerTypeField type) {
-      this.type = new EnumWrapper<WorkflowFlowsTriggerTypeField>(type.getValue(), type);
+    public WorkflowFlowsTriggerFieldBuilder triggerType(
+        WorkflowFlowsTriggerTriggerTypeField triggerType) {
+      this.triggerType = new EnumWrapper<WorkflowFlowsTriggerTriggerTypeField>(triggerType);
       return this;
     }
 
     public WorkflowFlowsTriggerFieldBuilder triggerType(
         EnumWrapper<WorkflowFlowsTriggerTriggerTypeField> triggerType) {
       this.triggerType = triggerType;
-      return this;
-    }
-
-    public WorkflowFlowsTriggerFieldBuilder triggerType(
-        WorkflowFlowsTriggerTriggerTypeField triggerType) {
-      this.triggerType =
-          new EnumWrapper<WorkflowFlowsTriggerTriggerTypeField>(
-              triggerType.getValue(), triggerType);
       return this;
     }
 

@@ -159,15 +159,14 @@ public class ShieldInformationBarrierReport extends ShieldInformationBarrierRepo
     }
 
     public ShieldInformationBarrierReportBuilder status(
-        EnumWrapper<ShieldInformationBarrierReportStatusField> status) {
-      this.status = status;
+        ShieldInformationBarrierReportStatusField status) {
+      this.status = new EnumWrapper<ShieldInformationBarrierReportStatusField>(status);
       return this;
     }
 
     public ShieldInformationBarrierReportBuilder status(
-        ShieldInformationBarrierReportStatusField status) {
-      this.status =
-          new EnumWrapper<ShieldInformationBarrierReportStatusField>(status.getValue(), status);
+        EnumWrapper<ShieldInformationBarrierReportStatusField> status) {
+      this.status = status;
       return this;
     }
 
@@ -200,16 +199,15 @@ public class ShieldInformationBarrierReport extends ShieldInformationBarrierRepo
 
     @Override
     public ShieldInformationBarrierReportBuilder type(
-        EnumWrapper<ShieldInformationBarrierReportBaseTypeField> type) {
-      this.type = type;
+        ShieldInformationBarrierReportBaseTypeField type) {
+      this.type = new EnumWrapper<ShieldInformationBarrierReportBaseTypeField>(type);
       return this;
     }
 
     @Override
     public ShieldInformationBarrierReportBuilder type(
-        ShieldInformationBarrierReportBaseTypeField type) {
-      this.type =
-          new EnumWrapper<ShieldInformationBarrierReportBaseTypeField>(type.getValue(), type);
+        EnumWrapper<ShieldInformationBarrierReportBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

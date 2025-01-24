@@ -39,7 +39,7 @@ public enum FileVersionsOrderDirectionField implements Valuable {
       return Arrays.stream(FileVersionsOrderDirectionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileVersionsOrderDirectionField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileVersionsOrderDirectionField>(value));
     }
   }

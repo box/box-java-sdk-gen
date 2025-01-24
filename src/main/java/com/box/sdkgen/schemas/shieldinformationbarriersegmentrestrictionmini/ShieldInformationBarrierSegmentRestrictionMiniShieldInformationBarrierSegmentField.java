@@ -95,21 +95,21 @@ public class ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarr
 
     public ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentFieldBuilder
         type(
-            EnumWrapper<
-                    ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField>
-                type) {
-      this.type = type;
-      return this;
-    }
-
-    public ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentFieldBuilder
-        type(
             ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField
                 type) {
       this.type =
           new EnumWrapper<
               ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField>(
-              type.getValue(), type);
+              type);
+      return this;
+    }
+
+    public ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentFieldBuilder
+        type(
+            EnumWrapper<
+                    ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField>
+                type) {
+      this.type = type;
       return this;
     }
 

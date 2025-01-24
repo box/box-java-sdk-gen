@@ -38,7 +38,7 @@ public enum UserFullEnterpriseTypeField implements Valuable {
       return Arrays.stream(UserFullEnterpriseTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UserFullEnterpriseTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UserFullEnterpriseTypeField>(value));
     }
   }

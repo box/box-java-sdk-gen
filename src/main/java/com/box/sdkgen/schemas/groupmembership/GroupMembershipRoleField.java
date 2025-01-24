@@ -39,7 +39,7 @@ public enum GroupMembershipRoleField implements Valuable {
       return Arrays.stream(GroupMembershipRoleField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GroupMembershipRoleField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GroupMembershipRoleField>(value));
     }
   }

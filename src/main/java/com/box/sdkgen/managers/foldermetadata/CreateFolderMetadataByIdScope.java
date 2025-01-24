@@ -39,7 +39,7 @@ public enum CreateFolderMetadataByIdScope implements Valuable {
       return Arrays.stream(CreateFolderMetadataByIdScope.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateFolderMetadataByIdScope>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateFolderMetadataByIdScope>(value));
     }
   }

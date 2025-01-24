@@ -39,7 +39,7 @@ public enum UpdateTaskByIdRequestBodyActionField implements Valuable {
       return Arrays.stream(UpdateTaskByIdRequestBodyActionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateTaskByIdRequestBodyActionField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateTaskByIdRequestBodyActionField>(value));
     }
   }

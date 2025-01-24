@@ -38,7 +38,7 @@ public enum UpdateClassificationOnFolderRequestBodyPathField implements Valuable
       return Arrays.stream(UpdateClassificationOnFolderRequestBodyPathField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateClassificationOnFolderRequestBodyPathField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateClassificationOnFolderRequestBodyPathField>(value));
     }
   }

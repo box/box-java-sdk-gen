@@ -53,15 +53,12 @@ public class ClassificationTemplateFieldsField extends SerializableObject {
     this.options = options;
     this.type =
         new EnumWrapper<ClassificationTemplateFieldsTypeField>(
-            ClassificationTemplateFieldsTypeField.ENUM.getValue(),
             ClassificationTemplateFieldsTypeField.ENUM);
     this.key =
         new EnumWrapper<ClassificationTemplateFieldsKeyField>(
-            ClassificationTemplateFieldsKeyField.BOX__SECURITY__CLASSIFICATION__KEY.getValue(),
             ClassificationTemplateFieldsKeyField.BOX__SECURITY__CLASSIFICATION__KEY);
     this.displayName =
         new EnumWrapper<ClassificationTemplateFieldsDisplayNameField>(
-            ClassificationTemplateFieldsDisplayNameField.CLASSIFICATION.getValue(),
             ClassificationTemplateFieldsDisplayNameField.CLASSIFICATION);
   }
 
@@ -170,16 +167,19 @@ public class ClassificationTemplateFieldsField extends SerializableObject {
       this.options = options;
       this.type =
           new EnumWrapper<ClassificationTemplateFieldsTypeField>(
-              ClassificationTemplateFieldsTypeField.ENUM.getValue(),
               ClassificationTemplateFieldsTypeField.ENUM);
       this.key =
           new EnumWrapper<ClassificationTemplateFieldsKeyField>(
-              ClassificationTemplateFieldsKeyField.BOX__SECURITY__CLASSIFICATION__KEY.getValue(),
               ClassificationTemplateFieldsKeyField.BOX__SECURITY__CLASSIFICATION__KEY);
       this.displayName =
           new EnumWrapper<ClassificationTemplateFieldsDisplayNameField>(
-              ClassificationTemplateFieldsDisplayNameField.CLASSIFICATION.getValue(),
               ClassificationTemplateFieldsDisplayNameField.CLASSIFICATION);
+    }
+
+    public ClassificationTemplateFieldsFieldBuilder type(
+        ClassificationTemplateFieldsTypeField type) {
+      this.type = new EnumWrapper<ClassificationTemplateFieldsTypeField>(type);
+      return this;
     }
 
     public ClassificationTemplateFieldsFieldBuilder type(
@@ -188,9 +188,8 @@ public class ClassificationTemplateFieldsField extends SerializableObject {
       return this;
     }
 
-    public ClassificationTemplateFieldsFieldBuilder type(
-        ClassificationTemplateFieldsTypeField type) {
-      this.type = new EnumWrapper<ClassificationTemplateFieldsTypeField>(type.getValue(), type);
+    public ClassificationTemplateFieldsFieldBuilder key(ClassificationTemplateFieldsKeyField key) {
+      this.key = new EnumWrapper<ClassificationTemplateFieldsKeyField>(key);
       return this;
     }
 
@@ -200,22 +199,15 @@ public class ClassificationTemplateFieldsField extends SerializableObject {
       return this;
     }
 
-    public ClassificationTemplateFieldsFieldBuilder key(ClassificationTemplateFieldsKeyField key) {
-      this.key = new EnumWrapper<ClassificationTemplateFieldsKeyField>(key.getValue(), key);
+    public ClassificationTemplateFieldsFieldBuilder displayName(
+        ClassificationTemplateFieldsDisplayNameField displayName) {
+      this.displayName = new EnumWrapper<ClassificationTemplateFieldsDisplayNameField>(displayName);
       return this;
     }
 
     public ClassificationTemplateFieldsFieldBuilder displayName(
         EnumWrapper<ClassificationTemplateFieldsDisplayNameField> displayName) {
       this.displayName = displayName;
-      return this;
-    }
-
-    public ClassificationTemplateFieldsFieldBuilder displayName(
-        ClassificationTemplateFieldsDisplayNameField displayName) {
-      this.displayName =
-          new EnumWrapper<ClassificationTemplateFieldsDisplayNameField>(
-              displayName.getValue(), displayName);
       return this;
     }
 

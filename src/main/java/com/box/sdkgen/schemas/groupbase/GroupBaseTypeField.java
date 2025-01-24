@@ -38,7 +38,7 @@ public enum GroupBaseTypeField implements Valuable {
       return Arrays.stream(GroupBaseTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GroupBaseTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GroupBaseTypeField>(value));
     }
   }

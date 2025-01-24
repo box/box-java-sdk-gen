@@ -38,8 +38,7 @@ public enum UpdateFileWatermarkRequestBodyWatermarkImprintField implements Valua
       return Arrays.stream(UpdateFileWatermarkRequestBodyWatermarkImprintField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) -> new EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField>(value));
     }
   }

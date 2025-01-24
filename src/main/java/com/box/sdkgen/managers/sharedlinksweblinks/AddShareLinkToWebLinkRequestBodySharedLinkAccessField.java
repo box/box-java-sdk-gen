@@ -40,9 +40,7 @@ public enum AddShareLinkToWebLinkRequestBodySharedLinkAccessField implements Val
       return Arrays.stream(AddShareLinkToWebLinkRequestBodySharedLinkAccessField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<AddShareLinkToWebLinkRequestBodySharedLinkAccessField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AddShareLinkToWebLinkRequestBodySharedLinkAccessField>(value));
     }
   }

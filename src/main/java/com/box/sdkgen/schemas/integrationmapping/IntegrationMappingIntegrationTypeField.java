@@ -38,7 +38,7 @@ public enum IntegrationMappingIntegrationTypeField implements Valuable {
       return Arrays.stream(IntegrationMappingIntegrationTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<IntegrationMappingIntegrationTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<IntegrationMappingIntegrationTypeField>(value));
     }
   }

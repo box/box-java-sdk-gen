@@ -38,7 +38,7 @@ public enum CompletionRuleVariableVariableTypeField implements Valuable {
       return Arrays.stream(CompletionRuleVariableVariableTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CompletionRuleVariableVariableTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CompletionRuleVariableVariableTypeField>(value));
     }
   }

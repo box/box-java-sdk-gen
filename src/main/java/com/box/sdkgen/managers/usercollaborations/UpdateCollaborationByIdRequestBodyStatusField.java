@@ -40,7 +40,7 @@ public enum UpdateCollaborationByIdRequestBodyStatusField implements Valuable {
       return Arrays.stream(UpdateCollaborationByIdRequestBodyStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateCollaborationByIdRequestBodyStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateCollaborationByIdRequestBodyStatusField>(value));
     }
   }

@@ -121,14 +121,14 @@ public class TrashFolderPathCollectionEntriesField extends SerializableObject {
     protected String name;
 
     public TrashFolderPathCollectionEntriesFieldBuilder type(
-        EnumWrapper<TrashFolderPathCollectionEntriesTypeField> type) {
-      this.type = type;
+        TrashFolderPathCollectionEntriesTypeField type) {
+      this.type = new EnumWrapper<TrashFolderPathCollectionEntriesTypeField>(type);
       return this;
     }
 
     public TrashFolderPathCollectionEntriesFieldBuilder type(
-        TrashFolderPathCollectionEntriesTypeField type) {
-      this.type = new EnumWrapper<TrashFolderPathCollectionEntriesTypeField>(type.getValue(), type);
+        EnumWrapper<TrashFolderPathCollectionEntriesTypeField> type) {
+      this.type = type;
       return this;
     }
 

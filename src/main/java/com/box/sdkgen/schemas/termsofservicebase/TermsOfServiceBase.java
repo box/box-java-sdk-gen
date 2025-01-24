@@ -20,9 +20,7 @@ public class TermsOfServiceBase extends SerializableObject {
     super();
     this.id = id;
     this.type =
-        new EnumWrapper<TermsOfServiceBaseTypeField>(
-            TermsOfServiceBaseTypeField.TERMS_OF_SERVICE.getValue(),
-            TermsOfServiceBaseTypeField.TERMS_OF_SERVICE);
+        new EnumWrapper<TermsOfServiceBaseTypeField>(TermsOfServiceBaseTypeField.TERMS_OF_SERVICE);
   }
 
   protected TermsOfServiceBase(TermsOfServiceBaseBuilder builder) {
@@ -71,17 +69,16 @@ public class TermsOfServiceBase extends SerializableObject {
       this.id = id;
       this.type =
           new EnumWrapper<TermsOfServiceBaseTypeField>(
-              TermsOfServiceBaseTypeField.TERMS_OF_SERVICE.getValue(),
               TermsOfServiceBaseTypeField.TERMS_OF_SERVICE);
+    }
+
+    public TermsOfServiceBaseBuilder type(TermsOfServiceBaseTypeField type) {
+      this.type = new EnumWrapper<TermsOfServiceBaseTypeField>(type);
+      return this;
     }
 
     public TermsOfServiceBaseBuilder type(EnumWrapper<TermsOfServiceBaseTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public TermsOfServiceBaseBuilder type(TermsOfServiceBaseTypeField type) {
-      this.type = new EnumWrapper<TermsOfServiceBaseTypeField>(type.getValue(), type);
       return this;
     }
 

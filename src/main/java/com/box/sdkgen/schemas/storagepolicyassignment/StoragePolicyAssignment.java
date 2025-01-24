@@ -29,7 +29,6 @@ public class StoragePolicyAssignment extends SerializableObject {
     this.id = id;
     this.type =
         new EnumWrapper<StoragePolicyAssignmentTypeField>(
-            StoragePolicyAssignmentTypeField.STORAGE_POLICY_ASSIGNMENT.getValue(),
             StoragePolicyAssignmentTypeField.STORAGE_POLICY_ASSIGNMENT);
   }
 
@@ -112,17 +111,16 @@ public class StoragePolicyAssignment extends SerializableObject {
       this.id = id;
       this.type =
           new EnumWrapper<StoragePolicyAssignmentTypeField>(
-              StoragePolicyAssignmentTypeField.STORAGE_POLICY_ASSIGNMENT.getValue(),
               StoragePolicyAssignmentTypeField.STORAGE_POLICY_ASSIGNMENT);
+    }
+
+    public StoragePolicyAssignmentBuilder type(StoragePolicyAssignmentTypeField type) {
+      this.type = new EnumWrapper<StoragePolicyAssignmentTypeField>(type);
+      return this;
     }
 
     public StoragePolicyAssignmentBuilder type(EnumWrapper<StoragePolicyAssignmentTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public StoragePolicyAssignmentBuilder type(StoragePolicyAssignmentTypeField type) {
-      this.type = new EnumWrapper<StoragePolicyAssignmentTypeField>(type.getValue(), type);
       return this;
     }
 

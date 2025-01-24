@@ -61,7 +61,7 @@ public class DocGenJobV2025R0 extends DocGenJobBaseV2025R0 {
     this.batch = batch;
     this.templateFile = templateFile;
     this.templateFileVersion = templateFileVersion;
-    this.status = new EnumWrapper<DocGenJobV2025R0StatusField>(status.getValue(), status);
+    this.status = new EnumWrapper<DocGenJobV2025R0StatusField>(status);
     this.outputType = outputType;
   }
 
@@ -200,13 +200,28 @@ public class DocGenJobV2025R0 extends DocGenJobBaseV2025R0 {
         DocGenBatchBaseV2025R0 batch,
         FileReferenceV2025R0 templateFile,
         FileVersionBaseV2025R0 templateFileVersion,
+        EnumWrapper<DocGenJobV2025R0StatusField> status,
+        String outputType) {
+      super(id);
+      this.batch = batch;
+      this.templateFile = templateFile;
+      this.templateFileVersion = templateFileVersion;
+      this.status = status;
+      this.outputType = outputType;
+    }
+
+    public DocGenJobV2025R0Builder(
+        String id,
+        DocGenBatchBaseV2025R0 batch,
+        FileReferenceV2025R0 templateFile,
+        FileVersionBaseV2025R0 templateFileVersion,
         DocGenJobV2025R0StatusField status,
         String outputType) {
       super(id);
       this.batch = batch;
       this.templateFile = templateFile;
       this.templateFileVersion = templateFileVersion;
-      this.status = new EnumWrapper<DocGenJobV2025R0StatusField>(status.getValue(), status);
+      this.status = new EnumWrapper<DocGenJobV2025R0StatusField>(status);
       this.outputType = outputType;
     }
 
@@ -221,14 +236,14 @@ public class DocGenJobV2025R0 extends DocGenJobBaseV2025R0 {
     }
 
     @Override
-    public DocGenJobV2025R0Builder type(EnumWrapper<DocGenJobBaseV2025R0TypeField> type) {
-      this.type = type;
+    public DocGenJobV2025R0Builder type(DocGenJobBaseV2025R0TypeField type) {
+      this.type = new EnumWrapper<DocGenJobBaseV2025R0TypeField>(type);
       return this;
     }
 
     @Override
-    public DocGenJobV2025R0Builder type(DocGenJobBaseV2025R0TypeField type) {
-      this.type = new EnumWrapper<DocGenJobBaseV2025R0TypeField>(type.getValue(), type);
+    public DocGenJobV2025R0Builder type(EnumWrapper<DocGenJobBaseV2025R0TypeField> type) {
+      this.type = type;
       return this;
     }
 

@@ -38,7 +38,7 @@ public enum AddClassificationRequestBodyOpField implements Valuable {
       return Arrays.stream(AddClassificationRequestBodyOpField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<AddClassificationRequestBodyOpField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AddClassificationRequestBodyOpField>(value));
     }
   }

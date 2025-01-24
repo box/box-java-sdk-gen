@@ -1,6 +1,19 @@
 package com.box.sdkgen.managers.webhooks;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.box.sdkgen.serialization.json.Valuable;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,7 +23,9 @@ public class UpdateWebhookByIdRequestBody extends SerializableObject {
 
   protected String address;
 
-  protected List<UpdateWebhookByIdRequestBodyTriggersField> triggers;
+  @JsonDeserialize(using = TriggersDeserializer.class)
+  @JsonSerialize(using = TriggersSerializer.class)
+  protected List<EnumWrapper<UpdateWebhookByIdRequestBodyTriggersField>> triggers;
 
   public UpdateWebhookByIdRequestBody() {
     super();
@@ -31,7 +46,7 @@ public class UpdateWebhookByIdRequestBody extends SerializableObject {
     return address;
   }
 
-  public List<UpdateWebhookByIdRequestBodyTriggersField> getTriggers() {
+  public List<EnumWrapper<UpdateWebhookByIdRequestBodyTriggersField>> getTriggers() {
     return triggers;
   }
 
@@ -77,7 +92,7 @@ public class UpdateWebhookByIdRequestBody extends SerializableObject {
 
     protected String address;
 
-    protected List<UpdateWebhookByIdRequestBodyTriggersField> triggers;
+    protected List<EnumWrapper<UpdateWebhookByIdRequestBodyTriggersField>> triggers;
 
     public UpdateWebhookByIdRequestBodyBuilder target(
         UpdateWebhookByIdRequestBodyTargetField target) {
@@ -90,14 +105,69 @@ public class UpdateWebhookByIdRequestBody extends SerializableObject {
       return this;
     }
 
-    public UpdateWebhookByIdRequestBodyBuilder triggers(
-        List<UpdateWebhookByIdRequestBodyTriggersField> triggers) {
-      this.triggers = triggers;
+    public UpdateWebhookByIdRequestBodyBuilder triggers(List<? extends Valuable> triggers) {
+      this.triggers =
+          EnumWrapper.wrapValuableEnumList(
+              triggers, UpdateWebhookByIdRequestBodyTriggersField.class);
       return this;
     }
 
     public UpdateWebhookByIdRequestBody build() {
       return new UpdateWebhookByIdRequestBody(this);
+    }
+  }
+
+  public static class TriggersDeserializer
+      extends JsonDeserializer<List<EnumWrapper<UpdateWebhookByIdRequestBodyTriggersField>>> {
+
+    public final JsonDeserializer<EnumWrapper<UpdateWebhookByIdRequestBodyTriggersField>>
+        elementDeserializer;
+
+    public TriggersDeserializer() {
+      super();
+      this.elementDeserializer =
+          new UpdateWebhookByIdRequestBodyTriggersField
+              .UpdateWebhookByIdRequestBodyTriggersFieldDeserializer();
+    }
+
+    @Override
+    public List<EnumWrapper<UpdateWebhookByIdRequestBodyTriggersField>> deserialize(
+        JsonParser p, DeserializationContext ctxt) throws IOException {
+      JsonNode node = p.getCodec().readTree(p);
+      List<EnumWrapper<UpdateWebhookByIdRequestBodyTriggersField>> elements = new ArrayList<>();
+      for (JsonNode item : node) {
+        JsonParser pa = item.traverse(p.getCodec());
+        pa.nextToken();
+        elements.add(elementDeserializer.deserialize(pa, ctxt));
+      }
+      return elements;
+    }
+  }
+
+  public static class TriggersSerializer
+      extends JsonSerializer<List<EnumWrapper<UpdateWebhookByIdRequestBodyTriggersField>>> {
+
+    public final JsonSerializer<EnumWrapper<UpdateWebhookByIdRequestBodyTriggersField>>
+        elementSerializer;
+
+    public TriggersSerializer() {
+      super();
+      this.elementSerializer =
+          new UpdateWebhookByIdRequestBodyTriggersField
+              .UpdateWebhookByIdRequestBodyTriggersFieldSerializer();
+    }
+
+    @Override
+    public void serialize(
+        List<EnumWrapper<UpdateWebhookByIdRequestBodyTriggersField>> value,
+        JsonGenerator gen,
+        SerializerProvider serializers)
+        throws IOException {
+      gen.writeStartArray();
+      for (EnumWrapper<UpdateWebhookByIdRequestBodyTriggersField> item : value) {
+        elementSerializer.serialize(item, gen, serializers);
+      }
+      gen.writeEndArray();
     }
   }
 }

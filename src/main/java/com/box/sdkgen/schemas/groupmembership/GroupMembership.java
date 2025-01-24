@@ -151,13 +151,13 @@ public class GroupMembership extends SerializableObject {
       return this;
     }
 
-    public GroupMembershipBuilder type(EnumWrapper<GroupMembershipTypeField> type) {
-      this.type = type;
+    public GroupMembershipBuilder type(GroupMembershipTypeField type) {
+      this.type = new EnumWrapper<GroupMembershipTypeField>(type);
       return this;
     }
 
-    public GroupMembershipBuilder type(GroupMembershipTypeField type) {
-      this.type = new EnumWrapper<GroupMembershipTypeField>(type.getValue(), type);
+    public GroupMembershipBuilder type(EnumWrapper<GroupMembershipTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -171,13 +171,13 @@ public class GroupMembership extends SerializableObject {
       return this;
     }
 
-    public GroupMembershipBuilder role(EnumWrapper<GroupMembershipRoleField> role) {
-      this.role = role;
+    public GroupMembershipBuilder role(GroupMembershipRoleField role) {
+      this.role = new EnumWrapper<GroupMembershipRoleField>(role);
       return this;
     }
 
-    public GroupMembershipBuilder role(GroupMembershipRoleField role) {
-      this.role = new EnumWrapper<GroupMembershipRoleField>(role.getValue(), role);
+    public GroupMembershipBuilder role(EnumWrapper<GroupMembershipRoleField> role) {
+      this.role = role;
       return this;
     }
 

@@ -18,9 +18,7 @@ public class UserBase extends SerializableObject {
   public UserBase(@JsonProperty("id") String id) {
     super();
     this.id = id;
-    this.type =
-        new EnumWrapper<UserBaseTypeField>(
-            UserBaseTypeField.USER.getValue(), UserBaseTypeField.USER);
+    this.type = new EnumWrapper<UserBaseTypeField>(UserBaseTypeField.USER);
   }
 
   protected UserBase(UserBaseBuilder builder) {
@@ -67,18 +65,16 @@ public class UserBase extends SerializableObject {
 
     public UserBaseBuilder(String id) {
       this.id = id;
-      this.type =
-          new EnumWrapper<UserBaseTypeField>(
-              UserBaseTypeField.USER.getValue(), UserBaseTypeField.USER);
+      this.type = new EnumWrapper<UserBaseTypeField>(UserBaseTypeField.USER);
+    }
+
+    public UserBaseBuilder type(UserBaseTypeField type) {
+      this.type = new EnumWrapper<UserBaseTypeField>(type);
+      return this;
     }
 
     public UserBaseBuilder type(EnumWrapper<UserBaseTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public UserBaseBuilder type(UserBaseTypeField type) {
-      this.type = new EnumWrapper<UserBaseTypeField>(type.getValue(), type);
       return this;
     }
 

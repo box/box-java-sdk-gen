@@ -342,13 +342,13 @@ public class UserFull extends User {
       super(id);
     }
 
-    public UserFullBuilder role(EnumWrapper<UserFullRoleField> role) {
-      this.role = role;
+    public UserFullBuilder role(UserFullRoleField role) {
+      this.role = new EnumWrapper<UserFullRoleField>(role);
       return this;
     }
 
-    public UserFullBuilder role(UserFullRoleField role) {
-      this.role = new EnumWrapper<UserFullRoleField>(role.getValue(), role);
+    public UserFullBuilder role(EnumWrapper<UserFullRoleField> role) {
+      this.role = role;
       return this;
     }
 
@@ -408,14 +408,14 @@ public class UserFull extends User {
     }
 
     @Override
-    public UserFullBuilder type(EnumWrapper<UserBaseTypeField> type) {
-      this.type = type;
+    public UserFullBuilder type(UserBaseTypeField type) {
+      this.type = new EnumWrapper<UserBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public UserFullBuilder type(UserBaseTypeField type) {
-      this.type = new EnumWrapper<UserBaseTypeField>(type.getValue(), type);
+    public UserFullBuilder type(EnumWrapper<UserBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -474,14 +474,14 @@ public class UserFull extends User {
     }
 
     @Override
-    public UserFullBuilder status(EnumWrapper<UserStatusField> status) {
-      this.status = status;
+    public UserFullBuilder status(UserStatusField status) {
+      this.status = new EnumWrapper<UserStatusField>(status);
       return this;
     }
 
     @Override
-    public UserFullBuilder status(UserStatusField status) {
-      this.status = new EnumWrapper<UserStatusField>(status.getValue(), status);
+    public UserFullBuilder status(EnumWrapper<UserStatusField> status) {
+      this.status = status;
       return this;
     }
 

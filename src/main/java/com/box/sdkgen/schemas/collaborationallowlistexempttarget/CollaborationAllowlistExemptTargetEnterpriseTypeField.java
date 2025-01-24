@@ -38,9 +38,7 @@ public enum CollaborationAllowlistExemptTargetEnterpriseTypeField implements Val
       return Arrays.stream(CollaborationAllowlistExemptTargetEnterpriseTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<CollaborationAllowlistExemptTargetEnterpriseTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CollaborationAllowlistExemptTargetEnterpriseTypeField>(value));
     }
   }

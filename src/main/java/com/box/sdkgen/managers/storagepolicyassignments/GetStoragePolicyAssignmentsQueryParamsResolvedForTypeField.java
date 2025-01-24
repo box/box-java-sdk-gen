@@ -40,10 +40,7 @@ public enum GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField implement
       return Arrays.stream(GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(
               new EnumWrapper<GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField>(value));
     }

@@ -40,7 +40,7 @@ public enum MetadataFilterScopeField implements Valuable {
       return Arrays.stream(MetadataFilterScopeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<MetadataFilterScopeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<MetadataFilterScopeField>(value));
     }
   }

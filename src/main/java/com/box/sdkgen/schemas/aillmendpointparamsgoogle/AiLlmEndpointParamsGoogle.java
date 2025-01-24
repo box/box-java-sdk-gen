@@ -28,7 +28,6 @@ public class AiLlmEndpointParamsGoogle extends SerializableObject {
     super();
     this.type =
         new EnumWrapper<AiLlmEndpointParamsGoogleTypeField>(
-            AiLlmEndpointParamsGoogleTypeField.GOOGLE_PARAMS.getValue(),
             AiLlmEndpointParamsGoogleTypeField.GOOGLE_PARAMS);
   }
 
@@ -107,14 +106,14 @@ public class AiLlmEndpointParamsGoogle extends SerializableObject {
 
     protected Double topK;
 
-    public AiLlmEndpointParamsGoogleBuilder type(
-        EnumWrapper<AiLlmEndpointParamsGoogleTypeField> type) {
-      this.type = type;
+    public AiLlmEndpointParamsGoogleBuilder type(AiLlmEndpointParamsGoogleTypeField type) {
+      this.type = new EnumWrapper<AiLlmEndpointParamsGoogleTypeField>(type);
       return this;
     }
 
-    public AiLlmEndpointParamsGoogleBuilder type(AiLlmEndpointParamsGoogleTypeField type) {
-      this.type = new EnumWrapper<AiLlmEndpointParamsGoogleTypeField>(type.getValue(), type);
+    public AiLlmEndpointParamsGoogleBuilder type(
+        EnumWrapper<AiLlmEndpointParamsGoogleTypeField> type) {
+      this.type = type;
       return this;
     }
 

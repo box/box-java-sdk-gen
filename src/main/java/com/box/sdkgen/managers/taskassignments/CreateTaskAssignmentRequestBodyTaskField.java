@@ -26,7 +26,6 @@ public class CreateTaskAssignmentRequestBodyTaskField extends SerializableObject
     this.id = id;
     this.type =
         new EnumWrapper<CreateTaskAssignmentRequestBodyTaskTypeField>(
-            CreateTaskAssignmentRequestBodyTaskTypeField.TASK.getValue(),
             CreateTaskAssignmentRequestBodyTaskTypeField.TASK);
   }
 
@@ -85,20 +84,18 @@ public class CreateTaskAssignmentRequestBodyTaskField extends SerializableObject
       this.id = id;
       this.type =
           new EnumWrapper<CreateTaskAssignmentRequestBodyTaskTypeField>(
-              CreateTaskAssignmentRequestBodyTaskTypeField.TASK.getValue(),
               CreateTaskAssignmentRequestBodyTaskTypeField.TASK);
+    }
+
+    public CreateTaskAssignmentRequestBodyTaskFieldBuilder type(
+        CreateTaskAssignmentRequestBodyTaskTypeField type) {
+      this.type = new EnumWrapper<CreateTaskAssignmentRequestBodyTaskTypeField>(type);
+      return this;
     }
 
     public CreateTaskAssignmentRequestBodyTaskFieldBuilder type(
         EnumWrapper<CreateTaskAssignmentRequestBodyTaskTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public CreateTaskAssignmentRequestBodyTaskFieldBuilder type(
-        CreateTaskAssignmentRequestBodyTaskTypeField type) {
-      this.type =
-          new EnumWrapper<CreateTaskAssignmentRequestBodyTaskTypeField>(type.getValue(), type);
       return this;
     }
 

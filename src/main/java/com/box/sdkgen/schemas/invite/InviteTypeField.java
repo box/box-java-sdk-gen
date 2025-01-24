@@ -38,7 +38,7 @@ public enum InviteTypeField implements Valuable {
       return Arrays.stream(InviteTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<InviteTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<InviteTypeField>(value));
     }
   }

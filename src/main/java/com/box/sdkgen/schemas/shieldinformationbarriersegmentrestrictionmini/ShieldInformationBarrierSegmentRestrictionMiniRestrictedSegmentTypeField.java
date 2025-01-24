@@ -42,11 +42,7 @@ public enum ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeF
               ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<
-                      ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(
               new EnumWrapper<
                   ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField>(value));

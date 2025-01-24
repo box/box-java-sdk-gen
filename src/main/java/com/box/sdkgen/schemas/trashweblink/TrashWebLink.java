@@ -328,13 +328,13 @@ public class TrashWebLink extends SerializableObject {
 
     protected EnumWrapper<TrashWebLinkItemStatusField> itemStatus;
 
-    public TrashWebLinkBuilder type(EnumWrapper<TrashWebLinkTypeField> type) {
-      this.type = type;
+    public TrashWebLinkBuilder type(TrashWebLinkTypeField type) {
+      this.type = new EnumWrapper<TrashWebLinkTypeField>(type);
       return this;
     }
 
-    public TrashWebLinkBuilder type(TrashWebLinkTypeField type) {
-      this.type = new EnumWrapper<TrashWebLinkTypeField>(type.getValue(), type);
+    public TrashWebLinkBuilder type(EnumWrapper<TrashWebLinkTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -418,14 +418,13 @@ public class TrashWebLink extends SerializableObject {
       return this;
     }
 
-    public TrashWebLinkBuilder itemStatus(EnumWrapper<TrashWebLinkItemStatusField> itemStatus) {
-      this.itemStatus = itemStatus;
+    public TrashWebLinkBuilder itemStatus(TrashWebLinkItemStatusField itemStatus) {
+      this.itemStatus = new EnumWrapper<TrashWebLinkItemStatusField>(itemStatus);
       return this;
     }
 
-    public TrashWebLinkBuilder itemStatus(TrashWebLinkItemStatusField itemStatus) {
-      this.itemStatus =
-          new EnumWrapper<TrashWebLinkItemStatusField>(itemStatus.getValue(), itemStatus);
+    public TrashWebLinkBuilder itemStatus(EnumWrapper<TrashWebLinkItemStatusField> itemStatus) {
+      this.itemStatus = itemStatus;
       return this;
     }
 

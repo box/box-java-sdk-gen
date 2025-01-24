@@ -38,8 +38,7 @@ public class FetchOptions {
     this.url = url;
     this.method = method;
     this.contentType = "application/json";
-    this.responseFormat =
-        new EnumWrapper<ResponseFormat>(ResponseFormat.JSON.getValue(), ResponseFormat.JSON);
+    this.responseFormat = new EnumWrapper<ResponseFormat>(ResponseFormat.JSON);
     this.followRedirects = true;
   }
 
@@ -136,8 +135,7 @@ public class FetchOptions {
       this.url = url;
       this.method = method;
       this.contentType = "application/json";
-      this.responseFormat =
-          new EnumWrapper<ResponseFormat>(ResponseFormat.JSON.getValue(), ResponseFormat.JSON);
+      this.responseFormat = new EnumWrapper<ResponseFormat>(ResponseFormat.JSON);
       this.followRedirects = true;
     }
 
@@ -171,14 +169,13 @@ public class FetchOptions {
       return this;
     }
 
-    public FetchOptionsBuilder responseFormat(EnumWrapper<ResponseFormat> responseFormat) {
-      this.responseFormat = responseFormat;
+    public FetchOptionsBuilder responseFormat(ResponseFormat responseFormat) {
+      this.responseFormat = new EnumWrapper<ResponseFormat>(responseFormat);
       return this;
     }
 
-    public FetchOptionsBuilder responseFormat(ResponseFormat responseFormat) {
-      this.responseFormat =
-          new EnumWrapper<ResponseFormat>(responseFormat.getValue(), responseFormat);
+    public FetchOptionsBuilder responseFormat(EnumWrapper<ResponseFormat> responseFormat) {
+      this.responseFormat = responseFormat;
       return this;
     }
 

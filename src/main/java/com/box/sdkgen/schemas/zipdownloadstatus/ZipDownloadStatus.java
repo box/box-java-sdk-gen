@@ -138,13 +138,13 @@ public class ZipDownloadStatus extends SerializableObject {
       return this;
     }
 
-    public ZipDownloadStatusBuilder state(EnumWrapper<ZipDownloadStatusStateField> state) {
-      this.state = state;
+    public ZipDownloadStatusBuilder state(ZipDownloadStatusStateField state) {
+      this.state = new EnumWrapper<ZipDownloadStatusStateField>(state);
       return this;
     }
 
-    public ZipDownloadStatusBuilder state(ZipDownloadStatusStateField state) {
-      this.state = new EnumWrapper<ZipDownloadStatusStateField>(state.getValue(), state);
+    public ZipDownloadStatusBuilder state(EnumWrapper<ZipDownloadStatusStateField> state) {
+      this.state = state;
       return this;
     }
 

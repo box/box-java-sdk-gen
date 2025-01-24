@@ -40,7 +40,7 @@ public enum CollaborationAllowlistEntryDirectionField implements Valuable {
       return Arrays.stream(CollaborationAllowlistEntryDirectionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CollaborationAllowlistEntryDirectionField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CollaborationAllowlistEntryDirectionField>(value));
     }
   }

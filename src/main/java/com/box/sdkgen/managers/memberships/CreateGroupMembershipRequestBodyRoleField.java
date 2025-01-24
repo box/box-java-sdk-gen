@@ -39,7 +39,7 @@ public enum CreateGroupMembershipRequestBodyRoleField implements Valuable {
       return Arrays.stream(CreateGroupMembershipRequestBodyRoleField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateGroupMembershipRequestBodyRoleField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateGroupMembershipRequestBodyRoleField>(value));
     }
   }

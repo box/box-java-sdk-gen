@@ -20,9 +20,7 @@ public class WebLinkBase extends SerializableObject {
   public WebLinkBase(@JsonProperty("id") String id) {
     super();
     this.id = id;
-    this.type =
-        new EnumWrapper<WebLinkBaseTypeField>(
-            WebLinkBaseTypeField.WEB_LINK.getValue(), WebLinkBaseTypeField.WEB_LINK);
+    this.type = new EnumWrapper<WebLinkBaseTypeField>(WebLinkBaseTypeField.WEB_LINK);
   }
 
   protected WebLinkBase(WebLinkBaseBuilder builder) {
@@ -90,18 +88,16 @@ public class WebLinkBase extends SerializableObject {
 
     public WebLinkBaseBuilder(String id) {
       this.id = id;
-      this.type =
-          new EnumWrapper<WebLinkBaseTypeField>(
-              WebLinkBaseTypeField.WEB_LINK.getValue(), WebLinkBaseTypeField.WEB_LINK);
+      this.type = new EnumWrapper<WebLinkBaseTypeField>(WebLinkBaseTypeField.WEB_LINK);
+    }
+
+    public WebLinkBaseBuilder type(WebLinkBaseTypeField type) {
+      this.type = new EnumWrapper<WebLinkBaseTypeField>(type);
+      return this;
     }
 
     public WebLinkBaseBuilder type(EnumWrapper<WebLinkBaseTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public WebLinkBaseBuilder type(WebLinkBaseTypeField type) {
-      this.type = new EnumWrapper<WebLinkBaseTypeField>(type.getValue(), type);
       return this;
     }
 

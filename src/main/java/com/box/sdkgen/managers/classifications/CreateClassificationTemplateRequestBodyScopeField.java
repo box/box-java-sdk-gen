@@ -38,7 +38,7 @@ public enum CreateClassificationTemplateRequestBodyScopeField implements Valuabl
       return Arrays.stream(CreateClassificationTemplateRequestBodyScopeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateClassificationTemplateRequestBodyScopeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateClassificationTemplateRequestBodyScopeField>(value));
     }
   }

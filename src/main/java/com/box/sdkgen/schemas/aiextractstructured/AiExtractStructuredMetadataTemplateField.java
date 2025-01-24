@@ -98,15 +98,14 @@ public class AiExtractStructuredMetadataTemplateField extends SerializableObject
     }
 
     public AiExtractStructuredMetadataTemplateFieldBuilder type(
-        EnumWrapper<AiExtractStructuredMetadataTemplateTypeField> type) {
-      this.type = type;
+        AiExtractStructuredMetadataTemplateTypeField type) {
+      this.type = new EnumWrapper<AiExtractStructuredMetadataTemplateTypeField>(type);
       return this;
     }
 
     public AiExtractStructuredMetadataTemplateFieldBuilder type(
-        AiExtractStructuredMetadataTemplateTypeField type) {
-      this.type =
-          new EnumWrapper<AiExtractStructuredMetadataTemplateTypeField>(type.getValue(), type);
+        EnumWrapper<AiExtractStructuredMetadataTemplateTypeField> type) {
+      this.type = type;
       return this;
     }
 

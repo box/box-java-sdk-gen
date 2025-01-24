@@ -38,7 +38,7 @@ public enum FileRequestCopyRequestFolderTypeField implements Valuable {
       return Arrays.stream(FileRequestCopyRequestFolderTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileRequestCopyRequestFolderTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileRequestCopyRequestFolderTypeField>(value));
     }
   }

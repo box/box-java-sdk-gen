@@ -39,7 +39,7 @@ public enum ZipDownloadRequestItemsTypeField implements Valuable {
       return Arrays.stream(ZipDownloadRequestItemsTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<ZipDownloadRequestItemsTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<ZipDownloadRequestItemsTypeField>(value));
     }
   }

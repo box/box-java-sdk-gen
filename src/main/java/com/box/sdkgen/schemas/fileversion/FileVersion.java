@@ -292,14 +292,14 @@ public class FileVersion extends FileVersionMini {
     }
 
     @Override
-    public FileVersionBuilder type(EnumWrapper<FileVersionBaseTypeField> type) {
-      this.type = type;
+    public FileVersionBuilder type(FileVersionBaseTypeField type) {
+      this.type = new EnumWrapper<FileVersionBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FileVersionBuilder type(FileVersionBaseTypeField type) {
-      this.type = new EnumWrapper<FileVersionBaseTypeField>(type.getValue(), type);
+    public FileVersionBuilder type(EnumWrapper<FileVersionBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

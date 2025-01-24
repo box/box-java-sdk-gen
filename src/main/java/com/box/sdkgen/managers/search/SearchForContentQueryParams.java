@@ -2,6 +2,16 @@ package com.box.sdkgen.managers.search;
 
 import com.box.sdkgen.schemas.metadatafilter.MetadataFilter;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.box.sdkgen.serialization.json.Valuable;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchForContentQueryParams {
@@ -24,7 +34,7 @@ public class SearchForContentQueryParams {
 
   public List<String> ancestorFolderIds;
 
-  public List<SearchForContentQueryParamsContentTypesField> contentTypes;
+  public List<EnumWrapper<SearchForContentQueryParamsContentTypesField>> contentTypes;
 
   public EnumWrapper<SearchForContentQueryParamsTypeField> type;
 
@@ -110,7 +120,7 @@ public class SearchForContentQueryParams {
     return ancestorFolderIds;
   }
 
-  public List<SearchForContentQueryParamsContentTypesField> getContentTypes() {
+  public List<EnumWrapper<SearchForContentQueryParamsContentTypesField>> getContentTypes() {
     return contentTypes;
   }
 
@@ -178,7 +188,7 @@ public class SearchForContentQueryParams {
 
     protected List<String> ancestorFolderIds;
 
-    protected List<SearchForContentQueryParamsContentTypesField> contentTypes;
+    protected List<EnumWrapper<SearchForContentQueryParamsContentTypesField>> contentTypes;
 
     protected EnumWrapper<SearchForContentQueryParamsTypeField> type;
 
@@ -207,14 +217,14 @@ public class SearchForContentQueryParams {
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder scope(
-        EnumWrapper<SearchForContentQueryParamsScopeField> scope) {
-      this.scope = scope;
+    public SearchForContentQueryParamsBuilder scope(SearchForContentQueryParamsScopeField scope) {
+      this.scope = new EnumWrapper<SearchForContentQueryParamsScopeField>(scope);
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder scope(SearchForContentQueryParamsScopeField scope) {
-      this.scope = new EnumWrapper<SearchForContentQueryParamsScopeField>(scope.getValue(), scope);
+    public SearchForContentQueryParamsBuilder scope(
+        EnumWrapper<SearchForContentQueryParamsScopeField> scope) {
+      this.scope = scope;
       return this;
     }
 
@@ -254,9 +264,15 @@ public class SearchForContentQueryParams {
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder contentTypes(
-        List<SearchForContentQueryParamsContentTypesField> contentTypes) {
-      this.contentTypes = contentTypes;
+    public SearchForContentQueryParamsBuilder contentTypes(List<? extends Valuable> contentTypes) {
+      this.contentTypes =
+          EnumWrapper.wrapValuableEnumList(
+              contentTypes, SearchForContentQueryParamsContentTypesField.class);
+      return this;
+    }
+
+    public SearchForContentQueryParamsBuilder type(SearchForContentQueryParamsTypeField type) {
+      this.type = new EnumWrapper<SearchForContentQueryParamsTypeField>(type);
       return this;
     }
 
@@ -266,8 +282,10 @@ public class SearchForContentQueryParams {
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder type(SearchForContentQueryParamsTypeField type) {
-      this.type = new EnumWrapper<SearchForContentQueryParamsTypeField>(type.getValue(), type);
+    public SearchForContentQueryParamsBuilder trashContent(
+        SearchForContentQueryParamsTrashContentField trashContent) {
+      this.trashContent =
+          new EnumWrapper<SearchForContentQueryParamsTrashContentField>(trashContent);
       return this;
     }
 
@@ -277,16 +295,13 @@ public class SearchForContentQueryParams {
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder trashContent(
-        SearchForContentQueryParamsTrashContentField trashContent) {
-      this.trashContent =
-          new EnumWrapper<SearchForContentQueryParamsTrashContentField>(
-              trashContent.getValue(), trashContent);
+    public SearchForContentQueryParamsBuilder mdfilters(List<MetadataFilter> mdfilters) {
+      this.mdfilters = mdfilters;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder mdfilters(List<MetadataFilter> mdfilters) {
-      this.mdfilters = mdfilters;
+    public SearchForContentQueryParamsBuilder sort(SearchForContentQueryParamsSortField sort) {
+      this.sort = new EnumWrapper<SearchForContentQueryParamsSortField>(sort);
       return this;
     }
 
@@ -296,22 +311,15 @@ public class SearchForContentQueryParams {
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder sort(SearchForContentQueryParamsSortField sort) {
-      this.sort = new EnumWrapper<SearchForContentQueryParamsSortField>(sort.getValue(), sort);
+    public SearchForContentQueryParamsBuilder direction(
+        SearchForContentQueryParamsDirectionField direction) {
+      this.direction = new EnumWrapper<SearchForContentQueryParamsDirectionField>(direction);
       return this;
     }
 
     public SearchForContentQueryParamsBuilder direction(
         EnumWrapper<SearchForContentQueryParamsDirectionField> direction) {
       this.direction = direction;
-      return this;
-    }
-
-    public SearchForContentQueryParamsBuilder direction(
-        SearchForContentQueryParamsDirectionField direction) {
-      this.direction =
-          new EnumWrapper<SearchForContentQueryParamsDirectionField>(
-              direction.getValue(), direction);
       return this;
     }
 
@@ -348,6 +356,60 @@ public class SearchForContentQueryParams {
 
     public SearchForContentQueryParams build() {
       return new SearchForContentQueryParams(this);
+    }
+  }
+
+  public static class ContentTypesDeserializer
+      extends JsonDeserializer<List<EnumWrapper<SearchForContentQueryParamsContentTypesField>>> {
+
+    public final JsonDeserializer<EnumWrapper<SearchForContentQueryParamsContentTypesField>>
+        elementDeserializer;
+
+    public ContentTypesDeserializer() {
+      super();
+      this.elementDeserializer =
+          new SearchForContentQueryParamsContentTypesField
+              .SearchForContentQueryParamsContentTypesFieldDeserializer();
+    }
+
+    @Override
+    public List<EnumWrapper<SearchForContentQueryParamsContentTypesField>> deserialize(
+        JsonParser p, DeserializationContext ctxt) throws IOException {
+      JsonNode node = p.getCodec().readTree(p);
+      List<EnumWrapper<SearchForContentQueryParamsContentTypesField>> elements = new ArrayList<>();
+      for (JsonNode item : node) {
+        JsonParser pa = item.traverse(p.getCodec());
+        pa.nextToken();
+        elements.add(elementDeserializer.deserialize(pa, ctxt));
+      }
+      return elements;
+    }
+  }
+
+  public static class ContentTypesSerializer
+      extends JsonSerializer<List<EnumWrapper<SearchForContentQueryParamsContentTypesField>>> {
+
+    public final JsonSerializer<EnumWrapper<SearchForContentQueryParamsContentTypesField>>
+        elementSerializer;
+
+    public ContentTypesSerializer() {
+      super();
+      this.elementSerializer =
+          new SearchForContentQueryParamsContentTypesField
+              .SearchForContentQueryParamsContentTypesFieldSerializer();
+    }
+
+    @Override
+    public void serialize(
+        List<EnumWrapper<SearchForContentQueryParamsContentTypesField>> value,
+        JsonGenerator gen,
+        SerializerProvider serializers)
+        throws IOException {
+      gen.writeStartArray();
+      for (EnumWrapper<SearchForContentQueryParamsContentTypesField> item : value) {
+        elementSerializer.serialize(item, gen, serializers);
+      }
+      gen.writeEndArray();
     }
   }
 }

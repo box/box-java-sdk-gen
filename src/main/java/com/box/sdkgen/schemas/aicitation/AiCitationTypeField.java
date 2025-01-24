@@ -38,7 +38,7 @@ public enum AiCitationTypeField implements Valuable {
       return Arrays.stream(AiCitationTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<AiCitationTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AiCitationTypeField>(value));
     }
   }

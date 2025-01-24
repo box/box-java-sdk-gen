@@ -38,7 +38,7 @@ public enum TranscriptSkillCardSkillTypeField implements Valuable {
       return Arrays.stream(TranscriptSkillCardSkillTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<TranscriptSkillCardSkillTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<TranscriptSkillCardSkillTypeField>(value));
     }
   }

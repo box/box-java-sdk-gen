@@ -39,7 +39,7 @@ public enum GroupMembershipsOrderDirectionField implements Valuable {
       return Arrays.stream(GroupMembershipsOrderDirectionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GroupMembershipsOrderDirectionField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GroupMembershipsOrderDirectionField>(value));
     }
   }

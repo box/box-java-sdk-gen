@@ -38,7 +38,7 @@ public enum EmailAliasTypeField implements Valuable {
       return Arrays.stream(EmailAliasTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<EmailAliasTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<EmailAliasTypeField>(value));
     }
   }

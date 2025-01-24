@@ -26,7 +26,6 @@ public class DocGenBatchCreateRequestV2025R0DestinationFolderField extends Seria
     this.id = id;
     this.type =
         new EnumWrapper<DocGenBatchCreateRequestV2025R0DestinationFolderTypeField>(
-            DocGenBatchCreateRequestV2025R0DestinationFolderTypeField.FOLDER.getValue(),
             DocGenBatchCreateRequestV2025R0DestinationFolderTypeField.FOLDER);
   }
 
@@ -86,21 +85,18 @@ public class DocGenBatchCreateRequestV2025R0DestinationFolderField extends Seria
       this.id = id;
       this.type =
           new EnumWrapper<DocGenBatchCreateRequestV2025R0DestinationFolderTypeField>(
-              DocGenBatchCreateRequestV2025R0DestinationFolderTypeField.FOLDER.getValue(),
               DocGenBatchCreateRequestV2025R0DestinationFolderTypeField.FOLDER);
+    }
+
+    public DocGenBatchCreateRequestV2025R0DestinationFolderFieldBuilder type(
+        DocGenBatchCreateRequestV2025R0DestinationFolderTypeField type) {
+      this.type = new EnumWrapper<DocGenBatchCreateRequestV2025R0DestinationFolderTypeField>(type);
+      return this;
     }
 
     public DocGenBatchCreateRequestV2025R0DestinationFolderFieldBuilder type(
         EnumWrapper<DocGenBatchCreateRequestV2025R0DestinationFolderTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public DocGenBatchCreateRequestV2025R0DestinationFolderFieldBuilder type(
-        DocGenBatchCreateRequestV2025R0DestinationFolderTypeField type) {
-      this.type =
-          new EnumWrapper<DocGenBatchCreateRequestV2025R0DestinationFolderTypeField>(
-              type.getValue(), type);
       return this;
     }
 

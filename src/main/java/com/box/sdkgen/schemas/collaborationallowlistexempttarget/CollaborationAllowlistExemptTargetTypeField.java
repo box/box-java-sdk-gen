@@ -38,7 +38,7 @@ public enum CollaborationAllowlistExemptTargetTypeField implements Valuable {
       return Arrays.stream(CollaborationAllowlistExemptTargetTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CollaborationAllowlistExemptTargetTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CollaborationAllowlistExemptTargetTypeField>(value));
     }
   }

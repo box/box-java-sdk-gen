@@ -389,13 +389,13 @@ public class TrashFolderRestored extends SerializableObject {
       return this;
     }
 
-    public TrashFolderRestoredBuilder type(EnumWrapper<TrashFolderRestoredTypeField> type) {
-      this.type = type;
+    public TrashFolderRestoredBuilder type(TrashFolderRestoredTypeField type) {
+      this.type = new EnumWrapper<TrashFolderRestoredTypeField>(type);
       return this;
     }
 
-    public TrashFolderRestoredBuilder type(TrashFolderRestoredTypeField type) {
-      this.type = new EnumWrapper<TrashFolderRestoredTypeField>(type.getValue(), type);
+    public TrashFolderRestoredBuilder type(EnumWrapper<TrashFolderRestoredTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -485,15 +485,14 @@ public class TrashFolderRestored extends SerializableObject {
       return this;
     }
 
-    public TrashFolderRestoredBuilder itemStatus(
-        EnumWrapper<TrashFolderRestoredItemStatusField> itemStatus) {
-      this.itemStatus = itemStatus;
+    public TrashFolderRestoredBuilder itemStatus(TrashFolderRestoredItemStatusField itemStatus) {
+      this.itemStatus = new EnumWrapper<TrashFolderRestoredItemStatusField>(itemStatus);
       return this;
     }
 
-    public TrashFolderRestoredBuilder itemStatus(TrashFolderRestoredItemStatusField itemStatus) {
-      this.itemStatus =
-          new EnumWrapper<TrashFolderRestoredItemStatusField>(itemStatus.getValue(), itemStatus);
+    public TrashFolderRestoredBuilder itemStatus(
+        EnumWrapper<TrashFolderRestoredItemStatusField> itemStatus) {
+      this.itemStatus = itemStatus;
       return this;
     }
 

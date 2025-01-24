@@ -43,7 +43,7 @@ public enum DocGenTagV2025R0TagTypeField implements Valuable {
       return Arrays.stream(DocGenTagV2025R0TagTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<DocGenTagV2025R0TagTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<DocGenTagV2025R0TagTypeField>(value));
     }
   }

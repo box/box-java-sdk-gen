@@ -102,22 +102,22 @@ class CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformati
     public
     CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentFieldBuilder
         type(
-            EnumWrapper<
-                    CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentTypeField>
+            CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentTypeField
                 type) {
-      this.type = type;
+      this.type =
+          new EnumWrapper<
+              CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentTypeField>(
+              type);
       return this;
     }
 
     public
     CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentFieldBuilder
         type(
-            CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentTypeField
+            EnumWrapper<
+                    CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentTypeField>
                 type) {
-      this.type =
-          new EnumWrapper<
-              CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentTypeField>(
-              type.getValue(), type);
+      this.type = type;
       return this;
     }
 

@@ -40,7 +40,7 @@ public enum TemplateSignerRoleField implements Valuable {
       return Arrays.stream(TemplateSignerRoleField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<TemplateSignerRoleField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<TemplateSignerRoleField>(value));
     }
   }

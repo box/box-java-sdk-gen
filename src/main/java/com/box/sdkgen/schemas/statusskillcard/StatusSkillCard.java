@@ -40,12 +40,9 @@ public class StatusSkillCard extends SerializableObject {
     this.status = status;
     this.skill = skill;
     this.invocation = invocation;
-    this.type =
-        new EnumWrapper<StatusSkillCardTypeField>(
-            StatusSkillCardTypeField.SKILL_CARD.getValue(), StatusSkillCardTypeField.SKILL_CARD);
+    this.type = new EnumWrapper<StatusSkillCardTypeField>(StatusSkillCardTypeField.SKILL_CARD);
     this.skillCardType =
         new EnumWrapper<StatusSkillCardSkillCardTypeField>(
-            StatusSkillCardSkillCardTypeField.STATUS.getValue(),
             StatusSkillCardSkillCardTypeField.STATUS);
   }
 
@@ -167,12 +164,9 @@ public class StatusSkillCard extends SerializableObject {
       this.status = status;
       this.skill = skill;
       this.invocation = invocation;
-      this.type =
-          new EnumWrapper<StatusSkillCardTypeField>(
-              StatusSkillCardTypeField.SKILL_CARD.getValue(), StatusSkillCardTypeField.SKILL_CARD);
+      this.type = new EnumWrapper<StatusSkillCardTypeField>(StatusSkillCardTypeField.SKILL_CARD);
       this.skillCardType =
           new EnumWrapper<StatusSkillCardSkillCardTypeField>(
-              StatusSkillCardSkillCardTypeField.STATUS.getValue(),
               StatusSkillCardSkillCardTypeField.STATUS);
     }
 
@@ -181,26 +175,24 @@ public class StatusSkillCard extends SerializableObject {
       return this;
     }
 
+    public StatusSkillCardBuilder type(StatusSkillCardTypeField type) {
+      this.type = new EnumWrapper<StatusSkillCardTypeField>(type);
+      return this;
+    }
+
     public StatusSkillCardBuilder type(EnumWrapper<StatusSkillCardTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public StatusSkillCardBuilder type(StatusSkillCardTypeField type) {
-      this.type = new EnumWrapper<StatusSkillCardTypeField>(type.getValue(), type);
+    public StatusSkillCardBuilder skillCardType(StatusSkillCardSkillCardTypeField skillCardType) {
+      this.skillCardType = new EnumWrapper<StatusSkillCardSkillCardTypeField>(skillCardType);
       return this;
     }
 
     public StatusSkillCardBuilder skillCardType(
         EnumWrapper<StatusSkillCardSkillCardTypeField> skillCardType) {
       this.skillCardType = skillCardType;
-      return this;
-    }
-
-    public StatusSkillCardBuilder skillCardType(StatusSkillCardSkillCardTypeField skillCardType) {
-      this.skillCardType =
-          new EnumWrapper<StatusSkillCardSkillCardTypeField>(
-              skillCardType.getValue(), skillCardType);
       return this;
     }
 

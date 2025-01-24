@@ -40,10 +40,7 @@ public enum UpdateShieldInformationBarrierStatusRequestBodyStatusField implement
       return Arrays.stream(UpdateShieldInformationBarrierStatusRequestBodyStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<UpdateShieldInformationBarrierStatusRequestBodyStatusField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(
               new EnumWrapper<UpdateShieldInformationBarrierStatusRequestBodyStatusField>(value));
     }

@@ -78,15 +78,14 @@ public class GroupMembershipsOrderField extends SerializableObject {
     }
 
     public GroupMembershipsOrderFieldBuilder direction(
-        EnumWrapper<GroupMembershipsOrderDirectionField> direction) {
-      this.direction = direction;
+        GroupMembershipsOrderDirectionField direction) {
+      this.direction = new EnumWrapper<GroupMembershipsOrderDirectionField>(direction);
       return this;
     }
 
     public GroupMembershipsOrderFieldBuilder direction(
-        GroupMembershipsOrderDirectionField direction) {
-      this.direction =
-          new EnumWrapper<GroupMembershipsOrderDirectionField>(direction.getValue(), direction);
+        EnumWrapper<GroupMembershipsOrderDirectionField> direction) {
+      this.direction = direction;
       return this;
     }
 

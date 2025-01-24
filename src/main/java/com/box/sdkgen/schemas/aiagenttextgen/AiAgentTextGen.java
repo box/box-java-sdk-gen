@@ -19,10 +19,7 @@ public class AiAgentTextGen extends SerializableObject {
 
   public AiAgentTextGen() {
     super();
-    this.type =
-        new EnumWrapper<AiAgentTextGenTypeField>(
-            AiAgentTextGenTypeField.AI_AGENT_TEXT_GEN.getValue(),
-            AiAgentTextGenTypeField.AI_AGENT_TEXT_GEN);
+    this.type = new EnumWrapper<AiAgentTextGenTypeField>(AiAgentTextGenTypeField.AI_AGENT_TEXT_GEN);
   }
 
   protected AiAgentTextGen(AiAgentTextGenBuilder builder) {
@@ -67,13 +64,13 @@ public class AiAgentTextGen extends SerializableObject {
 
     protected AiAgentBasicGenTool basicGen;
 
-    public AiAgentTextGenBuilder type(EnumWrapper<AiAgentTextGenTypeField> type) {
-      this.type = type;
+    public AiAgentTextGenBuilder type(AiAgentTextGenTypeField type) {
+      this.type = new EnumWrapper<AiAgentTextGenTypeField>(type);
       return this;
     }
 
-    public AiAgentTextGenBuilder type(AiAgentTextGenTypeField type) {
-      this.type = new EnumWrapper<AiAgentTextGenTypeField>(type.getValue(), type);
+    public AiAgentTextGenBuilder type(EnumWrapper<AiAgentTextGenTypeField> type) {
+      this.type = type;
       return this;
     }
 

@@ -44,7 +44,7 @@ public enum FolderFullAllowedInviteeRolesField implements Valuable {
       return Arrays.stream(FolderFullAllowedInviteeRolesField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FolderFullAllowedInviteeRolesField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FolderFullAllowedInviteeRolesField>(value));
     }
   }

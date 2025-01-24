@@ -38,7 +38,7 @@ public enum SearchResultsTypeField implements Valuable {
       return Arrays.stream(SearchResultsTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<SearchResultsTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<SearchResultsTypeField>(value));
     }
   }

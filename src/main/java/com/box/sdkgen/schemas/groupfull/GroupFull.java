@@ -201,16 +201,21 @@ public class GroupFull extends Group {
       return this;
     }
 
+    public GroupFullBuilder invitabilityLevel(GroupFullInvitabilityLevelField invitabilityLevel) {
+      this.invitabilityLevel = new EnumWrapper<GroupFullInvitabilityLevelField>(invitabilityLevel);
+      return this;
+    }
+
     public GroupFullBuilder invitabilityLevel(
         EnumWrapper<GroupFullInvitabilityLevelField> invitabilityLevel) {
       this.invitabilityLevel = invitabilityLevel;
       return this;
     }
 
-    public GroupFullBuilder invitabilityLevel(GroupFullInvitabilityLevelField invitabilityLevel) {
-      this.invitabilityLevel =
-          new EnumWrapper<GroupFullInvitabilityLevelField>(
-              invitabilityLevel.getValue(), invitabilityLevel);
+    public GroupFullBuilder memberViewabilityLevel(
+        GroupFullMemberViewabilityLevelField memberViewabilityLevel) {
+      this.memberViewabilityLevel =
+          new EnumWrapper<GroupFullMemberViewabilityLevelField>(memberViewabilityLevel);
       return this;
     }
 
@@ -220,16 +225,14 @@ public class GroupFull extends Group {
       return this;
     }
 
-    public GroupFullBuilder memberViewabilityLevel(
-        GroupFullMemberViewabilityLevelField memberViewabilityLevel) {
-      this.memberViewabilityLevel =
-          new EnumWrapper<GroupFullMemberViewabilityLevelField>(
-              memberViewabilityLevel.getValue(), memberViewabilityLevel);
+    public GroupFullBuilder permissions(GroupFullPermissionsField permissions) {
+      this.permissions = permissions;
       return this;
     }
 
-    public GroupFullBuilder permissions(GroupFullPermissionsField permissions) {
-      this.permissions = permissions;
+    @Override
+    public GroupFullBuilder type(GroupBaseTypeField type) {
+      this.type = new EnumWrapper<GroupBaseTypeField>(type);
       return this;
     }
 
@@ -240,26 +243,20 @@ public class GroupFull extends Group {
     }
 
     @Override
-    public GroupFullBuilder type(GroupBaseTypeField type) {
-      this.type = new EnumWrapper<GroupBaseTypeField>(type.getValue(), type);
-      return this;
-    }
-
-    @Override
     public GroupFullBuilder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public GroupFullBuilder groupType(EnumWrapper<GroupMiniGroupTypeField> groupType) {
-      this.groupType = groupType;
+    public GroupFullBuilder groupType(GroupMiniGroupTypeField groupType) {
+      this.groupType = new EnumWrapper<GroupMiniGroupTypeField>(groupType);
       return this;
     }
 
     @Override
-    public GroupFullBuilder groupType(GroupMiniGroupTypeField groupType) {
-      this.groupType = new EnumWrapper<GroupMiniGroupTypeField>(groupType.getValue(), groupType);
+    public GroupFullBuilder groupType(EnumWrapper<GroupMiniGroupTypeField> groupType) {
+      this.groupType = groupType;
       return this;
     }
 

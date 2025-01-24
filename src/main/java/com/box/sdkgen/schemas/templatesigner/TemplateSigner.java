@@ -169,13 +169,13 @@ public class TemplateSigner extends SerializableObject {
       return this;
     }
 
-    public TemplateSignerBuilder role(EnumWrapper<TemplateSignerRoleField> role) {
-      this.role = role;
+    public TemplateSignerBuilder role(TemplateSignerRoleField role) {
+      this.role = new EnumWrapper<TemplateSignerRoleField>(role);
       return this;
     }
 
-    public TemplateSignerBuilder role(TemplateSignerRoleField role) {
-      this.role = new EnumWrapper<TemplateSignerRoleField>(role.getValue(), role);
+    public TemplateSignerBuilder role(EnumWrapper<TemplateSignerRoleField> role) {
+      this.role = role;
       return this;
     }
 

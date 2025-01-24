@@ -38,7 +38,7 @@ public enum StartWorkflowRequestBodyFilesTypeField implements Valuable {
       return Arrays.stream(StartWorkflowRequestBodyFilesTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<StartWorkflowRequestBodyFilesTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<StartWorkflowRequestBodyFilesTypeField>(value));
     }
   }

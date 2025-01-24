@@ -38,7 +38,7 @@ public enum PostOAuth2TokenActorTokenTypeField implements Valuable {
       return Arrays.stream(PostOAuth2TokenActorTokenTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<PostOAuth2TokenActorTokenTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<PostOAuth2TokenActorTokenTypeField>(value));
     }
   }

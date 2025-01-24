@@ -105,14 +105,14 @@ public class UpdateFolderMetadataByIdRequestBody extends SerializableObject {
     protected String from;
 
     public UpdateFolderMetadataByIdRequestBodyBuilder op(
-        EnumWrapper<UpdateFolderMetadataByIdRequestBodyOpField> op) {
-      this.op = op;
+        UpdateFolderMetadataByIdRequestBodyOpField op) {
+      this.op = new EnumWrapper<UpdateFolderMetadataByIdRequestBodyOpField>(op);
       return this;
     }
 
     public UpdateFolderMetadataByIdRequestBodyBuilder op(
-        UpdateFolderMetadataByIdRequestBodyOpField op) {
-      this.op = new EnumWrapper<UpdateFolderMetadataByIdRequestBodyOpField>(op.getValue(), op);
+        EnumWrapper<UpdateFolderMetadataByIdRequestBodyOpField> op) {
+      this.op = op;
       return this;
     }
 

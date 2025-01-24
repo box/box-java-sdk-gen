@@ -26,7 +26,6 @@ public class IntegrationMappingBoxItemSlack extends SerializableObject {
     this.id = id;
     this.type =
         new EnumWrapper<IntegrationMappingBoxItemSlackTypeField>(
-            IntegrationMappingBoxItemSlackTypeField.FOLDER.getValue(),
             IntegrationMappingBoxItemSlackTypeField.FOLDER);
   }
 
@@ -84,19 +83,18 @@ public class IntegrationMappingBoxItemSlack extends SerializableObject {
       this.id = id;
       this.type =
           new EnumWrapper<IntegrationMappingBoxItemSlackTypeField>(
-              IntegrationMappingBoxItemSlackTypeField.FOLDER.getValue(),
               IntegrationMappingBoxItemSlackTypeField.FOLDER);
+    }
+
+    public IntegrationMappingBoxItemSlackBuilder type(
+        IntegrationMappingBoxItemSlackTypeField type) {
+      this.type = new EnumWrapper<IntegrationMappingBoxItemSlackTypeField>(type);
+      return this;
     }
 
     public IntegrationMappingBoxItemSlackBuilder type(
         EnumWrapper<IntegrationMappingBoxItemSlackTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public IntegrationMappingBoxItemSlackBuilder type(
-        IntegrationMappingBoxItemSlackTypeField type) {
-      this.type = new EnumWrapper<IntegrationMappingBoxItemSlackTypeField>(type.getValue(), type);
       return this;
     }
 

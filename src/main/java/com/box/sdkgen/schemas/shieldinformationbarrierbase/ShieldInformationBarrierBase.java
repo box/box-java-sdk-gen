@@ -79,14 +79,14 @@ public class ShieldInformationBarrierBase extends SerializableObject {
       return this;
     }
 
-    public ShieldInformationBarrierBaseBuilder type(
-        EnumWrapper<ShieldInformationBarrierBaseTypeField> type) {
-      this.type = type;
+    public ShieldInformationBarrierBaseBuilder type(ShieldInformationBarrierBaseTypeField type) {
+      this.type = new EnumWrapper<ShieldInformationBarrierBaseTypeField>(type);
       return this;
     }
 
-    public ShieldInformationBarrierBaseBuilder type(ShieldInformationBarrierBaseTypeField type) {
-      this.type = new EnumWrapper<ShieldInformationBarrierBaseTypeField>(type.getValue(), type);
+    public ShieldInformationBarrierBaseBuilder type(
+        EnumWrapper<ShieldInformationBarrierBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

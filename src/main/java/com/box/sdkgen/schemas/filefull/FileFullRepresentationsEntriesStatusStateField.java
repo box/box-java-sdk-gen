@@ -41,7 +41,7 @@ public enum FileFullRepresentationsEntriesStatusStateField implements Valuable {
       return Arrays.stream(FileFullRepresentationsEntriesStatusStateField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileFullRepresentationsEntriesStatusStateField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileFullRepresentationsEntriesStatusStateField>(value));
     }
   }

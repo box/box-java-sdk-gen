@@ -43,8 +43,7 @@ public class UpdateAllSkillCardsOnFileRequestBody extends SerializableObject {
       UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata,
       UpdateAllSkillCardsOnFileRequestBodyFileField file) {
     super();
-    this.status =
-        new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField>(status.getValue(), status);
+    this.status = new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField>(status);
     this.metadata = metadata;
     this.file = file;
   }
@@ -138,12 +137,19 @@ public class UpdateAllSkillCardsOnFileRequestBody extends SerializableObject {
     protected UpdateAllSkillCardsOnFileRequestBodyUsageField usage;
 
     public UpdateAllSkillCardsOnFileRequestBodyBuilder(
+        EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField> status,
+        UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata,
+        UpdateAllSkillCardsOnFileRequestBodyFileField file) {
+      this.status = status;
+      this.metadata = metadata;
+      this.file = file;
+    }
+
+    public UpdateAllSkillCardsOnFileRequestBodyBuilder(
         UpdateAllSkillCardsOnFileRequestBodyStatusField status,
         UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata,
         UpdateAllSkillCardsOnFileRequestBodyFileField file) {
-      this.status =
-          new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField>(
-              status.getValue(), status);
+      this.status = new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField>(status);
       this.metadata = metadata;
       this.file = file;
     }

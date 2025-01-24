@@ -16,7 +16,7 @@ public class GetAiAgentDefaultConfigQueryParams {
   }
 
   public GetAiAgentDefaultConfigQueryParams(GetAiAgentDefaultConfigQueryParamsModeField mode) {
-    this.mode = new EnumWrapper<GetAiAgentDefaultConfigQueryParamsModeField>(mode.getValue(), mode);
+    this.mode = new EnumWrapper<GetAiAgentDefaultConfigQueryParamsModeField>(mode);
   }
 
   protected GetAiAgentDefaultConfigQueryParams(GetAiAgentDefaultConfigQueryParamsBuilder builder) {
@@ -46,9 +46,13 @@ public class GetAiAgentDefaultConfigQueryParams {
     protected String model;
 
     public GetAiAgentDefaultConfigQueryParamsBuilder(
+        EnumWrapper<GetAiAgentDefaultConfigQueryParamsModeField> mode) {
+      this.mode = mode;
+    }
+
+    public GetAiAgentDefaultConfigQueryParamsBuilder(
         GetAiAgentDefaultConfigQueryParamsModeField mode) {
-      this.mode =
-          new EnumWrapper<GetAiAgentDefaultConfigQueryParamsModeField>(mode.getValue(), mode);
+      this.mode = new EnumWrapper<GetAiAgentDefaultConfigQueryParamsModeField>(mode);
     }
 
     public GetAiAgentDefaultConfigQueryParamsBuilder language(String language) {

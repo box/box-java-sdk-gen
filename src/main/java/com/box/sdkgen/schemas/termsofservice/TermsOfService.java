@@ -146,13 +146,13 @@ public class TermsOfService extends TermsOfServiceBase {
       super(id);
     }
 
-    public TermsOfServiceBuilder status(EnumWrapper<TermsOfServiceStatusField> status) {
-      this.status = status;
+    public TermsOfServiceBuilder status(TermsOfServiceStatusField status) {
+      this.status = new EnumWrapper<TermsOfServiceStatusField>(status);
       return this;
     }
 
-    public TermsOfServiceBuilder status(TermsOfServiceStatusField status) {
-      this.status = new EnumWrapper<TermsOfServiceStatusField>(status.getValue(), status);
+    public TermsOfServiceBuilder status(EnumWrapper<TermsOfServiceStatusField> status) {
+      this.status = status;
       return this;
     }
 
@@ -161,13 +161,13 @@ public class TermsOfService extends TermsOfServiceBase {
       return this;
     }
 
-    public TermsOfServiceBuilder tosType(EnumWrapper<TermsOfServiceTosTypeField> tosType) {
-      this.tosType = tosType;
+    public TermsOfServiceBuilder tosType(TermsOfServiceTosTypeField tosType) {
+      this.tosType = new EnumWrapper<TermsOfServiceTosTypeField>(tosType);
       return this;
     }
 
-    public TermsOfServiceBuilder tosType(TermsOfServiceTosTypeField tosType) {
-      this.tosType = new EnumWrapper<TermsOfServiceTosTypeField>(tosType.getValue(), tosType);
+    public TermsOfServiceBuilder tosType(EnumWrapper<TermsOfServiceTosTypeField> tosType) {
+      this.tosType = tosType;
       return this;
     }
 
@@ -187,14 +187,14 @@ public class TermsOfService extends TermsOfServiceBase {
     }
 
     @Override
-    public TermsOfServiceBuilder type(EnumWrapper<TermsOfServiceBaseTypeField> type) {
-      this.type = type;
+    public TermsOfServiceBuilder type(TermsOfServiceBaseTypeField type) {
+      this.type = new EnumWrapper<TermsOfServiceBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public TermsOfServiceBuilder type(TermsOfServiceBaseTypeField type) {
-      this.type = new EnumWrapper<TermsOfServiceBaseTypeField>(type.getValue(), type);
+    public TermsOfServiceBuilder type(EnumWrapper<TermsOfServiceBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

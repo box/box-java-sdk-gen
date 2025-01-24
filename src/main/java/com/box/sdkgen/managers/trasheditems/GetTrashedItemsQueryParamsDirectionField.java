@@ -39,7 +39,7 @@ public enum GetTrashedItemsQueryParamsDirectionField implements Valuable {
       return Arrays.stream(GetTrashedItemsQueryParamsDirectionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GetTrashedItemsQueryParamsDirectionField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GetTrashedItemsQueryParamsDirectionField>(value));
     }
   }

@@ -38,7 +38,7 @@ public enum KeywordSkillCardInvocationTypeField implements Valuable {
       return Arrays.stream(KeywordSkillCardInvocationTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<KeywordSkillCardInvocationTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<KeywordSkillCardInvocationTypeField>(value));
     }
   }

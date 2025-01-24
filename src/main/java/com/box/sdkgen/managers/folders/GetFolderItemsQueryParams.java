@@ -100,27 +100,26 @@ public class GetFolderItemsQueryParams {
       return this;
     }
 
+    public GetFolderItemsQueryParamsBuilder sort(GetFolderItemsQueryParamsSortField sort) {
+      this.sort = new EnumWrapper<GetFolderItemsQueryParamsSortField>(sort);
+      return this;
+    }
+
     public GetFolderItemsQueryParamsBuilder sort(
         EnumWrapper<GetFolderItemsQueryParamsSortField> sort) {
       this.sort = sort;
       return this;
     }
 
-    public GetFolderItemsQueryParamsBuilder sort(GetFolderItemsQueryParamsSortField sort) {
-      this.sort = new EnumWrapper<GetFolderItemsQueryParamsSortField>(sort.getValue(), sort);
+    public GetFolderItemsQueryParamsBuilder direction(
+        GetFolderItemsQueryParamsDirectionField direction) {
+      this.direction = new EnumWrapper<GetFolderItemsQueryParamsDirectionField>(direction);
       return this;
     }
 
     public GetFolderItemsQueryParamsBuilder direction(
         EnumWrapper<GetFolderItemsQueryParamsDirectionField> direction) {
       this.direction = direction;
-      return this;
-    }
-
-    public GetFolderItemsQueryParamsBuilder direction(
-        GetFolderItemsQueryParamsDirectionField direction) {
-      this.direction =
-          new EnumWrapper<GetFolderItemsQueryParamsDirectionField>(direction.getValue(), direction);
       return this;
     }
 

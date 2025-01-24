@@ -20,9 +20,7 @@ public class AiTextGenItemsField extends SerializableObject {
   public AiTextGenItemsField(@JsonProperty("id") String id) {
     super();
     this.id = id;
-    this.type =
-        new EnumWrapper<AiTextGenItemsTypeField>(
-            AiTextGenItemsTypeField.FILE.getValue(), AiTextGenItemsTypeField.FILE);
+    this.type = new EnumWrapper<AiTextGenItemsTypeField>(AiTextGenItemsTypeField.FILE);
   }
 
   protected AiTextGenItemsField(AiTextGenItemsFieldBuilder builder) {
@@ -90,18 +88,16 @@ public class AiTextGenItemsField extends SerializableObject {
 
     public AiTextGenItemsFieldBuilder(String id) {
       this.id = id;
-      this.type =
-          new EnumWrapper<AiTextGenItemsTypeField>(
-              AiTextGenItemsTypeField.FILE.getValue(), AiTextGenItemsTypeField.FILE);
+      this.type = new EnumWrapper<AiTextGenItemsTypeField>(AiTextGenItemsTypeField.FILE);
+    }
+
+    public AiTextGenItemsFieldBuilder type(AiTextGenItemsTypeField type) {
+      this.type = new EnumWrapper<AiTextGenItemsTypeField>(type);
+      return this;
     }
 
     public AiTextGenItemsFieldBuilder type(EnumWrapper<AiTextGenItemsTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public AiTextGenItemsFieldBuilder type(AiTextGenItemsTypeField type) {
-      this.type = new EnumWrapper<AiTextGenItemsTypeField>(type.getValue(), type);
       return this;
     }
 

@@ -39,9 +39,7 @@ public enum CreateClassificationTemplateRequestBodyFieldsTypeField implements Va
       return Arrays.stream(CreateClassificationTemplateRequestBodyFieldsTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsTypeField>(value));
     }
   }

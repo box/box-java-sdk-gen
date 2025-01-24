@@ -39,7 +39,7 @@ public enum RetentionPolicyMiniDispositionActionField implements Valuable {
       return Arrays.stream(RetentionPolicyMiniDispositionActionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<RetentionPolicyMiniDispositionActionField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<RetentionPolicyMiniDispositionActionField>(value));
     }
   }

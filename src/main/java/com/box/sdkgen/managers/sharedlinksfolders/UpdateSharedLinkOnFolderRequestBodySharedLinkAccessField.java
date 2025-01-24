@@ -41,10 +41,7 @@ public enum UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField implements 
       return Arrays.stream(UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField>(value));
     }
   }

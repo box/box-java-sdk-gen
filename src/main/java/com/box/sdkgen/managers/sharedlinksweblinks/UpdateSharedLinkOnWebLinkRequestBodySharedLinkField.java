@@ -123,16 +123,15 @@ public class UpdateSharedLinkOnWebLinkRequestBodySharedLinkField extends Seriali
     protected UpdateSharedLinkOnWebLinkRequestBodySharedLinkPermissionsField permissions;
 
     public UpdateSharedLinkOnWebLinkRequestBodySharedLinkFieldBuilder access(
-        EnumWrapper<UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField> access) {
-      this.access = access;
+        UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField access) {
+      this.access =
+          new EnumWrapper<UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField>(access);
       return this;
     }
 
     public UpdateSharedLinkOnWebLinkRequestBodySharedLinkFieldBuilder access(
-        UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField access) {
-      this.access =
-          new EnumWrapper<UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField>(
-              access.getValue(), access);
+        EnumWrapper<UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField> access) {
+      this.access = access;
       return this;
     }
 

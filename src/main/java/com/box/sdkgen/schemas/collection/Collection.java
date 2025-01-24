@@ -110,13 +110,18 @@ public class Collection extends SerializableObject {
       return this;
     }
 
+    public CollectionBuilder type(CollectionTypeField type) {
+      this.type = new EnumWrapper<CollectionTypeField>(type);
+      return this;
+    }
+
     public CollectionBuilder type(EnumWrapper<CollectionTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public CollectionBuilder type(CollectionTypeField type) {
-      this.type = new EnumWrapper<CollectionTypeField>(type.getValue(), type);
+    public CollectionBuilder name(CollectionNameField name) {
+      this.name = new EnumWrapper<CollectionNameField>(name);
       return this;
     }
 
@@ -125,20 +130,14 @@ public class Collection extends SerializableObject {
       return this;
     }
 
-    public CollectionBuilder name(CollectionNameField name) {
-      this.name = new EnumWrapper<CollectionNameField>(name.getValue(), name);
+    public CollectionBuilder collectionType(CollectionCollectionTypeField collectionType) {
+      this.collectionType = new EnumWrapper<CollectionCollectionTypeField>(collectionType);
       return this;
     }
 
     public CollectionBuilder collectionType(
         EnumWrapper<CollectionCollectionTypeField> collectionType) {
       this.collectionType = collectionType;
-      return this;
-    }
-
-    public CollectionBuilder collectionType(CollectionCollectionTypeField collectionType) {
-      this.collectionType =
-          new EnumWrapper<CollectionCollectionTypeField>(collectionType.getValue(), collectionType);
       return this;
     }
 

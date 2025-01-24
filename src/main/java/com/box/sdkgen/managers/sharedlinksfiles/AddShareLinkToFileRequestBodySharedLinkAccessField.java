@@ -40,7 +40,7 @@ public enum AddShareLinkToFileRequestBodySharedLinkAccessField implements Valuab
       return Arrays.stream(AddShareLinkToFileRequestBodySharedLinkAccessField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<AddShareLinkToFileRequestBodySharedLinkAccessField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AddShareLinkToFileRequestBodySharedLinkAccessField>(value));
     }
   }

@@ -141,15 +141,14 @@ public class CollaborationAllowlistExemptTarget extends SerializableObject {
     }
 
     public CollaborationAllowlistExemptTargetBuilder type(
-        EnumWrapper<CollaborationAllowlistExemptTargetTypeField> type) {
-      this.type = type;
+        CollaborationAllowlistExemptTargetTypeField type) {
+      this.type = new EnumWrapper<CollaborationAllowlistExemptTargetTypeField>(type);
       return this;
     }
 
     public CollaborationAllowlistExemptTargetBuilder type(
-        CollaborationAllowlistExemptTargetTypeField type) {
-      this.type =
-          new EnumWrapper<CollaborationAllowlistExemptTargetTypeField>(type.getValue(), type);
+        EnumWrapper<CollaborationAllowlistExemptTargetTypeField> type) {
+      this.type = type;
       return this;
     }
 

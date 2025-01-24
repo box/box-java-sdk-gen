@@ -39,7 +39,7 @@ public enum TermsOfServiceTosTypeField implements Valuable {
       return Arrays.stream(TermsOfServiceTosTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<TermsOfServiceTosTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<TermsOfServiceTosTypeField>(value));
     }
   }

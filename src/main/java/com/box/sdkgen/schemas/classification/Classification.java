@@ -174,13 +174,13 @@ public class Classification extends SerializableObject {
       return this;
     }
 
-    public ClassificationBuilder template(EnumWrapper<ClassificationTemplateField> template) {
-      this.template = template;
+    public ClassificationBuilder template(ClassificationTemplateField template) {
+      this.template = new EnumWrapper<ClassificationTemplateField>(template);
       return this;
     }
 
-    public ClassificationBuilder template(ClassificationTemplateField template) {
-      this.template = new EnumWrapper<ClassificationTemplateField>(template.getValue(), template);
+    public ClassificationBuilder template(EnumWrapper<ClassificationTemplateField> template) {
+      this.template = template;
       return this;
     }
 

@@ -38,7 +38,7 @@ public enum WorkflowMiniTypeField implements Valuable {
       return Arrays.stream(WorkflowMiniTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<WorkflowMiniTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<WorkflowMiniTypeField>(value));
     }
   }

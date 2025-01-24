@@ -38,7 +38,7 @@ public enum IntegrationMappingPartnerItemSlackTypeField implements Valuable {
       return Arrays.stream(IntegrationMappingPartnerItemSlackTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<IntegrationMappingPartnerItemSlackTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<IntegrationMappingPartnerItemSlackTypeField>(value));
     }
   }

@@ -51,7 +51,7 @@ public enum FileOrFolderScopeScopeField implements Valuable {
       return Arrays.stream(FileOrFolderScopeScopeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileOrFolderScopeScopeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileOrFolderScopeScopeField>(value));
     }
   }

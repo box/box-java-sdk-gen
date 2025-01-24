@@ -62,9 +62,7 @@ public class Collaboration extends SerializableObject {
   public Collaboration(@JsonProperty("id") String id) {
     super();
     this.id = id;
-    this.type =
-        new EnumWrapper<CollaborationTypeField>(
-            CollaborationTypeField.COLLABORATION.getValue(), CollaborationTypeField.COLLABORATION);
+    this.type = new EnumWrapper<CollaborationTypeField>(CollaborationTypeField.COLLABORATION);
   }
 
   protected Collaboration(CollaborationBuilder builder) {
@@ -291,19 +289,16 @@ public class Collaboration extends SerializableObject {
 
     public CollaborationBuilder(String id) {
       this.id = id;
-      this.type =
-          new EnumWrapper<CollaborationTypeField>(
-              CollaborationTypeField.COLLABORATION.getValue(),
-              CollaborationTypeField.COLLABORATION);
+      this.type = new EnumWrapper<CollaborationTypeField>(CollaborationTypeField.COLLABORATION);
+    }
+
+    public CollaborationBuilder type(CollaborationTypeField type) {
+      this.type = new EnumWrapper<CollaborationTypeField>(type);
+      return this;
     }
 
     public CollaborationBuilder type(EnumWrapper<CollaborationTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public CollaborationBuilder type(CollaborationTypeField type) {
-      this.type = new EnumWrapper<CollaborationTypeField>(type.getValue(), type);
       return this;
     }
 
@@ -327,13 +322,13 @@ public class Collaboration extends SerializableObject {
       return this;
     }
 
-    public CollaborationBuilder role(EnumWrapper<CollaborationRoleField> role) {
-      this.role = role;
+    public CollaborationBuilder role(CollaborationRoleField role) {
+      this.role = new EnumWrapper<CollaborationRoleField>(role);
       return this;
     }
 
-    public CollaborationBuilder role(CollaborationRoleField role) {
-      this.role = new EnumWrapper<CollaborationRoleField>(role.getValue(), role);
+    public CollaborationBuilder role(EnumWrapper<CollaborationRoleField> role) {
+      this.role = role;
       return this;
     }
 
@@ -347,13 +342,13 @@ public class Collaboration extends SerializableObject {
       return this;
     }
 
-    public CollaborationBuilder status(EnumWrapper<CollaborationStatusField> status) {
-      this.status = status;
+    public CollaborationBuilder status(CollaborationStatusField status) {
+      this.status = new EnumWrapper<CollaborationStatusField>(status);
       return this;
     }
 
-    public CollaborationBuilder status(CollaborationStatusField status) {
-      this.status = new EnumWrapper<CollaborationStatusField>(status.getValue(), status);
+    public CollaborationBuilder status(EnumWrapper<CollaborationStatusField> status) {
+      this.status = status;
       return this;
     }
 

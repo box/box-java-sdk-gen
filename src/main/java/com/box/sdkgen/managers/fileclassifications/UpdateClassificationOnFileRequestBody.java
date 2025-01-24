@@ -36,12 +36,9 @@ public class UpdateClassificationOnFileRequestBody extends SerializableObject {
     this.value = value;
     this.op =
         new EnumWrapper<UpdateClassificationOnFileRequestBodyOpField>(
-            UpdateClassificationOnFileRequestBodyOpField.REPLACE.getValue(),
             UpdateClassificationOnFileRequestBodyOpField.REPLACE);
     this.path =
         new EnumWrapper<UpdateClassificationOnFileRequestBodyPathField>(
-            UpdateClassificationOnFileRequestBodyPathField._BOX__SECURITY__CLASSIFICATION__KEY
-                .getValue(),
             UpdateClassificationOnFileRequestBodyPathField._BOX__SECURITY__CLASSIFICATION__KEY);
   }
 
@@ -113,13 +110,16 @@ public class UpdateClassificationOnFileRequestBody extends SerializableObject {
       this.value = value;
       this.op =
           new EnumWrapper<UpdateClassificationOnFileRequestBodyOpField>(
-              UpdateClassificationOnFileRequestBodyOpField.REPLACE.getValue(),
               UpdateClassificationOnFileRequestBodyOpField.REPLACE);
       this.path =
           new EnumWrapper<UpdateClassificationOnFileRequestBodyPathField>(
-              UpdateClassificationOnFileRequestBodyPathField._BOX__SECURITY__CLASSIFICATION__KEY
-                  .getValue(),
               UpdateClassificationOnFileRequestBodyPathField._BOX__SECURITY__CLASSIFICATION__KEY);
+    }
+
+    public UpdateClassificationOnFileRequestBodyBuilder op(
+        UpdateClassificationOnFileRequestBodyOpField op) {
+      this.op = new EnumWrapper<UpdateClassificationOnFileRequestBodyOpField>(op);
+      return this;
     }
 
     public UpdateClassificationOnFileRequestBodyBuilder op(
@@ -128,22 +128,15 @@ public class UpdateClassificationOnFileRequestBody extends SerializableObject {
       return this;
     }
 
-    public UpdateClassificationOnFileRequestBodyBuilder op(
-        UpdateClassificationOnFileRequestBodyOpField op) {
-      this.op = new EnumWrapper<UpdateClassificationOnFileRequestBodyOpField>(op.getValue(), op);
+    public UpdateClassificationOnFileRequestBodyBuilder path(
+        UpdateClassificationOnFileRequestBodyPathField path) {
+      this.path = new EnumWrapper<UpdateClassificationOnFileRequestBodyPathField>(path);
       return this;
     }
 
     public UpdateClassificationOnFileRequestBodyBuilder path(
         EnumWrapper<UpdateClassificationOnFileRequestBodyPathField> path) {
       this.path = path;
-      return this;
-    }
-
-    public UpdateClassificationOnFileRequestBodyBuilder path(
-        UpdateClassificationOnFileRequestBodyPathField path) {
-      this.path =
-          new EnumWrapper<UpdateClassificationOnFileRequestBodyPathField>(path.getValue(), path);
       return this;
     }
 

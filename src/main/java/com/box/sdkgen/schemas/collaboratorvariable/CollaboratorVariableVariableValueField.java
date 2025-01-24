@@ -26,7 +26,6 @@ public class CollaboratorVariableVariableValueField extends SerializableObject {
     this.id = id;
     this.type =
         new EnumWrapper<CollaboratorVariableVariableValueTypeField>(
-            CollaboratorVariableVariableValueTypeField.USER.getValue(),
             CollaboratorVariableVariableValueTypeField.USER);
   }
 
@@ -85,20 +84,18 @@ public class CollaboratorVariableVariableValueField extends SerializableObject {
       this.id = id;
       this.type =
           new EnumWrapper<CollaboratorVariableVariableValueTypeField>(
-              CollaboratorVariableVariableValueTypeField.USER.getValue(),
               CollaboratorVariableVariableValueTypeField.USER);
+    }
+
+    public CollaboratorVariableVariableValueFieldBuilder type(
+        CollaboratorVariableVariableValueTypeField type) {
+      this.type = new EnumWrapper<CollaboratorVariableVariableValueTypeField>(type);
+      return this;
     }
 
     public CollaboratorVariableVariableValueFieldBuilder type(
         EnumWrapper<CollaboratorVariableVariableValueTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public CollaboratorVariableVariableValueFieldBuilder type(
-        CollaboratorVariableVariableValueTypeField type) {
-      this.type =
-          new EnumWrapper<CollaboratorVariableVariableValueTypeField>(type.getValue(), type);
       return this;
     }
 

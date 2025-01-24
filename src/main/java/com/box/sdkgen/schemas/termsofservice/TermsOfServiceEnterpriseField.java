@@ -90,14 +90,14 @@ public class TermsOfServiceEnterpriseField extends SerializableObject {
       return this;
     }
 
-    public TermsOfServiceEnterpriseFieldBuilder type(
-        EnumWrapper<TermsOfServiceEnterpriseTypeField> type) {
-      this.type = type;
+    public TermsOfServiceEnterpriseFieldBuilder type(TermsOfServiceEnterpriseTypeField type) {
+      this.type = new EnumWrapper<TermsOfServiceEnterpriseTypeField>(type);
       return this;
     }
 
-    public TermsOfServiceEnterpriseFieldBuilder type(TermsOfServiceEnterpriseTypeField type) {
-      this.type = new EnumWrapper<TermsOfServiceEnterpriseTypeField>(type.getValue(), type);
+    public TermsOfServiceEnterpriseFieldBuilder type(
+        EnumWrapper<TermsOfServiceEnterpriseTypeField> type) {
+      this.type = type;
       return this;
     }
 

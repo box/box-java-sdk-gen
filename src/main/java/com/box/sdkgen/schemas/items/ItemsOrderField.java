@@ -65,13 +65,13 @@ public class ItemsOrderField extends SerializableObject {
       return this;
     }
 
-    public ItemsOrderFieldBuilder direction(EnumWrapper<ItemsOrderDirectionField> direction) {
-      this.direction = direction;
+    public ItemsOrderFieldBuilder direction(ItemsOrderDirectionField direction) {
+      this.direction = new EnumWrapper<ItemsOrderDirectionField>(direction);
       return this;
     }
 
-    public ItemsOrderFieldBuilder direction(ItemsOrderDirectionField direction) {
-      this.direction = new EnumWrapper<ItemsOrderDirectionField>(direction.getValue(), direction);
+    public ItemsOrderFieldBuilder direction(EnumWrapper<ItemsOrderDirectionField> direction) {
+      this.direction = direction;
       return this;
     }
 

@@ -22,7 +22,6 @@ public class DocGenBatchBaseV2025R0 extends SerializableObject {
     this.id = id;
     this.type =
         new EnumWrapper<DocGenBatchBaseV2025R0TypeField>(
-            DocGenBatchBaseV2025R0TypeField.DOCGEN_BATCH.getValue(),
             DocGenBatchBaseV2025R0TypeField.DOCGEN_BATCH);
   }
 
@@ -72,17 +71,16 @@ public class DocGenBatchBaseV2025R0 extends SerializableObject {
       this.id = id;
       this.type =
           new EnumWrapper<DocGenBatchBaseV2025R0TypeField>(
-              DocGenBatchBaseV2025R0TypeField.DOCGEN_BATCH.getValue(),
               DocGenBatchBaseV2025R0TypeField.DOCGEN_BATCH);
+    }
+
+    public DocGenBatchBaseV2025R0Builder type(DocGenBatchBaseV2025R0TypeField type) {
+      this.type = new EnumWrapper<DocGenBatchBaseV2025R0TypeField>(type);
+      return this;
     }
 
     public DocGenBatchBaseV2025R0Builder type(EnumWrapper<DocGenBatchBaseV2025R0TypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public DocGenBatchBaseV2025R0Builder type(DocGenBatchBaseV2025R0TypeField type) {
-      this.type = new EnumWrapper<DocGenBatchBaseV2025R0TypeField>(type.getValue(), type);
       return this;
     }
 

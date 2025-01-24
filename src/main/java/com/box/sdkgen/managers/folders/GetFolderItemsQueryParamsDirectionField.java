@@ -39,7 +39,7 @@ public enum GetFolderItemsQueryParamsDirectionField implements Valuable {
       return Arrays.stream(GetFolderItemsQueryParamsDirectionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GetFolderItemsQueryParamsDirectionField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GetFolderItemsQueryParamsDirectionField>(value));
     }
   }

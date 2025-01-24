@@ -221,16 +221,15 @@ public class IntegrationMapping extends IntegrationMappingBase {
     }
 
     public IntegrationMappingBuilder integrationType(
-        EnumWrapper<IntegrationMappingIntegrationTypeField> integrationType) {
-      this.integrationType = integrationType;
+        IntegrationMappingIntegrationTypeField integrationType) {
+      this.integrationType =
+          new EnumWrapper<IntegrationMappingIntegrationTypeField>(integrationType);
       return this;
     }
 
     public IntegrationMappingBuilder integrationType(
-        IntegrationMappingIntegrationTypeField integrationType) {
-      this.integrationType =
-          new EnumWrapper<IntegrationMappingIntegrationTypeField>(
-              integrationType.getValue(), integrationType);
+        EnumWrapper<IntegrationMappingIntegrationTypeField> integrationType) {
+      this.integrationType = integrationType;
       return this;
     }
 
@@ -265,14 +264,14 @@ public class IntegrationMapping extends IntegrationMappingBase {
     }
 
     @Override
-    public IntegrationMappingBuilder type(EnumWrapper<IntegrationMappingBaseTypeField> type) {
-      this.type = type;
+    public IntegrationMappingBuilder type(IntegrationMappingBaseTypeField type) {
+      this.type = new EnumWrapper<IntegrationMappingBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public IntegrationMappingBuilder type(IntegrationMappingBaseTypeField type) {
-      this.type = new EnumWrapper<IntegrationMappingBaseTypeField>(type.getValue(), type);
+    public IntegrationMappingBuilder type(EnumWrapper<IntegrationMappingBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

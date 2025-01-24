@@ -25,7 +25,7 @@ public class StatusSkillCardStatusField extends SerializableObject {
 
   public StatusSkillCardStatusField(StatusSkillCardStatusCodeField code) {
     super();
-    this.code = new EnumWrapper<StatusSkillCardStatusCodeField>(code.getValue(), code);
+    this.code = new EnumWrapper<StatusSkillCardStatusCodeField>(code);
   }
 
   protected StatusSkillCardStatusField(StatusSkillCardStatusFieldBuilder builder) {
@@ -78,8 +78,12 @@ public class StatusSkillCardStatusField extends SerializableObject {
 
     protected String message;
 
+    public StatusSkillCardStatusFieldBuilder(EnumWrapper<StatusSkillCardStatusCodeField> code) {
+      this.code = code;
+    }
+
     public StatusSkillCardStatusFieldBuilder(StatusSkillCardStatusCodeField code) {
-      this.code = new EnumWrapper<StatusSkillCardStatusCodeField>(code.getValue(), code);
+      this.code = new EnumWrapper<StatusSkillCardStatusCodeField>(code);
     }
 
     public StatusSkillCardStatusFieldBuilder message(String message) {

@@ -62,9 +62,7 @@ public class FileRequest extends SerializableObject {
     this.folder = folder;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
-    this.type =
-        new EnumWrapper<FileRequestTypeField>(
-            FileRequestTypeField.FILE_REQUEST.getValue(), FileRequestTypeField.FILE_REQUEST);
+    this.type = new EnumWrapper<FileRequestTypeField>(FileRequestTypeField.FILE_REQUEST);
   }
 
   protected FileRequest(FileRequestBuilder builder) {
@@ -294,18 +292,16 @@ public class FileRequest extends SerializableObject {
       this.folder = folder;
       this.createdAt = createdAt;
       this.updatedAt = updatedAt;
-      this.type =
-          new EnumWrapper<FileRequestTypeField>(
-              FileRequestTypeField.FILE_REQUEST.getValue(), FileRequestTypeField.FILE_REQUEST);
+      this.type = new EnumWrapper<FileRequestTypeField>(FileRequestTypeField.FILE_REQUEST);
+    }
+
+    public FileRequestBuilder type(FileRequestTypeField type) {
+      this.type = new EnumWrapper<FileRequestTypeField>(type);
+      return this;
     }
 
     public FileRequestBuilder type(EnumWrapper<FileRequestTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public FileRequestBuilder type(FileRequestTypeField type) {
-      this.type = new EnumWrapper<FileRequestTypeField>(type.getValue(), type);
       return this;
     }
 
@@ -319,13 +315,13 @@ public class FileRequest extends SerializableObject {
       return this;
     }
 
-    public FileRequestBuilder status(EnumWrapper<FileRequestStatusField> status) {
-      this.status = status;
+    public FileRequestBuilder status(FileRequestStatusField status) {
+      this.status = new EnumWrapper<FileRequestStatusField>(status);
       return this;
     }
 
-    public FileRequestBuilder status(FileRequestStatusField status) {
-      this.status = new EnumWrapper<FileRequestStatusField>(status.getValue(), status);
+    public FileRequestBuilder status(EnumWrapper<FileRequestStatusField> status) {
+      this.status = status;
       return this;
     }
 

@@ -40,7 +40,7 @@ public enum SearchForContentQueryParamsTrashContentField implements Valuable {
       return Arrays.stream(SearchForContentQueryParamsTrashContentField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<SearchForContentQueryParamsTrashContentField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<SearchForContentQueryParamsTrashContentField>(value));
     }
   }

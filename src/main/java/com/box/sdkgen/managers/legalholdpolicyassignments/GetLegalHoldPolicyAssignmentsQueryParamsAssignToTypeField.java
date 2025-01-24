@@ -42,10 +42,7 @@ public enum GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField implements
       return Arrays.stream(GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(
               new EnumWrapper<GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField>(value));
     }

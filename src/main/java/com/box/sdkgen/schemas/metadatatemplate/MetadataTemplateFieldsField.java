@@ -41,7 +41,7 @@ public class MetadataTemplateFieldsField extends SerializableObject {
   public MetadataTemplateFieldsField(
       MetadataTemplateFieldsTypeField type, String key, String displayName) {
     super();
-    this.type = new EnumWrapper<MetadataTemplateFieldsTypeField>(type.getValue(), type);
+    this.type = new EnumWrapper<MetadataTemplateFieldsTypeField>(type);
     this.key = key;
     this.displayName = displayName;
   }
@@ -158,8 +158,15 @@ public class MetadataTemplateFieldsField extends SerializableObject {
     protected String id;
 
     public MetadataTemplateFieldsFieldBuilder(
+        EnumWrapper<MetadataTemplateFieldsTypeField> type, String key, String displayName) {
+      this.type = type;
+      this.key = key;
+      this.displayName = displayName;
+    }
+
+    public MetadataTemplateFieldsFieldBuilder(
         MetadataTemplateFieldsTypeField type, String key, String displayName) {
-      this.type = new EnumWrapper<MetadataTemplateFieldsTypeField>(type.getValue(), type);
+      this.type = new EnumWrapper<MetadataTemplateFieldsTypeField>(type);
       this.key = key;
       this.displayName = displayName;
     }

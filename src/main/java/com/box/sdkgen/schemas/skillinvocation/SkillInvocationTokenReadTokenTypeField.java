@@ -38,7 +38,7 @@ public enum SkillInvocationTokenReadTokenTypeField implements Valuable {
       return Arrays.stream(SkillInvocationTokenReadTokenTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<SkillInvocationTokenReadTokenTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<SkillInvocationTokenReadTokenTypeField>(value));
     }
   }

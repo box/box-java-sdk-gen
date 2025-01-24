@@ -42,10 +42,7 @@ public enum UpdateTaskAssignmentByIdRequestBodyResolutionStateField implements V
       return Arrays.stream(UpdateTaskAssignmentByIdRequestBodyResolutionStateField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<UpdateTaskAssignmentByIdRequestBodyResolutionStateField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateTaskAssignmentByIdRequestBodyResolutionStateField>(value));
     }
   }

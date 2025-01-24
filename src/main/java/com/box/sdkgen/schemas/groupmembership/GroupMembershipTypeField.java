@@ -38,7 +38,7 @@ public enum GroupMembershipTypeField implements Valuable {
       return Arrays.stream(GroupMembershipTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GroupMembershipTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GroupMembershipTypeField>(value));
     }
   }

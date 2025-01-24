@@ -38,7 +38,7 @@ public enum RoleVariableTypeField implements Valuable {
       return Arrays.stream(RoleVariableTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<RoleVariableTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<RoleVariableTypeField>(value));
     }
   }

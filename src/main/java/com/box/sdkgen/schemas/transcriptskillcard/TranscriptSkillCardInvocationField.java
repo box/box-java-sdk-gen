@@ -26,7 +26,6 @@ public class TranscriptSkillCardInvocationField extends SerializableObject {
     this.id = id;
     this.type =
         new EnumWrapper<TranscriptSkillCardInvocationTypeField>(
-            TranscriptSkillCardInvocationTypeField.SKILL_INVOCATION.getValue(),
             TranscriptSkillCardInvocationTypeField.SKILL_INVOCATION);
   }
 
@@ -84,19 +83,18 @@ public class TranscriptSkillCardInvocationField extends SerializableObject {
       this.id = id;
       this.type =
           new EnumWrapper<TranscriptSkillCardInvocationTypeField>(
-              TranscriptSkillCardInvocationTypeField.SKILL_INVOCATION.getValue(),
               TranscriptSkillCardInvocationTypeField.SKILL_INVOCATION);
+    }
+
+    public TranscriptSkillCardInvocationFieldBuilder type(
+        TranscriptSkillCardInvocationTypeField type) {
+      this.type = new EnumWrapper<TranscriptSkillCardInvocationTypeField>(type);
+      return this;
     }
 
     public TranscriptSkillCardInvocationFieldBuilder type(
         EnumWrapper<TranscriptSkillCardInvocationTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public TranscriptSkillCardInvocationFieldBuilder type(
-        TranscriptSkillCardInvocationTypeField type) {
-      this.type = new EnumWrapper<TranscriptSkillCardInvocationTypeField>(type.getValue(), type);
       return this;
     }
 

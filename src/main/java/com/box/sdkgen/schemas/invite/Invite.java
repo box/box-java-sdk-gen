@@ -36,8 +36,7 @@ public class Invite extends SerializableObject {
   public Invite(@JsonProperty("id") String id) {
     super();
     this.id = id;
-    this.type =
-        new EnumWrapper<InviteTypeField>(InviteTypeField.INVITE.getValue(), InviteTypeField.INVITE);
+    this.type = new EnumWrapper<InviteTypeField>(InviteTypeField.INVITE);
   }
 
   protected Invite(InviteBuilder builder) {
@@ -166,18 +165,16 @@ public class Invite extends SerializableObject {
 
     public InviteBuilder(String id) {
       this.id = id;
-      this.type =
-          new EnumWrapper<InviteTypeField>(
-              InviteTypeField.INVITE.getValue(), InviteTypeField.INVITE);
+      this.type = new EnumWrapper<InviteTypeField>(InviteTypeField.INVITE);
+    }
+
+    public InviteBuilder type(InviteTypeField type) {
+      this.type = new EnumWrapper<InviteTypeField>(type);
+      return this;
     }
 
     public InviteBuilder type(EnumWrapper<InviteTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public InviteBuilder type(InviteTypeField type) {
-      this.type = new EnumWrapper<InviteTypeField>(type.getValue(), type);
       return this;
     }
 

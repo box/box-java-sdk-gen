@@ -423,13 +423,13 @@ public class Folder extends FolderMini {
       return this;
     }
 
-    public FolderBuilder itemStatus(EnumWrapper<FolderItemStatusField> itemStatus) {
-      this.itemStatus = itemStatus;
+    public FolderBuilder itemStatus(FolderItemStatusField itemStatus) {
+      this.itemStatus = new EnumWrapper<FolderItemStatusField>(itemStatus);
       return this;
     }
 
-    public FolderBuilder itemStatus(FolderItemStatusField itemStatus) {
-      this.itemStatus = new EnumWrapper<FolderItemStatusField>(itemStatus.getValue(), itemStatus);
+    public FolderBuilder itemStatus(EnumWrapper<FolderItemStatusField> itemStatus) {
+      this.itemStatus = itemStatus;
       return this;
     }
 
@@ -445,14 +445,14 @@ public class Folder extends FolderMini {
     }
 
     @Override
-    public FolderBuilder type(EnumWrapper<FolderBaseTypeField> type) {
-      this.type = type;
+    public FolderBuilder type(FolderBaseTypeField type) {
+      this.type = new EnumWrapper<FolderBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FolderBuilder type(FolderBaseTypeField type) {
-      this.type = new EnumWrapper<FolderBaseTypeField>(type.getValue(), type);
+    public FolderBuilder type(EnumWrapper<FolderBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

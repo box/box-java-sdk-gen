@@ -38,7 +38,7 @@ public enum GetCollaborationsQueryParamsStatusField implements Valuable {
       return Arrays.stream(GetCollaborationsQueryParamsStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GetCollaborationsQueryParamsStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GetCollaborationsQueryParamsStatusField>(value));
     }
   }

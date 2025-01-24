@@ -50,7 +50,7 @@ public class CreateCollaborationRequestBody extends SerializableObject {
     super();
     this.item = item;
     this.accessibleBy = accessibleBy;
-    this.role = new EnumWrapper<CreateCollaborationRequestBodyRoleField>(role.getValue(), role);
+    this.role = new EnumWrapper<CreateCollaborationRequestBodyRoleField>(role);
   }
 
   protected CreateCollaborationRequestBody(CreateCollaborationRequestBodyBuilder builder) {
@@ -155,10 +155,19 @@ public class CreateCollaborationRequestBody extends SerializableObject {
     public CreateCollaborationRequestBodyBuilder(
         CreateCollaborationRequestBodyItemField item,
         CreateCollaborationRequestBodyAccessibleByField accessibleBy,
+        EnumWrapper<CreateCollaborationRequestBodyRoleField> role) {
+      this.item = item;
+      this.accessibleBy = accessibleBy;
+      this.role = role;
+    }
+
+    public CreateCollaborationRequestBodyBuilder(
+        CreateCollaborationRequestBodyItemField item,
+        CreateCollaborationRequestBodyAccessibleByField accessibleBy,
         CreateCollaborationRequestBodyRoleField role) {
       this.item = item;
       this.accessibleBy = accessibleBy;
-      this.role = new EnumWrapper<CreateCollaborationRequestBodyRoleField>(role.getValue(), role);
+      this.role = new EnumWrapper<CreateCollaborationRequestBodyRoleField>(role);
     }
 
     public CreateCollaborationRequestBodyBuilder isAccessOnly(Boolean isAccessOnly) {

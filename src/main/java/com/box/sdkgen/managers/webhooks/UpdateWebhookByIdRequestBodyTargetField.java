@@ -81,15 +81,14 @@ public class UpdateWebhookByIdRequestBodyTargetField extends SerializableObject 
     }
 
     public UpdateWebhookByIdRequestBodyTargetFieldBuilder type(
-        EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField> type) {
-      this.type = type;
+        UpdateWebhookByIdRequestBodyTargetTypeField type) {
+      this.type = new EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField>(type);
       return this;
     }
 
     public UpdateWebhookByIdRequestBodyTargetFieldBuilder type(
-        UpdateWebhookByIdRequestBodyTargetTypeField type) {
-      this.type =
-          new EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField>(type.getValue(), type);
+        EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField> type) {
+      this.type = type;
       return this;
     }
 

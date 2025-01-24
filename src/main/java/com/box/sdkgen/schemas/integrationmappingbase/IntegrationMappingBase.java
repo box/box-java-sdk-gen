@@ -22,7 +22,6 @@ public class IntegrationMappingBase extends SerializableObject {
     this.id = id;
     this.type =
         new EnumWrapper<IntegrationMappingBaseTypeField>(
-            IntegrationMappingBaseTypeField.INTEGRATION_MAPPING.getValue(),
             IntegrationMappingBaseTypeField.INTEGRATION_MAPPING);
   }
 
@@ -72,17 +71,16 @@ public class IntegrationMappingBase extends SerializableObject {
       this.id = id;
       this.type =
           new EnumWrapper<IntegrationMappingBaseTypeField>(
-              IntegrationMappingBaseTypeField.INTEGRATION_MAPPING.getValue(),
               IntegrationMappingBaseTypeField.INTEGRATION_MAPPING);
+    }
+
+    public IntegrationMappingBaseBuilder type(IntegrationMappingBaseTypeField type) {
+      this.type = new EnumWrapper<IntegrationMappingBaseTypeField>(type);
+      return this;
     }
 
     public IntegrationMappingBaseBuilder type(EnumWrapper<IntegrationMappingBaseTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public IntegrationMappingBaseBuilder type(IntegrationMappingBaseTypeField type) {
-      this.type = new EnumWrapper<IntegrationMappingBaseTypeField>(type.getValue(), type);
       return this;
     }
 

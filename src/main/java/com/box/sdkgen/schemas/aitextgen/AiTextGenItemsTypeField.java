@@ -38,7 +38,7 @@ public enum AiTextGenItemsTypeField implements Valuable {
       return Arrays.stream(AiTextGenItemsTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<AiTextGenItemsTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AiTextGenItemsTypeField>(value));
     }
   }

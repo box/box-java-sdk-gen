@@ -40,7 +40,7 @@ public enum FolderFullAllowedSharedLinkAccessLevelsField implements Valuable {
       return Arrays.stream(FolderFullAllowedSharedLinkAccessLevelsField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FolderFullAllowedSharedLinkAccessLevelsField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FolderFullAllowedSharedLinkAccessLevelsField>(value));
     }
   }

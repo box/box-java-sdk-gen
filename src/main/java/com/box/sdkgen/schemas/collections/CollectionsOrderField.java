@@ -75,15 +75,14 @@ public class CollectionsOrderField extends SerializableObject {
       return this;
     }
 
-    public CollectionsOrderFieldBuilder direction(
-        EnumWrapper<CollectionsOrderDirectionField> direction) {
-      this.direction = direction;
+    public CollectionsOrderFieldBuilder direction(CollectionsOrderDirectionField direction) {
+      this.direction = new EnumWrapper<CollectionsOrderDirectionField>(direction);
       return this;
     }
 
-    public CollectionsOrderFieldBuilder direction(CollectionsOrderDirectionField direction) {
-      this.direction =
-          new EnumWrapper<CollectionsOrderDirectionField>(direction.getValue(), direction);
+    public CollectionsOrderFieldBuilder direction(
+        EnumWrapper<CollectionsOrderDirectionField> direction) {
+      this.direction = direction;
       return this;
     }
 

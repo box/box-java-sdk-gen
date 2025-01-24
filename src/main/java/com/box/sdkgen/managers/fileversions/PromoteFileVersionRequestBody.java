@@ -79,14 +79,14 @@ public class PromoteFileVersionRequestBody extends SerializableObject {
       return this;
     }
 
-    public PromoteFileVersionRequestBodyBuilder type(
-        EnumWrapper<PromoteFileVersionRequestBodyTypeField> type) {
-      this.type = type;
+    public PromoteFileVersionRequestBodyBuilder type(PromoteFileVersionRequestBodyTypeField type) {
+      this.type = new EnumWrapper<PromoteFileVersionRequestBodyTypeField>(type);
       return this;
     }
 
-    public PromoteFileVersionRequestBodyBuilder type(PromoteFileVersionRequestBodyTypeField type) {
-      this.type = new EnumWrapper<PromoteFileVersionRequestBodyTypeField>(type.getValue(), type);
+    public PromoteFileVersionRequestBodyBuilder type(
+        EnumWrapper<PromoteFileVersionRequestBodyTypeField> type) {
+      this.type = type;
       return this;
     }
 

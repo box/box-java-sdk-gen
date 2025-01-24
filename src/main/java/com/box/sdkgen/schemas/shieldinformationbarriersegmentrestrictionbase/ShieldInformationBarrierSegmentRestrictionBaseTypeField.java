@@ -39,10 +39,7 @@ public enum ShieldInformationBarrierSegmentRestrictionBaseTypeField implements V
       return Arrays.stream(ShieldInformationBarrierSegmentRestrictionBaseTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField>(value));
     }
   }

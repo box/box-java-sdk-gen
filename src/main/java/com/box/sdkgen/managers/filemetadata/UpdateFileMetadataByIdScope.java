@@ -39,7 +39,7 @@ public enum UpdateFileMetadataByIdScope implements Valuable {
       return Arrays.stream(UpdateFileMetadataByIdScope.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateFileMetadataByIdScope>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateFileMetadataByIdScope>(value));
     }
   }

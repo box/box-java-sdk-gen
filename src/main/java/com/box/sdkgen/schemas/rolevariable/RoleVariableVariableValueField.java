@@ -44,7 +44,7 @@ public enum RoleVariableVariableValueField implements Valuable {
       return Arrays.stream(RoleVariableVariableValueField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<RoleVariableVariableValueField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<RoleVariableVariableValueField>(value));
     }
   }

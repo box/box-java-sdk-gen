@@ -38,7 +38,7 @@ public enum ClientErrorTypeField implements Valuable {
       return Arrays.stream(ClientErrorTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<ClientErrorTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<ClientErrorTypeField>(value));
     }
   }

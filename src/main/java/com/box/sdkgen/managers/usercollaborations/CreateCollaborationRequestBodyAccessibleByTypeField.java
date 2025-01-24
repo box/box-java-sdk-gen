@@ -39,8 +39,7 @@ public enum CreateCollaborationRequestBodyAccessibleByTypeField implements Valua
       return Arrays.stream(CreateCollaborationRequestBodyAccessibleByTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) -> new EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField>(value));
     }
   }

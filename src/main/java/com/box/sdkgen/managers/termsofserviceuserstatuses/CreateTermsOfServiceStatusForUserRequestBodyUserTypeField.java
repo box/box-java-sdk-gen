@@ -39,10 +39,7 @@ public enum CreateTermsOfServiceStatusForUserRequestBodyUserTypeField implements
       return Arrays.stream(CreateTermsOfServiceStatusForUserRequestBodyUserTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<CreateTermsOfServiceStatusForUserRequestBodyUserTypeField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(
               new EnumWrapper<CreateTermsOfServiceStatusForUserRequestBodyUserTypeField>(value));
     }

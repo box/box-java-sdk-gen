@@ -39,7 +39,7 @@ public enum PostOAuth2TokenBoxSubjectTypeField implements Valuable {
       return Arrays.stream(PostOAuth2TokenBoxSubjectTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<PostOAuth2TokenBoxSubjectTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<PostOAuth2TokenBoxSubjectTypeField>(value));
     }
   }

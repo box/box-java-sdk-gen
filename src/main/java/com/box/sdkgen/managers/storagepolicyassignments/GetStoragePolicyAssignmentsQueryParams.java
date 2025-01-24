@@ -23,7 +23,7 @@ public class GetStoragePolicyAssignmentsQueryParams {
       String resolvedForId) {
     this.resolvedForType =
         new EnumWrapper<GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField>(
-            resolvedForType.getValue(), resolvedForType);
+            resolvedForType);
     this.resolvedForId = resolvedForId;
   }
 
@@ -57,11 +57,18 @@ public class GetStoragePolicyAssignmentsQueryParams {
     protected final String resolvedForId;
 
     public GetStoragePolicyAssignmentsQueryParamsBuilder(
+        EnumWrapper<GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField> resolvedForType,
+        String resolvedForId) {
+      this.resolvedForType = resolvedForType;
+      this.resolvedForId = resolvedForId;
+    }
+
+    public GetStoragePolicyAssignmentsQueryParamsBuilder(
         GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField resolvedForType,
         String resolvedForId) {
       this.resolvedForType =
           new EnumWrapper<GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField>(
-              resolvedForType.getValue(), resolvedForType);
+              resolvedForType);
       this.resolvedForId = resolvedForId;
     }
 

@@ -38,7 +38,7 @@ public enum BoxVersionHeaderV2025R0 implements Valuable {
       return Arrays.stream(BoxVersionHeaderV2025R0.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<BoxVersionHeaderV2025R0>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<BoxVersionHeaderV2025R0>(value));
     }
   }

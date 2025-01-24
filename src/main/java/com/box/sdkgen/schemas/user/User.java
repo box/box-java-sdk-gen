@@ -309,13 +309,13 @@ public class User extends UserMini {
       return this;
     }
 
-    public UserBuilder status(EnumWrapper<UserStatusField> status) {
-      this.status = status;
+    public UserBuilder status(UserStatusField status) {
+      this.status = new EnumWrapper<UserStatusField>(status);
       return this;
     }
 
-    public UserBuilder status(UserStatusField status) {
-      this.status = new EnumWrapper<UserStatusField>(status.getValue(), status);
+    public UserBuilder status(EnumWrapper<UserStatusField> status) {
+      this.status = status;
       return this;
     }
 
@@ -345,14 +345,14 @@ public class User extends UserMini {
     }
 
     @Override
-    public UserBuilder type(EnumWrapper<UserBaseTypeField> type) {
-      this.type = type;
+    public UserBuilder type(UserBaseTypeField type) {
+      this.type = new EnumWrapper<UserBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public UserBuilder type(UserBaseTypeField type) {
-      this.type = new EnumWrapper<UserBaseTypeField>(type.getValue(), type);
+    public UserBuilder type(EnumWrapper<UserBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

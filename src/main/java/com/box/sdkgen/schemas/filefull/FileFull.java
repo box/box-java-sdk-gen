@@ -9,7 +9,19 @@ import com.box.sdkgen.schemas.fileversionmini.FileVersionMini;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.box.sdkgen.serialization.json.Valuable;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -41,8 +53,10 @@ public class FileFull extends File {
   @JsonProperty("is_accessible_via_shared_link")
   protected Boolean isAccessibleViaSharedLink;
 
+  @JsonDeserialize(using = AllowedInviteeRolesDeserializer.class)
+  @JsonSerialize(using = AllowedInviteeRolesSerializer.class)
   @JsonProperty("allowed_invitee_roles")
-  protected List<FileFullAllowedInviteeRolesField> allowedInviteeRoles;
+  protected List<EnumWrapper<FileFullAllowedInviteeRolesField>> allowedInviteeRoles;
 
   @JsonProperty("is_externally_owned")
   protected Boolean isExternallyOwned;
@@ -65,8 +79,10 @@ public class FileFull extends File {
   @JsonProperty("disposition_at")
   protected String dispositionAt;
 
+  @JsonDeserialize(using = SharedLinkPermissionOptionsDeserializer.class)
+  @JsonSerialize(using = SharedLinkPermissionOptionsSerializer.class)
   @JsonProperty("shared_link_permission_options")
-  protected List<FileFullSharedLinkPermissionOptionsField> sharedLinkPermissionOptions;
+  protected List<EnumWrapper<FileFullSharedLinkPermissionOptionsField>> sharedLinkPermissionOptions;
 
   @JsonProperty("is_associated_with_app_item")
   protected Boolean isAssociatedWithAppItem;
@@ -140,7 +156,7 @@ public class FileFull extends File {
     return isAccessibleViaSharedLink;
   }
 
-  public List<FileFullAllowedInviteeRolesField> getAllowedInviteeRoles() {
+  public List<EnumWrapper<FileFullAllowedInviteeRolesField>> getAllowedInviteeRoles() {
     return allowedInviteeRoles;
   }
 
@@ -176,7 +192,8 @@ public class FileFull extends File {
     return dispositionAt;
   }
 
-  public List<FileFullSharedLinkPermissionOptionsField> getSharedLinkPermissionOptions() {
+  public List<EnumWrapper<FileFullSharedLinkPermissionOptionsField>>
+      getSharedLinkPermissionOptions() {
     return sharedLinkPermissionOptions;
   }
 
@@ -485,7 +502,7 @@ public class FileFull extends File {
 
     protected Boolean isAccessibleViaSharedLink;
 
-    protected List<FileFullAllowedInviteeRolesField> allowedInviteeRoles;
+    protected List<EnumWrapper<FileFullAllowedInviteeRolesField>> allowedInviteeRoles;
 
     protected Boolean isExternallyOwned;
 
@@ -503,7 +520,8 @@ public class FileFull extends File {
 
     protected String dispositionAt;
 
-    protected List<FileFullSharedLinkPermissionOptionsField> sharedLinkPermissionOptions;
+    protected List<EnumWrapper<FileFullSharedLinkPermissionOptionsField>>
+        sharedLinkPermissionOptions;
 
     protected Boolean isAssociatedWithAppItem;
 
@@ -561,9 +579,10 @@ public class FileFull extends File {
       return this;
     }
 
-    public FileFullBuilder allowedInviteeRoles(
-        List<FileFullAllowedInviteeRolesField> allowedInviteeRoles) {
-      this.allowedInviteeRoles = allowedInviteeRoles;
+    public FileFullBuilder allowedInviteeRoles(List<? extends Valuable> allowedInviteeRoles) {
+      this.allowedInviteeRoles =
+          EnumWrapper.wrapValuableEnumList(
+              allowedInviteeRoles, FileFullAllowedInviteeRolesField.class);
       return this;
     }
 
@@ -608,8 +627,10 @@ public class FileFull extends File {
     }
 
     public FileFullBuilder sharedLinkPermissionOptions(
-        List<FileFullSharedLinkPermissionOptionsField> sharedLinkPermissionOptions) {
-      this.sharedLinkPermissionOptions = sharedLinkPermissionOptions;
+        List<? extends Valuable> sharedLinkPermissionOptions) {
+      this.sharedLinkPermissionOptions =
+          EnumWrapper.wrapValuableEnumList(
+              sharedLinkPermissionOptions, FileFullSharedLinkPermissionOptionsField.class);
       return this;
     }
 
@@ -625,14 +646,14 @@ public class FileFull extends File {
     }
 
     @Override
-    public FileFullBuilder type(EnumWrapper<FileBaseTypeField> type) {
-      this.type = type;
+    public FileFullBuilder type(FileBaseTypeField type) {
+      this.type = new EnumWrapper<FileBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FileFullBuilder type(FileBaseTypeField type) {
-      this.type = new EnumWrapper<FileBaseTypeField>(type.getValue(), type);
+    public FileFullBuilder type(EnumWrapper<FileBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -745,19 +766,124 @@ public class FileFull extends File {
     }
 
     @Override
+    public FileFullBuilder itemStatus(FileItemStatusField itemStatus) {
+      this.itemStatus = new EnumWrapper<FileItemStatusField>(itemStatus);
+      return this;
+    }
+
+    @Override
     public FileFullBuilder itemStatus(EnumWrapper<FileItemStatusField> itemStatus) {
       this.itemStatus = itemStatus;
       return this;
     }
 
-    @Override
-    public FileFullBuilder itemStatus(FileItemStatusField itemStatus) {
-      this.itemStatus = new EnumWrapper<FileItemStatusField>(itemStatus.getValue(), itemStatus);
-      return this;
-    }
-
     public FileFull build() {
       return new FileFull(this);
+    }
+  }
+
+  public static class AllowedInviteeRolesDeserializer
+      extends JsonDeserializer<List<EnumWrapper<FileFullAllowedInviteeRolesField>>> {
+
+    public final JsonDeserializer<EnumWrapper<FileFullAllowedInviteeRolesField>>
+        elementDeserializer;
+
+    public AllowedInviteeRolesDeserializer() {
+      super();
+      this.elementDeserializer =
+          new FileFullAllowedInviteeRolesField.FileFullAllowedInviteeRolesFieldDeserializer();
+    }
+
+    @Override
+    public List<EnumWrapper<FileFullAllowedInviteeRolesField>> deserialize(
+        JsonParser p, DeserializationContext ctxt) throws IOException {
+      JsonNode node = p.getCodec().readTree(p);
+      List<EnumWrapper<FileFullAllowedInviteeRolesField>> elements = new ArrayList<>();
+      for (JsonNode item : node) {
+        JsonParser pa = item.traverse(p.getCodec());
+        pa.nextToken();
+        elements.add(elementDeserializer.deserialize(pa, ctxt));
+      }
+      return elements;
+    }
+  }
+
+  public static class AllowedInviteeRolesSerializer
+      extends JsonSerializer<List<EnumWrapper<FileFullAllowedInviteeRolesField>>> {
+
+    public final JsonSerializer<EnumWrapper<FileFullAllowedInviteeRolesField>> elementSerializer;
+
+    public AllowedInviteeRolesSerializer() {
+      super();
+      this.elementSerializer =
+          new FileFullAllowedInviteeRolesField.FileFullAllowedInviteeRolesFieldSerializer();
+    }
+
+    @Override
+    public void serialize(
+        List<EnumWrapper<FileFullAllowedInviteeRolesField>> value,
+        JsonGenerator gen,
+        SerializerProvider serializers)
+        throws IOException {
+      gen.writeStartArray();
+      for (EnumWrapper<FileFullAllowedInviteeRolesField> item : value) {
+        elementSerializer.serialize(item, gen, serializers);
+      }
+      gen.writeEndArray();
+    }
+  }
+
+  public static class SharedLinkPermissionOptionsDeserializer
+      extends JsonDeserializer<List<EnumWrapper<FileFullSharedLinkPermissionOptionsField>>> {
+
+    public final JsonDeserializer<EnumWrapper<FileFullSharedLinkPermissionOptionsField>>
+        elementDeserializer;
+
+    public SharedLinkPermissionOptionsDeserializer() {
+      super();
+      this.elementDeserializer =
+          new FileFullSharedLinkPermissionOptionsField
+              .FileFullSharedLinkPermissionOptionsFieldDeserializer();
+    }
+
+    @Override
+    public List<EnumWrapper<FileFullSharedLinkPermissionOptionsField>> deserialize(
+        JsonParser p, DeserializationContext ctxt) throws IOException {
+      JsonNode node = p.getCodec().readTree(p);
+      List<EnumWrapper<FileFullSharedLinkPermissionOptionsField>> elements = new ArrayList<>();
+      for (JsonNode item : node) {
+        JsonParser pa = item.traverse(p.getCodec());
+        pa.nextToken();
+        elements.add(elementDeserializer.deserialize(pa, ctxt));
+      }
+      return elements;
+    }
+  }
+
+  public static class SharedLinkPermissionOptionsSerializer
+      extends JsonSerializer<List<EnumWrapper<FileFullSharedLinkPermissionOptionsField>>> {
+
+    public final JsonSerializer<EnumWrapper<FileFullSharedLinkPermissionOptionsField>>
+        elementSerializer;
+
+    public SharedLinkPermissionOptionsSerializer() {
+      super();
+      this.elementSerializer =
+          new FileFullSharedLinkPermissionOptionsField
+              .FileFullSharedLinkPermissionOptionsFieldSerializer();
+    }
+
+    @Override
+    public void serialize(
+        List<EnumWrapper<FileFullSharedLinkPermissionOptionsField>> value,
+        JsonGenerator gen,
+        SerializerProvider serializers)
+        throws IOException {
+      gen.writeStartArray();
+      for (EnumWrapper<FileFullSharedLinkPermissionOptionsField> item : value) {
+        elementSerializer.serialize(item, gen, serializers);
+      }
+      gen.writeEndArray();
     }
   }
 }

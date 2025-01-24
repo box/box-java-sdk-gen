@@ -38,7 +38,7 @@ public enum AiAgentAskTypeField implements Valuable {
       return Arrays.stream(AiAgentAskTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<AiAgentAskTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AiAgentAskTypeField>(value));
     }
   }

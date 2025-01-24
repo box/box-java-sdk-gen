@@ -399,13 +399,13 @@ public class File extends FileMini {
       return this;
     }
 
-    public FileBuilder itemStatus(EnumWrapper<FileItemStatusField> itemStatus) {
-      this.itemStatus = itemStatus;
+    public FileBuilder itemStatus(FileItemStatusField itemStatus) {
+      this.itemStatus = new EnumWrapper<FileItemStatusField>(itemStatus);
       return this;
     }
 
-    public FileBuilder itemStatus(FileItemStatusField itemStatus) {
-      this.itemStatus = new EnumWrapper<FileItemStatusField>(itemStatus.getValue(), itemStatus);
+    public FileBuilder itemStatus(EnumWrapper<FileItemStatusField> itemStatus) {
+      this.itemStatus = itemStatus;
       return this;
     }
 
@@ -416,14 +416,14 @@ public class File extends FileMini {
     }
 
     @Override
-    public FileBuilder type(EnumWrapper<FileBaseTypeField> type) {
-      this.type = type;
+    public FileBuilder type(FileBaseTypeField type) {
+      this.type = new EnumWrapper<FileBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FileBuilder type(FileBaseTypeField type) {
-      this.type = new EnumWrapper<FileBaseTypeField>(type.getValue(), type);
+    public FileBuilder type(EnumWrapper<FileBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

@@ -66,16 +66,15 @@ public class UpdateFileByIdRequestBodyPermissionsField extends SerializableObjec
     protected EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField> canDownload;
 
     public UpdateFileByIdRequestBodyPermissionsFieldBuilder canDownload(
-        EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField> canDownload) {
-      this.canDownload = canDownload;
+        UpdateFileByIdRequestBodyPermissionsCanDownloadField canDownload) {
+      this.canDownload =
+          new EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField>(canDownload);
       return this;
     }
 
     public UpdateFileByIdRequestBodyPermissionsFieldBuilder canDownload(
-        UpdateFileByIdRequestBodyPermissionsCanDownloadField canDownload) {
-      this.canDownload =
-          new EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField>(
-              canDownload.getValue(), canDownload);
+        EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField> canDownload) {
+      this.canDownload = canDownload;
       return this;
     }
 

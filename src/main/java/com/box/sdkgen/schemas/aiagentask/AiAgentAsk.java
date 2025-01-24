@@ -29,9 +29,7 @@ public class AiAgentAsk extends SerializableObject {
 
   public AiAgentAsk() {
     super();
-    this.type =
-        new EnumWrapper<AiAgentAskTypeField>(
-            AiAgentAskTypeField.AI_AGENT_ASK.getValue(), AiAgentAskTypeField.AI_AGENT_ASK);
+    this.type = new EnumWrapper<AiAgentAskTypeField>(AiAgentAskTypeField.AI_AGENT_ASK);
   }
 
   protected AiAgentAsk(AiAgentAskBuilder builder) {
@@ -121,13 +119,13 @@ public class AiAgentAsk extends SerializableObject {
 
     protected AiAgentBasicTextTool basicTextMulti;
 
-    public AiAgentAskBuilder type(EnumWrapper<AiAgentAskTypeField> type) {
-      this.type = type;
+    public AiAgentAskBuilder type(AiAgentAskTypeField type) {
+      this.type = new EnumWrapper<AiAgentAskTypeField>(type);
       return this;
     }
 
-    public AiAgentAskBuilder type(AiAgentAskTypeField type) {
-      this.type = new EnumWrapper<AiAgentAskTypeField>(type.getValue(), type);
+    public AiAgentAskBuilder type(EnumWrapper<AiAgentAskTypeField> type) {
+      this.type = type;
       return this;
     }
 

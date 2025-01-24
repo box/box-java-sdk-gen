@@ -106,13 +106,13 @@ public class DevicePinner extends SerializableObject {
       return this;
     }
 
-    public DevicePinnerBuilder type(EnumWrapper<DevicePinnerTypeField> type) {
-      this.type = type;
+    public DevicePinnerBuilder type(DevicePinnerTypeField type) {
+      this.type = new EnumWrapper<DevicePinnerTypeField>(type);
       return this;
     }
 
-    public DevicePinnerBuilder type(DevicePinnerTypeField type) {
-      this.type = new EnumWrapper<DevicePinnerTypeField>(type.getValue(), type);
+    public DevicePinnerBuilder type(EnumWrapper<DevicePinnerTypeField> type) {
+      this.type = type;
       return this;
     }
 

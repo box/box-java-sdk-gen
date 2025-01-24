@@ -41,7 +41,7 @@ public enum FileFullLockAppTypeField implements Valuable {
       return Arrays.stream(FileFullLockAppTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileFullLockAppTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileFullLockAppTypeField>(value));
     }
   }

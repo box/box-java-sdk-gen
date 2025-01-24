@@ -39,7 +39,7 @@ public enum SearchForContentQueryParamsDirectionField implements Valuable {
       return Arrays.stream(SearchForContentQueryParamsDirectionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<SearchForContentQueryParamsDirectionField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<SearchForContentQueryParamsDirectionField>(value));
     }
   }

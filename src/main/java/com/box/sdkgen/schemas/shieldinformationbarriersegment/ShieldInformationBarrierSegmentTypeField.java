@@ -38,7 +38,7 @@ public enum ShieldInformationBarrierSegmentTypeField implements Valuable {
       return Arrays.stream(ShieldInformationBarrierSegmentTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<ShieldInformationBarrierSegmentTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<ShieldInformationBarrierSegmentTypeField>(value));
     }
   }

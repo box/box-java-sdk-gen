@@ -77,7 +77,7 @@ public enum WebhookInvocationTriggerField implements Valuable {
       return Arrays.stream(WebhookInvocationTriggerField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<WebhookInvocationTriggerField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<WebhookInvocationTriggerField>(value));
     }
   }

@@ -39,7 +39,7 @@ public enum CreateUserRequestBodyRoleField implements Valuable {
       return Arrays.stream(CreateUserRequestBodyRoleField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateUserRequestBodyRoleField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateUserRequestBodyRoleField>(value));
     }
   }

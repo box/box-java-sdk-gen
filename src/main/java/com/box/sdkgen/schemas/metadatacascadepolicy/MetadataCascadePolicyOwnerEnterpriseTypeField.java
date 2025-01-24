@@ -38,7 +38,7 @@ public enum MetadataCascadePolicyOwnerEnterpriseTypeField implements Valuable {
       return Arrays.stream(MetadataCascadePolicyOwnerEnterpriseTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<MetadataCascadePolicyOwnerEnterpriseTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<MetadataCascadePolicyOwnerEnterpriseTypeField>(value));
     }
   }

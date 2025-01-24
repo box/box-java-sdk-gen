@@ -71,14 +71,14 @@ public class FolderFolderUploadEmailField extends SerializableObject {
 
     protected String email;
 
-    public FolderFolderUploadEmailFieldBuilder access(
-        EnumWrapper<FolderFolderUploadEmailAccessField> access) {
-      this.access = access;
+    public FolderFolderUploadEmailFieldBuilder access(FolderFolderUploadEmailAccessField access) {
+      this.access = new EnumWrapper<FolderFolderUploadEmailAccessField>(access);
       return this;
     }
 
-    public FolderFolderUploadEmailFieldBuilder access(FolderFolderUploadEmailAccessField access) {
-      this.access = new EnumWrapper<FolderFolderUploadEmailAccessField>(access.getValue(), access);
+    public FolderFolderUploadEmailFieldBuilder access(
+        EnumWrapper<FolderFolderUploadEmailAccessField> access) {
+      this.access = access;
       return this;
     }
 

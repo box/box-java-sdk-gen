@@ -40,7 +40,7 @@ public enum UpdateFolderByIdRequestBodySharedLinkAccessField implements Valuable
       return Arrays.stream(UpdateFolderByIdRequestBodySharedLinkAccessField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateFolderByIdRequestBodySharedLinkAccessField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateFolderByIdRequestBodySharedLinkAccessField>(value));
     }
   }

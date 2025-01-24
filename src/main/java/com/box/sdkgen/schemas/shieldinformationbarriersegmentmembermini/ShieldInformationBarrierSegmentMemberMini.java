@@ -80,17 +80,15 @@ public class ShieldInformationBarrierSegmentMemberMini
 
     @Override
     public ShieldInformationBarrierSegmentMemberMiniBuilder type(
-        EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField> type) {
-      this.type = type;
+        ShieldInformationBarrierSegmentMemberBaseTypeField type) {
+      this.type = new EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField>(type);
       return this;
     }
 
     @Override
     public ShieldInformationBarrierSegmentMemberMiniBuilder type(
-        ShieldInformationBarrierSegmentMemberBaseTypeField type) {
-      this.type =
-          new EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField>(
-              type.getValue(), type);
+        EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

@@ -42,7 +42,7 @@ public enum UpdateAllSkillCardsOnFileRequestBodyStatusField implements Valuable 
       return Arrays.stream(UpdateAllSkillCardsOnFileRequestBodyStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField>(value));
     }
   }

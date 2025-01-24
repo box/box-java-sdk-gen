@@ -38,7 +38,7 @@ public enum AddClassificationRequestBodyFieldKeyField implements Valuable {
       return Arrays.stream(AddClassificationRequestBodyFieldKeyField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<AddClassificationRequestBodyFieldKeyField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AddClassificationRequestBodyFieldKeyField>(value));
     }
   }

@@ -50,15 +50,14 @@ public class GetRetentionPolicyAssignmentsQueryParams {
     protected Long limit;
 
     public GetRetentionPolicyAssignmentsQueryParamsBuilder type(
-        EnumWrapper<GetRetentionPolicyAssignmentsQueryParamsTypeField> type) {
-      this.type = type;
+        GetRetentionPolicyAssignmentsQueryParamsTypeField type) {
+      this.type = new EnumWrapper<GetRetentionPolicyAssignmentsQueryParamsTypeField>(type);
       return this;
     }
 
     public GetRetentionPolicyAssignmentsQueryParamsBuilder type(
-        GetRetentionPolicyAssignmentsQueryParamsTypeField type) {
-      this.type =
-          new EnumWrapper<GetRetentionPolicyAssignmentsQueryParamsTypeField>(type.getValue(), type);
+        EnumWrapper<GetRetentionPolicyAssignmentsQueryParamsTypeField> type) {
+      this.type = type;
       return this;
     }
 

@@ -39,7 +39,7 @@ public enum SignRequestSignerSignerDecisionTypeField implements Valuable {
       return Arrays.stream(SignRequestSignerSignerDecisionTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<SignRequestSignerSignerDecisionTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<SignRequestSignerSignerDecisionTypeField>(value));
     }
   }

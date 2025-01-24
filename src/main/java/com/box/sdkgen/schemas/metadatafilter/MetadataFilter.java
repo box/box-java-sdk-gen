@@ -94,13 +94,13 @@ public class MetadataFilter extends SerializableObject {
             MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString>
         filters;
 
-    public MetadataFilterBuilder scope(EnumWrapper<MetadataFilterScopeField> scope) {
-      this.scope = scope;
+    public MetadataFilterBuilder scope(MetadataFilterScopeField scope) {
+      this.scope = new EnumWrapper<MetadataFilterScopeField>(scope);
       return this;
     }
 
-    public MetadataFilterBuilder scope(MetadataFilterScopeField scope) {
-      this.scope = new EnumWrapper<MetadataFilterScopeField>(scope.getValue(), scope);
+    public MetadataFilterBuilder scope(EnumWrapper<MetadataFilterScopeField> scope) {
+      this.scope = scope;
       return this;
     }
 

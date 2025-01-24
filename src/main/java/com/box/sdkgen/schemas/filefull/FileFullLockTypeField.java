@@ -38,7 +38,7 @@ public enum FileFullLockTypeField implements Valuable {
       return Arrays.stream(FileFullLockTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileFullLockTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileFullLockTypeField>(value));
     }
   }

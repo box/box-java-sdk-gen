@@ -39,10 +39,7 @@ public enum CreateClassificationTemplateRequestBodyDisplayNameField implements V
       return Arrays.stream(CreateClassificationTemplateRequestBodyDisplayNameField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<CreateClassificationTemplateRequestBodyDisplayNameField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateClassificationTemplateRequestBodyDisplayNameField>(value));
     }
   }

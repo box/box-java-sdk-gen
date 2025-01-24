@@ -32,8 +32,7 @@ public class CreateCollaborationRequestBodyAccessibleByField extends Serializabl
   public CreateCollaborationRequestBodyAccessibleByField(
       CreateCollaborationRequestBodyAccessibleByTypeField type) {
     super();
-    this.type =
-        new EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField>(type.getValue(), type);
+    this.type = new EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField>(type);
   }
 
   protected CreateCollaborationRequestBodyAccessibleByField(
@@ -102,10 +101,13 @@ public class CreateCollaborationRequestBodyAccessibleByField extends Serializabl
     protected String login;
 
     public CreateCollaborationRequestBodyAccessibleByFieldBuilder(
+        EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField> type) {
+      this.type = type;
+    }
+
+    public CreateCollaborationRequestBodyAccessibleByFieldBuilder(
         CreateCollaborationRequestBodyAccessibleByTypeField type) {
-      this.type =
-          new EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField>(
-              type.getValue(), type);
+      this.type = new EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField>(type);
     }
 
     public CreateCollaborationRequestBodyAccessibleByFieldBuilder id(String id) {

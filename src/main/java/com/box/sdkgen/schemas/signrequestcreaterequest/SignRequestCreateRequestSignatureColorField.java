@@ -40,7 +40,7 @@ public enum SignRequestCreateRequestSignatureColorField implements Valuable {
       return Arrays.stream(SignRequestCreateRequestSignatureColorField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<SignRequestCreateRequestSignatureColorField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<SignRequestCreateRequestSignatureColorField>(value));
     }
   }

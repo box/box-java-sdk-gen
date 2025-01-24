@@ -40,7 +40,7 @@ public enum TrashWebLinkRestoredItemStatusField implements Valuable {
       return Arrays.stream(TrashWebLinkRestoredItemStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<TrashWebLinkRestoredItemStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<TrashWebLinkRestoredItemStatusField>(value));
     }
   }

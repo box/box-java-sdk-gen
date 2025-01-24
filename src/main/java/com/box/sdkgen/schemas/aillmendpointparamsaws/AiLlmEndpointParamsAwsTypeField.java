@@ -38,7 +38,7 @@ public enum AiLlmEndpointParamsAwsTypeField implements Valuable {
       return Arrays.stream(AiLlmEndpointParamsAwsTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<AiLlmEndpointParamsAwsTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AiLlmEndpointParamsAwsTypeField>(value));
     }
   }

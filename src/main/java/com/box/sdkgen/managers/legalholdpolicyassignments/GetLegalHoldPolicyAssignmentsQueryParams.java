@@ -74,16 +74,15 @@ public class GetLegalHoldPolicyAssignmentsQueryParams {
     }
 
     public GetLegalHoldPolicyAssignmentsQueryParamsBuilder assignToType(
-        EnumWrapper<GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField> assignToType) {
-      this.assignToType = assignToType;
+        GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField assignToType) {
+      this.assignToType =
+          new EnumWrapper<GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField>(assignToType);
       return this;
     }
 
     public GetLegalHoldPolicyAssignmentsQueryParamsBuilder assignToType(
-        GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField assignToType) {
-      this.assignToType =
-          new EnumWrapper<GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField>(
-              assignToType.getValue(), assignToType);
+        EnumWrapper<GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField> assignToType) {
+      this.assignToType = assignToType;
       return this;
     }
 

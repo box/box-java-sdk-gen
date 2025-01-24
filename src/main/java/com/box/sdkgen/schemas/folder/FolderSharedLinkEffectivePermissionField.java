@@ -41,7 +41,7 @@ public enum FolderSharedLinkEffectivePermissionField implements Valuable {
       return Arrays.stream(FolderSharedLinkEffectivePermissionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FolderSharedLinkEffectivePermissionField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FolderSharedLinkEffectivePermissionField>(value));
     }
   }

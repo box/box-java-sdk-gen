@@ -38,7 +38,7 @@ public enum LegalHoldPolicyMiniTypeField implements Valuable {
       return Arrays.stream(LegalHoldPolicyMiniTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<LegalHoldPolicyMiniTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<LegalHoldPolicyMiniTypeField>(value));
     }
   }

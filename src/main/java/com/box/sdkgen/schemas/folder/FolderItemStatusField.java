@@ -40,7 +40,7 @@ public enum FolderItemStatusField implements Valuable {
       return Arrays.stream(FolderItemStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FolderItemStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FolderItemStatusField>(value));
     }
   }

@@ -39,9 +39,7 @@ public enum UpdateFileByIdRequestBodyPermissionsCanDownloadField implements Valu
       return Arrays.stream(UpdateFileByIdRequestBodyPermissionsCanDownloadField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField>(value));
     }
   }

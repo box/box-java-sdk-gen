@@ -18,8 +18,7 @@ public class GetCollaborationsQueryParams {
   }
 
   public GetCollaborationsQueryParams(GetCollaborationsQueryParamsStatusField status) {
-    this.status =
-        new EnumWrapper<GetCollaborationsQueryParamsStatusField>(status.getValue(), status);
+    this.status = new EnumWrapper<GetCollaborationsQueryParamsStatusField>(status);
   }
 
   protected GetCollaborationsQueryParams(GetCollaborationsQueryParamsBuilder builder) {
@@ -55,9 +54,13 @@ public class GetCollaborationsQueryParams {
 
     protected Long limit;
 
+    public GetCollaborationsQueryParamsBuilder(
+        EnumWrapper<GetCollaborationsQueryParamsStatusField> status) {
+      this.status = status;
+    }
+
     public GetCollaborationsQueryParamsBuilder(GetCollaborationsQueryParamsStatusField status) {
-      this.status =
-          new EnumWrapper<GetCollaborationsQueryParamsStatusField>(status.getValue(), status);
+      this.status = new EnumWrapper<GetCollaborationsQueryParamsStatusField>(status);
     }
 
     public GetCollaborationsQueryParamsBuilder fields(List<String> fields) {

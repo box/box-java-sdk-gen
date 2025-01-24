@@ -38,7 +38,7 @@ public enum ClassificationTemplateDisplayNameField implements Valuable {
       return Arrays.stream(ClassificationTemplateDisplayNameField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<ClassificationTemplateDisplayNameField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<ClassificationTemplateDisplayNameField>(value));
     }
   }

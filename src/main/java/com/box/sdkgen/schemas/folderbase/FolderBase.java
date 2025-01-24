@@ -20,9 +20,7 @@ public class FolderBase extends SerializableObject {
   public FolderBase(@JsonProperty("id") String id) {
     super();
     this.id = id;
-    this.type =
-        new EnumWrapper<FolderBaseTypeField>(
-            FolderBaseTypeField.FOLDER.getValue(), FolderBaseTypeField.FOLDER);
+    this.type = new EnumWrapper<FolderBaseTypeField>(FolderBaseTypeField.FOLDER);
   }
 
   protected FolderBase(FolderBaseBuilder builder) {
@@ -90,9 +88,7 @@ public class FolderBase extends SerializableObject {
 
     public FolderBaseBuilder(String id) {
       this.id = id;
-      this.type =
-          new EnumWrapper<FolderBaseTypeField>(
-              FolderBaseTypeField.FOLDER.getValue(), FolderBaseTypeField.FOLDER);
+      this.type = new EnumWrapper<FolderBaseTypeField>(FolderBaseTypeField.FOLDER);
     }
 
     public FolderBaseBuilder etag(String etag) {
@@ -100,13 +96,13 @@ public class FolderBase extends SerializableObject {
       return this;
     }
 
-    public FolderBaseBuilder type(EnumWrapper<FolderBaseTypeField> type) {
-      this.type = type;
+    public FolderBaseBuilder type(FolderBaseTypeField type) {
+      this.type = new EnumWrapper<FolderBaseTypeField>(type);
       return this;
     }
 
-    public FolderBaseBuilder type(FolderBaseTypeField type) {
-      this.type = new EnumWrapper<FolderBaseTypeField>(type.getValue(), type);
+    public FolderBaseBuilder type(EnumWrapper<FolderBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

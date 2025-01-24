@@ -41,7 +41,7 @@ public enum CreateUserRequestBodyStatusField implements Valuable {
       return Arrays.stream(CreateUserRequestBodyStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateUserRequestBodyStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateUserRequestBodyStatusField>(value));
     }
   }

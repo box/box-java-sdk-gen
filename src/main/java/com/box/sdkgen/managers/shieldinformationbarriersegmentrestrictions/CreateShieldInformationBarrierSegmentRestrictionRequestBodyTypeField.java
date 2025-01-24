@@ -42,11 +42,7 @@ public enum CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField
               CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<
-                      CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(
               new EnumWrapper<CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField>(
                   value));

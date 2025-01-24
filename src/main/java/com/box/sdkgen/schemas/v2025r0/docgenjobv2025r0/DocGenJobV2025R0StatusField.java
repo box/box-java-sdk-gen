@@ -42,7 +42,7 @@ public enum DocGenJobV2025R0StatusField implements Valuable {
       return Arrays.stream(DocGenJobV2025R0StatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<DocGenJobV2025R0StatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<DocGenJobV2025R0StatusField>(value));
     }
   }

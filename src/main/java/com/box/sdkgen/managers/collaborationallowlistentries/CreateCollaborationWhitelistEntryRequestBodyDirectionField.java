@@ -41,10 +41,7 @@ public enum CreateCollaborationWhitelistEntryRequestBodyDirectionField implement
       return Arrays.stream(CreateCollaborationWhitelistEntryRequestBodyDirectionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<CreateCollaborationWhitelistEntryRequestBodyDirectionField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(
               new EnumWrapper<CreateCollaborationWhitelistEntryRequestBodyDirectionField>(value));
     }

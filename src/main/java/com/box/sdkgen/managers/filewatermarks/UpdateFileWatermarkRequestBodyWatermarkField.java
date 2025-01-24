@@ -22,7 +22,6 @@ public class UpdateFileWatermarkRequestBodyWatermarkField extends SerializableOb
     super();
     this.imprint =
         new EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField>(
-            UpdateFileWatermarkRequestBodyWatermarkImprintField.DEFAULT.getValue(),
             UpdateFileWatermarkRequestBodyWatermarkImprintField.DEFAULT);
   }
 
@@ -64,16 +63,14 @@ public class UpdateFileWatermarkRequestBodyWatermarkField extends SerializableOb
     protected EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField> imprint;
 
     public UpdateFileWatermarkRequestBodyWatermarkFieldBuilder imprint(
-        EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField> imprint) {
-      this.imprint = imprint;
+        UpdateFileWatermarkRequestBodyWatermarkImprintField imprint) {
+      this.imprint = new EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField>(imprint);
       return this;
     }
 
     public UpdateFileWatermarkRequestBodyWatermarkFieldBuilder imprint(
-        UpdateFileWatermarkRequestBodyWatermarkImprintField imprint) {
-      this.imprint =
-          new EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField>(
-              imprint.getValue(), imprint);
+        EnumWrapper<UpdateFileWatermarkRequestBodyWatermarkImprintField> imprint) {
+      this.imprint = imprint;
       return this;
     }
 

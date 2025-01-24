@@ -5,7 +5,19 @@ import com.box.sdkgen.schemas.webhookmini.WebhookMini;
 import com.box.sdkgen.schemas.webhookmini.WebhookMiniTargetField;
 import com.box.sdkgen.schemas.webhookmini.WebhookMiniTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.box.sdkgen.serialization.json.Valuable;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,7 +31,9 @@ public class Webhook extends WebhookMini {
 
   protected String address;
 
-  protected List<WebhookTriggersField> triggers;
+  @JsonDeserialize(using = TriggersDeserializer.class)
+  @JsonSerialize(using = TriggersSerializer.class)
+  protected List<EnumWrapper<WebhookTriggersField>> triggers;
 
   public Webhook() {
     super();
@@ -45,7 +59,7 @@ public class Webhook extends WebhookMini {
     return address;
   }
 
-  public List<WebhookTriggersField> getTriggers() {
+  public List<EnumWrapper<WebhookTriggersField>> getTriggers() {
     return triggers;
   }
 
@@ -113,7 +127,7 @@ public class Webhook extends WebhookMini {
 
     protected String address;
 
-    protected List<WebhookTriggersField> triggers;
+    protected List<EnumWrapper<WebhookTriggersField>> triggers;
 
     public WebhookBuilder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
@@ -130,8 +144,8 @@ public class Webhook extends WebhookMini {
       return this;
     }
 
-    public WebhookBuilder triggers(List<WebhookTriggersField> triggers) {
-      this.triggers = triggers;
+    public WebhookBuilder triggers(List<? extends Valuable> triggers) {
+      this.triggers = EnumWrapper.wrapValuableEnumList(triggers, WebhookTriggersField.class);
       return this;
     }
 
@@ -142,14 +156,14 @@ public class Webhook extends WebhookMini {
     }
 
     @Override
-    public WebhookBuilder type(EnumWrapper<WebhookMiniTypeField> type) {
-      this.type = type;
+    public WebhookBuilder type(WebhookMiniTypeField type) {
+      this.type = new EnumWrapper<WebhookMiniTypeField>(type);
       return this;
     }
 
     @Override
-    public WebhookBuilder type(WebhookMiniTypeField type) {
-      this.type = new EnumWrapper<WebhookMiniTypeField>(type.getValue(), type);
+    public WebhookBuilder type(EnumWrapper<WebhookMiniTypeField> type) {
+      this.type = type;
       return this;
     }
 
@@ -161,6 +175,54 @@ public class Webhook extends WebhookMini {
 
     public Webhook build() {
       return new Webhook(this);
+    }
+  }
+
+  public static class TriggersDeserializer
+      extends JsonDeserializer<List<EnumWrapper<WebhookTriggersField>>> {
+
+    public final JsonDeserializer<EnumWrapper<WebhookTriggersField>> elementDeserializer;
+
+    public TriggersDeserializer() {
+      super();
+      this.elementDeserializer = new WebhookTriggersField.WebhookTriggersFieldDeserializer();
+    }
+
+    @Override
+    public List<EnumWrapper<WebhookTriggersField>> deserialize(
+        JsonParser p, DeserializationContext ctxt) throws IOException {
+      JsonNode node = p.getCodec().readTree(p);
+      List<EnumWrapper<WebhookTriggersField>> elements = new ArrayList<>();
+      for (JsonNode item : node) {
+        JsonParser pa = item.traverse(p.getCodec());
+        pa.nextToken();
+        elements.add(elementDeserializer.deserialize(pa, ctxt));
+      }
+      return elements;
+    }
+  }
+
+  public static class TriggersSerializer
+      extends JsonSerializer<List<EnumWrapper<WebhookTriggersField>>> {
+
+    public final JsonSerializer<EnumWrapper<WebhookTriggersField>> elementSerializer;
+
+    public TriggersSerializer() {
+      super();
+      this.elementSerializer = new WebhookTriggersField.WebhookTriggersFieldSerializer();
+    }
+
+    @Override
+    public void serialize(
+        List<EnumWrapper<WebhookTriggersField>> value,
+        JsonGenerator gen,
+        SerializerProvider serializers)
+        throws IOException {
+      gen.writeStartArray();
+      for (EnumWrapper<WebhookTriggersField> item : value) {
+        elementSerializer.serialize(item, gen, serializers);
+      }
+      gen.writeEndArray();
     }
   }
 }

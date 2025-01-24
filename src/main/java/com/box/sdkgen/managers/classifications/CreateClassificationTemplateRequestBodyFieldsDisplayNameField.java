@@ -39,10 +39,7 @@ public enum CreateClassificationTemplateRequestBodyFieldsDisplayNameField implem
       return Arrays.stream(CreateClassificationTemplateRequestBodyFieldsDisplayNameField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsDisplayNameField>(
-                      value, v))
+          .map(EnumWrapper::new)
           .orElse(
               new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsDisplayNameField>(
                   value));

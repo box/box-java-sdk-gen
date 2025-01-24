@@ -38,7 +38,7 @@ public enum RetentionPolicyAssignmentTypeField implements Valuable {
       return Arrays.stream(RetentionPolicyAssignmentTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<RetentionPolicyAssignmentTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<RetentionPolicyAssignmentTypeField>(value));
     }
   }

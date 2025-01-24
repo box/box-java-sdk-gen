@@ -42,7 +42,7 @@ public enum SkillInvocationStatusStateField implements Valuable {
       return Arrays.stream(SkillInvocationStatusStateField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<SkillInvocationStatusStateField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<SkillInvocationStatusStateField>(value));
     }
   }

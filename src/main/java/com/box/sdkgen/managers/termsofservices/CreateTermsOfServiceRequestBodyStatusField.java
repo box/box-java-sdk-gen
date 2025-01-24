@@ -39,7 +39,7 @@ public enum CreateTermsOfServiceRequestBodyStatusField implements Valuable {
       return Arrays.stream(CreateTermsOfServiceRequestBodyStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CreateTermsOfServiceRequestBodyStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateTermsOfServiceRequestBodyStatusField>(value));
     }
   }

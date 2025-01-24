@@ -38,7 +38,7 @@ public enum StoragePolicyAssignmentTypeField implements Valuable {
       return Arrays.stream(StoragePolicyAssignmentTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<StoragePolicyAssignmentTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<StoragePolicyAssignmentTypeField>(value));
     }
   }

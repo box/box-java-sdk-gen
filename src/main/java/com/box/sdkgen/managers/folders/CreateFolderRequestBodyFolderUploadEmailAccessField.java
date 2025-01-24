@@ -39,8 +39,7 @@ public enum CreateFolderRequestBodyFolderUploadEmailAccessField implements Valua
       return Arrays.stream(CreateFolderRequestBodyFolderUploadEmailAccessField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) -> new EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField>(value));
     }
   }

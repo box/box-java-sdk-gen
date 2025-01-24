@@ -41,7 +41,7 @@ public enum LegalHoldPolicyStatusField implements Valuable {
       return Arrays.stream(LegalHoldPolicyStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<LegalHoldPolicyStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<LegalHoldPolicyStatusField>(value));
     }
   }

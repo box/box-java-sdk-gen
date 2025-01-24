@@ -40,7 +40,7 @@ public enum UpdateGroupByIdRequestBodyInvitabilityLevelField implements Valuable
       return Arrays.stream(UpdateGroupByIdRequestBodyInvitabilityLevelField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateGroupByIdRequestBodyInvitabilityLevelField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateGroupByIdRequestBodyInvitabilityLevelField>(value));
     }
   }

@@ -38,7 +38,7 @@ public enum FileBaseTypeField implements Valuable {
       return Arrays.stream(FileBaseTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FileBaseTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FileBaseTypeField>(value));
     }
   }

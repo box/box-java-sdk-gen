@@ -42,7 +42,7 @@ public enum ShieldInformationBarrierStatusField implements Valuable {
       return Arrays.stream(ShieldInformationBarrierStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<ShieldInformationBarrierStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<ShieldInformationBarrierStatusField>(value));
     }
   }

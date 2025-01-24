@@ -38,7 +38,7 @@ public enum LegalHoldPolicyAssignmentBaseTypeField implements Valuable {
       return Arrays.stream(LegalHoldPolicyAssignmentBaseTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField>(value));
     }
   }

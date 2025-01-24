@@ -186,13 +186,13 @@ public class SkillInvocation extends SerializableObject {
 
     protected Event event;
 
-    public SkillInvocationBuilder type(EnumWrapper<SkillInvocationTypeField> type) {
-      this.type = type;
+    public SkillInvocationBuilder type(SkillInvocationTypeField type) {
+      this.type = new EnumWrapper<SkillInvocationTypeField>(type);
       return this;
     }
 
-    public SkillInvocationBuilder type(SkillInvocationTypeField type) {
-      this.type = new EnumWrapper<SkillInvocationTypeField>(type.getValue(), type);
+    public SkillInvocationBuilder type(EnumWrapper<SkillInvocationTypeField> type) {
+      this.type = type;
       return this;
     }
 

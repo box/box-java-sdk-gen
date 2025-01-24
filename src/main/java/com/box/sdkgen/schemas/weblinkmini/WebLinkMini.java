@@ -117,14 +117,14 @@ public class WebLinkMini extends WebLinkBase {
     }
 
     @Override
-    public WebLinkMiniBuilder type(EnumWrapper<WebLinkBaseTypeField> type) {
-      this.type = type;
+    public WebLinkMiniBuilder type(WebLinkBaseTypeField type) {
+      this.type = new EnumWrapper<WebLinkBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public WebLinkMiniBuilder type(WebLinkBaseTypeField type) {
-      this.type = new EnumWrapper<WebLinkBaseTypeField>(type.getValue(), type);
+    public WebLinkMiniBuilder type(EnumWrapper<WebLinkBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

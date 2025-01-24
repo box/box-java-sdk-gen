@@ -40,8 +40,7 @@ public class JWTConfig {
     this.jwtKeyId = jwtKeyId;
     this.privateKey = privateKey;
     this.privateKeyPassphrase = privateKeyPassphrase;
-    this.algorithm =
-        new EnumWrapper<JwtAlgorithm>(JwtAlgorithm.RS256.getValue(), JwtAlgorithm.RS256);
+    this.algorithm = new EnumWrapper<JwtAlgorithm>(JwtAlgorithm.RS256);
     this.tokenStorage = new InMemoryTokenStorage();
   }
 
@@ -164,8 +163,7 @@ public class JWTConfig {
       this.jwtKeyId = jwtKeyId;
       this.privateKey = privateKey;
       this.privateKeyPassphrase = privateKeyPassphrase;
-      this.algorithm =
-          new EnumWrapper<JwtAlgorithm>(JwtAlgorithm.RS256.getValue(), JwtAlgorithm.RS256);
+      this.algorithm = new EnumWrapper<JwtAlgorithm>(JwtAlgorithm.RS256);
       this.tokenStorage = new InMemoryTokenStorage();
     }
 
@@ -179,13 +177,13 @@ public class JWTConfig {
       return this;
     }
 
-    public JWTConfigBuilder algorithm(EnumWrapper<JwtAlgorithm> algorithm) {
-      this.algorithm = algorithm;
+    public JWTConfigBuilder algorithm(JwtAlgorithm algorithm) {
+      this.algorithm = new EnumWrapper<JwtAlgorithm>(algorithm);
       return this;
     }
 
-    public JWTConfigBuilder algorithm(JwtAlgorithm algorithm) {
-      this.algorithm = new EnumWrapper<JwtAlgorithm>(algorithm.getValue(), algorithm);
+    public JWTConfigBuilder algorithm(EnumWrapper<JwtAlgorithm> algorithm) {
+      this.algorithm = algorithm;
       return this;
     }
 

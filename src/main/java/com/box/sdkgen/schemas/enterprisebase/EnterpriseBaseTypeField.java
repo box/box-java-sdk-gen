@@ -38,7 +38,7 @@ public enum EnterpriseBaseTypeField implements Valuable {
       return Arrays.stream(EnterpriseBaseTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<EnterpriseBaseTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<EnterpriseBaseTypeField>(value));
     }
   }

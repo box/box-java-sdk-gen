@@ -94,14 +94,14 @@ public class SignRequestSignerSignerDecisionField extends SerializableObject {
     protected String additionalInfo;
 
     public SignRequestSignerSignerDecisionFieldBuilder type(
-        EnumWrapper<SignRequestSignerSignerDecisionTypeField> type) {
-      this.type = type;
+        SignRequestSignerSignerDecisionTypeField type) {
+      this.type = new EnumWrapper<SignRequestSignerSignerDecisionTypeField>(type);
       return this;
     }
 
     public SignRequestSignerSignerDecisionFieldBuilder type(
-        SignRequestSignerSignerDecisionTypeField type) {
-      this.type = new EnumWrapper<SignRequestSignerSignerDecisionTypeField>(type.getValue(), type);
+        EnumWrapper<SignRequestSignerSignerDecisionTypeField> type) {
+      this.type = type;
       return this;
     }
 

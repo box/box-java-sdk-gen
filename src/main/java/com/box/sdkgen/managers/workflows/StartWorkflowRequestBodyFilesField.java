@@ -75,14 +75,14 @@ public class StartWorkflowRequestBodyFilesField extends SerializableObject {
     protected String id;
 
     public StartWorkflowRequestBodyFilesFieldBuilder type(
-        EnumWrapper<StartWorkflowRequestBodyFilesTypeField> type) {
-      this.type = type;
+        StartWorkflowRequestBodyFilesTypeField type) {
+      this.type = new EnumWrapper<StartWorkflowRequestBodyFilesTypeField>(type);
       return this;
     }
 
     public StartWorkflowRequestBodyFilesFieldBuilder type(
-        StartWorkflowRequestBodyFilesTypeField type) {
-      this.type = new EnumWrapper<StartWorkflowRequestBodyFilesTypeField>(type.getValue(), type);
+        EnumWrapper<StartWorkflowRequestBodyFilesTypeField> type) {
+      this.type = type;
       return this;
     }
 

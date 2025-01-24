@@ -33,7 +33,6 @@ public class AppItemAssociation extends SerializableObject {
     this.item = item;
     this.type =
         new EnumWrapper<AppItemAssociationTypeField>(
-            AppItemAssociationTypeField.APP_ITEM_ASSOCIATION.getValue(),
             AppItemAssociationTypeField.APP_ITEM_ASSOCIATION);
   }
 
@@ -119,17 +118,16 @@ public class AppItemAssociation extends SerializableObject {
       this.item = item;
       this.type =
           new EnumWrapper<AppItemAssociationTypeField>(
-              AppItemAssociationTypeField.APP_ITEM_ASSOCIATION.getValue(),
               AppItemAssociationTypeField.APP_ITEM_ASSOCIATION);
+    }
+
+    public AppItemAssociationBuilder type(AppItemAssociationTypeField type) {
+      this.type = new EnumWrapper<AppItemAssociationTypeField>(type);
+      return this;
     }
 
     public AppItemAssociationBuilder type(EnumWrapper<AppItemAssociationTypeField> type) {
       this.type = type;
-      return this;
-    }
-
-    public AppItemAssociationBuilder type(AppItemAssociationTypeField type) {
-      this.type = new EnumWrapper<AppItemAssociationTypeField>(type.getValue(), type);
       return this;
     }
 

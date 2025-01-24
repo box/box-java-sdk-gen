@@ -79,14 +79,14 @@ public class LegalHoldPolicyAssignmentBase extends SerializableObject {
       return this;
     }
 
-    public LegalHoldPolicyAssignmentBaseBuilder type(
-        EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField> type) {
-      this.type = type;
+    public LegalHoldPolicyAssignmentBaseBuilder type(LegalHoldPolicyAssignmentBaseTypeField type) {
+      this.type = new EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField>(type);
       return this;
     }
 
-    public LegalHoldPolicyAssignmentBaseBuilder type(LegalHoldPolicyAssignmentBaseTypeField type) {
-      this.type = new EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField>(type.getValue(), type);
+    public LegalHoldPolicyAssignmentBaseBuilder type(
+        EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField> type) {
+      this.type = type;
       return this;
     }
 

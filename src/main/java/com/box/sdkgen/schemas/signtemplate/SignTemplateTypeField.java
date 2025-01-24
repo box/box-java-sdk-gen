@@ -38,7 +38,7 @@ public enum SignTemplateTypeField implements Valuable {
       return Arrays.stream(SignTemplateTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<SignTemplateTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<SignTemplateTypeField>(value));
     }
   }

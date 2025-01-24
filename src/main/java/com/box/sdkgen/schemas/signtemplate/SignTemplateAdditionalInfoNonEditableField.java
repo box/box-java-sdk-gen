@@ -43,7 +43,7 @@ public enum SignTemplateAdditionalInfoNonEditableField implements Valuable {
       return Arrays.stream(SignTemplateAdditionalInfoNonEditableField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<SignTemplateAdditionalInfoNonEditableField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<SignTemplateAdditionalInfoNonEditableField>(value));
     }
   }

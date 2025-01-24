@@ -38,7 +38,7 @@ public enum UpdateAllSkillCardsOnFileRequestBodyFileTypeField implements Valuabl
       return Arrays.stream(UpdateAllSkillCardsOnFileRequestBodyFileTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyFileTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyFileTypeField>(value));
     }
   }

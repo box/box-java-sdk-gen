@@ -35,8 +35,7 @@ public class CreateCollaborationWhitelistEntryRequestBody extends SerializableOb
     super();
     this.domain = domain;
     this.direction =
-        new EnumWrapper<CreateCollaborationWhitelistEntryRequestBodyDirectionField>(
-            direction.getValue(), direction);
+        new EnumWrapper<CreateCollaborationWhitelistEntryRequestBodyDirectionField>(direction);
   }
 
   public String getDomain() {

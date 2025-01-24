@@ -129,14 +129,14 @@ public class CreateTaskRequestBody extends SerializableObject {
       this.item = item;
     }
 
-    public CreateTaskRequestBodyBuilder action(
-        EnumWrapper<CreateTaskRequestBodyActionField> action) {
-      this.action = action;
+    public CreateTaskRequestBodyBuilder action(CreateTaskRequestBodyActionField action) {
+      this.action = new EnumWrapper<CreateTaskRequestBodyActionField>(action);
       return this;
     }
 
-    public CreateTaskRequestBodyBuilder action(CreateTaskRequestBodyActionField action) {
-      this.action = new EnumWrapper<CreateTaskRequestBodyActionField>(action.getValue(), action);
+    public CreateTaskRequestBodyBuilder action(
+        EnumWrapper<CreateTaskRequestBodyActionField> action) {
+      this.action = action;
       return this;
     }
 
@@ -151,16 +151,15 @@ public class CreateTaskRequestBody extends SerializableObject {
     }
 
     public CreateTaskRequestBodyBuilder completionRule(
-        EnumWrapper<CreateTaskRequestBodyCompletionRuleField> completionRule) {
-      this.completionRule = completionRule;
+        CreateTaskRequestBodyCompletionRuleField completionRule) {
+      this.completionRule =
+          new EnumWrapper<CreateTaskRequestBodyCompletionRuleField>(completionRule);
       return this;
     }
 
     public CreateTaskRequestBodyBuilder completionRule(
-        CreateTaskRequestBodyCompletionRuleField completionRule) {
-      this.completionRule =
-          new EnumWrapper<CreateTaskRequestBodyCompletionRuleField>(
-              completionRule.getValue(), completionRule);
+        EnumWrapper<CreateTaskRequestBodyCompletionRuleField> completionRule) {
+      this.completionRule = completionRule;
       return this;
     }
 

@@ -44,7 +44,7 @@ public enum TemplateSignerInputTypeField implements Valuable {
       return Arrays.stream(TemplateSignerInputTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<TemplateSignerInputTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<TemplateSignerInputTypeField>(value));
     }
   }

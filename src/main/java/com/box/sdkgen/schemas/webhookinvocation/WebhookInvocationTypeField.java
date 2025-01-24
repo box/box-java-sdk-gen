@@ -38,7 +38,7 @@ public enum WebhookInvocationTypeField implements Valuable {
       return Arrays.stream(WebhookInvocationTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<WebhookInvocationTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<WebhookInvocationTypeField>(value));
     }
   }

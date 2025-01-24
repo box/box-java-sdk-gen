@@ -41,7 +41,7 @@ public enum GetFolderItemsQueryParamsSortField implements Valuable {
       return Arrays.stream(GetFolderItemsQueryParamsSortField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GetFolderItemsQueryParamsSortField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GetFolderItemsQueryParamsSortField>(value));
     }
   }

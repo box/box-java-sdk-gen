@@ -38,7 +38,7 @@ public enum ShieldInformationBarrierSegmentMemberBaseTypeField implements Valuab
       return Arrays.stream(ShieldInformationBarrierSegmentMemberBaseTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField>(value));
     }
   }

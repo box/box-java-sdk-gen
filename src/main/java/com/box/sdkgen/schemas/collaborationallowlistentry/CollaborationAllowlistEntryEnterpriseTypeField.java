@@ -38,7 +38,7 @@ public enum CollaborationAllowlistEntryEnterpriseTypeField implements Valuable {
       return Arrays.stream(CollaborationAllowlistEntryEnterpriseTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CollaborationAllowlistEntryEnterpriseTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CollaborationAllowlistEntryEnterpriseTypeField>(value));
     }
   }

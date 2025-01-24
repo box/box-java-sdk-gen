@@ -38,7 +38,7 @@ public enum AiLlmEndpointParamsGoogleTypeField implements Valuable {
       return Arrays.stream(AiLlmEndpointParamsGoogleTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<AiLlmEndpointParamsGoogleTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AiLlmEndpointParamsGoogleTypeField>(value));
     }
   }

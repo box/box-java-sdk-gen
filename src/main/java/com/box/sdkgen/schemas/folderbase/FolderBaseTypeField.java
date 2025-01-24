@@ -38,7 +38,7 @@ public enum FolderBaseTypeField implements Valuable {
       return Arrays.stream(FolderBaseTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<FolderBaseTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<FolderBaseTypeField>(value));
     }
   }

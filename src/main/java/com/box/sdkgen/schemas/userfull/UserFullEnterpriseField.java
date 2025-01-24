@@ -89,13 +89,13 @@ public class UserFullEnterpriseField extends SerializableObject {
       return this;
     }
 
-    public UserFullEnterpriseFieldBuilder type(EnumWrapper<UserFullEnterpriseTypeField> type) {
-      this.type = type;
+    public UserFullEnterpriseFieldBuilder type(UserFullEnterpriseTypeField type) {
+      this.type = new EnumWrapper<UserFullEnterpriseTypeField>(type);
       return this;
     }
 
-    public UserFullEnterpriseFieldBuilder type(UserFullEnterpriseTypeField type) {
-      this.type = new EnumWrapper<UserFullEnterpriseTypeField>(type.getValue(), type);
+    public UserFullEnterpriseFieldBuilder type(EnumWrapper<UserFullEnterpriseTypeField> type) {
+      this.type = type;
       return this;
     }
 

@@ -89,15 +89,14 @@ public class GetUsersQueryParams {
       return this;
     }
 
-    public GetUsersQueryParamsBuilder userType(
-        EnumWrapper<GetUsersQueryParamsUserTypeField> userType) {
-      this.userType = userType;
+    public GetUsersQueryParamsBuilder userType(GetUsersQueryParamsUserTypeField userType) {
+      this.userType = new EnumWrapper<GetUsersQueryParamsUserTypeField>(userType);
       return this;
     }
 
-    public GetUsersQueryParamsBuilder userType(GetUsersQueryParamsUserTypeField userType) {
-      this.userType =
-          new EnumWrapper<GetUsersQueryParamsUserTypeField>(userType.getValue(), userType);
+    public GetUsersQueryParamsBuilder userType(
+        EnumWrapper<GetUsersQueryParamsUserTypeField> userType) {
+      this.userType = userType;
       return this;
     }
 

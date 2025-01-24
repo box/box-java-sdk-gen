@@ -40,9 +40,7 @@ public enum CreateRetentionPolicyRequestBodyDispositionActionField implements Va
       return Arrays.stream(CreateRetentionPolicyRequestBodyDispositionActionField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<CreateRetentionPolicyRequestBodyDispositionActionField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CreateRetentionPolicyRequestBodyDispositionActionField>(value));
     }
   }

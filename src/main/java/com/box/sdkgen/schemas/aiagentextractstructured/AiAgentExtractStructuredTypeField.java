@@ -38,7 +38,7 @@ public enum AiAgentExtractStructuredTypeField implements Valuable {
       return Arrays.stream(AiAgentExtractStructuredTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<AiAgentExtractStructuredTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AiAgentExtractStructuredTypeField>(value));
     }
   }

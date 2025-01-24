@@ -39,7 +39,7 @@ public enum GetTermsOfServiceQueryParamsTosTypeField implements Valuable {
       return Arrays.stream(GetTermsOfServiceQueryParamsTosTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GetTermsOfServiceQueryParamsTosTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GetTermsOfServiceQueryParamsTosTypeField>(value));
     }
   }

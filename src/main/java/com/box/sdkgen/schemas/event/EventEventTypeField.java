@@ -181,7 +181,7 @@ public enum EventEventTypeField implements Valuable {
       return Arrays.stream(EventEventTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<EventEventTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<EventEventTypeField>(value));
     }
   }

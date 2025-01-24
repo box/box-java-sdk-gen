@@ -38,7 +38,7 @@ public enum CommentBaseTypeField implements Valuable {
       return Arrays.stream(CommentBaseTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<CommentBaseTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<CommentBaseTypeField>(value));
     }
   }

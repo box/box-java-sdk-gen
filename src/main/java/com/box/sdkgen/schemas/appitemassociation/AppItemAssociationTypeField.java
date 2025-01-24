@@ -38,7 +38,7 @@ public enum AppItemAssociationTypeField implements Valuable {
       return Arrays.stream(AppItemAssociationTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<AppItemAssociationTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<AppItemAssociationTypeField>(value));
     }
   }

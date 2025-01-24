@@ -39,7 +39,7 @@ public enum RetentionPolicyStatusField implements Valuable {
       return Arrays.stream(RetentionPolicyStatusField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<RetentionPolicyStatusField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<RetentionPolicyStatusField>(value));
     }
   }

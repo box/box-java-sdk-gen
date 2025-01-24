@@ -345,13 +345,13 @@ public class CreateUserRequestBody extends SerializableObject {
       return this;
     }
 
-    public CreateUserRequestBodyBuilder role(EnumWrapper<CreateUserRequestBodyRoleField> role) {
-      this.role = role;
+    public CreateUserRequestBodyBuilder role(CreateUserRequestBodyRoleField role) {
+      this.role = new EnumWrapper<CreateUserRequestBodyRoleField>(role);
       return this;
     }
 
-    public CreateUserRequestBodyBuilder role(CreateUserRequestBodyRoleField role) {
-      this.role = new EnumWrapper<CreateUserRequestBodyRoleField>(role.getValue(), role);
+    public CreateUserRequestBodyBuilder role(EnumWrapper<CreateUserRequestBodyRoleField> role) {
+      this.role = role;
       return this;
     }
 
@@ -417,14 +417,14 @@ public class CreateUserRequestBody extends SerializableObject {
       return this;
     }
 
-    public CreateUserRequestBodyBuilder status(
-        EnumWrapper<CreateUserRequestBodyStatusField> status) {
-      this.status = status;
+    public CreateUserRequestBodyBuilder status(CreateUserRequestBodyStatusField status) {
+      this.status = new EnumWrapper<CreateUserRequestBodyStatusField>(status);
       return this;
     }
 
-    public CreateUserRequestBodyBuilder status(CreateUserRequestBodyStatusField status) {
-      this.status = new EnumWrapper<CreateUserRequestBodyStatusField>(status.getValue(), status);
+    public CreateUserRequestBodyBuilder status(
+        EnumWrapper<CreateUserRequestBodyStatusField> status) {
+      this.status = status;
       return this;
     }
 

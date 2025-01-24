@@ -27,7 +27,7 @@ public class ZipDownloadRequestItemsField extends SerializableObject {
 
   public ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField type, String id) {
     super();
-    this.type = new EnumWrapper<ZipDownloadRequestItemsTypeField>(type.getValue(), type);
+    this.type = new EnumWrapper<ZipDownloadRequestItemsTypeField>(type);
     this.id = id;
   }
 

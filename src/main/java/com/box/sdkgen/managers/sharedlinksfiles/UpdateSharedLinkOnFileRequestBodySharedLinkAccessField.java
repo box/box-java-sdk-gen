@@ -41,9 +41,7 @@ public enum UpdateSharedLinkOnFileRequestBodySharedLinkAccessField implements Va
       return Arrays.stream(UpdateSharedLinkOnFileRequestBodySharedLinkAccessField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map(
-              (v) ->
-                  new EnumWrapper<UpdateSharedLinkOnFileRequestBodySharedLinkAccessField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<UpdateSharedLinkOnFileRequestBodySharedLinkAccessField>(value));
     }
   }

@@ -40,7 +40,7 @@ public enum GetUsersQueryParamsUserTypeField implements Valuable {
       return Arrays.stream(GetUsersQueryParamsUserTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
-          .map((v) -> new EnumWrapper<GetUsersQueryParamsUserTypeField>(value, v))
+          .map(EnumWrapper::new)
           .orElse(new EnumWrapper<GetUsersQueryParamsUserTypeField>(value));
     }
   }
