@@ -22,6 +22,26 @@ All notable changes to this project will be documented in this file. See [standa
 * Support Box Doc Gen API (box/box-codegen[#644](https://github.com/box/box-java-sdk-gen/issues/644)) ([#156](https://github.com/box/box-java-sdk-gen/issues/156)) ([81cb583](https://github.com/box/box-java-sdk-gen/commit/81cb583ea52e741a3c4597316d010521c30ae138))
 * Support chunked upload in Java (box/box-codegen[#640](https://github.com/box/box-java-sdk-gen/issues/640)) ([#137](https://github.com/box/box-java-sdk-gen/issues/137)) ([012aaa0](https://github.com/box/box-java-sdk-gen/commit/012aaa0adf575865051156b7746ed4d50cb63a93))
 
+### [0.3.1](https://github.com/box/box-java-sdk-gen/compare/v0.3.0...v0.3.1) (2025-01-27)
+
+
+### Bug Fixes
+
+* Add missing token scope (box/box-openapi[#490](https://github.com/box/box-java-sdk-gen/issues/490)) ([#122](https://github.com/box/box-java-sdk-gen/issues/122)) ([83073a7](https://github.com/box/box-java-sdk-gen/commit/83073a7061744b97d685faa809cf6a96a6aa61a4))
+* Correct types of `paged` and `thumb` properties in File representation (box/box-openapi[#503](https://github.com/box/box-java-sdk-gen/issues/503)) ([#161](https://github.com/box/box-java-sdk-gen/issues/161)) ([b603242](https://github.com/box/box-java-sdk-gen/commit/b60324274f9d74454ea93bb4ac418b2eea3a61e4))
+* Fix handling list of enums and nested list of enums (box/box-codegen[#649](https://github.com/box/box-java-sdk-gen/issues/649)) ([#165](https://github.com/box/box-java-sdk-gen/issues/165)) ([45021c2](https://github.com/box/box-java-sdk-gen/commit/45021c26610c1427e86bbc8e277ac8f315a06837))
+* Fix invalid variant config for Integration mapping Slack (box/box-openapi[#492](https://github.com/box/box-java-sdk-gen/issues/492)) ([#127](https://github.com/box/box-java-sdk-gen/issues/127)) ([c86142b](https://github.com/box/box-java-sdk-gen/commit/c86142b8c141e418f7b4fc1b64dd46adfb862f4e))
+* Fix Java `NPE` in case of null body (box/box-codegen[#645](https://github.com/box/box-java-sdk-gen/issues/645)) ([#149](https://github.com/box/box-java-sdk-gen/issues/149)) ([25dee92](https://github.com/box/box-java-sdk-gen/commit/25dee9268ce16c8ef8909aefcdbf90a3f11d7ea2))
+* order of fields in the `IntegrationMapping` schema (box/box-openapi[#497](https://github.com/box/box-java-sdk-gen/issues/497)) ([#145](https://github.com/box/box-java-sdk-gen/issues/145)) ([d3ce60c](https://github.com/box/box-java-sdk-gen/commit/d3ce60c7afa621e8dec5f7087497f0a4c60ba898))
+* Remove auth when cross origin redirect (box/box-codegen[#648](https://github.com/box/box-java-sdk-gen/issues/648)) ([#158](https://github.com/box/box-java-sdk-gen/issues/158)) ([6136dac](https://github.com/box/box-java-sdk-gen/commit/6136dac05ba7215d2d7d6b68eac12910f1a4c06b))
+
+
+### New Features and Enhancements
+
+* Add Box Sign shared requests (box/box-openapi[#504](https://github.com/box/box-java-sdk-gen/issues/504)) ([#163](https://github.com/box/box-java-sdk-gen/issues/163)) ([b32f336](https://github.com/box/box-java-sdk-gen/commit/b32f33605b383f0bad987df6c5168e12acde90f6))
+* Support Box Doc Gen API (box/box-codegen[#644](https://github.com/box/box-java-sdk-gen/issues/644)) ([#156](https://github.com/box/box-java-sdk-gen/issues/156)) ([81cb583](https://github.com/box/box-java-sdk-gen/commit/81cb583ea52e741a3c4597316d010521c30ae138))
+* Support chunked upload in Java (box/box-codegen[#640](https://github.com/box/box-java-sdk-gen/issues/640)) ([#137](https://github.com/box/box-java-sdk-gen/issues/137)) ([012aaa0](https://github.com/box/box-java-sdk-gen/commit/012aaa0adf575865051156b7746ed4d50cb63a93))
+
 ## [0.3.0](https://github.com/box/box-java-sdk-gen/compare/v0.2.0...v0.3.0) (2024-12-30)
 
 
