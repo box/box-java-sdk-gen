@@ -1,8 +1,6 @@
 plugins {
   id "java"
   id "com.diffplug.spotless" version "${spotlessVersion}"
-  id "maven-publish"
-  id "signing"
 }
 group = "com.box"
 archivesBaseName = "box-java-sdk-gen"
@@ -52,66 +50,3 @@ test {
   }
 
 }
-
-artifacts {
-  archives sourcesJar, javadocJar
-}
-
-
-publishing {
-  publications {
-    boxJavaSdkGen(MavenPublication) {
-      from components.java
-      pom {
-        artifactId = project.getArchivesBaseName()
-        name = "Box Java SDK Gen"
-        description = "Official Box Java Generated SDK."
-        url = "https://opensource.box.com/box-java-sdk-gen/"
-        packaging = "jar"
-        licenses {
-          license {
-            name = "The Apache License, Version 2.0"
-            url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
-          }
-        }
-        developers {
-          developer {
-            id = "box"
-            name = "Box"
-            email = "sdks@box.com"
-          }
-        }
-        scm {
-          connection = "scm:git:https://github.com/box/box-java-sdk-gen.git"
-          developerConnection = "scm:git:https://github.com/box/box-java-sdk-gen.git"
-          url = "https://github.com/box/box-java-sdk-gen"
-        }
-      }
-    }
-  }
-
-  repositories {
-    maven {
-      name = "sonatype"
-      def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-      def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
-      url = version.endsWith("SNAPSHOT") ? snapshotsRepoUrl : releasesRepoUrl
-      if (project.hasProperty("ossrhUsername") && project.hasProperty("ossrhPassword")) {
-        credentials {
-          username = ossrhUsername
-          password = ossrhPassword
-        }
-      }
-    }
-  }
-}
-
-signing {
-  required { !version.endsWith("SNAPSHOT") && gradle.taskGraph.hasTask("publish") }
-  // we are switching to gpg-agent and not using Java-based implementation because of
-  // org.bouncycastle:bc-fips:1.0.2.1 libray preset in our Docker machines which is
-  // not compatible with Gradle implementation
-  useGpgCmd()
-  sign publishing.publications.boxJavaSdkGen
-}
-
