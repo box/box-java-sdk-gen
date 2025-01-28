@@ -6,7 +6,7 @@ plugins {
 }
 group = "com.box"
 archivesBaseName = "box-java-sdk-gen"
-version = "0.3.0"
+version = "0.4.0"
 java {
   sourceCompatibility = "${libraryJavaVersion}"
   targetCompatibility = "${libraryJavaVersion}"
@@ -114,3 +114,4 @@ signing {
   useGpgCmd()
   sign publishing.publications.boxJavaSdkGen
 }
+
