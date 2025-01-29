@@ -303,7 +303,15 @@ public class UtilsManager {
   }
 
   public static JsonNode getValueFromObjectRawData(SerializableObject obj, String key) {
-    return obj.getRawData().get(key);
+    JsonNode value = obj.getRawData();
+    for (String k : key.split("\\.")) {
+      if (value == null || !value.has(k)) {
+        return null;
+      }
+      value = value.get(k);
+    }
+
+    return value;
   }
 
   public static double random(double min, double max) {

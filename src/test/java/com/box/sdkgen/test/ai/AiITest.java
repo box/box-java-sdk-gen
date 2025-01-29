@@ -239,12 +239,14 @@ public class AiITest {
                                         new AiExtractStructuredFieldsOptionsField("books")))
                                 .build()))
                     .build());
-    assert convertToString(getValueFromObjectRawData(response, "firstName")).equals("John");
-    assert convertToString(getValueFromObjectRawData(response, "lastName")).equals("Doe");
-    assert convertToString(getValueFromObjectRawData(response, "dateOfBirth")).equals("1990-07-04");
-    assert convertToString(getValueFromObjectRawData(response, "age")).equals("34");
-    assert convertToString(getValueFromObjectRawData(response, "hobby"))
+    assert convertToString(getValueFromObjectRawData(response, "answer.hobby"))
         .equals(convertToString(Arrays.asList("guitar")));
+    assert convertToString(getValueFromObjectRawData(response, "answer.firstName")).equals("John");
+    assert convertToString(getValueFromObjectRawData(response, "answer.lastName")).equals("Doe");
+    assert convertToString(getValueFromObjectRawData(response, "answer.dateOfBirth"))
+        .equals("1990-07-04");
+    assert convertToString(getValueFromObjectRawData(response, "answer.age")).equals("34");
+    assert response.getCompletionReason().equals("done");
     client.getFiles().deleteFileById(file.getId());
   }
 
@@ -327,13 +329,14 @@ public class AiITest {
                             .scope("enterprise")
                             .build())
                     .build());
-    assert convertToString(getValueFromObjectRawData(response, "firstName")).equals("John");
-    assert convertToString(getValueFromObjectRawData(response, "lastName")).equals("Doe");
-    assert convertToString(getValueFromObjectRawData(response, "dateOfBirth"))
+    assert convertToString(getValueFromObjectRawData(response, "answer.firstName")).equals("John");
+    assert convertToString(getValueFromObjectRawData(response, "answer.lastName")).equals("Doe");
+    assert convertToString(getValueFromObjectRawData(response, "answer.dateOfBirth"))
         .equals("1990-07-04T00:00:00Z");
-    assert convertToString(getValueFromObjectRawData(response, "age")).equals("34");
-    assert convertToString(getValueFromObjectRawData(response, "hobby"))
+    assert convertToString(getValueFromObjectRawData(response, "answer.age")).equals("34");
+    assert convertToString(getValueFromObjectRawData(response, "answer.hobby"))
         .equals(convertToString(Arrays.asList("guitar")));
+    assert response.getCompletionReason().equals("done");
     client
         .getMetadataTemplates()
         .deleteMetadataTemplate(DeleteMetadataTemplateScope.ENTERPRISE, template.getTemplateKey());
