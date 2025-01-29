@@ -24,11 +24,11 @@ import com.box.sdkgen.schemas.aiask.AiAsk;
 import com.box.sdkgen.schemas.aiask.AiAskModeField;
 import com.box.sdkgen.schemas.aidialoguehistory.AiDialogueHistory;
 import com.box.sdkgen.schemas.aiextract.AiExtract;
-import com.box.sdkgen.schemas.aiextractresponse.AiExtractResponse;
 import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructured;
 import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructuredFieldsField;
 import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructuredFieldsOptionsField;
 import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructuredMetadataTemplateField;
+import com.box.sdkgen.schemas.aiextractstructuredresponse.AiExtractStructuredResponse;
 import com.box.sdkgen.schemas.aiitembase.AiItemBase;
 import com.box.sdkgen.schemas.aiitembase.AiItemBaseTypeField;
 import com.box.sdkgen.schemas.airesponse.AiResponse;
@@ -191,7 +191,7 @@ public class AiITest {
                         "My name is John Doe. I was born in 4th July 1990. I am 34 years old. My hobby is guitar.")));
     FileFull file = uploadedFiles.getEntries().get(0);
     delayInSeconds(5);
-    AiExtractResponse response =
+    AiExtractStructuredResponse response =
         client
             .getAi()
             .createAiExtractStructured(
@@ -314,7 +314,7 @@ public class AiITest {
                                             "books")))
                                 .build()))
                     .build());
-    AiExtractResponse response =
+    AiExtractStructuredResponse response =
         client
             .getAi()
             .createAiExtractStructured(
