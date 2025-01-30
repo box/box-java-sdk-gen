@@ -24,11 +24,11 @@ import com.box.sdkgen.schemas.aiask.AiAsk;
 import com.box.sdkgen.schemas.aiask.AiAskModeField;
 import com.box.sdkgen.schemas.aidialoguehistory.AiDialogueHistory;
 import com.box.sdkgen.schemas.aiextract.AiExtract;
-import com.box.sdkgen.schemas.aiextractresponse.AiExtractResponse;
 import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructured;
 import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructuredFieldsField;
 import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructuredFieldsOptionsField;
 import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructuredMetadataTemplateField;
+import com.box.sdkgen.schemas.aiextractstructuredresponse.AiExtractStructuredResponse;
 import com.box.sdkgen.schemas.aiitembase.AiItemBase;
 import com.box.sdkgen.schemas.aiitembase.AiItemBaseTypeField;
 import com.box.sdkgen.schemas.airesponse.AiResponse;
@@ -191,7 +191,7 @@ public class AiITest {
                         "My name is John Doe. I was born in 4th July 1990. I am 34 years old. My hobby is guitar.")));
     FileFull file = uploadedFiles.getEntries().get(0);
     delayInSeconds(5);
-    AiExtractResponse response =
+    AiExtractStructuredResponse response =
         client
             .getAi()
             .createAiExtractStructured(
@@ -239,12 +239,14 @@ public class AiITest {
                                         new AiExtractStructuredFieldsOptionsField("books")))
                                 .build()))
                     .build());
-    assert convertToString(getValueFromObjectRawData(response, "firstName")).equals("John");
-    assert convertToString(getValueFromObjectRawData(response, "lastName")).equals("Doe");
-    assert convertToString(getValueFromObjectRawData(response, "dateOfBirth")).equals("1990-07-04");
-    assert convertToString(getValueFromObjectRawData(response, "age")).equals("34");
-    assert convertToString(getValueFromObjectRawData(response, "hobby"))
+    assert convertToString(getValueFromObjectRawData(response, "answer.hobby"))
         .equals(convertToString(Arrays.asList("guitar")));
+    assert convertToString(getValueFromObjectRawData(response, "answer.firstName")).equals("John");
+    assert convertToString(getValueFromObjectRawData(response, "answer.lastName")).equals("Doe");
+    assert convertToString(getValueFromObjectRawData(response, "answer.dateOfBirth"))
+        .equals("1990-07-04");
+    assert convertToString(getValueFromObjectRawData(response, "answer.age")).equals("34");
+    assert response.getCompletionReason().equals("done");
     client.getFiles().deleteFileById(file.getId());
   }
 
@@ -314,7 +316,7 @@ public class AiITest {
                                             "books")))
                                 .build()))
                     .build());
-    AiExtractResponse response =
+    AiExtractStructuredResponse response =
         client
             .getAi()
             .createAiExtractStructured(
@@ -327,13 +329,14 @@ public class AiITest {
                             .scope("enterprise")
                             .build())
                     .build());
-    assert convertToString(getValueFromObjectRawData(response, "firstName")).equals("John");
-    assert convertToString(getValueFromObjectRawData(response, "lastName")).equals("Doe");
-    assert convertToString(getValueFromObjectRawData(response, "dateOfBirth"))
+    assert convertToString(getValueFromObjectRawData(response, "answer.firstName")).equals("John");
+    assert convertToString(getValueFromObjectRawData(response, "answer.lastName")).equals("Doe");
+    assert convertToString(getValueFromObjectRawData(response, "answer.dateOfBirth"))
         .equals("1990-07-04T00:00:00Z");
-    assert convertToString(getValueFromObjectRawData(response, "age")).equals("34");
-    assert convertToString(getValueFromObjectRawData(response, "hobby"))
+    assert convertToString(getValueFromObjectRawData(response, "answer.age")).equals("34");
+    assert convertToString(getValueFromObjectRawData(response, "answer.hobby"))
         .equals(convertToString(Arrays.asList("guitar")));
+    assert response.getCompletionReason().equals("done");
     client
         .getMetadataTemplates()
         .deleteMetadataTemplate(DeleteMetadataTemplateScope.ENTERPRISE, template.getTemplateKey());

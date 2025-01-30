@@ -14,8 +14,8 @@ import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.aiagentaskoraiagentextractoraiagentextractstructuredoraiagenttextgen.AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen;
 import com.box.sdkgen.schemas.aiask.AiAsk;
 import com.box.sdkgen.schemas.aiextract.AiExtract;
-import com.box.sdkgen.schemas.aiextractresponse.AiExtractResponse;
 import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructured;
+import com.box.sdkgen.schemas.aiextractstructuredresponse.AiExtractStructuredResponse;
 import com.box.sdkgen.schemas.airesponse.AiResponse;
 import com.box.sdkgen.schemas.airesponsefull.AiResponseFull;
 import com.box.sdkgen.schemas.aitextgen.AiTextGen;
@@ -145,11 +145,11 @@ public class AiManager {
     return JsonManager.deserialize(response.getData(), AiResponse.class);
   }
 
-  public AiExtractResponse createAiExtractStructured(AiExtractStructured requestBody) {
+  public AiExtractStructuredResponse createAiExtractStructured(AiExtractStructured requestBody) {
     return createAiExtractStructured(requestBody, new CreateAiExtractStructuredHeaders());
   }
 
-  public AiExtractResponse createAiExtractStructured(
+  public AiExtractStructuredResponse createAiExtractStructured(
       AiExtractStructured requestBody, CreateAiExtractStructuredHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
@@ -169,7 +169,7 @@ public class AiManager {
                     .auth(this.auth)
                     .networkSession(this.networkSession)
                     .build());
-    return JsonManager.deserialize(response.getData(), AiExtractResponse.class);
+    return JsonManager.deserialize(response.getData(), AiExtractStructuredResponse.class);
   }
 
   public Authentication getAuth() {
