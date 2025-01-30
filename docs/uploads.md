@@ -54,7 +54,10 @@ This operation is performed by calling function `preflightFileUploadCheck`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/options-files-content/).
 
-*Currently we don't have an example for calling `preflightFileUploadCheck` in integration tests*
+<!-- sample options_files_content -->
+```
+client.getUploads().preflightFileUploadCheck(new PreflightFileUploadCheckRequestBody.PreflightFileUploadCheckRequestBodyBuilder().name(newFileName).size(1024 * 1024).parent(new PreflightFileUploadCheckRequestBodyParentField.PreflightFileUploadCheckRequestBodyParentFieldBuilder().id("0").build()).build())
+```
 
 ### Arguments
 
