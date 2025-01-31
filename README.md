@@ -4,7 +4,7 @@
 
 # Box Java SDK GENERATED
 
-We are excited to introduce the Early Access Release of the latest generation of Box Java SDK, designed to elevate the developer experience and streamline your integration with the Box Content Cloud.
+We are excited to introduce the Beta Release of the latest generation of Box Java SDK, designed to elevate the developer experience and streamline your integration with the Box Content Cloud.
 
 With this SDK, you’ll have access to:
 
@@ -60,6 +60,44 @@ BoxClient client = new BoxClient(auth);
 # Documentation
 
 Browse the [docs](docs/README.md) or see [API Reference](https://developer.box.com/reference/) for more information.
+
+## 3rd Party Libraries & Licenses
+
+The Java SDK Gen uses third-party libraries that are required for usage. Their licenses are listed below:
+
+1. [jackson-annotations v2.17.2](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations/2.17.2)
+   Maven: `com.fasterxml.jackson.core:jackson-annotations:2.17.2`
+   Licence: [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+2. [jackson-core v2.17.2](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.17.2)
+   Maven: `com.fasterxml.jackson.core:jackson-core:2.17.2`
+   Licence: [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+3. [jackson-databind v2.17.2](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind/2.17.2)
+   Maven: `com.fasterxml.jackson.core:jackson-databind:2.17.2`
+   Licence: [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+4. [okhttp v4.12.0](https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp/4.12.0)
+   Maven: `com.squareup.okhttp3:okhttp:4.12.0`
+   Licence: [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+5. [okio v3.5.0](https://mvnrepository.com/artifact/com.squareup.okio/okio/3.5.0)
+   Maven: `com.squareup.okio:okio:3.5.0`
+   Licence: [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+6. [jose4j v0.9.6](https://mvnrepository.com/artifact/org.bitbucket.b_c/jose4j/0.9.6)
+   Maven: `org.bitbucket.b_c:jose4j:0.9.6`
+   Licence: [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+7. [bcprov-jdk18on v1.78.1](https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk18on/1.78.1)
+   Maven: `org.bouncycastle:bcprov-jdk18on:1.78.1`
+   Licence: [MIT](https://opensource.org/licenses/MIT)
+8. [bcpkix-jdk18on v1.78.1](https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk18on/1.78.1)
+   Maven: `org.bouncycastle:bcpkix-jdk18on:1.78.1`
+   Licence: [MIT](https://opensource.org/licenses/MIT)
+
+The following libraries are required for running tests:
+
+1. [junit-jupiter-api v5.10.0](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api/5.10.0)
+   Maven: `org.junit.jupiter:junit-jupiter-api:5.10.0`
+   Licence: [EPL 2.0](https://www.eclipse.org/legal/epl-2.0/)
+2. [junit-jupiter-engine v5.10.0](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine/5.10.0)
+   Maven: `org.junit.jupiter:junit-jupiter-engine:5.10.0`
+   Licence: [EPL 2.0](https://www.eclipse.org/legal/epl-2.0/)
 
 # Questions, Bugs, and Feature Requests?
 
