@@ -29,8 +29,9 @@ import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructuredFieldsField
 import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructuredFieldsOptionsField;
 import com.box.sdkgen.schemas.aiextractstructured.AiExtractStructuredMetadataTemplateField;
 import com.box.sdkgen.schemas.aiextractstructuredresponse.AiExtractStructuredResponse;
+import com.box.sdkgen.schemas.aiitemask.AiItemAsk;
+import com.box.sdkgen.schemas.aiitemask.AiItemAskTypeField;
 import com.box.sdkgen.schemas.aiitembase.AiItemBase;
-import com.box.sdkgen.schemas.aiitembase.AiItemBaseTypeField;
 import com.box.sdkgen.schemas.airesponse.AiResponse;
 import com.box.sdkgen.schemas.airesponsefull.AiResponseFull;
 import com.box.sdkgen.schemas.aitextgen.AiTextGen;
@@ -57,8 +58,7 @@ public class AiITest {
                     AiAskModeField.SINGLE_ITEM_QA,
                     "which direction sun rises",
                     Arrays.asList(
-                        new AiItemBase.AiItemBaseBuilder(fileToAsk.getId())
-                            .type(AiItemBaseTypeField.FILE)
+                        new AiItemAsk.AiItemAskBuilder(fileToAsk.getId(), AiItemAskTypeField.FILE)
                             .content("Sun rises in the East")
                             .build())));
     assert response.getAnswer().contains("East");
@@ -78,12 +78,10 @@ public class AiITest {
                     AiAskModeField.MULTIPLE_ITEM_QA,
                     "Which direction sun rises?",
                     Arrays.asList(
-                        new AiItemBase.AiItemBaseBuilder(fileToAsk1.getId())
-                            .type(AiItemBaseTypeField.FILE)
+                        new AiItemAsk.AiItemAskBuilder(fileToAsk1.getId(), AiItemAskTypeField.FILE)
                             .content("Earth goes around the sun")
                             .build(),
-                        new AiItemBase.AiItemBaseBuilder(fileToAsk2.getId())
-                            .type(AiItemBaseTypeField.FILE)
+                        new AiItemAsk.AiItemAskBuilder(fileToAsk2.getId(), AiItemAskTypeField.FILE)
                             .content("Sun rises in the East in the morning")
                             .build())));
     assert response.getAnswer().contains("East");

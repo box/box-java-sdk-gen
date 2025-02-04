@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample post_ai_ask -->
 ```
-client.getAi().createAiAsk(new AiAsk(AiAskModeField.MULTIPLE_ITEM_QA, "Which direction sun rises?", Arrays.asList(new AiItemBase.AiItemBaseBuilder(fileToAsk1.getId()).type(AiItemBaseTypeField.FILE).content("Earth goes around the sun").build(), new AiItemBase.AiItemBaseBuilder(fileToAsk2.getId()).type(AiItemBaseTypeField.FILE).content("Sun rises in the East in the morning").build())))
+client.getAi().createAiAsk(new AiAsk(AiAskModeField.MULTIPLE_ITEM_QA, "Which direction sun rises?", Arrays.asList(new AiItemAsk.AiItemAskBuilder(fileToAsk1.getId(), AiItemAskTypeField.FILE).content("Earth goes around the sun").build(), new AiItemAsk.AiItemAskBuilder(fileToAsk2.getId(), AiItemAskTypeField.FILE).content("Sun rises in the East in the morning").build())))
 ```
 
 ### Arguments
@@ -33,7 +33,7 @@ client.getAi().createAiAsk(new AiAsk(AiAskModeField.MULTIPLE_ITEM_QA, "Which dir
 
 This function returns a value of type `AiResponseFull`.
 
-A successful response including the answer from the LLM.
+A successful response including the answer from the LLM.No content is available to answer the question. This is returned when the request item is a hub, but content in the hubs is not indexed. To ensure content in the hub is indexed, make sure Box AI for Hubs in the Admin Console was enabled before hub creation.
 
 
 ## Generate text

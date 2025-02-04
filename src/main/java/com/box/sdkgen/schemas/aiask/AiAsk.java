@@ -3,7 +3,7 @@ package com.box.sdkgen.schemas.aiask;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagentask.AiAgentAsk;
 import com.box.sdkgen.schemas.aidialoguehistory.AiDialogueHistory;
-import com.box.sdkgen.schemas.aiitembase.AiItemBase;
+import com.box.sdkgen.schemas.aiitemask.AiItemAsk;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -19,7 +19,7 @@ public class AiAsk extends SerializableObject {
 
   protected final String prompt;
 
-  protected final List<AiItemBase> items;
+  protected final List<AiItemAsk> items;
 
   @JsonProperty("dialogue_history")
   protected List<AiDialogueHistory> dialogueHistory;
@@ -33,14 +33,14 @@ public class AiAsk extends SerializableObject {
   public AiAsk(
       @JsonProperty("mode") EnumWrapper<AiAskModeField> mode,
       @JsonProperty("prompt") String prompt,
-      @JsonProperty("items") List<AiItemBase> items) {
+      @JsonProperty("items") List<AiItemAsk> items) {
     super();
     this.mode = mode;
     this.prompt = prompt;
     this.items = items;
   }
 
-  public AiAsk(AiAskModeField mode, String prompt, List<AiItemBase> items) {
+  public AiAsk(AiAskModeField mode, String prompt, List<AiItemAsk> items) {
     super();
     this.mode = new EnumWrapper<AiAskModeField>(mode);
     this.prompt = prompt;
@@ -65,7 +65,7 @@ public class AiAsk extends SerializableObject {
     return prompt;
   }
 
-  public List<AiItemBase> getItems() {
+  public List<AiItemAsk> getItems() {
     return items;
   }
 
@@ -138,7 +138,7 @@ public class AiAsk extends SerializableObject {
 
     protected final String prompt;
 
-    protected final List<AiItemBase> items;
+    protected final List<AiItemAsk> items;
 
     protected List<AiDialogueHistory> dialogueHistory;
 
@@ -146,13 +146,13 @@ public class AiAsk extends SerializableObject {
 
     protected AiAgentAsk aiAgent;
 
-    public AiAskBuilder(EnumWrapper<AiAskModeField> mode, String prompt, List<AiItemBase> items) {
+    public AiAskBuilder(EnumWrapper<AiAskModeField> mode, String prompt, List<AiItemAsk> items) {
       this.mode = mode;
       this.prompt = prompt;
       this.items = items;
     }
 
-    public AiAskBuilder(AiAskModeField mode, String prompt, List<AiItemBase> items) {
+    public AiAskBuilder(AiAskModeField mode, String prompt, List<AiItemAsk> items) {
       this.mode = new EnumWrapper<AiAskModeField>(mode);
       this.prompt = prompt;
       this.items = items;
