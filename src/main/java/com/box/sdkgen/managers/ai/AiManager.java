@@ -58,6 +58,9 @@ public class AiManager {
                     .auth(this.auth)
                     .networkSession(this.networkSession)
                     .build());
+    if (convertToString(response.getStatus()).equals("204")) {
+      return null;
+    }
     return JsonManager.deserialize(response.getData(), AiResponseFull.class);
   }
 
