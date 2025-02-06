@@ -1,7 +1,7 @@
 package com.box.sdkgen.schemas.items;
 
 import com.box.sdkgen.internal.SerializableObject;
-import com.box.sdkgen.schemas.filefullorfolderminiorweblink.FileFullOrFolderMiniOrWebLink;
+import com.box.sdkgen.schemas.filefullorfolderfullorweblink.FileFullOrFolderFullOrWebLink;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
@@ -23,7 +23,7 @@ public class Items extends SerializableObject {
 
   protected List<ItemsOrderField> order;
 
-  protected List<FileFullOrFolderMiniOrWebLink> entries;
+  protected List<FileFullOrFolderFullOrWebLink> entries;
 
   public Items() {
     super();
@@ -64,7 +64,7 @@ public class Items extends SerializableObject {
     return order;
   }
 
-  public List<FileFullOrFolderMiniOrWebLink> getEntries() {
+  public List<FileFullOrFolderFullOrWebLink> getEntries() {
     return entries;
   }
 
@@ -138,7 +138,7 @@ public class Items extends SerializableObject {
 
     protected List<ItemsOrderField> order;
 
-    protected List<FileFullOrFolderMiniOrWebLink> entries;
+    protected List<FileFullOrFolderFullOrWebLink> entries;
 
     public ItemsBuilder limit(Long limit) {
       this.limit = limit;
@@ -170,7 +170,7 @@ public class Items extends SerializableObject {
       return this;
     }
 
-    public ItemsBuilder entries(List<FileFullOrFolderMiniOrWebLink> entries) {
+    public ItemsBuilder entries(List<FileFullOrFolderFullOrWebLink> entries) {
       this.entries = entries;
       return this;
     }
