@@ -1,7 +1,7 @@
 package com.box.sdkgen.schemas.itemsoffsetpaginated;
 
 import com.box.sdkgen.internal.SerializableObject;
-import com.box.sdkgen.schemas.filefullorfolderminiorweblink.FileFullOrFolderMiniOrWebLink;
+import com.box.sdkgen.schemas.filefullorfolderfullorweblink.FileFullOrFolderFullOrWebLink;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
@@ -17,7 +17,7 @@ public class ItemsOffsetPaginated extends SerializableObject {
 
   protected List<ItemsOffsetPaginatedOrderField> order;
 
-  protected List<FileFullOrFolderMiniOrWebLink> entries;
+  protected List<FileFullOrFolderFullOrWebLink> entries;
 
   public ItemsOffsetPaginated() {
     super();
@@ -48,7 +48,7 @@ public class ItemsOffsetPaginated extends SerializableObject {
     return order;
   }
 
-  public List<FileFullOrFolderMiniOrWebLink> getEntries() {
+  public List<FileFullOrFolderFullOrWebLink> getEntries() {
     return entries;
   }
 
@@ -108,7 +108,7 @@ public class ItemsOffsetPaginated extends SerializableObject {
 
     protected List<ItemsOffsetPaginatedOrderField> order;
 
-    protected List<FileFullOrFolderMiniOrWebLink> entries;
+    protected List<FileFullOrFolderFullOrWebLink> entries;
 
     public ItemsOffsetPaginatedBuilder totalCount(Long totalCount) {
       this.totalCount = totalCount;
@@ -130,7 +130,7 @@ public class ItemsOffsetPaginated extends SerializableObject {
       return this;
     }
 
-    public ItemsOffsetPaginatedBuilder entries(List<FileFullOrFolderMiniOrWebLink> entries) {
+    public ItemsOffsetPaginatedBuilder entries(List<FileFullOrFolderFullOrWebLink> entries) {
       this.entries = entries;
       return this;
     }
