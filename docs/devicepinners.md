@@ -77,7 +77,7 @@ See the endpoint docs at
 
 <!-- sample get_enterprises_id_device_pinners -->
 ```
-client.getDevicePinners().getEnterpriseDevicePinners(enterpriseId, new GetEnterpriseDevicePinnersQueryParams.GetEnterpriseDevicePinnersQueryParamsBuilder().direction(GetEnterpriseDevicePinnersQueryParamsDirectionField.DESC).build())
+client.getDevicePinners().getEnterpriseDevicePinners(enterpriseId)
 ```
 
 ### Arguments

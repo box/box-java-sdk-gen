@@ -83,7 +83,7 @@ See the endpoint docs at
 
 <!-- sample get_groups_id -->
 ```
-client.getGroups().getGroupById(group.getId())
+client.getGroups().getGroupById(group.getId(), new GetGroupByIdQueryParams.GetGroupByIdQueryParamsBuilder().fields(Arrays.asList("id", "name", "description", "group_type")).build())
 ```
 
 ### Arguments

@@ -83,7 +83,7 @@ See the endpoint docs at
 
 <!-- sample delete_collaborations_id -->
 ```
-client.getUserCollaborations().deleteCollaborationById(groupCollaboration.getId())
+client.getUserCollaborations().deleteCollaborationById(collaborationId)
 ```
 
 ### Arguments
@@ -126,7 +126,7 @@ See the endpoint docs at
 
 <!-- sample post_collaborations -->
 ```
-client.getUserCollaborations().createCollaboration(new CreateCollaborationRequestBody(new CreateCollaborationRequestBodyItemField.CreateCollaborationRequestBodyItemFieldBuilder().type(CreateCollaborationRequestBodyItemTypeField.FILE).id(file.getId()).build(), new CreateCollaborationRequestBodyAccessibleByField.CreateCollaborationRequestBodyAccessibleByFieldBuilder(CreateCollaborationRequestBodyAccessibleByTypeField.USER).id(getEnvVar("USER_ID")).build(), CreateCollaborationRequestBodyRoleField.EDITOR))
+client.getUserCollaborations().createCollaboration(new CreateCollaborationRequestBody(new CreateCollaborationRequestBodyItemField.CreateCollaborationRequestBodyItemFieldBuilder().type(CreateCollaborationRequestBodyItemTypeField.FOLDER).id(folder.getId()).build(), new CreateCollaborationRequestBodyAccessibleByField.CreateCollaborationRequestBodyAccessibleByFieldBuilder(CreateCollaborationRequestBodyAccessibleByTypeField.USER).id(user.getId()).build(), CreateCollaborationRequestBodyRoleField.EDITOR))
 ```
 
 ### Arguments

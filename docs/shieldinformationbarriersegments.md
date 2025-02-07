@@ -48,7 +48,7 @@ See the endpoint docs at
 
 <!-- sample delete_shield_information_barrier_segments_id -->
 ```
-client.getShieldInformationBarrierSegments().deleteShieldInformationBarrierSegmentById(segment.getId())
+client.getShieldInformationBarrierSegments().deleteShieldInformationBarrierSegmentById(segmentId)
 ```
 
 ### Arguments
@@ -138,7 +138,7 @@ See the endpoint docs at
 
 <!-- sample post_shield_information_barrier_segments -->
 ```
-client.getShieldInformationBarrierSegments().createShieldInformationBarrierSegment(new CreateShieldInformationBarrierSegmentRequestBody(new ShieldInformationBarrierBase.ShieldInformationBarrierBaseBuilder().id(barrierId).type(ShieldInformationBarrierBaseTypeField.SHIELD_INFORMATION_BARRIER).build(), segmentName))
+client.getShieldInformationBarrierSegments().createShieldInformationBarrierSegment(new CreateShieldInformationBarrierSegmentRequestBody.CreateShieldInformationBarrierSegmentRequestBodyBuilder(new ShieldInformationBarrierBase.ShieldInformationBarrierBaseBuilder().id(barrierId).type(ShieldInformationBarrierBaseTypeField.SHIELD_INFORMATION_BARRIER).build(), segmentName).description(segmentDescription).build())
 ```
 
 ### Arguments

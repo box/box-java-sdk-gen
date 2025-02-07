@@ -134,7 +134,7 @@ See the endpoint docs at
 
 <!-- sample post_sign_requests -->
 ```
-client.getSignRequests().createSignRequest(new SignRequestCreateRequest.SignRequestCreateRequestBuilder(Arrays.asList(new SignRequestCreateSigner.SignRequestCreateSignerBuilder().email(signer1Email).signerGroupId("user").build(), new SignRequestCreateSigner.SignRequestCreateSignerBuilder().email(signer2Email).signerGroupId("user").build())).sourceFiles(Arrays.asList(new FileBase(fileToSign.getId()))).parentFolder(new FolderMini(destinationFolder.getId())).build())
+client.getSignRequests().createSignRequest(new SignRequestCreateRequest.SignRequestCreateRequestBuilder(Arrays.asList(new SignRequestCreateSigner.SignRequestCreateSignerBuilder().email(signerEmail).role(SignRequestCreateSignerRoleField.SIGNER).isInPerson(false).embedUrlExternalUserId("123").declinedRedirectUrl("https://www.box.com").loginRequired(false).password("password").suppressNotifications(true).build())).sourceFiles(Arrays.asList(new FileBase(fileToSign.getId()))).parentFolder(new FolderMini(destinationFolder.getId())).isDocumentPreparationNeeded(false).redirectUrl("https://www.box.com").declinedRedirectUrl("https://www.box.com").areTextSignaturesEnabled(true).emailSubject("Sign this document").emailMessage("Please sign this document").areRemindersEnabled(true).name("Sign Request").daysValid(30L).externalId("123").externalSystemName("BoxSignIntegration").build())
 ```
 
 ### Arguments

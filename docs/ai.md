@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample post_ai_ask -->
 ```
-client.getAi().createAiAsk(new AiAsk(AiAskModeField.MULTIPLE_ITEM_QA, "Which direction sun rises?", Arrays.asList(new AiItemAsk.AiItemAskBuilder(fileToAsk1.getId(), AiItemAskTypeField.FILE).content("Earth goes around the sun").build(), new AiItemAsk.AiItemAskBuilder(fileToAsk2.getId(), AiItemAskTypeField.FILE).content("Sun rises in the East in the morning").build())))
+client.getAi().createAiAsk(new AiAsk(AiAskModeField.SINGLE_ITEM_QA, "which direction sun rises", Arrays.asList(new AiItemAsk.AiItemAskBuilder(fileToAsk.getId(), AiItemAskTypeField.FILE).content("Sun rises in the East").build())))
 ```
 
 ### Arguments
@@ -76,7 +76,7 @@ See the endpoint docs at
 
 <!-- sample get_ai_agent_default -->
 ```
-client.getAi().getAiAgentDefaultConfig(new GetAiAgentDefaultConfigQueryParams.GetAiAgentDefaultConfigQueryParamsBuilder(GetAiAgentDefaultConfigQueryParamsModeField.TEXT_GEN).language("en-US").build())
+client.getAi().getAiAgentDefaultConfig(new GetAiAgentDefaultConfigQueryParams.GetAiAgentDefaultConfigQueryParamsBuilder(GetAiAgentDefaultConfigQueryParamsModeField.ASK).language("en-US").build())
 ```
 
 ### Arguments
@@ -146,7 +146,7 @@ See the endpoint docs at
 
 <!-- sample post_ai_extract_structured -->
 ```
-client.getAi().createAiExtractStructured(new AiExtractStructured.AiExtractStructuredBuilder(Arrays.asList(new AiItemBase(file.getId()))).metadataTemplate(new AiExtractStructuredMetadataTemplateField.AiExtractStructuredMetadataTemplateFieldBuilder().templateKey(templateKey).scope("enterprise").build()).build())
+client.getAi().createAiExtractStructured(new AiExtractStructured.AiExtractStructuredBuilder(Arrays.asList(new AiItemBase(file.getId()))).fields(Arrays.asList(new AiExtractStructuredFieldsField.AiExtractStructuredFieldsFieldBuilder("firstName").description("Person first name").displayName("First name").prompt("What is the your first name?").type("string").build(), new AiExtractStructuredFieldsField.AiExtractStructuredFieldsFieldBuilder("lastName").description("Person last name").displayName("Last name").prompt("What is the your last name?").type("string").build(), new AiExtractStructuredFieldsField.AiExtractStructuredFieldsFieldBuilder("dateOfBirth").description("Person date of birth").displayName("Birth date").prompt("What is the date of your birth?").type("date").build(), new AiExtractStructuredFieldsField.AiExtractStructuredFieldsFieldBuilder("age").description("Person age").displayName("Age").prompt("How old are you?").type("float").build(), new AiExtractStructuredFieldsField.AiExtractStructuredFieldsFieldBuilder("hobby").description("Person hobby").displayName("Hobby").prompt("What is your hobby?").type("multiSelect").options(Arrays.asList(new AiExtractStructuredFieldsOptionsField("guitar"), new AiExtractStructuredFieldsOptionsField("books"))).build())).build())
 ```
 
 ### Arguments

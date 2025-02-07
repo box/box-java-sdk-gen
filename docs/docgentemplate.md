@@ -19,7 +19,7 @@ See the endpoint docs at
 
 <!-- sample post_docgen_templates_v2025.0 -->
 ```
-client.getDocgenTemplate().createDocgenTemplateV2025R0(new DocGenTemplateCreateRequestV2025R0(new FileReferenceV2025R0(uploadedFile.getId())))
+client.getDocgenTemplate().createDocgenTemplateV2025R0(new DocGenTemplateCreateRequestV2025R0(new FileReferenceV2025R0(file.getId())))
 ```
 
 ### Arguments

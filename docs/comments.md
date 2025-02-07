@@ -145,7 +145,7 @@ See the endpoint docs at
 
 <!-- sample post_comments -->
 ```
-client.getComments().createComment(new CreateCommentRequestBody(message, new CreateCommentRequestBodyItemField(newComment.getId(), CreateCommentRequestBodyItemTypeField.COMMENT)))
+client.getComments().createComment(new CreateCommentRequestBody(message, new CreateCommentRequestBodyItemField(fileId, CreateCommentRequestBodyItemTypeField.FILE)))
 ```
 
 ### Arguments

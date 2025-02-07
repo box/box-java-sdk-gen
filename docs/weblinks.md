@@ -17,7 +17,7 @@ See the endpoint docs at
 
 <!-- sample post_web_links -->
 ```
-client.getWebLinks().createWebLink(new CreateWebLinkRequestBody.CreateWebLinkRequestBodyBuilder("https://www.box.com", new CreateWebLinkRequestBodyParentField(parent.getId())).name(getUuid()).description("Weblink description").build())
+client.getWebLinks().createWebLink(new CreateWebLinkRequestBody.CreateWebLinkRequestBodyBuilder(url, new CreateWebLinkRequestBodyParentField(parent.getId())).name(name).description(description).build())
 ```
 
 ### Arguments
@@ -106,7 +106,7 @@ See the endpoint docs at
 
 <!-- sample delete_web_links_id -->
 ```
-client.getWebLinks().deleteWebLinkById(webLinkId)
+client.getWebLinks().deleteWebLinkById(weblink.getId())
 ```
 
 ### Arguments

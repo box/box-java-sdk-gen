@@ -104,7 +104,7 @@ See the endpoint docs at
 
 <!-- sample put_terms_of_services_id -->
 ```
-client.getTermsOfServices().updateTermsOfServiceById(tos.getId(), new UpdateTermsOfServiceByIdRequestBody(UpdateTermsOfServiceByIdRequestBodyStatusField.DISABLED, "Updated TOS"))
+client.getTermsOfServices().updateTermsOfServiceById(tos.getId(), new UpdateTermsOfServiceByIdRequestBody(UpdateTermsOfServiceByIdRequestBodyStatusField.DISABLED, "TOS"))
 ```
 
 ### Arguments
