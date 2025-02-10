@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.1](https://github.com/box/box-java-sdk-gen/compare/v0.4.0...v0.4.1) (2025-02-10)
+
+
+### Bug Fixes
+
+* Fix type of `Items` entries field (box/box-codegen[#660](https://github.com/box/box-java-sdk-gen/issues/660)) ([#213](https://github.com/box/box-java-sdk-gen/issues/213)) ([7e1b743](https://github.com/box/box-java-sdk-gen/commit/7e1b74386b0ab7bff92d855a8b50a42645854839))
+
+
+### New Features and Enhancements
+
+* Add hubs support to `/ai/ask` (box/box-openapi[#506](https://github.com/box/box-java-sdk-gen/issues/506)) ([#202](https://github.com/box/box-java-sdk-gen/issues/202)) ([888ee7b](https://github.com/box/box-java-sdk-gen/commit/888ee7bf5df8f7425371a7c55d1289d70137e675))
+
 ## [0.4.0](https://github.com/box/box-java-sdk-gen/compare/v0.3.0...v0.4.0) (2025-02-03)
 
 
