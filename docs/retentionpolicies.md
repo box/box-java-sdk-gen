@@ -47,7 +47,7 @@ See the endpoint docs at
 
 <!-- sample post_retention_policies -->
 ```
-client.getRetentionPolicies().createRetentionPolicy(new CreateRetentionPolicyRequestBody.CreateRetentionPolicyRequestBodyBuilder(getUuid(), CreateRetentionPolicyRequestBodyPolicyTypeField.FINITE, CreateRetentionPolicyRequestBodyDispositionActionField.REMOVE_RETENTION).description(description).retentionLength("1").retentionType(CreateRetentionPolicyRequestBodyRetentionTypeField.MODIFIABLE).canOwnerExtendRetention(false).build())
+client.getRetentionPolicies().createRetentionPolicy(new CreateRetentionPolicyRequestBody.CreateRetentionPolicyRequestBodyBuilder(retentionPolicyName, CreateRetentionPolicyRequestBodyPolicyTypeField.FINITE, CreateRetentionPolicyRequestBodyDispositionActionField.REMOVE_RETENTION).description(retentionDescription).retentionLength("1").retentionType(CreateRetentionPolicyRequestBodyRetentionTypeField.MODIFIABLE).canOwnerExtendRetention(true).areOwnersNotified(true).build())
 ```
 
 ### Arguments

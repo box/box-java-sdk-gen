@@ -22,7 +22,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_content -->
 ```
-client.getUploads().uploadFileVersion(file.getId(), new UploadFileVersionRequestBody(new UploadFileVersionRequestBodyAttributesField(file.getName()), generateByteStream(20)))
+client.getUploads().uploadFileVersion(uploadedFile.getId(), new UploadFileVersionRequestBody(new UploadFileVersionRequestBodyAttributesField(newFileVersionName), newFileContentStream))
 ```
 
 ### Arguments
@@ -92,7 +92,7 @@ See the endpoint docs at
 
 <!-- sample post_files_content -->
 ```
-parentClient.getUploads().uploadFile(new UploadFileRequestBody(new UploadFileRequestBodyAttributesField(getUuid(), new UploadFileRequestBodyAttributesParentField("0")), generateByteStream(1024 * 1024)))
+client.getUploads().uploadFile(new UploadFileRequestBody(new UploadFileRequestBodyAttributesField(newFileName, new UploadFileRequestBodyAttributesParentField("0")), fileContentStream))
 ```
 
 ### Arguments

@@ -78,7 +78,7 @@ See the endpoint docs at
 
 <!-- sample get_collaboration_whitelist_entries_id -->
 ```
-client.getCollaborationAllowlistEntries().getCollaborationWhitelistEntryById(entry.getId())
+client.getCollaborationAllowlistEntries().getCollaborationWhitelistEntryById(newEntry.getId())
 ```
 
 ### Arguments

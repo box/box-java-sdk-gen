@@ -28,7 +28,7 @@ See the endpoint docs at
 
 <!-- sample get_folders_id -->
 ```
-client.getFolders().getFolderById(folderId, new GetFolderByIdQueryParams.GetFolderByIdQueryParamsBuilder().fields(Arrays.asList("is_associated_with_app_item")).build())
+client.getFolders().getFolderById("0")
 ```
 
 ### Arguments
@@ -70,7 +70,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id -->
 ```
-downscopedClient.getFolders().updateFolderById(folder.getId(), new UpdateFolderByIdRequestBody.UpdateFolderByIdRequestBodyBuilder().name(getUuid()).build())
+client.getFolders().updateFolderById(folderToUpdate.getId(), new UpdateFolderByIdRequestBody.UpdateFolderByIdRequestBodyBuilder().name(updatedName).description("Updated description").build())
 ```
 
 ### Arguments
@@ -113,7 +113,7 @@ See the endpoint docs at
 
 <!-- sample delete_folders_id -->
 ```
-parentClient.getFolders().deleteFolderById(folder.getId())
+client.getFolders().deleteFolderById(newFolder.getId())
 ```
 
 ### Arguments
@@ -180,7 +180,7 @@ See the endpoint docs at
 
 <!-- sample post_folders -->
 ```
-parentClient.getFolders().createFolder(new CreateFolderRequestBody(getUuid(), new CreateFolderRequestBodyParentField("0")))
+client.getFolders().createFolder(new CreateFolderRequestBody(newFolderName, new CreateFolderRequestBodyParentField("0")))
 ```
 
 ### Arguments

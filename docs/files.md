@@ -19,7 +19,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id -->
 ```
-client.getFiles().getFileById(fileId, new GetFileByIdQueryParams.GetFileByIdQueryParamsBuilder().fields(Arrays.asList("is_associated_with_app_item")).build())
+client.getFiles().getFileById(uploadedFile.getId(), new GetFileByIdQueryParams.GetFileByIdQueryParamsBuilder().fields(Arrays.asList("is_externally_owned", "has_collaborations")).build())
 ```
 
 ### Arguments
@@ -55,7 +55,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id -->
 ```
-downscopedClient.getFiles().updateFileById(file.getId(), new UpdateFileByIdRequestBody.UpdateFileByIdRequestBodyBuilder().name(getUuid()).build())
+client.getFiles().updateFileById(fileToUpdate.getId(), new UpdateFileByIdRequestBody.UpdateFileByIdRequestBodyBuilder().name(updatedName).description("Updated description").build())
 ```
 
 ### Arguments
@@ -96,7 +96,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id -->
 ```
-parentClient.getFiles().deleteFileById(file.getId())
+client.getFiles().deleteFileById(thumbnailFile.getId())
 ```
 
 ### Arguments

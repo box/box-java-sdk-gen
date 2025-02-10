@@ -24,7 +24,7 @@ See the endpoint docs at
 
 <!-- sample get_shared_items#web_links -->
 ```
-userClient.getSharedLinksWebLinks().findWebLinkForSharedLink(new FindWebLinkForSharedLinkQueryParams(), new FindWebLinkForSharedLinkHeaders(String.join("", "shared_link=", webLinkFromApi.getSharedLink().getUrl(), "&shared_link_password=incorrectPassword")))
+userClient.getSharedLinksWebLinks().findWebLinkForSharedLink(new FindWebLinkForSharedLinkQueryParams(), new FindWebLinkForSharedLinkHeaders(String.join("", "shared_link=", webLinkFromApi.getSharedLink().getUrl(), "&shared_link_password=Secret123@")))
 ```
 
 ### Arguments

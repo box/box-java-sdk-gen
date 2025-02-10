@@ -24,7 +24,7 @@ See the endpoint docs at
 
 <!-- sample get_shared_items#folders -->
 ```
-userClient.getSharedLinksFolders().findFolderForSharedLink(new FindFolderForSharedLinkQueryParams(), new FindFolderForSharedLinkHeaders(String.join("", "shared_link=", folderFromApi.getSharedLink().getUrl(), "&shared_link_password=incorrectPassword")))
+userClient.getSharedLinksFolders().findFolderForSharedLink(new FindFolderForSharedLinkQueryParams(), new FindFolderForSharedLinkHeaders(String.join("", "shared_link=", folderFromApi.getSharedLink().getUrl(), "&shared_link_password=Secret123@")))
 ```
 
 ### Arguments

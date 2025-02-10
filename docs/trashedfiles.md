@@ -62,7 +62,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id_trash -->
 ```
-client.getTrashedFiles().getTrashedFileById(uploadedFile.getId())
+client.getTrashedFiles().getTrashedFileById(file.getId())
 ```
 
 ### Arguments

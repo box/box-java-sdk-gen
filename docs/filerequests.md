@@ -17,7 +17,7 @@ See the endpoint docs at
 
 <!-- sample get_file_requests_id -->
 ```
-client.getFileRequests().getFileRequestById(updatedFileRequest.getId())
+client.getFileRequests().getFileRequestById(fileRequestId)
 ```
 
 ### Arguments

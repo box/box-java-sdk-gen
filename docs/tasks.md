@@ -52,7 +52,7 @@ See the endpoint docs at
 
 <!-- sample post_tasks -->
 ```
-client.getTasks().createTask(new CreateTaskRequestBody.CreateTaskRequestBodyBuilder(new CreateTaskRequestBodyItemField.CreateTaskRequestBodyItemFieldBuilder().id(file.getId()).type(CreateTaskRequestBodyItemTypeField.FILE).build()).action(CreateTaskRequestBodyActionField.REVIEW).message("test message").dueAt(date).completionRule(CreateTaskRequestBodyCompletionRuleField.ALL_ASSIGNEES).build())
+client.getTasks().createTask(new CreateTaskRequestBody.CreateTaskRequestBodyBuilder(new CreateTaskRequestBodyItemField.CreateTaskRequestBodyItemFieldBuilder().id(file.getId()).type(CreateTaskRequestBodyItemTypeField.FILE).build()).action(CreateTaskRequestBodyActionField.REVIEW).message("test message").dueAt(dateTime).completionRule(CreateTaskRequestBodyCompletionRuleField.ALL_ASSIGNEES).build())
 ```
 
 ### Arguments

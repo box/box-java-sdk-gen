@@ -78,7 +78,7 @@ See the endpoint docs at
 
 <!-- sample get_collaboration_whitelist_exempt_targets_id -->
 ```
-client.getCollaborationAllowlistExemptTargets().getCollaborationWhitelistExemptTargetById(exemptTarget.getId())
+client.getCollaborationAllowlistExemptTargets().getCollaborationWhitelistExemptTargetById(newExemptTarget.getId())
 ```
 
 ### Arguments

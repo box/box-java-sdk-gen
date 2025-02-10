@@ -55,7 +55,7 @@ See the endpoint docs at
 
 <!-- sample post_users -->
 ```
-client.getUsers().createUser(new CreateUserRequestBody.CreateUserRequestBodyBuilder(userName).isPlatformAccessOnly(true).build())
+client.getUsers().createUser(new CreateUserRequestBody.CreateUserRequestBodyBuilder(userName).login(userLogin).isPlatformAccessOnly(true).build())
 ```
 
 ### Arguments
@@ -208,7 +208,7 @@ See the endpoint docs at
 
 <!-- sample delete_users_id -->
 ```
-client.getUsers().deleteUserById(createdUser.getId())
+client.getUsers().deleteUserById(user.getId())
 ```
 
 ### Arguments
