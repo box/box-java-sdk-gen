@@ -24,10 +24,15 @@ jobs:
           cache: 'gradle'
       - name: Build and test
         env:
-          USER_ID: ${{ secrets.USER_ID }}
-          ENTERPRISE_ID: ${{ secrets.ENTERPRISE_ID }}
+          JWT_CONFIG_BASE_64: ${{ secrets.JWT_CONFIG_BASE_64 }}
+          ADMIN_USER_ID: ${{ secrets.ADMIN_USER_ID }}
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-          JWT_CONFIG_BASE_64: ${{ secrets.JWT_CONFIG_BASE_64 }}
+          USER_ID: ${{ secrets.USER_ID }}
+          ENTERPRISE_ID: ${{ secrets.ENTERPRISE_ID }}
+          BOX_FILE_REQUEST_ID: ${{ secrets.BOX_FILE_REQUEST_ID }}
           BOX_EXTERNAL_USER_EMAIL: ${{ secrets.BOX_EXTERNAL_USER_EMAIL }}
+          APP_ITEM_ASSOCIATION_FILE_ID: ${{ secrets.APP_ITEM_ASSOCIATION_FILE_ID }}
+          APP_ITEM_ASSOCIATION_FOLDER_ID: ${{ secrets.APP_ITEM_ASSOCIATION_FOLDER_ID }}
+          WORKFLOW_FOLDER_ID: ${{ secrets.WORKFLOW_FOLDER_ID }}
         run: ./gradlew check --stacktrace
