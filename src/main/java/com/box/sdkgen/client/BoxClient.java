@@ -4,6 +4,7 @@ import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 
 import com.box.sdkgen.managers.ai.AiManager;
+import com.box.sdkgen.managers.aistudio.AiStudioManager;
 import com.box.sdkgen.managers.appitemassociations.AppItemAssociationsManager;
 import com.box.sdkgen.managers.authorization.AuthorizationManager;
 import com.box.sdkgen.managers.avatars.AvatarsManager;
@@ -230,6 +231,8 @@ public class BoxClient {
   public final IntegrationMappingsManager integrationMappings;
 
   public final AiManager ai;
+
+  public final AiStudioManager aiStudio;
 
   public final DocgenTemplateManager docgenTemplate;
 
@@ -589,6 +592,11 @@ public class BoxClient {
             .build();
     this.ai =
         new AiManager.AiManagerBuilder()
+            .auth(this.auth)
+            .networkSession(this.networkSession)
+            .build();
+    this.aiStudio =
+        new AiStudioManager.AiStudioManagerBuilder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
@@ -960,6 +968,11 @@ public class BoxClient {
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
+    this.aiStudio =
+        new AiStudioManager.AiStudioManagerBuilder()
+            .auth(this.auth)
+            .networkSession(this.networkSession)
+            .build();
     this.docgenTemplate =
         new DocgenTemplateManager.DocgenTemplateManagerBuilder()
             .auth(this.auth)
@@ -1317,6 +1330,10 @@ public class BoxClient {
 
   public AiManager getAi() {
     return ai;
+  }
+
+  public AiStudioManager getAiStudio() {
+    return aiStudio;
   }
 
   public DocgenTemplateManager getDocgenTemplate() {

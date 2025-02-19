@@ -1,7 +1,7 @@
 package com.box.sdkgen.schemas.aiextract;
 
 import com.box.sdkgen.internal.SerializableObject;
-import com.box.sdkgen.schemas.aiagentextract.AiAgentExtract;
+import com.box.sdkgen.schemas.aiagentextractoraiagentreference.AiAgentExtractOrAiAgentReference;
 import com.box.sdkgen.schemas.aiitembase.AiItemBase;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
@@ -14,7 +14,7 @@ public class AiExtract extends SerializableObject {
   protected final List<AiItemBase> items;
 
   @JsonProperty("ai_agent")
-  protected AiAgentExtract aiAgent;
+  protected AiAgentExtractOrAiAgentReference aiAgent;
 
   public AiExtract(
       @JsonProperty("prompt") String prompt, @JsonProperty("items") List<AiItemBase> items) {
@@ -38,7 +38,7 @@ public class AiExtract extends SerializableObject {
     return items;
   }
 
-  public AiAgentExtract getAiAgent() {
+  public AiAgentExtractOrAiAgentReference getAiAgent() {
     return aiAgent;
   }
 
@@ -84,14 +84,14 @@ public class AiExtract extends SerializableObject {
 
     protected final List<AiItemBase> items;
 
-    protected AiAgentExtract aiAgent;
+    protected AiAgentExtractOrAiAgentReference aiAgent;
 
     public AiExtractBuilder(String prompt, List<AiItemBase> items) {
       this.prompt = prompt;
       this.items = items;
     }
 
-    public AiExtractBuilder aiAgent(AiAgentExtract aiAgent) {
+    public AiExtractBuilder aiAgent(AiAgentExtractOrAiAgentReference aiAgent) {
       this.aiAgent = aiAgent;
       return this;
     }

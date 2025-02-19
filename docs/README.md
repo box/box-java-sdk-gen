@@ -6,6 +6,7 @@ General explanations of the available functionality and examples of how to use
 the SDK are available by topic:
 
 * [Ai](ai.md)
+* [Aistudio](aistudio.md)
 * [Appitemassociations](appitemassociations.md)
 * [Authorization](authorization.md)
 * [Avatars](avatars.md)
