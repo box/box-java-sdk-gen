@@ -1,7 +1,7 @@
 package com.box.sdkgen.schemas.aitextgen;
 
 import com.box.sdkgen.internal.SerializableObject;
-import com.box.sdkgen.schemas.aiagenttextgen.AiAgentTextGen;
+import com.box.sdkgen.schemas.aiagentreferenceoraiagenttextgen.AiAgentReferenceOrAiAgentTextGen;
 import com.box.sdkgen.schemas.aidialoguehistory.AiDialogueHistory;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
@@ -17,7 +17,7 @@ public class AiTextGen extends SerializableObject {
   protected List<AiDialogueHistory> dialogueHistory;
 
   @JsonProperty("ai_agent")
-  protected AiAgentTextGen aiAgent;
+  protected AiAgentReferenceOrAiAgentTextGen aiAgent;
 
   public AiTextGen(
       @JsonProperty("prompt") String prompt,
@@ -47,7 +47,7 @@ public class AiTextGen extends SerializableObject {
     return dialogueHistory;
   }
 
-  public AiAgentTextGen getAiAgent() {
+  public AiAgentReferenceOrAiAgentTextGen getAiAgent() {
     return aiAgent;
   }
 
@@ -100,7 +100,7 @@ public class AiTextGen extends SerializableObject {
 
     protected List<AiDialogueHistory> dialogueHistory;
 
-    protected AiAgentTextGen aiAgent;
+    protected AiAgentReferenceOrAiAgentTextGen aiAgent;
 
     public AiTextGenBuilder(String prompt, List<AiTextGenItemsField> items) {
       this.prompt = prompt;
@@ -112,7 +112,7 @@ public class AiTextGen extends SerializableObject {
       return this;
     }
 
-    public AiTextGenBuilder aiAgent(AiAgentTextGen aiAgent) {
+    public AiTextGenBuilder aiAgent(AiAgentReferenceOrAiAgentTextGen aiAgent) {
       this.aiAgent = aiAgent;
       return this;
     }

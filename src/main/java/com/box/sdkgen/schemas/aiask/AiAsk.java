@@ -1,7 +1,7 @@
 package com.box.sdkgen.schemas.aiask;
 
 import com.box.sdkgen.internal.SerializableObject;
-import com.box.sdkgen.schemas.aiagentask.AiAgentAsk;
+import com.box.sdkgen.schemas.aiagentaskoraiagentreference.AiAgentAskOrAiAgentReference;
 import com.box.sdkgen.schemas.aidialoguehistory.AiDialogueHistory;
 import com.box.sdkgen.schemas.aiitemask.AiItemAsk;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -28,7 +28,7 @@ public class AiAsk extends SerializableObject {
   protected Boolean includeCitations;
 
   @JsonProperty("ai_agent")
-  protected AiAgentAsk aiAgent;
+  protected AiAgentAskOrAiAgentReference aiAgent;
 
   public AiAsk(
       @JsonProperty("mode") EnumWrapper<AiAskModeField> mode,
@@ -77,7 +77,7 @@ public class AiAsk extends SerializableObject {
     return includeCitations;
   }
 
-  public AiAgentAsk getAiAgent() {
+  public AiAgentAskOrAiAgentReference getAiAgent() {
     return aiAgent;
   }
 
@@ -144,7 +144,7 @@ public class AiAsk extends SerializableObject {
 
     protected Boolean includeCitations;
 
-    protected AiAgentAsk aiAgent;
+    protected AiAgentAskOrAiAgentReference aiAgent;
 
     public AiAskBuilder(EnumWrapper<AiAskModeField> mode, String prompt, List<AiItemAsk> items) {
       this.mode = mode;
@@ -168,7 +168,7 @@ public class AiAsk extends SerializableObject {
       return this;
     }
 
-    public AiAskBuilder aiAgent(AiAgentAsk aiAgent) {
+    public AiAskBuilder aiAgent(AiAgentAskOrAiAgentReference aiAgent) {
       this.aiAgent = aiAgent;
       return this;
     }
