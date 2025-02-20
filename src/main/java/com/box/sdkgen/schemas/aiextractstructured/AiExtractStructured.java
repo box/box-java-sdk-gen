@@ -1,7 +1,7 @@
 package com.box.sdkgen.schemas.aiextractstructured;
 
 import com.box.sdkgen.internal.SerializableObject;
-import com.box.sdkgen.schemas.aiagentextractstructured.AiAgentExtractStructured;
+import com.box.sdkgen.schemas.aiagentextractstructuredoraiagentreference.AiAgentExtractStructuredOrAiAgentReference;
 import com.box.sdkgen.schemas.aiitembase.AiItemBase;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
@@ -17,7 +17,7 @@ public class AiExtractStructured extends SerializableObject {
   protected List<AiExtractStructuredFieldsField> fields;
 
   @JsonProperty("ai_agent")
-  protected AiAgentExtractStructured aiAgent;
+  protected AiAgentExtractStructuredOrAiAgentReference aiAgent;
 
   public AiExtractStructured(@JsonProperty("items") List<AiItemBase> items) {
     super();
@@ -44,7 +44,7 @@ public class AiExtractStructured extends SerializableObject {
     return fields;
   }
 
-  public AiAgentExtractStructured getAiAgent() {
+  public AiAgentExtractStructuredOrAiAgentReference getAiAgent() {
     return aiAgent;
   }
 
@@ -97,7 +97,7 @@ public class AiExtractStructured extends SerializableObject {
 
     protected List<AiExtractStructuredFieldsField> fields;
 
-    protected AiAgentExtractStructured aiAgent;
+    protected AiAgentExtractStructuredOrAiAgentReference aiAgent;
 
     public AiExtractStructuredBuilder(List<AiItemBase> items) {
       this.items = items;
@@ -114,7 +114,7 @@ public class AiExtractStructured extends SerializableObject {
       return this;
     }
 
-    public AiExtractStructuredBuilder aiAgent(AiAgentExtractStructured aiAgent) {
+    public AiExtractStructuredBuilder aiAgent(AiAgentExtractStructuredOrAiAgentReference aiAgent) {
       this.aiAgent = aiAgent;
       return this;
     }
