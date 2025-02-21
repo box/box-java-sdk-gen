@@ -2,9 +2,15 @@
   <img src="https://github.com/box/sdks/blob/master/images/box-dev-logo.png" alt= “box-dev-logo” width="30%" height="50%">
 </p>
 
-# Box Java SDK GENERATED
+# Box Java SDK Gen
 
-We are excited to introduce the Beta Release of the latest generation of Box Java SDK, designed to elevate the developer experience and streamline your integration with the Box Content Cloud.
+[![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
+![build](https://github.com/box/box-java-sdk-gen/actions/workflows/build.yml/badge.svg)
+![Maven Central Version](https://img.shields.io/maven-central/v/com.box/box-java-sdk-gen)
+![Platform](https://img.shields.io/badge/java-%3E%3D8-blue)
+[![Coverage](https://coveralls.io/repos/github/box/box-java-sdk-gen/badge.svg?branch=main)](https://coveralls.io/github/box/box-java-sdk-gen?branch=main)
+
+We are excited to introduce the Beta Release of the latest generation of Box Java SDK Gen, designed to elevate the developer experience and streamline your integration with the Box Content Cloud.
 
 With this SDK, you’ll have access to:
 
@@ -21,9 +27,18 @@ Embrace the new generation of Box SDKs and unlock the full potential of the Box 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+- [Box Java SDK Gen](#box-java-sdk-gen)
+- [Table of contents](#table-of-contents)
 - [Installing](#installing)
 - [Getting Started](#getting-started)
 - [Documentation](#documentation)
+- [Upgrades](#upgrades)
+- [Integration Tests](#integration-tests)
+  - [Running integration tests locally](#running-integration-tests-locally)
+    - [Create Platform Application](#create-platform-application)
+    - [Export configuration](#export-configuration)
+    - [Start integration tests](#start-integration-tests)
+- [3rd Party Libraries \& Licenses](#3rd-party-libraries--licenses)
 - [Questions, Bugs, and Feature Requests?](#questions-bugs-and-feature-requests)
 - [Copyright and License](#copyright-and-license)
 
@@ -39,7 +54,23 @@ To generate a .jar file download the source code and run the following command:
 
 .jar file will be generated in the build/libs directory.
 
-Unfortunately, .jar file is not yet available in any artifactory. It will be available there when SDK reaches beta phase.
+The SDK is also available on [Maven Central Repository](https://mvnrepository.com/artifact/com.box/box-java-sdk-gen). To include the SDK in your project, add the following dependency to your `pom.xml` file:
+
+```xml
+<dependency>
+    <groupId>com.box</groupId>
+    <artifactId>box-java-sdk-gen</artifactId>
+    <version>VERSION</version>
+</dependency>
+```
+
+To include the SDK in your project using Gradle, add the following dependency to your `build.gradle` file:
+
+```gradle
+implementation 'com.box:box-java-sdk-gen:VERSION'
+```
+
+Where `VERSION` is the version of the SDK you want to use. You can find the latest version in the [Maven Central Repository](https://mvnrepository.com/artifact/com.box/box-java-sdk-gen).
 
 # Getting Started
 
@@ -55,13 +86,53 @@ The example below demonstrates how to authenticate with Developer Token and prin
 ```java
 BoxDeveloperTokenAuth auth = new BoxDeveloperTokenAuth("DEVELOPER_TOKEN");
 BoxClient client = new BoxClient(auth);
+client.folders.getFolderItems("0").getEntries().forEach(item -> {
+   System.out.println(item.toString());
+});
 ```
 
 # Documentation
 
 Browse the [docs](docs/README.md) or see [API Reference](https://developer.box.com/reference/) for more information.
 
-## 3rd Party Libraries & Licenses
+# Upgrades
+
+The SDK is updated regularly to include new features, enhancements, and bug fixes. If you are upgrading from our legacy SDKs to this new generation SDKs is a straightforward process. Checkout the [migration guide](MIGRATION_GUIDE.md) and [changelog](CHANGELOG.md) for more information.
+
+# Integration Tests
+
+## Running integration tests locally
+
+### Create Platform Application
+
+To run integration tests locally you will need a `Custom App` created in the [Box Developer
+Console](https://app.box.com/developers/console) with `Server Authentication (with JWT)` selected as authentication method.
+Once created you can edit properties of the application:
+
+- In section `App Access Level` select `App + Enterprise Access`. You can enable all `Application Scopes`.
+- In section `Advanced Features` enable `Make API calls using the as-user header` and `Generate user access tokens`.
+
+Now select `Authorization` and submit application to be reviewed by account admin.
+
+### Export configuration
+
+1. Select `Configuration` tab and in the bottom in the section `App Settings`
+   download your app configuration settings as JSON.
+2. Encode configuration file to Base64, e.g. using command: `base64 -i path_to_json_file`
+3. Set environment variable: `JWT_CONFIG_BASE_64` with base64 encoded jwt configuration file
+4. Set environment variable: `BOX_FILE_REQUEST_ID` with ID of file request already created in the user account, `BOX_EXTERNAL_USER_EMAIL` with email of free external user which not belongs to any enterprise.
+5. Set environment variable: `WORKFLOW_FOLDER_ID` with the ID of the Relay workflow that deletes the file that triggered the workflow. The workflow should have a manual start to be able to start it from the API.
+6. Set environment variable: `APP_ITEM_ASSOCIATION_FILE_ID` to the ID of the file with associated app item and `APP_ITEM_ASSOCIATION_FOLDER_ID` to the ID of the folder with associated app item.
+
+### Start integration tests
+
+To run integration tests locally, you can use the following command:
+
+```console
+./gradlew test --stacktrace
+```
+
+# 3rd Party Libraries & Licenses
 
 The Java SDK Gen uses third-party libraries that are required for usage. Their licenses are listed below:
 
