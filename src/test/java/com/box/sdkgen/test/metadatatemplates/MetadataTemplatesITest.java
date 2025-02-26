@@ -1,5 +1,6 @@
 package com.box.sdkgen.test.metadatatemplates;
 
+import static com.box.sdkgen.internal.utils.UtilsManager.convertToString;
 import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.getUuid;
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
@@ -12,6 +13,7 @@ import com.box.sdkgen.managers.filemetadata.CreateFileMetadataByIdScope;
 import com.box.sdkgen.managers.filemetadata.DeleteFileMetadataByIdScope;
 import com.box.sdkgen.managers.metadatatemplates.CreateMetadataTemplateRequestBody;
 import com.box.sdkgen.managers.metadatatemplates.CreateMetadataTemplateRequestBodyFieldsField;
+import com.box.sdkgen.managers.metadatatemplates.CreateMetadataTemplateRequestBodyFieldsOptionsField;
 import com.box.sdkgen.managers.metadatatemplates.CreateMetadataTemplateRequestBodyFieldsTypeField;
 import com.box.sdkgen.managers.metadatatemplates.DeleteMetadataTemplateScope;
 import com.box.sdkgen.managers.metadatatemplates.GetMetadataTemplateScope;
@@ -45,13 +47,60 @@ public class MetadataTemplatesITest {
                             new CreateMetadataTemplateRequestBodyFieldsField(
                                 CreateMetadataTemplateRequestBodyFieldsTypeField.STRING,
                                 "testName",
-                                "testName")))
+                                "testName"),
+                            new CreateMetadataTemplateRequestBodyFieldsField(
+                                CreateMetadataTemplateRequestBodyFieldsTypeField.FLOAT,
+                                "age",
+                                "age"),
+                            new CreateMetadataTemplateRequestBodyFieldsField(
+                                CreateMetadataTemplateRequestBodyFieldsTypeField.DATE,
+                                "birthDate",
+                                "birthDate"),
+                            new CreateMetadataTemplateRequestBodyFieldsField
+                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                                    CreateMetadataTemplateRequestBodyFieldsTypeField.ENUM,
+                                    "countryCode",
+                                    "countryCode")
+                                .options(
+                                    Arrays.asList(
+                                        new CreateMetadataTemplateRequestBodyFieldsOptionsField(
+                                            "US"),
+                                        new CreateMetadataTemplateRequestBodyFieldsOptionsField(
+                                            "CA")))
+                                .build(),
+                            new CreateMetadataTemplateRequestBodyFieldsField
+                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                                    CreateMetadataTemplateRequestBodyFieldsTypeField.MULTISELECT,
+                                    "sports",
+                                    "sports")
+                                .options(
+                                    Arrays.asList(
+                                        new CreateMetadataTemplateRequestBodyFieldsOptionsField(
+                                            "basketball"),
+                                        new CreateMetadataTemplateRequestBodyFieldsOptionsField(
+                                            "football"),
+                                        new CreateMetadataTemplateRequestBodyFieldsOptionsField(
+                                            "tennis")))
+                                .build()))
                     .build());
     assert template.getTemplateKey().equals(templateKey);
     assert template.getDisplayName().equals(templateKey);
-    assert template.getFields().size() == 1;
+    assert template.getFields().size() == 5;
     assert template.getFields().get(0).getKey().equals("testName");
     assert template.getFields().get(0).getDisplayName().equals("testName");
+    assert convertToString(template.getFields().get(0).getType()).equals("string");
+    assert template.getFields().get(1).getKey().equals("age");
+    assert template.getFields().get(1).getDisplayName().equals("age");
+    assert convertToString(template.getFields().get(1).getType()).equals("float");
+    assert template.getFields().get(2).getKey().equals("birthDate");
+    assert template.getFields().get(2).getDisplayName().equals("birthDate");
+    assert convertToString(template.getFields().get(2).getType()).equals("date");
+    assert template.getFields().get(3).getKey().equals("countryCode");
+    assert template.getFields().get(3).getDisplayName().equals("countryCode");
+    assert convertToString(template.getFields().get(3).getType()).equals("enum");
+    assert template.getFields().get(4).getKey().equals("sports");
+    assert template.getFields().get(4).getDisplayName().equals("sports");
+    assert convertToString(template.getFields().get(4).getType()).equals("multiSelect");
     MetadataTemplate updatedTemplate =
         client
             .getMetadataTemplates()
@@ -66,9 +115,9 @@ public class MetadataTemplatesITest {
                                 entryOf("type", "string"), entryOf("displayName", "newFieldName")))
                         .fieldKey("newfieldname")
                         .build()));
-    assert updatedTemplate.getFields().size() == 2;
-    assert updatedTemplate.getFields().get(1).getKey().equals("newfieldname");
-    assert updatedTemplate.getFields().get(1).getDisplayName().equals("newFieldName");
+    assert updatedTemplate.getFields().size() == 6;
+    assert updatedTemplate.getFields().get(5).getKey().equals("newfieldname");
+    assert updatedTemplate.getFields().get(5).getDisplayName().equals("newFieldName");
     MetadataTemplate getMetadataTemplate =
         client.getMetadataTemplates().getMetadataTemplateById(template.getId());
     assert getMetadataTemplate.getId().equals(template.getId());
