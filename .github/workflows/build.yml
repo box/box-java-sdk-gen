@@ -9,6 +9,7 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 1
       matrix:
         distribution: ['zulu', 'temurin']
         java: ['8', '11', '17']
