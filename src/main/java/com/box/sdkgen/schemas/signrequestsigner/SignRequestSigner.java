@@ -74,6 +74,7 @@ public class SignRequestSigner extends SignRequestCreateSigner {
         && Objects.equals(redirectUrl, casted.redirectUrl)
         && Objects.equals(declinedRedirectUrl, casted.declinedRedirectUrl)
         && Objects.equals(loginRequired, casted.loginRequired)
+        && Objects.equals(verificationPhoneNumber, casted.verificationPhoneNumber)
         && Objects.equals(password, casted.password)
         && Objects.equals(signerGroupId, casted.signerGroupId)
         && Objects.equals(suppressNotifications, casted.suppressNotifications)
@@ -95,6 +96,7 @@ public class SignRequestSigner extends SignRequestCreateSigner {
         redirectUrl,
         declinedRedirectUrl,
         loginRequired,
+        verificationPhoneNumber,
         password,
         signerGroupId,
         suppressNotifications,
@@ -138,6 +140,10 @@ public class SignRequestSigner extends SignRequestCreateSigner {
         + ", "
         + "loginRequired='"
         + loginRequired
+        + '\''
+        + ", "
+        + "verificationPhoneNumber='"
+        + verificationPhoneNumber
         + '\''
         + ", "
         + "password='"
@@ -263,6 +269,12 @@ public class SignRequestSigner extends SignRequestCreateSigner {
     @Override
     public SignRequestSignerBuilder loginRequired(Boolean loginRequired) {
       this.loginRequired = loginRequired;
+      return this;
+    }
+
+    @Override
+    public SignRequestSignerBuilder verificationPhoneNumber(String verificationPhoneNumber) {
+      this.verificationPhoneNumber = verificationPhoneNumber;
       return this;
     }
 
