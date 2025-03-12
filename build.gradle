@@ -3,6 +3,9 @@ plugins {
   id "com.diffplug.spotless" version "${spotlessVersion}"
   id "maven-publish"
   id "signing"
+  id "com.github.nbaztec.coveralls-jacoco" version "1.2.14"
+  id "jacoco"
+
 }
 group = "com.box"
 archivesBaseName = "box-java-sdk-gen"
@@ -42,13 +45,17 @@ test {
     showStandardStreams = true
   }
 
-    filter {
-      // Additional params are not supported
-      excludeTestsMatching 'com.box.sdkgen.test.filemetadata.FileMetadataITest.testGlobalFileMetadata'
-      excludeTestsMatching 'com.box.sdkgen.test.foldermetadata.FolderMetadataITest.testGlobalFolderMetadata'
+  jacoco {
+    destinationFile = file("$buildDir/jacoco/test.exec")
+  }
 
-      // Socket timeout
-      excludeTestsMatching 'com.box.sdkgen.test.transfer.TransferITest.testTransferUserContent'
+  filter {
+    // Additional params are not supported
+    excludeTestsMatching 'com.box.sdkgen.test.filemetadata.FileMetadataITest.testGlobalFileMetadata'
+    excludeTestsMatching 'com.box.sdkgen.test.foldermetadata.FolderMetadataITest.testGlobalFolderMetadata'
+
+    // Socket timeout
+    excludeTestsMatching 'com.box.sdkgen.test.transfer.TransferITest.testTransferUserContent'
   }
 
 }
@@ -84,11 +91,8 @@ publishing {
           developerConnection = "scm:git:https://github.com/box/box-java-sdk-gen.git"
           url = "https://github.com/box/box-java-sdk-gen"
         }
-
       }
-
     }
-
   }
 
   repositories {
@@ -107,8 +111,8 @@ publishing {
     }
 
   }
-
 }
+
 signing {
   required { !version.endsWith("SNAPSHOT") && gradle.taskGraph.hasTask("publish") }
   // we are switching to gpg-agent and not using Java-based implementation because of
@@ -116,4 +120,15 @@ signing {
   // not compatible with Gradle implementation
   useGpgCmd()
   sign publishing.publications.boxJavaSdkGen
+}
+
+jacoco {
+  reportsDirectory = file("$buildDir/reports/jacoco")
+}
+
+jacocoTestReport {
+  reports {
+    xml.required = true // coveralls plugin depends on xml format report
+    html.required = true
+  }
 }

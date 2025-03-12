@@ -37,3 +37,8 @@ jobs:
           APP_ITEM_ASSOCIATION_FOLDER_ID: ${{ secrets.APP_ITEM_ASSOCIATION_FOLDER_ID }}
           WORKFLOW_FOLDER_ID: ${{ secrets.WORKFLOW_FOLDER_ID }}
         run: ./gradlew check --stacktrace
+
+      - name: Coverage
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./gradlew jacocoTestReport coverallsJacoco
