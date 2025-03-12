@@ -47,6 +47,7 @@ import com.box.sdkgen.managers.retentionpolicies.RetentionPoliciesManager;
 import com.box.sdkgen.managers.retentionpolicyassignments.RetentionPolicyAssignmentsManager;
 import com.box.sdkgen.managers.search.SearchManager;
 import com.box.sdkgen.managers.sessiontermination.SessionTerminationManager;
+import com.box.sdkgen.managers.sharedlinksappitems.SharedLinksAppItemsManager;
 import com.box.sdkgen.managers.sharedlinksfiles.SharedLinksFilesManager;
 import com.box.sdkgen.managers.sharedlinksfolders.SharedLinksFoldersManager;
 import com.box.sdkgen.managers.sharedlinksweblinks.SharedLinksWebLinksManager;
@@ -158,6 +159,8 @@ public class BoxClient {
   public final TrashedWebLinksManager trashedWebLinks;
 
   public final SharedLinksWebLinksManager sharedLinksWebLinks;
+
+  public final SharedLinksAppItemsManager sharedLinksAppItems;
 
   public final UsersManager users;
 
@@ -409,6 +412,11 @@ public class BoxClient {
             .build();
     this.sharedLinksWebLinks =
         new SharedLinksWebLinksManager.SharedLinksWebLinksManagerBuilder()
+            .auth(this.auth)
+            .networkSession(this.networkSession)
+            .build();
+    this.sharedLinksAppItems =
+        new SharedLinksAppItemsManager.SharedLinksAppItemsManagerBuilder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
@@ -782,6 +790,11 @@ public class BoxClient {
             .build();
     this.sharedLinksWebLinks =
         new SharedLinksWebLinksManager.SharedLinksWebLinksManagerBuilder()
+            .auth(this.auth)
+            .networkSession(this.networkSession)
+            .build();
+    this.sharedLinksAppItems =
+        new SharedLinksAppItemsManager.SharedLinksAppItemsManagerBuilder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
@@ -1185,6 +1198,10 @@ public class BoxClient {
 
   public SharedLinksWebLinksManager getSharedLinksWebLinks() {
     return sharedLinksWebLinks;
+  }
+
+  public SharedLinksAppItemsManager getSharedLinksAppItems() {
+    return sharedLinksAppItems;
   }
 
   public UsersManager getUsers() {
