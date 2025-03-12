@@ -14,6 +14,9 @@ import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.integrationmapping.IntegrationMapping;
 import com.box.sdkgen.schemas.integrationmappings.IntegrationMappings;
 import com.box.sdkgen.schemas.integrationmappingslackcreaterequest.IntegrationMappingSlackCreateRequest;
+import com.box.sdkgen.schemas.integrationmappingsteams.IntegrationMappingsTeams;
+import com.box.sdkgen.schemas.integrationmappingteams.IntegrationMappingTeams;
+import com.box.sdkgen.schemas.integrationmappingteamscreaterequest.IntegrationMappingTeamsCreateRequest;
 import com.box.sdkgen.serialization.json.JsonManager;
 import java.util.Map;
 
@@ -171,6 +174,151 @@ public class IntegrationMappingsManager {
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
                             "/2.0/integration_mappings/slack/",
+                            convertToString(integrationMappingId)),
+                        "DELETE")
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.NO_CONTENT)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
+  }
+
+  public IntegrationMappingsTeams getIntegrationMappingTeams() {
+    return getIntegrationMappingTeams(
+        new GetIntegrationMappingTeamsQueryParams(), new GetIntegrationMappingTeamsHeaders());
+  }
+
+  public IntegrationMappingsTeams getIntegrationMappingTeams(
+      GetIntegrationMappingTeamsQueryParams queryParams) {
+    return getIntegrationMappingTeams(queryParams, new GetIntegrationMappingTeamsHeaders());
+  }
+
+  public IntegrationMappingsTeams getIntegrationMappingTeams(
+      GetIntegrationMappingTeamsHeaders headers) {
+    return getIntegrationMappingTeams(new GetIntegrationMappingTeamsQueryParams(), headers);
+  }
+
+  public IntegrationMappingsTeams getIntegrationMappingTeams(
+      GetIntegrationMappingTeamsQueryParams queryParams,
+      GetIntegrationMappingTeamsHeaders headers) {
+    Map<String, String> queryParamsMap =
+        prepareParams(
+            mapOf(
+                entryOf("partner_item_type", convertToString(queryParams.getPartnerItemType())),
+                entryOf("partner_item_id", convertToString(queryParams.getPartnerItemId())),
+                entryOf("box_item_id", convertToString(queryParams.getBoxItemId())),
+                entryOf("box_item_type", convertToString(queryParams.getBoxItemType()))));
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response =
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/integration_mappings/teams"),
+                        "GET")
+                    .params(queryParamsMap)
+                    .headers(headersMap)
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
+    return JsonManager.deserialize(response.getData(), IntegrationMappingsTeams.class);
+  }
+
+  public IntegrationMappingTeams createIntegrationMappingTeams(
+      IntegrationMappingTeamsCreateRequest requestBody) {
+    return createIntegrationMappingTeams(requestBody, new CreateIntegrationMappingTeamsHeaders());
+  }
+
+  public IntegrationMappingTeams createIntegrationMappingTeams(
+      IntegrationMappingTeamsCreateRequest requestBody,
+      CreateIntegrationMappingTeamsHeaders headers) {
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response =
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/integration_mappings/teams"),
+                        "POST")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
+    return JsonManager.deserialize(response.getData(), IntegrationMappingTeams.class);
+  }
+
+  public IntegrationMappingTeams updateIntegrationMappingTeamsById(String integrationMappingId) {
+    return updateIntegrationMappingTeamsById(
+        integrationMappingId,
+        new UpdateIntegrationMappingTeamsByIdRequestBody(),
+        new UpdateIntegrationMappingTeamsByIdHeaders());
+  }
+
+  public IntegrationMappingTeams updateIntegrationMappingTeamsById(
+      String integrationMappingId, UpdateIntegrationMappingTeamsByIdRequestBody requestBody) {
+    return updateIntegrationMappingTeamsById(
+        integrationMappingId, requestBody, new UpdateIntegrationMappingTeamsByIdHeaders());
+  }
+
+  public IntegrationMappingTeams updateIntegrationMappingTeamsById(
+      String integrationMappingId, UpdateIntegrationMappingTeamsByIdHeaders headers) {
+    return updateIntegrationMappingTeamsById(
+        integrationMappingId, new UpdateIntegrationMappingTeamsByIdRequestBody(), headers);
+  }
+
+  public IntegrationMappingTeams updateIntegrationMappingTeamsById(
+      String integrationMappingId,
+      UpdateIntegrationMappingTeamsByIdRequestBody requestBody,
+      UpdateIntegrationMappingTeamsByIdHeaders headers) {
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response =
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/integration_mappings/teams/",
+                            convertToString(integrationMappingId)),
+                        "PUT")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
+    return JsonManager.deserialize(response.getData(), IntegrationMappingTeams.class);
+  }
+
+  public void deleteIntegrationMappingTeamsById(String integrationMappingId) {
+    deleteIntegrationMappingTeamsById(
+        integrationMappingId, new DeleteIntegrationMappingTeamsByIdHeaders());
+  }
+
+  public void deleteIntegrationMappingTeamsById(
+      String integrationMappingId, DeleteIntegrationMappingTeamsByIdHeaders headers) {
+    Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
+    FetchResponse response =
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/integration_mappings/teams/",
                             convertToString(integrationMappingId)),
                         "DELETE")
                     .headers(headersMap)
