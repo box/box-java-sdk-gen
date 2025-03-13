@@ -39,7 +39,7 @@ userClient.getSharedLinksWebLinks().findWebLinkForSharedLink(new FindWebLinkForS
 
 This function returns a value of type `WebLink`.
 
-Returns a full file resource if the shared link is valid and
+Returns a full web link resource if the shared link is valid and
 the user has access to it.
 
 
