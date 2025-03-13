@@ -183,24 +183,24 @@ public class IntegrationMappingsManager {
                     .build());
   }
 
-  public IntegrationMappingsTeams getIntegrationMappingTeams() {
-    return getIntegrationMappingTeams(
-        new GetIntegrationMappingTeamsQueryParams(), new GetIntegrationMappingTeamsHeaders());
+  public IntegrationMappingsTeams getTeamsIntegrationMapping() {
+    return getTeamsIntegrationMapping(
+        new GetTeamsIntegrationMappingQueryParams(), new GetTeamsIntegrationMappingHeaders());
   }
 
-  public IntegrationMappingsTeams getIntegrationMappingTeams(
-      GetIntegrationMappingTeamsQueryParams queryParams) {
-    return getIntegrationMappingTeams(queryParams, new GetIntegrationMappingTeamsHeaders());
+  public IntegrationMappingsTeams getTeamsIntegrationMapping(
+      GetTeamsIntegrationMappingQueryParams queryParams) {
+    return getTeamsIntegrationMapping(queryParams, new GetTeamsIntegrationMappingHeaders());
   }
 
-  public IntegrationMappingsTeams getIntegrationMappingTeams(
-      GetIntegrationMappingTeamsHeaders headers) {
-    return getIntegrationMappingTeams(new GetIntegrationMappingTeamsQueryParams(), headers);
+  public IntegrationMappingsTeams getTeamsIntegrationMapping(
+      GetTeamsIntegrationMappingHeaders headers) {
+    return getTeamsIntegrationMapping(new GetTeamsIntegrationMappingQueryParams(), headers);
   }
 
-  public IntegrationMappingsTeams getIntegrationMappingTeams(
-      GetIntegrationMappingTeamsQueryParams queryParams,
-      GetIntegrationMappingTeamsHeaders headers) {
+  public IntegrationMappingsTeams getTeamsIntegrationMapping(
+      GetTeamsIntegrationMappingQueryParams queryParams,
+      GetTeamsIntegrationMappingHeaders headers) {
     Map<String, String> queryParamsMap =
         prepareParams(
             mapOf(
@@ -228,14 +228,14 @@ public class IntegrationMappingsManager {
     return JsonManager.deserialize(response.getData(), IntegrationMappingsTeams.class);
   }
 
-  public IntegrationMappingTeams createIntegrationMappingTeams(
+  public IntegrationMappingTeams createTeamsIntegrationMapping(
       IntegrationMappingTeamsCreateRequest requestBody) {
-    return createIntegrationMappingTeams(requestBody, new CreateIntegrationMappingTeamsHeaders());
+    return createTeamsIntegrationMapping(requestBody, new CreateTeamsIntegrationMappingHeaders());
   }
 
-  public IntegrationMappingTeams createIntegrationMappingTeams(
+  public IntegrationMappingTeams createTeamsIntegrationMapping(
       IntegrationMappingTeamsCreateRequest requestBody,
-      CreateIntegrationMappingTeamsHeaders headers) {
+      CreateTeamsIntegrationMappingHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
         this.networkSession
@@ -257,29 +257,29 @@ public class IntegrationMappingsManager {
     return JsonManager.deserialize(response.getData(), IntegrationMappingTeams.class);
   }
 
-  public IntegrationMappingTeams updateIntegrationMappingTeamsById(String integrationMappingId) {
-    return updateIntegrationMappingTeamsById(
+  public IntegrationMappingTeams updateTeamsIntegrationMappingById(String integrationMappingId) {
+    return updateTeamsIntegrationMappingById(
         integrationMappingId,
-        new UpdateIntegrationMappingTeamsByIdRequestBody(),
-        new UpdateIntegrationMappingTeamsByIdHeaders());
+        new UpdateTeamsIntegrationMappingByIdRequestBody(),
+        new UpdateTeamsIntegrationMappingByIdHeaders());
   }
 
-  public IntegrationMappingTeams updateIntegrationMappingTeamsById(
-      String integrationMappingId, UpdateIntegrationMappingTeamsByIdRequestBody requestBody) {
-    return updateIntegrationMappingTeamsById(
-        integrationMappingId, requestBody, new UpdateIntegrationMappingTeamsByIdHeaders());
+  public IntegrationMappingTeams updateTeamsIntegrationMappingById(
+      String integrationMappingId, UpdateTeamsIntegrationMappingByIdRequestBody requestBody) {
+    return updateTeamsIntegrationMappingById(
+        integrationMappingId, requestBody, new UpdateTeamsIntegrationMappingByIdHeaders());
   }
 
-  public IntegrationMappingTeams updateIntegrationMappingTeamsById(
-      String integrationMappingId, UpdateIntegrationMappingTeamsByIdHeaders headers) {
-    return updateIntegrationMappingTeamsById(
-        integrationMappingId, new UpdateIntegrationMappingTeamsByIdRequestBody(), headers);
+  public IntegrationMappingTeams updateTeamsIntegrationMappingById(
+      String integrationMappingId, UpdateTeamsIntegrationMappingByIdHeaders headers) {
+    return updateTeamsIntegrationMappingById(
+        integrationMappingId, new UpdateTeamsIntegrationMappingByIdRequestBody(), headers);
   }
 
-  public IntegrationMappingTeams updateIntegrationMappingTeamsById(
+  public IntegrationMappingTeams updateTeamsIntegrationMappingById(
       String integrationMappingId,
-      UpdateIntegrationMappingTeamsByIdRequestBody requestBody,
-      UpdateIntegrationMappingTeamsByIdHeaders headers) {
+      UpdateTeamsIntegrationMappingByIdRequestBody requestBody,
+      UpdateTeamsIntegrationMappingByIdHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
         this.networkSession
@@ -302,13 +302,13 @@ public class IntegrationMappingsManager {
     return JsonManager.deserialize(response.getData(), IntegrationMappingTeams.class);
   }
 
-  public void deleteIntegrationMappingTeamsById(String integrationMappingId) {
-    deleteIntegrationMappingTeamsById(
-        integrationMappingId, new DeleteIntegrationMappingTeamsByIdHeaders());
+  public void deleteTeamsIntegrationMappingById(String integrationMappingId) {
+    deleteTeamsIntegrationMappingById(
+        integrationMappingId, new DeleteTeamsIntegrationMappingByIdHeaders());
   }
 
-  public void deleteIntegrationMappingTeamsById(
-      String integrationMappingId, DeleteIntegrationMappingTeamsByIdHeaders headers) {
+  public void deleteTeamsIntegrationMappingById(
+      String integrationMappingId, DeleteTeamsIntegrationMappingByIdHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =
         this.networkSession

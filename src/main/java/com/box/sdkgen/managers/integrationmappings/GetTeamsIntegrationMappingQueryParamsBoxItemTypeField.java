@@ -11,12 +11,12 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import java.io.IOException;
 import java.util.Arrays;
 
-public enum GetIntegrationMappingTeamsQueryParamsBoxItemTypeField implements Valuable {
+public enum GetTeamsIntegrationMappingQueryParamsBoxItemTypeField implements Valuable {
   FOLDER("folder");
 
   private final String value;
 
-  GetIntegrationMappingTeamsQueryParamsBoxItemTypeField(String value) {
+  GetTeamsIntegrationMappingQueryParamsBoxItemTypeField(String value) {
     this.value = value;
   }
 
@@ -24,35 +24,35 @@ public enum GetIntegrationMappingTeamsQueryParamsBoxItemTypeField implements Val
     return value;
   }
 
-  public static class GetIntegrationMappingTeamsQueryParamsBoxItemTypeFieldDeserializer
-      extends JsonDeserializer<EnumWrapper<GetIntegrationMappingTeamsQueryParamsBoxItemTypeField>> {
+  public static class GetTeamsIntegrationMappingQueryParamsBoxItemTypeFieldDeserializer
+      extends JsonDeserializer<EnumWrapper<GetTeamsIntegrationMappingQueryParamsBoxItemTypeField>> {
 
-    public GetIntegrationMappingTeamsQueryParamsBoxItemTypeFieldDeserializer() {
+    public GetTeamsIntegrationMappingQueryParamsBoxItemTypeFieldDeserializer() {
       super();
     }
 
     @Override
-    public EnumWrapper<GetIntegrationMappingTeamsQueryParamsBoxItemTypeField> deserialize(
+    public EnumWrapper<GetTeamsIntegrationMappingQueryParamsBoxItemTypeField> deserialize(
         JsonParser p, DeserializationContext ctxt) throws IOException {
       String value = p.getValueAsString();
-      return Arrays.stream(GetIntegrationMappingTeamsQueryParamsBoxItemTypeField.values())
+      return Arrays.stream(GetTeamsIntegrationMappingQueryParamsBoxItemTypeField.values())
           .filter((v) -> v.getValue().equalsIgnoreCase(value))
           .findFirst()
           .map(EnumWrapper::new)
-          .orElse(new EnumWrapper<GetIntegrationMappingTeamsQueryParamsBoxItemTypeField>(value));
+          .orElse(new EnumWrapper<GetTeamsIntegrationMappingQueryParamsBoxItemTypeField>(value));
     }
   }
 
-  public static class GetIntegrationMappingTeamsQueryParamsBoxItemTypeFieldSerializer
-      extends JsonSerializer<EnumWrapper<GetIntegrationMappingTeamsQueryParamsBoxItemTypeField>> {
+  public static class GetTeamsIntegrationMappingQueryParamsBoxItemTypeFieldSerializer
+      extends JsonSerializer<EnumWrapper<GetTeamsIntegrationMappingQueryParamsBoxItemTypeField>> {
 
-    public GetIntegrationMappingTeamsQueryParamsBoxItemTypeFieldSerializer() {
+    public GetTeamsIntegrationMappingQueryParamsBoxItemTypeFieldSerializer() {
       super();
     }
 
     @Override
     public void serialize(
-        EnumWrapper<GetIntegrationMappingTeamsQueryParamsBoxItemTypeField> value,
+        EnumWrapper<GetTeamsIntegrationMappingQueryParamsBoxItemTypeField> value,
         JsonGenerator gen,
         SerializerProvider serializers)
         throws IOException {

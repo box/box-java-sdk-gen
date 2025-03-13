@@ -4,16 +4,16 @@ import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 
 import java.util.Map;
 
-public class DeleteIntegrationMappingTeamsByIdHeaders {
+public class DeleteTeamsIntegrationMappingByIdHeaders {
 
   public Map<String, String> extraHeaders;
 
-  public DeleteIntegrationMappingTeamsByIdHeaders() {
+  public DeleteTeamsIntegrationMappingByIdHeaders() {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteIntegrationMappingTeamsByIdHeaders(
-      DeleteIntegrationMappingTeamsByIdHeadersBuilder builder) {
+  protected DeleteTeamsIntegrationMappingByIdHeaders(
+      DeleteTeamsIntegrationMappingByIdHeadersBuilder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,18 +21,18 @@ public class DeleteIntegrationMappingTeamsByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteIntegrationMappingTeamsByIdHeadersBuilder {
+  public static class DeleteTeamsIntegrationMappingByIdHeadersBuilder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteIntegrationMappingTeamsByIdHeadersBuilder extraHeaders(
+    public DeleteTeamsIntegrationMappingByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }
 
-    public DeleteIntegrationMappingTeamsByIdHeaders build() {
-      return new DeleteIntegrationMappingTeamsByIdHeaders(this);
+    public DeleteTeamsIntegrationMappingByIdHeaders build() {
+      return new DeleteTeamsIntegrationMappingByIdHeaders(this);
     }
   }
 }
