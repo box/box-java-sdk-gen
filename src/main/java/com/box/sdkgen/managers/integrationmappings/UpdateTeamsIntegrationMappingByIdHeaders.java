@@ -4,16 +4,16 @@ import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 
 import java.util.Map;
 
-public class UpdateIntegrationMappingTeamsByIdHeaders {
+public class UpdateTeamsIntegrationMappingByIdHeaders {
 
   public Map<String, String> extraHeaders;
 
-  public UpdateIntegrationMappingTeamsByIdHeaders() {
+  public UpdateTeamsIntegrationMappingByIdHeaders() {
     this.extraHeaders = mapOf();
   }
 
-  protected UpdateIntegrationMappingTeamsByIdHeaders(
-      UpdateIntegrationMappingTeamsByIdHeadersBuilder builder) {
+  protected UpdateTeamsIntegrationMappingByIdHeaders(
+      UpdateTeamsIntegrationMappingByIdHeadersBuilder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,18 +21,18 @@ public class UpdateIntegrationMappingTeamsByIdHeaders {
     return extraHeaders;
   }
 
-  public static class UpdateIntegrationMappingTeamsByIdHeadersBuilder {
+  public static class UpdateTeamsIntegrationMappingByIdHeadersBuilder {
 
     protected Map<String, String> extraHeaders;
 
-    public UpdateIntegrationMappingTeamsByIdHeadersBuilder extraHeaders(
+    public UpdateTeamsIntegrationMappingByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }
 
-    public UpdateIntegrationMappingTeamsByIdHeaders build() {
-      return new UpdateIntegrationMappingTeamsByIdHeaders(this);
+    public UpdateTeamsIntegrationMappingByIdHeaders build() {
+      return new UpdateTeamsIntegrationMappingByIdHeaders(this);
     }
   }
 }
