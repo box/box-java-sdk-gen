@@ -30,7 +30,7 @@ public class SharedLinksAppItemsManager {
     this.networkSession = builder.networkSession;
   }
 
-  public AppItem getSharedItemAppItems(GetSharedItemAppItemsHeaders headers) {
+  public AppItem findAppItemForSharedLink(FindAppItemForSharedLinkHeaders headers) {
     Map<String, String> headersMap =
         prepareParams(
             mergeMaps(
