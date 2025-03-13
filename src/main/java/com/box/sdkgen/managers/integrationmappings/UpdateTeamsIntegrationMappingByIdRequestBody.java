@@ -5,17 +5,17 @@ import com.box.sdkgen.schemas.folderreference.FolderReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
-public class UpdateIntegrationMappingTeamsByIdRequestBody extends SerializableObject {
+public class UpdateTeamsIntegrationMappingByIdRequestBody extends SerializableObject {
 
   @JsonProperty("box_item")
   protected FolderReference boxItem;
 
-  public UpdateIntegrationMappingTeamsByIdRequestBody() {
+  public UpdateTeamsIntegrationMappingByIdRequestBody() {
     super();
   }
 
-  protected UpdateIntegrationMappingTeamsByIdRequestBody(
-      UpdateIntegrationMappingTeamsByIdRequestBodyBuilder builder) {
+  protected UpdateTeamsIntegrationMappingByIdRequestBody(
+      UpdateTeamsIntegrationMappingByIdRequestBodyBuilder builder) {
     super();
     this.boxItem = builder.boxItem;
   }
@@ -32,8 +32,8 @@ public class UpdateIntegrationMappingTeamsByIdRequestBody extends SerializableOb
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateIntegrationMappingTeamsByIdRequestBody casted =
-        (UpdateIntegrationMappingTeamsByIdRequestBody) o;
+    UpdateTeamsIntegrationMappingByIdRequestBody casted =
+        (UpdateTeamsIntegrationMappingByIdRequestBody) o;
     return Objects.equals(boxItem, casted.boxItem);
   }
 
@@ -44,20 +44,20 @@ public class UpdateIntegrationMappingTeamsByIdRequestBody extends SerializableOb
 
   @Override
   public String toString() {
-    return "UpdateIntegrationMappingTeamsByIdRequestBody{" + "boxItem='" + boxItem + '\'' + "}";
+    return "UpdateTeamsIntegrationMappingByIdRequestBody{" + "boxItem='" + boxItem + '\'' + "}";
   }
 
-  public static class UpdateIntegrationMappingTeamsByIdRequestBodyBuilder {
+  public static class UpdateTeamsIntegrationMappingByIdRequestBodyBuilder {
 
     protected FolderReference boxItem;
 
-    public UpdateIntegrationMappingTeamsByIdRequestBodyBuilder boxItem(FolderReference boxItem) {
+    public UpdateTeamsIntegrationMappingByIdRequestBodyBuilder boxItem(FolderReference boxItem) {
       this.boxItem = boxItem;
       return this;
     }
 
-    public UpdateIntegrationMappingTeamsByIdRequestBody build() {
-      return new UpdateIntegrationMappingTeamsByIdRequestBody(this);
+    public UpdateTeamsIntegrationMappingByIdRequestBody build() {
+      return new UpdateTeamsIntegrationMappingByIdRequestBody(this);
     }
   }
 }
