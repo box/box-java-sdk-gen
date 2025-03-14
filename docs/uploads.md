@@ -4,6 +4,7 @@
 - [Upload file version](#upload-file-version)
 - [Preflight check before upload](#preflight-check-before-upload)
 - [Upload file](#upload-file)
+- [Upload a file with a preflight check](#upload-a-file-with-a-preflight-check)
 
 ## Upload file version
 
@@ -110,5 +111,34 @@ client.getUploads().uploadFile(new UploadFileRequestBody(new UploadFileRequestBo
 This function returns a value of type `Files`.
 
 Returns the new file object in a list.
+
+
+## Upload a file with a preflight check
+
+ Upload a file with a preflight check
+
+This operation is performed by calling function `uploadWithPreflightCheck`.
+
+
+
+```
+client.getUploads().uploadWithPreflightCheck(new UploadWithPreflightCheckRequestBody(new UploadWithPreflightCheckRequestBodyAttributesField(newFileName, new UploadWithPreflightCheckRequestBodyAttributesParentField("0"), -1), fileContentStream))
+```
+
+### Arguments
+
+- requestBody `UploadWithPreflightCheckRequestBody`
+  - 
+- queryParams `UploadWithPreflightCheckQueryParams`
+  - Query parameters of uploadFile method
+- headers `UploadWithPreflightCheckHeaders`
+  - Headers of uploadFile method
+
+
+### Returns
+
+This function returns a value of type `Files`.
+
+
 
 

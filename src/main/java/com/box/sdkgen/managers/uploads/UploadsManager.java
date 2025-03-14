@@ -6,6 +6,7 @@ import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
 
+import com.box.sdkgen.box.errors.BoxSDKError;
 import com.box.sdkgen.networking.auth.Authentication;
 import com.box.sdkgen.networking.fetchoptions.FetchOptions;
 import com.box.sdkgen.networking.fetchoptions.MultipartItem;
@@ -165,6 +166,80 @@ public class UploadsManager {
                             this.networkSession.getBaseUrls().getUploadUrl(),
                             "/2.0/files/content"),
                         "POST")
+                    .params(queryParamsMap)
+                    .headers(headersMap)
+                    .multipartData(
+                        Arrays.asList(
+                            new MultipartItem.MultipartItemBuilder("attributes")
+                                .data(JsonManager.serialize(requestBody.getAttributes()))
+                                .build(),
+                            new MultipartItem.MultipartItemBuilder("file")
+                                .fileStream(requestBody.getFile())
+                                .fileName(requestBody.getFileFileName())
+                                .contentType(requestBody.getFileContentType())
+                                .build()))
+                    .contentType("multipart/form-data")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
+    return JsonManager.deserialize(response.getData(), Files.class);
+  }
+
+  public Files uploadWithPreflightCheck(UploadWithPreflightCheckRequestBody requestBody) {
+    return uploadWithPreflightCheck(
+        requestBody,
+        new UploadWithPreflightCheckQueryParams(),
+        new UploadWithPreflightCheckHeaders());
+  }
+
+  public Files uploadWithPreflightCheck(
+      UploadWithPreflightCheckRequestBody requestBody,
+      UploadWithPreflightCheckQueryParams queryParams) {
+    return uploadWithPreflightCheck(
+        requestBody, queryParams, new UploadWithPreflightCheckHeaders());
+  }
+
+  public Files uploadWithPreflightCheck(
+      UploadWithPreflightCheckRequestBody requestBody, UploadWithPreflightCheckHeaders headers) {
+    return uploadWithPreflightCheck(
+        requestBody, new UploadWithPreflightCheckQueryParams(), headers);
+  }
+
+  public Files uploadWithPreflightCheck(
+      UploadWithPreflightCheckRequestBody requestBody,
+      UploadWithPreflightCheckQueryParams queryParams,
+      UploadWithPreflightCheckHeaders headers) {
+    Map<String, String> queryParamsMap =
+        prepareParams(mapOf(entryOf("fields", convertToString(queryParams.getFields()))));
+    Map<String, String> headersMap =
+        prepareParams(
+            mergeMaps(
+                mapOf(entryOf("content-md5", convertToString(headers.getContentMd5()))),
+                headers.getExtraHeaders()));
+    UploadUrl preflightUploadUrl =
+        this.preflightFileUploadCheck(
+            new PreflightFileUploadCheckRequestBody.PreflightFileUploadCheckRequestBodyBuilder()
+                .name(requestBody.getAttributes().getName())
+                .size(requestBody.getAttributes().getSize())
+                .parent(
+                    new PreflightFileUploadCheckRequestBodyParentField
+                            .PreflightFileUploadCheckRequestBodyParentFieldBuilder()
+                        .id(requestBody.getAttributes().getParent().getId())
+                        .build())
+                .build(),
+            new PreflightFileUploadCheckHeaders.PreflightFileUploadCheckHeadersBuilder()
+                .extraHeaders(headers.getExtraHeaders())
+                .build());
+    if (preflightUploadUrl.getUploadUrl() == null
+        || !(preflightUploadUrl.getUploadUrl().contains("http"))) {
+      throw new BoxSDKError("Unable to get preflight upload URL");
+    }
+    FetchResponse response =
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.FetchOptionsBuilder(preflightUploadUrl.getUploadUrl(), "POST")
                     .params(queryParamsMap)
                     .headers(headersMap)
                     .multipartData(
