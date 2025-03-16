@@ -246,7 +246,7 @@ AccessToken accessToken = new AccessToken.AccessTokenBuilder()
     .accessToken("ACCESS_TOKEN")
     .refreshToken("REFRESH_TOKEN")
     .build();
-auth.tokenStorage.store(accessToken);
+auth.getTokenStorage().store(accessToken);
 BoxClient client = new BoxClient(auth);
 ```
 

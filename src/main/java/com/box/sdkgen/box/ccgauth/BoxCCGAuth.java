@@ -154,4 +154,8 @@ public class BoxCCGAuth implements Authentication {
             .build());
     this.tokenStorage.clear();
   }
+
+  public TokenStorage getTokenStorage() {
+    return tokenStorage;
+  }
 }

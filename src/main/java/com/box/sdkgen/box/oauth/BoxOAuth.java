@@ -159,4 +159,8 @@ public class BoxOAuth implements Authentication {
                 .build());
     return downscopedToken;
   }
+
+  public TokenStorage getTokenStorage() {
+    return tokenStorage;
+  }
 }
