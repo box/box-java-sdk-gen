@@ -114,6 +114,10 @@ public class BoxDeveloperTokenAuth implements Authentication {
     return downscopedToken;
   }
 
+  public TokenStorage getTokenStorage() {
+    return tokenStorage;
+  }
+
   public static class BoxDeveloperTokenAuthBuilder {
 
     protected final String token;

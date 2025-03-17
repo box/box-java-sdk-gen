@@ -190,4 +190,8 @@ public class BoxJWTAuth implements Authentication {
   public JWTConfig getConfig() {
     return config;
   }
+
+  public TokenStorage getTokenStorage() {
+    return tokenStorage;
+  }
 }
