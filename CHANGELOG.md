@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.1](https://github.com/box/box-java-sdk-gen/compare/v0.5.0...v0.5.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* add `verification_phone_number` property to create sign request (box/box-openapi[#515](https://github.com/box/box-java-sdk-gen/issues/515)) ([#242](https://github.com/box/box-java-sdk-gen/issues/242)) ([d81c700](https://github.com/box/box-java-sdk-gen/commit/d81c70052f3eb9198645090169fde85ee7991d10))
+
+
+### New Features and Enhancements
+
+* add find app item for shared link endpoint (box/box-openapi[#514](https://github.com/box/box-java-sdk-gen/issues/514)) ([#241](https://github.com/box/box-java-sdk-gen/issues/241)) ([751e35f](https://github.com/box/box-java-sdk-gen/commit/751e35fdf7f4b2a1fc8ac0153496eb5fe730549b))
+* add Integration Mappings Teams API (box/box-openapi[#517](https://github.com/box/box-java-sdk-gen/issues/517)) ([#244](https://github.com/box/box-java-sdk-gen/issues/244)) ([ba45671](https://github.com/box/box-java-sdk-gen/commit/ba45671f4de0d933969256f394a85560726112c4))
+* Expose token storage for authentication classes (box/box-codegen[#682](https://github.com/box/box-java-sdk-gen/issues/682)) ([#250](https://github.com/box/box-java-sdk-gen/issues/250)) ([6ad373d](https://github.com/box/box-java-sdk-gen/commit/6ad373df9ccd6fdd2d4cf465b04d765be9738cd1))
+* Support AI Studio API (box/box-codegen[#626](https://github.com/box/box-java-sdk-gen/issues/626)) ([#223](https://github.com/box/box-java-sdk-gen/issues/223)) ([f991efd](https://github.com/box/box-java-sdk-gen/commit/f991efda62faa6feb4b4f4aa80247c5f4f6b399d))
+* Support upload with preflight check (box/box-codegen[#676](https://github.com/box/box-java-sdk-gen/issues/676)) ([#249](https://github.com/box/box-java-sdk-gen/issues/249)) ([3199e25](https://github.com/box/box-java-sdk-gen/commit/3199e25f57b893dc504a64c40add7501152bb27f))
+
 ## [0.5.0](https://github.com/box/box-java-sdk-gen/compare/v0.4.0...v0.5.0) (2025-02-10)
 
 
