@@ -131,7 +131,7 @@ e.g. to update a user name, call method:
 
 ```java
 UpdateUserByIdRequestBody requestBody =
-    new UpdateUserByIdRequestBody.UpdateUserByIdRequestBodyBuilder().name("Marry").build();
+    new UpdateUserByIdRequestBody.UpdateUserByIdRequestBodyBuilder().name("Mary").build();
 UserFull updatedUser = client.users.updateUserById(user.getId(), requestBody);
 ```
 
