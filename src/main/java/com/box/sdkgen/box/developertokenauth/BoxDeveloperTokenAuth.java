@@ -81,7 +81,10 @@ public class BoxDeveloperTokenAuth implements Authentication {
     if (token == null) {
       return;
     }
-    AuthorizationManager authManager = new AuthorizationManager();
+    AuthorizationManager authManager =
+        new AuthorizationManager.AuthorizationManagerBuilder()
+            .networkSession((!(networkSession == null) ? networkSession : new NetworkSession()))
+            .build();
     authManager.revokeAccessToken(
         new PostOAuth2Revoke.PostOAuth2RevokeBuilder()
             .clientId(this.config.getClientId())
@@ -98,7 +101,10 @@ public class BoxDeveloperTokenAuth implements Authentication {
     if (token == null || token.getAccessToken() == null) {
       throw new BoxSDKError("No access token is available.");
     }
-    AuthorizationManager authManager = new AuthorizationManager();
+    AuthorizationManager authManager =
+        new AuthorizationManager.AuthorizationManagerBuilder()
+            .networkSession((!(networkSession == null) ? networkSession : new NetworkSession()))
+            .build();
     AccessToken downscopedToken =
         authManager.requestAccessToken(
             new PostOAuth2Token.PostOAuth2TokenBuilder(
