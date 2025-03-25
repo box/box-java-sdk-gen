@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.2](https://github.com/box/box-java-sdk-gen/compare/v0.5.1...v0.5.2) (2025-03-25)
+
+
+### Bug Fixes
+
+* Add missing fields to `AuthManager` during initialization (box/box-codegen[#688](https://github.com/box/box-java-sdk-gen/issues/688)) ([#257](https://github.com/box/box-java-sdk-gen/issues/257)) ([d352820](https://github.com/box/box-java-sdk-gen/commit/d3528207feac09477abdecd7bceb627580329ab6))
+
 ### [0.5.1](https://github.com/box/box-java-sdk-gen/compare/v0.5.0...v0.5.1) (2025-03-18)
 
 
