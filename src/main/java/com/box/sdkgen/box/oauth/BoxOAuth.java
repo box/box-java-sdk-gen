@@ -61,7 +61,10 @@ public class BoxOAuth implements Authentication {
 
   public AccessToken getTokensAuthorizationCodeGrant(
       String authorizationCode, NetworkSession networkSession) {
-    AuthorizationManager authManager = new AuthorizationManager();
+    AuthorizationManager authManager =
+        new AuthorizationManager.AuthorizationManagerBuilder()
+            .networkSession((!(networkSession == null) ? networkSession : new NetworkSession()))
+            .build();
     AccessToken token =
         authManager.requestAccessToken(
             new PostOAuth2Token.PostOAuth2TokenBuilder(
@@ -96,7 +99,10 @@ public class BoxOAuth implements Authentication {
   public AccessToken refreshToken(NetworkSession networkSession) {
     AccessToken oldToken = this.tokenStorage.get();
     String tokenUsedForRefresh = (!(oldToken == null) ? oldToken.getRefreshToken() : null);
-    AuthorizationManager authManager = new AuthorizationManager();
+    AuthorizationManager authManager =
+        new AuthorizationManager.AuthorizationManagerBuilder()
+            .networkSession((!(networkSession == null) ? networkSession : new NetworkSession()))
+            .build();
     AccessToken token =
         authManager.requestAccessToken(
             new PostOAuth2Token.PostOAuth2TokenBuilder(PostOAuth2TokenGrantTypeField.REFRESH_TOKEN)
@@ -128,7 +134,10 @@ public class BoxOAuth implements Authentication {
     if (token == null) {
       return;
     }
-    AuthorizationManager authManager = new AuthorizationManager();
+    AuthorizationManager authManager =
+        new AuthorizationManager.AuthorizationManagerBuilder()
+            .networkSession((!(networkSession == null) ? networkSession : new NetworkSession()))
+            .build();
     authManager.revokeAccessToken(
         new PostOAuth2Revoke.PostOAuth2RevokeBuilder()
             .clientId(this.config.getClientId())
@@ -144,7 +153,10 @@ public class BoxOAuth implements Authentication {
     if (token == null || token.getAccessToken() == null) {
       throw new BoxSDKError("No access token is available.");
     }
-    AuthorizationManager authManager = new AuthorizationManager();
+    AuthorizationManager authManager =
+        new AuthorizationManager.AuthorizationManagerBuilder()
+            .networkSession((!(networkSession == null) ? networkSession : new NetworkSession()))
+            .build();
     AccessToken downscopedToken =
         authManager.requestAccessToken(
             new PostOAuth2Token.PostOAuth2TokenBuilder(
