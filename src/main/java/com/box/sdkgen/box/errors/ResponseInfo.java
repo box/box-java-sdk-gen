@@ -128,21 +128,22 @@ public class ResponseInfo {
     }
   }
 
-  public static ResponseInfo fromResponse(FetchResponse fetchResponse) {
+  public static ResponseInfo fromResponse(FetchResponse fetchResponse, String rawResponseBody) {
+    ResponseInfoBuilder builder =
+        new ResponseInfoBuilder(fetchResponse.getStatus(), fetchResponse.getHeaders());
     JsonNode body = fetchResponse.getData();
     if (body == null) {
-      return new ResponseInfo(fetchResponse.getStatus(), fetchResponse.getHeaders());
+      builder.rawBody(rawResponseBody);
+    } else {
+      builder
+          .body(body)
+          .rawBody(body.toString())
+          .code(body.get("code") != null ? body.get("code").asText("") : null)
+          .contextInfo(body.get("context_info") != null ? body.get("context_info") : null)
+          .requestId(body.get("request_id") != null ? body.get("request_id").asText() : null)
+          .helpUrl(body.get("help_url") != null ? body.get("help_url").asText() : null);
     }
-    String rawBody = body.asText();
 
-    return new ResponseInfo.ResponseInfoBuilder(
-            fetchResponse.getStatus(), fetchResponse.getHeaders())
-        .body(body)
-        .rawBody(rawBody)
-        .code(body.get("code") != null ? body.get("code").asText("") : null)
-        .contextInfo(body.get("context_info") != null ? body.get("context_info") : null)
-        .requestId(body.get("request_id") != null ? body.get("request_id").asText() : null)
-        .helpUrl(body.get("help_url") != null ? body.get("help_url").asText() : null)
-        .build();
+    return builder.build();
   }
 }
