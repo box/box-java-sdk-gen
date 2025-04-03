@@ -14,7 +14,7 @@ public class SharedLinksAppItemsITest {
   private static final BoxClient client = getDefaultClient();
 
   @Test
-  public void testSharedLinksFiles() {
+  public void testSharedLinksAppItems() {
     String appItemSharedLink = getEnvVar("APP_ITEM_SHARED_LINK");
     AppItem appItem =
         client
