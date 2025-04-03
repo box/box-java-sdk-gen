@@ -18,9 +18,10 @@ public class BoxAPIError extends BoxSDKError {
     this.responseInfo = responseInfo;
   }
 
-  public static BoxAPIError fromAPICall(Request request, FetchResponse fetchResponse) {
+  public static BoxAPIError fromAPICall(
+      Request request, FetchResponse fetchResponse, String rawResponseBody) {
     RequestInfo requestInfo = RequestInfo.fromRequest(request);
-    ResponseInfo responseInfo = ResponseInfo.fromResponse(fetchResponse);
+    ResponseInfo responseInfo = ResponseInfo.fromResponse(fetchResponse, rawResponseBody);
 
     String requestId =
         Optional.ofNullable(responseInfo.getBody())
