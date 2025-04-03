@@ -45,20 +45,22 @@ public class NetworkSession {
     Map<String, String> newHeaders = new HashMap<>();
     newHeaders.putAll(this.additionalHeaders);
     newHeaders.putAll(additionalHeaders);
-    return new NetworkSession.NetworkSessionBuilder()
+    return new NetworkSessionBuilder()
         .baseUrls(this.baseUrls)
         .interceptors(this.interceptors)
         .retryStrategy(this.retryStrategy)
+        .networkClient(this.networkClient)
         .additionalHeaders(newHeaders)
         .build();
   }
 
   public NetworkSession withCustomBaseUrls(BaseUrls baseUrls) {
     return new NetworkSessionBuilder()
-        .additionalHeaders(this.additionalHeaders)
+        .baseUrls(baseUrls)
         .interceptors(this.interceptors)
         .retryStrategy(this.retryStrategy)
-        .baseUrls(baseUrls)
+        .networkClient(this.networkClient)
+        .additionalHeaders(this.additionalHeaders)
         .build();
   }
 
@@ -67,30 +69,31 @@ public class NetworkSession {
         Stream.concat(this.interceptors.stream(), interceptors.stream())
             .collect(Collectors.toList());
     return new NetworkSessionBuilder()
-        .additionalHeaders(this.additionalHeaders)
         .baseUrls(this.baseUrls)
+        .interceptors(interceptors)
         .retryStrategy(this.retryStrategy)
-        .interceptors(newInterceptors)
+        .networkClient(this.networkClient)
+        .additionalHeaders(this.additionalHeaders)
         .build();
   }
 
   public NetworkSession withNetworkClient(NetworkClient networkClient) {
     return new NetworkSessionBuilder()
-        .additionalHeaders(this.additionalHeaders)
         .baseUrls(this.baseUrls)
         .interceptors(this.interceptors)
         .retryStrategy(this.retryStrategy)
         .networkClient(networkClient)
+        .additionalHeaders(this.additionalHeaders)
         .build();
   }
 
   public NetworkSession withRetryStrategy(RetryStrategy retryStrategy) {
     return new NetworkSessionBuilder()
-        .additionalHeaders(this.additionalHeaders)
         .baseUrls(this.baseUrls)
         .interceptors(this.interceptors)
-        .networkClient(this.networkClient)
         .retryStrategy(retryStrategy)
+        .networkClient(this.networkClient)
+        .additionalHeaders(this.additionalHeaders)
         .build();
   }
 

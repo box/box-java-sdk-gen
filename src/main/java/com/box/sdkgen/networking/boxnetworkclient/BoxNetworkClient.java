@@ -17,6 +17,7 @@ import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
 import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.networking.networkclient.NetworkClient;
+import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Map;
@@ -83,6 +84,8 @@ public class BoxNetworkClient implements NetworkClient {
       request = prepareRequest(fetchOptions, authenticationNeeded, networkSession);
 
       Response response = null;
+      String rawResponseBody = null;
+
       try {
         response = executeOnClient(request);
 
@@ -99,19 +102,22 @@ public class BoxNetworkClient implements NetworkClient {
             response.networkResponse() != null
                 ? response.networkResponse().request().url().toString()
                 : response.request().url().toString();
-        fetchResponse =
-            Objects.equals(fetchOptions.getResponseFormat().getEnumValue(), ResponseFormat.BINARY)
-                ? new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
-                    .content(response.body().byteStream())
-                    .url(responseUrl)
-                    .build()
-                : new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
-                    .data(
-                        response.body() != null
-                            ? jsonToSerializedData(response.body().string())
-                            : null)
-                    .url(responseUrl)
-                    .build();
+
+        if (Objects.equals(
+            fetchOptions.getResponseFormat().getEnumValue(), ResponseFormat.BINARY)) {
+          fetchResponse =
+              new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
+                  .content(response.body().byteStream())
+                  .url(responseUrl)
+                  .build();
+        } else {
+          rawResponseBody = response.body() != null ? response.body().string() : null;
+          fetchResponse =
+              new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
+                  .data(readJsonFromRawBody(rawResponseBody))
+                  .url(responseUrl)
+                  .build();
+        }
 
         fetchResponse =
             networkSession.getInterceptors().stream()
@@ -174,7 +180,7 @@ public class BoxNetworkClient implements NetworkClient {
         return fetchResponse;
       }
 
-      throwOnUnsuccessfulResponse(request, fetchResponse, exceptionThrown);
+      throwOnUnsuccessfulResponse(request, fetchResponse, rawResponseBody, exceptionThrown);
     }
   }
 
@@ -269,13 +275,28 @@ public class BoxNetworkClient implements NetworkClient {
     return createNewCall(request).execute();
   }
 
+  private static JsonNode readJsonFromRawBody(String rawResponseBody) {
+    if (rawResponseBody == null) {
+      return null;
+    }
+
+    try {
+      return jsonToSerializedData(rawResponseBody);
+    } catch (Exception e) {
+      return null;
+    }
+  }
+
   private static void throwOnUnsuccessfulResponse(
-      Request request, FetchResponse fetchResponse, Exception exceptionThrown) {
+      Request request,
+      FetchResponse fetchResponse,
+      String rawResponseBody,
+      Exception exceptionThrown) {
     if (fetchResponse == null) {
       throw new BoxSDKError(exceptionThrown.getMessage(), exceptionThrown);
     }
     try {
-      throw BoxAPIError.fromAPICall(request, fetchResponse);
+      throw BoxAPIError.fromAPICall(request, fetchResponse, rawResponseBody);
     } finally {
       try {
         if (fetchResponse.getContent() != null) {
