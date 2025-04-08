@@ -1,5 +1,6 @@
 package com.box.sdkgen.box.errors;
 
+import com.box.sdkgen.internal.logging.DataSanitizer;
 import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.time.LocalDateTime;
@@ -12,14 +13,20 @@ public class BoxAPIError extends BoxSDKError {
 
   public final ResponseInfo responseInfo;
 
+  private final DataSanitizer dataSanitizer;
+
   public BoxAPIError(String message, RequestInfo requestInfo, ResponseInfo responseInfo) {
     super(message);
     this.requestInfo = requestInfo;
     this.responseInfo = responseInfo;
+    this.dataSanitizer = new DataSanitizer();
   }
 
   public static BoxAPIError fromAPICall(
-      Request request, FetchResponse fetchResponse, String rawResponseBody) {
+      Request request,
+      FetchResponse fetchResponse,
+      String rawResponseBody,
+      DataSanitizer dataSanitizer) {
     RequestInfo requestInfo = RequestInfo.fromRequest(request);
     ResponseInfo responseInfo = ResponseInfo.fromResponse(fetchResponse, rawResponseBody);
 
@@ -29,11 +36,12 @@ public class BoxAPIError extends BoxSDKError {
             .map(JsonNode::asText)
             .orElse("");
 
-    return new BoxAPIError.BoxAPIErrorBuilder(
+    return new BoxAPIErrorBuilder(
             String.format("Status %d; Request ID: %s", responseInfo.getStatusCode(), requestId),
             requestInfo,
             responseInfo)
         .timestamp(LocalDateTime.now().toString())
+        .dataSanitizer(dataSanitizer)
         .build();
   }
 
@@ -41,6 +49,7 @@ public class BoxAPIError extends BoxSDKError {
     super(builder);
     this.requestInfo = builder.requestInfo;
     this.responseInfo = builder.responseInfo;
+    this.dataSanitizer = builder.dataSanitizer;
   }
 
   public RequestInfo getRequestInfo() {
@@ -57,10 +66,13 @@ public class BoxAPIError extends BoxSDKError {
 
     protected final ResponseInfo responseInfo;
 
+    protected DataSanitizer dataSanitizer;
+
     public BoxAPIErrorBuilder(String message, RequestInfo requestInfo, ResponseInfo responseInfo) {
       super(message);
       this.requestInfo = requestInfo;
       this.responseInfo = responseInfo;
+      this.dataSanitizer = new DataSanitizer();
     }
 
     @Override
@@ -81,8 +93,22 @@ public class BoxAPIError extends BoxSDKError {
       return this;
     }
 
+    public BoxAPIErrorBuilder dataSanitizer(DataSanitizer dataSanitizer) {
+      this.dataSanitizer = dataSanitizer;
+      return this;
+    }
+
     public BoxAPIError build() {
       return new BoxAPIError(this);
     }
+  }
+
+  @Override
+  public String toString() {
+    return String.join(
+        "",
+        super.toString(),
+        String.format("\nRequest: %s", requestInfo.print(dataSanitizer)),
+        String.format("\nResponse: %s", responseInfo.print(dataSanitizer)));
   }
 }

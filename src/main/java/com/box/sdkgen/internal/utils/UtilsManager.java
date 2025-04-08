@@ -3,6 +3,7 @@ package com.box.sdkgen.internal.utils;
 import com.box.sdkgen.box.errors.BoxSDKError;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.box.sdkgen.serialization.json.JsonManager;
 import com.box.sdkgen.serialization.json.Valuable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -385,5 +386,12 @@ public class UtilsManager {
     }
 
     return result;
+  }
+
+  public static Map<String, String> sanitizeMap(
+      Map<String, String> dictionary, Map<String, String> keysToSanitize) {
+    return dictionary.entrySet().stream()
+        .filter(entry -> keysToSanitize.containsKey(entry.getKey().toLowerCase()))
+        .collect(Collectors.toMap(Map.Entry::getKey, entry -> JsonManager.sanitizedValue()));
   }
 }

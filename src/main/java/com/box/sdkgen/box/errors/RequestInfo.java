@@ -1,5 +1,6 @@
 package com.box.sdkgen.box.errors;
 
+import com.box.sdkgen.internal.logging.DataSanitizer;
 import java.util.Map;
 import java.util.stream.Collectors;
 import okhttp3.Request;
@@ -110,5 +111,23 @@ public class RequestInfo {
       return null;
     }
     return null;
+  }
+
+  String print(DataSanitizer dataSanitizer) {
+    return "RequestInfo{"
+        + "\n\tmethod='"
+        + method
+        + '\''
+        + ", \n\turl='"
+        + url
+        + '\''
+        + ", \n\tqueryParams="
+        + queryParams
+        + ", \n\theaders="
+        + dataSanitizer.sanitizeHeaders(headers)
+        + ", \n\tbody='"
+        + body
+        + '\''
+        + '}';
   }
 }
