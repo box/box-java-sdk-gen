@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.util.HashMap;
 import java.util.Map;
 
 public class JsonManager {
@@ -66,5 +67,31 @@ public class JsonManager {
 
   public static String getSdValueByKey(JsonNode jsonNode, String key) {
     return jsonNode.get(key).asText();
+  }
+
+  public static String sanitizedValue() {
+    return "---[redacted]---";
+  }
+
+  public static JsonNode sanitizeSerializedData(JsonNode sd, Map<String, String> keysToSanitize) {
+    if (!sd.isObject()) {
+      return sd;
+    }
+    Map<String, JsonNode> sanitizedDictionary = new HashMap<>();
+    sd.fields()
+        .forEachRemaining(
+            entry -> {
+              String key = entry.getKey();
+              JsonNode value = entry.getValue();
+              if (keysToSanitize.containsKey(key.toLowerCase()) && value.isTextual()) {
+                sanitizedDictionary.put(key, new ObjectMapper().valueToTree(sanitizedValue()));
+              } else if (value.isObject()) {
+                sanitizedDictionary.put(key, sanitizeSerializedData(value, keysToSanitize));
+              } else {
+                sanitizedDictionary.put(key, value);
+              }
+            });
+
+    return new ObjectMapper().valueToTree(sanitizedDictionary);
   }
 }

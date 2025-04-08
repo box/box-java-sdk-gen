@@ -11,6 +11,7 @@ import static okhttp3.ConnectionSpec.MODERN_TLS;
 
 import com.box.sdkgen.box.errors.BoxAPIError;
 import com.box.sdkgen.box.errors.BoxSDKError;
+import com.box.sdkgen.internal.logging.DataSanitizer;
 import com.box.sdkgen.networking.fetchoptions.FetchOptions;
 import com.box.sdkgen.networking.fetchoptions.MultipartItem;
 import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
@@ -180,7 +181,12 @@ public class BoxNetworkClient implements NetworkClient {
         return fetchResponse;
       }
 
-      throwOnUnsuccessfulResponse(request, fetchResponse, rawResponseBody, exceptionThrown);
+      throwOnUnsuccessfulResponse(
+          request,
+          fetchResponse,
+          rawResponseBody,
+          exceptionThrown,
+          networkSession.getDataSanitizer());
     }
   }
 
@@ -291,12 +297,13 @@ public class BoxNetworkClient implements NetworkClient {
       Request request,
       FetchResponse fetchResponse,
       String rawResponseBody,
-      Exception exceptionThrown) {
+      Exception exceptionThrown,
+      DataSanitizer dataSanitizer) {
     if (fetchResponse == null) {
       throw new BoxSDKError(exceptionThrown.getMessage(), exceptionThrown);
     }
     try {
-      throw BoxAPIError.fromAPICall(request, fetchResponse, rawResponseBody);
+      throw BoxAPIError.fromAPICall(request, fetchResponse, rawResponseBody, dataSanitizer);
     } finally {
       try {
         if (fetchResponse.getContent() != null) {

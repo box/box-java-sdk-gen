@@ -1,5 +1,6 @@
 package com.box.sdkgen.box.errors;
 
+import com.box.sdkgen.internal.logging.DataSanitizer;
 import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.util.Map;
@@ -145,5 +146,27 @@ public class ResponseInfo {
     }
 
     return builder.build();
+  }
+
+  String print(DataSanitizer dataSanitizer) {
+    return "ResponseInfo{"
+        + "\n\tstatusCode="
+        + statusCode
+        + ", \n\theaders="
+        + dataSanitizer.sanitizeHeaders(headers)
+        + ", \n\tbody="
+        + dataSanitizer.sanitizeBody(body)
+        + ", \n\tcode='"
+        + code
+        + '\''
+        + ", \n\tcontextInfo="
+        + contextInfo
+        + ", \n\trequestId='"
+        + requestId
+        + '\''
+        + ", \n\thelpUrl='"
+        + helpUrl
+        + '\''
+        + '}';
   }
 }
