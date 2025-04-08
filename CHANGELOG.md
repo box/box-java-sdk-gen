@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/box/box-java-sdk-gen/compare/v0.5.2...v0.6.0) (2025-04-08)
+
+
+### Bug Fixes
+
+* Fix handling responses with invalid `json` (box/box-codegen[#693](https://github.com/box/box-java-sdk-gen/issues/693)) ([#264](https://github.com/box/box-java-sdk-gen/issues/264)) ([c93ae3b](https://github.com/box/box-java-sdk-gen/commit/c93ae3b21a6f69f2134fb44e9489aece90d59ca9))
+
+
+### New Features and Enhancements
+
+* Support sensitive data sanitization in errors (box/box-codegen[#695](https://github.com/box/box-java-sdk-gen/issues/695)) ([#267](https://github.com/box/box-java-sdk-gen/issues/267)) ([2dd715f](https://github.com/box/box-java-sdk-gen/commit/2dd715f5c06ef3af6c82780686b332ae1360279c))
+
 ### [0.5.2](https://github.com/box/box-java-sdk-gen/compare/v0.5.1...v0.5.2) (2025-03-25)
 
 
