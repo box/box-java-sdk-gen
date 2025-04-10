@@ -391,7 +391,12 @@ public class UtilsManager {
   public static Map<String, String> sanitizeMap(
       Map<String, String> dictionary, Map<String, String> keysToSanitize) {
     return dictionary.entrySet().stream()
-        .filter(entry -> keysToSanitize.containsKey(entry.getKey().toLowerCase()))
-        .collect(Collectors.toMap(Map.Entry::getKey, entry -> JsonManager.sanitizedValue()));
+        .collect(
+            Collectors.toMap(
+                Map.Entry::getKey,
+                entry ->
+                    keysToSanitize.containsKey(entry.getKey().toLowerCase())
+                        ? JsonManager.sanitizedValue()
+                        : entry.getValue()));
   }
 }

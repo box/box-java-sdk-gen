@@ -75,6 +75,7 @@ public class NetworkSession {
         Stream.concat(this.interceptors.stream(), interceptors.stream())
             .collect(Collectors.toList());
     return new NetworkSessionBuilder()
+        .additionalHeaders(this.additionalHeaders)
         .baseUrls(this.baseUrls)
         .interceptors(newInterceptors)
         .networkClient(this.networkClient)
@@ -85,6 +86,7 @@ public class NetworkSession {
 
   public NetworkSession withNetworkClient(NetworkClient networkClient) {
     return new NetworkSessionBuilder()
+        .additionalHeaders(this.additionalHeaders)
         .baseUrls(this.baseUrls)
         .interceptors(this.interceptors)
         .networkClient(networkClient)
@@ -95,8 +97,10 @@ public class NetworkSession {
 
   public NetworkSession withRetryStrategy(RetryStrategy retryStrategy) {
     return new NetworkSessionBuilder()
+        .additionalHeaders(this.additionalHeaders)
         .baseUrls(this.baseUrls)
         .interceptors(this.interceptors)
+        .networkClient(this.networkClient)
         .retryStrategy(retryStrategy)
         .dataSanitizer(dataSanitizer)
         .build();
