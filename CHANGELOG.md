@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.1](https://github.com/box/box-java-sdk-gen/compare/v0.6.0...v0.6.1) (2025-04-10)
+
+
+### Bug Fixes
+
+* Fix sanitizing headers in Java (box/box-codegen[#698](https://github.com/box/box-java-sdk-gen/issues/698)) ([#271](https://github.com/box/box-java-sdk-gen/issues/271)) ([0cf84d2](https://github.com/box/box-java-sdk-gen/commit/0cf84d266fd72c59ce275e78c33bcb3778d9b3f6))
+
 ## [0.6.0](https://github.com/box/box-java-sdk-gen/compare/v0.5.2...v0.6.0) (2025-04-08)
 
 
