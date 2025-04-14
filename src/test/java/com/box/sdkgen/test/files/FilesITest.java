@@ -2,7 +2,9 @@ package com.box.sdkgen.test.files;
 
 import static com.box.sdkgen.internal.utils.UtilsManager.bufferEquals;
 import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
+import static com.box.sdkgen.internal.utils.UtilsManager.generateByteBuffer;
 import static com.box.sdkgen.internal.utils.UtilsManager.generateByteStream;
+import static com.box.sdkgen.internal.utils.UtilsManager.generateByteStreamFromBuffer;
 import static com.box.sdkgen.internal.utils.UtilsManager.getUuid;
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.readByteStream;
@@ -64,14 +66,14 @@ public class FilesITest {
   @Test
   public void testGetFileThumbnail() {
     String thumbnailFileName = getUuid();
-    InputStream thumbnailContentStream = generateByteStream(1024 * 1024);
+    byte[] thumbnailBuffer = generateByteBuffer(1024 * 1024);
+    InputStream thumbnailContentStream = generateByteStreamFromBuffer(thumbnailBuffer);
     FileFull thumbnailFile = uploadFile(thumbnailFileName, thumbnailContentStream);
     InputStream thumbnail =
         client
             .getFiles()
             .getFileThumbnailById(thumbnailFile.getId(), GetFileThumbnailByIdExtension.PNG);
-    assert !(bufferEquals(readByteStream(thumbnail), readByteStream(thumbnailContentStream))
-        == true);
+    assert !(bufferEquals(readByteStream(thumbnail), thumbnailBuffer) == true);
     client.getFiles().deleteFileById(thumbnailFile.getId());
   }
 

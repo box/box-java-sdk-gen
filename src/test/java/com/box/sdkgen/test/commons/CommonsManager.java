@@ -5,7 +5,10 @@ import static com.box.sdkgen.internal.utils.UtilsManager.decodeBase64;
 import static com.box.sdkgen.internal.utils.UtilsManager.generateByteStream;
 import static com.box.sdkgen.internal.utils.UtilsManager.getEnvVar;
 import static com.box.sdkgen.internal.utils.UtilsManager.getUuid;
+import static com.box.sdkgen.internal.utils.UtilsManager.isBrowser;
 
+import com.box.sdkgen.box.ccgauth.BoxCCGAuth;
+import com.box.sdkgen.box.ccgauth.CCGConfig;
 import com.box.sdkgen.box.jwtauth.BoxJWTAuth;
 import com.box.sdkgen.box.jwtauth.JWTConfig;
 import com.box.sdkgen.client.BoxClient;
@@ -41,6 +44,15 @@ import java.util.List;
 
 public class CommonsManager {
 
+  public static BoxCCGAuth getCcgAuth() {
+    CCGConfig ccgConfig =
+        new CCGConfig.CCGConfigBuilder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
+            .enterpriseId(getEnvVar("ENTERPRISE_ID"))
+            .build();
+    BoxCCGAuth auth = new BoxCCGAuth(ccgConfig);
+    return auth;
+  }
+
   public static BoxJWTAuth getJwtAuth() {
     JWTConfig jwtConfig =
         JWTConfig.fromConfigJsonString(decodeBase64(getEnvVar("JWT_CONFIG_BASE_64")));
@@ -49,13 +61,18 @@ public class CommonsManager {
   }
 
   public static BoxClient getDefaultClientWithUserSubject(String userId) {
+    if (isBrowser()) {
+      BoxCCGAuth ccgAuth = getCcgAuth();
+      BoxCCGAuth ccgAuthUser = ccgAuth.withUserSubject(userId);
+      return new BoxClient(ccgAuthUser);
+    }
     BoxJWTAuth auth = getJwtAuth();
     BoxJWTAuth authUser = auth.withUserSubject(userId);
     return new BoxClient(authUser);
   }
 
   public static BoxClient getDefaultClient() {
-    BoxClient client = new BoxClient(getJwtAuth());
+    BoxClient client = new BoxClient((isBrowser() ? getCcgAuth() : getJwtAuth()));
     return client;
   }
 
