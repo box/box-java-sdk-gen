@@ -17,7 +17,10 @@ import com.box.sdkgen.managers.files.GetFileByIdHeaders;
 import com.box.sdkgen.managers.files.GetFileByIdQueryParams;
 import com.box.sdkgen.managers.files.GetFileThumbnailByIdExtension;
 import com.box.sdkgen.managers.files.GetFileThumbnailUrlExtension;
+import com.box.sdkgen.managers.files.UpdateFileByIdQueryParams;
 import com.box.sdkgen.managers.files.UpdateFileByIdRequestBody;
+import com.box.sdkgen.managers.files.UpdateFileByIdRequestBodyLockAccessField;
+import com.box.sdkgen.managers.files.UpdateFileByIdRequestBodyLockField;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBody;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBodyAttributesField;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBodyAttributesParentField;
@@ -131,6 +134,28 @@ public class FilesITest {
     assert updatedFile.getName().equals(updatedName);
     assert updatedFile.getDescription().equals("Updated description");
     client.getFiles().deleteFileById(updatedFile.getId());
+  }
+
+  @Test
+  public void testFileLock() {
+    FileFull file = uploadNewFile();
+    FileFull fileWithLock =
+        client
+            .getFiles()
+            .updateFileById(
+                file.getId(),
+                new UpdateFileByIdRequestBody.UpdateFileByIdRequestBodyBuilder()
+                    .lock(
+                        new UpdateFileByIdRequestBodyLockField
+                                .UpdateFileByIdRequestBodyLockFieldBuilder()
+                            .access(UpdateFileByIdRequestBodyLockAccessField.LOCK)
+                            .build())
+                    .build(),
+                new UpdateFileByIdQueryParams.UpdateFileByIdQueryParamsBuilder()
+                    .fields(Arrays.asList("lock"))
+                    .build());
+    assert !(fileWithLock.getLock() == null);
+    client.getFiles().deleteFileById(file.getId());
   }
 
   @Test
