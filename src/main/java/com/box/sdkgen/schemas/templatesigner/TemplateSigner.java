@@ -32,6 +32,15 @@ public class TemplateSigner extends SerializableObject {
   @JsonProperty("public_id")
   protected String publicId;
 
+  @JsonProperty("is_password_required")
+  protected Boolean isPasswordRequired;
+
+  @JsonProperty("is_phone_number_required")
+  protected Boolean isPhoneNumberRequired;
+
+  @JsonProperty("login_required")
+  protected Boolean loginRequired;
+
   public TemplateSigner() {
     super();
   }
@@ -46,6 +55,9 @@ public class TemplateSigner extends SerializableObject {
     this.signerGroupId = builder.signerGroupId;
     this.label = builder.label;
     this.publicId = builder.publicId;
+    this.isPasswordRequired = builder.isPasswordRequired;
+    this.isPhoneNumberRequired = builder.isPhoneNumberRequired;
+    this.loginRequired = builder.loginRequired;
   }
 
   public List<TemplateSignerInput> getInputs() {
@@ -80,6 +92,18 @@ public class TemplateSigner extends SerializableObject {
     return publicId;
   }
 
+  public Boolean getIsPasswordRequired() {
+    return isPasswordRequired;
+  }
+
+  public Boolean getIsPhoneNumberRequired() {
+    return isPhoneNumberRequired;
+  }
+
+  public Boolean getLoginRequired() {
+    return loginRequired;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -96,12 +120,26 @@ public class TemplateSigner extends SerializableObject {
         && Objects.equals(order, casted.order)
         && Objects.equals(signerGroupId, casted.signerGroupId)
         && Objects.equals(label, casted.label)
-        && Objects.equals(publicId, casted.publicId);
+        && Objects.equals(publicId, casted.publicId)
+        && Objects.equals(isPasswordRequired, casted.isPasswordRequired)
+        && Objects.equals(isPhoneNumberRequired, casted.isPhoneNumberRequired)
+        && Objects.equals(loginRequired, casted.loginRequired);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputs, email, role, isInPerson, order, signerGroupId, label, publicId);
+    return Objects.hash(
+        inputs,
+        email,
+        role,
+        isInPerson,
+        order,
+        signerGroupId,
+        label,
+        publicId,
+        isPasswordRequired,
+        isPhoneNumberRequired,
+        loginRequired);
   }
 
   @Override
@@ -138,6 +176,18 @@ public class TemplateSigner extends SerializableObject {
         + "publicId='"
         + publicId
         + '\''
+        + ", "
+        + "isPasswordRequired='"
+        + isPasswordRequired
+        + '\''
+        + ", "
+        + "isPhoneNumberRequired='"
+        + isPhoneNumberRequired
+        + '\''
+        + ", "
+        + "loginRequired='"
+        + loginRequired
+        + '\''
         + "}";
   }
 
@@ -158,6 +208,12 @@ public class TemplateSigner extends SerializableObject {
     protected String label;
 
     protected String publicId;
+
+    protected Boolean isPasswordRequired;
+
+    protected Boolean isPhoneNumberRequired;
+
+    protected Boolean loginRequired;
 
     public TemplateSignerBuilder inputs(List<TemplateSignerInput> inputs) {
       this.inputs = inputs;
@@ -201,6 +257,21 @@ public class TemplateSigner extends SerializableObject {
 
     public TemplateSignerBuilder publicId(String publicId) {
       this.publicId = publicId;
+      return this;
+    }
+
+    public TemplateSignerBuilder isPasswordRequired(Boolean isPasswordRequired) {
+      this.isPasswordRequired = isPasswordRequired;
+      return this;
+    }
+
+    public TemplateSignerBuilder isPhoneNumberRequired(Boolean isPhoneNumberRequired) {
+      this.isPhoneNumberRequired = isPhoneNumberRequired;
+      return this;
+    }
+
+    public TemplateSignerBuilder loginRequired(Boolean loginRequired) {
+      this.loginRequired = loginRequired;
       return this;
     }
 
