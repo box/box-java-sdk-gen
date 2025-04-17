@@ -2,7 +2,9 @@ package com.box.sdkgen.test.files;
 
 import static com.box.sdkgen.internal.utils.UtilsManager.bufferEquals;
 import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
+import static com.box.sdkgen.internal.utils.UtilsManager.generateByteBuffer;
 import static com.box.sdkgen.internal.utils.UtilsManager.generateByteStream;
+import static com.box.sdkgen.internal.utils.UtilsManager.generateByteStreamFromBuffer;
 import static com.box.sdkgen.internal.utils.UtilsManager.getUuid;
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.readByteStream;
@@ -17,7 +19,10 @@ import com.box.sdkgen.managers.files.GetFileByIdHeaders;
 import com.box.sdkgen.managers.files.GetFileByIdQueryParams;
 import com.box.sdkgen.managers.files.GetFileThumbnailByIdExtension;
 import com.box.sdkgen.managers.files.GetFileThumbnailUrlExtension;
+import com.box.sdkgen.managers.files.UpdateFileByIdQueryParams;
 import com.box.sdkgen.managers.files.UpdateFileByIdRequestBody;
+import com.box.sdkgen.managers.files.UpdateFileByIdRequestBodyLockAccessField;
+import com.box.sdkgen.managers.files.UpdateFileByIdRequestBodyLockField;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBody;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBodyAttributesField;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBodyAttributesParentField;
@@ -61,14 +66,14 @@ public class FilesITest {
   @Test
   public void testGetFileThumbnail() {
     String thumbnailFileName = getUuid();
-    InputStream thumbnailContentStream = generateByteStream(1024 * 1024);
+    byte[] thumbnailBuffer = generateByteBuffer(1024 * 1024);
+    InputStream thumbnailContentStream = generateByteStreamFromBuffer(thumbnailBuffer);
     FileFull thumbnailFile = uploadFile(thumbnailFileName, thumbnailContentStream);
     InputStream thumbnail =
         client
             .getFiles()
             .getFileThumbnailById(thumbnailFile.getId(), GetFileThumbnailByIdExtension.PNG);
-    assert !(bufferEquals(readByteStream(thumbnail), readByteStream(thumbnailContentStream))
-        == true);
+    assert !(bufferEquals(readByteStream(thumbnail), thumbnailBuffer) == true);
     client.getFiles().deleteFileById(thumbnailFile.getId());
   }
 
@@ -131,6 +136,28 @@ public class FilesITest {
     assert updatedFile.getName().equals(updatedName);
     assert updatedFile.getDescription().equals("Updated description");
     client.getFiles().deleteFileById(updatedFile.getId());
+  }
+
+  @Test
+  public void testFileLock() {
+    FileFull file = uploadNewFile();
+    FileFull fileWithLock =
+        client
+            .getFiles()
+            .updateFileById(
+                file.getId(),
+                new UpdateFileByIdRequestBody.UpdateFileByIdRequestBodyBuilder()
+                    .lock(
+                        new UpdateFileByIdRequestBodyLockField
+                                .UpdateFileByIdRequestBodyLockFieldBuilder()
+                            .access(UpdateFileByIdRequestBodyLockAccessField.LOCK)
+                            .build())
+                    .build(),
+                new UpdateFileByIdQueryParams.UpdateFileByIdQueryParamsBuilder()
+                    .fields(Arrays.asList("lock"))
+                    .build());
+    assert !(fileWithLock.getLock() == null);
+    client.getFiles().deleteFileById(file.getId());
   }
 
   @Test
