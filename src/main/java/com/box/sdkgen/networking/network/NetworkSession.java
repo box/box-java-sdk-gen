@@ -30,6 +30,7 @@ public class NetworkSession {
   public NetworkSession() {
     networkClient = new BoxNetworkClient();
     retryStrategy = new BoxRetryStrategy();
+    dataSanitizer = new DataSanitizer();
   }
 
   protected NetworkSession(NetworkSessionBuilder builder) {

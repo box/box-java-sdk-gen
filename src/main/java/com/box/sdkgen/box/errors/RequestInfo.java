@@ -114,6 +114,8 @@ public class RequestInfo {
   }
 
   String print(DataSanitizer dataSanitizer) {
+    Map<String, String> sanitizedHeaders =
+        dataSanitizer == null ? headers : dataSanitizer.sanitizeHeaders(headers);
     return "RequestInfo{"
         + "\n\tmethod='"
         + method
@@ -124,7 +126,7 @@ public class RequestInfo {
         + ", \n\tqueryParams="
         + queryParams
         + ", \n\theaders="
-        + dataSanitizer.sanitizeHeaders(headers)
+        + sanitizedHeaders
         + ", \n\tbody='"
         + body
         + '\''
