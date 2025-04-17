@@ -149,13 +149,16 @@ public class ResponseInfo {
   }
 
   String print(DataSanitizer dataSanitizer) {
+    Map<String, String> sanitizedHeaders =
+        dataSanitizer == null ? headers : dataSanitizer.sanitizeHeaders(headers);
+    JsonNode sanitizedBody = dataSanitizer == null ? body : dataSanitizer.sanitizeBody(body);
     return "ResponseInfo{"
         + "\n\tstatusCode="
         + statusCode
         + ", \n\theaders="
-        + dataSanitizer.sanitizeHeaders(headers)
+        + sanitizedHeaders
         + ", \n\tbody="
-        + dataSanitizer.sanitizeBody(body)
+        + sanitizedBody
         + ", \n\tcode='"
         + code
         + '\''
