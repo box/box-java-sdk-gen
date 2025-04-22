@@ -57,7 +57,7 @@ See the endpoint docs at
 
 <!-- sample post_integration_mappings_slack -->
 ```
-userClient.getIntegrationMappings().createSlackIntegrationMapping(new IntegrationMappingSlackCreateRequest(new IntegrationMappingPartnerItemSlack.IntegrationMappingPartnerItemSlackBuilder(partnerItemId).slackOrgId(slackOrgId).build(), new IntegrationMappingBoxItemSlack(folder.getId())))
+userClient.getIntegrationMappings().createSlackIntegrationMapping(new IntegrationMappingSlackCreateRequest(new IntegrationMappingPartnerItemSlack.IntegrationMappingPartnerItemSlackBuilder(slackPartnerItemId).slackOrgId(slackOrgId).build(), new IntegrationMappingBoxItemSlack(folder.getId())))
 ```
 
 ### Arguments
@@ -90,7 +90,7 @@ See the endpoint docs at
 
 <!-- sample put_integration_mappings_slack_id -->
 ```
-userClient.getIntegrationMappings().updateSlackIntegrationMappingById(integrationMappingId, new UpdateSlackIntegrationMappingByIdRequestBody.UpdateSlackIntegrationMappingByIdRequestBodyBuilder().boxItem(new IntegrationMappingBoxItemSlack("1234567")).build())
+userClient.getIntegrationMappings().updateSlackIntegrationMappingById(slackIntegrationMapping.getId(), new UpdateSlackIntegrationMappingByIdRequestBody.UpdateSlackIntegrationMappingByIdRequestBodyBuilder().boxItem(new IntegrationMappingBoxItemSlack(folder.getId())).build())
 ```
 
 ### Arguments
@@ -125,7 +125,7 @@ See the endpoint docs at
 
 <!-- sample delete_integration_mappings_slack_id -->
 ```
-userClient.getIntegrationMappings().deleteSlackIntegrationMappingById(integrationMappingId)
+userClient.getIntegrationMappings().deleteSlackIntegrationMappingById(slackIntegrationMapping.getId())
 ```
 
 ### Arguments
