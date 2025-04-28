@@ -19,7 +19,7 @@ public class MetadataFull extends Metadata {
   @JsonProperty("$typeVersion")
   protected Long typeVersion;
 
-  protected Map<String, String> extraData;
+  protected Map<String, Object> extraData;
 
   public MetadataFull() {
     super();
@@ -50,7 +50,7 @@ public class MetadataFull extends Metadata {
     return typeVersion;
   }
 
-  public Map<String, String> getExtraData() {
+  public Map<String, Object> getExtraData() {
     return extraData;
   }
 
@@ -131,7 +131,7 @@ public class MetadataFull extends Metadata {
 
     protected Long typeVersion;
 
-    protected Map<String, String> extraData;
+    protected Map<String, Object> extraData;
 
     public MetadataFullBuilder canEdit(Boolean canEdit) {
       this.canEdit = canEdit;
@@ -153,7 +153,7 @@ public class MetadataFull extends Metadata {
       return this;
     }
 
-    public MetadataFullBuilder extraData(Map<String, String> extraData) {
+    public MetadataFullBuilder extraData(Map<String, Object> extraData) {
       this.extraData = extraData;
       return this;
     }

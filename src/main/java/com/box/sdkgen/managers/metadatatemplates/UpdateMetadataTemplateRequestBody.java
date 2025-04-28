@@ -21,7 +21,7 @@ public class UpdateMetadataTemplateRequestBody extends SerializableObject {
               .UpdateMetadataTemplateRequestBodyOpFieldSerializer.class)
   protected final EnumWrapper<UpdateMetadataTemplateRequestBodyOpField> op;
 
-  protected Map<String, String> data;
+  protected Map<String, Object> data;
 
   protected String fieldKey;
 
@@ -62,7 +62,7 @@ public class UpdateMetadataTemplateRequestBody extends SerializableObject {
     return op;
   }
 
-  public Map<String, String> getData() {
+  public Map<String, Object> getData() {
     return data;
   }
 
@@ -163,7 +163,7 @@ public class UpdateMetadataTemplateRequestBody extends SerializableObject {
 
     protected final EnumWrapper<UpdateMetadataTemplateRequestBodyOpField> op;
 
-    protected Map<String, String> data;
+    protected Map<String, Object> data;
 
     protected String fieldKey;
 
@@ -186,7 +186,7 @@ public class UpdateMetadataTemplateRequestBody extends SerializableObject {
       this.op = new EnumWrapper<UpdateMetadataTemplateRequestBodyOpField>(op);
     }
 
-    public UpdateMetadataTemplateRequestBodyBuilder data(Map<String, String> data) {
+    public UpdateMetadataTemplateRequestBodyBuilder data(Map<String, Object> data) {
       this.data = data;
       return this;
     }

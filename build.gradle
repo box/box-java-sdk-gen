@@ -49,10 +49,6 @@ test {
   }
 
     filter {
-      // Additional params are not supported
-      excludeTestsMatching 'com.box.sdkgen.test.filemetadata.FileMetadataITest.testGlobalFileMetadata'
-      excludeTestsMatching 'com.box.sdkgen.test.foldermetadata.FolderMetadataITest.testGlobalFolderMetadata'
-
       // Socket timeout
       excludeTestsMatching 'com.box.sdkgen.test.transfer.TransferITest.testTransferUserContent'
   }

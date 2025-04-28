@@ -95,7 +95,7 @@ public class FolderMetadataManager {
       String folderId,
       CreateFolderMetadataByIdScope scope,
       String templateKey,
-      Map<String, String> requestBody) {
+      Map<String, Object> requestBody) {
     return createFolderMetadataById(
         folderId, scope, templateKey, requestBody, new CreateFolderMetadataByIdHeaders());
   }
@@ -104,7 +104,7 @@ public class FolderMetadataManager {
       String folderId,
       CreateFolderMetadataByIdScope scope,
       String templateKey,
-      Map<String, String> requestBody,
+      Map<String, Object> requestBody,
       CreateFolderMetadataByIdHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =

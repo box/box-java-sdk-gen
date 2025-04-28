@@ -13,7 +13,7 @@ public class MetadataQuery extends SerializableObject {
   protected String query;
 
   @JsonProperty("query_params")
-  protected Map<String, String> queryParams;
+  protected Map<String, Object> queryParams;
 
   @JsonProperty("ancestor_folder_id")
   protected final String ancestorFolderId;
@@ -55,7 +55,7 @@ public class MetadataQuery extends SerializableObject {
     return query;
   }
 
-  public Map<String, String> getQueryParams() {
+  public Map<String, Object> getQueryParams() {
     return queryParams;
   }
 
@@ -146,7 +146,7 @@ public class MetadataQuery extends SerializableObject {
 
     protected String query;
 
-    protected Map<String, String> queryParams;
+    protected Map<String, Object> queryParams;
 
     protected final String ancestorFolderId;
 
@@ -168,7 +168,7 @@ public class MetadataQuery extends SerializableObject {
       return this;
     }
 
-    public MetadataQueryBuilder queryParams(Map<String, String> queryParams) {
+    public MetadataQueryBuilder queryParams(Map<String, Object> queryParams) {
       this.queryParams = queryParams;
       return this;
     }

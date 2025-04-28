@@ -23,7 +23,7 @@ public class ClientError extends SerializableObject {
   protected String message;
 
   @JsonProperty("context_info")
-  protected Map<String, String> contextInfo;
+  protected Map<String, Object> contextInfo;
 
   @JsonProperty("help_url")
   protected String helpUrl;
@@ -62,7 +62,7 @@ public class ClientError extends SerializableObject {
     return message;
   }
 
-  public Map<String, String> getContextInfo() {
+  public Map<String, Object> getContextInfo() {
     return contextInfo;
   }
 
@@ -140,7 +140,7 @@ public class ClientError extends SerializableObject {
 
     protected String message;
 
-    protected Map<String, String> contextInfo;
+    protected Map<String, Object> contextInfo;
 
     protected String helpUrl;
 
@@ -176,7 +176,7 @@ public class ClientError extends SerializableObject {
       return this;
     }
 
-    public ClientErrorBuilder contextInfo(Map<String, String> contextInfo) {
+    public ClientErrorBuilder contextInfo(Map<String, Object> contextInfo) {
       this.contextInfo = contextInfo;
       return this;
     }

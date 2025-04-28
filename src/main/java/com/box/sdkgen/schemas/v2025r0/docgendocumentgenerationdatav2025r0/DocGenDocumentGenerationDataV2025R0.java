@@ -11,11 +11,11 @@ public class DocGenDocumentGenerationDataV2025R0 extends SerializableObject {
   protected final String generatedFileName;
 
   @JsonProperty("user_input")
-  protected final Map<String, String> userInput;
+  protected final Map<String, Object> userInput;
 
   public DocGenDocumentGenerationDataV2025R0(
       @JsonProperty("generated_file_name") String generatedFileName,
-      @JsonProperty("user_input") Map<String, String> userInput) {
+      @JsonProperty("user_input") Map<String, Object> userInput) {
     super();
     this.generatedFileName = generatedFileName;
     this.userInput = userInput;
@@ -25,7 +25,7 @@ public class DocGenDocumentGenerationDataV2025R0 extends SerializableObject {
     return generatedFileName;
   }
 
-  public Map<String, String> getUserInput() {
+  public Map<String, Object> getUserInput() {
     return userInput;
   }
 

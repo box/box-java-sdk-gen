@@ -20,15 +20,15 @@ public class EventsNextStreamPositionField extends OneOfTwo<String, Double> {
     super(string, null);
   }
 
-  public EventsNextStreamPositionField(Double number) {
-    super(null, number);
+  public EventsNextStreamPositionField(Double doubleNumber) {
+    super(null, doubleNumber);
   }
 
   public String getString() {
     return value0;
   }
 
-  public Double getNumber() {
+  public Double getDoubleNumber() {
     return value1;
   }
 
