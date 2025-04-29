@@ -41,8 +41,8 @@ class MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfString
   }
 
   public MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(
-      Double number) {
-    super(null, null, null, number, null);
+      Double doubleNumber) {
+    super(null, null, null, doubleNumber, null);
   }
 
   public MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(
@@ -62,7 +62,7 @@ class MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfString
     return value2;
   }
 
-  public Double getNumber() {
+  public Double getDoubleNumber() {
     return value3;
   }
 

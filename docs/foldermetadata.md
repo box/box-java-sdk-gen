@@ -17,7 +17,10 @@ This operation is performed by calling function `getFolderMetadata`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-metadata/).
 
-*Currently we don't have an example for calling `getFolderMetadata` in integration tests*
+<!-- sample get_folders_id_metadata -->
+```
+client.getFolderMetadata().getFolderMetadata(folder.getId())
+```
 
 ### Arguments
 
@@ -47,7 +50,10 @@ This operation is performed by calling function `getFolderMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-folders-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `getFolderMetadataById` in integration tests*
+<!-- sample get_folders_id_metadata_id_id -->
+```
+client.getFolderMetadata().getFolderMetadataById(folder.getId(), GetFolderMetadataByIdScope.GLOBAL, "properties")
+```
 
 ### Arguments
 
@@ -89,7 +95,7 @@ See the endpoint docs at
 
 <!-- sample post_folders_id_metadata_id_id -->
 ```
-client.getFolderMetadata().createFolderMetadataById(folder.getId(), CreateFolderMetadataByIdScope.ENTERPRISE, templateKey, mapOf(entryOf("testName", "xyz")))
+client.getFolderMetadata().createFolderMetadataById(folder.getId(), CreateFolderMetadataByIdScope.GLOBAL, "properties", mapOf(entryOf("abc", "xyz")))
 ```
 
 ### Arguments
@@ -100,7 +106,7 @@ client.getFolderMetadata().createFolderMetadataById(folder.getId(), CreateFolder
   - The scope of the metadata template Example: "global"
 - templateKey `String`
   - The name of the metadata template Example: "properties"
-- requestBody `Map<String, String>`
+- requestBody `Map<String, Object>`
   - Request body of createFolderMetadataById method
 - headers `CreateFolderMetadataByIdHeaders`
   - Headers of createFolderMetadataById method
@@ -163,7 +169,10 @@ This operation is performed by calling function `deleteFolderMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-folders-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `deleteFolderMetadataById` in integration tests*
+<!-- sample delete_folders_id_metadata_id_id -->
+```
+client.getFolderMetadata().deleteFolderMetadataById(folder.getId(), DeleteFolderMetadataByIdScope.GLOBAL, "properties")
+```
 
 ### Arguments
 

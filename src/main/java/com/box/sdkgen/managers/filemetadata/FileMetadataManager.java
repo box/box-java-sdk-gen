@@ -95,7 +95,7 @@ public class FileMetadataManager {
       String fileId,
       CreateFileMetadataByIdScope scope,
       String templateKey,
-      Map<String, String> requestBody) {
+      Map<String, Object> requestBody) {
     return createFileMetadataById(
         fileId, scope, templateKey, requestBody, new CreateFileMetadataByIdHeaders());
   }
@@ -104,7 +104,7 @@ public class FileMetadataManager {
       String fileId,
       CreateFileMetadataByIdScope scope,
       String templateKey,
-      Map<String, String> requestBody,
+      Map<String, Object> requestBody,
       CreateFileMetadataByIdHeaders headers) {
     Map<String, String> headersMap = prepareParams(mergeMaps(mapOf(), headers.getExtraHeaders()));
     FetchResponse response =

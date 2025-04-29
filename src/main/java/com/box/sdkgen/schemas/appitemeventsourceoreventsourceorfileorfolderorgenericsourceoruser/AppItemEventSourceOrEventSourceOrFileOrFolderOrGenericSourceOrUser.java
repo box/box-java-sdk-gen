@@ -23,7 +23,7 @@ import java.util.Map;
             .AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUserDeserializer.class)
 @JsonSerialize(using = OneOfSix.OneOfSixSerializer.class)
 public class AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser
-    extends OneOfSix<AppItemEventSource, EventSource, File, Folder, Map<String, String>, User> {
+    extends OneOfSix<AppItemEventSource, EventSource, File, Folder, Map<String, Object>, User> {
 
   public AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(
       AppItemEventSource appItemEventSource) {
@@ -44,7 +44,7 @@ public class AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser
   }
 
   public AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(
-      Map<String, String> map) {
+      Map<String, Object> map) {
     super(null, null, null, null, map, null);
   }
 
@@ -68,7 +68,7 @@ public class AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser
     return value3;
   }
 
-  public Map<String, String> getMap() {
+  public Map<String, Object> getMap() {
     return value4;
   }
 

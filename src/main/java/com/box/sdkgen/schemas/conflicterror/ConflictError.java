@@ -112,7 +112,7 @@ public class ConflictError extends ClientError {
     }
 
     @Override
-    public ConflictErrorBuilder contextInfo(Map<String, String> contextInfo) {
+    public ConflictErrorBuilder contextInfo(Map<String, Object> contextInfo) {
       this.contextInfo = contextInfo;
       return this;
     }

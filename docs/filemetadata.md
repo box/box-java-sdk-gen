@@ -16,7 +16,10 @@ This operation is performed by calling function `getFileMetadata`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-metadata/).
 
-*Currently we don't have an example for calling `getFileMetadata` in integration tests*
+<!-- sample get_files_id_metadata -->
+```
+client.getFileMetadata().getFileMetadata(file.getId())
+```
 
 ### Arguments
 
@@ -46,7 +49,10 @@ This operation is performed by calling function `getFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `getFileMetadataById` in integration tests*
+<!-- sample get_files_id_metadata_id_id -->
+```
+client.getFileMetadata().getFileMetadataById(file.getId(), GetFileMetadataByIdScope.GLOBAL, "properties")
+```
 
 ### Arguments
 
@@ -84,7 +90,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_metadata_id_id -->
 ```
-client.getFileMetadata().createFileMetadataById(file.getId(), CreateFileMetadataByIdScope.ENTERPRISE, templateKey, mapOf(entryOf("testName", "xyz")))
+client.getFileMetadata().createFileMetadataById(file.getId(), CreateFileMetadataByIdScope.GLOBAL, "properties", mapOf(entryOf("abc", "xyz")))
 ```
 
 ### Arguments
@@ -95,7 +101,7 @@ client.getFileMetadata().createFileMetadataById(file.getId(), CreateFileMetadata
   - The scope of the metadata template Example: "global"
 - templateKey `String`
   - The name of the metadata template Example: "properties"
-- requestBody `Map<String, String>`
+- requestBody `Map<String, Object>`
   - Request body of createFileMetadataById method
 - headers `CreateFileMetadataByIdHeaders`
   - Headers of createFileMetadataById method
@@ -160,7 +166,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id_metadata_id_id -->
 ```
-client.getFileMetadata().deleteFileMetadataById(file.getId(), DeleteFileMetadataByIdScope.ENTERPRISE, templateKey)
+client.getFileMetadata().deleteFileMetadataById(file.getId(), DeleteFileMetadataByIdScope.GLOBAL, "properties")
 ```
 
 ### Arguments
