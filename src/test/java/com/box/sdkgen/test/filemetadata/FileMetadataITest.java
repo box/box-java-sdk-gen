@@ -47,6 +47,7 @@ public class FileMetadataITest {
         client
             .getFileMetadata()
             .getFileMetadataById(file.getId(), GetFileMetadataByIdScope.GLOBAL, "properties");
+    assert convertToString(receivedMetadata.getExtraData().get("abc")).equals("xyz");
     client
         .getFileMetadata()
         .deleteFileMetadataById(file.getId(), DeleteFileMetadataByIdScope.GLOBAL, "properties");
@@ -120,6 +121,11 @@ public class FileMetadataITest {
                     entryOf("countryCode", "US"),
                     entryOf("sports", Arrays.asList("basketball", "tennis"))));
     assert convertToString(createdMetadata.getTemplate()).equals(templateKey);
+    assert convertToString(createdMetadata.getExtraData().get("name")).equals("John");
+    assert convertToString(createdMetadata.getExtraData().get("age")).equals("23");
+    assert convertToString(createdMetadata.getExtraData().get("birthDate"))
+        .equals("2001-01-03T02:20:50.520Z");
+    assert convertToString(createdMetadata.getExtraData().get("countryCode")).equals("US");
     client
         .getFileMetadata()
         .deleteFileMetadataById(file.getId(), DeleteFileMetadataByIdScope.ENTERPRISE, templateKey);

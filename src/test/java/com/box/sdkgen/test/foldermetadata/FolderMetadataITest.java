@@ -48,6 +48,7 @@ public class FolderMetadataITest {
         client
             .getFolderMetadata()
             .getFolderMetadataById(folder.getId(), GetFolderMetadataByIdScope.GLOBAL, "properties");
+    assert convertToString(receivedMetadata.getExtraData().get("abc")).equals("xyz");
     client
         .getFolderMetadata()
         .deleteFolderMetadataById(
@@ -128,6 +129,11 @@ public class FolderMetadataITest {
                     entryOf("countryCode", "US"),
                     entryOf("sports", Arrays.asList("basketball", "tennis"))));
     assert convertToString(createdMetadata.getTemplate()).equals(templateKey);
+    assert convertToString(createdMetadata.getExtraData().get("name")).equals("John");
+    assert convertToString(createdMetadata.getExtraData().get("age")).equals("23");
+    assert convertToString(createdMetadata.getExtraData().get("birthDate"))
+        .equals("2001-01-03T02:20:50.520Z");
+    assert convertToString(createdMetadata.getExtraData().get("countryCode")).equals("US");
     client
         .getFolderMetadata()
         .deleteFolderMetadataById(
