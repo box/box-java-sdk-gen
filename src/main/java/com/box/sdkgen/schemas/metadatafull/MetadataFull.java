@@ -1,6 +1,8 @@
 package com.box.sdkgen.schemas.metadatafull;
 
 import com.box.sdkgen.schemas.metadata.Metadata;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Map;
 import java.util.Objects;
@@ -19,7 +21,7 @@ public class MetadataFull extends Metadata {
   @JsonProperty("$typeVersion")
   protected Long typeVersion;
 
-  protected Map<String, Object> extraData;
+  @JsonAnyGetter @JsonAnySetter protected Map<String, Object> extraData;
 
   public MetadataFull() {
     super();

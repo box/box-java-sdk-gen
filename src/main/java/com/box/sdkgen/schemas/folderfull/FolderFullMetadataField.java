@@ -2,12 +2,14 @@ package com.box.sdkgen.schemas.folderfull;
 
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.metadatafull.MetadataFull;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import java.util.Map;
 import java.util.Objects;
 
 public class FolderFullMetadataField extends SerializableObject {
 
-  protected Map<String, Map<String, MetadataFull>> extraData;
+  @JsonAnyGetter @JsonAnySetter protected Map<String, Map<String, MetadataFull>> extraData;
 
   public FolderFullMetadataField() {
     super();
