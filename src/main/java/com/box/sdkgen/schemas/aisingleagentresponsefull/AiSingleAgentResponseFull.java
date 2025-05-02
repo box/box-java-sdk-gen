@@ -3,9 +3,9 @@ package com.box.sdkgen.schemas.aisingleagentresponsefull;
 import com.box.sdkgen.schemas.aiagentallowedentity.AiAgentAllowedEntity;
 import com.box.sdkgen.schemas.aisingleagentresponse.AiSingleAgentResponse;
 import com.box.sdkgen.schemas.aisingleagentresponse.AiSingleAgentResponseTypeField;
-import com.box.sdkgen.schemas.aistudioagentask.AiStudioAgentAsk;
-import com.box.sdkgen.schemas.aistudioagentextract.AiStudioAgentExtract;
-import com.box.sdkgen.schemas.aistudioagenttextgen.AiStudioAgentTextGen;
+import com.box.sdkgen.schemas.aistudioagentaskresponse.AiStudioAgentAskResponse;
+import com.box.sdkgen.schemas.aistudioagentextractresponse.AiStudioAgentExtractResponse;
+import com.box.sdkgen.schemas.aistudioagenttextgenresponse.AiStudioAgentTextGenResponse;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,12 +14,12 @@ import java.util.Objects;
 
 public class AiSingleAgentResponseFull extends AiSingleAgentResponse {
 
-  protected AiStudioAgentAsk ask;
+  protected AiStudioAgentAskResponse ask;
 
   @JsonProperty("text_gen")
-  protected AiStudioAgentTextGen textGen;
+  protected AiStudioAgentTextGenResponse textGen;
 
-  protected AiStudioAgentExtract extract;
+  protected AiStudioAgentExtractResponse extract;
 
   public AiSingleAgentResponseFull(
       @JsonProperty("id") String id,
@@ -36,15 +36,15 @@ public class AiSingleAgentResponseFull extends AiSingleAgentResponse {
     this.extract = builder.extract;
   }
 
-  public AiStudioAgentAsk getAsk() {
+  public AiStudioAgentAskResponse getAsk() {
     return ask;
   }
 
-  public AiStudioAgentTextGen getTextGen() {
+  public AiStudioAgentTextGenResponse getTextGen() {
     return textGen;
   }
 
-  public AiStudioAgentExtract getExtract() {
+  public AiStudioAgentExtractResponse getExtract() {
     return extract;
   }
 
@@ -155,28 +155,28 @@ public class AiSingleAgentResponseFull extends AiSingleAgentResponse {
 
   public static class AiSingleAgentResponseFullBuilder extends AiSingleAgentResponseBuilder {
 
-    protected AiStudioAgentAsk ask;
+    protected AiStudioAgentAskResponse ask;
 
-    protected AiStudioAgentTextGen textGen;
+    protected AiStudioAgentTextGenResponse textGen;
 
-    protected AiStudioAgentExtract extract;
+    protected AiStudioAgentExtractResponse extract;
 
     public AiSingleAgentResponseFullBuilder(
         String id, String origin, String name, String accessState) {
       super(id, origin, name, accessState);
     }
 
-    public AiSingleAgentResponseFullBuilder ask(AiStudioAgentAsk ask) {
+    public AiSingleAgentResponseFullBuilder ask(AiStudioAgentAskResponse ask) {
       this.ask = ask;
       return this;
     }
 
-    public AiSingleAgentResponseFullBuilder textGen(AiStudioAgentTextGen textGen) {
+    public AiSingleAgentResponseFullBuilder textGen(AiStudioAgentTextGenResponse textGen) {
       this.textGen = textGen;
       return this;
     }
 
-    public AiSingleAgentResponseFullBuilder extract(AiStudioAgentExtract extract) {
+    public AiSingleAgentResponseFullBuilder extract(AiStudioAgentExtractResponse extract) {
       this.extract = extract;
       return this;
     }

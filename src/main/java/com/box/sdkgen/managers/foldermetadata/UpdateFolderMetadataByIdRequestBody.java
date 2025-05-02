@@ -1,6 +1,7 @@
 package com.box.sdkgen.managers.foldermetadata;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.schemas.metadatainstancevalue.MetadataInstanceValue;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -20,7 +21,7 @@ public class UpdateFolderMetadataByIdRequestBody extends SerializableObject {
 
   protected String path;
 
-  protected String value;
+  protected MetadataInstanceValue value;
 
   protected String from;
 
@@ -45,7 +46,7 @@ public class UpdateFolderMetadataByIdRequestBody extends SerializableObject {
     return path;
   }
 
-  public String getValue() {
+  public MetadataInstanceValue getValue() {
     return value;
   }
 
@@ -100,7 +101,7 @@ public class UpdateFolderMetadataByIdRequestBody extends SerializableObject {
 
     protected String path;
 
-    protected String value;
+    protected MetadataInstanceValue value;
 
     protected String from;
 
@@ -121,7 +122,7 @@ public class UpdateFolderMetadataByIdRequestBody extends SerializableObject {
       return this;
     }
 
-    public UpdateFolderMetadataByIdRequestBodyBuilder value(String value) {
+    public UpdateFolderMetadataByIdRequestBodyBuilder value(MetadataInstanceValue value) {
       this.value = value;
       return this;
     }
