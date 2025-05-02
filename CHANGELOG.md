@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.2](https://github.com/box/box-java-sdk-gen/compare/v0.6.1...v0.6.2) (2025-05-02)
+
+
+### Bug Fixes
+
+* Fix possible `NullPointerException` if data sanitizer is null ([#284](https://github.com/box/box-java-sdk-gen/issues/284)) ([e238f83](https://github.com/box/box-java-sdk-gen/commit/e238f8366aa9189b14f9748082829ea6b221d8dc))
+* handle `double` and `any` `Metadata` values properly (box/box-codegen[#716](https://github.com/box/box-java-sdk-gen/issues/716)) ([#291](https://github.com/box/box-java-sdk-gen/issues/291)) ([2acac62](https://github.com/box/box-java-sdk-gen/commit/2acac62e231fe3e3f2706833cb0acbfdc5e30d70))
+
+
+### New Features and Enhancements
+
+* add AI agents warnings and allow for more types of metadata value (box/box-openapi[#520](https://github.com/box/box-java-sdk-gen/issues/520)) ([#295](https://github.com/box/box-java-sdk-gen/issues/295)) ([b945f1b](https://github.com/box/box-java-sdk-gen/commit/b945f1b7ef181f84bc20cba5638a9760ad6e52dc))
+* Add security settings properties on sign template schema (box/box-openapi[#518](https://github.com/box/box-java-sdk-gen/issues/518)) ([#281](https://github.com/box/box-java-sdk-gen/issues/281)) ([075a1bc](https://github.com/box/box-java-sdk-gen/commit/075a1bc6494a6b5ab23df91a8d5735532e8fcbbf))
+* Support additional properties for metadata endpoints (box/box-codegen[#719](https://github.com/box/box-java-sdk-gen/issues/719)) ([#293](https://github.com/box/box-java-sdk-gen/issues/293)) ([a3fd033](https://github.com/box/box-java-sdk-gen/commit/a3fd033288e684e6b30450d6f01f2e6e6e4500e1))
+
 ### [0.6.1](https://github.com/box/box-java-sdk-gen/compare/v0.6.0...v0.6.1) (2025-04-10)
 
 
