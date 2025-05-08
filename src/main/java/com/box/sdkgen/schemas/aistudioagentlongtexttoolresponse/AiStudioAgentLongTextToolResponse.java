@@ -1,7 +1,7 @@
 package com.box.sdkgen.schemas.aistudioagentlongtexttoolresponse;
 
 import com.box.sdkgen.schemas.aiagentlongtexttool.AiAgentLongTextToolEmbeddingsField;
-import com.box.sdkgen.schemas.aillmendpointparamsawsoraillmendpointparamsgoogleoraillmendpointparamsopenai.AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi;
+import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
 import com.box.sdkgen.schemas.aistudioagentlongtexttool.AiStudioAgentLongTextTool;
 import java.util.List;
 import java.util.Objects;
@@ -117,8 +117,7 @@ public class AiStudioAgentLongTextToolResponse extends AiStudioAgentLongTextTool
 
     @Override
     public AiStudioAgentLongTextToolResponseBuilder llmEndpointParams(
-        AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi
-            llmEndpointParams) {
+        AiLlmEndpointParams llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }

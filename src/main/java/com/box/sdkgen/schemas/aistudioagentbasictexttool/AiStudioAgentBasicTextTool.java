@@ -1,7 +1,7 @@
 package com.box.sdkgen.schemas.aistudioagentbasictexttool;
 
 import com.box.sdkgen.schemas.aiagentbasictexttool.AiAgentBasicTextTool;
-import com.box.sdkgen.schemas.aillmendpointparamsawsoraillmendpointparamsgoogleoraillmendpointparamsopenai.AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi;
+import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
@@ -104,8 +104,7 @@ public class AiStudioAgentBasicTextTool extends AiAgentBasicTextTool {
 
     @Override
     public AiStudioAgentBasicTextToolBuilder llmEndpointParams(
-        AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi
-            llmEndpointParams) {
+        AiLlmEndpointParams llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }

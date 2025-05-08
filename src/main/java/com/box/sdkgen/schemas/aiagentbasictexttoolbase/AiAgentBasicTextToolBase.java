@@ -1,7 +1,7 @@
 package com.box.sdkgen.schemas.aiagentbasictexttoolbase;
 
 import com.box.sdkgen.internal.SerializableObject;
-import com.box.sdkgen.schemas.aillmendpointparamsawsoraillmendpointparamsgoogleoraillmendpointparamsopenai.AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi;
+import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
@@ -13,8 +13,7 @@ public class AiAgentBasicTextToolBase extends SerializableObject {
   protected Long numTokensForCompletion;
 
   @JsonProperty("llm_endpoint_params")
-  protected AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi
-      llmEndpointParams;
+  protected AiLlmEndpointParams llmEndpointParams;
 
   public AiAgentBasicTextToolBase() {
     super();
@@ -35,8 +34,7 @@ public class AiAgentBasicTextToolBase extends SerializableObject {
     return numTokensForCompletion;
   }
 
-  public AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi
-      getLlmEndpointParams() {
+  public AiLlmEndpointParams getLlmEndpointParams() {
     return llmEndpointParams;
   }
 
@@ -82,8 +80,7 @@ public class AiAgentBasicTextToolBase extends SerializableObject {
 
     protected Long numTokensForCompletion;
 
-    protected AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi
-        llmEndpointParams;
+    protected AiLlmEndpointParams llmEndpointParams;
 
     public AiAgentBasicTextToolBaseBuilder model(String model) {
       this.model = model;
@@ -96,8 +93,7 @@ public class AiAgentBasicTextToolBase extends SerializableObject {
     }
 
     public AiAgentBasicTextToolBaseBuilder llmEndpointParams(
-        AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi
-            llmEndpointParams) {
+        AiLlmEndpointParams llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }
