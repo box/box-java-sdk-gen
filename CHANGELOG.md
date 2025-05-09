@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/box/box-java-sdk-gen/compare/v0.6.2...v0.7.0) (2025-05-09)
+
+
+### Bug Fixes
+
+* Fix conversion of `mdfilters` into query parameters (box/box-codegen[#721](https://github.com/box/box-java-sdk-gen/issues/721)) ([#301](https://github.com/box/box-java-sdk-gen/issues/301)) ([8c2e1c6](https://github.com/box/box-java-sdk-gen/commit/8c2e1c6801502e3952dfbbe20e2e36d4ef42810f))
+
+
+### New Features and Enhancements
+
+* add support of IBM models to AI API (box/box-openapi[#522](https://github.com/box/box-java-sdk-gen/issues/522)) ([#298](https://github.com/box/box-java-sdk-gen/issues/298)) ([1444afc](https://github.com/box/box-java-sdk-gen/commit/1444afc629d0f99814842c5c881fb1a9b28c30fe))
+
 ### [0.6.2](https://github.com/box/box-java-sdk-gen/compare/v0.6.1...v0.6.2) (2025-05-02)
 
 
