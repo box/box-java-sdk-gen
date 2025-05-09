@@ -1,6 +1,6 @@
 package com.box.sdkgen.schemas.aistudioagentbasictexttoolresponse;
 
-import com.box.sdkgen.schemas.aillmendpointparamsawsoraillmendpointparamsgoogleoraillmendpointparamsopenai.AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi;
+import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
 import com.box.sdkgen.schemas.aistudioagentbasictexttool.AiStudioAgentBasicTextTool;
 import java.util.List;
 import java.util.Objects;
@@ -110,8 +110,7 @@ public class AiStudioAgentBasicTextToolResponse extends AiStudioAgentBasicTextTo
 
     @Override
     public AiStudioAgentBasicTextToolResponseBuilder llmEndpointParams(
-        AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi
-            llmEndpointParams) {
+        AiLlmEndpointParams llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }

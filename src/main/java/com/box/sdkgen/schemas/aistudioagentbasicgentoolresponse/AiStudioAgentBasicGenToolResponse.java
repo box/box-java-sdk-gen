@@ -1,7 +1,7 @@
 package com.box.sdkgen.schemas.aistudioagentbasicgentoolresponse;
 
 import com.box.sdkgen.schemas.aiagentlongtexttooltextgen.AiAgentLongTextToolTextGenEmbeddingsField;
-import com.box.sdkgen.schemas.aillmendpointparamsawsoraillmendpointparamsgoogleoraillmendpointparamsopenai.AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi;
+import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
 import com.box.sdkgen.schemas.aistudioagentbasicgentool.AiStudioAgentBasicGenTool;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +123,7 @@ public class AiStudioAgentBasicGenToolResponse extends AiStudioAgentBasicGenTool
 
     @Override
     public AiStudioAgentBasicGenToolResponseBuilder llmEndpointParams(
-        AiLlmEndpointParamsAwsOrAiLlmEndpointParamsGoogleOrAiLlmEndpointParamsOpenAi
-            llmEndpointParams) {
+        AiLlmEndpointParams llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }
