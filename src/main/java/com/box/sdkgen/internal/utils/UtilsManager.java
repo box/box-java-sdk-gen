@@ -87,15 +87,22 @@ public class UtilsManager {
       return ((Valuable) value).getValue();
     }
     if (value instanceof List) {
-      return ((List<?>) value)
-          .stream().map(UtilsManager::convertToString).collect(Collectors.joining(","));
+      List<?> list = (List<?>) value;
+      if (!list.isEmpty() && list.get(0) instanceof SerializableObject) {
+        return JsonManager.serialize(value).toString();
+      } else {
+        return ((List<?>) value)
+            .stream().map(UtilsManager::convertToString).collect(Collectors.joining(","));
+      }
     }
     if (value instanceof ArrayNode) {
       return convertToString(new ObjectMapper().convertValue(value, List.class));
     }
-
     if (value instanceof JsonNode) {
       return ((JsonNode) value).asText();
+    }
+    if (value instanceof SerializableObject) {
+      return JsonManager.serialize(value).toString();
     }
     return value.toString();
   }
