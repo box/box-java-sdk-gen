@@ -1,19 +1,27 @@
 package com.box.sdkgen.schemas.group;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.groupbase.GroupBaseTypeField;
 import com.box.sdkgen.schemas.groupmini.GroupMini;
 import com.box.sdkgen.schemas.groupmini.GroupMiniGroupTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class Group extends GroupMini {
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   public Group(@JsonProperty("id") String id) {
     super(id);
@@ -25,11 +33,11 @@ public class Group extends GroupMini {
     this.modifiedAt = builder.modifiedAt;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -86,20 +94,20 @@ public class Group extends GroupMini {
 
   public static class GroupBuilder extends GroupMiniBuilder {
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     public GroupBuilder(String id) {
       super(id);
     }
 
-    public GroupBuilder createdAt(String createdAt) {
+    public GroupBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public GroupBuilder modifiedAt(String modifiedAt) {
+    public GroupBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

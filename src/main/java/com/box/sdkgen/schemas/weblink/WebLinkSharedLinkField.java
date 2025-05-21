@@ -1,10 +1,12 @@
 package com.box.sdkgen.schemas.weblink;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class WebLinkSharedLinkField extends SerializableObject {
@@ -48,7 +50,9 @@ public class WebLinkSharedLinkField extends SerializableObject {
   protected final EnumWrapper<WebLinkSharedLinkEffectivePermissionField> effectivePermission;
 
   @JsonProperty("unshared_at")
-  protected String unsharedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date unsharedAt;
 
   @JsonProperty("is_password_enabled")
   protected final boolean isPasswordEnabled;
@@ -140,7 +144,7 @@ public class WebLinkSharedLinkField extends SerializableObject {
     return effectivePermission;
   }
 
-  public String getUnsharedAt() {
+  public Date getUnsharedAt() {
     return unsharedAt;
   }
 
@@ -269,7 +273,7 @@ public class WebLinkSharedLinkField extends SerializableObject {
 
     protected final EnumWrapper<WebLinkSharedLinkEffectivePermissionField> effectivePermission;
 
-    protected String unsharedAt;
+    protected Date unsharedAt;
 
     protected final boolean isPasswordEnabled;
 
@@ -336,7 +340,7 @@ public class WebLinkSharedLinkField extends SerializableObject {
       return this;
     }
 
-    public WebLinkSharedLinkFieldBuilder unsharedAt(String unsharedAt) {
+    public WebLinkSharedLinkFieldBuilder unsharedAt(Date unsharedAt) {
       this.unsharedAt = unsharedAt;
       return this;
     }

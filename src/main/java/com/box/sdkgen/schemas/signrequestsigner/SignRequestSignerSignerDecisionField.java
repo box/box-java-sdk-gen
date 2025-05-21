@@ -1,10 +1,12 @@
 package com.box.sdkgen.schemas.signrequestsigner;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class SignRequestSignerSignerDecisionField extends SerializableObject {
@@ -20,7 +22,9 @@ public class SignRequestSignerSignerDecisionField extends SerializableObject {
   protected EnumWrapper<SignRequestSignerSignerDecisionTypeField> type;
 
   @JsonProperty("finalized_at")
-  protected String finalizedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date finalizedAt;
 
   @JsonProperty("additional_info")
   protected String additionalInfo;
@@ -41,7 +45,7 @@ public class SignRequestSignerSignerDecisionField extends SerializableObject {
     return type;
   }
 
-  public String getFinalizedAt() {
+  public Date getFinalizedAt() {
     return finalizedAt;
   }
 
@@ -89,7 +93,7 @@ public class SignRequestSignerSignerDecisionField extends SerializableObject {
 
     protected EnumWrapper<SignRequestSignerSignerDecisionTypeField> type;
 
-    protected String finalizedAt;
+    protected Date finalizedAt;
 
     protected String additionalInfo;
 
@@ -105,7 +109,7 @@ public class SignRequestSignerSignerDecisionField extends SerializableObject {
       return this;
     }
 
-    public SignRequestSignerSignerDecisionFieldBuilder finalizedAt(String finalizedAt) {
+    public SignRequestSignerSignerDecisionFieldBuilder finalizedAt(Date finalizedAt) {
       this.finalizedAt = finalizedAt;
       return this;
     }

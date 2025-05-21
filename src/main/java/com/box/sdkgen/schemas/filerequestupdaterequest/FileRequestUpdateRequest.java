@@ -1,10 +1,12 @@
 package com.box.sdkgen.schemas.filerequestupdaterequest;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class FileRequestUpdateRequest extends SerializableObject {
@@ -28,7 +30,9 @@ public class FileRequestUpdateRequest extends SerializableObject {
   protected Boolean isDescriptionRequired;
 
   @JsonProperty("expires_at")
-  protected String expiresAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date expiresAt;
 
   public FileRequestUpdateRequest() {
     super();
@@ -64,7 +68,7 @@ public class FileRequestUpdateRequest extends SerializableObject {
     return isDescriptionRequired;
   }
 
-  public String getExpiresAt() {
+  public Date getExpiresAt() {
     return expiresAt;
   }
 
@@ -132,7 +136,7 @@ public class FileRequestUpdateRequest extends SerializableObject {
 
     protected Boolean isDescriptionRequired;
 
-    protected String expiresAt;
+    protected Date expiresAt;
 
     public FileRequestUpdateRequestBuilder title(String title) {
       this.title = title;
@@ -165,7 +169,7 @@ public class FileRequestUpdateRequest extends SerializableObject {
       return this;
     }
 
-    public FileRequestUpdateRequestBuilder expiresAt(String expiresAt) {
+    public FileRequestUpdateRequestBuilder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }

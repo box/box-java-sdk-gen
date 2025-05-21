@@ -1,10 +1,12 @@
 package com.box.sdkgen.managers.files;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class UpdateFileByIdRequestBodyLockField extends SerializableObject {
@@ -20,7 +22,9 @@ public class UpdateFileByIdRequestBodyLockField extends SerializableObject {
   protected EnumWrapper<UpdateFileByIdRequestBodyLockAccessField> access;
 
   @JsonProperty("expires_at")
-  protected String expiresAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date expiresAt;
 
   @JsonProperty("is_download_prevented")
   protected Boolean isDownloadPrevented;
@@ -40,7 +44,7 @@ public class UpdateFileByIdRequestBodyLockField extends SerializableObject {
     return access;
   }
 
-  public String getExpiresAt() {
+  public Date getExpiresAt() {
     return expiresAt;
   }
 
@@ -88,7 +92,7 @@ public class UpdateFileByIdRequestBodyLockField extends SerializableObject {
 
     protected EnumWrapper<UpdateFileByIdRequestBodyLockAccessField> access;
 
-    protected String expiresAt;
+    protected Date expiresAt;
 
     protected Boolean isDownloadPrevented;
 
@@ -104,7 +108,7 @@ public class UpdateFileByIdRequestBodyLockField extends SerializableObject {
       return this;
     }
 
-    public UpdateFileByIdRequestBodyLockFieldBuilder expiresAt(String expiresAt) {
+    public UpdateFileByIdRequestBodyLockFieldBuilder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }

@@ -1,12 +1,14 @@
 package com.box.sdkgen.schemas.aisingleagentresponse;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.aiagentallowedentity.AiAgentAllowedEntity;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,13 +33,17 @@ public class AiSingleAgentResponse extends SerializableObject {
   protected UserBase createdBy;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_by")
   protected UserBase modifiedBy;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   @JsonProperty("icon_reference")
   protected String iconReference;
@@ -96,7 +102,7 @@ public class AiSingleAgentResponse extends SerializableObject {
     return createdBy;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -104,7 +110,7 @@ public class AiSingleAgentResponse extends SerializableObject {
     return modifiedBy;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -217,11 +223,11 @@ public class AiSingleAgentResponse extends SerializableObject {
 
     protected UserBase createdBy;
 
-    protected String createdAt;
+    protected Date createdAt;
 
     protected UserBase modifiedBy;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     protected String iconReference;
 
@@ -249,7 +255,7 @@ public class AiSingleAgentResponse extends SerializableObject {
       return this;
     }
 
-    public AiSingleAgentResponseBuilder createdAt(String createdAt) {
+    public AiSingleAgentResponseBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
@@ -259,7 +265,7 @@ public class AiSingleAgentResponse extends SerializableObject {
       return this;
     }
 
-    public AiSingleAgentResponseBuilder modifiedAt(String modifiedAt) {
+    public AiSingleAgentResponseBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

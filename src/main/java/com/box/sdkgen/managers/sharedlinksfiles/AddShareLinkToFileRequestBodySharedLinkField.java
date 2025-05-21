@@ -1,10 +1,12 @@
 package com.box.sdkgen.managers.sharedlinksfiles;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class AddShareLinkToFileRequestBodySharedLinkField extends SerializableObject {
@@ -25,7 +27,9 @@ public class AddShareLinkToFileRequestBodySharedLinkField extends SerializableOb
   protected String vanityName;
 
   @JsonProperty("unshared_at")
-  protected String unsharedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date unsharedAt;
 
   protected AddShareLinkToFileRequestBodySharedLinkPermissionsField permissions;
 
@@ -55,7 +59,7 @@ public class AddShareLinkToFileRequestBodySharedLinkField extends SerializableOb
     return vanityName;
   }
 
-  public String getUnsharedAt() {
+  public Date getUnsharedAt() {
     return unsharedAt;
   }
 
@@ -118,7 +122,7 @@ public class AddShareLinkToFileRequestBodySharedLinkField extends SerializableOb
 
     protected String vanityName;
 
-    protected String unsharedAt;
+    protected Date unsharedAt;
 
     protected AddShareLinkToFileRequestBodySharedLinkPermissionsField permissions;
 
@@ -144,7 +148,7 @@ public class AddShareLinkToFileRequestBodySharedLinkField extends SerializableOb
       return this;
     }
 
-    public AddShareLinkToFileRequestBodySharedLinkFieldBuilder unsharedAt(String unsharedAt) {
+    public AddShareLinkToFileRequestBodySharedLinkFieldBuilder unsharedAt(Date unsharedAt) {
       this.unsharedAt = unsharedAt;
       return this;
     }

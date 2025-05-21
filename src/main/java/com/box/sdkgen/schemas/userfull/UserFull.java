@@ -9,6 +9,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -432,13 +433,13 @@ public class UserFull extends User {
     }
 
     @Override
-    public UserFullBuilder createdAt(String createdAt) {
+    public UserFullBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
     @Override
-    public UserFullBuilder modifiedAt(String modifiedAt) {
+    public UserFullBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

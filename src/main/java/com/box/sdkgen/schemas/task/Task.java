@@ -1,6 +1,7 @@
 package com.box.sdkgen.schemas.task;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.filemini.FileMini;
 import com.box.sdkgen.schemas.taskassignments.TaskAssignments;
 import com.box.sdkgen.schemas.usermini.UserMini;
@@ -8,6 +9,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class Task extends SerializableObject {
@@ -21,7 +23,9 @@ public class Task extends SerializableObject {
   protected FileMini item;
 
   @JsonProperty("due_at")
-  protected String dueAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date dueAt;
 
   @JsonDeserialize(using = TaskActionField.TaskActionFieldDeserializer.class)
   @JsonSerialize(using = TaskActionField.TaskActionFieldSerializer.class)
@@ -39,7 +43,9 @@ public class Task extends SerializableObject {
   protected UserMini createdBy;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonDeserialize(using = TaskCompletionRuleField.TaskCompletionRuleFieldDeserializer.class)
   @JsonSerialize(using = TaskCompletionRuleField.TaskCompletionRuleFieldSerializer.class)
@@ -77,7 +83,7 @@ public class Task extends SerializableObject {
     return item;
   }
 
-  public String getDueAt() {
+  public Date getDueAt() {
     return dueAt;
   }
 
@@ -101,7 +107,7 @@ public class Task extends SerializableObject {
     return createdBy;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -204,7 +210,7 @@ public class Task extends SerializableObject {
 
     protected FileMini item;
 
-    protected String dueAt;
+    protected Date dueAt;
 
     protected EnumWrapper<TaskActionField> action;
 
@@ -216,7 +222,7 @@ public class Task extends SerializableObject {
 
     protected UserMini createdBy;
 
-    protected String createdAt;
+    protected Date createdAt;
 
     protected EnumWrapper<TaskCompletionRuleField> completionRule;
 
@@ -240,7 +246,7 @@ public class Task extends SerializableObject {
       return this;
     }
 
-    public TaskBuilder dueAt(String dueAt) {
+    public TaskBuilder dueAt(Date dueAt) {
       this.dueAt = dueAt;
       return this;
     }
@@ -275,7 +281,7 @@ public class Task extends SerializableObject {
       return this;
     }
 
-    public TaskBuilder createdAt(String createdAt) {
+    public TaskBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }

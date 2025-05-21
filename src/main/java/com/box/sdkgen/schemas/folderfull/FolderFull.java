@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -558,13 +559,13 @@ public class FolderFull extends Folder {
     }
 
     @Override
-    public FolderFullBuilder createdAt(String createdAt) {
+    public FolderFullBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
     @Override
-    public FolderFullBuilder modifiedAt(String modifiedAt) {
+    public FolderFullBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
@@ -600,25 +601,25 @@ public class FolderFull extends Folder {
     }
 
     @Override
-    public FolderFullBuilder trashedAt(String trashedAt) {
+    public FolderFullBuilder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
     @Override
-    public FolderFullBuilder purgedAt(String purgedAt) {
+    public FolderFullBuilder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
     @Override
-    public FolderFullBuilder contentCreatedAt(String contentCreatedAt) {
+    public FolderFullBuilder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
     @Override
-    public FolderFullBuilder contentModifiedAt(String contentModifiedAt) {
+    public FolderFullBuilder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }

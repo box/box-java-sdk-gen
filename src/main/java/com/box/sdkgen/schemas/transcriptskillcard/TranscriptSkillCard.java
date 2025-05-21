@@ -1,17 +1,21 @@
 package com.box.sdkgen.schemas.transcriptskillcard;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 public class TranscriptSkillCard extends SerializableObject {
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonDeserialize(
       using = TranscriptSkillCardTypeField.TranscriptSkillCardTypeFieldDeserializer.class)
@@ -67,7 +71,7 @@ public class TranscriptSkillCard extends SerializableObject {
     this.entries = builder.entries;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -163,7 +167,7 @@ public class TranscriptSkillCard extends SerializableObject {
 
   public static class TranscriptSkillCardBuilder {
 
-    protected String createdAt;
+    protected Date createdAt;
 
     protected EnumWrapper<TranscriptSkillCardTypeField> type;
 
@@ -193,7 +197,7 @@ public class TranscriptSkillCard extends SerializableObject {
               TranscriptSkillCardSkillCardTypeField.TRANSCRIPT);
     }
 
-    public TranscriptSkillCardBuilder createdAt(String createdAt) {
+    public TranscriptSkillCardBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }

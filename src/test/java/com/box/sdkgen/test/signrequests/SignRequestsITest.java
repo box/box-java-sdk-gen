@@ -1,6 +1,8 @@
 package com.box.sdkgen.test.signrequests;
 
 import static com.box.sdkgen.internal.utils.UtilsManager.convertToString;
+import static com.box.sdkgen.internal.utils.UtilsManager.dateFromString;
+import static com.box.sdkgen.internal.utils.UtilsManager.dateToString;
 import static com.box.sdkgen.internal.utils.UtilsManager.getUuid;
 import static com.box.sdkgen.test.commons.CommonsManager.createNewFolder;
 import static com.box.sdkgen.test.commons.CommonsManager.getDefaultClient;
@@ -16,6 +18,7 @@ import com.box.sdkgen.schemas.signrequest.SignRequest;
 import com.box.sdkgen.schemas.signrequestcreaterequest.SignRequestCreateRequest;
 import com.box.sdkgen.schemas.signrequestcreatesigner.SignRequestCreateSigner;
 import com.box.sdkgen.schemas.signrequestcreatesigner.SignRequestCreateSignerRoleField;
+import com.box.sdkgen.schemas.signrequestprefilltag.SignRequestPrefillTag;
 import com.box.sdkgen.schemas.signrequests.SignRequests;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
@@ -55,6 +58,12 @@ public class SignRequestsITest {
                     .emailMessage("Please sign this document")
                     .areRemindersEnabled(true)
                     .name("Sign Request")
+                    .prefillTags(
+                        Arrays.asList(
+                            new SignRequestPrefillTag.SignRequestPrefillTagBuilder()
+                                .documentTagId("0")
+                                .dateValue(dateFromString("2035-01-01"))
+                                .build()))
                     .daysValid(30L)
                     .externalId("123")
                     .externalSystemName("BoxSignIntegration")
@@ -88,6 +97,8 @@ public class SignRequestsITest {
     assert createdSignRequest.getSigners().get(1).getLoginRequired() == false;
     assert convertToString(createdSignRequest.getSigners().get(1).getRole()).equals("signer");
     assert createdSignRequest.getParentFolder().getId().equals(destinationFolder.getId());
+    assert dateToString(createdSignRequest.getPrefillTags().get(0).getDateValue())
+        .equals("2035-01-01");
     SignRequest newSignRequest =
         client.getSignRequests().getSignRequestById(createdSignRequest.getId());
     assert newSignRequest

@@ -5,6 +5,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class SignRequestSignerInput extends SignRequestPrefillTag {
@@ -184,7 +185,7 @@ public class SignRequestSignerInput extends SignRequestPrefillTag {
     }
 
     @Override
-    public SignRequestSignerInputBuilder dateValue(String dateValue) {
+    public SignRequestSignerInputBuilder dateValue(Date dateValue) {
       this.dateValue = dateValue;
       return this;
     }

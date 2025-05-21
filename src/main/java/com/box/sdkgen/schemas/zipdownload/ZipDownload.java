@@ -1,7 +1,11 @@
 package com.box.sdkgen.schemas.zipdownload;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,7 +18,9 @@ public class ZipDownload extends SerializableObject {
   protected String statusUrl;
 
   @JsonProperty("expires_at")
-  protected String expiresAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date expiresAt;
 
   @JsonProperty("name_conflicts")
   protected List<List<ZipDownloadNameConflictsField>> nameConflicts;
@@ -39,7 +45,7 @@ public class ZipDownload extends SerializableObject {
     return statusUrl;
   }
 
-  public String getExpiresAt() {
+  public Date getExpiresAt() {
     return expiresAt;
   }
 
@@ -94,7 +100,7 @@ public class ZipDownload extends SerializableObject {
 
     protected String statusUrl;
 
-    protected String expiresAt;
+    protected Date expiresAt;
 
     protected List<List<ZipDownloadNameConflictsField>> nameConflicts;
 
@@ -108,7 +114,7 @@ public class ZipDownload extends SerializableObject {
       return this;
     }
 
-    public ZipDownloadBuilder expiresAt(String expiresAt) {
+    public ZipDownloadBuilder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }

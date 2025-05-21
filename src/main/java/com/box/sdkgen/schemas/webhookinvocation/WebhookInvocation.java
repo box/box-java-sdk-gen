@@ -1,6 +1,7 @@
 package com.box.sdkgen.schemas.webhookinvocation;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.fileorfolder.FileOrFolder;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.schemas.webhook.Webhook;
@@ -8,6 +9,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class WebhookInvocation extends SerializableObject {
@@ -24,7 +26,9 @@ public class WebhookInvocation extends SerializableObject {
   protected UserMini createdBy;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonDeserialize(
       using = WebhookInvocationTriggerField.WebhookInvocationTriggerFieldDeserializer.class)
@@ -65,7 +69,7 @@ public class WebhookInvocation extends SerializableObject {
     return createdBy;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -143,7 +147,7 @@ public class WebhookInvocation extends SerializableObject {
 
     protected UserMini createdBy;
 
-    protected String createdAt;
+    protected Date createdAt;
 
     protected EnumWrapper<WebhookInvocationTriggerField> trigger;
 
@@ -174,7 +178,7 @@ public class WebhookInvocation extends SerializableObject {
       return this;
     }
 
-    public WebhookInvocationBuilder createdAt(String createdAt) {
+    public WebhookInvocationBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }

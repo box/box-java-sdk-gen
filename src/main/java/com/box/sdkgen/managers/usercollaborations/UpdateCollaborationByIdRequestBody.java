@@ -1,10 +1,12 @@
 package com.box.sdkgen.managers.usercollaborations;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class UpdateCollaborationByIdRequestBody extends SerializableObject {
@@ -30,7 +32,9 @@ public class UpdateCollaborationByIdRequestBody extends SerializableObject {
   protected EnumWrapper<UpdateCollaborationByIdRequestBodyStatusField> status;
 
   @JsonProperty("expires_at")
-  protected String expiresAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date expiresAt;
 
   @JsonProperty("can_view_path")
   protected Boolean canViewPath;
@@ -62,7 +66,7 @@ public class UpdateCollaborationByIdRequestBody extends SerializableObject {
     return status;
   }
 
-  public String getExpiresAt() {
+  public Date getExpiresAt() {
     return expiresAt;
   }
 
@@ -117,7 +121,7 @@ public class UpdateCollaborationByIdRequestBody extends SerializableObject {
 
     protected EnumWrapper<UpdateCollaborationByIdRequestBodyStatusField> status;
 
-    protected String expiresAt;
+    protected Date expiresAt;
 
     protected Boolean canViewPath;
 
@@ -143,7 +147,7 @@ public class UpdateCollaborationByIdRequestBody extends SerializableObject {
       return this;
     }
 
-    public UpdateCollaborationByIdRequestBodyBuilder expiresAt(String expiresAt) {
+    public UpdateCollaborationByIdRequestBodyBuilder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }

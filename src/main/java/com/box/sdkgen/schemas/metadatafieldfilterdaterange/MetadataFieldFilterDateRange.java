@@ -1,13 +1,21 @@
 package com.box.sdkgen.schemas.metadatafieldfilterdaterange;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class MetadataFieldFilterDateRange extends SerializableObject {
 
-  protected String lt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date lt;
 
-  protected String gt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date gt;
 
   public MetadataFieldFilterDateRange() {
     super();
@@ -19,11 +27,11 @@ public class MetadataFieldFilterDateRange extends SerializableObject {
     this.gt = builder.gt;
   }
 
-  public String getLt() {
+  public Date getLt() {
     return lt;
   }
 
-  public String getGt() {
+  public Date getGt() {
     return gt;
   }
 
@@ -51,16 +59,16 @@ public class MetadataFieldFilterDateRange extends SerializableObject {
 
   public static class MetadataFieldFilterDateRangeBuilder {
 
-    protected String lt;
+    protected Date lt;
 
-    protected String gt;
+    protected Date gt;
 
-    public MetadataFieldFilterDateRangeBuilder lt(String lt) {
+    public MetadataFieldFilterDateRangeBuilder lt(Date lt) {
       this.lt = lt;
       return this;
     }
 
-    public MetadataFieldFilterDateRangeBuilder gt(String gt) {
+    public MetadataFieldFilterDateRangeBuilder gt(Date gt) {
       this.gt = gt;
       return this;
     }

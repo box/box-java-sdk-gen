@@ -1,12 +1,14 @@
 package com.box.sdkgen.schemas.filerequest;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class FileRequest extends SerializableObject {
@@ -32,7 +34,9 @@ public class FileRequest extends SerializableObject {
   protected Boolean isDescriptionRequired;
 
   @JsonProperty("expires_at")
-  protected String expiresAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date expiresAt;
 
   protected final FolderMini folder;
 
@@ -44,19 +48,23 @@ public class FileRequest extends SerializableObject {
   protected UserMini createdBy;
 
   @JsonProperty("created_at")
-  protected final String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected final Date createdAt;
 
   @JsonProperty("updated_by")
   protected UserMini updatedBy;
 
   @JsonProperty("updated_at")
-  protected final String updatedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected final Date updatedAt;
 
   public FileRequest(
       @JsonProperty("id") String id,
       @JsonProperty("folder") FolderMini folder,
-      @JsonProperty("created_at") String createdAt,
-      @JsonProperty("updated_at") String updatedAt) {
+      @JsonProperty("created_at") Date createdAt,
+      @JsonProperty("updated_at") Date updatedAt) {
     super();
     this.id = id;
     this.folder = folder;
@@ -112,7 +120,7 @@ public class FileRequest extends SerializableObject {
     return isDescriptionRequired;
   }
 
-  public String getExpiresAt() {
+  public Date getExpiresAt() {
     return expiresAt;
   }
 
@@ -132,7 +140,7 @@ public class FileRequest extends SerializableObject {
     return createdBy;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -140,7 +148,7 @@ public class FileRequest extends SerializableObject {
     return updatedBy;
   }
 
-  public String getUpdatedAt() {
+  public Date getUpdatedAt() {
     return updatedAt;
   }
 
@@ -271,7 +279,7 @@ public class FileRequest extends SerializableObject {
 
     protected Boolean isDescriptionRequired;
 
-    protected String expiresAt;
+    protected Date expiresAt;
 
     protected final FolderMini folder;
 
@@ -281,13 +289,13 @@ public class FileRequest extends SerializableObject {
 
     protected UserMini createdBy;
 
-    protected final String createdAt;
+    protected final Date createdAt;
 
     protected UserMini updatedBy;
 
-    protected final String updatedAt;
+    protected final Date updatedAt;
 
-    public FileRequestBuilder(String id, FolderMini folder, String createdAt, String updatedAt) {
+    public FileRequestBuilder(String id, FolderMini folder, Date createdAt, Date updatedAt) {
       this.id = id;
       this.folder = folder;
       this.createdAt = createdAt;
@@ -335,7 +343,7 @@ public class FileRequest extends SerializableObject {
       return this;
     }
 
-    public FileRequestBuilder expiresAt(String expiresAt) {
+    public FileRequestBuilder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }

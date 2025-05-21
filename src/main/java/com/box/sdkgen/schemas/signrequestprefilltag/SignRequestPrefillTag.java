@@ -1,7 +1,11 @@
 package com.box.sdkgen.schemas.signrequestprefilltag;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateUtils;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class SignRequestPrefillTag extends SerializableObject {
@@ -16,7 +20,9 @@ public class SignRequestPrefillTag extends SerializableObject {
   protected Boolean checkboxValue;
 
   @JsonProperty("date_value")
-  protected String dateValue;
+  @JsonSerialize(using = DateUtils.DateSerializer.class)
+  @JsonDeserialize(using = DateUtils.DateDeserializer.class)
+  protected Date dateValue;
 
   public SignRequestPrefillTag() {
     super();
@@ -42,7 +48,7 @@ public class SignRequestPrefillTag extends SerializableObject {
     return checkboxValue;
   }
 
-  public String getDateValue() {
+  public Date getDateValue() {
     return dateValue;
   }
 
@@ -95,7 +101,7 @@ public class SignRequestPrefillTag extends SerializableObject {
 
     protected Boolean checkboxValue;
 
-    protected String dateValue;
+    protected Date dateValue;
 
     public SignRequestPrefillTagBuilder documentTagId(String documentTagId) {
       this.documentTagId = documentTagId;
@@ -112,7 +118,7 @@ public class SignRequestPrefillTag extends SerializableObject {
       return this;
     }
 
-    public SignRequestPrefillTagBuilder dateValue(String dateValue) {
+    public SignRequestPrefillTagBuilder dateValue(Date dateValue) {
       this.dateValue = dateValue;
       return this;
     }

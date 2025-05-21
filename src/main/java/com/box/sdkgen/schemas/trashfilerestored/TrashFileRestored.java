@@ -1,6 +1,7 @@
 package com.box.sdkgen.schemas.trashfilerestored;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.fileversionmini.FileVersionMini;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
@@ -8,6 +9,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class TrashFileRestored extends SerializableObject {
@@ -38,10 +40,14 @@ public class TrashFileRestored extends SerializableObject {
   protected final TrashFileRestoredPathCollectionField pathCollection;
 
   @JsonProperty("created_at")
-  protected final String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected final Date createdAt;
 
   @JsonProperty("modified_at")
-  protected final String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected final Date modifiedAt;
 
   @JsonProperty("trashed_at")
   protected String trashedAt;
@@ -50,10 +56,14 @@ public class TrashFileRestored extends SerializableObject {
   protected String purgedAt;
 
   @JsonProperty("content_created_at")
-  protected String contentCreatedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date contentCreatedAt;
 
   @JsonProperty("content_modified_at")
-  protected String contentModifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date contentModifiedAt;
 
   @JsonProperty("created_by")
   protected UserMini createdBy;
@@ -83,8 +93,8 @@ public class TrashFileRestored extends SerializableObject {
       @JsonProperty("description") String description,
       @JsonProperty("size") long size,
       @JsonProperty("path_collection") TrashFileRestoredPathCollectionField pathCollection,
-      @JsonProperty("created_at") String createdAt,
-      @JsonProperty("modified_at") String modifiedAt,
+      @JsonProperty("created_at") Date createdAt,
+      @JsonProperty("modified_at") Date modifiedAt,
       @JsonProperty("modified_by") UserMini modifiedBy,
       @JsonProperty("owned_by") UserMini ownedBy,
       @JsonProperty("item_status") EnumWrapper<TrashFileRestoredItemStatusField> itemStatus) {
@@ -110,8 +120,8 @@ public class TrashFileRestored extends SerializableObject {
       String description,
       long size,
       TrashFileRestoredPathCollectionField pathCollection,
-      String createdAt,
-      String modifiedAt,
+      Date createdAt,
+      Date modifiedAt,
       UserMini modifiedBy,
       UserMini ownedBy,
       TrashFileRestoredItemStatusField itemStatus) {
@@ -196,11 +206,11 @@ public class TrashFileRestored extends SerializableObject {
     return pathCollection;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -212,11 +222,11 @@ public class TrashFileRestored extends SerializableObject {
     return purgedAt;
   }
 
-  public String getContentCreatedAt() {
+  public Date getContentCreatedAt() {
     return contentCreatedAt;
   }
 
-  public String getContentModifiedAt() {
+  public Date getContentModifiedAt() {
     return contentModifiedAt;
   }
 
@@ -419,17 +429,17 @@ public class TrashFileRestored extends SerializableObject {
 
     protected final TrashFileRestoredPathCollectionField pathCollection;
 
-    protected final String createdAt;
+    protected final Date createdAt;
 
-    protected final String modifiedAt;
+    protected final Date modifiedAt;
 
     protected String trashedAt;
 
     protected String purgedAt;
 
-    protected String contentCreatedAt;
+    protected Date contentCreatedAt;
 
-    protected String contentModifiedAt;
+    protected Date contentModifiedAt;
 
     protected UserMini createdBy;
 
@@ -450,8 +460,8 @@ public class TrashFileRestored extends SerializableObject {
         String description,
         long size,
         TrashFileRestoredPathCollectionField pathCollection,
-        String createdAt,
-        String modifiedAt,
+        Date createdAt,
+        Date modifiedAt,
         UserMini modifiedBy,
         UserMini ownedBy,
         EnumWrapper<TrashFileRestoredItemStatusField> itemStatus) {
@@ -476,8 +486,8 @@ public class TrashFileRestored extends SerializableObject {
         String description,
         long size,
         TrashFileRestoredPathCollectionField pathCollection,
-        String createdAt,
-        String modifiedAt,
+        Date createdAt,
+        Date modifiedAt,
         UserMini modifiedBy,
         UserMini ownedBy,
         TrashFileRestoredItemStatusField itemStatus) {
@@ -530,12 +540,12 @@ public class TrashFileRestored extends SerializableObject {
       return this;
     }
 
-    public TrashFileRestoredBuilder contentCreatedAt(String contentCreatedAt) {
+    public TrashFileRestoredBuilder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
-    public TrashFileRestoredBuilder contentModifiedAt(String contentModifiedAt) {
+    public TrashFileRestoredBuilder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }

@@ -1,10 +1,12 @@
 package com.box.sdkgen.schemas.folder;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class FolderSharedLinkField extends SerializableObject {
@@ -47,7 +49,9 @@ public class FolderSharedLinkField extends SerializableObject {
   protected final EnumWrapper<FolderSharedLinkEffectivePermissionField> effectivePermission;
 
   @JsonProperty("unshared_at")
-  protected String unsharedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date unsharedAt;
 
   @JsonProperty("is_password_enabled")
   protected final boolean isPasswordEnabled;
@@ -139,7 +143,7 @@ public class FolderSharedLinkField extends SerializableObject {
     return effectivePermission;
   }
 
-  public String getUnsharedAt() {
+  public Date getUnsharedAt() {
     return unsharedAt;
   }
 
@@ -268,7 +272,7 @@ public class FolderSharedLinkField extends SerializableObject {
 
     protected final EnumWrapper<FolderSharedLinkEffectivePermissionField> effectivePermission;
 
-    protected String unsharedAt;
+    protected Date unsharedAt;
 
     protected final boolean isPasswordEnabled;
 
@@ -334,7 +338,7 @@ public class FolderSharedLinkField extends SerializableObject {
       return this;
     }
 
-    public FolderSharedLinkFieldBuilder unsharedAt(String unsharedAt) {
+    public FolderSharedLinkFieldBuilder unsharedAt(Date unsharedAt) {
       this.unsharedAt = unsharedAt;
       return this;
     }

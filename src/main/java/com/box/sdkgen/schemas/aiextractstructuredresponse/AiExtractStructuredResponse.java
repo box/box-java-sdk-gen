@@ -1,9 +1,13 @@
 package com.box.sdkgen.schemas.aiextractstructuredresponse;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.aiagentinfo.AiAgentInfo;
 import com.box.sdkgen.schemas.aiextractresponse.AiExtractResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class AiExtractStructuredResponse extends SerializableObject {
@@ -11,7 +15,9 @@ public class AiExtractStructuredResponse extends SerializableObject {
   protected final AiExtractResponse answer;
 
   @JsonProperty("created_at")
-  protected final String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected final Date createdAt;
 
   @JsonProperty("completion_reason")
   protected String completionReason;
@@ -21,7 +27,7 @@ public class AiExtractStructuredResponse extends SerializableObject {
 
   public AiExtractStructuredResponse(
       @JsonProperty("answer") AiExtractResponse answer,
-      @JsonProperty("created_at") String createdAt) {
+      @JsonProperty("created_at") Date createdAt) {
     super();
     this.answer = answer;
     this.createdAt = createdAt;
@@ -39,7 +45,7 @@ public class AiExtractStructuredResponse extends SerializableObject {
     return answer;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -96,13 +102,13 @@ public class AiExtractStructuredResponse extends SerializableObject {
 
     protected final AiExtractResponse answer;
 
-    protected final String createdAt;
+    protected final Date createdAt;
 
     protected String completionReason;
 
     protected AiAgentInfo aiAgentInfo;
 
-    public AiExtractStructuredResponseBuilder(AiExtractResponse answer, String createdAt) {
+    public AiExtractStructuredResponseBuilder(AiExtractResponse answer, Date createdAt) {
       this.answer = answer;
       this.createdAt = createdAt;
     }

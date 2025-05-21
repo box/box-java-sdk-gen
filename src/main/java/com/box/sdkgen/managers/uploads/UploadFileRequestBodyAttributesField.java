@@ -1,7 +1,11 @@
 package com.box.sdkgen.managers.uploads;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class UploadFileRequestBodyAttributesField extends SerializableObject {
@@ -11,10 +15,14 @@ public class UploadFileRequestBodyAttributesField extends SerializableObject {
   protected final UploadFileRequestBodyAttributesParentField parent;
 
   @JsonProperty("content_created_at")
-  protected String contentCreatedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date contentCreatedAt;
 
   @JsonProperty("content_modified_at")
-  protected String contentModifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date contentModifiedAt;
 
   public UploadFileRequestBodyAttributesField(
       @JsonProperty("name") String name,
@@ -41,11 +49,11 @@ public class UploadFileRequestBodyAttributesField extends SerializableObject {
     return parent;
   }
 
-  public String getContentCreatedAt() {
+  public Date getContentCreatedAt() {
     return contentCreatedAt;
   }
 
-  public String getContentModifiedAt() {
+  public Date getContentModifiedAt() {
     return contentModifiedAt;
   }
 
@@ -96,9 +104,9 @@ public class UploadFileRequestBodyAttributesField extends SerializableObject {
 
     protected final UploadFileRequestBodyAttributesParentField parent;
 
-    protected String contentCreatedAt;
+    protected Date contentCreatedAt;
 
-    protected String contentModifiedAt;
+    protected Date contentModifiedAt;
 
     public UploadFileRequestBodyAttributesFieldBuilder(
         String name, UploadFileRequestBodyAttributesParentField parent) {
@@ -106,12 +114,12 @@ public class UploadFileRequestBodyAttributesField extends SerializableObject {
       this.parent = parent;
     }
 
-    public UploadFileRequestBodyAttributesFieldBuilder contentCreatedAt(String contentCreatedAt) {
+    public UploadFileRequestBodyAttributesFieldBuilder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
-    public UploadFileRequestBodyAttributesFieldBuilder contentModifiedAt(String contentModifiedAt) {
+    public UploadFileRequestBodyAttributesFieldBuilder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }

@@ -5,6 +5,7 @@ import com.box.sdkgen.schemas.fileversionbase.FileVersionBaseTypeField;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Date;
 import java.util.Objects;
 
 public class FileVersionFull extends FileVersion {
@@ -180,13 +181,13 @@ public class FileVersionFull extends FileVersion {
     }
 
     @Override
-    public FileVersionFullBuilder createdAt(String createdAt) {
+    public FileVersionFullBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
     @Override
-    public FileVersionFullBuilder modifiedAt(String modifiedAt) {
+    public FileVersionFullBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
@@ -198,7 +199,7 @@ public class FileVersionFull extends FileVersion {
     }
 
     @Override
-    public FileVersionFullBuilder trashedAt(String trashedAt) {
+    public FileVersionFullBuilder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
@@ -210,7 +211,7 @@ public class FileVersionFull extends FileVersion {
     }
 
     @Override
-    public FileVersionFullBuilder restoredAt(String restoredAt) {
+    public FileVersionFullBuilder restoredAt(Date restoredAt) {
       this.restoredAt = restoredAt;
       return this;
     }
@@ -222,7 +223,7 @@ public class FileVersionFull extends FileVersion {
     }
 
     @Override
-    public FileVersionFullBuilder purgedAt(String purgedAt) {
+    public FileVersionFullBuilder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
