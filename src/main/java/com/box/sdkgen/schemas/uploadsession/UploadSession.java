@@ -1,10 +1,12 @@
 package com.box.sdkgen.schemas.uploadsession;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class UploadSession extends SerializableObject {
@@ -16,7 +18,9 @@ public class UploadSession extends SerializableObject {
   protected EnumWrapper<UploadSessionTypeField> type;
 
   @JsonProperty("session_expires_at")
-  protected String sessionExpiresAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date sessionExpiresAt;
 
   @JsonProperty("part_size")
   protected Long partSize;
@@ -53,7 +57,7 @@ public class UploadSession extends SerializableObject {
     return type;
   }
 
-  public String getSessionExpiresAt() {
+  public Date getSessionExpiresAt() {
     return sessionExpiresAt;
   }
 
@@ -136,7 +140,7 @@ public class UploadSession extends SerializableObject {
 
     protected EnumWrapper<UploadSessionTypeField> type;
 
-    protected String sessionExpiresAt;
+    protected Date sessionExpiresAt;
 
     protected Long partSize;
 
@@ -161,7 +165,7 @@ public class UploadSession extends SerializableObject {
       return this;
     }
 
-    public UploadSessionBuilder sessionExpiresAt(String sessionExpiresAt) {
+    public UploadSessionBuilder sessionExpiresAt(Date sessionExpiresAt) {
       this.sessionExpiresAt = sessionExpiresAt;
       return this;
     }

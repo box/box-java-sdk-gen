@@ -1,5 +1,7 @@
 package com.box.sdkgen.test.legalholdpolicies;
 
+import static com.box.sdkgen.internal.utils.UtilsManager.dateTimeFromString;
+import static com.box.sdkgen.internal.utils.UtilsManager.dateTimeToString;
 import static com.box.sdkgen.internal.utils.UtilsManager.getUuid;
 import static com.box.sdkgen.test.commons.CommonsManager.getDefaultClient;
 
@@ -8,6 +10,7 @@ import com.box.sdkgen.managers.legalholdpolicies.CreateLegalHoldPolicyRequestBod
 import com.box.sdkgen.managers.legalholdpolicies.UpdateLegalHoldPolicyByIdRequestBody;
 import com.box.sdkgen.schemas.legalholdpolicies.LegalHoldPolicies;
 import com.box.sdkgen.schemas.legalholdpolicy.LegalHoldPolicy;
+import java.util.Date;
 import org.junit.jupiter.api.Test;
 
 public class LegalHoldPoliciesITest {
@@ -18,8 +21,8 @@ public class LegalHoldPoliciesITest {
   public void testCreateNotOngoingLegalHoldPolicy() {
     String legalHoldPolicyName = getUuid();
     String legalHoldDescription = "test description";
-    String filterStartedAt = "2021-01-01T00:00:00-08:00";
-    String filterEndedAt = "2022-01-01T00:00:00-08:00";
+    Date filterStartedAt = dateTimeFromString("2021-01-01T00:00:00-08:00");
+    Date filterEndedAt = dateTimeFromString("2022-01-01T00:00:00-08:00");
     LegalHoldPolicy legalHoldPolicy =
         client
             .getLegalHoldPolicies()
@@ -33,8 +36,10 @@ public class LegalHoldPoliciesITest {
                     .build());
     assert legalHoldPolicy.getPolicyName().equals(legalHoldPolicyName);
     assert legalHoldPolicy.getDescription().equals(legalHoldDescription);
-    assert legalHoldPolicy.getFilterStartedAt().equals(filterStartedAt);
-    assert legalHoldPolicy.getFilterEndedAt().equals(filterEndedAt);
+    assert dateTimeToString(legalHoldPolicy.getFilterStartedAt())
+        .equals(dateTimeToString(filterStartedAt));
+    assert dateTimeToString(legalHoldPolicy.getFilterEndedAt())
+        .equals(dateTimeToString(filterEndedAt));
     client.getLegalHoldPolicies().deleteLegalHoldPolicyById(legalHoldPolicy.getId());
   }
 

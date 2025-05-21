@@ -1,12 +1,14 @@
 package com.box.sdkgen.schemas.trashfolderrestored;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class TrashFolderRestored extends SerializableObject {
@@ -26,10 +28,14 @@ public class TrashFolderRestored extends SerializableObject {
   protected String name;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   protected String description;
 
@@ -51,10 +57,14 @@ public class TrashFolderRestored extends SerializableObject {
   protected String purgedAt;
 
   @JsonProperty("content_created_at")
-  protected String contentCreatedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date contentCreatedAt;
 
   @JsonProperty("content_modified_at")
-  protected String contentModifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date contentModifiedAt;
 
   @JsonProperty("owned_by")
   protected UserMini ownedBy;
@@ -124,11 +134,11 @@ public class TrashFolderRestored extends SerializableObject {
     return name;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -160,11 +170,11 @@ public class TrashFolderRestored extends SerializableObject {
     return purgedAt;
   }
 
-  public String getContentCreatedAt() {
+  public Date getContentCreatedAt() {
     return contentCreatedAt;
   }
 
-  public String getContentModifiedAt() {
+  public Date getContentModifiedAt() {
     return contentModifiedAt;
   }
 
@@ -347,9 +357,9 @@ public class TrashFolderRestored extends SerializableObject {
 
     protected String name;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     protected String description;
 
@@ -365,9 +375,9 @@ public class TrashFolderRestored extends SerializableObject {
 
     protected String purgedAt;
 
-    protected String contentCreatedAt;
+    protected Date contentCreatedAt;
 
-    protected String contentModifiedAt;
+    protected Date contentModifiedAt;
 
     protected UserMini ownedBy;
 
@@ -409,12 +419,12 @@ public class TrashFolderRestored extends SerializableObject {
       return this;
     }
 
-    public TrashFolderRestoredBuilder createdAt(String createdAt) {
+    public TrashFolderRestoredBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public TrashFolderRestoredBuilder modifiedAt(String modifiedAt) {
+    public TrashFolderRestoredBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
@@ -455,12 +465,12 @@ public class TrashFolderRestored extends SerializableObject {
       return this;
     }
 
-    public TrashFolderRestoredBuilder contentCreatedAt(String contentCreatedAt) {
+    public TrashFolderRestoredBuilder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
-    public TrashFolderRestoredBuilder contentModifiedAt(String contentModifiedAt) {
+    public TrashFolderRestoredBuilder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }

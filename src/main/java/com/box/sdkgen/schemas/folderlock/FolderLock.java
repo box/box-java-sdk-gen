@@ -1,9 +1,13 @@
 package com.box.sdkgen.schemas.folderlock;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class FolderLock extends SerializableObject {
@@ -18,7 +22,9 @@ public class FolderLock extends SerializableObject {
   protected UserBase createdBy;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("locked_operations")
   protected FolderLockLockedOperationsField lockedOperations;
@@ -57,7 +63,7 @@ public class FolderLock extends SerializableObject {
     return createdBy;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -135,7 +141,7 @@ public class FolderLock extends SerializableObject {
 
     protected UserBase createdBy;
 
-    protected String createdAt;
+    protected Date createdAt;
 
     protected FolderLockLockedOperationsField lockedOperations;
 
@@ -161,7 +167,7 @@ public class FolderLock extends SerializableObject {
       return this;
     }
 
-    public FolderLockBuilder createdAt(String createdAt) {
+    public FolderLockBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }

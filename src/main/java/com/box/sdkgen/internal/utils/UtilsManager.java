@@ -21,13 +21,16 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.PrivateKey;
 import java.security.Security;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.TimeZone;
 import java.util.UUID;
 import java.util.function.BiFunction;
 import java.util.stream.Collectors;
@@ -51,6 +54,13 @@ import org.jose4j.lang.JoseException;
 
 public class UtilsManager {
   private static final int BUFFER_SIZE = 8192;
+  private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+  private static final SimpleDateFormat DATE_TIME_FORMAT =
+      new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
+  private static final SimpleDateFormat DATE_TIME_FORMAT_WITH_MILLIS =
+      new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+  private static final SimpleDateFormat DATE_TIME_FORMAT_WITH_MICROS =
+      new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSSX");
 
   public static <K, V> Map<K, V> mapOf(Entry<K, V>... entries) {
     return Arrays.stream(entries)
@@ -405,5 +415,38 @@ public class UtilsManager {
                     keysToSanitize.containsKey(entry.getKey().toLowerCase())
                         ? JsonManager.sanitizedValue()
                         : entry.getValue()));
+  }
+
+  public static Date dateTimeFromString(String dateString) {
+    SimpleDateFormat[] formats = {
+      DATE_TIME_FORMAT, DATE_TIME_FORMAT_WITH_MILLIS, DATE_TIME_FORMAT_WITH_MICROS
+    };
+
+    for (SimpleDateFormat format : formats) {
+      try {
+        return format.parse(dateString);
+      } catch (java.text.ParseException e) {
+        // Ignore and try the next format
+      }
+    }
+    return null;
+  }
+
+  public static String dateTimeToString(Date dateTime) {
+    DATE_TIME_FORMAT_WITH_MILLIS.setTimeZone(TimeZone.getTimeZone("UTC"));
+    return DATE_TIME_FORMAT_WITH_MILLIS.format(dateTime);
+  }
+
+  public static Date dateFromString(String dateString) {
+    try {
+      return DATE_FORMAT.parse(dateString);
+    } catch (java.text.ParseException e) {
+      return null;
+    }
+  }
+
+  public static String dateToString(Date date) {
+    DATE_FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
+    return DATE_FORMAT.format(date);
   }
 }

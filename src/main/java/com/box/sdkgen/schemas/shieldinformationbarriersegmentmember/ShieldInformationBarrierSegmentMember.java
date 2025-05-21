@@ -1,11 +1,15 @@
 package com.box.sdkgen.schemas.shieldinformationbarriersegmentmember;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.shieldinformationbarrierbase.ShieldInformationBarrierBase;
 import com.box.sdkgen.schemas.shieldinformationbarriersegmentmemberbase.ShieldInformationBarrierSegmentMemberBaseTypeField;
 import com.box.sdkgen.schemas.shieldinformationbarriersegmentmembermini.ShieldInformationBarrierSegmentMemberMini;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class ShieldInformationBarrierSegmentMember
@@ -19,13 +23,17 @@ public class ShieldInformationBarrierSegmentMember
       shieldInformationBarrierSegment;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("created_by")
   protected UserBase createdBy;
 
   @JsonProperty("updated_at")
-  protected String updatedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date updatedAt;
 
   @JsonProperty("updated_by")
   protected UserBase updatedBy;
@@ -54,7 +62,7 @@ public class ShieldInformationBarrierSegmentMember
     return shieldInformationBarrierSegment;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -62,7 +70,7 @@ public class ShieldInformationBarrierSegmentMember
     return createdBy;
   }
 
-  public String getUpdatedAt() {
+  public Date getUpdatedAt() {
     return updatedAt;
   }
 
@@ -153,11 +161,11 @@ public class ShieldInformationBarrierSegmentMember
     protected ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentField
         shieldInformationBarrierSegment;
 
-    protected String createdAt;
+    protected Date createdAt;
 
     protected UserBase createdBy;
 
-    protected String updatedAt;
+    protected Date updatedAt;
 
     protected UserBase updatedBy;
 
@@ -174,7 +182,7 @@ public class ShieldInformationBarrierSegmentMember
       return this;
     }
 
-    public ShieldInformationBarrierSegmentMemberBuilder createdAt(String createdAt) {
+    public ShieldInformationBarrierSegmentMemberBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
@@ -184,7 +192,7 @@ public class ShieldInformationBarrierSegmentMember
       return this;
     }
 
-    public ShieldInformationBarrierSegmentMemberBuilder updatedAt(String updatedAt) {
+    public ShieldInformationBarrierSegmentMemberBuilder updatedAt(Date updatedAt) {
       this.updatedAt = updatedAt;
       return this;
     }

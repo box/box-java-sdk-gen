@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.integrationmappingteams;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.folderreference.FolderReference;
 import com.box.sdkgen.schemas.integrationmappingbase.IntegrationMappingBase;
 import com.box.sdkgen.schemas.integrationmappingbase.IntegrationMappingBaseTypeField;
@@ -8,6 +9,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class IntegrationMappingTeams extends IntegrationMappingBase {
@@ -33,10 +35,14 @@ public class IntegrationMappingTeams extends IntegrationMappingBase {
   protected final FolderReference boxItem;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   public IntegrationMappingTeams(
       @JsonProperty("id") String id,
@@ -73,11 +79,11 @@ public class IntegrationMappingTeams extends IntegrationMappingBase {
     return boxItem;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -160,9 +166,9 @@ public class IntegrationMappingTeams extends IntegrationMappingBase {
 
     protected final FolderReference boxItem;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     public IntegrationMappingTeamsBuilder(
         String id, IntegrationMappingPartnerItemTeamsUnion partnerItem, FolderReference boxItem) {
@@ -190,12 +196,12 @@ public class IntegrationMappingTeams extends IntegrationMappingBase {
       return this;
     }
 
-    public IntegrationMappingTeamsBuilder createdAt(String createdAt) {
+    public IntegrationMappingTeamsBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public IntegrationMappingTeamsBuilder modifiedAt(String modifiedAt) {
+    public IntegrationMappingTeamsBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

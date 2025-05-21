@@ -17,7 +17,7 @@ See the endpoint docs at
 
 <!-- sample get_docgen_jobs_id_v2025.0 -->
 ```
-client.getDocgen().getDocgenJobByIdV2025R0(docgenJobs.getEntries().get(0).getId())
+client.getDocgen().getDocgenJobByIdV2025R0(docgenJobItemFromList.getId())
 ```
 
 ### Arguments
@@ -46,7 +46,7 @@ See the endpoint docs at
 
 <!-- sample get_docgen_jobs_v2025.0 -->
 ```
-client.getDocgen().getDocgenJobsV2025R0()
+client.getDocgen().getDocgenJobsV2025R0(new GetDocgenJobsV2025R0QueryParams.GetDocgenJobsV2025R0QueryParamsBuilder().limit(500L).build())
 ```
 
 ### Arguments

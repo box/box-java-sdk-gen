@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.legalholdpolicy;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.legalholdpolicymini.LegalHoldPolicyMini;
 import com.box.sdkgen.schemas.legalholdpolicymini.LegalHoldPolicyMiniTypeField;
 import com.box.sdkgen.schemas.usermini.UserMini;
@@ -7,6 +8,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class LegalHoldPolicy extends LegalHoldPolicyMini {
@@ -27,19 +29,29 @@ public class LegalHoldPolicy extends LegalHoldPolicyMini {
   protected UserMini createdBy;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   @JsonProperty("deleted_at")
-  protected String deletedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date deletedAt;
 
   @JsonProperty("filter_started_at")
-  protected String filterStartedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date filterStartedAt;
 
   @JsonProperty("filter_ended_at")
-  protected String filterEndedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date filterEndedAt;
 
   @JsonProperty("release_notes")
   protected String releaseNotes;
@@ -83,23 +95,23 @@ public class LegalHoldPolicy extends LegalHoldPolicyMini {
     return createdBy;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
-  public String getDeletedAt() {
+  public Date getDeletedAt() {
     return deletedAt;
   }
 
-  public String getFilterStartedAt() {
+  public Date getFilterStartedAt() {
     return filterStartedAt;
   }
 
-  public String getFilterEndedAt() {
+  public Date getFilterEndedAt() {
     return filterEndedAt;
   }
 
@@ -218,15 +230,15 @@ public class LegalHoldPolicy extends LegalHoldPolicyMini {
 
     protected UserMini createdBy;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
-    protected String deletedAt;
+    protected Date deletedAt;
 
-    protected String filterStartedAt;
+    protected Date filterStartedAt;
 
-    protected String filterEndedAt;
+    protected Date filterEndedAt;
 
     protected String releaseNotes;
 
@@ -265,27 +277,27 @@ public class LegalHoldPolicy extends LegalHoldPolicyMini {
       return this;
     }
 
-    public LegalHoldPolicyBuilder createdAt(String createdAt) {
+    public LegalHoldPolicyBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public LegalHoldPolicyBuilder modifiedAt(String modifiedAt) {
+    public LegalHoldPolicyBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public LegalHoldPolicyBuilder deletedAt(String deletedAt) {
+    public LegalHoldPolicyBuilder deletedAt(Date deletedAt) {
       this.deletedAt = deletedAt;
       return this;
     }
 
-    public LegalHoldPolicyBuilder filterStartedAt(String filterStartedAt) {
+    public LegalHoldPolicyBuilder filterStartedAt(Date filterStartedAt) {
       this.filterStartedAt = filterStartedAt;
       return this;
     }
 
-    public LegalHoldPolicyBuilder filterEndedAt(String filterEndedAt) {
+    public LegalHoldPolicyBuilder filterEndedAt(Date filterEndedAt) {
       this.filterEndedAt = filterEndedAt;
       return this;
     }

@@ -1,12 +1,14 @@
 package com.box.sdkgen.schemas.taskassignment;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.filemini.FileMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class TaskAssignment extends SerializableObject {
@@ -25,13 +27,19 @@ public class TaskAssignment extends SerializableObject {
   protected String message;
 
   @JsonProperty("completed_at")
-  protected String completedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date completedAt;
 
   @JsonProperty("assigned_at")
-  protected String assignedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date assignedAt;
 
   @JsonProperty("reminded_at")
-  protected String remindedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date remindedAt;
 
   @JsonDeserialize(
       using =
@@ -82,15 +90,15 @@ public class TaskAssignment extends SerializableObject {
     return message;
   }
 
-  public String getCompletedAt() {
+  public Date getCompletedAt() {
     return completedAt;
   }
 
-  public String getAssignedAt() {
+  public Date getAssignedAt() {
     return assignedAt;
   }
 
-  public String getRemindedAt() {
+  public Date getRemindedAt() {
     return remindedAt;
   }
 
@@ -195,11 +203,11 @@ public class TaskAssignment extends SerializableObject {
 
     protected String message;
 
-    protected String completedAt;
+    protected Date completedAt;
 
-    protected String assignedAt;
+    protected Date assignedAt;
 
-    protected String remindedAt;
+    protected Date remindedAt;
 
     protected EnumWrapper<TaskAssignmentResolutionStateField> resolutionState;
 
@@ -235,17 +243,17 @@ public class TaskAssignment extends SerializableObject {
       return this;
     }
 
-    public TaskAssignmentBuilder completedAt(String completedAt) {
+    public TaskAssignmentBuilder completedAt(Date completedAt) {
       this.completedAt = completedAt;
       return this;
     }
 
-    public TaskAssignmentBuilder assignedAt(String assignedAt) {
+    public TaskAssignmentBuilder assignedAt(Date assignedAt) {
       this.assignedAt = assignedAt;
       return this;
     }
 
-    public TaskAssignmentBuilder remindedAt(String remindedAt) {
+    public TaskAssignmentBuilder remindedAt(Date remindedAt) {
       this.remindedAt = remindedAt;
       return this;
     }

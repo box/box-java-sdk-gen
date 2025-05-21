@@ -1,6 +1,7 @@
 package com.box.sdkgen.schemas.fileversionretention;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.filemini.FileMini;
 import com.box.sdkgen.schemas.fileversionmini.FileVersionMini;
 import com.box.sdkgen.schemas.retentionpolicymini.RetentionPolicyMini;
@@ -8,6 +9,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class FileVersionRetention extends SerializableObject {
@@ -26,10 +28,14 @@ public class FileVersionRetention extends SerializableObject {
   protected FileMini file;
 
   @JsonProperty("applied_at")
-  protected String appliedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date appliedAt;
 
   @JsonProperty("disposition_at")
-  protected String dispositionAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date dispositionAt;
 
   @JsonProperty("winning_retention_policy")
   protected RetentionPolicyMini winningRetentionPolicy;
@@ -65,11 +71,11 @@ public class FileVersionRetention extends SerializableObject {
     return file;
   }
 
-  public String getAppliedAt() {
+  public Date getAppliedAt() {
     return appliedAt;
   }
 
-  public String getDispositionAt() {
+  public Date getDispositionAt() {
     return dispositionAt;
   }
 
@@ -144,9 +150,9 @@ public class FileVersionRetention extends SerializableObject {
 
     protected FileMini file;
 
-    protected String appliedAt;
+    protected Date appliedAt;
 
-    protected String dispositionAt;
+    protected Date dispositionAt;
 
     protected RetentionPolicyMini winningRetentionPolicy;
 
@@ -175,12 +181,12 @@ public class FileVersionRetention extends SerializableObject {
       return this;
     }
 
-    public FileVersionRetentionBuilder appliedAt(String appliedAt) {
+    public FileVersionRetentionBuilder appliedAt(Date appliedAt) {
       this.appliedAt = appliedAt;
       return this;
     }
 
-    public FileVersionRetentionBuilder dispositionAt(String dispositionAt) {
+    public FileVersionRetentionBuilder dispositionAt(Date dispositionAt) {
       this.dispositionAt = dispositionAt;
       return this;
     }

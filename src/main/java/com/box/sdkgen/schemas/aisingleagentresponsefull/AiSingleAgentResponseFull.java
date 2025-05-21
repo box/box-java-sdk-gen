@@ -9,6 +9,7 @@ import com.box.sdkgen.schemas.aistudioagenttextgenresponse.AiStudioAgentTextGenR
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -200,7 +201,7 @@ public class AiSingleAgentResponseFull extends AiSingleAgentResponse {
     }
 
     @Override
-    public AiSingleAgentResponseFullBuilder createdAt(String createdAt) {
+    public AiSingleAgentResponseFullBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
@@ -212,7 +213,7 @@ public class AiSingleAgentResponseFull extends AiSingleAgentResponse {
     }
 
     @Override
-    public AiSingleAgentResponseFullBuilder modifiedAt(String modifiedAt) {
+    public AiSingleAgentResponseFullBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

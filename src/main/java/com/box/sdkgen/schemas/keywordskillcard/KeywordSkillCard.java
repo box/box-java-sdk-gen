@@ -1,17 +1,21 @@
 package com.box.sdkgen.schemas.keywordskillcard;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 public class KeywordSkillCard extends SerializableObject {
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonDeserialize(using = KeywordSkillCardTypeField.KeywordSkillCardTypeFieldDeserializer.class)
   @JsonSerialize(using = KeywordSkillCardTypeField.KeywordSkillCardTypeFieldSerializer.class)
@@ -59,7 +63,7 @@ public class KeywordSkillCard extends SerializableObject {
     this.entries = builder.entries;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -145,7 +149,7 @@ public class KeywordSkillCard extends SerializableObject {
 
   public static class KeywordSkillCardBuilder {
 
-    protected String createdAt;
+    protected Date createdAt;
 
     protected EnumWrapper<KeywordSkillCardTypeField> type;
 
@@ -172,7 +176,7 @@ public class KeywordSkillCard extends SerializableObject {
               KeywordSkillCardSkillCardTypeField.KEYWORD);
     }
 
-    public KeywordSkillCardBuilder createdAt(String createdAt) {
+    public KeywordSkillCardBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }

@@ -1,7 +1,11 @@
 package com.box.sdkgen.managers.uploads;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class UploadFileVersionRequestBodyAttributesField extends SerializableObject {
@@ -9,7 +13,9 @@ public class UploadFileVersionRequestBodyAttributesField extends SerializableObj
   protected final String name;
 
   @JsonProperty("content_modified_at")
-  protected String contentModifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date contentModifiedAt;
 
   public UploadFileVersionRequestBodyAttributesField(@JsonProperty("name") String name) {
     super();
@@ -27,7 +33,7 @@ public class UploadFileVersionRequestBodyAttributesField extends SerializableObj
     return name;
   }
 
-  public String getContentModifiedAt() {
+  public Date getContentModifiedAt() {
     return contentModifiedAt;
   }
 
@@ -67,14 +73,14 @@ public class UploadFileVersionRequestBodyAttributesField extends SerializableObj
 
     protected final String name;
 
-    protected String contentModifiedAt;
+    protected Date contentModifiedAt;
 
     public UploadFileVersionRequestBodyAttributesFieldBuilder(String name) {
       this.name = name;
     }
 
     public UploadFileVersionRequestBodyAttributesFieldBuilder contentModifiedAt(
-        String contentModifiedAt) {
+        Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }

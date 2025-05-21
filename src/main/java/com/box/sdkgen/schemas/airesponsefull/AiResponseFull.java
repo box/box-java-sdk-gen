@@ -4,6 +4,7 @@ import com.box.sdkgen.schemas.aiagentinfo.AiAgentInfo;
 import com.box.sdkgen.schemas.aicitation.AiCitation;
 import com.box.sdkgen.schemas.airesponse.AiResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ public class AiResponseFull extends AiResponse {
   protected List<AiCitation> citations;
 
   public AiResponseFull(
-      @JsonProperty("answer") String answer, @JsonProperty("created_at") String createdAt) {
+      @JsonProperty("answer") String answer, @JsonProperty("created_at") Date createdAt) {
     super(answer, createdAt);
   }
 
@@ -75,7 +76,7 @@ public class AiResponseFull extends AiResponse {
 
     protected List<AiCitation> citations;
 
-    public AiResponseFullBuilder(String answer, String createdAt) {
+    public AiResponseFullBuilder(String answer, Date createdAt) {
       super(answer, createdAt);
     }
 

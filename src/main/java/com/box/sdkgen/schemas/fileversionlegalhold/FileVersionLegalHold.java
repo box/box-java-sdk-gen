@@ -1,6 +1,7 @@
 package com.box.sdkgen.schemas.fileversionlegalhold;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.filemini.FileMini;
 import com.box.sdkgen.schemas.fileversionmini.FileVersionMini;
 import com.box.sdkgen.schemas.legalholdpolicyassignment.LegalHoldPolicyAssignment;
@@ -8,6 +9,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -30,7 +32,9 @@ public class FileVersionLegalHold extends SerializableObject {
   protected List<LegalHoldPolicyAssignment> legalHoldPolicyAssignments;
 
   @JsonProperty("deleted_at")
-  protected String deletedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date deletedAt;
 
   public FileVersionLegalHold() {
     super();
@@ -66,7 +70,7 @@ public class FileVersionLegalHold extends SerializableObject {
     return legalHoldPolicyAssignments;
   }
 
-  public String getDeletedAt() {
+  public Date getDeletedAt() {
     return deletedAt;
   }
 
@@ -133,7 +137,7 @@ public class FileVersionLegalHold extends SerializableObject {
 
     protected List<LegalHoldPolicyAssignment> legalHoldPolicyAssignments;
 
-    protected String deletedAt;
+    protected Date deletedAt;
 
     public FileVersionLegalHoldBuilder id(String id) {
       this.id = id;
@@ -166,7 +170,7 @@ public class FileVersionLegalHold extends SerializableObject {
       return this;
     }
 
-    public FileVersionLegalHoldBuilder deletedAt(String deletedAt) {
+    public FileVersionLegalHoldBuilder deletedAt(Date deletedAt) {
       this.deletedAt = deletedAt;
       return this;
     }

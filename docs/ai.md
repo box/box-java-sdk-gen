@@ -47,7 +47,7 @@ See the endpoint docs at
 
 <!-- sample post_ai_text_gen -->
 ```
-client.getAi().createAiTextGen(new AiTextGen.AiTextGenBuilder("Parapharse the document.s", Arrays.asList(new AiTextGenItemsField.AiTextGenItemsFieldBuilder(fileToAsk.getId()).type(AiTextGenItemsTypeField.FILE).content("The Earth goes around the sun. Sun rises in the East in the morning.").build())).dialogueHistory(Arrays.asList(new AiDialogueHistory.AiDialogueHistoryBuilder().prompt("What does the earth go around?").answer("The sun").createdAt("2021-01-01T00:00:00Z").build(), new AiDialogueHistory.AiDialogueHistoryBuilder().prompt("On Earth, where does the sun rise?").answer("East").createdAt("2021-01-01T00:00:00Z").build())).build())
+client.getAi().createAiTextGen(new AiTextGen.AiTextGenBuilder("Parapharse the document.s", Arrays.asList(new AiTextGenItemsField.AiTextGenItemsFieldBuilder(fileToAsk.getId()).type(AiTextGenItemsTypeField.FILE).content("The Earth goes around the sun. Sun rises in the East in the morning.").build())).dialogueHistory(Arrays.asList(new AiDialogueHistory.AiDialogueHistoryBuilder().prompt("What does the earth go around?").answer("The sun").createdAt(dateTimeFromString("2021-01-01T00:00:00Z")).build(), new AiDialogueHistory.AiDialogueHistoryBuilder().prompt("On Earth, where does the sun rise?").answer("East").createdAt(dateTimeFromString("2021-01-01T00:00:00Z")).build())).build())
 ```
 
 ### Arguments

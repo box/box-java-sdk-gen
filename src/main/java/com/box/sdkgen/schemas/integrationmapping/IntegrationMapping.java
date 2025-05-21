@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.integrationmapping;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.integrationmappingbase.IntegrationMappingBase;
 import com.box.sdkgen.schemas.integrationmappingbase.IntegrationMappingBaseTypeField;
@@ -10,6 +11,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class IntegrationMapping extends IntegrationMappingBase {
@@ -43,10 +45,14 @@ public class IntegrationMapping extends IntegrationMappingBase {
   protected final FolderMini boxItem;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   public IntegrationMapping(
       @JsonProperty("id") String id,
@@ -98,11 +104,11 @@ public class IntegrationMapping extends IntegrationMappingBase {
     return boxItem;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -209,9 +215,9 @@ public class IntegrationMapping extends IntegrationMappingBase {
 
     protected final FolderMini boxItem;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     public IntegrationMappingBuilder(
         String id, IntegrationMappingPartnerItemSlackUnion partnerItem, FolderMini boxItem) {
@@ -253,12 +259,12 @@ public class IntegrationMapping extends IntegrationMappingBase {
       return this;
     }
 
-    public IntegrationMappingBuilder createdAt(String createdAt) {
+    public IntegrationMappingBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public IntegrationMappingBuilder modifiedAt(String modifiedAt) {
+    public IntegrationMappingBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

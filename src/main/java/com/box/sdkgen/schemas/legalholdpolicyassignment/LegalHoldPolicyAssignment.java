@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.legalholdpolicyassignment;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.fileorfolderorweblink.FileOrFolderOrWebLink;
 import com.box.sdkgen.schemas.legalholdpolicyassignmentbase.LegalHoldPolicyAssignmentBase;
 import com.box.sdkgen.schemas.legalholdpolicyassignmentbase.LegalHoldPolicyAssignmentBaseTypeField;
@@ -7,6 +8,9 @@ import com.box.sdkgen.schemas.legalholdpolicymini.LegalHoldPolicyMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class LegalHoldPolicyAssignment extends LegalHoldPolicyAssignmentBase {
@@ -21,10 +25,14 @@ public class LegalHoldPolicyAssignment extends LegalHoldPolicyAssignmentBase {
   protected UserMini assignedBy;
 
   @JsonProperty("assigned_at")
-  protected String assignedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date assignedAt;
 
   @JsonProperty("deleted_at")
-  protected String deletedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date deletedAt;
 
   public LegalHoldPolicyAssignment() {
     super();
@@ -51,11 +59,11 @@ public class LegalHoldPolicyAssignment extends LegalHoldPolicyAssignmentBase {
     return assignedBy;
   }
 
-  public String getAssignedAt() {
+  public Date getAssignedAt() {
     return assignedAt;
   }
 
-  public String getDeletedAt() {
+  public Date getDeletedAt() {
     return deletedAt;
   }
 
@@ -124,9 +132,9 @@ public class LegalHoldPolicyAssignment extends LegalHoldPolicyAssignmentBase {
 
     protected UserMini assignedBy;
 
-    protected String assignedAt;
+    protected Date assignedAt;
 
-    protected String deletedAt;
+    protected Date deletedAt;
 
     public LegalHoldPolicyAssignmentBuilder legalHoldPolicy(LegalHoldPolicyMini legalHoldPolicy) {
       this.legalHoldPolicy = legalHoldPolicy;
@@ -143,12 +151,12 @@ public class LegalHoldPolicyAssignment extends LegalHoldPolicyAssignmentBase {
       return this;
     }
 
-    public LegalHoldPolicyAssignmentBuilder assignedAt(String assignedAt) {
+    public LegalHoldPolicyAssignmentBuilder assignedAt(Date assignedAt) {
       this.assignedAt = assignedAt;
       return this;
     }
 
-    public LegalHoldPolicyAssignmentBuilder deletedAt(String deletedAt) {
+    public LegalHoldPolicyAssignmentBuilder deletedAt(Date deletedAt) {
       this.deletedAt = deletedAt;
       return this;
     }

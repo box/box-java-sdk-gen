@@ -8,12 +8,14 @@ import static com.box.sdkgen.test.commons.CommonsManager.getDefaultClient;
 import static com.box.sdkgen.test.commons.CommonsManager.uploadNewFile;
 
 import com.box.sdkgen.client.BoxClient;
+import com.box.sdkgen.managers.docgen.GetDocgenJobsV2025R0QueryParams;
 import com.box.sdkgen.schemas.filefull.FileFull;
 import com.box.sdkgen.schemas.folderfull.FolderFull;
 import com.box.sdkgen.schemas.v2025r0.docgenbatchbasev2025r0.DocGenBatchBaseV2025R0;
 import com.box.sdkgen.schemas.v2025r0.docgenbatchcreaterequestv2025r0.DocGenBatchCreateRequestV2025R0;
 import com.box.sdkgen.schemas.v2025r0.docgenbatchcreaterequestv2025r0.DocGenBatchCreateRequestV2025R0DestinationFolderField;
 import com.box.sdkgen.schemas.v2025r0.docgendocumentgenerationdatav2025r0.DocGenDocumentGenerationDataV2025R0;
+import com.box.sdkgen.schemas.v2025r0.docgenjobfullv2025r0.DocGenJobFullV2025R0;
 import com.box.sdkgen.schemas.v2025r0.docgenjobsfullv2025r0.DocGenJobsFullV2025R0;
 import com.box.sdkgen.schemas.v2025r0.docgenjobsv2025r0.DocGenJobsV2025R0;
 import com.box.sdkgen.schemas.v2025r0.docgenjobv2025r0.DocGenJobV2025R0;
@@ -65,7 +67,13 @@ public class DocgenITest {
         .getId()
         .equals(uploadedFile.getId());
     assert docgenBatchJobs.getEntries().get(0).getBatch().getId().equals(docgenBatch.getId());
-    DocGenJobsFullV2025R0 docgenJobs = client.getDocgen().getDocgenJobsV2025R0();
+    DocGenJobsFullV2025R0 docgenJobs =
+        client
+            .getDocgen()
+            .getDocgenJobsV2025R0(
+                new GetDocgenJobsV2025R0QueryParams.GetDocgenJobsV2025R0QueryParamsBuilder()
+                    .limit(500L)
+                    .build());
     assert docgenJobs.getEntries().size() >= 1;
     assert !(docgenJobs.getEntries().get(0).getBatch().getId().equals(""));
     assert !(docgenJobs.getEntries().get(0).getCreatedBy().getId().equals(""));
@@ -81,8 +89,10 @@ public class DocgenITest {
         .equals("file_version");
     assert !(docgenJobs.getEntries().get(0).getTemplateFileVersion().getId().equals(""));
     assert convertToString(docgenJobs.getEntries().get(0).getType()).equals("docgen_job");
+    int indexOfItem = 0;
+    DocGenJobFullV2025R0 docgenJobItemFromList = docgenJobs.getEntries().get(indexOfItem);
     DocGenJobV2025R0 docgenJob =
-        client.getDocgen().getDocgenJobByIdV2025R0(docgenJobs.getEntries().get(0).getId());
+        client.getDocgen().getDocgenJobByIdV2025R0(docgenJobItemFromList.getId());
     assert !(docgenJob.getBatch().getId().equals(""));
     assert !(docgenJob.getId().equals(""));
     assert !(docgenJob.getOutputType().equals(""));

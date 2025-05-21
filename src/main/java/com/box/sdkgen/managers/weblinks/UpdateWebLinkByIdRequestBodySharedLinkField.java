@@ -1,10 +1,12 @@
 package com.box.sdkgen.managers.weblinks;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class UpdateWebLinkByIdRequestBodySharedLinkField extends SerializableObject {
@@ -25,7 +27,9 @@ public class UpdateWebLinkByIdRequestBodySharedLinkField extends SerializableObj
   protected String vanityName;
 
   @JsonProperty("unshared_at")
-  protected String unsharedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date unsharedAt;
 
   public UpdateWebLinkByIdRequestBodySharedLinkField() {
     super();
@@ -52,7 +56,7 @@ public class UpdateWebLinkByIdRequestBodySharedLinkField extends SerializableObj
     return vanityName;
   }
 
-  public String getUnsharedAt() {
+  public Date getUnsharedAt() {
     return unsharedAt;
   }
 
@@ -106,7 +110,7 @@ public class UpdateWebLinkByIdRequestBodySharedLinkField extends SerializableObj
 
     protected String vanityName;
 
-    protected String unsharedAt;
+    protected Date unsharedAt;
 
     public UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder access(
         UpdateWebLinkByIdRequestBodySharedLinkAccessField access) {
@@ -130,7 +134,7 @@ public class UpdateWebLinkByIdRequestBodySharedLinkField extends SerializableObj
       return this;
     }
 
-    public UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder unsharedAt(String unsharedAt) {
+    public UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder unsharedAt(Date unsharedAt) {
       this.unsharedAt = unsharedAt;
       return this;
     }

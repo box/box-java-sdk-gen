@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.webhook;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.schemas.webhookmini.WebhookMini;
 import com.box.sdkgen.schemas.webhookmini.WebhookMiniTargetField;
@@ -18,6 +19,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -27,7 +29,9 @@ public class Webhook extends WebhookMini {
   protected UserMini createdBy;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   protected String address;
 
@@ -51,7 +55,7 @@ public class Webhook extends WebhookMini {
     return createdBy;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -123,7 +127,7 @@ public class Webhook extends WebhookMini {
 
     protected UserMini createdBy;
 
-    protected String createdAt;
+    protected Date createdAt;
 
     protected String address;
 
@@ -134,7 +138,7 @@ public class Webhook extends WebhookMini {
       return this;
     }
 
-    public WebhookBuilder createdAt(String createdAt) {
+    public WebhookBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }

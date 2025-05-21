@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.retentionpolicy;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.retentionpolicybase.RetentionPolicyBaseTypeField;
 import com.box.sdkgen.schemas.retentionpolicymini.RetentionPolicyMini;
 import com.box.sdkgen.schemas.retentionpolicymini.RetentionPolicyMiniDispositionActionField;
@@ -8,6 +9,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -37,10 +39,14 @@ public class RetentionPolicy extends RetentionPolicyMini {
   protected UserMini createdBy;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   @JsonProperty("can_owner_extend_retention")
   protected Boolean canOwnerExtendRetention;
@@ -93,11 +99,11 @@ public class RetentionPolicy extends RetentionPolicyMini {
     return createdBy;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -246,9 +252,9 @@ public class RetentionPolicy extends RetentionPolicyMini {
 
     protected UserMini createdBy;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     protected Boolean canOwnerExtendRetention;
 
@@ -304,12 +310,12 @@ public class RetentionPolicy extends RetentionPolicyMini {
       return this;
     }
 
-    public RetentionPolicyBuilder createdAt(String createdAt) {
+    public RetentionPolicyBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public RetentionPolicyBuilder modifiedAt(String modifiedAt) {
+    public RetentionPolicyBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

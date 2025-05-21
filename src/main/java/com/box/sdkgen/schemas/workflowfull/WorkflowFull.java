@@ -1,21 +1,29 @@
 package com.box.sdkgen.schemas.workflowfull;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.schemas.workflow.Workflow;
 import com.box.sdkgen.schemas.workflow.WorkflowFlowsField;
 import com.box.sdkgen.schemas.workflowmini.WorkflowMiniTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 public class WorkflowFull extends Workflow {
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   @JsonProperty("created_by")
   protected UserBase createdBy;
@@ -35,11 +43,11 @@ public class WorkflowFull extends Workflow {
     this.modifiedBy = builder.modifiedBy;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -134,20 +142,20 @@ public class WorkflowFull extends Workflow {
 
   public static class WorkflowFullBuilder extends WorkflowBuilder {
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     protected UserBase createdBy;
 
     protected UserBase modifiedBy;
 
-    public WorkflowFullBuilder createdAt(String createdAt) {
+    public WorkflowFullBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public WorkflowFullBuilder modifiedAt(String modifiedAt) {
+    public WorkflowFullBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
