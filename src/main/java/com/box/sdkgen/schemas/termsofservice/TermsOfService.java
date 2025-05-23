@@ -1,11 +1,13 @@
 package com.box.sdkgen.schemas.termsofservice;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.termsofservicebase.TermsOfServiceBase;
 import com.box.sdkgen.schemas.termsofservicebase.TermsOfServiceBaseTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class TermsOfService extends TermsOfServiceBase {
@@ -24,10 +26,14 @@ public class TermsOfService extends TermsOfServiceBase {
   protected String text;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   public TermsOfService(@JsonProperty("id") String id) {
     super(id);
@@ -59,11 +65,11 @@ public class TermsOfService extends TermsOfServiceBase {
     return text;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -138,9 +144,9 @@ public class TermsOfService extends TermsOfServiceBase {
 
     protected String text;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     public TermsOfServiceBuilder(String id) {
       super(id);
@@ -176,12 +182,12 @@ public class TermsOfService extends TermsOfServiceBase {
       return this;
     }
 
-    public TermsOfServiceBuilder createdAt(String createdAt) {
+    public TermsOfServiceBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public TermsOfServiceBuilder modifiedAt(String modifiedAt) {
+    public TermsOfServiceBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

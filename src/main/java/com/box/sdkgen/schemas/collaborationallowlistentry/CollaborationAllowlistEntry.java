@@ -1,10 +1,12 @@
 package com.box.sdkgen.schemas.collaborationallowlistentry;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class CollaborationAllowlistEntry extends SerializableObject {
@@ -35,7 +37,9 @@ public class CollaborationAllowlistEntry extends SerializableObject {
   protected CollaborationAllowlistEntryEnterpriseField enterprise;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   public CollaborationAllowlistEntry() {
     super();
@@ -71,7 +75,7 @@ public class CollaborationAllowlistEntry extends SerializableObject {
     return enterprise;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -138,7 +142,7 @@ public class CollaborationAllowlistEntry extends SerializableObject {
 
     protected CollaborationAllowlistEntryEnterpriseField enterprise;
 
-    protected String createdAt;
+    protected Date createdAt;
 
     public CollaborationAllowlistEntryBuilder id(String id) {
       this.id = id;
@@ -179,7 +183,7 @@ public class CollaborationAllowlistEntry extends SerializableObject {
       return this;
     }
 
-    public CollaborationAllowlistEntryBuilder createdAt(String createdAt) {
+    public CollaborationAllowlistEntryBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }

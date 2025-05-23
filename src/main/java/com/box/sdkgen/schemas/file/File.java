@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.file;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.filebase.FileBaseTypeField;
 import com.box.sdkgen.schemas.filemini.FileMini;
 import com.box.sdkgen.schemas.fileversionmini.FileVersionMini;
@@ -9,6 +10,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class File extends FileMini {
@@ -21,22 +23,34 @@ public class File extends FileMini {
   protected FilePathCollectionField pathCollection;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   @JsonProperty("trashed_at")
-  protected String trashedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date trashedAt;
 
   @JsonProperty("purged_at")
-  protected String purgedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date purgedAt;
 
   @JsonProperty("content_created_at")
-  protected String contentCreatedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date contentCreatedAt;
 
   @JsonProperty("content_modified_at")
-  protected String contentModifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date contentModifiedAt;
 
   @JsonProperty("created_by")
   protected UserMini createdBy;
@@ -92,27 +106,27 @@ public class File extends FileMini {
     return pathCollection;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
-  public String getTrashedAt() {
+  public Date getTrashedAt() {
     return trashedAt;
   }
 
-  public String getPurgedAt() {
+  public Date getPurgedAt() {
     return purgedAt;
   }
 
-  public String getContentCreatedAt() {
+  public Date getContentCreatedAt() {
     return contentCreatedAt;
   }
 
-  public String getContentModifiedAt() {
+  public Date getContentModifiedAt() {
     return contentModifiedAt;
   }
 
@@ -301,17 +315,17 @@ public class File extends FileMini {
 
     protected FilePathCollectionField pathCollection;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
-    protected String trashedAt;
+    protected Date trashedAt;
 
-    protected String purgedAt;
+    protected Date purgedAt;
 
-    protected String contentCreatedAt;
+    protected Date contentCreatedAt;
 
-    protected String contentModifiedAt;
+    protected Date contentModifiedAt;
 
     protected UserMini createdBy;
 
@@ -344,32 +358,32 @@ public class File extends FileMini {
       return this;
     }
 
-    public FileBuilder createdAt(String createdAt) {
+    public FileBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public FileBuilder modifiedAt(String modifiedAt) {
+    public FileBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public FileBuilder trashedAt(String trashedAt) {
+    public FileBuilder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
-    public FileBuilder purgedAt(String purgedAt) {
+    public FileBuilder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
-    public FileBuilder contentCreatedAt(String contentCreatedAt) {
+    public FileBuilder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
-    public FileBuilder contentModifiedAt(String contentModifiedAt) {
+    public FileBuilder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }

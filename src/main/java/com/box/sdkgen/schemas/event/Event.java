@@ -1,12 +1,14 @@
 package com.box.sdkgen.schemas.event;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.appitemeventsourceoreventsourceorfileorfolderorgenericsourceoruser.AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class Event extends SerializableObject {
@@ -14,10 +16,14 @@ public class Event extends SerializableObject {
   protected String type;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("recorded_at")
-  protected String recordedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date recordedAt;
 
   @JsonProperty("event_id")
   protected String eventId;
@@ -59,11 +65,11 @@ public class Event extends SerializableObject {
     return type;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getRecordedAt() {
+  public Date getRecordedAt() {
     return recordedAt;
   }
 
@@ -170,9 +176,9 @@ public class Event extends SerializableObject {
 
     protected String type;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String recordedAt;
+    protected Date recordedAt;
 
     protected String eventId;
 
@@ -191,12 +197,12 @@ public class Event extends SerializableObject {
       return this;
     }
 
-    public EventBuilder createdAt(String createdAt) {
+    public EventBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public EventBuilder recordedAt(String recordedAt) {
+    public EventBuilder recordedAt(Date recordedAt) {
       this.recordedAt = recordedAt;
       return this;
     }

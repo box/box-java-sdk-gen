@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.shieldinformationbarriersegmentrestriction;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.shieldinformationbarrierbase.ShieldInformationBarrierBase;
 import com.box.sdkgen.schemas.shieldinformationbarriersegmentrestrictionbase.ShieldInformationBarrierSegmentRestrictionBaseTypeField;
 import com.box.sdkgen.schemas.shieldinformationbarriersegmentrestrictionmini.ShieldInformationBarrierSegmentRestrictionMini;
@@ -8,6 +9,9 @@ import com.box.sdkgen.schemas.shieldinformationbarriersegmentrestrictionmini.Shi
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class ShieldInformationBarrierSegmentRestriction
@@ -17,13 +21,17 @@ public class ShieldInformationBarrierSegmentRestriction
   protected ShieldInformationBarrierBase shieldInformationBarrier;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("created_by")
   protected UserBase createdBy;
 
   @JsonProperty("updated_at")
-  protected String updatedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date updatedAt;
 
   @JsonProperty("updated_by")
   protected UserBase updatedBy;
@@ -51,7 +59,7 @@ public class ShieldInformationBarrierSegmentRestriction
     return shieldInformationBarrier;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -59,7 +67,7 @@ public class ShieldInformationBarrierSegmentRestriction
     return createdBy;
   }
 
-  public String getUpdatedAt() {
+  public Date getUpdatedAt() {
     return updatedAt;
   }
 
@@ -148,11 +156,11 @@ public class ShieldInformationBarrierSegmentRestriction
 
     protected ShieldInformationBarrierBase shieldInformationBarrier;
 
-    protected String createdAt;
+    protected Date createdAt;
 
     protected UserBase createdBy;
 
-    protected String updatedAt;
+    protected Date updatedAt;
 
     protected UserBase updatedBy;
 
@@ -169,7 +177,7 @@ public class ShieldInformationBarrierSegmentRestriction
       return this;
     }
 
-    public ShieldInformationBarrierSegmentRestrictionBuilder createdAt(String createdAt) {
+    public ShieldInformationBarrierSegmentRestrictionBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
@@ -179,7 +187,7 @@ public class ShieldInformationBarrierSegmentRestriction
       return this;
     }
 
-    public ShieldInformationBarrierSegmentRestrictionBuilder updatedAt(String updatedAt) {
+    public ShieldInformationBarrierSegmentRestrictionBuilder updatedAt(Date updatedAt) {
       this.updatedAt = updatedAt;
       return this;
     }

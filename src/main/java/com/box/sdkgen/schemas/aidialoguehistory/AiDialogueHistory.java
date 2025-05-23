@@ -1,7 +1,11 @@
 package com.box.sdkgen.schemas.aidialoguehistory;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class AiDialogueHistory extends SerializableObject {
@@ -11,7 +15,9 @@ public class AiDialogueHistory extends SerializableObject {
   protected String answer;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   public AiDialogueHistory() {
     super();
@@ -32,7 +38,7 @@ public class AiDialogueHistory extends SerializableObject {
     return answer;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -78,7 +84,7 @@ public class AiDialogueHistory extends SerializableObject {
 
     protected String answer;
 
-    protected String createdAt;
+    protected Date createdAt;
 
     public AiDialogueHistoryBuilder prompt(String prompt) {
       this.prompt = prompt;
@@ -90,7 +96,7 @@ public class AiDialogueHistory extends SerializableObject {
       return this;
     }
 
-    public AiDialogueHistoryBuilder createdAt(String createdAt) {
+    public AiDialogueHistoryBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }

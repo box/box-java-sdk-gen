@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.folder;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.folderbase.FolderBaseTypeField;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.items.Items;
@@ -8,15 +9,20 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class Folder extends FolderMini {
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   protected String description;
 
@@ -32,16 +38,24 @@ public class Folder extends FolderMini {
   protected UserMini modifiedBy;
 
   @JsonProperty("trashed_at")
-  protected String trashedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date trashedAt;
 
   @JsonProperty("purged_at")
-  protected String purgedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date purgedAt;
 
   @JsonProperty("content_created_at")
-  protected String contentCreatedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date contentCreatedAt;
 
   @JsonProperty("content_modified_at")
-  protected String contentModifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date contentModifiedAt;
 
   @JsonProperty("owned_by")
   protected UserMini ownedBy;
@@ -87,11 +101,11 @@ public class Folder extends FolderMini {
     this.itemCollection = builder.itemCollection;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -115,19 +129,19 @@ public class Folder extends FolderMini {
     return modifiedBy;
   }
 
-  public String getTrashedAt() {
+  public Date getTrashedAt() {
     return trashedAt;
   }
 
-  public String getPurgedAt() {
+  public Date getPurgedAt() {
     return purgedAt;
   }
 
-  public String getContentCreatedAt() {
+  public Date getContentCreatedAt() {
     return contentCreatedAt;
   }
 
-  public String getContentModifiedAt() {
+  public Date getContentModifiedAt() {
     return contentModifiedAt;
   }
 
@@ -310,9 +324,9 @@ public class Folder extends FolderMini {
 
   public static class FolderBuilder extends FolderMiniBuilder {
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     protected String description;
 
@@ -324,13 +338,13 @@ public class Folder extends FolderMini {
 
     protected UserMini modifiedBy;
 
-    protected String trashedAt;
+    protected Date trashedAt;
 
-    protected String purgedAt;
+    protected Date purgedAt;
 
-    protected String contentCreatedAt;
+    protected Date contentCreatedAt;
 
-    protected String contentModifiedAt;
+    protected Date contentModifiedAt;
 
     protected UserMini ownedBy;
 
@@ -348,12 +362,12 @@ public class Folder extends FolderMini {
       super(id);
     }
 
-    public FolderBuilder createdAt(String createdAt) {
+    public FolderBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public FolderBuilder modifiedAt(String modifiedAt) {
+    public FolderBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
@@ -383,22 +397,22 @@ public class Folder extends FolderMini {
       return this;
     }
 
-    public FolderBuilder trashedAt(String trashedAt) {
+    public FolderBuilder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
-    public FolderBuilder purgedAt(String purgedAt) {
+    public FolderBuilder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
-    public FolderBuilder contentCreatedAt(String contentCreatedAt) {
+    public FolderBuilder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
-    public FolderBuilder contentModifiedAt(String contentModifiedAt) {
+    public FolderBuilder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }

@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.signrequest;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.filebase.FileBase;
 import com.box.sdkgen.schemas.filemini.FileMini;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
@@ -10,6 +11,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +45,9 @@ public class SignRequest extends SignRequestBase {
   protected SignRequestSignFilesField signFiles;
 
   @JsonProperty("auto_expire_at")
-  protected String autoExpireAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date autoExpireAt;
 
   @JsonProperty("parent_folder")
   protected FolderMini parentFolder;
@@ -115,7 +119,7 @@ public class SignRequest extends SignRequestBase {
     return signFiles;
   }
 
-  public String getAutoExpireAt() {
+  public Date getAutoExpireAt() {
     return autoExpireAt;
   }
 
@@ -338,7 +342,7 @@ public class SignRequest extends SignRequestBase {
 
     protected SignRequestSignFilesField signFiles;
 
-    protected String autoExpireAt;
+    protected Date autoExpireAt;
 
     protected FolderMini parentFolder;
 
@@ -403,7 +407,7 @@ public class SignRequest extends SignRequestBase {
       return this;
     }
 
-    public SignRequestBuilder autoExpireAt(String autoExpireAt) {
+    public SignRequestBuilder autoExpireAt(Date autoExpireAt) {
       this.autoExpireAt = autoExpireAt;
       return this;
     }

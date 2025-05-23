@@ -2,6 +2,7 @@ package com.box.sdkgen.test.zipdownloads;
 
 import static com.box.sdkgen.internal.utils.UtilsManager.bufferEquals;
 import static com.box.sdkgen.internal.utils.UtilsManager.convertToString;
+import static com.box.sdkgen.internal.utils.UtilsManager.dateTimeToString;
 import static com.box.sdkgen.internal.utils.UtilsManager.generateByteBuffer;
 import static com.box.sdkgen.internal.utils.UtilsManager.readByteStream;
 import static com.box.sdkgen.test.commons.CommonsManager.createNewFolder;
@@ -70,7 +71,7 @@ public class ZipDownloadsITest {
                     .build());
     assert !(zipDownload.getDownloadUrl().equals(""));
     assert !(zipDownload.getStatusUrl().equals(""));
-    assert !(zipDownload.getExpiresAt().equals(""));
+    assert !(dateTimeToString(zipDownload.getExpiresAt()).equals(""));
     InputStream zipStream =
         client.getZipDownloads().getZipDownloadContent(zipDownload.getDownloadUrl());
     assert bufferEquals(readByteStream(zipStream), generateByteBuffer(10)) == false;

@@ -7,6 +7,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class GroupFull extends Group {
@@ -261,13 +262,13 @@ public class GroupFull extends Group {
     }
 
     @Override
-    public GroupFullBuilder createdAt(String createdAt) {
+    public GroupFullBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
     @Override
-    public GroupFullBuilder modifiedAt(String modifiedAt) {
+    public GroupFullBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

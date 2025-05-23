@@ -1,10 +1,14 @@
 package com.box.sdkgen.schemas.fileversion;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.fileversionbase.FileVersionBaseTypeField;
 import com.box.sdkgen.schemas.fileversionmini.FileVersionMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class FileVersion extends FileVersionMini {
@@ -14,28 +18,38 @@ public class FileVersion extends FileVersionMini {
   protected Long size;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   @JsonProperty("modified_by")
   protected UserMini modifiedBy;
 
   @JsonProperty("trashed_at")
-  protected String trashedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date trashedAt;
 
   @JsonProperty("trashed_by")
   protected UserMini trashedBy;
 
   @JsonProperty("restored_at")
-  protected String restoredAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date restoredAt;
 
   @JsonProperty("restored_by")
   protected UserMini restoredBy;
 
   @JsonProperty("purged_at")
-  protected String purgedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date purgedAt;
 
   @JsonProperty("uploader_display_name")
   protected String uploaderDisplayName;
@@ -67,11 +81,11 @@ public class FileVersion extends FileVersionMini {
     return size;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -79,7 +93,7 @@ public class FileVersion extends FileVersionMini {
     return modifiedBy;
   }
 
-  public String getTrashedAt() {
+  public Date getTrashedAt() {
     return trashedAt;
   }
 
@@ -87,7 +101,7 @@ public class FileVersion extends FileVersionMini {
     return trashedBy;
   }
 
-  public String getRestoredAt() {
+  public Date getRestoredAt() {
     return restoredAt;
   }
 
@@ -95,7 +109,7 @@ public class FileVersion extends FileVersionMini {
     return restoredBy;
   }
 
-  public String getPurgedAt() {
+  public Date getPurgedAt() {
     return purgedAt;
   }
 
@@ -214,21 +228,21 @@ public class FileVersion extends FileVersionMini {
 
     protected Long size;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     protected UserMini modifiedBy;
 
-    protected String trashedAt;
+    protected Date trashedAt;
 
     protected UserMini trashedBy;
 
-    protected String restoredAt;
+    protected Date restoredAt;
 
     protected UserMini restoredBy;
 
-    protected String purgedAt;
+    protected Date purgedAt;
 
     protected String uploaderDisplayName;
 
@@ -246,12 +260,12 @@ public class FileVersion extends FileVersionMini {
       return this;
     }
 
-    public FileVersionBuilder createdAt(String createdAt) {
+    public FileVersionBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public FileVersionBuilder modifiedAt(String modifiedAt) {
+    public FileVersionBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
@@ -261,7 +275,7 @@ public class FileVersion extends FileVersionMini {
       return this;
     }
 
-    public FileVersionBuilder trashedAt(String trashedAt) {
+    public FileVersionBuilder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
@@ -271,7 +285,7 @@ public class FileVersion extends FileVersionMini {
       return this;
     }
 
-    public FileVersionBuilder restoredAt(String restoredAt) {
+    public FileVersionBuilder restoredAt(Date restoredAt) {
       this.restoredAt = restoredAt;
       return this;
     }
@@ -281,7 +295,7 @@ public class FileVersion extends FileVersionMini {
       return this;
     }
 
-    public FileVersionBuilder purgedAt(String purgedAt) {
+    public FileVersionBuilder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }

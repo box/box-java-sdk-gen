@@ -4,6 +4,7 @@ import com.box.sdkgen.schemas.filerequestupdaterequest.FileRequestUpdateRequest;
 import com.box.sdkgen.schemas.filerequestupdaterequest.FileRequestUpdateRequestStatusField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Date;
 import java.util.Objects;
 
 public class FileRequestCopyRequest extends FileRequestUpdateRequest {
@@ -128,7 +129,7 @@ public class FileRequestCopyRequest extends FileRequestUpdateRequest {
     }
 
     @Override
-    public FileRequestCopyRequestBuilder expiresAt(String expiresAt) {
+    public FileRequestCopyRequestBuilder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }

@@ -1,12 +1,14 @@
 package com.box.sdkgen.schemas.retentionpolicyassignment;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.retentionpolicymini.RetentionPolicyMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -34,7 +36,9 @@ public class RetentionPolicyAssignment extends SerializableObject {
   protected UserMini assignedBy;
 
   @JsonProperty("assigned_at")
-  protected String assignedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date assignedAt;
 
   @JsonProperty("start_date_field")
   protected String startDateField;
@@ -83,7 +87,7 @@ public class RetentionPolicyAssignment extends SerializableObject {
     return assignedBy;
   }
 
-  public String getAssignedAt() {
+  public Date getAssignedAt() {
     return assignedAt;
   }
 
@@ -174,7 +178,7 @@ public class RetentionPolicyAssignment extends SerializableObject {
 
     protected UserMini assignedBy;
 
-    protected String assignedAt;
+    protected Date assignedAt;
 
     protected String startDateField;
 
@@ -218,7 +222,7 @@ public class RetentionPolicyAssignment extends SerializableObject {
       return this;
     }
 
-    public RetentionPolicyAssignmentBuilder assignedAt(String assignedAt) {
+    public RetentionPolicyAssignmentBuilder assignedAt(Date assignedAt) {
       this.assignedAt = assignedAt;
       return this;
     }

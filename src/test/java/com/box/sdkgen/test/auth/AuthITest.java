@@ -106,6 +106,28 @@ public class AuthITest {
   }
 
   @Test
+  public void testJwtDownscopeTokenSucceedsIfNoTokenAvailable() {
+    JWTConfig jwtConfig =
+        JWTConfig.fromConfigJsonString(decodeBase64(getEnvVar("JWT_CONFIG_BASE_64")));
+    BoxJWTAuth auth = new BoxJWTAuth(jwtConfig);
+    AccessToken downscopedToken =
+        auth.downscopeToken(Arrays.asList("root_readonly"), null, null, null);
+    assert !(downscopedToken.getAccessToken() == null);
+    BoxClient downscopedClient =
+        new BoxClient(new BoxDeveloperTokenAuth(downscopedToken.getAccessToken()));
+    assertThrows(
+        RuntimeException.class,
+        () ->
+            downscopedClient
+                .getUploads()
+                .uploadFile(
+                    new UploadFileRequestBody(
+                        new UploadFileRequestBodyAttributesField(
+                            getUuid(), new UploadFileRequestBodyAttributesParentField("0")),
+                        generateByteStream(1024 * 1024))));
+  }
+
+  @Test
   public void testJwtAuthRevoke() {
     JWTConfig jwtConfig =
         JWTConfig.fromConfigJsonString(decodeBase64(getEnvVar("JWT_CONFIG_BASE_64")));
@@ -128,6 +150,18 @@ public class AuthITest {
             "https://account.box.com/api/oauth2/authorize?client_id=OAUTH_CLIENT_ID&response_type=code")
         || authUrl.equals(
             "https://account.box.com/api/oauth2/authorize?response_type=code&client_id=OAUTH_CLIENT_ID");
+  }
+
+  @Test
+  public void testOauthDownscopeTokenSucceedsIfNoTokenAvailable() {
+    OAuthConfig config = new OAuthConfig(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"));
+    BoxOAuth auth = new BoxOAuth(config);
+    String resourcePath = String.join("", "https://api.box.com/2.0/files/12345");
+    assertThrows(
+        RuntimeException.class,
+        () ->
+            auth.downscopeToken(
+                Arrays.asList("item_rename", "item_preview"), resourcePath, null, null));
   }
 
   @Test
@@ -192,6 +226,30 @@ public class AuthITest {
   }
 
   @Test
+  public void testCcgDownscopeTokenSucceedsIfNoTokenAvailable() {
+    CCGConfig ccgConfig =
+        new CCGConfig.CCGConfigBuilder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
+            .userId(getEnvVar("USER_ID"))
+            .build();
+    BoxCCGAuth auth = new BoxCCGAuth(ccgConfig);
+    AccessToken downscopedToken =
+        auth.downscopeToken(Arrays.asList("root_readonly"), null, null, null);
+    assert !(downscopedToken.getAccessToken() == null);
+    BoxClient downscopedClient =
+        new BoxClient(new BoxDeveloperTokenAuth(downscopedToken.getAccessToken()));
+    assertThrows(
+        RuntimeException.class,
+        () ->
+            downscopedClient
+                .getUploads()
+                .uploadFile(
+                    new UploadFileRequestBody(
+                        new UploadFileRequestBodyAttributesField(
+                            getUuid(), new UploadFileRequestBodyAttributesParentField("0")),
+                        generateByteStream(1024 * 1024))));
+  }
+
+  @Test
   public void testCcgAuthRevoke() {
     CCGConfig ccgConfig =
         new CCGConfig.CCGConfigBuilder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
@@ -205,6 +263,25 @@ public class AuthITest {
     assert !(tokenFromStorageBeforeRevoke
         .getAccessToken()
         .equals(tokenFromStorageAfterRevoke.getAccessToken()));
+  }
+
+  @Test
+  public void testDeveloperDownscopeTokenSucceedsIfNoTokenAvailable() {
+    DeveloperTokenConfig developerTokenConfig =
+        new DeveloperTokenConfig.DeveloperTokenConfigBuilder()
+            .clientId(getEnvVar("CLIENT_ID"))
+            .clientSecret(getEnvVar("CLIENT_SECRET"))
+            .build();
+    BoxDeveloperTokenAuth auth =
+        new BoxDeveloperTokenAuth.BoxDeveloperTokenAuthBuilder("")
+            .config(developerTokenConfig)
+            .build();
+    String resourcePath = String.join("", "https://api.box.com/2.0/folders/12345");
+    assertThrows(
+        RuntimeException.class,
+        () ->
+            auth.downscopeToken(
+                Arrays.asList("item_rename", "item_preview"), resourcePath, null, null));
   }
 
   @Test

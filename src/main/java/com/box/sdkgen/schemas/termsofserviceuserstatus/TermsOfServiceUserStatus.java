@@ -1,12 +1,14 @@
 package com.box.sdkgen.schemas.termsofserviceuserstatus;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.termsofservicebase.TermsOfServiceBase;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class TermsOfServiceUserStatus extends SerializableObject {
@@ -27,10 +29,14 @@ public class TermsOfServiceUserStatus extends SerializableObject {
   protected Boolean isAccepted;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   public TermsOfServiceUserStatus(@JsonProperty("id") String id) {
     super();
@@ -71,11 +77,11 @@ public class TermsOfServiceUserStatus extends SerializableObject {
     return isAccepted;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -147,9 +153,9 @@ public class TermsOfServiceUserStatus extends SerializableObject {
 
     protected Boolean isAccepted;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     public TermsOfServiceUserStatusBuilder(String id) {
       this.id = id;
@@ -184,12 +190,12 @@ public class TermsOfServiceUserStatus extends SerializableObject {
       return this;
     }
 
-    public TermsOfServiceUserStatusBuilder createdAt(String createdAt) {
+    public TermsOfServiceUserStatusBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public TermsOfServiceUserStatusBuilder modifiedAt(String modifiedAt) {
+    public TermsOfServiceUserStatusBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

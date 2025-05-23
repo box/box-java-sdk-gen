@@ -1,11 +1,13 @@
 package com.box.sdkgen.schemas.collaborationallowlistexempttarget;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class CollaborationAllowlistExemptTarget extends SerializableObject {
@@ -27,10 +29,14 @@ public class CollaborationAllowlistExemptTarget extends SerializableObject {
   protected UserMini user;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   public CollaborationAllowlistExemptTarget() {
     super();
@@ -62,11 +68,11 @@ public class CollaborationAllowlistExemptTarget extends SerializableObject {
     return user;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -131,9 +137,9 @@ public class CollaborationAllowlistExemptTarget extends SerializableObject {
 
     protected UserMini user;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     public CollaborationAllowlistExemptTargetBuilder id(String id) {
       this.id = id;
@@ -163,12 +169,12 @@ public class CollaborationAllowlistExemptTarget extends SerializableObject {
       return this;
     }
 
-    public CollaborationAllowlistExemptTargetBuilder createdAt(String createdAt) {
+    public CollaborationAllowlistExemptTargetBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public CollaborationAllowlistExemptTargetBuilder modifiedAt(String modifiedAt) {
+    public CollaborationAllowlistExemptTargetBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

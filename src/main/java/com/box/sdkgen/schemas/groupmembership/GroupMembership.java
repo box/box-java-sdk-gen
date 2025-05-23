@@ -1,12 +1,14 @@
 package com.box.sdkgen.schemas.groupmembership;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.groupmini.GroupMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class GroupMembership extends SerializableObject {
@@ -26,10 +28,14 @@ public class GroupMembership extends SerializableObject {
   protected EnumWrapper<GroupMembershipRoleField> role;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   public GroupMembership() {
     super();
@@ -66,11 +72,11 @@ public class GroupMembership extends SerializableObject {
     return role;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -142,9 +148,9 @@ public class GroupMembership extends SerializableObject {
 
     protected EnumWrapper<GroupMembershipRoleField> role;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     public GroupMembershipBuilder id(String id) {
       this.id = id;
@@ -181,12 +187,12 @@ public class GroupMembership extends SerializableObject {
       return this;
     }
 
-    public GroupMembershipBuilder createdAt(String createdAt) {
+    public GroupMembershipBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public GroupMembershipBuilder modifiedAt(String modifiedAt) {
+    public GroupMembershipBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

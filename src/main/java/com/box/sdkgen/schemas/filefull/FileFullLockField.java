@@ -1,11 +1,13 @@
 package com.box.sdkgen.schemas.filefull;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class FileFullLockField extends SerializableObject {
@@ -20,10 +22,14 @@ public class FileFullLockField extends SerializableObject {
   protected UserMini createdBy;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("expired_at")
-  protected String expiredAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date expiredAt;
 
   @JsonProperty("is_download_prevented")
   protected Boolean isDownloadPrevented;
@@ -60,11 +66,11 @@ public class FileFullLockField extends SerializableObject {
     return createdBy;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getExpiredAt() {
+  public Date getExpiredAt() {
     return expiredAt;
   }
 
@@ -140,9 +146,9 @@ public class FileFullLockField extends SerializableObject {
 
     protected UserMini createdBy;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String expiredAt;
+    protected Date expiredAt;
 
     protected Boolean isDownloadPrevented;
 
@@ -168,12 +174,12 @@ public class FileFullLockField extends SerializableObject {
       return this;
     }
 
-    public FileFullLockFieldBuilder createdAt(String createdAt) {
+    public FileFullLockFieldBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public FileFullLockFieldBuilder expiredAt(String expiredAt) {
+    public FileFullLockFieldBuilder expiredAt(Date expiredAt) {
       this.expiredAt = expiredAt;
       return this;
     }

@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.filefull;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.file.File;
 import com.box.sdkgen.schemas.file.FileItemStatusField;
 import com.box.sdkgen.schemas.file.FilePathCollectionField;
@@ -22,6 +23,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -67,7 +69,9 @@ public class FileFull extends File {
   protected FileFullMetadataField metadata;
 
   @JsonProperty("expires_at")
-  protected String expiresAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date expiresAt;
 
   protected FileFullRepresentationsField representations;
 
@@ -77,7 +81,9 @@ public class FileFull extends File {
   protected String uploaderDisplayName;
 
   @JsonProperty("disposition_at")
-  protected String dispositionAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date dispositionAt;
 
   @JsonDeserialize(using = SharedLinkPermissionOptionsDeserializer.class)
   @JsonSerialize(using = SharedLinkPermissionOptionsSerializer.class)
@@ -172,7 +178,7 @@ public class FileFull extends File {
     return metadata;
   }
 
-  public String getExpiresAt() {
+  public Date getExpiresAt() {
     return expiresAt;
   }
 
@@ -188,7 +194,7 @@ public class FileFull extends File {
     return uploaderDisplayName;
   }
 
-  public String getDispositionAt() {
+  public Date getDispositionAt() {
     return dispositionAt;
   }
 
@@ -510,7 +516,7 @@ public class FileFull extends File {
 
     protected FileFullMetadataField metadata;
 
-    protected String expiresAt;
+    protected Date expiresAt;
 
     protected FileFullRepresentationsField representations;
 
@@ -518,7 +524,7 @@ public class FileFull extends File {
 
     protected String uploaderDisplayName;
 
-    protected String dispositionAt;
+    protected Date dispositionAt;
 
     protected List<EnumWrapper<FileFullSharedLinkPermissionOptionsField>>
         sharedLinkPermissionOptions;
@@ -601,7 +607,7 @@ public class FileFull extends File {
       return this;
     }
 
-    public FileFullBuilder expiresAt(String expiresAt) {
+    public FileFullBuilder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }
@@ -621,7 +627,7 @@ public class FileFull extends File {
       return this;
     }
 
-    public FileFullBuilder dispositionAt(String dispositionAt) {
+    public FileFullBuilder dispositionAt(Date dispositionAt) {
       this.dispositionAt = dispositionAt;
       return this;
     }
@@ -700,37 +706,37 @@ public class FileFull extends File {
     }
 
     @Override
-    public FileFullBuilder createdAt(String createdAt) {
+    public FileFullBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
     @Override
-    public FileFullBuilder modifiedAt(String modifiedAt) {
+    public FileFullBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
     @Override
-    public FileFullBuilder trashedAt(String trashedAt) {
+    public FileFullBuilder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
     @Override
-    public FileFullBuilder purgedAt(String purgedAt) {
+    public FileFullBuilder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
     @Override
-    public FileFullBuilder contentCreatedAt(String contentCreatedAt) {
+    public FileFullBuilder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
     @Override
-    public FileFullBuilder contentModifiedAt(String contentModifiedAt) {
+    public FileFullBuilder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }

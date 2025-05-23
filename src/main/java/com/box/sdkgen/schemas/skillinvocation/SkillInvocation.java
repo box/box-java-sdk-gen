@@ -1,12 +1,14 @@
 package com.box.sdkgen.schemas.skillinvocation;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.event.Event;
 import com.box.sdkgen.schemas.fileorfolder.FileOrFolder;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class SkillInvocation extends SerializableObject {
@@ -24,7 +26,9 @@ public class SkillInvocation extends SerializableObject {
   protected SkillInvocationStatusField status;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   protected String trigger;
 
@@ -72,7 +76,7 @@ public class SkillInvocation extends SerializableObject {
     return status;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -176,7 +180,7 @@ public class SkillInvocation extends SerializableObject {
 
     protected SkillInvocationStatusField status;
 
-    protected String createdAt;
+    protected Date createdAt;
 
     protected String trigger;
 
@@ -216,7 +220,7 @@ public class SkillInvocation extends SerializableObject {
       return this;
     }
 
-    public SkillInvocationBuilder createdAt(String createdAt) {
+    public SkillInvocationBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }

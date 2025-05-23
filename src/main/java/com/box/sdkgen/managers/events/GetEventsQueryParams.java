@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class GetEventsQueryParams {
@@ -23,9 +24,9 @@ public class GetEventsQueryParams {
 
   public List<EnumWrapper<GetEventsQueryParamsEventTypeField>> eventType;
 
-  public String createdAfter;
+  public Date createdAfter;
 
-  public String createdBefore;
+  public Date createdBefore;
 
   public GetEventsQueryParams() {}
 
@@ -54,11 +55,11 @@ public class GetEventsQueryParams {
     return eventType;
   }
 
-  public String getCreatedAfter() {
+  public Date getCreatedAfter() {
     return createdAfter;
   }
 
-  public String getCreatedBefore() {
+  public Date getCreatedBefore() {
     return createdBefore;
   }
 
@@ -72,9 +73,9 @@ public class GetEventsQueryParams {
 
     protected List<EnumWrapper<GetEventsQueryParamsEventTypeField>> eventType;
 
-    protected String createdAfter;
+    protected Date createdAfter;
 
-    protected String createdBefore;
+    protected Date createdBefore;
 
     public GetEventsQueryParamsBuilder streamType(GetEventsQueryParamsStreamTypeField streamType) {
       this.streamType = new EnumWrapper<GetEventsQueryParamsStreamTypeField>(streamType);
@@ -103,12 +104,12 @@ public class GetEventsQueryParams {
       return this;
     }
 
-    public GetEventsQueryParamsBuilder createdAfter(String createdAfter) {
+    public GetEventsQueryParamsBuilder createdAfter(Date createdAfter) {
       this.createdAfter = createdAfter;
       return this;
     }
 
-    public GetEventsQueryParamsBuilder createdBefore(String createdBefore) {
+    public GetEventsQueryParamsBuilder createdBefore(Date createdBefore) {
       this.createdBefore = createdBefore;
       return this;
     }
