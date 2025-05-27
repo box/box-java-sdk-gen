@@ -21,6 +21,9 @@ public class AiAgentExtract extends SerializableObject {
   @JsonProperty("basic_text")
   protected AiAgentBasicTextTool basicText;
 
+  @JsonProperty("basic_image")
+  protected AiAgentBasicTextTool basicImage;
+
   public AiAgentExtract() {
     super();
     this.type = new EnumWrapper<AiAgentExtractTypeField>(AiAgentExtractTypeField.AI_AGENT_EXTRACT);
@@ -31,6 +34,7 @@ public class AiAgentExtract extends SerializableObject {
     this.type = builder.type;
     this.longText = builder.longText;
     this.basicText = builder.basicText;
+    this.basicImage = builder.basicImage;
   }
 
   public EnumWrapper<AiAgentExtractTypeField> getType() {
@@ -45,6 +49,10 @@ public class AiAgentExtract extends SerializableObject {
     return basicText;
   }
 
+  public AiAgentBasicTextTool getBasicImage() {
+    return basicImage;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -56,12 +64,13 @@ public class AiAgentExtract extends SerializableObject {
     AiAgentExtract casted = (AiAgentExtract) o;
     return Objects.equals(type, casted.type)
         && Objects.equals(longText, casted.longText)
-        && Objects.equals(basicText, casted.basicText);
+        && Objects.equals(basicText, casted.basicText)
+        && Objects.equals(basicImage, casted.basicImage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, longText, basicText);
+    return Objects.hash(type, longText, basicText, basicImage);
   }
 
   @Override
@@ -78,6 +87,10 @@ public class AiAgentExtract extends SerializableObject {
         + "basicText='"
         + basicText
         + '\''
+        + ", "
+        + "basicImage='"
+        + basicImage
+        + '\''
         + "}";
   }
 
@@ -88,6 +101,8 @@ public class AiAgentExtract extends SerializableObject {
     protected AiAgentLongTextTool longText;
 
     protected AiAgentBasicTextTool basicText;
+
+    protected AiAgentBasicTextTool basicImage;
 
     public AiAgentExtractBuilder type(AiAgentExtractTypeField type) {
       this.type = new EnumWrapper<AiAgentExtractTypeField>(type);
@@ -106,6 +121,11 @@ public class AiAgentExtract extends SerializableObject {
 
     public AiAgentExtractBuilder basicText(AiAgentBasicTextTool basicText) {
       this.basicText = basicText;
+      return this;
+    }
+
+    public AiAgentExtractBuilder basicImage(AiAgentBasicTextTool basicImage) {
+      this.basicImage = basicImage;
       return this;
     }
 
