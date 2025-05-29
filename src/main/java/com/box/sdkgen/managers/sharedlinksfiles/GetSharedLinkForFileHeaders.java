@@ -24,6 +24,10 @@ public class GetSharedLinkForFileHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetSharedLinkForFileHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetSharedLinkForFileHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

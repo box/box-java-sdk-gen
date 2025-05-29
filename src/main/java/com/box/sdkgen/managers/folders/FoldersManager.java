@@ -342,6 +342,10 @@ public class FoldersManager {
 
     protected NetworkSession networkSession;
 
+    public FoldersManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public FoldersManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

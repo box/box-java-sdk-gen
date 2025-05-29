@@ -191,6 +191,10 @@ public class SkillsManager {
 
     protected NetworkSession networkSession;
 
+    public SkillsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public SkillsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

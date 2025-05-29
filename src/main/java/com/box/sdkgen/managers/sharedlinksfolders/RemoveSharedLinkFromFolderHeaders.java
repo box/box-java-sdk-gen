@@ -24,6 +24,10 @@ public class RemoveSharedLinkFromFolderHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public RemoveSharedLinkFromFolderHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public RemoveSharedLinkFromFolderHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

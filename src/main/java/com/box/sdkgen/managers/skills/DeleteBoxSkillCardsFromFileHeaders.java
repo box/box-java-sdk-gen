@@ -24,6 +24,10 @@ public class DeleteBoxSkillCardsFromFileHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteBoxSkillCardsFromFileHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteBoxSkillCardsFromFileHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

@@ -24,6 +24,10 @@ public class GetGroupCollaborationsHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetGroupCollaborationsHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetGroupCollaborationsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

@@ -24,6 +24,10 @@ public class GetUserEmailAliasesHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetUserEmailAliasesHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetUserEmailAliasesHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

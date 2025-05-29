@@ -193,6 +193,10 @@ public class StoragePolicyAssignmentsManager {
 
     protected NetworkSession networkSession;
 
+    public StoragePolicyAssignmentsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public StoragePolicyAssignmentsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

@@ -24,6 +24,10 @@ public class GetGroupMembershipsHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetGroupMembershipsHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetGroupMembershipsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

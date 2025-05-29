@@ -24,6 +24,10 @@ public class CreateAiAskHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateAiAskHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateAiAskHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

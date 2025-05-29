@@ -33,6 +33,10 @@ public class UpdateFolderByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateFolderByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateFolderByIdHeadersBuilder ifMatch(String ifMatch) {
       this.ifMatch = ifMatch;
       return this;

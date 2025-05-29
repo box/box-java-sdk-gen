@@ -24,6 +24,10 @@ public class GetFileWatermarkHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFileWatermarkHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFileWatermarkHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

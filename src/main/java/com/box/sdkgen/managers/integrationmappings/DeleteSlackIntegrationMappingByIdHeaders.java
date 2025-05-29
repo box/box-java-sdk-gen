@@ -25,6 +25,10 @@ public class DeleteSlackIntegrationMappingByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteSlackIntegrationMappingByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteSlackIntegrationMappingByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

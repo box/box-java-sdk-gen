@@ -105,6 +105,10 @@ public class FileVersionLegalHoldsManager {
 
     protected NetworkSession networkSession;
 
+    public FileVersionLegalHoldsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public FileVersionLegalHoldsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

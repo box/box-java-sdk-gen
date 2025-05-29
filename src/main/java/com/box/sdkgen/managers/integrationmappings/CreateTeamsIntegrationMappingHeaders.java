@@ -25,6 +25,10 @@ public class CreateTeamsIntegrationMappingHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateTeamsIntegrationMappingHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateTeamsIntegrationMappingHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

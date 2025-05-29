@@ -174,6 +174,10 @@ public class FolderClassificationsManager {
 
     protected NetworkSession networkSession;
 
+    public FolderClassificationsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public FolderClassificationsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

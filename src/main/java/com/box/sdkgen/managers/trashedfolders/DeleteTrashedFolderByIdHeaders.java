@@ -24,6 +24,10 @@ public class DeleteTrashedFolderByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteTrashedFolderByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteTrashedFolderByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

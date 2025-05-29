@@ -24,6 +24,10 @@ public class CreateBoxSkillCardsOnFileHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateBoxSkillCardsOnFileHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateBoxSkillCardsOnFileHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

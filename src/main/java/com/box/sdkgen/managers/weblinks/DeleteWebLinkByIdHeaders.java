@@ -24,6 +24,10 @@ public class DeleteWebLinkByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteWebLinkByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteWebLinkByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

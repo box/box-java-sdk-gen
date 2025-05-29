@@ -270,6 +270,10 @@ public class SharedLinksFilesManager {
 
     protected NetworkSession networkSession;
 
+    public SharedLinksFilesManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public SharedLinksFilesManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

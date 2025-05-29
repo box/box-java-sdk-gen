@@ -102,6 +102,10 @@ public class WorkflowsManager {
 
     protected NetworkSession networkSession;
 
+    public WorkflowsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public WorkflowsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

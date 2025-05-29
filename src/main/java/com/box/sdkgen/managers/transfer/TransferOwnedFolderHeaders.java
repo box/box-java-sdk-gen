@@ -24,6 +24,10 @@ public class TransferOwnedFolderHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public TransferOwnedFolderHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public TransferOwnedFolderHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

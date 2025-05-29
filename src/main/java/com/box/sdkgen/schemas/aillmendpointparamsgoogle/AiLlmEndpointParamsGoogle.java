@@ -106,6 +106,12 @@ public class AiLlmEndpointParamsGoogle extends SerializableObject {
 
     protected Double topK;
 
+    public AiLlmEndpointParamsGoogleBuilder() {
+      this.type =
+          new EnumWrapper<AiLlmEndpointParamsGoogleTypeField>(
+              AiLlmEndpointParamsGoogleTypeField.GOOGLE_PARAMS);
+    }
+
     public AiLlmEndpointParamsGoogleBuilder type(AiLlmEndpointParamsGoogleTypeField type) {
       this.type = new EnumWrapper<AiLlmEndpointParamsGoogleTypeField>(type);
       return this;

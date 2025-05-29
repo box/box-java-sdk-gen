@@ -24,6 +24,10 @@ public class GetFolderCollaborationsHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFolderCollaborationsHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFolderCollaborationsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

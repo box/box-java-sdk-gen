@@ -24,6 +24,10 @@ public class CreateUserEmailAliasHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateUserEmailAliasHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateUserEmailAliasHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

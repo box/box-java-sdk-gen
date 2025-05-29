@@ -24,6 +24,10 @@ public class RequestAccessTokenHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public RequestAccessTokenHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public RequestAccessTokenHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

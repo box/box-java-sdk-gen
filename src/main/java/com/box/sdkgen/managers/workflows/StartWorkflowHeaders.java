@@ -24,6 +24,10 @@ public class StartWorkflowHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public StartWorkflowHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public StartWorkflowHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

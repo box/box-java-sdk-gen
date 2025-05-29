@@ -193,6 +193,10 @@ public class WebhooksManager {
 
     protected NetworkSession networkSession;
 
+    public WebhooksManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public WebhooksManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

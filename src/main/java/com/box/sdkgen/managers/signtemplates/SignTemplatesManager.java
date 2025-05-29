@@ -109,6 +109,10 @@ public class SignTemplatesManager {
 
     protected NetworkSession networkSession;
 
+    public SignTemplatesManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public SignTemplatesManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

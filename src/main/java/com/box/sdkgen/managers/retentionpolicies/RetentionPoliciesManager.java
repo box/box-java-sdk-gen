@@ -232,6 +232,10 @@ public class RetentionPoliciesManager {
 
     protected NetworkSession networkSession;
 
+    public RetentionPoliciesManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public RetentionPoliciesManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

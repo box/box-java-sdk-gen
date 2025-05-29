@@ -217,6 +217,10 @@ public class ListCollaborationsManager {
 
     protected NetworkSession networkSession;
 
+    public ListCollaborationsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public ListCollaborationsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

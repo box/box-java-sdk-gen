@@ -37,6 +37,11 @@ public class DeleteDocgenTemplateByIdV2025R0Headers {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteDocgenTemplateByIdV2025R0HeadersBuilder() {
+      this.boxVersion = new EnumWrapper<BoxVersionHeaderV2025R0>(BoxVersionHeaderV2025R0._2025_0);
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteDocgenTemplateByIdV2025R0HeadersBuilder boxVersion(
         BoxVersionHeaderV2025R0 boxVersion) {
       this.boxVersion = new EnumWrapper<BoxVersionHeaderV2025R0>(boxVersion);

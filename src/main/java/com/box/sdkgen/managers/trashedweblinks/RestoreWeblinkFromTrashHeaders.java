@@ -24,6 +24,10 @@ public class RestoreWeblinkFromTrashHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public RestoreWeblinkFromTrashHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public RestoreWeblinkFromTrashHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

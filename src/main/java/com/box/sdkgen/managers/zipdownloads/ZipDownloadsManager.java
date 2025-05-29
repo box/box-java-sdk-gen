@@ -132,6 +132,10 @@ public class ZipDownloadsManager {
 
     protected NetworkSession networkSession;
 
+    public ZipDownloadsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public ZipDownloadsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

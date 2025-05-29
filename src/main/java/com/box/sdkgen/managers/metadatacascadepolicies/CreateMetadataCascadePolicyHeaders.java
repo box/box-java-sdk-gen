@@ -24,6 +24,10 @@ public class CreateMetadataCascadePolicyHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateMetadataCascadePolicyHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateMetadataCascadePolicyHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

@@ -24,6 +24,10 @@ public class GetFileUploadSessionByUrlHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFileUploadSessionByUrlHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFileUploadSessionByUrlHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

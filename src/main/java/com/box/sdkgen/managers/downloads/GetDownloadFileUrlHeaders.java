@@ -42,6 +42,10 @@ public class GetDownloadFileUrlHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetDownloadFileUrlHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetDownloadFileUrlHeadersBuilder range(String range) {
       this.range = range;
       return this;

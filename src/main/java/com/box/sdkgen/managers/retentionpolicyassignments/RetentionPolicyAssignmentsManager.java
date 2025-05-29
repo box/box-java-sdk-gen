@@ -257,6 +257,10 @@ public class RetentionPolicyAssignmentsManager {
 
     protected NetworkSession networkSession;
 
+    public RetentionPolicyAssignmentsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public RetentionPolicyAssignmentsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

@@ -144,6 +144,10 @@ public class AppItemAssociationsManager {
 
     protected NetworkSession networkSession;
 
+    public AppItemAssociationsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public AppItemAssociationsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

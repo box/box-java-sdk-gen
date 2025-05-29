@@ -25,6 +25,10 @@ public class GetShieldInformationBarrierSegmentMembersHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetShieldInformationBarrierSegmentMembersHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetShieldInformationBarrierSegmentMembersHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

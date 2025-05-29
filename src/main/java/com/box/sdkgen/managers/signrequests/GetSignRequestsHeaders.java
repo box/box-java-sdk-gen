@@ -24,6 +24,10 @@ public class GetSignRequestsHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetSignRequestsHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetSignRequestsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
