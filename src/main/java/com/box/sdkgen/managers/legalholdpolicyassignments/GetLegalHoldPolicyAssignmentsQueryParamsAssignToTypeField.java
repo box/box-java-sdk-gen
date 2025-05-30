@@ -15,7 +15,9 @@ public enum GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField implements
   FILE("file"),
   FILE_VERSION("file_version"),
   FOLDER("folder"),
-  USER("user");
+  USER("user"),
+  OWNERSHIP("ownership"),
+  INTERACTIONS("interactions");
 
   private final String value;
 

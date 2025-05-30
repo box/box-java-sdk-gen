@@ -27,6 +27,12 @@ public class AiAgentAsk extends SerializableObject {
   @JsonProperty("basic_text_multi")
   protected AiAgentBasicTextTool basicTextMulti;
 
+  @JsonProperty("basic_image")
+  protected AiAgentBasicTextTool basicImage;
+
+  @JsonProperty("basic_image_multi")
+  protected AiAgentBasicTextTool basicImageMulti;
+
   public AiAgentAsk() {
     super();
     this.type = new EnumWrapper<AiAgentAskTypeField>(AiAgentAskTypeField.AI_AGENT_ASK);
@@ -39,6 +45,8 @@ public class AiAgentAsk extends SerializableObject {
     this.basicText = builder.basicText;
     this.longTextMulti = builder.longTextMulti;
     this.basicTextMulti = builder.basicTextMulti;
+    this.basicImage = builder.basicImage;
+    this.basicImageMulti = builder.basicImageMulti;
   }
 
   public EnumWrapper<AiAgentAskTypeField> getType() {
@@ -61,6 +69,14 @@ public class AiAgentAsk extends SerializableObject {
     return basicTextMulti;
   }
 
+  public AiAgentBasicTextTool getBasicImage() {
+    return basicImage;
+  }
+
+  public AiAgentBasicTextTool getBasicImageMulti() {
+    return basicImageMulti;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -74,12 +90,15 @@ public class AiAgentAsk extends SerializableObject {
         && Objects.equals(longText, casted.longText)
         && Objects.equals(basicText, casted.basicText)
         && Objects.equals(longTextMulti, casted.longTextMulti)
-        && Objects.equals(basicTextMulti, casted.basicTextMulti);
+        && Objects.equals(basicTextMulti, casted.basicTextMulti)
+        && Objects.equals(basicImage, casted.basicImage)
+        && Objects.equals(basicImageMulti, casted.basicImageMulti);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, longText, basicText, longTextMulti, basicTextMulti);
+    return Objects.hash(
+        type, longText, basicText, longTextMulti, basicTextMulti, basicImage, basicImageMulti);
   }
 
   @Override
@@ -104,6 +123,14 @@ public class AiAgentAsk extends SerializableObject {
         + "basicTextMulti='"
         + basicTextMulti
         + '\''
+        + ", "
+        + "basicImage='"
+        + basicImage
+        + '\''
+        + ", "
+        + "basicImageMulti='"
+        + basicImageMulti
+        + '\''
         + "}";
   }
 
@@ -118,6 +145,10 @@ public class AiAgentAsk extends SerializableObject {
     protected AiAgentLongTextTool longTextMulti;
 
     protected AiAgentBasicTextTool basicTextMulti;
+
+    protected AiAgentBasicTextTool basicImage;
+
+    protected AiAgentBasicTextTool basicImageMulti;
 
     public AiAgentAskBuilder type(AiAgentAskTypeField type) {
       this.type = new EnumWrapper<AiAgentAskTypeField>(type);
@@ -146,6 +177,16 @@ public class AiAgentAsk extends SerializableObject {
 
     public AiAgentAskBuilder basicTextMulti(AiAgentBasicTextTool basicTextMulti) {
       this.basicTextMulti = basicTextMulti;
+      return this;
+    }
+
+    public AiAgentAskBuilder basicImage(AiAgentBasicTextTool basicImage) {
+      this.basicImage = basicImage;
+      return this;
+    }
+
+    public AiAgentAskBuilder basicImageMulti(AiAgentBasicTextTool basicImageMulti) {
+      this.basicImageMulti = basicImageMulti;
       return this;
     }
 
