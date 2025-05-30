@@ -149,7 +149,7 @@ public class BoxOAuth implements Authentication {
   @Override
   public AccessToken downscopeToken(
       List<String> scopes, String resource, String sharedLink, NetworkSession networkSession) {
-    AccessToken token = this.tokenStorage.get();
+    AccessToken token = this.retrieveToken(networkSession);
     if (token == null || token.getAccessToken() == null) {
       throw new BoxSDKError("No access token is available.");
     }
