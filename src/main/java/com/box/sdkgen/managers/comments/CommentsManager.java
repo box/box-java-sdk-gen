@@ -262,6 +262,10 @@ public class CommentsManager {
 
     protected NetworkSession networkSession;
 
+    public CommentsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public CommentsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

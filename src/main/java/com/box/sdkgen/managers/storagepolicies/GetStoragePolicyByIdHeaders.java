@@ -24,6 +24,10 @@ public class GetStoragePolicyByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetStoragePolicyByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetStoragePolicyByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

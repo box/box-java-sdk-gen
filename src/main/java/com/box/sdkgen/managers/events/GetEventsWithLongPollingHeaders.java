@@ -24,6 +24,10 @@ public class GetEventsWithLongPollingHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetEventsWithLongPollingHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetEventsWithLongPollingHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

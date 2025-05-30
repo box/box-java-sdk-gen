@@ -132,6 +132,10 @@ public class AvatarsManager {
 
     protected NetworkSession networkSession;
 
+    public AvatarsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public AvatarsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

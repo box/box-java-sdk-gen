@@ -24,6 +24,10 @@ public class DeleteDevicePinnerByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteDevicePinnerByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteDevicePinnerByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

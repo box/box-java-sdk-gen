@@ -279,6 +279,10 @@ public class SharedLinksFoldersManager {
 
     protected NetworkSession networkSession;
 
+    public SharedLinksFoldersManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public SharedLinksFoldersManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

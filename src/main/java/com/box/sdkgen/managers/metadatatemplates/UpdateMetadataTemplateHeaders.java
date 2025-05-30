@@ -24,6 +24,10 @@ public class UpdateMetadataTemplateHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateMetadataTemplateHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateMetadataTemplateHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

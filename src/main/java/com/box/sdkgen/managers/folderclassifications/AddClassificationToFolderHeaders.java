@@ -24,6 +24,10 @@ public class AddClassificationToFolderHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public AddClassificationToFolderHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public AddClassificationToFolderHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

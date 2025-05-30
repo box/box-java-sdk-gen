@@ -193,6 +193,10 @@ public class TaskAssignmentsManager {
 
     protected NetworkSession networkSession;
 
+    public TaskAssignmentsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public TaskAssignmentsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

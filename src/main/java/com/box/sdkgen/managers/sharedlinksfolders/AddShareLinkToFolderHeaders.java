@@ -24,6 +24,10 @@ public class AddShareLinkToFolderHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public AddShareLinkToFolderHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public AddShareLinkToFolderHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

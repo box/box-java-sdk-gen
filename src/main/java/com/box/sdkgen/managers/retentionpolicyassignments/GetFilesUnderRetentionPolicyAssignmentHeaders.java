@@ -25,6 +25,10 @@ public class GetFilesUnderRetentionPolicyAssignmentHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFilesUnderRetentionPolicyAssignmentHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFilesUnderRetentionPolicyAssignmentHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

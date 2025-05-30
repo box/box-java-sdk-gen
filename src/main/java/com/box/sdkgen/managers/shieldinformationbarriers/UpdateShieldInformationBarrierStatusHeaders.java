@@ -25,6 +25,10 @@ public class UpdateShieldInformationBarrierStatusHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateShieldInformationBarrierStatusHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateShieldInformationBarrierStatusHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

@@ -108,6 +108,12 @@ public class AiAgentExtractStructured extends SerializableObject {
 
     protected AiAgentBasicTextTool basicImage;
 
+    public AiAgentExtractStructuredBuilder() {
+      this.type =
+          new EnumWrapper<AiAgentExtractStructuredTypeField>(
+              AiAgentExtractStructuredTypeField.AI_AGENT_EXTRACT_STRUCTURED);
+    }
+
     public AiAgentExtractStructuredBuilder type(AiAgentExtractStructuredTypeField type) {
       this.type = new EnumWrapper<AiAgentExtractStructuredTypeField>(type);
       return this;

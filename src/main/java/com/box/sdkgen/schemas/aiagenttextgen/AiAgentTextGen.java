@@ -64,6 +64,11 @@ public class AiAgentTextGen extends SerializableObject {
 
     protected AiAgentBasicGenTool basicGen;
 
+    public AiAgentTextGenBuilder() {
+      this.type =
+          new EnumWrapper<AiAgentTextGenTypeField>(AiAgentTextGenTypeField.AI_AGENT_TEXT_GEN);
+    }
+
     public AiAgentTextGenBuilder type(AiAgentTextGenTypeField type) {
       this.type = new EnumWrapper<AiAgentTextGenTypeField>(type);
       return this;

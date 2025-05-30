@@ -24,6 +24,10 @@ public class DeleteGroupMembershipByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteGroupMembershipByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteGroupMembershipByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

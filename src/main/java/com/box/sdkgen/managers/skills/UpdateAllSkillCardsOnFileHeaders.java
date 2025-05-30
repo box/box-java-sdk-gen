@@ -24,6 +24,10 @@ public class UpdateAllSkillCardsOnFileHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateAllSkillCardsOnFileHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateAllSkillCardsOnFileHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

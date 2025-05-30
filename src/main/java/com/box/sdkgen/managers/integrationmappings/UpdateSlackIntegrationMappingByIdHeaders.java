@@ -25,6 +25,10 @@ public class UpdateSlackIntegrationMappingByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateSlackIntegrationMappingByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateSlackIntegrationMappingByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

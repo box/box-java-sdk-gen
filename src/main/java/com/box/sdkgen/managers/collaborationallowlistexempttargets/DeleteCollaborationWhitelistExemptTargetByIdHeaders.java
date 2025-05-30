@@ -25,6 +25,10 @@ public class DeleteCollaborationWhitelistExemptTargetByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteCollaborationWhitelistExemptTargetByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteCollaborationWhitelistExemptTargetByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

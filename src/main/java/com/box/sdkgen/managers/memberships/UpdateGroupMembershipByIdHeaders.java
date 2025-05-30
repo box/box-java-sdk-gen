@@ -24,6 +24,10 @@ public class UpdateGroupMembershipByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateGroupMembershipByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateGroupMembershipByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

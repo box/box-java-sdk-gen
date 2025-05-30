@@ -98,6 +98,10 @@ public class SessionTerminationManager {
 
     protected NetworkSession networkSession;
 
+    public SessionTerminationManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public SessionTerminationManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

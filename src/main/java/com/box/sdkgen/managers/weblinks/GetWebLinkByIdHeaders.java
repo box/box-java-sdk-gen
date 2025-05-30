@@ -33,6 +33,10 @@ public class GetWebLinkByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetWebLinkByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetWebLinkByIdHeadersBuilder boxapi(String boxapi) {
       this.boxapi = boxapi;
       return this;

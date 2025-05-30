@@ -318,6 +318,10 @@ public class MetadataTemplatesManager {
 
     protected NetworkSession networkSession;
 
+    public MetadataTemplatesManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public MetadataTemplatesManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

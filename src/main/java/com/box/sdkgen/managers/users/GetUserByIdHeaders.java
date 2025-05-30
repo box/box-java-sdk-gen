@@ -24,6 +24,10 @@ public class GetUserByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetUserByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetUserByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

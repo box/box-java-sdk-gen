@@ -129,6 +129,10 @@ public class EmailAliasesManager {
 
     protected NetworkSession networkSession;
 
+    public EmailAliasesManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public EmailAliasesManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

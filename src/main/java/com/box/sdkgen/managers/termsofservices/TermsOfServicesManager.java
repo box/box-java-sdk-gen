@@ -166,6 +166,10 @@ public class TermsOfServicesManager {
 
     protected NetworkSession networkSession;
 
+    public TermsOfServicesManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public TermsOfServicesManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

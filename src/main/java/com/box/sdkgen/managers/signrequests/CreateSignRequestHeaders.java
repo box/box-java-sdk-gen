@@ -24,6 +24,10 @@ public class CreateSignRequestHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateSignRequestHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateSignRequestHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

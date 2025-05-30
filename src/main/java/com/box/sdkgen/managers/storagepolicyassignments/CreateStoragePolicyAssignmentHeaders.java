@@ -25,6 +25,10 @@ public class CreateStoragePolicyAssignmentHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateStoragePolicyAssignmentHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateStoragePolicyAssignmentHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

@@ -25,6 +25,10 @@ public class CreateRetentionPolicyAssignmentHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateRetentionPolicyAssignmentHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateRetentionPolicyAssignmentHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

@@ -36,6 +36,11 @@ public class GetShieldListsV2025R0Headers {
 
     protected Map<String, String> extraHeaders;
 
+    public GetShieldListsV2025R0HeadersBuilder() {
+      this.boxVersion = new EnumWrapper<BoxVersionHeaderV2025R0>(BoxVersionHeaderV2025R0._2025_0);
+      this.extraHeaders = mapOf();
+    }
+
     public GetShieldListsV2025R0HeadersBuilder boxVersion(BoxVersionHeaderV2025R0 boxVersion) {
       this.boxVersion = new EnumWrapper<BoxVersionHeaderV2025R0>(boxVersion);
       return this;

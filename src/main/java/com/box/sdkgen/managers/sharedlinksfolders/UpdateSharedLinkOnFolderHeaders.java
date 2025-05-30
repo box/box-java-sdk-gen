@@ -24,6 +24,10 @@ public class UpdateSharedLinkOnFolderHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateSharedLinkOnFolderHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateSharedLinkOnFolderHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

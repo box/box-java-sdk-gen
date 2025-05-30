@@ -191,6 +191,10 @@ public class DownloadsManager {
 
     protected NetworkSession networkSession;
 
+    public DownloadsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public DownloadsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

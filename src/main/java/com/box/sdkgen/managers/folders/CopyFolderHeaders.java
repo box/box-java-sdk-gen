@@ -24,6 +24,10 @@ public class CopyFolderHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CopyFolderHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CopyFolderHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

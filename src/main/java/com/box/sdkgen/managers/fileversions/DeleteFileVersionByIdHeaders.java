@@ -33,6 +33,10 @@ public class DeleteFileVersionByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteFileVersionByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteFileVersionByIdHeadersBuilder ifMatch(String ifMatch) {
       this.ifMatch = ifMatch;
       return this;

@@ -24,6 +24,10 @@ public class SearchByMetadataQueryHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public SearchByMetadataQueryHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public SearchByMetadataQueryHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

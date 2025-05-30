@@ -220,6 +220,10 @@ public class FolderMetadataManager {
 
     protected NetworkSession networkSession;
 
+    public FolderMetadataManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public FolderMetadataManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

@@ -24,6 +24,10 @@ public class GetGroupByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetGroupByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetGroupByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

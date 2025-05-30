@@ -194,6 +194,10 @@ public class MetadataCascadePoliciesManager {
 
     protected NetworkSession networkSession;
 
+    public MetadataCascadePoliciesManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public MetadataCascadePoliciesManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

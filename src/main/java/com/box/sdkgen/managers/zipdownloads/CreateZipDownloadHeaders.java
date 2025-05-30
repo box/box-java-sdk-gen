@@ -24,6 +24,10 @@ public class CreateZipDownloadHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateZipDownloadHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateZipDownloadHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

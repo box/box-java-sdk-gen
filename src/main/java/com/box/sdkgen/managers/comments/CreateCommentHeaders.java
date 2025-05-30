@@ -24,6 +24,10 @@ public class CreateCommentHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateCommentHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateCommentHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

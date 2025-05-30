@@ -119,6 +119,10 @@ public class FileVersionRetentionsManager {
 
     protected NetworkSession networkSession;
 
+    public FileVersionRetentionsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public FileVersionRetentionsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

@@ -42,6 +42,10 @@ public class GetFolderByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFolderByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFolderByIdHeadersBuilder ifNoneMatch(String ifNoneMatch) {
       this.ifNoneMatch = ifNoneMatch;
       return this;

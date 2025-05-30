@@ -87,6 +87,12 @@ public class BoxRetryStrategy implements RetryStrategy {
 
     protected double retryBaseInterval;
 
+    public BoxRetryStrategyBuilder() {
+      this.maxAttempts = 5;
+      this.retryRandomizationFactor = 0.5;
+      this.retryBaseInterval = 1;
+    }
+
     public BoxRetryStrategyBuilder maxAttempts(int maxAttempts) {
       this.maxAttempts = maxAttempts;
       return this;

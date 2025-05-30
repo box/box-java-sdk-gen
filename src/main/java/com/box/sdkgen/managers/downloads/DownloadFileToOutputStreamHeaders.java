@@ -42,6 +42,10 @@ public class DownloadFileToOutputStreamHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DownloadFileToOutputStreamHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DownloadFileToOutputStreamHeadersBuilder range(String range) {
       this.range = range;
       return this;

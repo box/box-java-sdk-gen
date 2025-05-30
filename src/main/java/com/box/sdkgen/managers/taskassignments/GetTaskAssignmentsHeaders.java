@@ -24,6 +24,10 @@ public class GetTaskAssignmentsHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetTaskAssignmentsHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetTaskAssignmentsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

@@ -25,6 +25,10 @@ public class CreateCollaborationWhitelistExemptTargetHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateCollaborationWhitelistExemptTargetHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateCollaborationWhitelistExemptTargetHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

@@ -220,6 +220,10 @@ public class FileMetadataManager {
 
     protected NetworkSession networkSession;
 
+    public FileMetadataManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public FileMetadataManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

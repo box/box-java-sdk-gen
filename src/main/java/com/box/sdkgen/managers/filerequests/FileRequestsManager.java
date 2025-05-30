@@ -162,6 +162,10 @@ public class FileRequestsManager {
 
     protected NetworkSession networkSession;
 
+    public FileRequestsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public FileRequestsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;
