@@ -56,6 +56,7 @@ import com.box.sdkgen.managers.shieldinformationbarriers.ShieldInformationBarrie
 import com.box.sdkgen.managers.shieldinformationbarriersegmentmembers.ShieldInformationBarrierSegmentMembersManager;
 import com.box.sdkgen.managers.shieldinformationbarriersegmentrestrictions.ShieldInformationBarrierSegmentRestrictionsManager;
 import com.box.sdkgen.managers.shieldinformationbarriersegments.ShieldInformationBarrierSegmentsManager;
+import com.box.sdkgen.managers.shieldlists.ShieldListsManager;
 import com.box.sdkgen.managers.signrequests.SignRequestsManager;
 import com.box.sdkgen.managers.signtemplates.SignTemplatesManager;
 import com.box.sdkgen.managers.skills.SkillsManager;
@@ -240,6 +241,8 @@ public class BoxClient {
   public final DocgenTemplateManager docgenTemplate;
 
   public final DocgenManager docgen;
+
+  public final ShieldListsManager shieldLists;
 
   public BoxClient(Authentication auth) {
     this.auth = auth;
@@ -615,6 +618,11 @@ public class BoxClient {
             .build();
     this.docgen =
         new DocgenManager.DocgenManagerBuilder()
+            .auth(this.auth)
+            .networkSession(this.networkSession)
+            .build();
+    this.shieldLists =
+        new ShieldListsManager.ShieldListsManagerBuilder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
@@ -996,6 +1004,11 @@ public class BoxClient {
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
+    this.shieldLists =
+        new ShieldListsManager.ShieldListsManagerBuilder()
+            .auth(this.auth)
+            .networkSession(this.networkSession)
+            .build();
   }
 
   public FetchResponse makeRequest(FetchOptions fetchOptions) {
@@ -1359,6 +1372,10 @@ public class BoxClient {
 
   public DocgenManager getDocgen() {
     return docgen;
+  }
+
+  public ShieldListsManager getShieldLists() {
+    return shieldLists;
   }
 
   public static class BoxClientBuilder {
