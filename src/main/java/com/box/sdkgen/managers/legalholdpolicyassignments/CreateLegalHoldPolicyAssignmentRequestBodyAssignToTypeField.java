@@ -15,7 +15,9 @@ public enum CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField implemen
   FILE("file"),
   FILE_VERSION("file_version"),
   FOLDER("folder"),
-  USER("user");
+  USER("user"),
+  OWNERSHIP("ownership"),
+  INTERACTION("interaction");
 
   private final String value;
 
