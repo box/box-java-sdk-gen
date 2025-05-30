@@ -24,6 +24,10 @@ public class GetWebhookByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetWebhookByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetWebhookByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

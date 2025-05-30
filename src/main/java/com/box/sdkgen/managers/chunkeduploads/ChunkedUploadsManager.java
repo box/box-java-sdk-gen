@@ -499,6 +499,10 @@ public class ChunkedUploadsManager {
 
     protected NetworkSession networkSession;
 
+    public ChunkedUploadsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public ChunkedUploadsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

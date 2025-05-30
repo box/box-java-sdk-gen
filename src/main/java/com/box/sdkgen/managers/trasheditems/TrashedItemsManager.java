@@ -88,6 +88,10 @@ public class TrashedItemsManager {
 
     protected NetworkSession networkSession;
 
+    public TrashedItemsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public TrashedItemsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

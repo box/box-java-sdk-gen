@@ -24,6 +24,10 @@ public class GetFileMetadataByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFileMetadataByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFileMetadataByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

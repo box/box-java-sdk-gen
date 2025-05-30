@@ -294,6 +294,10 @@ public class DocgenTemplateManager {
 
     protected NetworkSession networkSession;
 
+    public DocgenTemplateManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public DocgenTemplateManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

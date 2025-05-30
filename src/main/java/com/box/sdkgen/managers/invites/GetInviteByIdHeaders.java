@@ -24,6 +24,10 @@ public class GetInviteByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetInviteByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetInviteByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

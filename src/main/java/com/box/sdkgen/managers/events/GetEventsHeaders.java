@@ -24,6 +24,10 @@ public class GetEventsHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetEventsHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetEventsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

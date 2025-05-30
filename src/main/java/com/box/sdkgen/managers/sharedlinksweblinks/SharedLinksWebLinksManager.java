@@ -279,6 +279,10 @@ public class SharedLinksWebLinksManager {
 
     protected NetworkSession networkSession;
 
+    public SharedLinksWebLinksManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public SharedLinksWebLinksManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

@@ -24,6 +24,10 @@ public class UpdateFolderMetadataByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateFolderMetadataByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateFolderMetadataByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

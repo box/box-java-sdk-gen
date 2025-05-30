@@ -25,6 +25,10 @@ public class DeleteTeamsIntegrationMappingByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteTeamsIntegrationMappingByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteTeamsIntegrationMappingByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

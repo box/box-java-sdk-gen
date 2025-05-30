@@ -24,6 +24,10 @@ public class DeleteFolderWatermarkHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteFolderWatermarkHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteFolderWatermarkHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

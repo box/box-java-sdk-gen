@@ -24,6 +24,10 @@ public class DeleteUserEmailAliasByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteUserEmailAliasByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteUserEmailAliasByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

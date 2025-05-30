@@ -179,6 +179,10 @@ public class ShieldInformationBarrierSegmentRestrictionsManager {
 
     protected NetworkSession networkSession;
 
+    public ShieldInformationBarrierSegmentRestrictionsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public ShieldInformationBarrierSegmentRestrictionsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

@@ -24,6 +24,10 @@ public class GetDevicePinnerByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetDevicePinnerByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetDevicePinnerByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

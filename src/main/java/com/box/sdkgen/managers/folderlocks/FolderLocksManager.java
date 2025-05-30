@@ -124,6 +124,10 @@ public class FolderLocksManager {
 
     protected NetworkSession networkSession;
 
+    public FolderLocksManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public FolderLocksManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

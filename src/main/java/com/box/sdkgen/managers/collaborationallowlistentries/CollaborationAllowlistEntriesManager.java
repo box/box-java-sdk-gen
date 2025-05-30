@@ -176,6 +176,10 @@ public class CollaborationAllowlistEntriesManager {
 
     protected NetworkSession networkSession;
 
+    public CollaborationAllowlistEntriesManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public CollaborationAllowlistEntriesManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

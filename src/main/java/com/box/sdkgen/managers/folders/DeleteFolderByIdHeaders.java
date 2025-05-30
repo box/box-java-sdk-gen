@@ -33,6 +33,10 @@ public class DeleteFolderByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteFolderByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteFolderByIdHeadersBuilder ifMatch(String ifMatch) {
       this.ifMatch = ifMatch;
       return this;

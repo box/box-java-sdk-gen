@@ -120,6 +120,10 @@ public class InvitesManager {
 
     protected NetworkSession networkSession;
 
+    public InvitesManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public InvitesManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

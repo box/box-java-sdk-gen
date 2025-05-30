@@ -25,6 +25,10 @@ public class GetMetadataTemplatesByInstanceIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetMetadataTemplatesByInstanceIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetMetadataTemplatesByInstanceIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

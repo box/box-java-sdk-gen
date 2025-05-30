@@ -210,6 +210,10 @@ public class LegalHoldPoliciesManager {
 
     protected NetworkSession networkSession;
 
+    public LegalHoldPoliciesManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public LegalHoldPoliciesManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

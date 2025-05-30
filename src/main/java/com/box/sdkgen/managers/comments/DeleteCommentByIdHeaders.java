@@ -24,6 +24,10 @@ public class DeleteCommentByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteCommentByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteCommentByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

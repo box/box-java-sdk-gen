@@ -51,6 +51,10 @@ public class GetFileByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFileByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFileByIdHeadersBuilder ifNoneMatch(String ifNoneMatch) {
       this.ifNoneMatch = ifNoneMatch;
       return this;

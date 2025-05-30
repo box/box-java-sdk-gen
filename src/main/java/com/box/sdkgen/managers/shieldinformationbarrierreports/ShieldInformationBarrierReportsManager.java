@@ -143,6 +143,10 @@ public class ShieldInformationBarrierReportsManager {
 
     protected NetworkSession networkSession;
 
+    public ShieldInformationBarrierReportsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public ShieldInformationBarrierReportsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

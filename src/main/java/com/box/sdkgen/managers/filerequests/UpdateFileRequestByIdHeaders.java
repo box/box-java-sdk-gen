@@ -33,6 +33,10 @@ public class UpdateFileRequestByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateFileRequestByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateFileRequestByIdHeadersBuilder ifMatch(String ifMatch) {
       this.ifMatch = ifMatch;
       return this;

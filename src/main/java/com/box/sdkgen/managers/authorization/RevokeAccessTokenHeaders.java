@@ -24,6 +24,10 @@ public class RevokeAccessTokenHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public RevokeAccessTokenHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public RevokeAccessTokenHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

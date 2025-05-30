@@ -24,6 +24,10 @@ public class PreflightFileUploadCheckHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public PreflightFileUploadCheckHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public PreflightFileUploadCheckHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

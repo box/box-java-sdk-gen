@@ -253,6 +253,10 @@ public class GroupsManager {
 
     protected NetworkSession networkSession;
 
+    public GroupsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public GroupsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

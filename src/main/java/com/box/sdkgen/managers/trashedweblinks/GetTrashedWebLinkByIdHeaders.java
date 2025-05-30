@@ -24,6 +24,10 @@ public class GetTrashedWebLinkByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetTrashedWebLinkByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetTrashedWebLinkByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

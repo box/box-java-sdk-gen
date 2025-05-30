@@ -24,6 +24,10 @@ public class RemoveSharedLinkFromWebLinkHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public RemoveSharedLinkFromWebLinkHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public RemoveSharedLinkFromWebLinkHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

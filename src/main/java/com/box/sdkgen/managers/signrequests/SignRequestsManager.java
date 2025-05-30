@@ -190,6 +190,10 @@ public class SignRequestsManager {
 
     protected NetworkSession networkSession;
 
+    public SignRequestsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public SignRequestsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

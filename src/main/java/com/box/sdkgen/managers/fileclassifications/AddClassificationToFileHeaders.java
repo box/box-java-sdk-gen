@@ -24,6 +24,10 @@ public class AddClassificationToFileHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public AddClassificationToFileHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public AddClassificationToFileHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

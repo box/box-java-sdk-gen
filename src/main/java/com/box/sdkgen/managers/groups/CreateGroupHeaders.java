@@ -24,6 +24,10 @@ public class CreateGroupHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateGroupHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateGroupHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

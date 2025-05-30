@@ -171,6 +171,10 @@ public class FileClassificationsManager {
 
     protected NetworkSession networkSession;
 
+    public FileClassificationsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public FileClassificationsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

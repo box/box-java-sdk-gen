@@ -24,6 +24,10 @@ public class GetTaskAssignmentByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetTaskAssignmentByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetTaskAssignmentByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

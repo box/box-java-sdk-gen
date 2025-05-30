@@ -24,6 +24,10 @@ public class UpdateFileVersionByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateFileVersionByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateFileVersionByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

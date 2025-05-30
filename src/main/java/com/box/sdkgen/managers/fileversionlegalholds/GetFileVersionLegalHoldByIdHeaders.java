@@ -24,6 +24,10 @@ public class GetFileVersionLegalHoldByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFileVersionLegalHoldByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFileVersionLegalHoldByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

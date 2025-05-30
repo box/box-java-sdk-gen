@@ -202,6 +202,10 @@ public class TrashedWebLinksManager {
 
     protected NetworkSession networkSession;
 
+    public TrashedWebLinksManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public TrashedWebLinksManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

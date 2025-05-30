@@ -25,6 +25,10 @@ public class CreateSlackIntegrationMappingHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateSlackIntegrationMappingHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateSlackIntegrationMappingHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

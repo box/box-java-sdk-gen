@@ -24,6 +24,10 @@ public class RestoreFileFromTrashHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public RestoreFileFromTrashHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public RestoreFileFromTrashHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

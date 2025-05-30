@@ -24,6 +24,10 @@ public class GetFileCommentsHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFileCommentsHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFileCommentsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

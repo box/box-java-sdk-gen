@@ -24,6 +24,10 @@ public class CreateWebLinkHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateWebLinkHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateWebLinkHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

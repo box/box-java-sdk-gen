@@ -111,6 +111,10 @@ public class StoragePoliciesManager {
 
     protected NetworkSession networkSession;
 
+    public StoragePoliciesManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public StoragePoliciesManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

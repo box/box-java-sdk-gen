@@ -76,8 +76,12 @@ public class UtilsManager {
 
   public static <K, V> Map<K, V> mergeMaps(Map<K, V> map1, Map<K, V> map2) {
     Map<K, V> mergedMap = new HashMap<>();
-    mergedMap.putAll(map1);
-    mergedMap.putAll(map2);
+    if (map1 != null) {
+      mergedMap.putAll(map1);
+    }
+    if (map2 != null) {
+      mergedMap.putAll(map2);
+    }
     return mergedMap;
   }
 

@@ -24,6 +24,10 @@ public class DeleteTaskByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteTaskByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteTaskByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

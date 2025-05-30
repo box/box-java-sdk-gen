@@ -24,6 +24,10 @@ public class GetClassificationOnFolderHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetClassificationOnFolderHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetClassificationOnFolderHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

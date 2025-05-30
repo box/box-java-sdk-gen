@@ -24,6 +24,10 @@ public class DeleteUserAvatarHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteUserAvatarHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteUserAvatarHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

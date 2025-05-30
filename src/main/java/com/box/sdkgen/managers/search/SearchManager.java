@@ -136,6 +136,10 @@ public class SearchManager {
 
     protected NetworkSession networkSession;
 
+    public SearchManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public SearchManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

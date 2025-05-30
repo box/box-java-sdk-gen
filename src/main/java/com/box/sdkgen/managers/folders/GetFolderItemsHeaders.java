@@ -33,6 +33,10 @@ public class GetFolderItemsHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFolderItemsHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFolderItemsHeadersBuilder boxapi(String boxapi) {
       this.boxapi = boxapi;
       return this;

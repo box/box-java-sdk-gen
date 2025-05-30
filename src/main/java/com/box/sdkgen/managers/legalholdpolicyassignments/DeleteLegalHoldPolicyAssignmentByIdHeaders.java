@@ -25,6 +25,10 @@ public class DeleteLegalHoldPolicyAssignmentByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteLegalHoldPolicyAssignmentByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteLegalHoldPolicyAssignmentByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

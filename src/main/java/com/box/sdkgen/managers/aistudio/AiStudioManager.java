@@ -202,6 +202,10 @@ public class AiStudioManager {
 
     protected NetworkSession networkSession;
 
+    public AiStudioManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public AiStudioManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

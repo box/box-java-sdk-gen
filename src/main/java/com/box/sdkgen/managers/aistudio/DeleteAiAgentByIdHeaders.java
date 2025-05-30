@@ -24,6 +24,10 @@ public class DeleteAiAgentByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteAiAgentByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteAiAgentByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

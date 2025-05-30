@@ -117,6 +117,11 @@ public class SearchResults extends SerializableObject {
 
     protected List<FileFullOrFolderFullOrWebLink> entries;
 
+    public SearchResultsBuilder() {
+      this.type =
+          new EnumWrapper<SearchResultsTypeField>(SearchResultsTypeField.SEARCH_RESULTS_ITEMS);
+    }
+
     public SearchResultsBuilder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;

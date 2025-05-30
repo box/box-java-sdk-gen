@@ -24,6 +24,10 @@ public class GetFileAppItemAssociationsHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFileAppItemAssociationsHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFileAppItemAssociationsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

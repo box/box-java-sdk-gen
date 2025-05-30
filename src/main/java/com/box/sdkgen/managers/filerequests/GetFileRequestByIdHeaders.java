@@ -24,6 +24,10 @@ public class GetFileRequestByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFileRequestByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFileRequestByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

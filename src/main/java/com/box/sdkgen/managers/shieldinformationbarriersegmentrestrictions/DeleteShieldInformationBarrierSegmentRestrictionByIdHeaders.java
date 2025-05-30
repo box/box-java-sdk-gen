@@ -25,6 +25,10 @@ public class DeleteShieldInformationBarrierSegmentRestrictionByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteShieldInformationBarrierSegmentRestrictionByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteShieldInformationBarrierSegmentRestrictionByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

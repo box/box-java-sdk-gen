@@ -24,6 +24,10 @@ public class DeleteUserByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteUserByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteUserByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

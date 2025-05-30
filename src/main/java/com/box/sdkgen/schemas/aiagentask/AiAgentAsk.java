@@ -150,6 +150,10 @@ public class AiAgentAsk extends SerializableObject {
 
     protected AiAgentBasicTextTool basicImageMulti;
 
+    public AiAgentAskBuilder() {
+      this.type = new EnumWrapper<AiAgentAskTypeField>(AiAgentAskTypeField.AI_AGENT_ASK);
+    }
+
     public AiAgentAskBuilder type(AiAgentAskTypeField type) {
       this.type = new EnumWrapper<AiAgentAskTypeField>(type);
       return this;

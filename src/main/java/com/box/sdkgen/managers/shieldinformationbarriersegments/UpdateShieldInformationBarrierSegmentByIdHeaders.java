@@ -25,6 +25,10 @@ public class UpdateShieldInformationBarrierSegmentByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateShieldInformationBarrierSegmentByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateShieldInformationBarrierSegmentByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

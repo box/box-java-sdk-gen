@@ -24,6 +24,10 @@ public class CreateRetentionPolicyHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateRetentionPolicyHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateRetentionPolicyHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

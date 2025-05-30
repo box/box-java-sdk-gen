@@ -24,6 +24,10 @@ public class DeleteFileRequestByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteFileRequestByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteFileRequestByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

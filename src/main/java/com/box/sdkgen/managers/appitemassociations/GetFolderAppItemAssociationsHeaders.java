@@ -25,6 +25,10 @@ public class GetFolderAppItemAssociationsHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFolderAppItemAssociationsHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFolderAppItemAssociationsHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

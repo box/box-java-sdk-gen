@@ -24,6 +24,10 @@ public class CancelSignRequestHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CancelSignRequestHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CancelSignRequestHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

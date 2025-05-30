@@ -104,6 +104,11 @@ public class AiAgentExtract extends SerializableObject {
 
     protected AiAgentBasicTextTool basicImage;
 
+    public AiAgentExtractBuilder() {
+      this.type =
+          new EnumWrapper<AiAgentExtractTypeField>(AiAgentExtractTypeField.AI_AGENT_EXTRACT);
+    }
+
     public AiAgentExtractBuilder type(AiAgentExtractTypeField type) {
       this.type = new EnumWrapper<AiAgentExtractTypeField>(type);
       return this;

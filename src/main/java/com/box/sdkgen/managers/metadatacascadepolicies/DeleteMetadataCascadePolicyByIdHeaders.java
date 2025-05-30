@@ -25,6 +25,10 @@ public class DeleteMetadataCascadePolicyByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteMetadataCascadePolicyByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteMetadataCascadePolicyByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

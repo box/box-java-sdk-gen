@@ -24,6 +24,10 @@ public class GetRecentItemsHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetRecentItemsHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetRecentItemsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

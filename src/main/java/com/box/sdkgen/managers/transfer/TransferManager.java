@@ -100,6 +100,10 @@ public class TransferManager {
 
     protected NetworkSession networkSession;
 
+    public TransferManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public TransferManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

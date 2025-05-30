@@ -303,6 +303,10 @@ public class UsersManager {
 
     protected NetworkSession networkSession;
 
+    public UsersManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public UsersManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

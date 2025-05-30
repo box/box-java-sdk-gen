@@ -25,6 +25,10 @@ public class CreateLegalHoldPolicyAssignmentHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateLegalHoldPolicyAssignmentHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateLegalHoldPolicyAssignmentHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

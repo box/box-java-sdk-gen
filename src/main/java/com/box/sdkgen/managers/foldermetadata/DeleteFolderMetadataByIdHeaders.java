@@ -24,6 +24,10 @@ public class DeleteFolderMetadataByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteFolderMetadataByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteFolderMetadataByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

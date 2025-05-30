@@ -181,6 +181,10 @@ public class CollaborationAllowlistExemptTargetsManager {
 
     protected NetworkSession networkSession;
 
+    public CollaborationAllowlistExemptTargetsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public CollaborationAllowlistExemptTargetsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

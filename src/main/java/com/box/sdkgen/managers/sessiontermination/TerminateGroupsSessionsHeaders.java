@@ -24,6 +24,10 @@ public class TerminateGroupsSessionsHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public TerminateGroupsSessionsHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public TerminateGroupsSessionsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

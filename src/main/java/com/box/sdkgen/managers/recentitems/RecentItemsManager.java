@@ -84,6 +84,10 @@ public class RecentItemsManager {
 
     protected NetworkSession networkSession;
 
+    public RecentItemsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public RecentItemsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

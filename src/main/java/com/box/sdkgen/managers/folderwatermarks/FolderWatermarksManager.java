@@ -126,6 +126,10 @@ public class FolderWatermarksManager {
 
     protected NetworkSession networkSession;
 
+    public FolderWatermarksManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public FolderWatermarksManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

@@ -198,6 +198,10 @@ public class TrashedFilesManager {
 
     protected NetworkSession networkSession;
 
+    public TrashedFilesManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public TrashedFilesManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

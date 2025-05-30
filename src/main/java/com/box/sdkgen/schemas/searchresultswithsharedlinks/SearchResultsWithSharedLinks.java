@@ -124,6 +124,12 @@ public class SearchResultsWithSharedLinks extends SerializableObject {
 
     protected List<SearchResultWithSharedLink> entries;
 
+    public SearchResultsWithSharedLinksBuilder() {
+      this.type =
+          new EnumWrapper<SearchResultsWithSharedLinksTypeField>(
+              SearchResultsWithSharedLinksTypeField.SEARCH_RESULTS_WITH_SHARED_LINKS);
+    }
+
     public SearchResultsWithSharedLinksBuilder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;

@@ -24,6 +24,10 @@ public class UpdateSharedLinkOnWebLinkHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateSharedLinkOnWebLinkHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateSharedLinkOnWebLinkHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

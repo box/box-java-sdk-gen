@@ -24,6 +24,10 @@ public class CreateFolderHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateFolderHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateFolderHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

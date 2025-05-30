@@ -201,6 +201,10 @@ public class TrashedFoldersManager {
 
     protected NetworkSession networkSession;
 
+    public TrashedFoldersManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public TrashedFoldersManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

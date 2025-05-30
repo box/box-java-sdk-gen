@@ -24,6 +24,10 @@ public class CreateAiTextGenHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateAiTextGenHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateAiTextGenHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

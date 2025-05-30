@@ -179,6 +179,10 @@ public class TasksManager {
 
     protected NetworkSession networkSession;
 
+    public TasksManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public TasksManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

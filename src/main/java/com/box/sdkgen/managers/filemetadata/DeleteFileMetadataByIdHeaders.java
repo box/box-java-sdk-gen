@@ -24,6 +24,10 @@ public class DeleteFileMetadataByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteFileMetadataByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteFileMetadataByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

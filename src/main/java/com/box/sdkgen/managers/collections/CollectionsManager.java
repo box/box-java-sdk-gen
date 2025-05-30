@@ -156,6 +156,10 @@ public class CollectionsManager {
 
     protected NetworkSession networkSession;
 
+    public CollectionsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public CollectionsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

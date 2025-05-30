@@ -24,6 +24,10 @@ public class GetSignTemplatesHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetSignTemplatesHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetSignTemplatesHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

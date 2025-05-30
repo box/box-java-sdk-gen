@@ -25,6 +25,10 @@ public class GetCollaborationWhitelistEntryByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetCollaborationWhitelistEntryByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetCollaborationWhitelistEntryByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

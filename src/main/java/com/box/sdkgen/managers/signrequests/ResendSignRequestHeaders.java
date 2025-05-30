@@ -24,6 +24,10 @@ public class ResendSignRequestHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public ResendSignRequestHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public ResendSignRequestHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

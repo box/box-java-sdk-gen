@@ -33,6 +33,10 @@ public class UploadFileHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UploadFileHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UploadFileHeadersBuilder contentMd5(String contentMd5) {
       this.contentMd5 = contentMd5;
       return this;

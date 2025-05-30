@@ -25,6 +25,10 @@ public class DeleteClassificationFromFolderHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteClassificationFromFolderHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteClassificationFromFolderHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

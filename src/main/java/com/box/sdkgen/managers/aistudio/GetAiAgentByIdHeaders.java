@@ -24,6 +24,10 @@ public class GetAiAgentByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetAiAgentByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetAiAgentByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

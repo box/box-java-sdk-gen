@@ -24,6 +24,10 @@ public class GetEnterpriseDevicePinnersHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetEnterpriseDevicePinnersHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetEnterpriseDevicePinnersHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

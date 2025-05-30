@@ -135,6 +135,12 @@ public class AiLlmEndpointParamsOpenAi extends SerializableObject {
 
     protected String stop;
 
+    public AiLlmEndpointParamsOpenAiBuilder() {
+      this.type =
+          new EnumWrapper<AiLlmEndpointParamsOpenAiTypeField>(
+              AiLlmEndpointParamsOpenAiTypeField.OPENAI_PARAMS);
+    }
+
     public AiLlmEndpointParamsOpenAiBuilder type(AiLlmEndpointParamsOpenAiTypeField type) {
       this.type = new EnumWrapper<AiLlmEndpointParamsOpenAiTypeField>(type);
       return this;

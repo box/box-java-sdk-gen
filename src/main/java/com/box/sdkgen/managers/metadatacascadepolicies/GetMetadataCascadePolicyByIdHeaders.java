@@ -25,6 +25,10 @@ public class GetMetadataCascadePolicyByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetMetadataCascadePolicyByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetMetadataCascadePolicyByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

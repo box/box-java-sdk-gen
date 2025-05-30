@@ -143,6 +143,10 @@ public class TermsOfServiceUserStatusesManager {
 
     protected NetworkSession networkSession;
 
+    public TermsOfServiceUserStatusesManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public TermsOfServiceUserStatusesManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

@@ -24,6 +24,10 @@ public class GetSharedLinkForWebLinkHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetSharedLinkForWebLinkHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetSharedLinkForWebLinkHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

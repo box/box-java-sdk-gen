@@ -24,6 +24,10 @@ public class GetFileVersionRetentionsHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFileVersionRetentionsHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFileVersionRetentionsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

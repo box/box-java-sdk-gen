@@ -160,6 +160,10 @@ public class WebLinksManager {
 
     protected NetworkSession networkSession;
 
+    public WebLinksManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public WebLinksManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

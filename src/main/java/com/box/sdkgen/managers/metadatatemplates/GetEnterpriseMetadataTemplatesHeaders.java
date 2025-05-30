@@ -25,6 +25,10 @@ public class GetEnterpriseMetadataTemplatesHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetEnterpriseMetadataTemplatesHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetEnterpriseMetadataTemplatesHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

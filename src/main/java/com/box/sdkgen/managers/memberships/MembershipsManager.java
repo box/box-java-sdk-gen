@@ -336,6 +336,10 @@ public class MembershipsManager {
 
     protected NetworkSession networkSession;
 
+    public MembershipsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public MembershipsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

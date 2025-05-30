@@ -189,6 +189,10 @@ public class AiManager {
 
     protected NetworkSession networkSession;
 
+    public AiManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public AiManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

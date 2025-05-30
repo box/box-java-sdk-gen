@@ -24,6 +24,10 @@ public class DeleteMetadataTemplateHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteMetadataTemplateHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteMetadataTemplateHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

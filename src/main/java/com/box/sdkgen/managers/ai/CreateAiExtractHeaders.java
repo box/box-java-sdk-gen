@@ -24,6 +24,10 @@ public class CreateAiExtractHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateAiExtractHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateAiExtractHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

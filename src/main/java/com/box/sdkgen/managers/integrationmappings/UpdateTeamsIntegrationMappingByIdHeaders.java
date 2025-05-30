@@ -25,6 +25,10 @@ public class UpdateTeamsIntegrationMappingByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateTeamsIntegrationMappingByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateTeamsIntegrationMappingByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

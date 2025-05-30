@@ -24,6 +24,10 @@ public class CreateFileRequestCopyHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateFileRequestCopyHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateFileRequestCopyHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

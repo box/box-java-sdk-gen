@@ -107,6 +107,10 @@ public class EventsManager {
 
     protected NetworkSession networkSession;
 
+    public EventsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public EventsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

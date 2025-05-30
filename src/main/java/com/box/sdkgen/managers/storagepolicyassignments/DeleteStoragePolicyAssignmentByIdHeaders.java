@@ -25,6 +25,10 @@ public class DeleteStoragePolicyAssignmentByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteStoragePolicyAssignmentByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteStoragePolicyAssignmentByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

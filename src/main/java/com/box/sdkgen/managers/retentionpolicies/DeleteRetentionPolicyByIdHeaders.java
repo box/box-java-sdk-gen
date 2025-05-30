@@ -24,6 +24,10 @@ public class DeleteRetentionPolicyByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteRetentionPolicyByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteRetentionPolicyByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

@@ -352,6 +352,10 @@ public class FilesManager {
 
     protected NetworkSession networkSession;
 
+    public FilesManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public FilesManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

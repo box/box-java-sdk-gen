@@ -105,6 +105,12 @@ public class AiLlmEndpointParamsIbm extends SerializableObject {
 
     protected Double topK;
 
+    public AiLlmEndpointParamsIbmBuilder() {
+      this.type =
+          new EnumWrapper<AiLlmEndpointParamsIbmTypeField>(
+              AiLlmEndpointParamsIbmTypeField.IBM_PARAMS);
+    }
+
     public AiLlmEndpointParamsIbmBuilder type(AiLlmEndpointParamsIbmTypeField type) {
       this.type = new EnumWrapper<AiLlmEndpointParamsIbmTypeField>(type);
       return this;
