@@ -1,6 +1,7 @@
 package com.box.sdkgen.schemas.collaboration;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.appitem.AppItem;
 import com.box.sdkgen.schemas.fileorfolderorweblink.FileOrFolderOrWebLink;
 import com.box.sdkgen.schemas.groupminiorusercollaborations.GroupMiniOrUserCollaborations;
@@ -9,6 +10,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class Collaboration extends SerializableObject {
@@ -35,7 +37,9 @@ public class Collaboration extends SerializableObject {
   protected EnumWrapper<CollaborationRoleField> role;
 
   @JsonProperty("expires_at")
-  protected String expiresAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date expiresAt;
 
   @JsonProperty("is_access_only")
   protected Boolean isAccessOnly;
@@ -45,16 +49,22 @@ public class Collaboration extends SerializableObject {
   protected EnumWrapper<CollaborationStatusField> status;
 
   @JsonProperty("acknowledged_at")
-  protected String acknowledgedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date acknowledgedAt;
 
   @JsonProperty("created_by")
   protected UserCollaborations createdBy;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   @JsonProperty("acceptance_requirements_status")
   protected CollaborationAcceptanceRequirementsStatusField acceptanceRequirementsStatus;
@@ -112,7 +122,7 @@ public class Collaboration extends SerializableObject {
     return role;
   }
 
-  public String getExpiresAt() {
+  public Date getExpiresAt() {
     return expiresAt;
   }
 
@@ -124,7 +134,7 @@ public class Collaboration extends SerializableObject {
     return status;
   }
 
-  public String getAcknowledgedAt() {
+  public Date getAcknowledgedAt() {
     return acknowledgedAt;
   }
 
@@ -132,11 +142,11 @@ public class Collaboration extends SerializableObject {
     return createdBy;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -271,19 +281,19 @@ public class Collaboration extends SerializableObject {
 
     protected EnumWrapper<CollaborationRoleField> role;
 
-    protected String expiresAt;
+    protected Date expiresAt;
 
     protected Boolean isAccessOnly;
 
     protected EnumWrapper<CollaborationStatusField> status;
 
-    protected String acknowledgedAt;
+    protected Date acknowledgedAt;
 
     protected UserCollaborations createdBy;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     protected CollaborationAcceptanceRequirementsStatusField acceptanceRequirementsStatus;
 
@@ -332,7 +342,7 @@ public class Collaboration extends SerializableObject {
       return this;
     }
 
-    public CollaborationBuilder expiresAt(String expiresAt) {
+    public CollaborationBuilder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }
@@ -352,7 +362,7 @@ public class Collaboration extends SerializableObject {
       return this;
     }
 
-    public CollaborationBuilder acknowledgedAt(String acknowledgedAt) {
+    public CollaborationBuilder acknowledgedAt(Date acknowledgedAt) {
       this.acknowledgedAt = acknowledgedAt;
       return this;
     }
@@ -362,12 +372,12 @@ public class Collaboration extends SerializableObject {
       return this;
     }
 
-    public CollaborationBuilder createdAt(String createdAt) {
+    public CollaborationBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public CollaborationBuilder modifiedAt(String modifiedAt) {
+    public CollaborationBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

@@ -1,10 +1,12 @@
 package com.box.sdkgen.managers.tasks;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class CreateTaskRequestBody extends SerializableObject {
@@ -20,7 +22,9 @@ public class CreateTaskRequestBody extends SerializableObject {
   protected String message;
 
   @JsonProperty("due_at")
-  protected String dueAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date dueAt;
 
   @JsonDeserialize(
       using =
@@ -59,7 +63,7 @@ public class CreateTaskRequestBody extends SerializableObject {
     return message;
   }
 
-  public String getDueAt() {
+  public Date getDueAt() {
     return dueAt;
   }
 
@@ -121,7 +125,7 @@ public class CreateTaskRequestBody extends SerializableObject {
 
     protected String message;
 
-    protected String dueAt;
+    protected Date dueAt;
 
     protected EnumWrapper<CreateTaskRequestBodyCompletionRuleField> completionRule;
 
@@ -145,7 +149,7 @@ public class CreateTaskRequestBody extends SerializableObject {
       return this;
     }
 
-    public CreateTaskRequestBodyBuilder dueAt(String dueAt) {
+    public CreateTaskRequestBodyBuilder dueAt(Date dueAt) {
       this.dueAt = dueAt;
       return this;
     }

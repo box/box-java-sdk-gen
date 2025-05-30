@@ -1,7 +1,11 @@
 package com.box.sdkgen.managers.legalholdpolicies;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class CreateLegalHoldPolicyRequestBody extends SerializableObject {
@@ -12,10 +16,14 @@ public class CreateLegalHoldPolicyRequestBody extends SerializableObject {
   protected String description;
 
   @JsonProperty("filter_started_at")
-  protected String filterStartedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date filterStartedAt;
 
   @JsonProperty("filter_ended_at")
-  protected String filterEndedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date filterEndedAt;
 
   @JsonProperty("is_ongoing")
   protected Boolean isOngoing;
@@ -42,11 +50,11 @@ public class CreateLegalHoldPolicyRequestBody extends SerializableObject {
     return description;
   }
 
-  public String getFilterStartedAt() {
+  public Date getFilterStartedAt() {
     return filterStartedAt;
   }
 
-  public String getFilterEndedAt() {
+  public Date getFilterEndedAt() {
     return filterEndedAt;
   }
 
@@ -106,9 +114,9 @@ public class CreateLegalHoldPolicyRequestBody extends SerializableObject {
 
     protected String description;
 
-    protected String filterStartedAt;
+    protected Date filterStartedAt;
 
-    protected String filterEndedAt;
+    protected Date filterEndedAt;
 
     protected Boolean isOngoing;
 
@@ -121,12 +129,12 @@ public class CreateLegalHoldPolicyRequestBody extends SerializableObject {
       return this;
     }
 
-    public CreateLegalHoldPolicyRequestBodyBuilder filterStartedAt(String filterStartedAt) {
+    public CreateLegalHoldPolicyRequestBodyBuilder filterStartedAt(Date filterStartedAt) {
       this.filterStartedAt = filterStartedAt;
       return this;
     }
 
-    public CreateLegalHoldPolicyRequestBodyBuilder filterEndedAt(String filterEndedAt) {
+    public CreateLegalHoldPolicyRequestBodyBuilder filterEndedAt(Date filterEndedAt) {
       this.filterEndedAt = filterEndedAt;
       return this;
     }

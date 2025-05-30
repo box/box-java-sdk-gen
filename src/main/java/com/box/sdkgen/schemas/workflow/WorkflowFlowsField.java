@@ -1,11 +1,13 @@
 package com.box.sdkgen.schemas.workflow;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -22,7 +24,9 @@ public class WorkflowFlowsField extends SerializableObject {
   protected List<WorkflowFlowsOutcomesField> outcomes;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("created_by")
   protected UserBase createdBy;
@@ -57,7 +61,7 @@ public class WorkflowFlowsField extends SerializableObject {
     return outcomes;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -126,7 +130,7 @@ public class WorkflowFlowsField extends SerializableObject {
 
     protected List<WorkflowFlowsOutcomesField> outcomes;
 
-    protected String createdAt;
+    protected Date createdAt;
 
     protected UserBase createdBy;
 
@@ -155,7 +159,7 @@ public class WorkflowFlowsField extends SerializableObject {
       return this;
     }
 
-    public WorkflowFlowsFieldBuilder createdAt(String createdAt) {
+    public WorkflowFlowsFieldBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }

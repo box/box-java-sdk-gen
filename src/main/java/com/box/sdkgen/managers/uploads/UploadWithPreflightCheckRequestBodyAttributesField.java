@@ -1,7 +1,11 @@
 package com.box.sdkgen.managers.uploads;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class UploadWithPreflightCheckRequestBodyAttributesField extends SerializableObject {
@@ -11,10 +15,14 @@ public class UploadWithPreflightCheckRequestBodyAttributesField extends Serializ
   protected final UploadWithPreflightCheckRequestBodyAttributesParentField parent;
 
   @JsonProperty("content_created_at")
-  protected String contentCreatedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date contentCreatedAt;
 
   @JsonProperty("content_modified_at")
-  protected String contentModifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date contentModifiedAt;
 
   protected final int size;
 
@@ -46,11 +54,11 @@ public class UploadWithPreflightCheckRequestBodyAttributesField extends Serializ
     return parent;
   }
 
-  public String getContentCreatedAt() {
+  public Date getContentCreatedAt() {
     return contentCreatedAt;
   }
 
-  public String getContentModifiedAt() {
+  public Date getContentModifiedAt() {
     return contentModifiedAt;
   }
 
@@ -111,9 +119,9 @@ public class UploadWithPreflightCheckRequestBodyAttributesField extends Serializ
 
     protected final UploadWithPreflightCheckRequestBodyAttributesParentField parent;
 
-    protected String contentCreatedAt;
+    protected Date contentCreatedAt;
 
-    protected String contentModifiedAt;
+    protected Date contentModifiedAt;
 
     protected final int size;
 
@@ -125,13 +133,13 @@ public class UploadWithPreflightCheckRequestBodyAttributesField extends Serializ
     }
 
     public UploadWithPreflightCheckRequestBodyAttributesFieldBuilder contentCreatedAt(
-        String contentCreatedAt) {
+        Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
     public UploadWithPreflightCheckRequestBodyAttributesFieldBuilder contentModifiedAt(
-        String contentModifiedAt) {
+        Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }

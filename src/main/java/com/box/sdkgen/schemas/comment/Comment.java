@@ -1,10 +1,14 @@
 package com.box.sdkgen.schemas.comment;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.commentbase.CommentBase;
 import com.box.sdkgen.schemas.commentbase.CommentBaseTypeField;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class Comment extends CommentBase {
@@ -18,10 +22,14 @@ public class Comment extends CommentBase {
   protected UserMini createdBy;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   protected CommentItemField item;
 
@@ -51,11 +59,11 @@ public class Comment extends CommentBase {
     return createdBy;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -132,9 +140,9 @@ public class Comment extends CommentBase {
 
     protected UserMini createdBy;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     protected CommentItemField item;
 
@@ -153,12 +161,12 @@ public class Comment extends CommentBase {
       return this;
     }
 
-    public CommentBuilder createdAt(String createdAt) {
+    public CommentBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public CommentBuilder modifiedAt(String modifiedAt) {
+    public CommentBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

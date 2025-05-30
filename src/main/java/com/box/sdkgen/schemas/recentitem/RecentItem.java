@@ -1,11 +1,13 @@
 package com.box.sdkgen.schemas.recentitem;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.filefullorfolderfullorweblink.FileFullOrFolderFullOrWebLink;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class RecentItem extends SerializableObject {
@@ -22,7 +24,9 @@ public class RecentItem extends SerializableObject {
   protected EnumWrapper<RecentItemInteractionTypeField> interactionType;
 
   @JsonProperty("interacted_at")
-  protected String interactedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date interactedAt;
 
   @JsonProperty("interaction_shared_link")
   protected String interactionSharedLink;
@@ -52,7 +56,7 @@ public class RecentItem extends SerializableObject {
     return interactionType;
   }
 
-  public String getInteractedAt() {
+  public Date getInteractedAt() {
     return interactedAt;
   }
 
@@ -114,7 +118,7 @@ public class RecentItem extends SerializableObject {
 
     protected EnumWrapper<RecentItemInteractionTypeField> interactionType;
 
-    protected String interactedAt;
+    protected Date interactedAt;
 
     protected String interactionSharedLink;
 
@@ -139,7 +143,7 @@ public class RecentItem extends SerializableObject {
       return this;
     }
 
-    public RecentItemBuilder interactedAt(String interactedAt) {
+    public RecentItemBuilder interactedAt(Date interactedAt) {
       this.interactedAt = interactedAt;
       return this;
     }

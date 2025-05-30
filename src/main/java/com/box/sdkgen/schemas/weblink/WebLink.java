@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.weblink;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.schemas.weblinkbase.WebLinkBaseTypeField;
@@ -8,6 +9,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class WebLink extends WebLinkMini {
@@ -20,16 +22,24 @@ public class WebLink extends WebLinkMini {
   protected WebLinkPathCollectionField pathCollection;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   @JsonProperty("trashed_at")
-  protected String trashedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date trashedAt;
 
   @JsonProperty("purged_at")
-  protected String purgedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date purgedAt;
 
   @JsonProperty("created_by")
   protected UserMini createdBy;
@@ -80,19 +90,19 @@ public class WebLink extends WebLinkMini {
     return pathCollection;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
-  public String getTrashedAt() {
+  public Date getTrashedAt() {
     return trashedAt;
   }
 
-  public String getPurgedAt() {
+  public Date getPurgedAt() {
     return purgedAt;
   }
 
@@ -253,13 +263,13 @@ public class WebLink extends WebLinkMini {
 
     protected WebLinkPathCollectionField pathCollection;
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
-    protected String trashedAt;
+    protected Date trashedAt;
 
-    protected String purgedAt;
+    protected Date purgedAt;
 
     protected UserMini createdBy;
 
@@ -290,22 +300,22 @@ public class WebLink extends WebLinkMini {
       return this;
     }
 
-    public WebLinkBuilder createdAt(String createdAt) {
+    public WebLinkBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public WebLinkBuilder modifiedAt(String modifiedAt) {
+    public WebLinkBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public WebLinkBuilder trashedAt(String trashedAt) {
+    public WebLinkBuilder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
-    public WebLinkBuilder purgedAt(String purgedAt) {
+    public WebLinkBuilder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }

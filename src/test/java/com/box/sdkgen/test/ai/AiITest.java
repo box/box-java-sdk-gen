@@ -1,6 +1,7 @@
 package com.box.sdkgen.test.ai;
 
 import static com.box.sdkgen.internal.utils.UtilsManager.convertToString;
+import static com.box.sdkgen.internal.utils.UtilsManager.dateTimeFromString;
 import static com.box.sdkgen.internal.utils.UtilsManager.delayInSeconds;
 import static com.box.sdkgen.internal.utils.UtilsManager.getUuid;
 import static com.box.sdkgen.internal.utils.UtilsManager.getValueFromObjectRawData;
@@ -110,12 +111,12 @@ public class AiITest {
                             new AiDialogueHistory.AiDialogueHistoryBuilder()
                                 .prompt("What does the earth go around?")
                                 .answer("The sun")
-                                .createdAt("2021-01-01T00:00:00Z")
+                                .createdAt(dateTimeFromString("2021-01-01T00:00:00Z"))
                                 .build(),
                             new AiDialogueHistory.AiDialogueHistoryBuilder()
                                 .prompt("On Earth, where does the sun rise?")
                                 .answer("East")
-                                .createdAt("2021-01-01T00:00:00Z")
+                                .createdAt(dateTimeFromString("2021-01-01T00:00:00Z"))
                                 .build()))
                     .build());
     assert response.getAnswer().contains("sun");

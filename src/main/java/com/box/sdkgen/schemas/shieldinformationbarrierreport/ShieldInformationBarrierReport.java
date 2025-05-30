@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.shieldinformationbarrierreport;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.shieldinformationbarrierreference.ShieldInformationBarrierReference;
 import com.box.sdkgen.schemas.shieldinformationbarrierreportbase.ShieldInformationBarrierReportBase;
 import com.box.sdkgen.schemas.shieldinformationbarrierreportbase.ShieldInformationBarrierReportBaseTypeField;
@@ -9,6 +10,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class ShieldInformationBarrierReport extends ShieldInformationBarrierReportBase {
@@ -29,13 +31,17 @@ public class ShieldInformationBarrierReport extends ShieldInformationBarrierRepo
   protected ShieldInformationBarrierReportDetails details;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("created_by")
   protected UserBase createdBy;
 
   @JsonProperty("updated_at")
-  protected String updatedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date updatedAt;
 
   public ShieldInformationBarrierReport() {
     super();
@@ -63,7 +69,7 @@ public class ShieldInformationBarrierReport extends ShieldInformationBarrierRepo
     return details;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -71,7 +77,7 @@ public class ShieldInformationBarrierReport extends ShieldInformationBarrierRepo
     return createdBy;
   }
 
-  public String getUpdatedAt() {
+  public Date getUpdatedAt() {
     return updatedAt;
   }
 
@@ -146,11 +152,11 @@ public class ShieldInformationBarrierReport extends ShieldInformationBarrierRepo
 
     protected ShieldInformationBarrierReportDetails details;
 
-    protected String createdAt;
+    protected Date createdAt;
 
     protected UserBase createdBy;
 
-    protected String updatedAt;
+    protected Date updatedAt;
 
     public ShieldInformationBarrierReportBuilder shieldInformationBarrier(
         ShieldInformationBarrierReference shieldInformationBarrier) {
@@ -176,7 +182,7 @@ public class ShieldInformationBarrierReport extends ShieldInformationBarrierRepo
       return this;
     }
 
-    public ShieldInformationBarrierReportBuilder createdAt(String createdAt) {
+    public ShieldInformationBarrierReportBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
@@ -186,7 +192,7 @@ public class ShieldInformationBarrierReport extends ShieldInformationBarrierRepo
       return this;
     }
 
-    public ShieldInformationBarrierReportBuilder updatedAt(String updatedAt) {
+    public ShieldInformationBarrierReportBuilder updatedAt(Date updatedAt) {
       this.updatedAt = updatedAt;
       return this;
     }

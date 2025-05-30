@@ -1,12 +1,14 @@
 package com.box.sdkgen.schemas.shieldinformationbarriersegment;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.shieldinformationbarrierbase.ShieldInformationBarrierBase;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class ShieldInformationBarrierSegment extends SerializableObject {
@@ -31,13 +33,17 @@ public class ShieldInformationBarrierSegment extends SerializableObject {
   protected String description;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("created_by")
   protected UserBase createdBy;
 
   @JsonProperty("updated_at")
-  protected String updatedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date updatedAt;
 
   @JsonProperty("updated_by")
   protected UserBase updatedBy;
@@ -79,7 +85,7 @@ public class ShieldInformationBarrierSegment extends SerializableObject {
     return description;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -87,7 +93,7 @@ public class ShieldInformationBarrierSegment extends SerializableObject {
     return createdBy;
   }
 
-  public String getUpdatedAt() {
+  public Date getUpdatedAt() {
     return updatedAt;
   }
 
@@ -182,11 +188,11 @@ public class ShieldInformationBarrierSegment extends SerializableObject {
 
     protected String description;
 
-    protected String createdAt;
+    protected Date createdAt;
 
     protected UserBase createdBy;
 
-    protected String updatedAt;
+    protected Date updatedAt;
 
     protected UserBase updatedBy;
 
@@ -223,7 +229,7 @@ public class ShieldInformationBarrierSegment extends SerializableObject {
       return this;
     }
 
-    public ShieldInformationBarrierSegmentBuilder createdAt(String createdAt) {
+    public ShieldInformationBarrierSegmentBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
@@ -233,7 +239,7 @@ public class ShieldInformationBarrierSegment extends SerializableObject {
       return this;
     }
 
-    public ShieldInformationBarrierSegmentBuilder updatedAt(String updatedAt) {
+    public ShieldInformationBarrierSegmentBuilder updatedAt(Date updatedAt) {
       this.updatedAt = updatedAt;
       return this;
     }

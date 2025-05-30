@@ -1,6 +1,7 @@
 package com.box.sdkgen.test.taskassignments;
 
 import static com.box.sdkgen.internal.utils.UtilsManager.convertToString;
+import static com.box.sdkgen.internal.utils.UtilsManager.dateTimeFromString;
 import static com.box.sdkgen.test.commons.CommonsManager.getDefaultClient;
 import static com.box.sdkgen.test.commons.CommonsManager.uploadNewFile;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -22,6 +23,7 @@ import com.box.sdkgen.schemas.task.Task;
 import com.box.sdkgen.schemas.taskassignment.TaskAssignment;
 import com.box.sdkgen.schemas.taskassignments.TaskAssignments;
 import com.box.sdkgen.schemas.userfull.UserFull;
+import java.util.Date;
 import org.junit.jupiter.api.Test;
 
 public class TaskAssignmentsITest {
@@ -31,7 +33,7 @@ public class TaskAssignmentsITest {
   @Test
   public void testCreateUpdateGetDeleteTaskAssignment() {
     FileFull file = uploadNewFile();
-    String date = "2035-01-01T00:00:00Z";
+    Date date = dateTimeFromString("2035-01-01T00:00:00Z");
     Task task =
         client
             .getTasks()

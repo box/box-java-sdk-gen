@@ -1,17 +1,21 @@
 package com.box.sdkgen.schemas.timelineskillcard;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 public class TimelineSkillCard extends SerializableObject {
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonDeserialize(using = TimelineSkillCardTypeField.TimelineSkillCardTypeFieldDeserializer.class)
   @JsonSerialize(using = TimelineSkillCardTypeField.TimelineSkillCardTypeFieldSerializer.class)
@@ -63,7 +67,7 @@ public class TimelineSkillCard extends SerializableObject {
     this.entries = builder.entries;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -159,7 +163,7 @@ public class TimelineSkillCard extends SerializableObject {
 
   public static class TimelineSkillCardBuilder {
 
-    protected String createdAt;
+    protected Date createdAt;
 
     protected EnumWrapper<TimelineSkillCardTypeField> type;
 
@@ -189,7 +193,7 @@ public class TimelineSkillCard extends SerializableObject {
               TimelineSkillCardSkillCardTypeField.TIMELINE);
     }
 
-    public TimelineSkillCardBuilder createdAt(String createdAt) {
+    public TimelineSkillCardBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }

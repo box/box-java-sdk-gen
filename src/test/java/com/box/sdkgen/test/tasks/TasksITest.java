@@ -1,5 +1,7 @@
 package com.box.sdkgen.test.tasks;
 
+import static com.box.sdkgen.internal.utils.UtilsManager.dateTimeFromString;
+import static com.box.sdkgen.internal.utils.UtilsManager.dateTimeToString;
 import static com.box.sdkgen.internal.utils.UtilsManager.generateByteStream;
 import static com.box.sdkgen.internal.utils.UtilsManager.getUuid;
 import static com.box.sdkgen.test.commons.CommonsManager.getDefaultClient;
@@ -18,6 +20,7 @@ import com.box.sdkgen.schemas.filefull.FileFull;
 import com.box.sdkgen.schemas.files.Files;
 import com.box.sdkgen.schemas.task.Task;
 import com.box.sdkgen.schemas.tasks.Tasks;
+import java.util.Date;
 import org.junit.jupiter.api.Test;
 
 public class TasksITest {
@@ -35,7 +38,7 @@ public class TasksITest {
                         getUuid(), new UploadFileRequestBodyAttributesParentField("0")),
                     generateByteStream(10)));
     FileFull file = files.getEntries().get(0);
-    String dateTime = "2035-01-01T00:00:00Z";
+    Date dateTime = dateTimeFromString("2035-01-01T00:00:00Z");
     Task task =
         client
             .getTasks()
@@ -52,6 +55,7 @@ public class TasksITest {
                     .build());
     assert task.getMessage().equals("test message");
     assert task.getItem().getId().equals(file.getId());
+    assert dateTimeToString(task.getDueAt()).equals(dateTimeToString(dateTime));
     Task taskById = client.getTasks().getTaskById(task.getId());
     assert taskById.getId().equals(task.getId());
     Tasks taskOnFile = client.getTasks().getFileTasks(file.getId());

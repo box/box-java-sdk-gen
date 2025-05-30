@@ -6,6 +6,7 @@ import com.box.sdkgen.schemas.commentbase.CommentBaseTypeField;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Date;
 import java.util.Objects;
 
 public class CommentFull extends Comment {
@@ -139,13 +140,13 @@ public class CommentFull extends Comment {
     }
 
     @Override
-    public CommentFullBuilder createdAt(String createdAt) {
+    public CommentFullBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
     @Override
-    public CommentFullBuilder modifiedAt(String modifiedAt) {
+    public CommentFullBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

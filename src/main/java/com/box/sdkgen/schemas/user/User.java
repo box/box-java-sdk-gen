@@ -1,20 +1,26 @@
 package com.box.sdkgen.schemas.user;
 
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.userbase.UserBaseTypeField;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class User extends UserMini {
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   protected String language;
 
@@ -67,11 +73,11 @@ public class User extends UserMini {
     this.notificationEmail = builder.notificationEmail;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -244,9 +250,9 @@ public class User extends UserMini {
 
   public static class UserBuilder extends UserMiniBuilder {
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
     protected String language;
 
@@ -274,12 +280,12 @@ public class User extends UserMini {
       super(id);
     }
 
-    public UserBuilder createdAt(String createdAt) {
+    public UserBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public UserBuilder modifiedAt(String modifiedAt) {
+    public UserBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

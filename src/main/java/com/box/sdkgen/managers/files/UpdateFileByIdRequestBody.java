@@ -1,7 +1,11 @@
 package com.box.sdkgen.managers.files;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,7 +23,9 @@ public class UpdateFileByIdRequestBody extends SerializableObject {
   protected UpdateFileByIdRequestBodyLockField lock;
 
   @JsonProperty("disposition_at")
-  protected String dispositionAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date dispositionAt;
 
   protected UpdateFileByIdRequestBodyPermissionsField permissions;
 
@@ -64,7 +70,7 @@ public class UpdateFileByIdRequestBody extends SerializableObject {
     return lock;
   }
 
-  public String getDispositionAt() {
+  public Date getDispositionAt() {
     return dispositionAt;
   }
 
@@ -159,7 +165,7 @@ public class UpdateFileByIdRequestBody extends SerializableObject {
 
     protected UpdateFileByIdRequestBodyLockField lock;
 
-    protected String dispositionAt;
+    protected Date dispositionAt;
 
     protected UpdateFileByIdRequestBodyPermissionsField permissions;
 
@@ -193,7 +199,7 @@ public class UpdateFileByIdRequestBody extends SerializableObject {
       return this;
     }
 
-    public UpdateFileByIdRequestBodyBuilder dispositionAt(String dispositionAt) {
+    public UpdateFileByIdRequestBodyBuilder dispositionAt(Date dispositionAt) {
       this.dispositionAt = dispositionAt;
       return this;
     }

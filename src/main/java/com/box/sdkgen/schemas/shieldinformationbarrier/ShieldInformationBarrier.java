@@ -1,12 +1,14 @@
 package com.box.sdkgen.schemas.shieldinformationbarrier;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.enterprisebase.EnterpriseBase;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class ShieldInformationBarrier extends SerializableObject {
@@ -30,19 +32,25 @@ public class ShieldInformationBarrier extends SerializableObject {
   protected EnumWrapper<ShieldInformationBarrierStatusField> status;
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("created_by")
   protected UserBase createdBy;
 
   @JsonProperty("updated_at")
-  protected String updatedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date updatedAt;
 
   @JsonProperty("updated_by")
   protected UserBase updatedBy;
 
   @JsonProperty("enabled_at")
-  protected String enabledAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date enabledAt;
 
   @JsonProperty("enabled_by")
   protected UserBase enabledBy;
@@ -81,7 +89,7 @@ public class ShieldInformationBarrier extends SerializableObject {
     return status;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -89,7 +97,7 @@ public class ShieldInformationBarrier extends SerializableObject {
     return createdBy;
   }
 
-  public String getUpdatedAt() {
+  public Date getUpdatedAt() {
     return updatedAt;
   }
 
@@ -97,7 +105,7 @@ public class ShieldInformationBarrier extends SerializableObject {
     return updatedBy;
   }
 
-  public String getEnabledAt() {
+  public Date getEnabledAt() {
     return enabledAt;
   }
 
@@ -196,15 +204,15 @@ public class ShieldInformationBarrier extends SerializableObject {
 
     protected EnumWrapper<ShieldInformationBarrierStatusField> status;
 
-    protected String createdAt;
+    protected Date createdAt;
 
     protected UserBase createdBy;
 
-    protected String updatedAt;
+    protected Date updatedAt;
 
     protected UserBase updatedBy;
 
-    protected String enabledAt;
+    protected Date enabledAt;
 
     protected UserBase enabledBy;
 
@@ -240,7 +248,7 @@ public class ShieldInformationBarrier extends SerializableObject {
       return this;
     }
 
-    public ShieldInformationBarrierBuilder createdAt(String createdAt) {
+    public ShieldInformationBarrierBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
@@ -250,7 +258,7 @@ public class ShieldInformationBarrier extends SerializableObject {
       return this;
     }
 
-    public ShieldInformationBarrierBuilder updatedAt(String updatedAt) {
+    public ShieldInformationBarrierBuilder updatedAt(Date updatedAt) {
       this.updatedAt = updatedAt;
       return this;
     }
@@ -260,7 +268,7 @@ public class ShieldInformationBarrier extends SerializableObject {
       return this;
     }
 
-    public ShieldInformationBarrierBuilder enabledAt(String enabledAt) {
+    public ShieldInformationBarrierBuilder enabledAt(Date enabledAt) {
       this.enabledAt = enabledAt;
       return this;
     }

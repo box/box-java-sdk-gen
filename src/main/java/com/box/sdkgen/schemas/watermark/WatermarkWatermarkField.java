@@ -1,16 +1,24 @@
 package com.box.sdkgen.schemas.watermark;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Date;
 import java.util.Objects;
 
 public class WatermarkWatermarkField extends SerializableObject {
 
   @JsonProperty("created_at")
-  protected String createdAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date createdAt;
 
   @JsonProperty("modified_at")
-  protected String modifiedAt;
+  @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
+  @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  protected Date modifiedAt;
 
   public WatermarkWatermarkField() {
     super();
@@ -22,11 +30,11 @@ public class WatermarkWatermarkField extends SerializableObject {
     this.modifiedAt = builder.modifiedAt;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public String getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
@@ -63,16 +71,16 @@ public class WatermarkWatermarkField extends SerializableObject {
 
   public static class WatermarkWatermarkFieldBuilder {
 
-    protected String createdAt;
+    protected Date createdAt;
 
-    protected String modifiedAt;
+    protected Date modifiedAt;
 
-    public WatermarkWatermarkFieldBuilder createdAt(String createdAt) {
+    public WatermarkWatermarkFieldBuilder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public WatermarkWatermarkFieldBuilder modifiedAt(String modifiedAt) {
+    public WatermarkWatermarkFieldBuilder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
