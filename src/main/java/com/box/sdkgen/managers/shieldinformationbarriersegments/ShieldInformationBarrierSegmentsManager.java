@@ -221,6 +221,10 @@ public class ShieldInformationBarrierSegmentsManager {
 
     protected NetworkSession networkSession;
 
+    public ShieldInformationBarrierSegmentsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public ShieldInformationBarrierSegmentsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

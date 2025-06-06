@@ -24,6 +24,10 @@ public class GetFileThumbnailByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFileThumbnailByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFileThumbnailByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

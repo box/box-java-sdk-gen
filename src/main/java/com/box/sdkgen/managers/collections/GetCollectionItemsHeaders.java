@@ -24,6 +24,10 @@ public class GetCollectionItemsHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetCollectionItemsHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetCollectionItemsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

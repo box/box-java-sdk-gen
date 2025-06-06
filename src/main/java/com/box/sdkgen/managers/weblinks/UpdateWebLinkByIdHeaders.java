@@ -24,6 +24,10 @@ public class UpdateWebLinkByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateWebLinkByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateWebLinkByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

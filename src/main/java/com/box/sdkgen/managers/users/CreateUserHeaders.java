@@ -24,6 +24,10 @@ public class CreateUserHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateUserHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateUserHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

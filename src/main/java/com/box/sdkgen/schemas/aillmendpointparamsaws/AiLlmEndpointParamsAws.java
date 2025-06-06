@@ -90,6 +90,12 @@ public class AiLlmEndpointParamsAws extends SerializableObject {
 
     protected Double topP;
 
+    public AiLlmEndpointParamsAwsBuilder() {
+      this.type =
+          new EnumWrapper<AiLlmEndpointParamsAwsTypeField>(
+              AiLlmEndpointParamsAwsTypeField.AWS_PARAMS);
+    }
+
     public AiLlmEndpointParamsAwsBuilder type(AiLlmEndpointParamsAwsTypeField type) {
       this.type = new EnumWrapper<AiLlmEndpointParamsAwsTypeField>(type);
       return this;

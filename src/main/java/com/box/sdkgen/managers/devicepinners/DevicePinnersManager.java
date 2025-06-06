@@ -146,6 +146,10 @@ public class DevicePinnersManager {
 
     protected NetworkSession networkSession;
 
+    public DevicePinnersManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public DevicePinnersManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

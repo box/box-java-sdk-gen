@@ -288,6 +288,10 @@ public class FileVersionsManager {
 
     protected NetworkSession networkSession;
 
+    public FileVersionsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public FileVersionsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

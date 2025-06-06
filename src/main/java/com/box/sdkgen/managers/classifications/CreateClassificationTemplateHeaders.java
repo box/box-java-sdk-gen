@@ -25,6 +25,10 @@ public class CreateClassificationTemplateHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateClassificationTemplateHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateClassificationTemplateHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

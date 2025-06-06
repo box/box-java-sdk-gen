@@ -24,6 +24,10 @@ public class GetFolderLocksHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFolderLocksHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFolderLocksHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

@@ -205,6 +205,10 @@ public class DocgenManager {
 
     protected NetworkSession networkSession;
 
+    public DocgenManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public DocgenManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

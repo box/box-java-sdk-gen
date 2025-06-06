@@ -62,6 +62,12 @@ public class UpdateFolderWatermarkRequestBodyWatermarkField extends Serializable
 
     protected EnumWrapper<UpdateFolderWatermarkRequestBodyWatermarkImprintField> imprint;
 
+    public UpdateFolderWatermarkRequestBodyWatermarkFieldBuilder() {
+      this.imprint =
+          new EnumWrapper<UpdateFolderWatermarkRequestBodyWatermarkImprintField>(
+              UpdateFolderWatermarkRequestBodyWatermarkImprintField.DEFAULT);
+    }
+
     public UpdateFolderWatermarkRequestBodyWatermarkFieldBuilder imprint(
         UpdateFolderWatermarkRequestBodyWatermarkImprintField imprint) {
       this.imprint =

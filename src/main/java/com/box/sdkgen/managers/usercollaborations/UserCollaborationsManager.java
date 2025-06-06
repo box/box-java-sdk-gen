@@ -192,6 +192,10 @@ public class UserCollaborationsManager {
 
     protected NetworkSession networkSession;
 
+    public UserCollaborationsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public UserCollaborationsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

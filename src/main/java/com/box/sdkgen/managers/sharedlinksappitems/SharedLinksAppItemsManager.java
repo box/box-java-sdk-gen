@@ -68,6 +68,10 @@ public class SharedLinksAppItemsManager {
 
     protected NetworkSession networkSession;
 
+    public SharedLinksAppItemsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public SharedLinksAppItemsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

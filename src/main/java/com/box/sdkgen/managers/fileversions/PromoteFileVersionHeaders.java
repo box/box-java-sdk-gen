@@ -24,6 +24,10 @@ public class PromoteFileVersionHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public PromoteFileVersionHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public PromoteFileVersionHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

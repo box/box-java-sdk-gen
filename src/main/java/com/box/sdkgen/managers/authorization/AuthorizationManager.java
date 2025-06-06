@@ -152,6 +152,10 @@ public class AuthorizationManager {
 
     protected NetworkSession networkSession;
 
+    public AuthorizationManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public AuthorizationManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

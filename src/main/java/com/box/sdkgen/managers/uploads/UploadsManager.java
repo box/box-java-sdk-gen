@@ -274,6 +274,10 @@ public class UploadsManager {
 
     protected NetworkSession networkSession;
 
+    public UploadsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public UploadsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

@@ -125,6 +125,10 @@ public class FileWatermarksManager {
 
     protected NetworkSession networkSession;
 
+    public FileWatermarksManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public FileWatermarksManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

@@ -223,6 +223,10 @@ public class LegalHoldPolicyAssignmentsManager {
 
     protected NetworkSession networkSession;
 
+    public LegalHoldPolicyAssignmentsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public LegalHoldPolicyAssignmentsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

@@ -24,6 +24,10 @@ public class GetTermsOfServiceByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetTermsOfServiceByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetTermsOfServiceByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

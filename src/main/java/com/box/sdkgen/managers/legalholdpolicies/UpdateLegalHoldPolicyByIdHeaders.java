@@ -24,6 +24,10 @@ public class UpdateLegalHoldPolicyByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateLegalHoldPolicyByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateLegalHoldPolicyByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

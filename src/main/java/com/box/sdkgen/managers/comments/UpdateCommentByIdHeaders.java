@@ -24,6 +24,10 @@ public class UpdateCommentByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateCommentByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateCommentByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

@@ -24,6 +24,10 @@ public class DeleteFolderLockByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteFolderLockByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteFolderLockByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

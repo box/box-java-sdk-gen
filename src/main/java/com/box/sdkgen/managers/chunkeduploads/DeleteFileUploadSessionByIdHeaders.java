@@ -24,6 +24,10 @@ public class DeleteFileUploadSessionByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public DeleteFileUploadSessionByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public DeleteFileUploadSessionByIdHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

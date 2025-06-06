@@ -24,6 +24,10 @@ public class GetCommentByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetCommentByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetCommentByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

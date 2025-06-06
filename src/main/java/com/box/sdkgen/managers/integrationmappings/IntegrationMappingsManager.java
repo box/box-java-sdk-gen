@@ -342,6 +342,10 @@ public class IntegrationMappingsManager {
 
     protected NetworkSession networkSession;
 
+    public IntegrationMappingsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public IntegrationMappingsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

@@ -24,6 +24,10 @@ public class UpdateWebhookByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UpdateWebhookByIdHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UpdateWebhookByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

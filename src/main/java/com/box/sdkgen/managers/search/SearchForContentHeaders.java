@@ -24,6 +24,10 @@ public class SearchForContentHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public SearchForContentHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public SearchForContentHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;

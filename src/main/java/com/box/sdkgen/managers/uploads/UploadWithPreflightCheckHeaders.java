@@ -33,6 +33,10 @@ public class UploadWithPreflightCheckHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public UploadWithPreflightCheckHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public UploadWithPreflightCheckHeadersBuilder contentMd5(String contentMd5) {
       this.contentMd5 = contentMd5;
       return this;

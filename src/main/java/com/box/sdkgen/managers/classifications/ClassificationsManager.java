@@ -152,6 +152,10 @@ public class ClassificationsManager {
 
     protected NetworkSession networkSession;
 
+    public ClassificationsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public ClassificationsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

@@ -25,6 +25,10 @@ public class CreateFileUploadSessionForExistingFileHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public CreateFileUploadSessionForExistingFileHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public CreateFileUploadSessionForExistingFileHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

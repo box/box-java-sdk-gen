@@ -201,6 +201,10 @@ public class ShieldListsManager {
 
     protected NetworkSession networkSession;
 
+    public ShieldListsManagerBuilder() {
+      this.networkSession = new NetworkSession();
+    }
+
     public ShieldListsManagerBuilder auth(Authentication auth) {
       this.auth = auth;
       return this;

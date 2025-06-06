@@ -25,6 +25,10 @@ public class GetTermsOfServiceUserStatusesHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetTermsOfServiceUserStatusesHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetTermsOfServiceUserStatusesHeadersBuilder extraHeaders(
         Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;

@@ -24,6 +24,10 @@ public class GetFileTasksHeaders {
 
     protected Map<String, String> extraHeaders;
 
+    public GetFileTasksHeadersBuilder() {
+      this.extraHeaders = mapOf();
+    }
+
     public GetFileTasksHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
