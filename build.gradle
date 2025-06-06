@@ -3,6 +3,7 @@ plugins {
   id "com.diffplug.spotless" version "${spotlessVersion}"
   id "maven-publish"
   id "signing"
+  id "org.jreleaser" version "1.18.0"
   id "com.github.nbaztec.coveralls-jacoco" version "${coverallsJacocoVersion}"
   id "jacoco"
   id "org.gradle.test-retry" version "${testRetryVersion}"
@@ -101,17 +102,7 @@ publishing {
 
   repositories {
     maven {
-      name = "sonatype"
-      def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-      def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
-      url = version.endsWith("SNAPSHOT") ? snapshotsRepoUrl : releasesRepoUrl
-      if (project.hasProperty("ossrhUsername") && project.hasProperty("ossrhPassword")) {
-        credentials {
-          username = ossrhUsername
-          password = ossrhPassword
-        }
-
-      }
+      url = layout.buildDirectory.dir('staging-deploy')
     }
 
   }
@@ -124,6 +115,32 @@ signing {
   // not compatible with Gradle implementation
   useGpgCmd()
   sign publishing.publications.boxJavaSdkGen
+}
+def centralUsername = project.findProperty("centralUsername")
+def centralPassword = project.findProperty("centralPassword")
+jreleaser {
+  signing {
+    active = "NEVER"
+  }
+
+  deploy {
+    maven {
+      mavenCentral {
+        sonatype {
+          active = "ALWAYS"
+          url = "https://central.sonatype.com/api/v1/publisher"
+          sign = false
+          stagingRepository('build/staging-deploy')
+          username = centralUsername
+          password = centralPassword
+        }
+
+      }
+
+    }
+
+  }
+
 }
 jacoco {
   reportsDirectory = file("$buildDir/reports/jacoco")
