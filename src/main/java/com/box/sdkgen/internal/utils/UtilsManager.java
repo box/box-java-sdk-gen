@@ -453,4 +453,12 @@ public class UtilsManager {
     DATE_FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
     return DATE_FORMAT.format(date);
   }
+
+  public static long dateTimeToEpochSeconds(Date dateTime) {
+    return dateTime.getTime() / 1000;
+  }
+
+  public static Date epochSecondsToDateTime(long seconds) {
+    return new Date(seconds * 1000);
+  }
 }
