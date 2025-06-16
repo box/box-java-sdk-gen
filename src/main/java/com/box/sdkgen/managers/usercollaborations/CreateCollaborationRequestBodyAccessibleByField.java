@@ -35,8 +35,7 @@ public class CreateCollaborationRequestBodyAccessibleByField extends Serializabl
     this.type = new EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField>(type);
   }
 
-  protected CreateCollaborationRequestBodyAccessibleByField(
-      CreateCollaborationRequestBodyAccessibleByFieldBuilder builder) {
+  protected CreateCollaborationRequestBodyAccessibleByField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -92,7 +91,7 @@ public class CreateCollaborationRequestBodyAccessibleByField extends Serializabl
         + "}";
   }
 
-  public static class CreateCollaborationRequestBodyAccessibleByFieldBuilder {
+  public static class Builder {
 
     protected final EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField> type;
 
@@ -100,22 +99,20 @@ public class CreateCollaborationRequestBodyAccessibleByField extends Serializabl
 
     protected String login;
 
-    public CreateCollaborationRequestBodyAccessibleByFieldBuilder(
-        EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField> type) {
+    public Builder(EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField> type) {
       this.type = type;
     }
 
-    public CreateCollaborationRequestBodyAccessibleByFieldBuilder(
-        CreateCollaborationRequestBodyAccessibleByTypeField type) {
+    public Builder(CreateCollaborationRequestBodyAccessibleByTypeField type) {
       this.type = new EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField>(type);
     }
 
-    public CreateCollaborationRequestBodyAccessibleByFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public CreateCollaborationRequestBodyAccessibleByFieldBuilder login(String login) {
+    public Builder login(String login) {
       this.login = login;
       return this;
     }

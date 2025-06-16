@@ -12,7 +12,7 @@ public class CreateWebhookHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CreateWebhookHeaders(CreateWebhookHeadersBuilder builder) {
+  protected CreateWebhookHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class CreateWebhookHeaders {
     return extraHeaders;
   }
 
-  public static class CreateWebhookHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CreateWebhookHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CreateWebhookHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

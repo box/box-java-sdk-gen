@@ -8,7 +8,7 @@ public class GetInviteByIdQueryParams {
 
   public GetInviteByIdQueryParams() {}
 
-  protected GetInviteByIdQueryParams(GetInviteByIdQueryParamsBuilder builder) {
+  protected GetInviteByIdQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class GetInviteByIdQueryParams {
     return fields;
   }
 
-  public static class GetInviteByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public GetInviteByIdQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

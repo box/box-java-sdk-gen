@@ -22,7 +22,7 @@ public class AiAgentTextGen extends SerializableObject {
     this.type = new EnumWrapper<AiAgentTextGenTypeField>(AiAgentTextGenTypeField.AI_AGENT_TEXT_GEN);
   }
 
-  protected AiAgentTextGen(AiAgentTextGenBuilder builder) {
+  protected AiAgentTextGen(Builder builder) {
     super();
     this.type = builder.type;
     this.basicGen = builder.basicGen;
@@ -58,28 +58,28 @@ public class AiAgentTextGen extends SerializableObject {
     return "AiAgentTextGen{" + "type='" + type + '\'' + ", " + "basicGen='" + basicGen + '\'' + "}";
   }
 
-  public static class AiAgentTextGenBuilder {
+  public static class Builder {
 
     protected EnumWrapper<AiAgentTextGenTypeField> type;
 
     protected AiAgentBasicGenTool basicGen;
 
-    public AiAgentTextGenBuilder() {
+    public Builder() {
       this.type =
           new EnumWrapper<AiAgentTextGenTypeField>(AiAgentTextGenTypeField.AI_AGENT_TEXT_GEN);
     }
 
-    public AiAgentTextGenBuilder type(AiAgentTextGenTypeField type) {
+    public Builder type(AiAgentTextGenTypeField type) {
       this.type = new EnumWrapper<AiAgentTextGenTypeField>(type);
       return this;
     }
 
-    public AiAgentTextGenBuilder type(EnumWrapper<AiAgentTextGenTypeField> type) {
+    public Builder type(EnumWrapper<AiAgentTextGenTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiAgentTextGenBuilder basicGen(AiAgentBasicGenTool basicGen) {
+    public Builder basicGen(AiAgentBasicGenTool basicGen) {
       this.basicGen = basicGen;
       return this;
     }

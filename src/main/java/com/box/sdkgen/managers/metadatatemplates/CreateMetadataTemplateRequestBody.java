@@ -26,7 +26,7 @@ public class CreateMetadataTemplateRequestBody extends SerializableObject {
     this.displayName = displayName;
   }
 
-  protected CreateMetadataTemplateRequestBody(CreateMetadataTemplateRequestBodyBuilder builder) {
+  protected CreateMetadataTemplateRequestBody(Builder builder) {
     super();
     this.scope = builder.scope;
     this.templateKey = builder.templateKey;
@@ -111,7 +111,7 @@ public class CreateMetadataTemplateRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class CreateMetadataTemplateRequestBodyBuilder {
+  public static class Builder {
 
     protected final String scope;
 
@@ -125,29 +125,27 @@ public class CreateMetadataTemplateRequestBody extends SerializableObject {
 
     protected Boolean copyInstanceOnItemCopy;
 
-    public CreateMetadataTemplateRequestBodyBuilder(String scope, String displayName) {
+    public Builder(String scope, String displayName) {
       this.scope = scope;
       this.displayName = displayName;
     }
 
-    public CreateMetadataTemplateRequestBodyBuilder templateKey(String templateKey) {
+    public Builder templateKey(String templateKey) {
       this.templateKey = templateKey;
       return this;
     }
 
-    public CreateMetadataTemplateRequestBodyBuilder hidden(Boolean hidden) {
+    public Builder hidden(Boolean hidden) {
       this.hidden = hidden;
       return this;
     }
 
-    public CreateMetadataTemplateRequestBodyBuilder fields(
-        List<CreateMetadataTemplateRequestBodyFieldsField> fields) {
+    public Builder fields(List<CreateMetadataTemplateRequestBodyFieldsField> fields) {
       this.fields = fields;
       return this;
     }
 
-    public CreateMetadataTemplateRequestBodyBuilder copyInstanceOnItemCopy(
-        Boolean copyInstanceOnItemCopy) {
+    public Builder copyInstanceOnItemCopy(Boolean copyInstanceOnItemCopy) {
       this.copyInstanceOnItemCopy = copyInstanceOnItemCopy;
       return this;
     }

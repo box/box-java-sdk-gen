@@ -8,7 +8,7 @@ public class GetTrashedWebLinkByIdQueryParams {
 
   public GetTrashedWebLinkByIdQueryParams() {}
 
-  protected GetTrashedWebLinkByIdQueryParams(GetTrashedWebLinkByIdQueryParamsBuilder builder) {
+  protected GetTrashedWebLinkByIdQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class GetTrashedWebLinkByIdQueryParams {
     return fields;
   }
 
-  public static class GetTrashedWebLinkByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public GetTrashedWebLinkByIdQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

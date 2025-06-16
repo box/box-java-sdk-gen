@@ -18,7 +18,7 @@ public class WebhookMiniTargetField extends SerializableObject {
     super();
   }
 
-  protected WebhookMiniTargetField(WebhookMiniTargetFieldBuilder builder) {
+  protected WebhookMiniTargetField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -54,23 +54,23 @@ public class WebhookMiniTargetField extends SerializableObject {
     return "WebhookMiniTargetField{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class WebhookMiniTargetFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected EnumWrapper<WebhookMiniTargetTypeField> type;
 
-    public WebhookMiniTargetFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public WebhookMiniTargetFieldBuilder type(WebhookMiniTargetTypeField type) {
+    public Builder type(WebhookMiniTargetTypeField type) {
       this.type = new EnumWrapper<WebhookMiniTargetTypeField>(type);
       return this;
     }
 
-    public WebhookMiniTargetFieldBuilder type(EnumWrapper<WebhookMiniTargetTypeField> type) {
+    public Builder type(EnumWrapper<WebhookMiniTargetTypeField> type) {
       this.type = type;
       return this;
     }

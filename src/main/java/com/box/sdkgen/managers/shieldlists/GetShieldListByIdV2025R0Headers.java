@@ -17,7 +17,7 @@ public class GetShieldListByIdV2025R0Headers {
     this.extraHeaders = mapOf();
   }
 
-  protected GetShieldListByIdV2025R0Headers(GetShieldListByIdV2025R0HeadersBuilder builder) {
+  protected GetShieldListByIdV2025R0Headers(Builder builder) {
     this.boxVersion = builder.boxVersion;
     this.extraHeaders = builder.extraHeaders;
   }
@@ -30,29 +30,28 @@ public class GetShieldListByIdV2025R0Headers {
     return extraHeaders;
   }
 
-  public static class GetShieldListByIdV2025R0HeadersBuilder {
+  public static class Builder {
 
     protected EnumWrapper<BoxVersionHeaderV2025R0> boxVersion;
 
     protected Map<String, String> extraHeaders;
 
-    public GetShieldListByIdV2025R0HeadersBuilder() {
+    public Builder() {
       this.boxVersion = new EnumWrapper<BoxVersionHeaderV2025R0>(BoxVersionHeaderV2025R0._2025_0);
       this.extraHeaders = mapOf();
     }
 
-    public GetShieldListByIdV2025R0HeadersBuilder boxVersion(BoxVersionHeaderV2025R0 boxVersion) {
+    public Builder boxVersion(BoxVersionHeaderV2025R0 boxVersion) {
       this.boxVersion = new EnumWrapper<BoxVersionHeaderV2025R0>(boxVersion);
       return this;
     }
 
-    public GetShieldListByIdV2025R0HeadersBuilder boxVersion(
-        EnumWrapper<BoxVersionHeaderV2025R0> boxVersion) {
+    public Builder boxVersion(EnumWrapper<BoxVersionHeaderV2025R0> boxVersion) {
       this.boxVersion = boxVersion;
       return this;
     }
 
-    public GetShieldListByIdV2025R0HeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

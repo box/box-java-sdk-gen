@@ -28,7 +28,7 @@ public class ResponseInfo {
     this.headers = headers;
   }
 
-  protected ResponseInfo(ResponseInfoBuilder builder) {
+  protected ResponseInfo(Builder builder) {
     this.statusCode = builder.statusCode;
     this.headers = builder.headers;
     this.body = builder.body;
@@ -71,7 +71,7 @@ public class ResponseInfo {
     return helpUrl;
   }
 
-  public static class ResponseInfoBuilder {
+  public static class Builder {
 
     protected final int statusCode;
 
@@ -89,37 +89,37 @@ public class ResponseInfo {
 
     protected String helpUrl;
 
-    public ResponseInfoBuilder(int statusCode, Map<String, String> headers) {
+    public Builder(int statusCode, Map<String, String> headers) {
       this.statusCode = statusCode;
       this.headers = headers;
     }
 
-    public ResponseInfoBuilder body(JsonNode body) {
+    public Builder body(JsonNode body) {
       this.body = body;
       return this;
     }
 
-    public ResponseInfoBuilder rawBody(String rawBody) {
+    public Builder rawBody(String rawBody) {
       this.rawBody = rawBody;
       return this;
     }
 
-    public ResponseInfoBuilder code(String code) {
+    public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    public ResponseInfoBuilder contextInfo(JsonNode contextInfo) {
+    public Builder contextInfo(JsonNode contextInfo) {
       this.contextInfo = contextInfo;
       return this;
     }
 
-    public ResponseInfoBuilder requestId(String requestId) {
+    public Builder requestId(String requestId) {
       this.requestId = requestId;
       return this;
     }
 
-    public ResponseInfoBuilder helpUrl(String helpUrl) {
+    public Builder helpUrl(String helpUrl) {
       this.helpUrl = helpUrl;
       return this;
     }
@@ -130,8 +130,7 @@ public class ResponseInfo {
   }
 
   public static ResponseInfo fromResponse(FetchResponse fetchResponse, String rawResponseBody) {
-    ResponseInfoBuilder builder =
-        new ResponseInfoBuilder(fetchResponse.getStatus(), fetchResponse.getHeaders());
+    Builder builder = new Builder(fetchResponse.getStatus(), fetchResponse.getHeaders());
     JsonNode body = fetchResponse.getData();
     if (body == null) {
       builder.rawBody(rawResponseBody);

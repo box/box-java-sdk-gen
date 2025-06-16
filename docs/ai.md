@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample post_ai_ask -->
 ```
-client.getAi().createAiAsk(new AiAsk(AiAskModeField.SINGLE_ITEM_QA, "which direction sun rises", Arrays.asList(new AiItemAsk.AiItemAskBuilder(fileToAsk.getId(), AiItemAskTypeField.FILE).content("Sun rises in the East").build())))
+client.getAi().createAiAsk(new AiAsk(AiAskModeField.SINGLE_ITEM_QA, "which direction sun rises", Arrays.asList(new AiItemAsk.Builder(fileToAsk.getId(), AiItemAskTypeField.FILE).content("Sun rises in the East").build())))
 ```
 
 ### Arguments
@@ -47,7 +47,7 @@ See the endpoint docs at
 
 <!-- sample post_ai_text_gen -->
 ```
-client.getAi().createAiTextGen(new AiTextGen.AiTextGenBuilder("Parapharse the document.s", Arrays.asList(new AiTextGenItemsField.AiTextGenItemsFieldBuilder(fileToAsk.getId()).type(AiTextGenItemsTypeField.FILE).content("The Earth goes around the sun. Sun rises in the East in the morning.").build())).dialogueHistory(Arrays.asList(new AiDialogueHistory.AiDialogueHistoryBuilder().prompt("What does the earth go around?").answer("The sun").createdAt(dateTimeFromString("2021-01-01T00:00:00Z")).build(), new AiDialogueHistory.AiDialogueHistoryBuilder().prompt("On Earth, where does the sun rise?").answer("East").createdAt(dateTimeFromString("2021-01-01T00:00:00Z")).build())).build())
+client.getAi().createAiTextGen(new AiTextGen.Builder("Parapharse the document.s", Arrays.asList(new AiTextGenItemsField.Builder(fileToAsk.getId()).type(AiTextGenItemsTypeField.FILE).content("The Earth goes around the sun. Sun rises in the East in the morning.").build())).dialogueHistory(Arrays.asList(new AiDialogueHistory.Builder().prompt("What does the earth go around?").answer("The sun").createdAt(dateTimeFromString("2021-01-01T00:00:00Z")).build(), new AiDialogueHistory.Builder().prompt("On Earth, where does the sun rise?").answer("East").createdAt(dateTimeFromString("2021-01-01T00:00:00Z")).build())).build())
 ```
 
 ### Arguments
@@ -76,7 +76,7 @@ See the endpoint docs at
 
 <!-- sample get_ai_agent_default -->
 ```
-client.getAi().getAiAgentDefaultConfig(new GetAiAgentDefaultConfigQueryParams.GetAiAgentDefaultConfigQueryParamsBuilder(GetAiAgentDefaultConfigQueryParamsModeField.ASK).language("en-US").build())
+client.getAi().getAiAgentDefaultConfig(new GetAiAgentDefaultConfigQueryParams.Builder(GetAiAgentDefaultConfigQueryParamsModeField.ASK).language("en-US").build())
 ```
 
 ### Arguments
@@ -146,7 +146,7 @@ See the endpoint docs at
 
 <!-- sample post_ai_extract_structured -->
 ```
-client.getAi().createAiExtractStructured(new AiExtractStructured.AiExtractStructuredBuilder(Arrays.asList(new AiItemBase(file.getId()))).fields(Arrays.asList(new AiExtractStructuredFieldsField.AiExtractStructuredFieldsFieldBuilder("firstName").description("Person first name").displayName("First name").prompt("What is the your first name?").type("string").build(), new AiExtractStructuredFieldsField.AiExtractStructuredFieldsFieldBuilder("lastName").description("Person last name").displayName("Last name").prompt("What is the your last name?").type("string").build(), new AiExtractStructuredFieldsField.AiExtractStructuredFieldsFieldBuilder("dateOfBirth").description("Person date of birth").displayName("Birth date").prompt("What is the date of your birth?").type("date").build(), new AiExtractStructuredFieldsField.AiExtractStructuredFieldsFieldBuilder("age").description("Person age").displayName("Age").prompt("How old are you?").type("float").build(), new AiExtractStructuredFieldsField.AiExtractStructuredFieldsFieldBuilder("hobby").description("Person hobby").displayName("Hobby").prompt("What is your hobby?").type("multiSelect").options(Arrays.asList(new AiExtractStructuredFieldsOptionsField("guitar"), new AiExtractStructuredFieldsOptionsField("books"))).build())).build())
+client.getAi().createAiExtractStructured(new AiExtractStructured.Builder(Arrays.asList(new AiItemBase(file.getId()))).fields(Arrays.asList(new AiExtractStructuredFieldsField.Builder("firstName").description("Person first name").displayName("First name").prompt("What is the your first name?").type("string").build(), new AiExtractStructuredFieldsField.Builder("lastName").description("Person last name").displayName("Last name").prompt("What is the your last name?").type("string").build(), new AiExtractStructuredFieldsField.Builder("dateOfBirth").description("Person date of birth").displayName("Birth date").prompt("What is the date of your birth?").type("date").build(), new AiExtractStructuredFieldsField.Builder("age").description("Person age").displayName("Age").prompt("How old are you?").type("float").build(), new AiExtractStructuredFieldsField.Builder("hobby").description("Person hobby").displayName("Hobby").prompt("What is your hobby?").type("multiSelect").options(Arrays.asList(new AiExtractStructuredFieldsOptionsField("guitar"), new AiExtractStructuredFieldsOptionsField("books"))).build())).build())
 ```
 
 ### Arguments

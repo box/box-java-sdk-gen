@@ -14,7 +14,7 @@ public class GetGroupsQueryParams {
 
   public GetGroupsQueryParams() {}
 
-  protected GetGroupsQueryParams(GetGroupsQueryParamsBuilder builder) {
+  protected GetGroupsQueryParams(Builder builder) {
     this.filterTerm = builder.filterTerm;
     this.fields = builder.fields;
     this.limit = builder.limit;
@@ -37,7 +37,7 @@ public class GetGroupsQueryParams {
     return offset;
   }
 
-  public static class GetGroupsQueryParamsBuilder {
+  public static class Builder {
 
     protected String filterTerm;
 
@@ -47,22 +47,22 @@ public class GetGroupsQueryParams {
 
     protected Long offset;
 
-    public GetGroupsQueryParamsBuilder filterTerm(String filterTerm) {
+    public Builder filterTerm(String filterTerm) {
       this.filterTerm = filterTerm;
       return this;
     }
 
-    public GetGroupsQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public GetGroupsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetGroupsQueryParamsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }

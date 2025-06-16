@@ -12,7 +12,7 @@ public class RemoveSharedLinkFromWebLinkHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected RemoveSharedLinkFromWebLinkHeaders(RemoveSharedLinkFromWebLinkHeadersBuilder builder) {
+  protected RemoveSharedLinkFromWebLinkHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,16 +20,15 @@ public class RemoveSharedLinkFromWebLinkHeaders {
     return extraHeaders;
   }
 
-  public static class RemoveSharedLinkFromWebLinkHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public RemoveSharedLinkFromWebLinkHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public RemoveSharedLinkFromWebLinkHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

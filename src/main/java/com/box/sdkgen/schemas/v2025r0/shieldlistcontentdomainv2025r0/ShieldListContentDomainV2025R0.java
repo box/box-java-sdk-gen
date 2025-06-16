@@ -30,7 +30,7 @@ public class ShieldListContentDomainV2025R0 extends SerializableObject {
             ShieldListContentDomainV2025R0TypeField.DOMAIN);
   }
 
-  protected ShieldListContentDomainV2025R0(ShieldListContentDomainV2025R0Builder builder) {
+  protected ShieldListContentDomainV2025R0(Builder builder) {
     super();
     this.type = builder.type;
     this.domains = builder.domains;
@@ -74,27 +74,25 @@ public class ShieldListContentDomainV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class ShieldListContentDomainV2025R0Builder {
+  public static class Builder {
 
     protected EnumWrapper<ShieldListContentDomainV2025R0TypeField> type;
 
     protected final List<String> domains;
 
-    public ShieldListContentDomainV2025R0Builder(List<String> domains) {
+    public Builder(List<String> domains) {
       this.domains = domains;
       this.type =
           new EnumWrapper<ShieldListContentDomainV2025R0TypeField>(
               ShieldListContentDomainV2025R0TypeField.DOMAIN);
     }
 
-    public ShieldListContentDomainV2025R0Builder type(
-        ShieldListContentDomainV2025R0TypeField type) {
+    public Builder type(ShieldListContentDomainV2025R0TypeField type) {
       this.type = new EnumWrapper<ShieldListContentDomainV2025R0TypeField>(type);
       return this;
     }
 
-    public ShieldListContentDomainV2025R0Builder type(
-        EnumWrapper<ShieldListContentDomainV2025R0TypeField> type) {
+    public Builder type(EnumWrapper<ShieldListContentDomainV2025R0TypeField> type) {
       this.type = type;
       return this;
     }

@@ -13,7 +13,7 @@ public class AiStudioAgentBasicTextToolResponse extends AiStudioAgentBasicTextTo
     super();
   }
 
-  protected AiStudioAgentBasicTextToolResponse(AiStudioAgentBasicTextToolResponseBuilder builder) {
+  protected AiStudioAgentBasicTextToolResponse(Builder builder) {
     super(builder);
     this.warnings = builder.warnings;
   }
@@ -85,51 +85,47 @@ public class AiStudioAgentBasicTextToolResponse extends AiStudioAgentBasicTextTo
         + "}";
   }
 
-  public static class AiStudioAgentBasicTextToolResponseBuilder
-      extends AiStudioAgentBasicTextToolBuilder {
+  public static class Builder extends AiStudioAgentBasicTextTool.Builder {
 
     protected List<String> warnings;
 
-    public AiStudioAgentBasicTextToolResponseBuilder warnings(List<String> warnings) {
+    public Builder warnings(List<String> warnings) {
       this.warnings = warnings;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicTextToolResponseBuilder model(String model) {
+    public Builder model(String model) {
       this.model = model;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicTextToolResponseBuilder numTokensForCompletion(
-        Long numTokensForCompletion) {
+    public Builder numTokensForCompletion(Long numTokensForCompletion) {
       this.numTokensForCompletion = numTokensForCompletion;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicTextToolResponseBuilder llmEndpointParams(
-        AiLlmEndpointParams llmEndpointParams) {
+    public Builder llmEndpointParams(AiLlmEndpointParams llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicTextToolResponseBuilder systemMessage(String systemMessage) {
+    public Builder systemMessage(String systemMessage) {
       this.systemMessage = systemMessage;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicTextToolResponseBuilder promptTemplate(String promptTemplate) {
+    public Builder promptTemplate(String promptTemplate) {
       this.promptTemplate = promptTemplate;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicTextToolResponseBuilder isCustomInstructionsIncluded(
-        Boolean isCustomInstructionsIncluded) {
+    public Builder isCustomInstructionsIncluded(Boolean isCustomInstructionsIncluded) {
       this.isCustomInstructionsIncluded = isCustomInstructionsIncluded;
       return this;
     }

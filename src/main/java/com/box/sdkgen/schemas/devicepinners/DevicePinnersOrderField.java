@@ -22,7 +22,7 @@ public class DevicePinnersOrderField extends SerializableObject {
     super();
   }
 
-  protected DevicePinnersOrderField(DevicePinnersOrderFieldBuilder builder) {
+  protected DevicePinnersOrderField(Builder builder) {
     super();
     this.by = builder.by;
     this.direction = builder.direction;
@@ -66,29 +66,28 @@ public class DevicePinnersOrderField extends SerializableObject {
         + "}";
   }
 
-  public static class DevicePinnersOrderFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<DevicePinnersOrderByField> by;
 
     protected EnumWrapper<DevicePinnersOrderDirectionField> direction;
 
-    public DevicePinnersOrderFieldBuilder by(DevicePinnersOrderByField by) {
+    public Builder by(DevicePinnersOrderByField by) {
       this.by = new EnumWrapper<DevicePinnersOrderByField>(by);
       return this;
     }
 
-    public DevicePinnersOrderFieldBuilder by(EnumWrapper<DevicePinnersOrderByField> by) {
+    public Builder by(EnumWrapper<DevicePinnersOrderByField> by) {
       this.by = by;
       return this;
     }
 
-    public DevicePinnersOrderFieldBuilder direction(DevicePinnersOrderDirectionField direction) {
+    public Builder direction(DevicePinnersOrderDirectionField direction) {
       this.direction = new EnumWrapper<DevicePinnersOrderDirectionField>(direction);
       return this;
     }
 
-    public DevicePinnersOrderFieldBuilder direction(
-        EnumWrapper<DevicePinnersOrderDirectionField> direction) {
+    public Builder direction(EnumWrapper<DevicePinnersOrderDirectionField> direction) {
       this.direction = direction;
       return this;
     }

@@ -46,7 +46,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id_watermark -->
 ```
-client.getFileWatermarks().updateFileWatermark(file.getId(), new UpdateFileWatermarkRequestBody(new UpdateFileWatermarkRequestBodyWatermarkField.UpdateFileWatermarkRequestBodyWatermarkFieldBuilder().imprint(UpdateFileWatermarkRequestBodyWatermarkImprintField.DEFAULT).build()))
+client.getFileWatermarks().updateFileWatermark(file.getId(), new UpdateFileWatermarkRequestBody(new UpdateFileWatermarkRequestBodyWatermarkField.Builder().imprint(UpdateFileWatermarkRequestBodyWatermarkImprintField.DEFAULT).build()))
 ```
 
 ### Arguments

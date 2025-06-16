@@ -12,7 +12,7 @@ public class CreateFolderLockHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CreateFolderLockHeaders(CreateFolderLockHeadersBuilder builder) {
+  protected CreateFolderLockHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class CreateFolderLockHeaders {
     return extraHeaders;
   }
 
-  public static class CreateFolderLockHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CreateFolderLockHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CreateFolderLockHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

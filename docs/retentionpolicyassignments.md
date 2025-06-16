@@ -51,7 +51,7 @@ See the endpoint docs at
 
 <!-- sample post_retention_policy_assignments -->
 ```
-client.getRetentionPolicyAssignments().createRetentionPolicyAssignment(new CreateRetentionPolicyAssignmentRequestBody(retentionPolicy.getId(), new CreateRetentionPolicyAssignmentRequestBodyAssignToField.CreateRetentionPolicyAssignmentRequestBodyAssignToFieldBuilder(CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField.FOLDER).id(folder.getId()).build()))
+client.getRetentionPolicyAssignments().createRetentionPolicyAssignment(new CreateRetentionPolicyAssignmentRequestBody(retentionPolicy.getId(), new CreateRetentionPolicyAssignmentRequestBodyAssignToField.Builder(CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField.FOLDER).id(folder.getId()).build()))
 ```
 
 ### Arguments

@@ -42,7 +42,7 @@ public class GroupFull extends Group {
     super(id);
   }
 
-  protected GroupFull(GroupFullBuilder builder) {
+  protected GroupFull(Builder builder) {
     super(builder);
     this.provenance = builder.provenance;
     this.externalSyncIdentifier = builder.externalSyncIdentifier;
@@ -169,7 +169,7 @@ public class GroupFull extends Group {
         + "}";
   }
 
-  public static class GroupFullBuilder extends GroupBuilder {
+  public static class Builder extends Group.Builder {
 
     protected String provenance;
 
@@ -183,92 +183,92 @@ public class GroupFull extends Group {
 
     protected GroupFullPermissionsField permissions;
 
-    public GroupFullBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public GroupFullBuilder provenance(String provenance) {
+    public Builder provenance(String provenance) {
       this.provenance = provenance;
       return this;
     }
 
-    public GroupFullBuilder externalSyncIdentifier(String externalSyncIdentifier) {
+    public Builder externalSyncIdentifier(String externalSyncIdentifier) {
       this.externalSyncIdentifier = externalSyncIdentifier;
       return this;
     }
 
-    public GroupFullBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public GroupFullBuilder invitabilityLevel(GroupFullInvitabilityLevelField invitabilityLevel) {
+    public Builder invitabilityLevel(GroupFullInvitabilityLevelField invitabilityLevel) {
       this.invitabilityLevel = new EnumWrapper<GroupFullInvitabilityLevelField>(invitabilityLevel);
       return this;
     }
 
-    public GroupFullBuilder invitabilityLevel(
+    public Builder invitabilityLevel(
         EnumWrapper<GroupFullInvitabilityLevelField> invitabilityLevel) {
       this.invitabilityLevel = invitabilityLevel;
       return this;
     }
 
-    public GroupFullBuilder memberViewabilityLevel(
+    public Builder memberViewabilityLevel(
         GroupFullMemberViewabilityLevelField memberViewabilityLevel) {
       this.memberViewabilityLevel =
           new EnumWrapper<GroupFullMemberViewabilityLevelField>(memberViewabilityLevel);
       return this;
     }
 
-    public GroupFullBuilder memberViewabilityLevel(
+    public Builder memberViewabilityLevel(
         EnumWrapper<GroupFullMemberViewabilityLevelField> memberViewabilityLevel) {
       this.memberViewabilityLevel = memberViewabilityLevel;
       return this;
     }
 
-    public GroupFullBuilder permissions(GroupFullPermissionsField permissions) {
+    public Builder permissions(GroupFullPermissionsField permissions) {
       this.permissions = permissions;
       return this;
     }
 
     @Override
-    public GroupFullBuilder type(GroupBaseTypeField type) {
+    public Builder type(GroupBaseTypeField type) {
       this.type = new EnumWrapper<GroupBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public GroupFullBuilder type(EnumWrapper<GroupBaseTypeField> type) {
+    public Builder type(EnumWrapper<GroupBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public GroupFullBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public GroupFullBuilder groupType(GroupMiniGroupTypeField groupType) {
+    public Builder groupType(GroupMiniGroupTypeField groupType) {
       this.groupType = new EnumWrapper<GroupMiniGroupTypeField>(groupType);
       return this;
     }
 
     @Override
-    public GroupFullBuilder groupType(EnumWrapper<GroupMiniGroupTypeField> groupType) {
+    public Builder groupType(EnumWrapper<GroupMiniGroupTypeField> groupType) {
       this.groupType = groupType;
       return this;
     }
 
     @Override
-    public GroupFullBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
     @Override
-    public GroupFullBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

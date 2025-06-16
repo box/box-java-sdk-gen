@@ -75,7 +75,7 @@ public class File extends FileMini {
     super(id);
   }
 
-  protected File(FileBuilder builder) {
+  protected File(Builder builder) {
     super(builder);
     this.description = builder.description;
     this.size = builder.size;
@@ -307,7 +307,7 @@ public class File extends FileMini {
         + "}";
   }
 
-  public static class FileBuilder extends FileMiniBuilder {
+  public static class Builder extends FileMini.Builder {
 
     protected String description;
 
@@ -339,128 +339,128 @@ public class File extends FileMini {
 
     protected EnumWrapper<FileItemStatusField> itemStatus;
 
-    public FileBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public FileBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public FileBuilder size(Long size) {
+    public Builder size(Long size) {
       this.size = size;
       return this;
     }
 
-    public FileBuilder pathCollection(FilePathCollectionField pathCollection) {
+    public Builder pathCollection(FilePathCollectionField pathCollection) {
       this.pathCollection = pathCollection;
       return this;
     }
 
-    public FileBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public FileBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public FileBuilder trashedAt(Date trashedAt) {
+    public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
-    public FileBuilder purgedAt(Date purgedAt) {
+    public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
-    public FileBuilder contentCreatedAt(Date contentCreatedAt) {
+    public Builder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
-    public FileBuilder contentModifiedAt(Date contentModifiedAt) {
+    public Builder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }
 
-    public FileBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public FileBuilder modifiedBy(UserMini modifiedBy) {
+    public Builder modifiedBy(UserMini modifiedBy) {
       this.modifiedBy = modifiedBy;
       return this;
     }
 
-    public FileBuilder ownedBy(UserMini ownedBy) {
+    public Builder ownedBy(UserMini ownedBy) {
       this.ownedBy = ownedBy;
       return this;
     }
 
-    public FileBuilder sharedLink(FileSharedLinkField sharedLink) {
+    public Builder sharedLink(FileSharedLinkField sharedLink) {
       this.sharedLink = sharedLink;
       return this;
     }
 
-    public FileBuilder parent(FolderMini parent) {
+    public Builder parent(FolderMini parent) {
       this.parent = parent;
       return this;
     }
 
-    public FileBuilder itemStatus(FileItemStatusField itemStatus) {
+    public Builder itemStatus(FileItemStatusField itemStatus) {
       this.itemStatus = new EnumWrapper<FileItemStatusField>(itemStatus);
       return this;
     }
 
-    public FileBuilder itemStatus(EnumWrapper<FileItemStatusField> itemStatus) {
+    public Builder itemStatus(EnumWrapper<FileItemStatusField> itemStatus) {
       this.itemStatus = itemStatus;
       return this;
     }
 
     @Override
-    public FileBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
     @Override
-    public FileBuilder type(FileBaseTypeField type) {
+    public Builder type(FileBaseTypeField type) {
       this.type = new EnumWrapper<FileBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FileBuilder type(EnumWrapper<FileBaseTypeField> type) {
+    public Builder type(EnumWrapper<FileBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public FileBuilder sequenceId(String sequenceId) {
+    public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
       return this;
     }
 
     @Override
-    public FileBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public FileBuilder sha1(String sha1) {
+    public Builder sha1(String sha1) {
       this.sha1 = sha1;
       return this;
     }
 
     @Override
-    public FileBuilder fileVersion(FileVersionMini fileVersion) {
+    public Builder fileVersion(FileVersionMini fileVersion) {
       this.fileVersion = fileVersion;
       return this;
     }

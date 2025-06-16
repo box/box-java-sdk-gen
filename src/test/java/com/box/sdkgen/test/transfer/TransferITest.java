@@ -25,9 +25,7 @@ public class TransferITest {
         client
             .getUsers()
             .createUser(
-                new CreateUserRequestBody.CreateUserRequestBodyBuilder(newUserName)
-                    .isPlatformAccessOnly(true)
-                    .build());
+                new CreateUserRequestBody.Builder(newUserName).isPlatformAccessOnly(true).build());
     UserFull currentUser = client.getUsers().getUserMe();
     FolderFull transferedFolder =
         client
@@ -36,24 +34,17 @@ public class TransferITest {
                 newUser.getId(),
                 new TransferOwnedFolderRequestBody(
                     new TransferOwnedFolderRequestBodyOwnedByField(currentUser.getId())),
-                new TransferOwnedFolderQueryParams.TransferOwnedFolderQueryParamsBuilder()
-                    .notify(false)
-                    .build());
+                new TransferOwnedFolderQueryParams.Builder().notify(false).build());
     assert transferedFolder.getOwnedBy().getId().equals(currentUser.getId());
     client
         .getFolders()
         .deleteFolderById(
             transferedFolder.getId(),
-            new DeleteFolderByIdQueryParams.DeleteFolderByIdQueryParamsBuilder()
-                .recursive(true)
-                .build());
+            new DeleteFolderByIdQueryParams.Builder().recursive(true).build());
     client
         .getUsers()
         .deleteUserById(
             newUser.getId(),
-            new DeleteUserByIdQueryParams.DeleteUserByIdQueryParamsBuilder()
-                .notify(false)
-                .force(true)
-                .build());
+            new DeleteUserByIdQueryParams.Builder().notify(false).force(true).build());
   }
 }

@@ -43,7 +43,7 @@ public class FileFullLockField extends SerializableObject {
     super();
   }
 
-  protected FileFullLockField(FileFullLockFieldBuilder builder) {
+  protected FileFullLockField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -138,7 +138,7 @@ public class FileFullLockField extends SerializableObject {
         + "}";
   }
 
-  public static class FileFullLockFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -154,47 +154,47 @@ public class FileFullLockField extends SerializableObject {
 
     protected EnumWrapper<FileFullLockAppTypeField> appType;
 
-    public FileFullLockFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public FileFullLockFieldBuilder type(FileFullLockTypeField type) {
+    public Builder type(FileFullLockTypeField type) {
       this.type = new EnumWrapper<FileFullLockTypeField>(type);
       return this;
     }
 
-    public FileFullLockFieldBuilder type(EnumWrapper<FileFullLockTypeField> type) {
+    public Builder type(EnumWrapper<FileFullLockTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public FileFullLockFieldBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public FileFullLockFieldBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public FileFullLockFieldBuilder expiredAt(Date expiredAt) {
+    public Builder expiredAt(Date expiredAt) {
       this.expiredAt = expiredAt;
       return this;
     }
 
-    public FileFullLockFieldBuilder isDownloadPrevented(Boolean isDownloadPrevented) {
+    public Builder isDownloadPrevented(Boolean isDownloadPrevented) {
       this.isDownloadPrevented = isDownloadPrevented;
       return this;
     }
 
-    public FileFullLockFieldBuilder appType(FileFullLockAppTypeField appType) {
+    public Builder appType(FileFullLockAppTypeField appType) {
       this.appType = new EnumWrapper<FileFullLockAppTypeField>(appType);
       return this;
     }
 
-    public FileFullLockFieldBuilder appType(EnumWrapper<FileFullLockAppTypeField> appType) {
+    public Builder appType(EnumWrapper<FileFullLockAppTypeField> appType) {
       this.appType = appType;
       return this;
     }

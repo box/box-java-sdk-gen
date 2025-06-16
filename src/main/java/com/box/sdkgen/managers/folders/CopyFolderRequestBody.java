@@ -15,7 +15,7 @@ public class CopyFolderRequestBody extends SerializableObject {
     this.parent = parent;
   }
 
-  protected CopyFolderRequestBody(CopyFolderRequestBodyBuilder builder) {
+  protected CopyFolderRequestBody(Builder builder) {
     super();
     this.name = builder.name;
     this.parent = builder.parent;
@@ -59,17 +59,17 @@ public class CopyFolderRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class CopyFolderRequestBodyBuilder {
+  public static class Builder {
 
     protected String name;
 
     protected final CopyFolderRequestBodyParentField parent;
 
-    public CopyFolderRequestBodyBuilder(CopyFolderRequestBodyParentField parent) {
+    public Builder(CopyFolderRequestBodyParentField parent) {
       this.parent = parent;
     }
 
-    public CopyFolderRequestBodyBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }

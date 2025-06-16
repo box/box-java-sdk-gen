@@ -12,7 +12,7 @@ public class DocGenTemplateBaseV2025R0 extends SerializableObject {
     super();
   }
 
-  protected DocGenTemplateBaseV2025R0(DocGenTemplateBaseV2025R0Builder builder) {
+  protected DocGenTemplateBaseV2025R0(Builder builder) {
     super();
     this.file = builder.file;
   }
@@ -43,11 +43,11 @@ public class DocGenTemplateBaseV2025R0 extends SerializableObject {
     return "DocGenTemplateBaseV2025R0{" + "file='" + file + '\'' + "}";
   }
 
-  public static class DocGenTemplateBaseV2025R0Builder {
+  public static class Builder {
 
     protected FileReferenceV2025R0 file;
 
-    public DocGenTemplateBaseV2025R0Builder file(FileReferenceV2025R0 file) {
+    public Builder file(FileReferenceV2025R0 file) {
       this.file = file;
       return this;
     }

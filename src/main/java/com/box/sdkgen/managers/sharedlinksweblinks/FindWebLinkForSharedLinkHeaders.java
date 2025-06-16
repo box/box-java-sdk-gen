@@ -17,7 +17,7 @@ public class FindWebLinkForSharedLinkHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected FindWebLinkForSharedLinkHeaders(FindWebLinkForSharedLinkHeadersBuilder builder) {
+  protected FindWebLinkForSharedLinkHeaders(Builder builder) {
     this.ifNoneMatch = builder.ifNoneMatch;
     this.boxapi = builder.boxapi;
     this.extraHeaders = builder.extraHeaders;
@@ -35,7 +35,7 @@ public class FindWebLinkForSharedLinkHeaders {
     return extraHeaders;
   }
 
-  public static class FindWebLinkForSharedLinkHeadersBuilder {
+  public static class Builder {
 
     protected String ifNoneMatch;
 
@@ -43,17 +43,17 @@ public class FindWebLinkForSharedLinkHeaders {
 
     protected Map<String, String> extraHeaders;
 
-    public FindWebLinkForSharedLinkHeadersBuilder(String boxapi) {
+    public Builder(String boxapi) {
       this.boxapi = boxapi;
       this.extraHeaders = mapOf();
     }
 
-    public FindWebLinkForSharedLinkHeadersBuilder ifNoneMatch(String ifNoneMatch) {
+    public Builder ifNoneMatch(String ifNoneMatch) {
       this.ifNoneMatch = ifNoneMatch;
       return this;
     }
 
-    public FindWebLinkForSharedLinkHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

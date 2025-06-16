@@ -59,7 +59,7 @@ public class TranscriptSkillCard extends SerializableObject {
             TranscriptSkillCardSkillCardTypeField.TRANSCRIPT);
   }
 
-  protected TranscriptSkillCard(TranscriptSkillCardBuilder builder) {
+  protected TranscriptSkillCard(Builder builder) {
     super();
     this.createdAt = builder.createdAt;
     this.type = builder.type;
@@ -165,7 +165,7 @@ public class TranscriptSkillCard extends SerializableObject {
         + "}";
   }
 
-  public static class TranscriptSkillCardBuilder {
+  public static class Builder {
 
     protected Date createdAt;
 
@@ -183,7 +183,7 @@ public class TranscriptSkillCard extends SerializableObject {
 
     protected final List<TranscriptSkillCardEntriesField> entries;
 
-    public TranscriptSkillCardBuilder(
+    public Builder(
         TranscriptSkillCardSkillField skill,
         TranscriptSkillCardInvocationField invocation,
         List<TranscriptSkillCardEntriesField> entries) {
@@ -197,40 +197,37 @@ public class TranscriptSkillCard extends SerializableObject {
               TranscriptSkillCardSkillCardTypeField.TRANSCRIPT);
     }
 
-    public TranscriptSkillCardBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public TranscriptSkillCardBuilder type(TranscriptSkillCardTypeField type) {
+    public Builder type(TranscriptSkillCardTypeField type) {
       this.type = new EnumWrapper<TranscriptSkillCardTypeField>(type);
       return this;
     }
 
-    public TranscriptSkillCardBuilder type(EnumWrapper<TranscriptSkillCardTypeField> type) {
+    public Builder type(EnumWrapper<TranscriptSkillCardTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TranscriptSkillCardBuilder skillCardType(
-        TranscriptSkillCardSkillCardTypeField skillCardType) {
+    public Builder skillCardType(TranscriptSkillCardSkillCardTypeField skillCardType) {
       this.skillCardType = new EnumWrapper<TranscriptSkillCardSkillCardTypeField>(skillCardType);
       return this;
     }
 
-    public TranscriptSkillCardBuilder skillCardType(
-        EnumWrapper<TranscriptSkillCardSkillCardTypeField> skillCardType) {
+    public Builder skillCardType(EnumWrapper<TranscriptSkillCardSkillCardTypeField> skillCardType) {
       this.skillCardType = skillCardType;
       return this;
     }
 
-    public TranscriptSkillCardBuilder skillCardTitle(
-        TranscriptSkillCardSkillCardTitleField skillCardTitle) {
+    public Builder skillCardTitle(TranscriptSkillCardSkillCardTitleField skillCardTitle) {
       this.skillCardTitle = skillCardTitle;
       return this;
     }
 
-    public TranscriptSkillCardBuilder duration(Long duration) {
+    public Builder duration(Long duration) {
       this.duration = duration;
       return this;
     }

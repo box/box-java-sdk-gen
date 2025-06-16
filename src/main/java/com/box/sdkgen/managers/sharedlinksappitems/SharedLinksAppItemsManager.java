@@ -25,7 +25,7 @@ public class SharedLinksAppItemsManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected SharedLinksAppItemsManager(SharedLinksAppItemsManagerBuilder builder) {
+  protected SharedLinksAppItemsManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -40,7 +40,7 @@ public class SharedLinksAppItemsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -62,22 +62,22 @@ public class SharedLinksAppItemsManager {
     return networkSession;
   }
 
-  public static class SharedLinksAppItemsManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public SharedLinksAppItemsManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public SharedLinksAppItemsManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public SharedLinksAppItemsManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

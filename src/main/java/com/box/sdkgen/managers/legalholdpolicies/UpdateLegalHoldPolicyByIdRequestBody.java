@@ -18,8 +18,7 @@ public class UpdateLegalHoldPolicyByIdRequestBody extends SerializableObject {
     super();
   }
 
-  protected UpdateLegalHoldPolicyByIdRequestBody(
-      UpdateLegalHoldPolicyByIdRequestBodyBuilder builder) {
+  protected UpdateLegalHoldPolicyByIdRequestBody(Builder builder) {
     super();
     this.policyName = builder.policyName;
     this.description = builder.description;
@@ -74,7 +73,7 @@ public class UpdateLegalHoldPolicyByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateLegalHoldPolicyByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected String policyName;
 
@@ -82,17 +81,17 @@ public class UpdateLegalHoldPolicyByIdRequestBody extends SerializableObject {
 
     protected String releaseNotes;
 
-    public UpdateLegalHoldPolicyByIdRequestBodyBuilder policyName(String policyName) {
+    public Builder policyName(String policyName) {
       this.policyName = policyName;
       return this;
     }
 
-    public UpdateLegalHoldPolicyByIdRequestBodyBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public UpdateLegalHoldPolicyByIdRequestBodyBuilder releaseNotes(String releaseNotes) {
+    public Builder releaseNotes(String releaseNotes) {
       this.releaseNotes = releaseNotes;
       return this;
     }

@@ -15,8 +15,7 @@ public class UpdateFolderByIdRequestBodyParentField extends SerializableObject {
     super();
   }
 
-  protected UpdateFolderByIdRequestBodyParentField(
-      UpdateFolderByIdRequestBodyParentFieldBuilder builder) {
+  protected UpdateFolderByIdRequestBodyParentField(Builder builder) {
     super();
     this.id = builder.id;
     this.userId = builder.userId;
@@ -60,18 +59,18 @@ public class UpdateFolderByIdRequestBodyParentField extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateFolderByIdRequestBodyParentFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected String userId;
 
-    public UpdateFolderByIdRequestBodyParentFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public UpdateFolderByIdRequestBodyParentFieldBuilder userId(String userId) {
+    public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }

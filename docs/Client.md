@@ -32,7 +32,7 @@ The method accepts a `FetchOptions` object as an argument and returns a `FetchRe
 The following example demonstrates how to make a custom POST request to create a new folder in the root folder.
 
 ```java
-FetchOptions fetchOptions = new FetchOptions.FetchOptionsBuilder("https://api.box.com/2.0/users/me", "GET")
+FetchOptions fetchOptions = new FetchOptions.Builder("https://api.box.com/2.0/users/me", "GET")
     .params(new HashMap<>() {{
         put("fields", "name");
     }})
@@ -48,14 +48,14 @@ The following example demonstrates how to make a custom multipart request that u
 
 ```java
 List<MultipartItem> multipartItems = List.of(
-    new MultipartItem.MultipartItemBuilder("attributes")
+    new MultipartItem.Builder("attributes")
         .data(JsonManager.serialize("{\"name\": \"newFileName\", \"parent\": { \"id\": \"0\" }}"))
         .build(),
-    new MultipartItem.MultipartItemBuilder("file")
+    new MultipartItem.Builder("file")
         .fileStream(new FileInputStream(new File("file.txt")))
         .build()
 );
-FetchOptions fetchOptions = new FetchOptions.FetchOptionsBuilder("https://upload.box.com/api/2.0/files/content", "POST")
+FetchOptions fetchOptions = new FetchOptions.Builder("https://upload.box.com/api/2.0/files/content", "POST")
     .contentType("multipart/form-data")
     .multipartData(multipartItems)
     .build();
@@ -71,7 +71,7 @@ The following example demonstrates how to make a custom request that expects a b
 It is required to specify the `responseFormat` parameter in the `FetchOptions` object to "binary".
 
 ```java
-FetchOptions fetchOptions = new FetchOptions.FetchOptionsBuilder("https://upload.box.com/api/2.0/files/12345/content", "GET")
+FetchOptions fetchOptions = new FetchOptions.Builder("https://upload.box.com/api/2.0/files/12345/content", "GET")
     .responseFormat(ResponseFormat.BINARY)
     .build();
 FetchResponse response = client.makeRequest(fetchOptions);
@@ -136,7 +136,7 @@ You can also specify the custom base URLs, which will be used for API calls made
 Calling the `client.withCustomBaseUrls()` method creates a new client, leaving the original client unmodified.
 
 ```java
-BaseUrls baseUrls = new BaseUrls.BaseUrlsBuilder()
+BaseUrls baseUrls = new BaseUrls.Builder()
     .baseUrl("https://new-base-url.com")
     .uploadUrl("https://my-company-upload-url.com")
     .oauth2Url("https://my-company.com/oauth2")

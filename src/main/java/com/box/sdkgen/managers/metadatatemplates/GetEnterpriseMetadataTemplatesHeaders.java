@@ -12,8 +12,7 @@ public class GetEnterpriseMetadataTemplatesHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetEnterpriseMetadataTemplatesHeaders(
-      GetEnterpriseMetadataTemplatesHeadersBuilder builder) {
+  protected GetEnterpriseMetadataTemplatesHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class GetEnterpriseMetadataTemplatesHeaders {
     return extraHeaders;
   }
 
-  public static class GetEnterpriseMetadataTemplatesHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetEnterpriseMetadataTemplatesHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetEnterpriseMetadataTemplatesHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

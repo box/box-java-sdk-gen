@@ -57,7 +57,7 @@ public class CreateCollaborationRequestBody extends SerializableObject {
     this.role = new EnumWrapper<CreateCollaborationRequestBodyRoleField>(role);
   }
 
-  protected CreateCollaborationRequestBody(CreateCollaborationRequestBodyBuilder builder) {
+  protected CreateCollaborationRequestBody(Builder builder) {
     super();
     this.item = builder.item;
     this.accessibleBy = builder.accessibleBy;
@@ -142,7 +142,7 @@ public class CreateCollaborationRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class CreateCollaborationRequestBodyBuilder {
+  public static class Builder {
 
     protected final CreateCollaborationRequestBodyItemField item;
 
@@ -156,7 +156,7 @@ public class CreateCollaborationRequestBody extends SerializableObject {
 
     protected Date expiresAt;
 
-    public CreateCollaborationRequestBodyBuilder(
+    public Builder(
         CreateCollaborationRequestBodyItemField item,
         CreateCollaborationRequestBodyAccessibleByField accessibleBy,
         EnumWrapper<CreateCollaborationRequestBodyRoleField> role) {
@@ -165,7 +165,7 @@ public class CreateCollaborationRequestBody extends SerializableObject {
       this.role = role;
     }
 
-    public CreateCollaborationRequestBodyBuilder(
+    public Builder(
         CreateCollaborationRequestBodyItemField item,
         CreateCollaborationRequestBodyAccessibleByField accessibleBy,
         CreateCollaborationRequestBodyRoleField role) {
@@ -174,17 +174,17 @@ public class CreateCollaborationRequestBody extends SerializableObject {
       this.role = new EnumWrapper<CreateCollaborationRequestBodyRoleField>(role);
     }
 
-    public CreateCollaborationRequestBodyBuilder isAccessOnly(Boolean isAccessOnly) {
+    public Builder isAccessOnly(Boolean isAccessOnly) {
       this.isAccessOnly = isAccessOnly;
       return this;
     }
 
-    public CreateCollaborationRequestBodyBuilder canViewPath(Boolean canViewPath) {
+    public Builder canViewPath(Boolean canViewPath) {
       this.canViewPath = canViewPath;
       return this;
     }
 
-    public CreateCollaborationRequestBodyBuilder expiresAt(Date expiresAt) {
+    public Builder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }

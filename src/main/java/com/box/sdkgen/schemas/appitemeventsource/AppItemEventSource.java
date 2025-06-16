@@ -33,7 +33,7 @@ public class AppItemEventSource extends SerializableObject {
     this.type = new EnumWrapper<AppItemEventSourceTypeField>(AppItemEventSourceTypeField.APP_ITEM);
   }
 
-  protected AppItemEventSource(AppItemEventSourceBuilder builder) {
+  protected AppItemEventSource(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -108,7 +108,7 @@ public class AppItemEventSource extends SerializableObject {
         + "}";
   }
 
-  public static class AppItemEventSourceBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -120,29 +120,29 @@ public class AppItemEventSource extends SerializableObject {
 
     protected GroupMini group;
 
-    public AppItemEventSourceBuilder(String id, String appItemType) {
+    public Builder(String id, String appItemType) {
       this.id = id;
       this.appItemType = appItemType;
       this.type =
           new EnumWrapper<AppItemEventSourceTypeField>(AppItemEventSourceTypeField.APP_ITEM);
     }
 
-    public AppItemEventSourceBuilder type(AppItemEventSourceTypeField type) {
+    public Builder type(AppItemEventSourceTypeField type) {
       this.type = new EnumWrapper<AppItemEventSourceTypeField>(type);
       return this;
     }
 
-    public AppItemEventSourceBuilder type(EnumWrapper<AppItemEventSourceTypeField> type) {
+    public Builder type(EnumWrapper<AppItemEventSourceTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AppItemEventSourceBuilder user(UserMini user) {
+    public Builder user(UserMini user) {
       this.user = user;
       return this;
     }
 
-    public AppItemEventSourceBuilder group(GroupMini group) {
+    public Builder group(GroupMini group) {
       this.group = group;
       return this;
     }

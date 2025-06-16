@@ -246,766 +246,637 @@ public class BoxClient {
 
   public BoxClient(Authentication auth) {
     this.auth = auth;
-    this.networkSession =
-        new NetworkSession.NetworkSessionBuilder().baseUrls(new BaseUrls()).build();
+    this.networkSession = new NetworkSession.Builder().baseUrls(new BaseUrls()).build();
     this.authorization =
-        new AuthorizationManager.AuthorizationManagerBuilder()
+        new AuthorizationManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.files =
-        new FilesManager.FilesManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new FilesManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.trashedFiles =
-        new TrashedFilesManager.TrashedFilesManagerBuilder()
+        new TrashedFilesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.appItemAssociations =
-        new AppItemAssociationsManager.AppItemAssociationsManagerBuilder()
+        new AppItemAssociationsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.downloads =
-        new DownloadsManager.DownloadsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new DownloadsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.uploads =
-        new UploadsManager.UploadsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new UploadsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.chunkedUploads =
-        new ChunkedUploadsManager.ChunkedUploadsManagerBuilder()
+        new ChunkedUploadsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.listCollaborations =
-        new ListCollaborationsManager.ListCollaborationsManagerBuilder()
+        new ListCollaborationsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.comments =
-        new CommentsManager.CommentsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new CommentsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.tasks =
-        new TasksManager.TasksManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new TasksManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.fileVersions =
-        new FileVersionsManager.FileVersionsManagerBuilder()
+        new FileVersionsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.fileMetadata =
-        new FileMetadataManager.FileMetadataManagerBuilder()
+        new FileMetadataManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.fileClassifications =
-        new FileClassificationsManager.FileClassificationsManagerBuilder()
+        new FileClassificationsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.skills =
-        new SkillsManager.SkillsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new SkillsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.fileWatermarks =
-        new FileWatermarksManager.FileWatermarksManagerBuilder()
+        new FileWatermarksManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.fileRequests =
-        new FileRequestsManager.FileRequestsManagerBuilder()
+        new FileRequestsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.folders =
-        new FoldersManager.FoldersManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new FoldersManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.trashedFolders =
-        new TrashedFoldersManager.TrashedFoldersManagerBuilder()
+        new TrashedFoldersManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.folderMetadata =
-        new FolderMetadataManager.FolderMetadataManagerBuilder()
+        new FolderMetadataManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.folderClassifications =
-        new FolderClassificationsManager.FolderClassificationsManagerBuilder()
+        new FolderClassificationsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.trashedItems =
-        new TrashedItemsManager.TrashedItemsManagerBuilder()
+        new TrashedItemsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.folderWatermarks =
-        new FolderWatermarksManager.FolderWatermarksManagerBuilder()
+        new FolderWatermarksManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.folderLocks =
-        new FolderLocksManager.FolderLocksManagerBuilder()
+        new FolderLocksManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.metadataTemplates =
-        new MetadataTemplatesManager.MetadataTemplatesManagerBuilder()
+        new MetadataTemplatesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.classifications =
-        new ClassificationsManager.ClassificationsManagerBuilder()
+        new ClassificationsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.metadataCascadePolicies =
-        new MetadataCascadePoliciesManager.MetadataCascadePoliciesManagerBuilder()
+        new MetadataCascadePoliciesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.search =
-        new SearchManager.SearchManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new SearchManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.userCollaborations =
-        new UserCollaborationsManager.UserCollaborationsManagerBuilder()
+        new UserCollaborationsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.taskAssignments =
-        new TaskAssignmentsManager.TaskAssignmentsManagerBuilder()
+        new TaskAssignmentsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.sharedLinksFiles =
-        new SharedLinksFilesManager.SharedLinksFilesManagerBuilder()
+        new SharedLinksFilesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.sharedLinksFolders =
-        new SharedLinksFoldersManager.SharedLinksFoldersManagerBuilder()
+        new SharedLinksFoldersManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.webLinks =
-        new WebLinksManager.WebLinksManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new WebLinksManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.trashedWebLinks =
-        new TrashedWebLinksManager.TrashedWebLinksManagerBuilder()
+        new TrashedWebLinksManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.sharedLinksWebLinks =
-        new SharedLinksWebLinksManager.SharedLinksWebLinksManagerBuilder()
+        new SharedLinksWebLinksManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.sharedLinksAppItems =
-        new SharedLinksAppItemsManager.SharedLinksAppItemsManagerBuilder()
+        new SharedLinksAppItemsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.users =
-        new UsersManager.UsersManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new UsersManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.sessionTermination =
-        new SessionTerminationManager.SessionTerminationManagerBuilder()
+        new SessionTerminationManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.avatars =
-        new AvatarsManager.AvatarsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new AvatarsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.transfer =
-        new TransferManager.TransferManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new TransferManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.emailAliases =
-        new EmailAliasesManager.EmailAliasesManagerBuilder()
+        new EmailAliasesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.memberships =
-        new MembershipsManager.MembershipsManagerBuilder()
+        new MembershipsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.invites =
-        new InvitesManager.InvitesManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new InvitesManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.groups =
-        new GroupsManager.GroupsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new GroupsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.webhooks =
-        new WebhooksManager.WebhooksManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new WebhooksManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.events =
-        new EventsManager.EventsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new EventsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.collections =
-        new CollectionsManager.CollectionsManagerBuilder()
+        new CollectionsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.recentItems =
-        new RecentItemsManager.RecentItemsManagerBuilder()
+        new RecentItemsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.retentionPolicies =
-        new RetentionPoliciesManager.RetentionPoliciesManagerBuilder()
+        new RetentionPoliciesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.retentionPolicyAssignments =
-        new RetentionPolicyAssignmentsManager.RetentionPolicyAssignmentsManagerBuilder()
+        new RetentionPolicyAssignmentsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.legalHoldPolicies =
-        new LegalHoldPoliciesManager.LegalHoldPoliciesManagerBuilder()
+        new LegalHoldPoliciesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.legalHoldPolicyAssignments =
-        new LegalHoldPolicyAssignmentsManager.LegalHoldPolicyAssignmentsManagerBuilder()
+        new LegalHoldPolicyAssignmentsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.fileVersionRetentions =
-        new FileVersionRetentionsManager.FileVersionRetentionsManagerBuilder()
+        new FileVersionRetentionsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.fileVersionLegalHolds =
-        new FileVersionLegalHoldsManager.FileVersionLegalHoldsManagerBuilder()
+        new FileVersionLegalHoldsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.shieldInformationBarriers =
-        new ShieldInformationBarriersManager.ShieldInformationBarriersManagerBuilder()
+        new ShieldInformationBarriersManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.shieldInformationBarrierReports =
-        new ShieldInformationBarrierReportsManager.ShieldInformationBarrierReportsManagerBuilder()
+        new ShieldInformationBarrierReportsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.shieldInformationBarrierSegments =
-        new ShieldInformationBarrierSegmentsManager.ShieldInformationBarrierSegmentsManagerBuilder()
+        new ShieldInformationBarrierSegmentsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.shieldInformationBarrierSegmentMembers =
-        new ShieldInformationBarrierSegmentMembersManager
-                .ShieldInformationBarrierSegmentMembersManagerBuilder()
+        new ShieldInformationBarrierSegmentMembersManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.shieldInformationBarrierSegmentRestrictions =
-        new ShieldInformationBarrierSegmentRestrictionsManager
-                .ShieldInformationBarrierSegmentRestrictionsManagerBuilder()
+        new ShieldInformationBarrierSegmentRestrictionsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.devicePinners =
-        new DevicePinnersManager.DevicePinnersManagerBuilder()
+        new DevicePinnersManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.termsOfServices =
-        new TermsOfServicesManager.TermsOfServicesManagerBuilder()
+        new TermsOfServicesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.termsOfServiceUserStatuses =
-        new TermsOfServiceUserStatusesManager.TermsOfServiceUserStatusesManagerBuilder()
+        new TermsOfServiceUserStatusesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.collaborationAllowlistEntries =
-        new CollaborationAllowlistEntriesManager.CollaborationAllowlistEntriesManagerBuilder()
+        new CollaborationAllowlistEntriesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.collaborationAllowlistExemptTargets =
-        new CollaborationAllowlistExemptTargetsManager
-                .CollaborationAllowlistExemptTargetsManagerBuilder()
+        new CollaborationAllowlistExemptTargetsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.storagePolicies =
-        new StoragePoliciesManager.StoragePoliciesManagerBuilder()
+        new StoragePoliciesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.storagePolicyAssignments =
-        new StoragePolicyAssignmentsManager.StoragePolicyAssignmentsManagerBuilder()
+        new StoragePolicyAssignmentsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.zipDownloads =
-        new ZipDownloadsManager.ZipDownloadsManagerBuilder()
+        new ZipDownloadsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.signRequests =
-        new SignRequestsManager.SignRequestsManagerBuilder()
+        new SignRequestsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.workflows =
-        new WorkflowsManager.WorkflowsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new WorkflowsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.signTemplates =
-        new SignTemplatesManager.SignTemplatesManagerBuilder()
+        new SignTemplatesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.integrationMappings =
-        new IntegrationMappingsManager.IntegrationMappingsManagerBuilder()
+        new IntegrationMappingsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
-    this.ai =
-        new AiManager.AiManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+    this.ai = new AiManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.aiStudio =
-        new AiStudioManager.AiStudioManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new AiStudioManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.docgenTemplate =
-        new DocgenTemplateManager.DocgenTemplateManagerBuilder()
+        new DocgenTemplateManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.docgen =
-        new DocgenManager.DocgenManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new DocgenManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.shieldLists =
-        new ShieldListsManager.ShieldListsManagerBuilder()
+        new ShieldListsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
   }
 
-  protected BoxClient(BoxClientBuilder builder) {
+  protected BoxClient(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
     this.authorization =
-        new AuthorizationManager.AuthorizationManagerBuilder()
+        new AuthorizationManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.files =
-        new FilesManager.FilesManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new FilesManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.trashedFiles =
-        new TrashedFilesManager.TrashedFilesManagerBuilder()
+        new TrashedFilesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.appItemAssociations =
-        new AppItemAssociationsManager.AppItemAssociationsManagerBuilder()
+        new AppItemAssociationsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.downloads =
-        new DownloadsManager.DownloadsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new DownloadsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.uploads =
-        new UploadsManager.UploadsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new UploadsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.chunkedUploads =
-        new ChunkedUploadsManager.ChunkedUploadsManagerBuilder()
+        new ChunkedUploadsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.listCollaborations =
-        new ListCollaborationsManager.ListCollaborationsManagerBuilder()
+        new ListCollaborationsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.comments =
-        new CommentsManager.CommentsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new CommentsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.tasks =
-        new TasksManager.TasksManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new TasksManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.fileVersions =
-        new FileVersionsManager.FileVersionsManagerBuilder()
+        new FileVersionsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.fileMetadata =
-        new FileMetadataManager.FileMetadataManagerBuilder()
+        new FileMetadataManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.fileClassifications =
-        new FileClassificationsManager.FileClassificationsManagerBuilder()
+        new FileClassificationsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.skills =
-        new SkillsManager.SkillsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new SkillsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.fileWatermarks =
-        new FileWatermarksManager.FileWatermarksManagerBuilder()
+        new FileWatermarksManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.fileRequests =
-        new FileRequestsManager.FileRequestsManagerBuilder()
+        new FileRequestsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.folders =
-        new FoldersManager.FoldersManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new FoldersManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.trashedFolders =
-        new TrashedFoldersManager.TrashedFoldersManagerBuilder()
+        new TrashedFoldersManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.folderMetadata =
-        new FolderMetadataManager.FolderMetadataManagerBuilder()
+        new FolderMetadataManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.folderClassifications =
-        new FolderClassificationsManager.FolderClassificationsManagerBuilder()
+        new FolderClassificationsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.trashedItems =
-        new TrashedItemsManager.TrashedItemsManagerBuilder()
+        new TrashedItemsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.folderWatermarks =
-        new FolderWatermarksManager.FolderWatermarksManagerBuilder()
+        new FolderWatermarksManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.folderLocks =
-        new FolderLocksManager.FolderLocksManagerBuilder()
+        new FolderLocksManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.metadataTemplates =
-        new MetadataTemplatesManager.MetadataTemplatesManagerBuilder()
+        new MetadataTemplatesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.classifications =
-        new ClassificationsManager.ClassificationsManagerBuilder()
+        new ClassificationsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.metadataCascadePolicies =
-        new MetadataCascadePoliciesManager.MetadataCascadePoliciesManagerBuilder()
+        new MetadataCascadePoliciesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.search =
-        new SearchManager.SearchManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new SearchManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.userCollaborations =
-        new UserCollaborationsManager.UserCollaborationsManagerBuilder()
+        new UserCollaborationsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.taskAssignments =
-        new TaskAssignmentsManager.TaskAssignmentsManagerBuilder()
+        new TaskAssignmentsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.sharedLinksFiles =
-        new SharedLinksFilesManager.SharedLinksFilesManagerBuilder()
+        new SharedLinksFilesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.sharedLinksFolders =
-        new SharedLinksFoldersManager.SharedLinksFoldersManagerBuilder()
+        new SharedLinksFoldersManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.webLinks =
-        new WebLinksManager.WebLinksManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new WebLinksManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.trashedWebLinks =
-        new TrashedWebLinksManager.TrashedWebLinksManagerBuilder()
+        new TrashedWebLinksManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.sharedLinksWebLinks =
-        new SharedLinksWebLinksManager.SharedLinksWebLinksManagerBuilder()
+        new SharedLinksWebLinksManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.sharedLinksAppItems =
-        new SharedLinksAppItemsManager.SharedLinksAppItemsManagerBuilder()
+        new SharedLinksAppItemsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.users =
-        new UsersManager.UsersManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new UsersManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.sessionTermination =
-        new SessionTerminationManager.SessionTerminationManagerBuilder()
+        new SessionTerminationManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.avatars =
-        new AvatarsManager.AvatarsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new AvatarsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.transfer =
-        new TransferManager.TransferManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new TransferManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.emailAliases =
-        new EmailAliasesManager.EmailAliasesManagerBuilder()
+        new EmailAliasesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.memberships =
-        new MembershipsManager.MembershipsManagerBuilder()
+        new MembershipsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.invites =
-        new InvitesManager.InvitesManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new InvitesManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.groups =
-        new GroupsManager.GroupsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new GroupsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.webhooks =
-        new WebhooksManager.WebhooksManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new WebhooksManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.events =
-        new EventsManager.EventsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new EventsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.collections =
-        new CollectionsManager.CollectionsManagerBuilder()
+        new CollectionsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.recentItems =
-        new RecentItemsManager.RecentItemsManagerBuilder()
+        new RecentItemsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.retentionPolicies =
-        new RetentionPoliciesManager.RetentionPoliciesManagerBuilder()
+        new RetentionPoliciesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.retentionPolicyAssignments =
-        new RetentionPolicyAssignmentsManager.RetentionPolicyAssignmentsManagerBuilder()
+        new RetentionPolicyAssignmentsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.legalHoldPolicies =
-        new LegalHoldPoliciesManager.LegalHoldPoliciesManagerBuilder()
+        new LegalHoldPoliciesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.legalHoldPolicyAssignments =
-        new LegalHoldPolicyAssignmentsManager.LegalHoldPolicyAssignmentsManagerBuilder()
+        new LegalHoldPolicyAssignmentsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.fileVersionRetentions =
-        new FileVersionRetentionsManager.FileVersionRetentionsManagerBuilder()
+        new FileVersionRetentionsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.fileVersionLegalHolds =
-        new FileVersionLegalHoldsManager.FileVersionLegalHoldsManagerBuilder()
+        new FileVersionLegalHoldsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.shieldInformationBarriers =
-        new ShieldInformationBarriersManager.ShieldInformationBarriersManagerBuilder()
+        new ShieldInformationBarriersManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.shieldInformationBarrierReports =
-        new ShieldInformationBarrierReportsManager.ShieldInformationBarrierReportsManagerBuilder()
+        new ShieldInformationBarrierReportsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.shieldInformationBarrierSegments =
-        new ShieldInformationBarrierSegmentsManager.ShieldInformationBarrierSegmentsManagerBuilder()
+        new ShieldInformationBarrierSegmentsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.shieldInformationBarrierSegmentMembers =
-        new ShieldInformationBarrierSegmentMembersManager
-                .ShieldInformationBarrierSegmentMembersManagerBuilder()
+        new ShieldInformationBarrierSegmentMembersManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.shieldInformationBarrierSegmentRestrictions =
-        new ShieldInformationBarrierSegmentRestrictionsManager
-                .ShieldInformationBarrierSegmentRestrictionsManagerBuilder()
+        new ShieldInformationBarrierSegmentRestrictionsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.devicePinners =
-        new DevicePinnersManager.DevicePinnersManagerBuilder()
+        new DevicePinnersManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.termsOfServices =
-        new TermsOfServicesManager.TermsOfServicesManagerBuilder()
+        new TermsOfServicesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.termsOfServiceUserStatuses =
-        new TermsOfServiceUserStatusesManager.TermsOfServiceUserStatusesManagerBuilder()
+        new TermsOfServiceUserStatusesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.collaborationAllowlistEntries =
-        new CollaborationAllowlistEntriesManager.CollaborationAllowlistEntriesManagerBuilder()
+        new CollaborationAllowlistEntriesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.collaborationAllowlistExemptTargets =
-        new CollaborationAllowlistExemptTargetsManager
-                .CollaborationAllowlistExemptTargetsManagerBuilder()
+        new CollaborationAllowlistExemptTargetsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.storagePolicies =
-        new StoragePoliciesManager.StoragePoliciesManagerBuilder()
+        new StoragePoliciesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.storagePolicyAssignments =
-        new StoragePolicyAssignmentsManager.StoragePolicyAssignmentsManagerBuilder()
+        new StoragePolicyAssignmentsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.zipDownloads =
-        new ZipDownloadsManager.ZipDownloadsManagerBuilder()
+        new ZipDownloadsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.signRequests =
-        new SignRequestsManager.SignRequestsManagerBuilder()
+        new SignRequestsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.workflows =
-        new WorkflowsManager.WorkflowsManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new WorkflowsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.signTemplates =
-        new SignTemplatesManager.SignTemplatesManagerBuilder()
+        new SignTemplatesManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.integrationMappings =
-        new IntegrationMappingsManager.IntegrationMappingsManagerBuilder()
+        new IntegrationMappingsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
-    this.ai =
-        new AiManager.AiManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+    this.ai = new AiManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.aiStudio =
-        new AiStudioManager.AiStudioManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new AiStudioManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.docgenTemplate =
-        new DocgenTemplateManager.DocgenTemplateManagerBuilder()
+        new DocgenTemplateManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
     this.docgen =
-        new DocgenManager.DocgenManagerBuilder()
-            .auth(this.auth)
-            .networkSession(this.networkSession)
-            .build();
+        new DocgenManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.shieldLists =
-        new ShieldListsManager.ShieldListsManagerBuilder()
+        new ShieldListsManager.Builder()
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
@@ -1018,7 +889,7 @@ public class BoxClient {
             ? this.networkSession
             : fetchOptions.getNetworkSession());
     FetchOptions enrichedFetchOptions =
-        new FetchOptions.FetchOptionsBuilder(fetchOptions.getUrl(), fetchOptions.getMethod())
+        new FetchOptions.Builder(fetchOptions.getUrl(), fetchOptions.getMethod())
             .params(fetchOptions.getParams())
             .headers(fetchOptions.getHeaders())
             .data(fetchOptions.getData())
@@ -1034,14 +905,14 @@ public class BoxClient {
   }
 
   public BoxClient withAsUserHeader(String userId) {
-    return new BoxClient.BoxClientBuilder(this.auth)
+    return new BoxClient.Builder(this.auth)
         .networkSession(
             this.networkSession.withAdditionalHeaders(mapOf(entryOf("As-User", userId))))
         .build();
   }
 
   public BoxClient withSuppressedNotifications() {
-    return new BoxClient.BoxClientBuilder(this.auth)
+    return new BoxClient.Builder(this.auth)
         .networkSession(
             this.networkSession.withAdditionalHeaders(mapOf(entryOf("Box-Notifications", "off"))))
         .build();
@@ -1052,19 +923,19 @@ public class BoxClient {
   }
 
   public BoxClient withExtraHeaders(Map<String, String> extraHeaders) {
-    return new BoxClient.BoxClientBuilder(this.auth)
+    return new BoxClient.Builder(this.auth)
         .networkSession(this.networkSession.withAdditionalHeaders(extraHeaders))
         .build();
   }
 
   public BoxClient withCustomBaseUrls(BaseUrls baseUrls) {
-    return new BoxClient.BoxClientBuilder(this.auth)
+    return new BoxClient.Builder(this.auth)
         .networkSession(this.networkSession.withCustomBaseUrls(baseUrls))
         .build();
   }
 
   public BoxClient withInterceptors(List<Interceptor> interceptors) {
-    return new BoxClient.BoxClientBuilder(this.auth)
+    return new BoxClient.Builder(this.auth)
         .networkSession(this.networkSession.withInterceptors(interceptors))
         .build();
   }
@@ -1378,19 +1249,18 @@ public class BoxClient {
     return shieldLists;
   }
 
-  public static class BoxClientBuilder {
+  public static class Builder {
 
     protected final Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public BoxClientBuilder(Authentication auth) {
+    public Builder(Authentication auth) {
       this.auth = auth;
-      this.networkSession =
-          new NetworkSession.NetworkSessionBuilder().baseUrls(new BaseUrls()).build();
+      this.networkSession = new NetworkSession.Builder().baseUrls(new BaseUrls()).build();
     }
 
-    public BoxClientBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

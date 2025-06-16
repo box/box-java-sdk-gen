@@ -12,7 +12,7 @@ public class UpdateWebLinkByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UpdateWebLinkByIdHeaders(UpdateWebLinkByIdHeadersBuilder builder) {
+  protected UpdateWebLinkByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class UpdateWebLinkByIdHeaders {
     return extraHeaders;
   }
 
-  public static class UpdateWebLinkByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public UpdateWebLinkByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public UpdateWebLinkByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

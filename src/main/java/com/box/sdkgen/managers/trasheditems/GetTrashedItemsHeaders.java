@@ -12,7 +12,7 @@ public class GetTrashedItemsHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetTrashedItemsHeaders(GetTrashedItemsHeadersBuilder builder) {
+  protected GetTrashedItemsHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetTrashedItemsHeaders {
     return extraHeaders;
   }
 
-  public static class GetTrashedItemsHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetTrashedItemsHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetTrashedItemsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

@@ -12,7 +12,7 @@ public class GetUserEmailAliasesHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetUserEmailAliasesHeaders(GetUserEmailAliasesHeadersBuilder builder) {
+  protected GetUserEmailAliasesHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetUserEmailAliasesHeaders {
     return extraHeaders;
   }
 
-  public static class GetUserEmailAliasesHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetUserEmailAliasesHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetUserEmailAliasesHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

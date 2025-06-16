@@ -52,7 +52,7 @@ public class ShieldInformationBarrierSegment extends SerializableObject {
     super();
   }
 
-  protected ShieldInformationBarrierSegment(ShieldInformationBarrierSegmentBuilder builder) {
+  protected ShieldInformationBarrierSegment(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -176,7 +176,7 @@ public class ShieldInformationBarrierSegment extends SerializableObject {
         + "}";
   }
 
-  public static class ShieldInformationBarrierSegmentBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -196,55 +196,52 @@ public class ShieldInformationBarrierSegment extends SerializableObject {
 
     protected UserBase updatedBy;
 
-    public ShieldInformationBarrierSegmentBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentBuilder type(
-        ShieldInformationBarrierSegmentTypeField type) {
+    public Builder type(ShieldInformationBarrierSegmentTypeField type) {
       this.type = new EnumWrapper<ShieldInformationBarrierSegmentTypeField>(type);
       return this;
     }
 
-    public ShieldInformationBarrierSegmentBuilder type(
-        EnumWrapper<ShieldInformationBarrierSegmentTypeField> type) {
+    public Builder type(EnumWrapper<ShieldInformationBarrierSegmentTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentBuilder shieldInformationBarrier(
-        ShieldInformationBarrierBase shieldInformationBarrier) {
+    public Builder shieldInformationBarrier(ShieldInformationBarrierBase shieldInformationBarrier) {
       this.shieldInformationBarrier = shieldInformationBarrier;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentBuilder createdBy(UserBase createdBy) {
+    public Builder createdBy(UserBase createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentBuilder updatedAt(Date updatedAt) {
+    public Builder updatedAt(Date updatedAt) {
       this.updatedAt = updatedAt;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentBuilder updatedBy(UserBase updatedBy) {
+    public Builder updatedBy(UserBase updatedBy) {
       this.updatedBy = updatedBy;
       return this;
     }

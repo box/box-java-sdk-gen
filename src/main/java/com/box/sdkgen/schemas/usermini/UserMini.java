@@ -16,7 +16,7 @@ public class UserMini extends UserBase {
     super(id);
   }
 
-  protected UserMini(UserMiniBuilder builder) {
+  protected UserMini(Builder builder) {
     super(builder);
     this.name = builder.name;
     this.login = builder.login;
@@ -71,34 +71,34 @@ public class UserMini extends UserBase {
         + "}";
   }
 
-  public static class UserMiniBuilder extends UserBaseBuilder {
+  public static class Builder extends UserBase.Builder {
 
     protected String name;
 
     protected String login;
 
-    public UserMiniBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public UserMiniBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public UserMiniBuilder login(String login) {
+    public Builder login(String login) {
       this.login = login;
       return this;
     }
 
     @Override
-    public UserMiniBuilder type(UserBaseTypeField type) {
+    public Builder type(UserBaseTypeField type) {
       this.type = new EnumWrapper<UserBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public UserMiniBuilder type(EnumWrapper<UserBaseTypeField> type) {
+    public Builder type(EnumWrapper<UserBaseTypeField> type) {
       this.type = type;
       return this;
     }

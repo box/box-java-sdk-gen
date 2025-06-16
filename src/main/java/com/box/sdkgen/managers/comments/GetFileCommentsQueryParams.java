@@ -12,7 +12,7 @@ public class GetFileCommentsQueryParams {
 
   public GetFileCommentsQueryParams() {}
 
-  protected GetFileCommentsQueryParams(GetFileCommentsQueryParamsBuilder builder) {
+  protected GetFileCommentsQueryParams(Builder builder) {
     this.fields = builder.fields;
     this.limit = builder.limit;
     this.offset = builder.offset;
@@ -30,7 +30,7 @@ public class GetFileCommentsQueryParams {
     return offset;
   }
 
-  public static class GetFileCommentsQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
@@ -38,17 +38,17 @@ public class GetFileCommentsQueryParams {
 
     protected Long offset;
 
-    public GetFileCommentsQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public GetFileCommentsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetFileCommentsQueryParamsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }

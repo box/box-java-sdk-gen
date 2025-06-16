@@ -26,7 +26,7 @@ public class SkillInvocationSkillField extends SerializableObject {
     super();
   }
 
-  protected SkillInvocationSkillField(SkillInvocationSkillFieldBuilder builder) {
+  protected SkillInvocationSkillField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -91,7 +91,7 @@ public class SkillInvocationSkillField extends SerializableObject {
         + "}";
   }
 
-  public static class SkillInvocationSkillFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -101,27 +101,27 @@ public class SkillInvocationSkillField extends SerializableObject {
 
     protected String apiKey;
 
-    public SkillInvocationSkillFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public SkillInvocationSkillFieldBuilder type(SkillInvocationSkillTypeField type) {
+    public Builder type(SkillInvocationSkillTypeField type) {
       this.type = new EnumWrapper<SkillInvocationSkillTypeField>(type);
       return this;
     }
 
-    public SkillInvocationSkillFieldBuilder type(EnumWrapper<SkillInvocationSkillTypeField> type) {
+    public Builder type(EnumWrapper<SkillInvocationSkillTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public SkillInvocationSkillFieldBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public SkillInvocationSkillFieldBuilder apiKey(String apiKey) {
+    public Builder apiKey(String apiKey) {
       this.apiKey = apiKey;
       return this;
     }

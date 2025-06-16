@@ -24,7 +24,7 @@ public class PromoteFileVersionRequestBody extends SerializableObject {
     super();
   }
 
-  protected PromoteFileVersionRequestBody(PromoteFileVersionRequestBodyBuilder builder) {
+  protected PromoteFileVersionRequestBody(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -68,24 +68,23 @@ public class PromoteFileVersionRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class PromoteFileVersionRequestBodyBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected EnumWrapper<PromoteFileVersionRequestBodyTypeField> type;
 
-    public PromoteFileVersionRequestBodyBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public PromoteFileVersionRequestBodyBuilder type(PromoteFileVersionRequestBodyTypeField type) {
+    public Builder type(PromoteFileVersionRequestBodyTypeField type) {
       this.type = new EnumWrapper<PromoteFileVersionRequestBodyTypeField>(type);
       return this;
     }
 
-    public PromoteFileVersionRequestBodyBuilder type(
-        EnumWrapper<PromoteFileVersionRequestBodyTypeField> type) {
+    public Builder type(EnumWrapper<PromoteFileVersionRequestBodyTypeField> type) {
       this.type = type;
       return this;
     }

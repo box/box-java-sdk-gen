@@ -12,7 +12,7 @@ public class DeleteAiAgentByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteAiAgentByIdHeaders(DeleteAiAgentByIdHeadersBuilder builder) {
+  protected DeleteAiAgentByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class DeleteAiAgentByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteAiAgentByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteAiAgentByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteAiAgentByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

@@ -13,7 +13,7 @@ public class StartWorkflowRequestBodyFlowField extends SerializableObject {
     super();
   }
 
-  protected StartWorkflowRequestBodyFlowField(StartWorkflowRequestBodyFlowFieldBuilder builder) {
+  protected StartWorkflowRequestBodyFlowField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -57,18 +57,18 @@ public class StartWorkflowRequestBodyFlowField extends SerializableObject {
         + "}";
   }
 
-  public static class StartWorkflowRequestBodyFlowFieldBuilder {
+  public static class Builder {
 
     protected String type;
 
     protected String id;
 
-    public StartWorkflowRequestBodyFlowFieldBuilder type(String type) {
+    public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public StartWorkflowRequestBodyFlowFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

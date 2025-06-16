@@ -17,7 +17,7 @@ public class AiAgentInfoModelsField extends SerializableObject {
     super();
   }
 
-  protected AiAgentInfoModelsField(AiAgentInfoModelsFieldBuilder builder) {
+  protected AiAgentInfoModelsField(Builder builder) {
     super();
     this.name = builder.name;
     this.provider = builder.provider;
@@ -72,7 +72,7 @@ public class AiAgentInfoModelsField extends SerializableObject {
         + "}";
   }
 
-  public static class AiAgentInfoModelsFieldBuilder {
+  public static class Builder {
 
     protected String name;
 
@@ -80,17 +80,17 @@ public class AiAgentInfoModelsField extends SerializableObject {
 
     protected String supportedPurpose;
 
-    public AiAgentInfoModelsFieldBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public AiAgentInfoModelsFieldBuilder provider(String provider) {
+    public Builder provider(String provider) {
       this.provider = provider;
       return this;
     }
 
-    public AiAgentInfoModelsFieldBuilder supportedPurpose(String supportedPurpose) {
+    public Builder supportedPurpose(String supportedPurpose) {
       this.supportedPurpose = supportedPurpose;
       return this;
     }

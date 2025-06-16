@@ -29,7 +29,7 @@ public class Outcome extends SerializableObject {
     this.id = id;
   }
 
-  protected Outcome(OutcomeBuilder builder) {
+  protected Outcome(Builder builder) {
     super();
     this.id = builder.id;
     this.collaborators = builder.collaborators;
@@ -115,7 +115,7 @@ public class Outcome extends SerializableObject {
         + "}";
   }
 
-  public static class OutcomeBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -129,31 +129,31 @@ public class Outcome extends SerializableObject {
 
     protected RoleVariable role;
 
-    public OutcomeBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
     }
 
-    public OutcomeBuilder collaborators(CollaboratorVariable collaborators) {
+    public Builder collaborators(CollaboratorVariable collaborators) {
       this.collaborators = collaborators;
       return this;
     }
 
-    public OutcomeBuilder completionRule(CompletionRuleVariable completionRule) {
+    public Builder completionRule(CompletionRuleVariable completionRule) {
       this.completionRule = completionRule;
       return this;
     }
 
-    public OutcomeBuilder fileCollaboratorRole(RoleVariable fileCollaboratorRole) {
+    public Builder fileCollaboratorRole(RoleVariable fileCollaboratorRole) {
       this.fileCollaboratorRole = fileCollaboratorRole;
       return this;
     }
 
-    public OutcomeBuilder taskCollaborators(CollaboratorVariable taskCollaborators) {
+    public Builder taskCollaborators(CollaboratorVariable taskCollaborators) {
       this.taskCollaborators = taskCollaborators;
       return this;
     }
 
-    public OutcomeBuilder role(RoleVariable role) {
+    public Builder role(RoleVariable role) {
       this.role = role;
       return this;
     }

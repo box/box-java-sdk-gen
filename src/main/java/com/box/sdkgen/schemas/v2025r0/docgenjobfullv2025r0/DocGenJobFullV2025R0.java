@@ -56,7 +56,7 @@ public class DocGenJobFullV2025R0 extends DocGenJobV2025R0 {
     this.source = source;
   }
 
-  protected DocGenJobFullV2025R0(DocGenJobFullV2025R0Builder builder) {
+  protected DocGenJobFullV2025R0(Builder builder) {
     super(builder);
     this.createdAt = builder.createdAt;
     this.createdBy = builder.createdBy;
@@ -179,7 +179,7 @@ public class DocGenJobFullV2025R0 extends DocGenJobV2025R0 {
         + "}";
   }
 
-  public static class DocGenJobFullV2025R0Builder extends DocGenJobV2025R0Builder {
+  public static class Builder extends DocGenJobV2025R0.Builder {
 
     protected String createdAt;
 
@@ -189,7 +189,7 @@ public class DocGenJobFullV2025R0 extends DocGenJobV2025R0 {
 
     protected final String source;
 
-    public DocGenJobFullV2025R0Builder(
+    public Builder(
         String id,
         DocGenBatchBaseV2025R0 batch,
         FileReferenceV2025R0 templateFile,
@@ -205,7 +205,7 @@ public class DocGenJobFullV2025R0 extends DocGenJobV2025R0 {
       this.source = source;
     }
 
-    public DocGenJobFullV2025R0Builder(
+    public Builder(
         String id,
         DocGenBatchBaseV2025R0 batch,
         FileReferenceV2025R0 templateFile,
@@ -221,31 +221,31 @@ public class DocGenJobFullV2025R0 extends DocGenJobV2025R0 {
       this.source = source;
     }
 
-    public DocGenJobFullV2025R0Builder createdAt(String createdAt) {
+    public Builder createdAt(String createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
     @Override
-    public DocGenJobFullV2025R0Builder type(DocGenJobBaseV2025R0TypeField type) {
+    public Builder type(DocGenJobBaseV2025R0TypeField type) {
       this.type = new EnumWrapper<DocGenJobBaseV2025R0TypeField>(type);
       return this;
     }
 
     @Override
-    public DocGenJobFullV2025R0Builder type(EnumWrapper<DocGenJobBaseV2025R0TypeField> type) {
+    public Builder type(EnumWrapper<DocGenJobBaseV2025R0TypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public DocGenJobFullV2025R0Builder outputFile(FileReferenceV2025R0 outputFile) {
+    public Builder outputFile(FileReferenceV2025R0 outputFile) {
       this.outputFile = outputFile;
       return this;
     }
 
     @Override
-    public DocGenJobFullV2025R0Builder outputFileVersion(FileVersionBaseV2025R0 outputFileVersion) {
+    public Builder outputFileVersion(FileVersionBaseV2025R0 outputFileVersion) {
       this.outputFileVersion = outputFileVersion;
       return this;
     }

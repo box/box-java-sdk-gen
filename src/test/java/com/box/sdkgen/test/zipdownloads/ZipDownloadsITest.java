@@ -34,7 +34,7 @@ public class ZipDownloadsITest {
         client
             .getZipDownloads()
             .downloadZip(
-                new ZipDownloadRequest.ZipDownloadRequestBuilder(
+                new ZipDownloadRequest.Builder(
                         Arrays.asList(
                             new ZipDownloadRequestItemsField(
                                 ZipDownloadRequestItemsTypeField.FILE, file1.getId()),
@@ -59,7 +59,7 @@ public class ZipDownloadsITest {
         client
             .getZipDownloads()
             .createZipDownload(
-                new ZipDownloadRequest.ZipDownloadRequestBuilder(
+                new ZipDownloadRequest.Builder(
                         Arrays.asList(
                             new ZipDownloadRequestItemsField(
                                 ZipDownloadRequestItemsTypeField.FILE, file1.getId()),

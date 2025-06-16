@@ -19,7 +19,7 @@ public class CommentsOrderField extends SerializableObject {
     super();
   }
 
-  protected CommentsOrderField(CommentsOrderFieldBuilder builder) {
+  protected CommentsOrderField(Builder builder) {
     super();
     this.by = builder.by;
     this.direction = builder.direction;
@@ -63,23 +63,23 @@ public class CommentsOrderField extends SerializableObject {
         + "}";
   }
 
-  public static class CommentsOrderFieldBuilder {
+  public static class Builder {
 
     protected String by;
 
     protected EnumWrapper<CommentsOrderDirectionField> direction;
 
-    public CommentsOrderFieldBuilder by(String by) {
+    public Builder by(String by) {
       this.by = by;
       return this;
     }
 
-    public CommentsOrderFieldBuilder direction(CommentsOrderDirectionField direction) {
+    public Builder direction(CommentsOrderDirectionField direction) {
       this.direction = new EnumWrapper<CommentsOrderDirectionField>(direction);
       return this;
     }
 
-    public CommentsOrderFieldBuilder direction(EnumWrapper<CommentsOrderDirectionField> direction) {
+    public Builder direction(EnumWrapper<CommentsOrderDirectionField> direction) {
       this.direction = direction;
       return this;
     }

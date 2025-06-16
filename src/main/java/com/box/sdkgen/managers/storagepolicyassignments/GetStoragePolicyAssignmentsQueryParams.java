@@ -27,8 +27,7 @@ public class GetStoragePolicyAssignmentsQueryParams {
     this.resolvedForId = resolvedForId;
   }
 
-  protected GetStoragePolicyAssignmentsQueryParams(
-      GetStoragePolicyAssignmentsQueryParamsBuilder builder) {
+  protected GetStoragePolicyAssignmentsQueryParams(Builder builder) {
     this.marker = builder.marker;
     this.resolvedForType = builder.resolvedForType;
     this.resolvedForId = builder.resolvedForId;
@@ -47,7 +46,7 @@ public class GetStoragePolicyAssignmentsQueryParams {
     return resolvedForId;
   }
 
-  public static class GetStoragePolicyAssignmentsQueryParamsBuilder {
+  public static class Builder {
 
     protected String marker;
 
@@ -56,14 +55,14 @@ public class GetStoragePolicyAssignmentsQueryParams {
 
     protected final String resolvedForId;
 
-    public GetStoragePolicyAssignmentsQueryParamsBuilder(
+    public Builder(
         EnumWrapper<GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField> resolvedForType,
         String resolvedForId) {
       this.resolvedForType = resolvedForType;
       this.resolvedForId = resolvedForId;
     }
 
-    public GetStoragePolicyAssignmentsQueryParamsBuilder(
+    public Builder(
         GetStoragePolicyAssignmentsQueryParamsResolvedForTypeField resolvedForType,
         String resolvedForId) {
       this.resolvedForType =
@@ -72,7 +71,7 @@ public class GetStoragePolicyAssignmentsQueryParams {
       this.resolvedForId = resolvedForId;
     }
 
-    public GetStoragePolicyAssignmentsQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }

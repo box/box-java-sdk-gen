@@ -21,7 +21,7 @@ public class CCGConfig {
     this.tokenStorage = new InMemoryTokenStorage();
   }
 
-  protected CCGConfig(CCGConfigBuilder builder) {
+  protected CCGConfig(Builder builder) {
     this.clientId = builder.clientId;
     this.clientSecret = builder.clientSecret;
     this.enterpriseId = builder.enterpriseId;
@@ -49,7 +49,7 @@ public class CCGConfig {
     return tokenStorage;
   }
 
-  public static class CCGConfigBuilder {
+  public static class Builder {
 
     protected final String clientId;
 
@@ -61,23 +61,23 @@ public class CCGConfig {
 
     protected TokenStorage tokenStorage;
 
-    public CCGConfigBuilder(String clientId, String clientSecret) {
+    public Builder(String clientId, String clientSecret) {
       this.clientId = clientId;
       this.clientSecret = clientSecret;
       this.tokenStorage = new InMemoryTokenStorage();
     }
 
-    public CCGConfigBuilder enterpriseId(String enterpriseId) {
+    public Builder enterpriseId(String enterpriseId) {
       this.enterpriseId = enterpriseId;
       return this;
     }
 
-    public CCGConfigBuilder userId(String userId) {
+    public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
-    public CCGConfigBuilder tokenStorage(TokenStorage tokenStorage) {
+    public Builder tokenStorage(TokenStorage tokenStorage) {
       this.tokenStorage = tokenStorage;
       return this;
     }

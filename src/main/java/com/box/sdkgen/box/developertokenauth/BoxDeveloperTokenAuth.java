@@ -25,17 +25,17 @@ public class BoxDeveloperTokenAuth implements Authentication {
     this.token = token;
     this.config = new DeveloperTokenConfig();
     this.tokenStorage =
-        new InMemoryTokenStorage.InMemoryTokenStorageBuilder()
-            .token(new AccessToken.AccessTokenBuilder().accessToken(this.token).build())
+        new InMemoryTokenStorage.Builder()
+            .token(new AccessToken.Builder().accessToken(this.token).build())
             .build();
   }
 
-  protected BoxDeveloperTokenAuth(BoxDeveloperTokenAuthBuilder builder) {
+  protected BoxDeveloperTokenAuth(Builder builder) {
     this.token = builder.token;
     this.config = builder.config;
     this.tokenStorage =
-        new InMemoryTokenStorage.InMemoryTokenStorageBuilder()
-            .token(new AccessToken.AccessTokenBuilder().accessToken(this.token).build())
+        new InMemoryTokenStorage.Builder()
+            .token(new AccessToken.Builder().accessToken(this.token).build())
             .build();
   }
 
@@ -82,11 +82,11 @@ public class BoxDeveloperTokenAuth implements Authentication {
       return;
     }
     AuthorizationManager authManager =
-        new AuthorizationManager.AuthorizationManagerBuilder()
+        new AuthorizationManager.Builder()
             .networkSession((!(networkSession == null) ? networkSession : new NetworkSession()))
             .build();
     authManager.revokeAccessToken(
-        new PostOAuth2Revoke.PostOAuth2RevokeBuilder()
+        new PostOAuth2Revoke.Builder()
             .clientId(this.config.getClientId())
             .clientSecret(this.config.getClientSecret())
             .token(token.getAccessToken())
@@ -102,12 +102,12 @@ public class BoxDeveloperTokenAuth implements Authentication {
       throw new BoxSDKError("No access token is available.");
     }
     AuthorizationManager authManager =
-        new AuthorizationManager.AuthorizationManagerBuilder()
+        new AuthorizationManager.Builder()
             .networkSession((!(networkSession == null) ? networkSession : new NetworkSession()))
             .build();
     AccessToken downscopedToken =
         authManager.requestAccessToken(
-            new PostOAuth2Token.PostOAuth2TokenBuilder(
+            new PostOAuth2Token.Builder(
                     PostOAuth2TokenGrantTypeField.URN_IETF_PARAMS_OAUTH_GRANT_TYPE_TOKEN_EXCHANGE)
                 .subjectToken(token.getAccessToken())
                 .subjectTokenType(
@@ -124,18 +124,18 @@ public class BoxDeveloperTokenAuth implements Authentication {
     return tokenStorage;
   }
 
-  public static class BoxDeveloperTokenAuthBuilder {
+  public static class Builder {
 
     protected final String token;
 
     protected DeveloperTokenConfig config;
 
-    public BoxDeveloperTokenAuthBuilder(String token) {
+    public Builder(String token) {
       this.token = token;
       this.config = new DeveloperTokenConfig();
     }
 
-    public BoxDeveloperTokenAuthBuilder config(DeveloperTokenConfig config) {
+    public Builder config(DeveloperTokenConfig config) {
       this.config = config;
       return this;
     }

@@ -48,8 +48,7 @@ public class CreateMetadataTemplateRequestBodyFieldsField extends SerializableOb
     this.displayName = displayName;
   }
 
-  protected CreateMetadataTemplateRequestBodyFieldsField(
-      CreateMetadataTemplateRequestBodyFieldsFieldBuilder builder) {
+  protected CreateMetadataTemplateRequestBodyFieldsField(Builder builder) {
     super();
     this.type = builder.type;
     this.key = builder.key;
@@ -135,7 +134,7 @@ public class CreateMetadataTemplateRequestBodyFieldsField extends SerializableOb
         + "}";
   }
 
-  public static class CreateMetadataTemplateRequestBodyFieldsFieldBuilder {
+  public static class Builder {
 
     protected final EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField> type;
 
@@ -149,7 +148,7 @@ public class CreateMetadataTemplateRequestBodyFieldsField extends SerializableOb
 
     protected List<CreateMetadataTemplateRequestBodyFieldsOptionsField> options;
 
-    public CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+    public Builder(
         EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField> type,
         String key,
         String displayName) {
@@ -158,25 +157,24 @@ public class CreateMetadataTemplateRequestBodyFieldsField extends SerializableOb
       this.displayName = displayName;
     }
 
-    public CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+    public Builder(
         CreateMetadataTemplateRequestBodyFieldsTypeField type, String key, String displayName) {
       this.type = new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(type);
       this.key = key;
       this.displayName = displayName;
     }
 
-    public CreateMetadataTemplateRequestBodyFieldsFieldBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public CreateMetadataTemplateRequestBodyFieldsFieldBuilder hidden(Boolean hidden) {
+    public Builder hidden(Boolean hidden) {
       this.hidden = hidden;
       return this;
     }
 
-    public CreateMetadataTemplateRequestBodyFieldsFieldBuilder options(
-        List<CreateMetadataTemplateRequestBodyFieldsOptionsField> options) {
+    public Builder options(List<CreateMetadataTemplateRequestBodyFieldsOptionsField> options) {
       this.options = options;
       return this;
     }

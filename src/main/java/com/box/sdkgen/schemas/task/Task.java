@@ -56,7 +56,7 @@ public class Task extends SerializableObject {
     super();
   }
 
-  protected Task(TaskBuilder builder) {
+  protected Task(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -202,7 +202,7 @@ public class Task extends SerializableObject {
         + "}";
   }
 
-  public static class TaskBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -226,72 +226,72 @@ public class Task extends SerializableObject {
 
     protected EnumWrapper<TaskCompletionRuleField> completionRule;
 
-    public TaskBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public TaskBuilder type(TaskTypeField type) {
+    public Builder type(TaskTypeField type) {
       this.type = new EnumWrapper<TaskTypeField>(type);
       return this;
     }
 
-    public TaskBuilder type(EnumWrapper<TaskTypeField> type) {
+    public Builder type(EnumWrapper<TaskTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TaskBuilder item(FileMini item) {
+    public Builder item(FileMini item) {
       this.item = item;
       return this;
     }
 
-    public TaskBuilder dueAt(Date dueAt) {
+    public Builder dueAt(Date dueAt) {
       this.dueAt = dueAt;
       return this;
     }
 
-    public TaskBuilder action(TaskActionField action) {
+    public Builder action(TaskActionField action) {
       this.action = new EnumWrapper<TaskActionField>(action);
       return this;
     }
 
-    public TaskBuilder action(EnumWrapper<TaskActionField> action) {
+    public Builder action(EnumWrapper<TaskActionField> action) {
       this.action = action;
       return this;
     }
 
-    public TaskBuilder message(String message) {
+    public Builder message(String message) {
       this.message = message;
       return this;
     }
 
-    public TaskBuilder taskAssignmentCollection(TaskAssignments taskAssignmentCollection) {
+    public Builder taskAssignmentCollection(TaskAssignments taskAssignmentCollection) {
       this.taskAssignmentCollection = taskAssignmentCollection;
       return this;
     }
 
-    public TaskBuilder isCompleted(Boolean isCompleted) {
+    public Builder isCompleted(Boolean isCompleted) {
       this.isCompleted = isCompleted;
       return this;
     }
 
-    public TaskBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public TaskBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public TaskBuilder completionRule(TaskCompletionRuleField completionRule) {
+    public Builder completionRule(TaskCompletionRuleField completionRule) {
       this.completionRule = new EnumWrapper<TaskCompletionRuleField>(completionRule);
       return this;
     }
 
-    public TaskBuilder completionRule(EnumWrapper<TaskCompletionRuleField> completionRule) {
+    public Builder completionRule(EnumWrapper<TaskCompletionRuleField> completionRule) {
       this.completionRule = completionRule;
       return this;
     }

@@ -32,8 +32,7 @@ public class TrashWebLinkPathCollectionEntriesField extends SerializableObject {
     super();
   }
 
-  protected TrashWebLinkPathCollectionEntriesField(
-      TrashWebLinkPathCollectionEntriesFieldBuilder builder) {
+  protected TrashWebLinkPathCollectionEntriesField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -108,7 +107,7 @@ public class TrashWebLinkPathCollectionEntriesField extends SerializableObject {
         + "}";
   }
 
-  public static class TrashWebLinkPathCollectionEntriesFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<TrashWebLinkPathCollectionEntriesTypeField> type;
 
@@ -120,34 +119,32 @@ public class TrashWebLinkPathCollectionEntriesField extends SerializableObject {
 
     protected String name;
 
-    public TrashWebLinkPathCollectionEntriesFieldBuilder type(
-        TrashWebLinkPathCollectionEntriesTypeField type) {
+    public Builder type(TrashWebLinkPathCollectionEntriesTypeField type) {
       this.type = new EnumWrapper<TrashWebLinkPathCollectionEntriesTypeField>(type);
       return this;
     }
 
-    public TrashWebLinkPathCollectionEntriesFieldBuilder type(
-        EnumWrapper<TrashWebLinkPathCollectionEntriesTypeField> type) {
+    public Builder type(EnumWrapper<TrashWebLinkPathCollectionEntriesTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TrashWebLinkPathCollectionEntriesFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public TrashWebLinkPathCollectionEntriesFieldBuilder sequenceId(String sequenceId) {
+    public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
       return this;
     }
 
-    public TrashWebLinkPathCollectionEntriesFieldBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
-    public TrashWebLinkPathCollectionEntriesFieldBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }

@@ -24,7 +24,7 @@ public class AiStudioITest {
         client
             .getAiStudio()
             .createAiAgent(
-                new CreateAiAgent.CreateAiAgentBuilder(agentName, "enabled")
+                new CreateAiAgent.Builder(agentName, "enabled")
                     .ask(new AiStudioAgentAsk("enabled", "desc1"))
                     .build());
     assert createdAgent.getName().equals(agentName);
@@ -36,9 +36,7 @@ public class AiStudioITest {
             .getAiStudio()
             .getAiAgentById(
                 createdAgent.getId(),
-                new GetAiAgentByIdQueryParams.GetAiAgentByIdQueryParamsBuilder()
-                    .fields(Arrays.asList("ask"))
-                    .build());
+                new GetAiAgentByIdQueryParams.Builder().fields(Arrays.asList("ask")).build());
     assert retrievedAgent.getName().equals(agentName);
     assert convertToString(retrievedAgent.getAccessState()).equals("enabled");
     assert convertToString(retrievedAgent.getAsk().getAccessState()).equals("enabled");
@@ -48,7 +46,7 @@ public class AiStudioITest {
             .getAiStudio()
             .updateAiAgentById(
                 createdAgent.getId(),
-                new CreateAiAgent.CreateAiAgentBuilder(agentName, "enabled")
+                new CreateAiAgent.Builder(agentName, "enabled")
                     .ask(new AiStudioAgentAsk("disabled", "desc2"))
                     .build());
     assert convertToString(updatedAgent.getAccessState()).equals("enabled");

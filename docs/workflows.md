@@ -51,7 +51,7 @@ See the endpoint docs at
 
 <!-- sample post_workflows_id_start -->
 ```
-adminClient.getWorkflows().startWorkflow(workflowToRun.getId(), new StartWorkflowRequestBody.StartWorkflowRequestBodyBuilder(new StartWorkflowRequestBodyFlowField.StartWorkflowRequestBodyFlowFieldBuilder().type("flow").id(workflowToRun.getFlows().get(0).getId()).build(), Arrays.asList(new StartWorkflowRequestBodyFilesField.StartWorkflowRequestBodyFilesFieldBuilder().type(StartWorkflowRequestBodyFilesTypeField.FILE).id(workflowFileId).build()), new StartWorkflowRequestBodyFolderField.StartWorkflowRequestBodyFolderFieldBuilder().type(StartWorkflowRequestBodyFolderTypeField.FOLDER).id(workflowFolderId).build()).type(StartWorkflowRequestBodyTypeField.WORKFLOW_PARAMETERS).build())
+adminClient.getWorkflows().startWorkflow(workflowToRun.getId(), new StartWorkflowRequestBody.Builder(new StartWorkflowRequestBodyFlowField.Builder().type("flow").id(workflowToRun.getFlows().get(0).getId()).build(), Arrays.asList(new StartWorkflowRequestBodyFilesField.Builder().type(StartWorkflowRequestBodyFilesTypeField.FILE).id(workflowFileId).build()), new StartWorkflowRequestBodyFolderField.Builder().type(StartWorkflowRequestBodyFolderTypeField.FOLDER).id(workflowFolderId).build()).type(StartWorkflowRequestBodyTypeField.WORKFLOW_PARAMETERS).build())
 ```
 
 ### Arguments

@@ -29,8 +29,7 @@ public class CreateTermsOfServiceStatusForUserRequestBodyTosField extends Serial
             CreateTermsOfServiceStatusForUserRequestBodyTosTypeField.TERMS_OF_SERVICE);
   }
 
-  protected CreateTermsOfServiceStatusForUserRequestBodyTosField(
-      CreateTermsOfServiceStatusForUserRequestBodyTosFieldBuilder builder) {
+  protected CreateTermsOfServiceStatusForUserRequestBodyTosField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -75,26 +74,25 @@ public class CreateTermsOfServiceStatusForUserRequestBodyTosField extends Serial
         + "}";
   }
 
-  public static class CreateTermsOfServiceStatusForUserRequestBodyTosFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<CreateTermsOfServiceStatusForUserRequestBodyTosTypeField> type;
 
     protected final String id;
 
-    public CreateTermsOfServiceStatusForUserRequestBodyTosFieldBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<CreateTermsOfServiceStatusForUserRequestBodyTosTypeField>(
               CreateTermsOfServiceStatusForUserRequestBodyTosTypeField.TERMS_OF_SERVICE);
     }
 
-    public CreateTermsOfServiceStatusForUserRequestBodyTosFieldBuilder type(
-        CreateTermsOfServiceStatusForUserRequestBodyTosTypeField type) {
+    public Builder type(CreateTermsOfServiceStatusForUserRequestBodyTosTypeField type) {
       this.type = new EnumWrapper<CreateTermsOfServiceStatusForUserRequestBodyTosTypeField>(type);
       return this;
     }
 
-    public CreateTermsOfServiceStatusForUserRequestBodyTosFieldBuilder type(
+    public Builder type(
         EnumWrapper<CreateTermsOfServiceStatusForUserRequestBodyTosTypeField> type) {
       this.type = type;
       return this;

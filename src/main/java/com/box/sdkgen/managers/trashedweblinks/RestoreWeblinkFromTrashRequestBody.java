@@ -13,7 +13,7 @@ public class RestoreWeblinkFromTrashRequestBody extends SerializableObject {
     super();
   }
 
-  protected RestoreWeblinkFromTrashRequestBody(RestoreWeblinkFromTrashRequestBodyBuilder builder) {
+  protected RestoreWeblinkFromTrashRequestBody(Builder builder) {
     super();
     this.name = builder.name;
     this.parent = builder.parent;
@@ -57,19 +57,18 @@ public class RestoreWeblinkFromTrashRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class RestoreWeblinkFromTrashRequestBodyBuilder {
+  public static class Builder {
 
     protected String name;
 
     protected RestoreWeblinkFromTrashRequestBodyParentField parent;
 
-    public RestoreWeblinkFromTrashRequestBodyBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public RestoreWeblinkFromTrashRequestBodyBuilder parent(
-        RestoreWeblinkFromTrashRequestBodyParentField parent) {
+    public Builder parent(RestoreWeblinkFromTrashRequestBodyParentField parent) {
       this.parent = parent;
       return this;
     }

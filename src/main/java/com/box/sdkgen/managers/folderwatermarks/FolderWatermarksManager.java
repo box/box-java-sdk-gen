@@ -24,7 +24,7 @@ public class FolderWatermarksManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected FolderWatermarksManager(FolderWatermarksManagerBuilder builder) {
+  protected FolderWatermarksManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -39,7 +39,7 @@ public class FolderWatermarksManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -69,7 +69,7 @@ public class FolderWatermarksManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -97,7 +97,7 @@ public class FolderWatermarksManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -120,22 +120,22 @@ public class FolderWatermarksManager {
     return networkSession;
   }
 
-  public static class FolderWatermarksManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public FolderWatermarksManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public FolderWatermarksManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public FolderWatermarksManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

@@ -13,7 +13,7 @@ public class UserAvatar extends SerializableObject {
     super();
   }
 
-  protected UserAvatar(UserAvatarBuilder builder) {
+  protected UserAvatar(Builder builder) {
     super();
     this.picUrls = builder.picUrls;
   }
@@ -44,11 +44,11 @@ public class UserAvatar extends SerializableObject {
     return "UserAvatar{" + "picUrls='" + picUrls + '\'' + "}";
   }
 
-  public static class UserAvatarBuilder {
+  public static class Builder {
 
     protected UserAvatarPicUrlsField picUrls;
 
-    public UserAvatarBuilder picUrls(UserAvatarPicUrlsField picUrls) {
+    public Builder picUrls(UserAvatarPicUrlsField picUrls) {
       this.picUrls = picUrls;
       return this;
     }

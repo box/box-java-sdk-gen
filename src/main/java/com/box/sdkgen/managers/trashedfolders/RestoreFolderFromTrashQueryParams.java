@@ -8,7 +8,7 @@ public class RestoreFolderFromTrashQueryParams {
 
   public RestoreFolderFromTrashQueryParams() {}
 
-  protected RestoreFolderFromTrashQueryParams(RestoreFolderFromTrashQueryParamsBuilder builder) {
+  protected RestoreFolderFromTrashQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class RestoreFolderFromTrashQueryParams {
     return fields;
   }
 
-  public static class RestoreFolderFromTrashQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public RestoreFolderFromTrashQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

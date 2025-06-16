@@ -8,7 +8,7 @@ public class CopyFolderQueryParams {
 
   public CopyFolderQueryParams() {}
 
-  protected CopyFolderQueryParams(CopyFolderQueryParamsBuilder builder) {
+  protected CopyFolderQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class CopyFolderQueryParams {
     return fields;
   }
 
-  public static class CopyFolderQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public CopyFolderQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

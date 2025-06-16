@@ -56,7 +56,7 @@ public class TaskAssignment extends SerializableObject {
     super();
   }
 
-  protected TaskAssignment(TaskAssignmentBuilder builder) {
+  protected TaskAssignment(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -191,7 +191,7 @@ public class TaskAssignment extends SerializableObject {
         + "}";
   }
 
-  public static class TaskAssignmentBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -213,64 +213,63 @@ public class TaskAssignment extends SerializableObject {
 
     protected UserMini assignedBy;
 
-    public TaskAssignmentBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public TaskAssignmentBuilder type(TaskAssignmentTypeField type) {
+    public Builder type(TaskAssignmentTypeField type) {
       this.type = new EnumWrapper<TaskAssignmentTypeField>(type);
       return this;
     }
 
-    public TaskAssignmentBuilder type(EnumWrapper<TaskAssignmentTypeField> type) {
+    public Builder type(EnumWrapper<TaskAssignmentTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TaskAssignmentBuilder item(FileMini item) {
+    public Builder item(FileMini item) {
       this.item = item;
       return this;
     }
 
-    public TaskAssignmentBuilder assignedTo(UserMini assignedTo) {
+    public Builder assignedTo(UserMini assignedTo) {
       this.assignedTo = assignedTo;
       return this;
     }
 
-    public TaskAssignmentBuilder message(String message) {
+    public Builder message(String message) {
       this.message = message;
       return this;
     }
 
-    public TaskAssignmentBuilder completedAt(Date completedAt) {
+    public Builder completedAt(Date completedAt) {
       this.completedAt = completedAt;
       return this;
     }
 
-    public TaskAssignmentBuilder assignedAt(Date assignedAt) {
+    public Builder assignedAt(Date assignedAt) {
       this.assignedAt = assignedAt;
       return this;
     }
 
-    public TaskAssignmentBuilder remindedAt(Date remindedAt) {
+    public Builder remindedAt(Date remindedAt) {
       this.remindedAt = remindedAt;
       return this;
     }
 
-    public TaskAssignmentBuilder resolutionState(
-        TaskAssignmentResolutionStateField resolutionState) {
+    public Builder resolutionState(TaskAssignmentResolutionStateField resolutionState) {
       this.resolutionState = new EnumWrapper<TaskAssignmentResolutionStateField>(resolutionState);
       return this;
     }
 
-    public TaskAssignmentBuilder resolutionState(
+    public Builder resolutionState(
         EnumWrapper<TaskAssignmentResolutionStateField> resolutionState) {
       this.resolutionState = resolutionState;
       return this;
     }
 
-    public TaskAssignmentBuilder assignedBy(UserMini assignedBy) {
+    public Builder assignedBy(UserMini assignedBy) {
       this.assignedBy = assignedBy;
       return this;
     }

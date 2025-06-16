@@ -14,7 +14,7 @@ public class UploadWithPreflightCheckHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UploadWithPreflightCheckHeaders(UploadWithPreflightCheckHeadersBuilder builder) {
+  protected UploadWithPreflightCheckHeaders(Builder builder) {
     this.contentMd5 = builder.contentMd5;
     this.extraHeaders = builder.extraHeaders;
   }
@@ -27,22 +27,22 @@ public class UploadWithPreflightCheckHeaders {
     return extraHeaders;
   }
 
-  public static class UploadWithPreflightCheckHeadersBuilder {
+  public static class Builder {
 
     protected String contentMd5;
 
     protected Map<String, String> extraHeaders;
 
-    public UploadWithPreflightCheckHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public UploadWithPreflightCheckHeadersBuilder contentMd5(String contentMd5) {
+    public Builder contentMd5(String contentMd5) {
       this.contentMd5 = contentMd5;
       return this;
     }
 
-    public UploadWithPreflightCheckHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

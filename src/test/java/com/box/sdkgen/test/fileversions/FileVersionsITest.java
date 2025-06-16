@@ -59,7 +59,7 @@ public class FileVersionsITest {
         .getFileVersions()
         .promoteFileVersion(
             file.getId(),
-            new PromoteFileVersionRequestBody.PromoteFileVersionRequestBodyBuilder()
+            new PromoteFileVersionRequestBody.Builder()
                 .id(fileVersions.getEntries().get(0).getId())
                 .type(PromoteFileVersionRequestBodyTypeField.FILE_VERSION)
                 .build());

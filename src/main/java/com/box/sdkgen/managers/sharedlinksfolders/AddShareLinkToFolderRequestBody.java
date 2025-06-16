@@ -13,7 +13,7 @@ public class AddShareLinkToFolderRequestBody extends SerializableObject {
     super();
   }
 
-  protected AddShareLinkToFolderRequestBody(AddShareLinkToFolderRequestBodyBuilder builder) {
+  protected AddShareLinkToFolderRequestBody(Builder builder) {
     super();
     this.sharedLink = builder.sharedLink;
   }
@@ -44,12 +44,11 @@ public class AddShareLinkToFolderRequestBody extends SerializableObject {
     return "AddShareLinkToFolderRequestBody{" + "sharedLink='" + sharedLink + '\'' + "}";
   }
 
-  public static class AddShareLinkToFolderRequestBodyBuilder {
+  public static class Builder {
 
     protected AddShareLinkToFolderRequestBodySharedLinkField sharedLink;
 
-    public AddShareLinkToFolderRequestBodyBuilder sharedLink(
-        AddShareLinkToFolderRequestBodySharedLinkField sharedLink) {
+    public Builder sharedLink(AddShareLinkToFolderRequestBodySharedLinkField sharedLink) {
       this.sharedLink = sharedLink;
       return this;
     }

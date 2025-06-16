@@ -30,7 +30,7 @@ public class Collection extends SerializableObject {
     super();
   }
 
-  protected Collection(CollectionBuilder builder) {
+  protected Collection(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -95,7 +95,7 @@ public class Collection extends SerializableObject {
         + "}";
   }
 
-  public static class CollectionBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -105,38 +105,37 @@ public class Collection extends SerializableObject {
 
     protected EnumWrapper<CollectionCollectionTypeField> collectionType;
 
-    public CollectionBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public CollectionBuilder type(CollectionTypeField type) {
+    public Builder type(CollectionTypeField type) {
       this.type = new EnumWrapper<CollectionTypeField>(type);
       return this;
     }
 
-    public CollectionBuilder type(EnumWrapper<CollectionTypeField> type) {
+    public Builder type(EnumWrapper<CollectionTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public CollectionBuilder name(CollectionNameField name) {
+    public Builder name(CollectionNameField name) {
       this.name = new EnumWrapper<CollectionNameField>(name);
       return this;
     }
 
-    public CollectionBuilder name(EnumWrapper<CollectionNameField> name) {
+    public Builder name(EnumWrapper<CollectionNameField> name) {
       this.name = name;
       return this;
     }
 
-    public CollectionBuilder collectionType(CollectionCollectionTypeField collectionType) {
+    public Builder collectionType(CollectionCollectionTypeField collectionType) {
       this.collectionType = new EnumWrapper<CollectionCollectionTypeField>(collectionType);
       return this;
     }
 
-    public CollectionBuilder collectionType(
-        EnumWrapper<CollectionCollectionTypeField> collectionType) {
+    public Builder collectionType(EnumWrapper<CollectionCollectionTypeField> collectionType) {
       this.collectionType = collectionType;
       return this;
     }

@@ -29,7 +29,7 @@ public class TranscriptSkillCardInvocationField extends SerializableObject {
             TranscriptSkillCardInvocationTypeField.SKILL_INVOCATION);
   }
 
-  protected TranscriptSkillCardInvocationField(TranscriptSkillCardInvocationFieldBuilder builder) {
+  protected TranscriptSkillCardInvocationField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -73,27 +73,25 @@ public class TranscriptSkillCardInvocationField extends SerializableObject {
         + "}";
   }
 
-  public static class TranscriptSkillCardInvocationFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<TranscriptSkillCardInvocationTypeField> type;
 
     protected final String id;
 
-    public TranscriptSkillCardInvocationFieldBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<TranscriptSkillCardInvocationTypeField>(
               TranscriptSkillCardInvocationTypeField.SKILL_INVOCATION);
     }
 
-    public TranscriptSkillCardInvocationFieldBuilder type(
-        TranscriptSkillCardInvocationTypeField type) {
+    public Builder type(TranscriptSkillCardInvocationTypeField type) {
       this.type = new EnumWrapper<TranscriptSkillCardInvocationTypeField>(type);
       return this;
     }
 
-    public TranscriptSkillCardInvocationFieldBuilder type(
-        EnumWrapper<TranscriptSkillCardInvocationTypeField> type) {
+    public Builder type(EnumWrapper<TranscriptSkillCardInvocationTypeField> type) {
       this.type = type;
       return this;
     }

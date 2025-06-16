@@ -14,7 +14,7 @@ public class StoragePolicy extends StoragePolicyMini {
     super(id);
   }
 
-  protected StoragePolicy(StoragePolicyBuilder builder) {
+  protected StoragePolicy(Builder builder) {
     super(builder);
     this.name = builder.name;
   }
@@ -59,27 +59,27 @@ public class StoragePolicy extends StoragePolicyMini {
         + "}";
   }
 
-  public static class StoragePolicyBuilder extends StoragePolicyMiniBuilder {
+  public static class Builder extends StoragePolicyMini.Builder {
 
     protected String name;
 
-    public StoragePolicyBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public StoragePolicyBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public StoragePolicyBuilder type(StoragePolicyMiniTypeField type) {
+    public Builder type(StoragePolicyMiniTypeField type) {
       this.type = new EnumWrapper<StoragePolicyMiniTypeField>(type);
       return this;
     }
 
     @Override
-    public StoragePolicyBuilder type(EnumWrapper<StoragePolicyMiniTypeField> type) {
+    public Builder type(EnumWrapper<StoragePolicyMiniTypeField> type) {
       this.type = type;
       return this;
     }

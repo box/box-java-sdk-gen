@@ -8,7 +8,7 @@ public class GetTrashedFileByIdQueryParams {
 
   public GetTrashedFileByIdQueryParams() {}
 
-  protected GetTrashedFileByIdQueryParams(GetTrashedFileByIdQueryParamsBuilder builder) {
+  protected GetTrashedFileByIdQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class GetTrashedFileByIdQueryParams {
     return fields;
   }
 
-  public static class GetTrashedFileByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public GetTrashedFileByIdQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

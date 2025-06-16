@@ -21,7 +21,7 @@ public class MetadataFieldFilterDateRange extends SerializableObject {
     super();
   }
 
-  protected MetadataFieldFilterDateRange(MetadataFieldFilterDateRangeBuilder builder) {
+  protected MetadataFieldFilterDateRange(Builder builder) {
     super();
     this.lt = builder.lt;
     this.gt = builder.gt;
@@ -57,18 +57,18 @@ public class MetadataFieldFilterDateRange extends SerializableObject {
     return "MetadataFieldFilterDateRange{" + "lt='" + lt + '\'' + ", " + "gt='" + gt + '\'' + "}";
   }
 
-  public static class MetadataFieldFilterDateRangeBuilder {
+  public static class Builder {
 
     protected Date lt;
 
     protected Date gt;
 
-    public MetadataFieldFilterDateRangeBuilder lt(Date lt) {
+    public Builder lt(Date lt) {
       this.lt = lt;
       return this;
     }
 
-    public MetadataFieldFilterDateRangeBuilder gt(Date gt) {
+    public Builder gt(Date gt) {
       this.gt = gt;
       return this;
     }

@@ -12,7 +12,7 @@ public class CreateMetadataTemplateHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CreateMetadataTemplateHeaders(CreateMetadataTemplateHeadersBuilder builder) {
+  protected CreateMetadataTemplateHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class CreateMetadataTemplateHeaders {
     return extraHeaders;
   }
 
-  public static class CreateMetadataTemplateHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CreateMetadataTemplateHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CreateMetadataTemplateHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

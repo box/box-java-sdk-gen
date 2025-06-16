@@ -15,8 +15,7 @@ public class ShieldInformationBarrierSegmentMemberMini
     super();
   }
 
-  protected ShieldInformationBarrierSegmentMemberMini(
-      ShieldInformationBarrierSegmentMemberMiniBuilder builder) {
+  protected ShieldInformationBarrierSegmentMemberMini(Builder builder) {
     super(builder);
     this.user = builder.user;
   }
@@ -62,32 +61,29 @@ public class ShieldInformationBarrierSegmentMemberMini
         + "}";
   }
 
-  public static class ShieldInformationBarrierSegmentMemberMiniBuilder
-      extends ShieldInformationBarrierSegmentMemberBaseBuilder {
+  public static class Builder extends ShieldInformationBarrierSegmentMemberBase.Builder {
 
     protected UserBase user;
 
-    public ShieldInformationBarrierSegmentMemberMiniBuilder user(UserBase user) {
+    public Builder user(UserBase user) {
       this.user = user;
       return this;
     }
 
     @Override
-    public ShieldInformationBarrierSegmentMemberMiniBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
     @Override
-    public ShieldInformationBarrierSegmentMemberMiniBuilder type(
-        ShieldInformationBarrierSegmentMemberBaseTypeField type) {
+    public Builder type(ShieldInformationBarrierSegmentMemberBaseTypeField type) {
       this.type = new EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public ShieldInformationBarrierSegmentMemberMiniBuilder type(
-        EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField> type) {
+    public Builder type(EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField> type) {
       this.type = type;
       return this;
     }

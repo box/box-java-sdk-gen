@@ -21,7 +21,7 @@ public class GroupBase extends SerializableObject {
     this.type = new EnumWrapper<GroupBaseTypeField>(GroupBaseTypeField.GROUP);
   }
 
-  protected GroupBase(GroupBaseBuilder builder) {
+  protected GroupBase(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -57,23 +57,23 @@ public class GroupBase extends SerializableObject {
     return "GroupBase{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class GroupBaseBuilder {
+  public static class Builder {
 
     protected final String id;
 
     protected EnumWrapper<GroupBaseTypeField> type;
 
-    public GroupBaseBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type = new EnumWrapper<GroupBaseTypeField>(GroupBaseTypeField.GROUP);
     }
 
-    public GroupBaseBuilder type(GroupBaseTypeField type) {
+    public Builder type(GroupBaseTypeField type) {
       this.type = new EnumWrapper<GroupBaseTypeField>(type);
       return this;
     }
 
-    public GroupBaseBuilder type(EnumWrapper<GroupBaseTypeField> type) {
+    public Builder type(EnumWrapper<GroupBaseTypeField> type) {
       this.type = type;
       return this;
     }

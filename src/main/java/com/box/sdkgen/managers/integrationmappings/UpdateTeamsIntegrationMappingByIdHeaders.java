@@ -12,8 +12,7 @@ public class UpdateTeamsIntegrationMappingByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UpdateTeamsIntegrationMappingByIdHeaders(
-      UpdateTeamsIntegrationMappingByIdHeadersBuilder builder) {
+  protected UpdateTeamsIntegrationMappingByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class UpdateTeamsIntegrationMappingByIdHeaders {
     return extraHeaders;
   }
 
-  public static class UpdateTeamsIntegrationMappingByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public UpdateTeamsIntegrationMappingByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public UpdateTeamsIntegrationMappingByIdHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

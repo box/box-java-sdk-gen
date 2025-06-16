@@ -6,7 +6,7 @@ public class DeleteFolderByIdQueryParams {
 
   public DeleteFolderByIdQueryParams() {}
 
-  protected DeleteFolderByIdQueryParams(DeleteFolderByIdQueryParamsBuilder builder) {
+  protected DeleteFolderByIdQueryParams(Builder builder) {
     this.recursive = builder.recursive;
   }
 
@@ -14,11 +14,11 @@ public class DeleteFolderByIdQueryParams {
     return recursive;
   }
 
-  public static class DeleteFolderByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected Boolean recursive;
 
-    public DeleteFolderByIdQueryParamsBuilder recursive(Boolean recursive) {
+    public Builder recursive(Boolean recursive) {
       this.recursive = recursive;
       return this;
     }

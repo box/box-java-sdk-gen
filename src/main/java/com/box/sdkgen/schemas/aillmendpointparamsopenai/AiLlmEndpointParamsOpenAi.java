@@ -36,7 +36,7 @@ public class AiLlmEndpointParamsOpenAi extends SerializableObject {
             AiLlmEndpointParamsOpenAiTypeField.OPENAI_PARAMS);
   }
 
-  protected AiLlmEndpointParamsOpenAi(AiLlmEndpointParamsOpenAiBuilder builder) {
+  protected AiLlmEndpointParamsOpenAi(Builder builder) {
     super();
     this.type = builder.type;
     this.temperature = builder.temperature;
@@ -121,7 +121,7 @@ public class AiLlmEndpointParamsOpenAi extends SerializableObject {
         + "}";
   }
 
-  public static class AiLlmEndpointParamsOpenAiBuilder {
+  public static class Builder {
 
     protected EnumWrapper<AiLlmEndpointParamsOpenAiTypeField> type;
 
@@ -135,44 +135,43 @@ public class AiLlmEndpointParamsOpenAi extends SerializableObject {
 
     protected String stop;
 
-    public AiLlmEndpointParamsOpenAiBuilder() {
+    public Builder() {
       this.type =
           new EnumWrapper<AiLlmEndpointParamsOpenAiTypeField>(
               AiLlmEndpointParamsOpenAiTypeField.OPENAI_PARAMS);
     }
 
-    public AiLlmEndpointParamsOpenAiBuilder type(AiLlmEndpointParamsOpenAiTypeField type) {
+    public Builder type(AiLlmEndpointParamsOpenAiTypeField type) {
       this.type = new EnumWrapper<AiLlmEndpointParamsOpenAiTypeField>(type);
       return this;
     }
 
-    public AiLlmEndpointParamsOpenAiBuilder type(
-        EnumWrapper<AiLlmEndpointParamsOpenAiTypeField> type) {
+    public Builder type(EnumWrapper<AiLlmEndpointParamsOpenAiTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiLlmEndpointParamsOpenAiBuilder temperature(Double temperature) {
+    public Builder temperature(Double temperature) {
       this.temperature = temperature;
       return this;
     }
 
-    public AiLlmEndpointParamsOpenAiBuilder topP(Double topP) {
+    public Builder topP(Double topP) {
       this.topP = topP;
       return this;
     }
 
-    public AiLlmEndpointParamsOpenAiBuilder frequencyPenalty(Double frequencyPenalty) {
+    public Builder frequencyPenalty(Double frequencyPenalty) {
       this.frequencyPenalty = frequencyPenalty;
       return this;
     }
 
-    public AiLlmEndpointParamsOpenAiBuilder presencePenalty(Double presencePenalty) {
+    public Builder presencePenalty(Double presencePenalty) {
       this.presencePenalty = presencePenalty;
       return this;
     }
 
-    public AiLlmEndpointParamsOpenAiBuilder stop(String stop) {
+    public Builder stop(String stop) {
       this.stop = stop;
       return this;
     }

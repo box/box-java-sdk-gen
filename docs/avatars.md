@@ -47,7 +47,7 @@ See the endpoint docs at
 
 <!-- sample post_users_id_avatar -->
 ```
-client.getAvatars().createUserAvatar(user.getId(), new CreateUserAvatarRequestBody.CreateUserAvatarRequestBodyBuilder(decodeBase64ByteStream("iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEW10NBjBBbqAAAAH0lEQVRoge3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAvg0hAAABmmDh1QAAAABJRU5ErkJggg==")).picFileName("avatar.png").picContentType("image/png").build())
+client.getAvatars().createUserAvatar(user.getId(), new CreateUserAvatarRequestBody.Builder(decodeBase64ByteStream("iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEW10NBjBBbqAAAAH0lEQVRoge3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAvg0hAAABmmDh1QAAAABJRU5ErkJggg==")).picFileName("avatar.png").picContentType("image/png").build())
 ```
 
 ### Arguments

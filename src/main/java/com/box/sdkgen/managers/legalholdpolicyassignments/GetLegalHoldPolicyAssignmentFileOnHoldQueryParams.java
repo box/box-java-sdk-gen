@@ -12,8 +12,7 @@ public class GetLegalHoldPolicyAssignmentFileOnHoldQueryParams {
 
   public GetLegalHoldPolicyAssignmentFileOnHoldQueryParams() {}
 
-  protected GetLegalHoldPolicyAssignmentFileOnHoldQueryParams(
-      GetLegalHoldPolicyAssignmentFileOnHoldQueryParamsBuilder builder) {
+  protected GetLegalHoldPolicyAssignmentFileOnHoldQueryParams(Builder builder) {
     this.marker = builder.marker;
     this.limit = builder.limit;
     this.fields = builder.fields;
@@ -31,7 +30,7 @@ public class GetLegalHoldPolicyAssignmentFileOnHoldQueryParams {
     return fields;
   }
 
-  public static class GetLegalHoldPolicyAssignmentFileOnHoldQueryParamsBuilder {
+  public static class Builder {
 
     protected String marker;
 
@@ -39,17 +38,17 @@ public class GetLegalHoldPolicyAssignmentFileOnHoldQueryParams {
 
     protected List<String> fields;
 
-    public GetLegalHoldPolicyAssignmentFileOnHoldQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetLegalHoldPolicyAssignmentFileOnHoldQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetLegalHoldPolicyAssignmentFileOnHoldQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

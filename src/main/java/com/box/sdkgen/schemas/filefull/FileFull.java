@@ -97,7 +97,7 @@ public class FileFull extends File {
     super(id);
   }
 
-  protected FileFull(FileFullBuilder builder) {
+  protected FileFull(Builder builder) {
     super(builder);
     this.versionNumber = builder.versionNumber;
     this.commentCount = builder.commentCount;
@@ -486,7 +486,7 @@ public class FileFull extends File {
         + "}";
   }
 
-  public static class FileFullBuilder extends FileBuilder {
+  public static class Builder extends File.Builder {
 
     protected String versionNumber;
 
@@ -531,108 +531,108 @@ public class FileFull extends File {
 
     protected Boolean isAssociatedWithAppItem;
 
-    public FileFullBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public FileFullBuilder versionNumber(String versionNumber) {
+    public Builder versionNumber(String versionNumber) {
       this.versionNumber = versionNumber;
       return this;
     }
 
-    public FileFullBuilder commentCount(Long commentCount) {
+    public Builder commentCount(Long commentCount) {
       this.commentCount = commentCount;
       return this;
     }
 
-    public FileFullBuilder permissions(FileFullPermissionsField permissions) {
+    public Builder permissions(FileFullPermissionsField permissions) {
       this.permissions = permissions;
       return this;
     }
 
-    public FileFullBuilder tags(List<String> tags) {
+    public Builder tags(List<String> tags) {
       this.tags = tags;
       return this;
     }
 
-    public FileFullBuilder lock(FileFullLockField lock) {
+    public Builder lock(FileFullLockField lock) {
       this.lock = lock;
       return this;
     }
 
-    public FileFullBuilder extension(String extension) {
+    public Builder extension(String extension) {
       this.extension = extension;
       return this;
     }
 
-    public FileFullBuilder isPackage(Boolean isPackage) {
+    public Builder isPackage(Boolean isPackage) {
       this.isPackage = isPackage;
       return this;
     }
 
-    public FileFullBuilder expiringEmbedLink(FileFullExpiringEmbedLinkField expiringEmbedLink) {
+    public Builder expiringEmbedLink(FileFullExpiringEmbedLinkField expiringEmbedLink) {
       this.expiringEmbedLink = expiringEmbedLink;
       return this;
     }
 
-    public FileFullBuilder watermarkInfo(FileFullWatermarkInfoField watermarkInfo) {
+    public Builder watermarkInfo(FileFullWatermarkInfoField watermarkInfo) {
       this.watermarkInfo = watermarkInfo;
       return this;
     }
 
-    public FileFullBuilder isAccessibleViaSharedLink(Boolean isAccessibleViaSharedLink) {
+    public Builder isAccessibleViaSharedLink(Boolean isAccessibleViaSharedLink) {
       this.isAccessibleViaSharedLink = isAccessibleViaSharedLink;
       return this;
     }
 
-    public FileFullBuilder allowedInviteeRoles(List<? extends Valuable> allowedInviteeRoles) {
+    public Builder allowedInviteeRoles(List<? extends Valuable> allowedInviteeRoles) {
       this.allowedInviteeRoles =
           EnumWrapper.wrapValuableEnumList(
               allowedInviteeRoles, FileFullAllowedInviteeRolesField.class);
       return this;
     }
 
-    public FileFullBuilder isExternallyOwned(Boolean isExternallyOwned) {
+    public Builder isExternallyOwned(Boolean isExternallyOwned) {
       this.isExternallyOwned = isExternallyOwned;
       return this;
     }
 
-    public FileFullBuilder hasCollaborations(Boolean hasCollaborations) {
+    public Builder hasCollaborations(Boolean hasCollaborations) {
       this.hasCollaborations = hasCollaborations;
       return this;
     }
 
-    public FileFullBuilder metadata(FileFullMetadataField metadata) {
+    public Builder metadata(FileFullMetadataField metadata) {
       this.metadata = metadata;
       return this;
     }
 
-    public FileFullBuilder expiresAt(Date expiresAt) {
+    public Builder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }
 
-    public FileFullBuilder representations(FileFullRepresentationsField representations) {
+    public Builder representations(FileFullRepresentationsField representations) {
       this.representations = representations;
       return this;
     }
 
-    public FileFullBuilder classification(FileFullClassificationField classification) {
+    public Builder classification(FileFullClassificationField classification) {
       this.classification = classification;
       return this;
     }
 
-    public FileFullBuilder uploaderDisplayName(String uploaderDisplayName) {
+    public Builder uploaderDisplayName(String uploaderDisplayName) {
       this.uploaderDisplayName = uploaderDisplayName;
       return this;
     }
 
-    public FileFullBuilder dispositionAt(Date dispositionAt) {
+    public Builder dispositionAt(Date dispositionAt) {
       this.dispositionAt = dispositionAt;
       return this;
     }
 
-    public FileFullBuilder sharedLinkPermissionOptions(
+    public Builder sharedLinkPermissionOptions(
         List<? extends Valuable> sharedLinkPermissionOptions) {
       this.sharedLinkPermissionOptions =
           EnumWrapper.wrapValuableEnumList(
@@ -640,145 +640,145 @@ public class FileFull extends File {
       return this;
     }
 
-    public FileFullBuilder isAssociatedWithAppItem(Boolean isAssociatedWithAppItem) {
+    public Builder isAssociatedWithAppItem(Boolean isAssociatedWithAppItem) {
       this.isAssociatedWithAppItem = isAssociatedWithAppItem;
       return this;
     }
 
     @Override
-    public FileFullBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
     @Override
-    public FileFullBuilder type(FileBaseTypeField type) {
+    public Builder type(FileBaseTypeField type) {
       this.type = new EnumWrapper<FileBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FileFullBuilder type(EnumWrapper<FileBaseTypeField> type) {
+    public Builder type(EnumWrapper<FileBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public FileFullBuilder sequenceId(String sequenceId) {
+    public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
       return this;
     }
 
     @Override
-    public FileFullBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public FileFullBuilder sha1(String sha1) {
+    public Builder sha1(String sha1) {
       this.sha1 = sha1;
       return this;
     }
 
     @Override
-    public FileFullBuilder fileVersion(FileVersionMini fileVersion) {
+    public Builder fileVersion(FileVersionMini fileVersion) {
       this.fileVersion = fileVersion;
       return this;
     }
 
     @Override
-    public FileFullBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
     @Override
-    public FileFullBuilder size(Long size) {
+    public Builder size(Long size) {
       this.size = size;
       return this;
     }
 
     @Override
-    public FileFullBuilder pathCollection(FilePathCollectionField pathCollection) {
+    public Builder pathCollection(FilePathCollectionField pathCollection) {
       this.pathCollection = pathCollection;
       return this;
     }
 
     @Override
-    public FileFullBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
     @Override
-    public FileFullBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
     @Override
-    public FileFullBuilder trashedAt(Date trashedAt) {
+    public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
     @Override
-    public FileFullBuilder purgedAt(Date purgedAt) {
+    public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
     @Override
-    public FileFullBuilder contentCreatedAt(Date contentCreatedAt) {
+    public Builder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
     @Override
-    public FileFullBuilder contentModifiedAt(Date contentModifiedAt) {
+    public Builder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }
 
     @Override
-    public FileFullBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
     @Override
-    public FileFullBuilder modifiedBy(UserMini modifiedBy) {
+    public Builder modifiedBy(UserMini modifiedBy) {
       this.modifiedBy = modifiedBy;
       return this;
     }
 
     @Override
-    public FileFullBuilder ownedBy(UserMini ownedBy) {
+    public Builder ownedBy(UserMini ownedBy) {
       this.ownedBy = ownedBy;
       return this;
     }
 
     @Override
-    public FileFullBuilder sharedLink(FileSharedLinkField sharedLink) {
+    public Builder sharedLink(FileSharedLinkField sharedLink) {
       this.sharedLink = sharedLink;
       return this;
     }
 
     @Override
-    public FileFullBuilder parent(FolderMini parent) {
+    public Builder parent(FolderMini parent) {
       this.parent = parent;
       return this;
     }
 
     @Override
-    public FileFullBuilder itemStatus(FileItemStatusField itemStatus) {
+    public Builder itemStatus(FileItemStatusField itemStatus) {
       this.itemStatus = new EnumWrapper<FileItemStatusField>(itemStatus);
       return this;
     }
 
     @Override
-    public FileFullBuilder itemStatus(EnumWrapper<FileItemStatusField> itemStatus) {
+    public Builder itemStatus(EnumWrapper<FileItemStatusField> itemStatus) {
       this.itemStatus = itemStatus;
       return this;
     }

@@ -22,7 +22,7 @@ public class FilesOnHold extends SerializableObject {
     super();
   }
 
-  protected FilesOnHold(FilesOnHoldBuilder builder) {
+  protected FilesOnHold(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -87,7 +87,7 @@ public class FilesOnHold extends SerializableObject {
         + "}";
   }
 
-  public static class FilesOnHoldBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -97,22 +97,22 @@ public class FilesOnHold extends SerializableObject {
 
     protected List<FileMini> entries;
 
-    public FilesOnHoldBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public FilesOnHoldBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public FilesOnHoldBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public FilesOnHoldBuilder entries(List<FileMini> entries) {
+    public Builder entries(List<FileMini> entries) {
       this.entries = entries;
       return this;
     }

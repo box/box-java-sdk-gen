@@ -42,8 +42,7 @@ public class UpdateClassificationOnFolderRequestBody extends SerializableObject 
             UpdateClassificationOnFolderRequestBodyPathField._BOX__SECURITY__CLASSIFICATION__KEY);
   }
 
-  protected UpdateClassificationOnFolderRequestBody(
-      UpdateClassificationOnFolderRequestBodyBuilder builder) {
+  protected UpdateClassificationOnFolderRequestBody(Builder builder) {
     super();
     this.op = builder.op;
     this.path = builder.path;
@@ -98,7 +97,7 @@ public class UpdateClassificationOnFolderRequestBody extends SerializableObject 
         + "}";
   }
 
-  public static class UpdateClassificationOnFolderRequestBodyBuilder {
+  public static class Builder {
 
     protected EnumWrapper<UpdateClassificationOnFolderRequestBodyOpField> op;
 
@@ -106,7 +105,7 @@ public class UpdateClassificationOnFolderRequestBody extends SerializableObject 
 
     protected final String value;
 
-    public UpdateClassificationOnFolderRequestBodyBuilder(String value) {
+    public Builder(String value) {
       this.value = value;
       this.op =
           new EnumWrapper<UpdateClassificationOnFolderRequestBodyOpField>(
@@ -116,26 +115,22 @@ public class UpdateClassificationOnFolderRequestBody extends SerializableObject 
               UpdateClassificationOnFolderRequestBodyPathField._BOX__SECURITY__CLASSIFICATION__KEY);
     }
 
-    public UpdateClassificationOnFolderRequestBodyBuilder op(
-        UpdateClassificationOnFolderRequestBodyOpField op) {
+    public Builder op(UpdateClassificationOnFolderRequestBodyOpField op) {
       this.op = new EnumWrapper<UpdateClassificationOnFolderRequestBodyOpField>(op);
       return this;
     }
 
-    public UpdateClassificationOnFolderRequestBodyBuilder op(
-        EnumWrapper<UpdateClassificationOnFolderRequestBodyOpField> op) {
+    public Builder op(EnumWrapper<UpdateClassificationOnFolderRequestBodyOpField> op) {
       this.op = op;
       return this;
     }
 
-    public UpdateClassificationOnFolderRequestBodyBuilder path(
-        UpdateClassificationOnFolderRequestBodyPathField path) {
+    public Builder path(UpdateClassificationOnFolderRequestBodyPathField path) {
       this.path = new EnumWrapper<UpdateClassificationOnFolderRequestBodyPathField>(path);
       return this;
     }
 
-    public UpdateClassificationOnFolderRequestBodyBuilder path(
-        EnumWrapper<UpdateClassificationOnFolderRequestBodyPathField> path) {
+    public Builder path(EnumWrapper<UpdateClassificationOnFolderRequestBodyPathField> path) {
       this.path = path;
       return this;
     }

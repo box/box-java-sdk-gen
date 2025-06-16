@@ -27,7 +27,7 @@ public class Group extends GroupMini {
     super(id);
   }
 
-  protected Group(GroupBuilder builder) {
+  protected Group(Builder builder) {
     super(builder);
     this.createdAt = builder.createdAt;
     this.modifiedAt = builder.modifiedAt;
@@ -92,52 +92,52 @@ public class Group extends GroupMini {
         + "}";
   }
 
-  public static class GroupBuilder extends GroupMiniBuilder {
+  public static class Builder extends GroupMini.Builder {
 
     protected Date createdAt;
 
     protected Date modifiedAt;
 
-    public GroupBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public GroupBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public GroupBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
     @Override
-    public GroupBuilder type(GroupBaseTypeField type) {
+    public Builder type(GroupBaseTypeField type) {
       this.type = new EnumWrapper<GroupBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public GroupBuilder type(EnumWrapper<GroupBaseTypeField> type) {
+    public Builder type(EnumWrapper<GroupBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public GroupBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public GroupBuilder groupType(GroupMiniGroupTypeField groupType) {
+    public Builder groupType(GroupMiniGroupTypeField groupType) {
       this.groupType = new EnumWrapper<GroupMiniGroupTypeField>(groupType);
       return this;
     }
 
     @Override
-    public GroupBuilder groupType(EnumWrapper<GroupMiniGroupTypeField> groupType) {
+    public Builder groupType(EnumWrapper<GroupMiniGroupTypeField> groupType) {
       this.groupType = groupType;
       return this;
     }

@@ -96,7 +96,7 @@ public class FileSharedLinkField extends SerializableObject {
     this.previewCount = previewCount;
   }
 
-  protected FileSharedLinkField(FileSharedLinkFieldBuilder builder) {
+  protected FileSharedLinkField(Builder builder) {
     super();
     this.url = builder.url;
     this.downloadUrl = builder.downloadUrl;
@@ -253,7 +253,7 @@ public class FileSharedLinkField extends SerializableObject {
         + "}";
   }
 
-  public static class FileSharedLinkFieldBuilder {
+  public static class Builder {
 
     protected final String url;
 
@@ -279,7 +279,7 @@ public class FileSharedLinkField extends SerializableObject {
 
     protected final long previewCount;
 
-    public FileSharedLinkFieldBuilder(
+    public Builder(
         String url,
         EnumWrapper<FileSharedLinkEffectiveAccessField> effectiveAccess,
         EnumWrapper<FileSharedLinkEffectivePermissionField> effectivePermission,
@@ -294,7 +294,7 @@ public class FileSharedLinkField extends SerializableObject {
       this.previewCount = previewCount;
     }
 
-    public FileSharedLinkFieldBuilder(
+    public Builder(
         String url,
         FileSharedLinkEffectiveAccessField effectiveAccess,
         FileSharedLinkEffectivePermissionField effectivePermission,
@@ -310,37 +310,37 @@ public class FileSharedLinkField extends SerializableObject {
       this.previewCount = previewCount;
     }
 
-    public FileSharedLinkFieldBuilder downloadUrl(String downloadUrl) {
+    public Builder downloadUrl(String downloadUrl) {
       this.downloadUrl = downloadUrl;
       return this;
     }
 
-    public FileSharedLinkFieldBuilder vanityUrl(String vanityUrl) {
+    public Builder vanityUrl(String vanityUrl) {
       this.vanityUrl = vanityUrl;
       return this;
     }
 
-    public FileSharedLinkFieldBuilder vanityName(String vanityName) {
+    public Builder vanityName(String vanityName) {
       this.vanityName = vanityName;
       return this;
     }
 
-    public FileSharedLinkFieldBuilder access(FileSharedLinkAccessField access) {
+    public Builder access(FileSharedLinkAccessField access) {
       this.access = new EnumWrapper<FileSharedLinkAccessField>(access);
       return this;
     }
 
-    public FileSharedLinkFieldBuilder access(EnumWrapper<FileSharedLinkAccessField> access) {
+    public Builder access(EnumWrapper<FileSharedLinkAccessField> access) {
       this.access = access;
       return this;
     }
 
-    public FileSharedLinkFieldBuilder unsharedAt(Date unsharedAt) {
+    public Builder unsharedAt(Date unsharedAt) {
       this.unsharedAt = unsharedAt;
       return this;
     }
 
-    public FileSharedLinkFieldBuilder permissions(FileSharedLinkPermissionsField permissions) {
+    public Builder permissions(FileSharedLinkPermissionsField permissions) {
       this.permissions = permissions;
       return this;
     }

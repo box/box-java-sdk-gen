@@ -40,7 +40,7 @@ public class RetentionPolicyAssignmentsITest {
         client
             .getRetentionPolicies()
             .createRetentionPolicy(
-                new CreateRetentionPolicyRequestBody.CreateRetentionPolicyRequestBodyBuilder(
+                new CreateRetentionPolicyRequestBody.Builder(
                         retentionPolicyName,
                         CreateRetentionPolicyRequestBodyPolicyTypeField.FINITE,
                         CreateRetentionPolicyRequestBodyDispositionActionField.REMOVE_RETENTION)
@@ -80,8 +80,7 @@ public class RetentionPolicyAssignmentsITest {
             .createRetentionPolicyAssignment(
                 new CreateRetentionPolicyAssignmentRequestBody(
                     retentionPolicy.getId(),
-                    new CreateRetentionPolicyAssignmentRequestBodyAssignToField
-                            .CreateRetentionPolicyAssignmentRequestBodyAssignToFieldBuilder(
+                    new CreateRetentionPolicyAssignmentRequestBodyAssignToField.Builder(
                             CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField.FOLDER)
                         .id(folder.getId())
                         .build()));

@@ -67,9 +67,7 @@ public class CommentsITest {
         .getComments()
         .updateCommentById(
             newReplyComment.getId(),
-            new UpdateCommentByIdRequestBody.UpdateCommentByIdRequestBodyBuilder()
-                .message(newMessage)
-                .build());
+            new UpdateCommentByIdRequestBody.Builder().message(newMessage).build());
     Comments newComments = client.getComments().getFileComments(fileId);
     assert newComments.getTotalCount() == 2;
     assert newComments.getEntries().get(1).getMessage().equals(newMessage);

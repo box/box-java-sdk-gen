@@ -16,7 +16,7 @@ public class FileRequestCopyRequest extends FileRequestUpdateRequest {
     this.folder = folder;
   }
 
-  protected FileRequestCopyRequest(FileRequestCopyRequestBuilder builder) {
+  protected FileRequestCopyRequest(Builder builder) {
     super(builder);
     this.folder = builder.folder;
   }
@@ -82,54 +82,53 @@ public class FileRequestCopyRequest extends FileRequestUpdateRequest {
         + "}";
   }
 
-  public static class FileRequestCopyRequestBuilder extends FileRequestUpdateRequestBuilder {
+  public static class Builder extends FileRequestUpdateRequest.Builder {
 
     protected final FileRequestCopyRequestFolderField folder;
 
-    public FileRequestCopyRequestBuilder(FileRequestCopyRequestFolderField folder) {
+    public Builder(FileRequestCopyRequestFolderField folder) {
       super();
       this.folder = folder;
     }
 
     @Override
-    public FileRequestCopyRequestBuilder title(String title) {
+    public Builder title(String title) {
       this.title = title;
       return this;
     }
 
     @Override
-    public FileRequestCopyRequestBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
     @Override
-    public FileRequestCopyRequestBuilder status(FileRequestUpdateRequestStatusField status) {
+    public Builder status(FileRequestUpdateRequestStatusField status) {
       this.status = new EnumWrapper<FileRequestUpdateRequestStatusField>(status);
       return this;
     }
 
     @Override
-    public FileRequestCopyRequestBuilder status(
-        EnumWrapper<FileRequestUpdateRequestStatusField> status) {
+    public Builder status(EnumWrapper<FileRequestUpdateRequestStatusField> status) {
       this.status = status;
       return this;
     }
 
     @Override
-    public FileRequestCopyRequestBuilder isEmailRequired(Boolean isEmailRequired) {
+    public Builder isEmailRequired(Boolean isEmailRequired) {
       this.isEmailRequired = isEmailRequired;
       return this;
     }
 
     @Override
-    public FileRequestCopyRequestBuilder isDescriptionRequired(Boolean isDescriptionRequired) {
+    public Builder isDescriptionRequired(Boolean isDescriptionRequired) {
       this.isDescriptionRequired = isDescriptionRequired;
       return this;
     }
 
     @Override
-    public FileRequestCopyRequestBuilder expiresAt(Date expiresAt) {
+    public Builder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }

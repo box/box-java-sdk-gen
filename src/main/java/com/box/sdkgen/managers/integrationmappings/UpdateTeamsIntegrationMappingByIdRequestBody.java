@@ -14,8 +14,7 @@ public class UpdateTeamsIntegrationMappingByIdRequestBody extends SerializableOb
     super();
   }
 
-  protected UpdateTeamsIntegrationMappingByIdRequestBody(
-      UpdateTeamsIntegrationMappingByIdRequestBodyBuilder builder) {
+  protected UpdateTeamsIntegrationMappingByIdRequestBody(Builder builder) {
     super();
     this.boxItem = builder.boxItem;
   }
@@ -47,11 +46,11 @@ public class UpdateTeamsIntegrationMappingByIdRequestBody extends SerializableOb
     return "UpdateTeamsIntegrationMappingByIdRequestBody{" + "boxItem='" + boxItem + '\'' + "}";
   }
 
-  public static class UpdateTeamsIntegrationMappingByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected FolderReference boxItem;
 
-    public UpdateTeamsIntegrationMappingByIdRequestBodyBuilder boxItem(FolderReference boxItem) {
+    public Builder boxItem(FolderReference boxItem) {
       this.boxItem = boxItem;
       return this;
     }

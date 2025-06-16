@@ -17,7 +17,7 @@ public class RealtimeServers extends SerializableObject {
     super();
   }
 
-  protected RealtimeServers(RealtimeServersBuilder builder) {
+  protected RealtimeServers(Builder builder) {
     super();
     this.chunkSize = builder.chunkSize;
     this.entries = builder.entries;
@@ -61,18 +61,18 @@ public class RealtimeServers extends SerializableObject {
         + "}";
   }
 
-  public static class RealtimeServersBuilder {
+  public static class Builder {
 
     protected Long chunkSize;
 
     protected List<RealtimeServer> entries;
 
-    public RealtimeServersBuilder chunkSize(Long chunkSize) {
+    public Builder chunkSize(Long chunkSize) {
       this.chunkSize = chunkSize;
       return this;
     }
 
-    public RealtimeServersBuilder entries(List<RealtimeServer> entries) {
+    public Builder entries(List<RealtimeServer> entries) {
       this.entries = entries;
       return this;
     }

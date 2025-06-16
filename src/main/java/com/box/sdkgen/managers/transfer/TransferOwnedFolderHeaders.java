@@ -12,7 +12,7 @@ public class TransferOwnedFolderHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected TransferOwnedFolderHeaders(TransferOwnedFolderHeadersBuilder builder) {
+  protected TransferOwnedFolderHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class TransferOwnedFolderHeaders {
     return extraHeaders;
   }
 
-  public static class TransferOwnedFolderHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public TransferOwnedFolderHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public TransferOwnedFolderHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

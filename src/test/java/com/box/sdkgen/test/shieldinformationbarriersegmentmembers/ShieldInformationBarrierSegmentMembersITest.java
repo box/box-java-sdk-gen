@@ -35,7 +35,7 @@ public class ShieldInformationBarrierSegmentMembersITest {
             .getShieldInformationBarrierSegments()
             .createShieldInformationBarrierSegment(
                 new CreateShieldInformationBarrierSegmentRequestBody(
-                    new ShieldInformationBarrierBase.ShieldInformationBarrierBaseBuilder()
+                    new ShieldInformationBarrierBase.Builder()
                         .id(barrierId)
                         .type(ShieldInformationBarrierBaseTypeField.SHIELD_INFORMATION_BARRIER)
                         .build(),
@@ -47,7 +47,7 @@ public class ShieldInformationBarrierSegmentMembersITest {
             .createShieldInformationBarrierSegmentMember(
                 new CreateShieldInformationBarrierSegmentMemberRequestBody(
                     new CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField
-                            .CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentFieldBuilder()
+                            .Builder()
                         .id(segment.getId())
                         .type(
                             CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField

@@ -22,10 +22,7 @@ public class EmailAliasesITest {
     UserFull newUser =
         client
             .getUsers()
-            .createUser(
-                new CreateUserRequestBody.CreateUserRequestBodyBuilder(newUserName)
-                    .login(newUserLogin)
-                    .build());
+            .createUser(new CreateUserRequestBody.Builder(newUserName).login(newUserLogin).build());
     EmailAliases aliases = client.getEmailAliases().getUserEmailAliases(newUser.getId());
     assert aliases.getTotalCount() == 0;
     String newAliasEmail = String.join("", newUser.getId(), "@boxdemo.com");

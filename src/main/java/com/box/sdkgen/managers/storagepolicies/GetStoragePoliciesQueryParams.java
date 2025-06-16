@@ -12,7 +12,7 @@ public class GetStoragePoliciesQueryParams {
 
   public GetStoragePoliciesQueryParams() {}
 
-  protected GetStoragePoliciesQueryParams(GetStoragePoliciesQueryParamsBuilder builder) {
+  protected GetStoragePoliciesQueryParams(Builder builder) {
     this.fields = builder.fields;
     this.marker = builder.marker;
     this.limit = builder.limit;
@@ -30,7 +30,7 @@ public class GetStoragePoliciesQueryParams {
     return limit;
   }
 
-  public static class GetStoragePoliciesQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
@@ -38,17 +38,17 @@ public class GetStoragePoliciesQueryParams {
 
     protected Long limit;
 
-    public GetStoragePoliciesQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public GetStoragePoliciesQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetStoragePoliciesQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

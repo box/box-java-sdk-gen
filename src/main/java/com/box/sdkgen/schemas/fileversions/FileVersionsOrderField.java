@@ -20,7 +20,7 @@ public class FileVersionsOrderField extends SerializableObject {
     super();
   }
 
-  protected FileVersionsOrderField(FileVersionsOrderFieldBuilder builder) {
+  protected FileVersionsOrderField(Builder builder) {
     super();
     this.by = builder.by;
     this.direction = builder.direction;
@@ -64,24 +64,23 @@ public class FileVersionsOrderField extends SerializableObject {
         + "}";
   }
 
-  public static class FileVersionsOrderFieldBuilder {
+  public static class Builder {
 
     protected String by;
 
     protected EnumWrapper<FileVersionsOrderDirectionField> direction;
 
-    public FileVersionsOrderFieldBuilder by(String by) {
+    public Builder by(String by) {
       this.by = by;
       return this;
     }
 
-    public FileVersionsOrderFieldBuilder direction(FileVersionsOrderDirectionField direction) {
+    public Builder direction(FileVersionsOrderDirectionField direction) {
       this.direction = new EnumWrapper<FileVersionsOrderDirectionField>(direction);
       return this;
     }
 
-    public FileVersionsOrderFieldBuilder direction(
-        EnumWrapper<FileVersionsOrderDirectionField> direction) {
+    public Builder direction(EnumWrapper<FileVersionsOrderDirectionField> direction) {
       this.direction = direction;
       return this;
     }

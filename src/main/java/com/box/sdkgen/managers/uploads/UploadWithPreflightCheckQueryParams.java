@@ -8,8 +8,7 @@ public class UploadWithPreflightCheckQueryParams {
 
   public UploadWithPreflightCheckQueryParams() {}
 
-  protected UploadWithPreflightCheckQueryParams(
-      UploadWithPreflightCheckQueryParamsBuilder builder) {
+  protected UploadWithPreflightCheckQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -17,11 +16,11 @@ public class UploadWithPreflightCheckQueryParams {
     return fields;
   }
 
-  public static class UploadWithPreflightCheckQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public UploadWithPreflightCheckQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

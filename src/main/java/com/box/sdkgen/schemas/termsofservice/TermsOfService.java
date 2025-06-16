@@ -39,7 +39,7 @@ public class TermsOfService extends TermsOfServiceBase {
     super(id);
   }
 
-  protected TermsOfService(TermsOfServiceBuilder builder) {
+  protected TermsOfService(Builder builder) {
     super(builder);
     this.status = builder.status;
     this.enterprise = builder.enterprise;
@@ -134,7 +134,7 @@ public class TermsOfService extends TermsOfServiceBase {
         + "}";
   }
 
-  public static class TermsOfServiceBuilder extends TermsOfServiceBaseBuilder {
+  public static class Builder extends TermsOfServiceBase.Builder {
 
     protected EnumWrapper<TermsOfServiceStatusField> status;
 
@@ -148,58 +148,58 @@ public class TermsOfService extends TermsOfServiceBase {
 
     protected Date modifiedAt;
 
-    public TermsOfServiceBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public TermsOfServiceBuilder status(TermsOfServiceStatusField status) {
+    public Builder status(TermsOfServiceStatusField status) {
       this.status = new EnumWrapper<TermsOfServiceStatusField>(status);
       return this;
     }
 
-    public TermsOfServiceBuilder status(EnumWrapper<TermsOfServiceStatusField> status) {
+    public Builder status(EnumWrapper<TermsOfServiceStatusField> status) {
       this.status = status;
       return this;
     }
 
-    public TermsOfServiceBuilder enterprise(TermsOfServiceEnterpriseField enterprise) {
+    public Builder enterprise(TermsOfServiceEnterpriseField enterprise) {
       this.enterprise = enterprise;
       return this;
     }
 
-    public TermsOfServiceBuilder tosType(TermsOfServiceTosTypeField tosType) {
+    public Builder tosType(TermsOfServiceTosTypeField tosType) {
       this.tosType = new EnumWrapper<TermsOfServiceTosTypeField>(tosType);
       return this;
     }
 
-    public TermsOfServiceBuilder tosType(EnumWrapper<TermsOfServiceTosTypeField> tosType) {
+    public Builder tosType(EnumWrapper<TermsOfServiceTosTypeField> tosType) {
       this.tosType = tosType;
       return this;
     }
 
-    public TermsOfServiceBuilder text(String text) {
+    public Builder text(String text) {
       this.text = text;
       return this;
     }
 
-    public TermsOfServiceBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public TermsOfServiceBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
     @Override
-    public TermsOfServiceBuilder type(TermsOfServiceBaseTypeField type) {
+    public Builder type(TermsOfServiceBaseTypeField type) {
       this.type = new EnumWrapper<TermsOfServiceBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public TermsOfServiceBuilder type(EnumWrapper<TermsOfServiceBaseTypeField> type) {
+    public Builder type(EnumWrapper<TermsOfServiceBaseTypeField> type) {
       this.type = type;
       return this;
     }

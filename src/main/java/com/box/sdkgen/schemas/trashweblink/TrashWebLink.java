@@ -77,7 +77,7 @@ public class TrashWebLink extends SerializableObject {
     super();
   }
 
-  protected TrashWebLink(TrashWebLinkBuilder builder) {
+  protected TrashWebLink(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -300,7 +300,7 @@ public class TrashWebLink extends SerializableObject {
         + "}";
   }
 
-  public static class TrashWebLinkBuilder {
+  public static class Builder {
 
     protected EnumWrapper<TrashWebLinkTypeField> type;
 
@@ -338,102 +338,102 @@ public class TrashWebLink extends SerializableObject {
 
     protected EnumWrapper<TrashWebLinkItemStatusField> itemStatus;
 
-    public TrashWebLinkBuilder type(TrashWebLinkTypeField type) {
+    public Builder type(TrashWebLinkTypeField type) {
       this.type = new EnumWrapper<TrashWebLinkTypeField>(type);
       return this;
     }
 
-    public TrashWebLinkBuilder type(EnumWrapper<TrashWebLinkTypeField> type) {
+    public Builder type(EnumWrapper<TrashWebLinkTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TrashWebLinkBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public TrashWebLinkBuilder sequenceId(String sequenceId) {
+    public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
       return this;
     }
 
-    public TrashWebLinkBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
-    public TrashWebLinkBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public TrashWebLinkBuilder url(String url) {
+    public Builder url(String url) {
       this.url = url;
       return this;
     }
 
-    public TrashWebLinkBuilder parent(FolderMini parent) {
+    public Builder parent(FolderMini parent) {
       this.parent = parent;
       return this;
     }
 
-    public TrashWebLinkBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public TrashWebLinkBuilder pathCollection(TrashWebLinkPathCollectionField pathCollection) {
+    public Builder pathCollection(TrashWebLinkPathCollectionField pathCollection) {
       this.pathCollection = pathCollection;
       return this;
     }
 
-    public TrashWebLinkBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public TrashWebLinkBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public TrashWebLinkBuilder trashedAt(Date trashedAt) {
+    public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
-    public TrashWebLinkBuilder purgedAt(Date purgedAt) {
+    public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
-    public TrashWebLinkBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public TrashWebLinkBuilder modifiedBy(UserMini modifiedBy) {
+    public Builder modifiedBy(UserMini modifiedBy) {
       this.modifiedBy = modifiedBy;
       return this;
     }
 
-    public TrashWebLinkBuilder ownedBy(UserMini ownedBy) {
+    public Builder ownedBy(UserMini ownedBy) {
       this.ownedBy = ownedBy;
       return this;
     }
 
-    public TrashWebLinkBuilder sharedLink(String sharedLink) {
+    public Builder sharedLink(String sharedLink) {
       this.sharedLink = sharedLink;
       return this;
     }
 
-    public TrashWebLinkBuilder itemStatus(TrashWebLinkItemStatusField itemStatus) {
+    public Builder itemStatus(TrashWebLinkItemStatusField itemStatus) {
       this.itemStatus = new EnumWrapper<TrashWebLinkItemStatusField>(itemStatus);
       return this;
     }
 
-    public TrashWebLinkBuilder itemStatus(EnumWrapper<TrashWebLinkItemStatusField> itemStatus) {
+    public Builder itemStatus(EnumWrapper<TrashWebLinkItemStatusField> itemStatus) {
       this.itemStatus = itemStatus;
       return this;
     }

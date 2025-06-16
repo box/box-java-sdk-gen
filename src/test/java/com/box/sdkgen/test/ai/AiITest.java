@@ -59,7 +59,7 @@ public class AiITest {
                     AiAskModeField.SINGLE_ITEM_QA,
                     "which direction sun rises",
                     Arrays.asList(
-                        new AiItemAsk.AiItemAskBuilder(fileToAsk.getId(), AiItemAskTypeField.FILE)
+                        new AiItemAsk.Builder(fileToAsk.getId(), AiItemAskTypeField.FILE)
                             .content("Sun rises in the East")
                             .build())));
     assert response.getAnswer().contains("East");
@@ -79,10 +79,10 @@ public class AiITest {
                     AiAskModeField.MULTIPLE_ITEM_QA,
                     "Which direction sun rises?",
                     Arrays.asList(
-                        new AiItemAsk.AiItemAskBuilder(fileToAsk1.getId(), AiItemAskTypeField.FILE)
+                        new AiItemAsk.Builder(fileToAsk1.getId(), AiItemAskTypeField.FILE)
                             .content("Earth goes around the sun")
                             .build(),
-                        new AiItemAsk.AiItemAskBuilder(fileToAsk2.getId(), AiItemAskTypeField.FILE)
+                        new AiItemAsk.Builder(fileToAsk2.getId(), AiItemAskTypeField.FILE)
                             .content("Sun rises in the East in the morning")
                             .build())));
     assert response.getAnswer().contains("East");
@@ -98,22 +98,22 @@ public class AiITest {
         client
             .getAi()
             .createAiTextGen(
-                new AiTextGen.AiTextGenBuilder(
+                new AiTextGen.Builder(
                         "Parapharse the document.s",
                         Arrays.asList(
-                            new AiTextGenItemsField.AiTextGenItemsFieldBuilder(fileToAsk.getId())
+                            new AiTextGenItemsField.Builder(fileToAsk.getId())
                                 .type(AiTextGenItemsTypeField.FILE)
                                 .content(
                                     "The Earth goes around the sun. Sun rises in the East in the morning.")
                                 .build()))
                     .dialogueHistory(
                         Arrays.asList(
-                            new AiDialogueHistory.AiDialogueHistoryBuilder()
+                            new AiDialogueHistory.Builder()
                                 .prompt("What does the earth go around?")
                                 .answer("The sun")
                                 .createdAt(dateTimeFromString("2021-01-01T00:00:00Z"))
                                 .build(),
-                            new AiDialogueHistory.AiDialogueHistoryBuilder()
+                            new AiDialogueHistory.Builder()
                                 .prompt("On Earth, where does the sun rise?")
                                 .answer("East")
                                 .createdAt(dateTimeFromString("2021-01-01T00:00:00Z"))
@@ -130,7 +130,7 @@ public class AiITest {
         client
             .getAi()
             .getAiAgentDefaultConfig(
-                new GetAiAgentDefaultConfigQueryParams.GetAiAgentDefaultConfigQueryParamsBuilder(
+                new GetAiAgentDefaultConfigQueryParams.Builder(
                         GetAiAgentDefaultConfigQueryParamsModeField.ASK)
                     .language("en-US")
                     .build());
@@ -142,7 +142,7 @@ public class AiITest {
         client
             .getAi()
             .getAiAgentDefaultConfig(
-                new GetAiAgentDefaultConfigQueryParams.GetAiAgentDefaultConfigQueryParamsBuilder(
+                new GetAiAgentDefaultConfigQueryParams.Builder(
                         GetAiAgentDefaultConfigQueryParamsModeField.TEXT_GEN)
                     .language("en-US")
                     .build());
@@ -194,40 +194,34 @@ public class AiITest {
         client
             .getAi()
             .createAiExtractStructured(
-                new AiExtractStructured.AiExtractStructuredBuilder(
-                        Arrays.asList(new AiItemBase(file.getId())))
+                new AiExtractStructured.Builder(Arrays.asList(new AiItemBase(file.getId())))
                     .fields(
                         Arrays.asList(
-                            new AiExtractStructuredFieldsField
-                                    .AiExtractStructuredFieldsFieldBuilder("firstName")
+                            new AiExtractStructuredFieldsField.Builder("firstName")
                                 .description("Person first name")
                                 .displayName("First name")
                                 .prompt("What is the your first name?")
                                 .type("string")
                                 .build(),
-                            new AiExtractStructuredFieldsField
-                                    .AiExtractStructuredFieldsFieldBuilder("lastName")
+                            new AiExtractStructuredFieldsField.Builder("lastName")
                                 .description("Person last name")
                                 .displayName("Last name")
                                 .prompt("What is the your last name?")
                                 .type("string")
                                 .build(),
-                            new AiExtractStructuredFieldsField
-                                    .AiExtractStructuredFieldsFieldBuilder("dateOfBirth")
+                            new AiExtractStructuredFieldsField.Builder("dateOfBirth")
                                 .description("Person date of birth")
                                 .displayName("Birth date")
                                 .prompt("What is the date of your birth?")
                                 .type("date")
                                 .build(),
-                            new AiExtractStructuredFieldsField
-                                    .AiExtractStructuredFieldsFieldBuilder("age")
+                            new AiExtractStructuredFieldsField.Builder("age")
                                 .description("Person age")
                                 .displayName("Age")
                                 .prompt("How old are you?")
                                 .type("float")
                                 .build(),
-                            new AiExtractStructuredFieldsField
-                                    .AiExtractStructuredFieldsFieldBuilder("hobby")
+                            new AiExtractStructuredFieldsField.Builder("hobby")
                                 .description("Person hobby")
                                 .displayName("Hobby")
                                 .prompt("What is your hobby?")
@@ -268,41 +262,35 @@ public class AiITest {
         client
             .getMetadataTemplates()
             .createMetadataTemplate(
-                new CreateMetadataTemplateRequestBody.CreateMetadataTemplateRequestBodyBuilder(
-                        "enterprise", templateKey)
+                new CreateMetadataTemplateRequestBody.Builder("enterprise", templateKey)
                     .templateKey(templateKey)
                     .fields(
                         Arrays.asList(
-                            new CreateMetadataTemplateRequestBodyFieldsField
-                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                            new CreateMetadataTemplateRequestBodyFieldsField.Builder(
                                     CreateMetadataTemplateRequestBodyFieldsTypeField.STRING,
                                     "firstName",
                                     "First name")
                                 .description("Person first name")
                                 .build(),
-                            new CreateMetadataTemplateRequestBodyFieldsField
-                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                            new CreateMetadataTemplateRequestBodyFieldsField.Builder(
                                     CreateMetadataTemplateRequestBodyFieldsTypeField.STRING,
                                     "lastName",
                                     "Last name")
                                 .description("Person last name")
                                 .build(),
-                            new CreateMetadataTemplateRequestBodyFieldsField
-                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                            new CreateMetadataTemplateRequestBodyFieldsField.Builder(
                                     CreateMetadataTemplateRequestBodyFieldsTypeField.DATE,
                                     "dateOfBirth",
                                     "Birth date")
                                 .description("Person date of birth")
                                 .build(),
-                            new CreateMetadataTemplateRequestBodyFieldsField
-                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                            new CreateMetadataTemplateRequestBodyFieldsField.Builder(
                                     CreateMetadataTemplateRequestBodyFieldsTypeField.FLOAT,
                                     "age",
                                     "Age")
                                 .description("Person age")
                                 .build(),
-                            new CreateMetadataTemplateRequestBodyFieldsField
-                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                            new CreateMetadataTemplateRequestBodyFieldsField.Builder(
                                     CreateMetadataTemplateRequestBodyFieldsTypeField.MULTISELECT,
                                     "hobby",
                                     "Hobby")
@@ -319,11 +307,9 @@ public class AiITest {
         client
             .getAi()
             .createAiExtractStructured(
-                new AiExtractStructured.AiExtractStructuredBuilder(
-                        Arrays.asList(new AiItemBase(file.getId())))
+                new AiExtractStructured.Builder(Arrays.asList(new AiItemBase(file.getId())))
                     .metadataTemplate(
-                        new AiExtractStructuredMetadataTemplateField
-                                .AiExtractStructuredMetadataTemplateFieldBuilder()
+                        new AiExtractStructuredMetadataTemplateField.Builder()
                             .templateKey(templateKey)
                             .scope("enterprise")
                             .build())

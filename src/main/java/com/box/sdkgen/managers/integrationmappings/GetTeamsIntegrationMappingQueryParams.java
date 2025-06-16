@@ -14,8 +14,7 @@ public class GetTeamsIntegrationMappingQueryParams {
 
   public GetTeamsIntegrationMappingQueryParams() {}
 
-  protected GetTeamsIntegrationMappingQueryParams(
-      GetTeamsIntegrationMappingQueryParamsBuilder builder) {
+  protected GetTeamsIntegrationMappingQueryParams(Builder builder) {
     this.partnerItemType = builder.partnerItemType;
     this.partnerItemId = builder.partnerItemId;
     this.boxItemId = builder.boxItemId;
@@ -39,7 +38,7 @@ public class GetTeamsIntegrationMappingQueryParams {
     return boxItemType;
   }
 
-  public static class GetTeamsIntegrationMappingQueryParamsBuilder {
+  public static class Builder {
 
     protected EnumWrapper<GetTeamsIntegrationMappingQueryParamsPartnerItemTypeField>
         partnerItemType;
@@ -50,7 +49,7 @@ public class GetTeamsIntegrationMappingQueryParams {
 
     protected EnumWrapper<GetTeamsIntegrationMappingQueryParamsBoxItemTypeField> boxItemType;
 
-    public GetTeamsIntegrationMappingQueryParamsBuilder partnerItemType(
+    public Builder partnerItemType(
         GetTeamsIntegrationMappingQueryParamsPartnerItemTypeField partnerItemType) {
       this.partnerItemType =
           new EnumWrapper<GetTeamsIntegrationMappingQueryParamsPartnerItemTypeField>(
@@ -58,30 +57,29 @@ public class GetTeamsIntegrationMappingQueryParams {
       return this;
     }
 
-    public GetTeamsIntegrationMappingQueryParamsBuilder partnerItemType(
+    public Builder partnerItemType(
         EnumWrapper<GetTeamsIntegrationMappingQueryParamsPartnerItemTypeField> partnerItemType) {
       this.partnerItemType = partnerItemType;
       return this;
     }
 
-    public GetTeamsIntegrationMappingQueryParamsBuilder partnerItemId(String partnerItemId) {
+    public Builder partnerItemId(String partnerItemId) {
       this.partnerItemId = partnerItemId;
       return this;
     }
 
-    public GetTeamsIntegrationMappingQueryParamsBuilder boxItemId(String boxItemId) {
+    public Builder boxItemId(String boxItemId) {
       this.boxItemId = boxItemId;
       return this;
     }
 
-    public GetTeamsIntegrationMappingQueryParamsBuilder boxItemType(
-        GetTeamsIntegrationMappingQueryParamsBoxItemTypeField boxItemType) {
+    public Builder boxItemType(GetTeamsIntegrationMappingQueryParamsBoxItemTypeField boxItemType) {
       this.boxItemType =
           new EnumWrapper<GetTeamsIntegrationMappingQueryParamsBoxItemTypeField>(boxItemType);
       return this;
     }
 
-    public GetTeamsIntegrationMappingQueryParamsBuilder boxItemType(
+    public Builder boxItemType(
         EnumWrapper<GetTeamsIntegrationMappingQueryParamsBoxItemTypeField> boxItemType) {
       this.boxItemType = boxItemType;
       return this;

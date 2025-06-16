@@ -11,8 +11,7 @@ public class TranscriptSkillCardEntriesAppearsField extends SerializableObject {
     super();
   }
 
-  protected TranscriptSkillCardEntriesAppearsField(
-      TranscriptSkillCardEntriesAppearsFieldBuilder builder) {
+  protected TranscriptSkillCardEntriesAppearsField(Builder builder) {
     super();
     this.start = builder.start;
   }
@@ -43,11 +42,11 @@ public class TranscriptSkillCardEntriesAppearsField extends SerializableObject {
     return "TranscriptSkillCardEntriesAppearsField{" + "start='" + start + '\'' + "}";
   }
 
-  public static class TranscriptSkillCardEntriesAppearsFieldBuilder {
+  public static class Builder {
 
     protected Long start;
 
-    public TranscriptSkillCardEntriesAppearsFieldBuilder start(Long start) {
+    public Builder start(Long start) {
       this.start = start;
       return this;
     }

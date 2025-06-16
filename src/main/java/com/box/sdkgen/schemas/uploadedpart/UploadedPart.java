@@ -12,7 +12,7 @@ public class UploadedPart extends SerializableObject {
     super();
   }
 
-  protected UploadedPart(UploadedPartBuilder builder) {
+  protected UploadedPart(Builder builder) {
     super();
     this.part = builder.part;
   }
@@ -43,11 +43,11 @@ public class UploadedPart extends SerializableObject {
     return "UploadedPart{" + "part='" + part + '\'' + "}";
   }
 
-  public static class UploadedPartBuilder {
+  public static class Builder {
 
     protected UploadPart part;
 
-    public UploadedPartBuilder part(UploadPart part) {
+    public Builder part(UploadPart part) {
       this.part = part;
       return this;
     }

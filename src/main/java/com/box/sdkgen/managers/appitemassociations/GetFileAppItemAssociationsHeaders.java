@@ -12,7 +12,7 @@ public class GetFileAppItemAssociationsHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetFileAppItemAssociationsHeaders(GetFileAppItemAssociationsHeadersBuilder builder) {
+  protected GetFileAppItemAssociationsHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetFileAppItemAssociationsHeaders {
     return extraHeaders;
   }
 
-  public static class GetFileAppItemAssociationsHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetFileAppItemAssociationsHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetFileAppItemAssociationsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

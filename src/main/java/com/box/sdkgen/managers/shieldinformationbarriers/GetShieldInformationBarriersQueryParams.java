@@ -8,8 +8,7 @@ public class GetShieldInformationBarriersQueryParams {
 
   public GetShieldInformationBarriersQueryParams() {}
 
-  protected GetShieldInformationBarriersQueryParams(
-      GetShieldInformationBarriersQueryParamsBuilder builder) {
+  protected GetShieldInformationBarriersQueryParams(Builder builder) {
     this.marker = builder.marker;
     this.limit = builder.limit;
   }
@@ -22,18 +21,18 @@ public class GetShieldInformationBarriersQueryParams {
     return limit;
   }
 
-  public static class GetShieldInformationBarriersQueryParamsBuilder {
+  public static class Builder {
 
     protected String marker;
 
     protected Long limit;
 
-    public GetShieldInformationBarriersQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetShieldInformationBarriersQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

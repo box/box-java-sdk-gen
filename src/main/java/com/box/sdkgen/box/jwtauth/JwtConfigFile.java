@@ -19,7 +19,7 @@ public class JwtConfigFile extends SerializableObject {
     this.boxAppSettings = boxAppSettings;
   }
 
-  protected JwtConfigFile(JwtConfigFileBuilder builder) {
+  protected JwtConfigFile(Builder builder) {
     super();
     this.enterpriseId = builder.enterpriseId;
     this.userId = builder.userId;
@@ -74,7 +74,7 @@ public class JwtConfigFile extends SerializableObject {
         + "}";
   }
 
-  public static class JwtConfigFileBuilder {
+  public static class Builder {
 
     protected String enterpriseId;
 
@@ -82,16 +82,16 @@ public class JwtConfigFile extends SerializableObject {
 
     protected final JwtConfigAppSettings boxAppSettings;
 
-    public JwtConfigFileBuilder(JwtConfigAppSettings boxAppSettings) {
+    public Builder(JwtConfigAppSettings boxAppSettings) {
       this.boxAppSettings = boxAppSettings;
     }
 
-    public JwtConfigFileBuilder enterpriseId(String enterpriseId) {
+    public Builder enterpriseId(String enterpriseId) {
       this.enterpriseId = enterpriseId;
       return this;
     }
 
-    public JwtConfigFileBuilder userId(String userId) {
+    public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }

@@ -27,7 +27,7 @@ public class RequestInfo {
     this.headers = headers;
   }
 
-  protected RequestInfo(RequestInfoBuilder builder) {
+  protected RequestInfo(Builder builder) {
     this.method = builder.method;
     this.url = builder.url;
     this.queryParams = builder.queryParams;
@@ -55,7 +55,7 @@ public class RequestInfo {
     return body;
   }
 
-  public static class RequestInfoBuilder {
+  public static class Builder {
 
     protected final String method;
 
@@ -67,7 +67,7 @@ public class RequestInfo {
 
     protected String body;
 
-    public RequestInfoBuilder(
+    public Builder(
         String method, String url, Map<String, String> queryParams, Map<String, String> headers) {
       this.method = method;
       this.url = url;
@@ -75,7 +75,7 @@ public class RequestInfo {
       this.headers = headers;
     }
 
-    public RequestInfoBuilder body(String body) {
+    public Builder body(String body) {
       this.body = body;
       return this;
     }
@@ -86,8 +86,8 @@ public class RequestInfo {
   }
 
   public static RequestInfo fromRequest(Request request) {
-    RequestInfoBuilder requestInfoBuilder =
-        new RequestInfoBuilder(
+    Builder requestInfoBuilder =
+        new Builder(
                 request.method(),
                 request.url().toString(),
                 request.url().queryParameterNames().stream()

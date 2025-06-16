@@ -40,10 +40,9 @@ public class SharedLinksFoldersITest {
         .getSharedLinksFolders()
         .addShareLinkToFolder(
             folder.getId(),
-            new AddShareLinkToFolderRequestBody.AddShareLinkToFolderRequestBodyBuilder()
+            new AddShareLinkToFolderRequestBody.Builder()
                 .sharedLink(
-                    new AddShareLinkToFolderRequestBodySharedLinkField
-                            .AddShareLinkToFolderRequestBodySharedLinkFieldBuilder()
+                    new AddShareLinkToFolderRequestBodySharedLinkField.Builder()
                         .access(AddShareLinkToFolderRequestBodySharedLinkAccessField.OPEN)
                         .password("Secret123@")
                         .build())
@@ -87,10 +86,9 @@ public class SharedLinksFoldersITest {
             .getSharedLinksFolders()
             .updateSharedLinkOnFolder(
                 folder.getId(),
-                new UpdateSharedLinkOnFolderRequestBody.UpdateSharedLinkOnFolderRequestBodyBuilder()
+                new UpdateSharedLinkOnFolderRequestBody.Builder()
                     .sharedLink(
-                        new UpdateSharedLinkOnFolderRequestBodySharedLinkField
-                                .UpdateSharedLinkOnFolderRequestBodySharedLinkFieldBuilder()
+                        new UpdateSharedLinkOnFolderRequestBodySharedLinkField.Builder()
                             .access(
                                 UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField
                                     .COLLABORATORS)

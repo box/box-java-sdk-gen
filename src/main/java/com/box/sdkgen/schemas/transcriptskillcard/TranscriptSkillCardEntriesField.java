@@ -14,7 +14,7 @@ public class TranscriptSkillCardEntriesField extends SerializableObject {
     super();
   }
 
-  protected TranscriptSkillCardEntriesField(TranscriptSkillCardEntriesFieldBuilder builder) {
+  protected TranscriptSkillCardEntriesField(Builder builder) {
     super();
     this.text = builder.text;
     this.appears = builder.appears;
@@ -58,19 +58,18 @@ public class TranscriptSkillCardEntriesField extends SerializableObject {
         + "}";
   }
 
-  public static class TranscriptSkillCardEntriesFieldBuilder {
+  public static class Builder {
 
     protected String text;
 
     protected List<TranscriptSkillCardEntriesAppearsField> appears;
 
-    public TranscriptSkillCardEntriesFieldBuilder text(String text) {
+    public Builder text(String text) {
       this.text = text;
       return this;
     }
 
-    public TranscriptSkillCardEntriesFieldBuilder appears(
-        List<TranscriptSkillCardEntriesAppearsField> appears) {
+    public Builder appears(List<TranscriptSkillCardEntriesAppearsField> appears) {
       this.appears = appears;
       return this;
     }

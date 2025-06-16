@@ -17,7 +17,7 @@ public class Tasks extends SerializableObject {
     super();
   }
 
-  protected Tasks(TasksBuilder builder) {
+  protected Tasks(Builder builder) {
     super();
     this.totalCount = builder.totalCount;
     this.entries = builder.entries;
@@ -61,18 +61,18 @@ public class Tasks extends SerializableObject {
         + "}";
   }
 
-  public static class TasksBuilder {
+  public static class Builder {
 
     protected Long totalCount;
 
     protected List<Task> entries;
 
-    public TasksBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public TasksBuilder entries(List<Task> entries) {
+    public Builder entries(List<Task> entries) {
       this.entries = entries;
       return this;
     }

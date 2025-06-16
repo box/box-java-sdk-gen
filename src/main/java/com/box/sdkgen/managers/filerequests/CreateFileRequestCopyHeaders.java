@@ -12,7 +12,7 @@ public class CreateFileRequestCopyHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CreateFileRequestCopyHeaders(CreateFileRequestCopyHeadersBuilder builder) {
+  protected CreateFileRequestCopyHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class CreateFileRequestCopyHeaders {
     return extraHeaders;
   }
 
-  public static class CreateFileRequestCopyHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CreateFileRequestCopyHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CreateFileRequestCopyHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

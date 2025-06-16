@@ -13,7 +13,7 @@ public class InterceptorThrowingError implements Interceptor {
 
   @Override
   public FetchResponse afterRequest(FetchResponse response) {
-    return new FetchResponse.FetchResponseBuilder(400, response.getHeaders())
+    return new FetchResponse.Builder(400, response.getHeaders())
         .url(response.getUrl())
         .data(response.getData())
         .content(response.getContent())

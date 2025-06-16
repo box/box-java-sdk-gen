@@ -28,8 +28,7 @@ public class AiExtractStructuredMetadataTemplateField extends SerializableObject
     super();
   }
 
-  protected AiExtractStructuredMetadataTemplateField(
-      AiExtractStructuredMetadataTemplateFieldBuilder builder) {
+  protected AiExtractStructuredMetadataTemplateField(Builder builder) {
     super();
     this.templateKey = builder.templateKey;
     this.type = builder.type;
@@ -84,7 +83,7 @@ public class AiExtractStructuredMetadataTemplateField extends SerializableObject
         + "}";
   }
 
-  public static class AiExtractStructuredMetadataTemplateFieldBuilder {
+  public static class Builder {
 
     protected String templateKey;
 
@@ -92,24 +91,22 @@ public class AiExtractStructuredMetadataTemplateField extends SerializableObject
 
     protected String scope;
 
-    public AiExtractStructuredMetadataTemplateFieldBuilder templateKey(String templateKey) {
+    public Builder templateKey(String templateKey) {
       this.templateKey = templateKey;
       return this;
     }
 
-    public AiExtractStructuredMetadataTemplateFieldBuilder type(
-        AiExtractStructuredMetadataTemplateTypeField type) {
+    public Builder type(AiExtractStructuredMetadataTemplateTypeField type) {
       this.type = new EnumWrapper<AiExtractStructuredMetadataTemplateTypeField>(type);
       return this;
     }
 
-    public AiExtractStructuredMetadataTemplateFieldBuilder type(
-        EnumWrapper<AiExtractStructuredMetadataTemplateTypeField> type) {
+    public Builder type(EnumWrapper<AiExtractStructuredMetadataTemplateTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiExtractStructuredMetadataTemplateFieldBuilder scope(String scope) {
+    public Builder scope(String scope) {
       this.scope = scope;
       return this;
     }

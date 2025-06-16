@@ -46,13 +46,12 @@ public class BoxCCGAuth implements Authentication {
   @Override
   public AccessToken refreshToken(NetworkSession networkSession) {
     AuthorizationManager authManager =
-        new AuthorizationManager.AuthorizationManagerBuilder()
+        new AuthorizationManager.Builder()
             .networkSession((!(networkSession == null) ? networkSession : new NetworkSession()))
             .build();
     AccessToken token =
         authManager.requestAccessToken(
-            new PostOAuth2Token.PostOAuth2TokenBuilder(
-                    PostOAuth2TokenGrantTypeField.CLIENT_CREDENTIALS)
+            new PostOAuth2Token.Builder(PostOAuth2TokenGrantTypeField.CLIENT_CREDENTIALS)
                 .clientId(this.config.getClientId())
                 .clientSecret(this.config.getClientSecret())
                 .boxSubjectType(this.subjectType)
@@ -92,7 +91,7 @@ public class BoxCCGAuth implements Authentication {
 
   public BoxCCGAuth withUserSubject(String userId, TokenStorage tokenStorage) {
     CCGConfig newConfig =
-        new CCGConfig.CCGConfigBuilder(this.config.getClientId(), this.config.getClientSecret())
+        new CCGConfig.Builder(this.config.getClientId(), this.config.getClientSecret())
             .enterpriseId(this.config.getEnterpriseId())
             .userId(userId)
             .tokenStorage(tokenStorage)
@@ -106,7 +105,7 @@ public class BoxCCGAuth implements Authentication {
 
   public BoxCCGAuth withEnterpriseSubject(String enterpriseId, TokenStorage tokenStorage) {
     CCGConfig newConfig =
-        new CCGConfig.CCGConfigBuilder(this.config.getClientId(), this.config.getClientSecret())
+        new CCGConfig.Builder(this.config.getClientId(), this.config.getClientSecret())
             .enterpriseId(enterpriseId)
             .userId(null)
             .tokenStorage(tokenStorage)
@@ -123,12 +122,12 @@ public class BoxCCGAuth implements Authentication {
           "No access token is available. Make an API call to retrieve a token before calling this method.");
     }
     AuthorizationManager authManager =
-        new AuthorizationManager.AuthorizationManagerBuilder()
+        new AuthorizationManager.Builder()
             .networkSession((!(networkSession == null) ? networkSession : new NetworkSession()))
             .build();
     AccessToken downscopedToken =
         authManager.requestAccessToken(
-            new PostOAuth2Token.PostOAuth2TokenBuilder(
+            new PostOAuth2Token.Builder(
                     PostOAuth2TokenGrantTypeField.URN_IETF_PARAMS_OAUTH_GRANT_TYPE_TOKEN_EXCHANGE)
                 .subjectToken(token.getAccessToken())
                 .subjectTokenType(
@@ -152,11 +151,11 @@ public class BoxCCGAuth implements Authentication {
       return;
     }
     AuthorizationManager authManager =
-        new AuthorizationManager.AuthorizationManagerBuilder()
+        new AuthorizationManager.Builder()
             .networkSession((!(networkSession == null) ? networkSession : new NetworkSession()))
             .build();
     authManager.revokeAccessToken(
-        new PostOAuth2Revoke.PostOAuth2RevokeBuilder()
+        new PostOAuth2Revoke.Builder()
             .clientId(this.config.getClientId())
             .clientSecret(this.config.getClientSecret())
             .token(oldToken.getAccessToken())

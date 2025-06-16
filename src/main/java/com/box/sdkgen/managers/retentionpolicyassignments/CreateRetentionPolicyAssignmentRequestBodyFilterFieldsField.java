@@ -14,8 +14,7 @@ public class CreateRetentionPolicyAssignmentRequestBodyFilterFieldsField
     super();
   }
 
-  protected CreateRetentionPolicyAssignmentRequestBodyFilterFieldsField(
-      CreateRetentionPolicyAssignmentRequestBodyFilterFieldsFieldBuilder builder) {
+  protected CreateRetentionPolicyAssignmentRequestBodyFilterFieldsField(Builder builder) {
     super();
     this.field = builder.field;
     this.value = builder.value;
@@ -60,18 +59,18 @@ public class CreateRetentionPolicyAssignmentRequestBodyFilterFieldsField
         + "}";
   }
 
-  public static class CreateRetentionPolicyAssignmentRequestBodyFilterFieldsFieldBuilder {
+  public static class Builder {
 
     protected String field;
 
     protected String value;
 
-    public CreateRetentionPolicyAssignmentRequestBodyFilterFieldsFieldBuilder field(String field) {
+    public Builder field(String field) {
       this.field = field;
       return this;
     }
 
-    public CreateRetentionPolicyAssignmentRequestBodyFilterFieldsFieldBuilder value(String value) {
+    public Builder value(String value) {
       this.value = value;
       return this;
     }

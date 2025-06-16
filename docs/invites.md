@@ -23,7 +23,7 @@ See the endpoint docs at
 
 <!-- sample post_invites -->
 ```
-client.getInvites().createInvite(new CreateInviteRequestBody(new CreateInviteRequestBodyEnterpriseField(currentUser.getEnterprise().getId()), new CreateInviteRequestBodyActionableByField.CreateInviteRequestBodyActionableByFieldBuilder().login(email).build()))
+client.getInvites().createInvite(new CreateInviteRequestBody(new CreateInviteRequestBodyEnterpriseField(currentUser.getEnterprise().getId()), new CreateInviteRequestBodyActionableByField.Builder().login(email).build()))
 ```
 
 ### Arguments

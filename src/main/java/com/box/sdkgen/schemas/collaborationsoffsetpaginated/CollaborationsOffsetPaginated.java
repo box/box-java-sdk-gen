@@ -21,7 +21,7 @@ public class CollaborationsOffsetPaginated extends SerializableObject {
     super();
   }
 
-  protected CollaborationsOffsetPaginated(CollaborationsOffsetPaginatedBuilder builder) {
+  protected CollaborationsOffsetPaginated(Builder builder) {
     super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
@@ -86,7 +86,7 @@ public class CollaborationsOffsetPaginated extends SerializableObject {
         + "}";
   }
 
-  public static class CollaborationsOffsetPaginatedBuilder {
+  public static class Builder {
 
     protected Long totalCount;
 
@@ -96,22 +96,22 @@ public class CollaborationsOffsetPaginated extends SerializableObject {
 
     protected List<Collaboration> entries;
 
-    public CollaborationsOffsetPaginatedBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public CollaborationsOffsetPaginatedBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public CollaborationsOffsetPaginatedBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public CollaborationsOffsetPaginatedBuilder entries(List<Collaboration> entries) {
+    public Builder entries(List<Collaboration> entries) {
       this.entries = entries;
       return this;
     }

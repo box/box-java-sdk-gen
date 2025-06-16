@@ -11,7 +11,7 @@ public class ClientErrorV2025R0ContextInfoField extends SerializableObject {
     super();
   }
 
-  protected ClientErrorV2025R0ContextInfoField(ClientErrorV2025R0ContextInfoFieldBuilder builder) {
+  protected ClientErrorV2025R0ContextInfoField(Builder builder) {
     super();
     this.message = builder.message;
   }
@@ -42,11 +42,11 @@ public class ClientErrorV2025R0ContextInfoField extends SerializableObject {
     return "ClientErrorV2025R0ContextInfoField{" + "message='" + message + '\'' + "}";
   }
 
-  public static class ClientErrorV2025R0ContextInfoFieldBuilder {
+  public static class Builder {
 
     protected String message;
 
-    public ClientErrorV2025R0ContextInfoFieldBuilder message(String message) {
+    public Builder message(String message) {
       this.message = message;
       return this;
     }

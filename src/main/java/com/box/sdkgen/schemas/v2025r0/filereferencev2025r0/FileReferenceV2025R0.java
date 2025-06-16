@@ -23,7 +23,7 @@ public class FileReferenceV2025R0 extends SerializableObject {
     this.type = new EnumWrapper<FileReferenceV2025R0TypeField>(FileReferenceV2025R0TypeField.FILE);
   }
 
-  protected FileReferenceV2025R0(FileReferenceV2025R0Builder builder) {
+  protected FileReferenceV2025R0(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -59,24 +59,24 @@ public class FileReferenceV2025R0 extends SerializableObject {
     return "FileReferenceV2025R0{" + "type='" + type + '\'' + ", " + "id='" + id + '\'' + "}";
   }
 
-  public static class FileReferenceV2025R0Builder {
+  public static class Builder {
 
     protected EnumWrapper<FileReferenceV2025R0TypeField> type;
 
     protected final String id;
 
-    public FileReferenceV2025R0Builder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<FileReferenceV2025R0TypeField>(FileReferenceV2025R0TypeField.FILE);
     }
 
-    public FileReferenceV2025R0Builder type(FileReferenceV2025R0TypeField type) {
+    public Builder type(FileReferenceV2025R0TypeField type) {
       this.type = new EnumWrapper<FileReferenceV2025R0TypeField>(type);
       return this;
     }
 
-    public FileReferenceV2025R0Builder type(EnumWrapper<FileReferenceV2025R0TypeField> type) {
+    public Builder type(EnumWrapper<FileReferenceV2025R0TypeField> type) {
       this.type = type;
       return this;
     }

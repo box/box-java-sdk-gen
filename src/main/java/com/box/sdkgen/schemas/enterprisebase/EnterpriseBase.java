@@ -18,7 +18,7 @@ public class EnterpriseBase extends SerializableObject {
     super();
   }
 
-  protected EnterpriseBase(EnterpriseBaseBuilder builder) {
+  protected EnterpriseBase(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -54,23 +54,23 @@ public class EnterpriseBase extends SerializableObject {
     return "EnterpriseBase{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class EnterpriseBaseBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected EnumWrapper<EnterpriseBaseTypeField> type;
 
-    public EnterpriseBaseBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public EnterpriseBaseBuilder type(EnterpriseBaseTypeField type) {
+    public Builder type(EnterpriseBaseTypeField type) {
       this.type = new EnumWrapper<EnterpriseBaseTypeField>(type);
       return this;
     }
 
-    public EnterpriseBaseBuilder type(EnumWrapper<EnterpriseBaseTypeField> type) {
+    public Builder type(EnumWrapper<EnterpriseBaseTypeField> type) {
       this.type = type;
       return this;
     }

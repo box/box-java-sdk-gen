@@ -18,7 +18,7 @@ public class UploadFileVersionRequestBody {
     this.file = file;
   }
 
-  protected UploadFileVersionRequestBody(UploadFileVersionRequestBodyBuilder builder) {
+  protected UploadFileVersionRequestBody(Builder builder) {
     this.attributes = builder.attributes;
     this.file = builder.file;
     this.fileFileName = builder.fileFileName;
@@ -41,7 +41,7 @@ public class UploadFileVersionRequestBody {
     return fileContentType;
   }
 
-  public static class UploadFileVersionRequestBodyBuilder {
+  public static class Builder {
 
     protected final UploadFileVersionRequestBodyAttributesField attributes;
 
@@ -51,18 +51,17 @@ public class UploadFileVersionRequestBody {
 
     protected String fileContentType;
 
-    public UploadFileVersionRequestBodyBuilder(
-        UploadFileVersionRequestBodyAttributesField attributes, InputStream file) {
+    public Builder(UploadFileVersionRequestBodyAttributesField attributes, InputStream file) {
       this.attributes = attributes;
       this.file = file;
     }
 
-    public UploadFileVersionRequestBodyBuilder fileFileName(String fileFileName) {
+    public Builder fileFileName(String fileFileName) {
       this.fileFileName = fileFileName;
       return this;
     }
 
-    public UploadFileVersionRequestBodyBuilder fileContentType(String fileContentType) {
+    public Builder fileContentType(String fileContentType) {
       this.fileContentType = fileContentType;
       return this;
     }

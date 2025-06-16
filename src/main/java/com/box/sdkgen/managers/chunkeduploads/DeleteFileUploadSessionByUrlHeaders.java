@@ -12,8 +12,7 @@ public class DeleteFileUploadSessionByUrlHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteFileUploadSessionByUrlHeaders(
-      DeleteFileUploadSessionByUrlHeadersBuilder builder) {
+  protected DeleteFileUploadSessionByUrlHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class DeleteFileUploadSessionByUrlHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteFileUploadSessionByUrlHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteFileUploadSessionByUrlHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteFileUploadSessionByUrlHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

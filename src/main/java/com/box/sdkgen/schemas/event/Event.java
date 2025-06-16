@@ -48,7 +48,7 @@ public class Event extends SerializableObject {
     super();
   }
 
-  protected Event(EventBuilder builder) {
+  protected Event(Builder builder) {
     super();
     this.type = builder.type;
     this.createdAt = builder.createdAt;
@@ -172,7 +172,7 @@ public class Event extends SerializableObject {
         + "}";
   }
 
-  public static class EventBuilder {
+  public static class Builder {
 
     protected String type;
 
@@ -192,53 +192,53 @@ public class Event extends SerializableObject {
 
     protected EventAdditionalDetailsField additionalDetails;
 
-    public EventBuilder type(String type) {
+    public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public EventBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public EventBuilder recordedAt(Date recordedAt) {
+    public Builder recordedAt(Date recordedAt) {
       this.recordedAt = recordedAt;
       return this;
     }
 
-    public EventBuilder eventId(String eventId) {
+    public Builder eventId(String eventId) {
       this.eventId = eventId;
       return this;
     }
 
-    public EventBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public EventBuilder eventType(EventEventTypeField eventType) {
+    public Builder eventType(EventEventTypeField eventType) {
       this.eventType = new EnumWrapper<EventEventTypeField>(eventType);
       return this;
     }
 
-    public EventBuilder eventType(EnumWrapper<EventEventTypeField> eventType) {
+    public Builder eventType(EnumWrapper<EventEventTypeField> eventType) {
       this.eventType = eventType;
       return this;
     }
 
-    public EventBuilder sessionId(String sessionId) {
+    public Builder sessionId(String sessionId) {
       this.sessionId = sessionId;
       return this;
     }
 
-    public EventBuilder source(
+    public Builder source(
         AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser source) {
       this.source = source;
       return this;
     }
 
-    public EventBuilder additionalDetails(EventAdditionalDetailsField additionalDetails) {
+    public Builder additionalDetails(EventAdditionalDetailsField additionalDetails) {
       this.additionalDetails = additionalDetails;
       return this;
     }

@@ -21,7 +21,7 @@ public class ShieldListsUpdateV2025R0 extends SerializableObject {
     this.content = content;
   }
 
-  protected ShieldListsUpdateV2025R0(ShieldListsUpdateV2025R0Builder builder) {
+  protected ShieldListsUpdateV2025R0(Builder builder) {
     super();
     this.name = builder.name;
     this.description = builder.description;
@@ -76,7 +76,7 @@ public class ShieldListsUpdateV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class ShieldListsUpdateV2025R0Builder {
+  public static class Builder {
 
     protected final String name;
 
@@ -84,12 +84,12 @@ public class ShieldListsUpdateV2025R0 extends SerializableObject {
 
     protected final ShieldListContentRequestV2025R0 content;
 
-    public ShieldListsUpdateV2025R0Builder(String name, ShieldListContentRequestV2025R0 content) {
+    public Builder(String name, ShieldListContentRequestV2025R0 content) {
       this.name = name;
       this.content = content;
     }
 
-    public ShieldListsUpdateV2025R0Builder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }

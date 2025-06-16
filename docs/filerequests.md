@@ -47,7 +47,7 @@ See the endpoint docs at
 
 <!-- sample put_file_requests_id -->
 ```
-client.getFileRequests().updateFileRequestById(copiedFileRequest.getId(), new FileRequestUpdateRequest.FileRequestUpdateRequestBuilder().title("updated title").description("updated description").build())
+client.getFileRequests().updateFileRequestById(copiedFileRequest.getId(), new FileRequestUpdateRequest.Builder().title("updated title").description("updated description").build())
 ```
 
 ### Arguments
@@ -109,7 +109,7 @@ See the endpoint docs at
 
 <!-- sample post_file_requests_id_copy -->
 ```
-client.getFileRequests().createFileRequestCopy(fileRequestId, new FileRequestCopyRequest(new FileRequestCopyRequestFolderField.FileRequestCopyRequestFolderFieldBuilder(fileRequest.getFolder().getId()).type(FileRequestCopyRequestFolderTypeField.FOLDER).build()))
+client.getFileRequests().createFileRequestCopy(fileRequestId, new FileRequestCopyRequest(new FileRequestCopyRequestFolderField.Builder(fileRequest.getFolder().getId()).type(FileRequestCopyRequestFolderTypeField.FOLDER).build()))
 ```
 
 ### Arguments

@@ -11,8 +11,7 @@ public class ShieldInformationBarrierReportDetails extends SerializableObject {
     super();
   }
 
-  protected ShieldInformationBarrierReportDetails(
-      ShieldInformationBarrierReportDetailsBuilder builder) {
+  protected ShieldInformationBarrierReportDetails(Builder builder) {
     super();
     this.details = builder.details;
   }
@@ -43,12 +42,11 @@ public class ShieldInformationBarrierReportDetails extends SerializableObject {
     return "ShieldInformationBarrierReportDetails{" + "details='" + details + '\'' + "}";
   }
 
-  public static class ShieldInformationBarrierReportDetailsBuilder {
+  public static class Builder {
 
     protected ShieldInformationBarrierReportDetailsDetailsField details;
 
-    public ShieldInformationBarrierReportDetailsBuilder details(
-        ShieldInformationBarrierReportDetailsDetailsField details) {
+    public Builder details(ShieldInformationBarrierReportDetailsDetailsField details) {
       this.details = details;
       return this;
     }

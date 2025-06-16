@@ -38,7 +38,7 @@ public class FileRequestUpdateRequest extends SerializableObject {
     super();
   }
 
-  protected FileRequestUpdateRequest(FileRequestUpdateRequestBuilder builder) {
+  protected FileRequestUpdateRequest(Builder builder) {
     super();
     this.title = builder.title;
     this.description = builder.description;
@@ -124,7 +124,7 @@ public class FileRequestUpdateRequest extends SerializableObject {
         + "}";
   }
 
-  public static class FileRequestUpdateRequestBuilder {
+  public static class Builder {
 
     protected String title;
 
@@ -138,38 +138,37 @@ public class FileRequestUpdateRequest extends SerializableObject {
 
     protected Date expiresAt;
 
-    public FileRequestUpdateRequestBuilder title(String title) {
+    public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    public FileRequestUpdateRequestBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public FileRequestUpdateRequestBuilder status(FileRequestUpdateRequestStatusField status) {
+    public Builder status(FileRequestUpdateRequestStatusField status) {
       this.status = new EnumWrapper<FileRequestUpdateRequestStatusField>(status);
       return this;
     }
 
-    public FileRequestUpdateRequestBuilder status(
-        EnumWrapper<FileRequestUpdateRequestStatusField> status) {
+    public Builder status(EnumWrapper<FileRequestUpdateRequestStatusField> status) {
       this.status = status;
       return this;
     }
 
-    public FileRequestUpdateRequestBuilder isEmailRequired(Boolean isEmailRequired) {
+    public Builder isEmailRequired(Boolean isEmailRequired) {
       this.isEmailRequired = isEmailRequired;
       return this;
     }
 
-    public FileRequestUpdateRequestBuilder isDescriptionRequired(Boolean isDescriptionRequired) {
+    public Builder isDescriptionRequired(Boolean isDescriptionRequired) {
       this.isDescriptionRequired = isDescriptionRequired;
       return this;
     }
 
-    public FileRequestUpdateRequestBuilder expiresAt(Date expiresAt) {
+    public Builder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }

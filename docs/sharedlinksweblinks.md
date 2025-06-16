@@ -86,7 +86,7 @@ See the endpoint docs at
 
 <!-- sample put_web_links_id#add_shared_link -->
 ```
-client.getSharedLinksWebLinks().addShareLinkToWebLink(webLinkId, new AddShareLinkToWebLinkRequestBody.AddShareLinkToWebLinkRequestBodyBuilder().sharedLink(new AddShareLinkToWebLinkRequestBodySharedLinkField.AddShareLinkToWebLinkRequestBodySharedLinkFieldBuilder().access(AddShareLinkToWebLinkRequestBodySharedLinkAccessField.OPEN).password("Secret123@").build()).build(), new AddShareLinkToWebLinkQueryParams("shared_link"))
+client.getSharedLinksWebLinks().addShareLinkToWebLink(webLinkId, new AddShareLinkToWebLinkRequestBody.Builder().sharedLink(new AddShareLinkToWebLinkRequestBodySharedLinkField.Builder().access(AddShareLinkToWebLinkRequestBodySharedLinkAccessField.OPEN).password("Secret123@").build()).build(), new AddShareLinkToWebLinkQueryParams("shared_link"))
 ```
 
 ### Arguments
@@ -120,7 +120,7 @@ See the endpoint docs at
 
 <!-- sample put_web_links_id#update_shared_link -->
 ```
-client.getSharedLinksWebLinks().updateSharedLinkOnWebLink(webLinkId, new UpdateSharedLinkOnWebLinkRequestBody.UpdateSharedLinkOnWebLinkRequestBodyBuilder().sharedLink(new UpdateSharedLinkOnWebLinkRequestBodySharedLinkField.UpdateSharedLinkOnWebLinkRequestBodySharedLinkFieldBuilder().access(UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField.COLLABORATORS).build()).build(), new UpdateSharedLinkOnWebLinkQueryParams("shared_link"))
+client.getSharedLinksWebLinks().updateSharedLinkOnWebLink(webLinkId, new UpdateSharedLinkOnWebLinkRequestBody.Builder().sharedLink(new UpdateSharedLinkOnWebLinkRequestBodySharedLinkField.Builder().access(UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField.COLLABORATORS).build()).build(), new UpdateSharedLinkOnWebLinkQueryParams("shared_link"))
 ```
 
 ### Arguments

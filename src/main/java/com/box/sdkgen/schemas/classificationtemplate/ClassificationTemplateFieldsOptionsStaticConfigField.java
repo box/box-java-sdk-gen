@@ -11,8 +11,7 @@ public class ClassificationTemplateFieldsOptionsStaticConfigField extends Serial
     super();
   }
 
-  protected ClassificationTemplateFieldsOptionsStaticConfigField(
-      ClassificationTemplateFieldsOptionsStaticConfigFieldBuilder builder) {
+  protected ClassificationTemplateFieldsOptionsStaticConfigField(Builder builder) {
     super();
     this.classification = builder.classification;
   }
@@ -48,11 +47,11 @@ public class ClassificationTemplateFieldsOptionsStaticConfigField extends Serial
         + "}";
   }
 
-  public static class ClassificationTemplateFieldsOptionsStaticConfigFieldBuilder {
+  public static class Builder {
 
     protected ClassificationTemplateFieldsOptionsStaticConfigClassificationField classification;
 
-    public ClassificationTemplateFieldsOptionsStaticConfigFieldBuilder classification(
+    public Builder classification(
         ClassificationTemplateFieldsOptionsStaticConfigClassificationField classification) {
       this.classification = classification;
       return this;

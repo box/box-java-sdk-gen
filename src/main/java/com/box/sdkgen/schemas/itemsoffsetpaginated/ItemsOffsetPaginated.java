@@ -23,7 +23,7 @@ public class ItemsOffsetPaginated extends SerializableObject {
     super();
   }
 
-  protected ItemsOffsetPaginated(ItemsOffsetPaginatedBuilder builder) {
+  protected ItemsOffsetPaginated(Builder builder) {
     super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
@@ -98,7 +98,7 @@ public class ItemsOffsetPaginated extends SerializableObject {
         + "}";
   }
 
-  public static class ItemsOffsetPaginatedBuilder {
+  public static class Builder {
 
     protected Long totalCount;
 
@@ -110,27 +110,27 @@ public class ItemsOffsetPaginated extends SerializableObject {
 
     protected List<FileFullOrFolderFullOrWebLink> entries;
 
-    public ItemsOffsetPaginatedBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public ItemsOffsetPaginatedBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public ItemsOffsetPaginatedBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public ItemsOffsetPaginatedBuilder order(List<ItemsOffsetPaginatedOrderField> order) {
+    public Builder order(List<ItemsOffsetPaginatedOrderField> order) {
       this.order = order;
       return this;
     }
 
-    public ItemsOffsetPaginatedBuilder entries(List<FileFullOrFolderFullOrWebLink> entries) {
+    public Builder entries(List<FileFullOrFolderFullOrWebLink> entries) {
       this.entries = entries;
       return this;
     }

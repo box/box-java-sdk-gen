@@ -18,7 +18,7 @@ public class PostOAuth2Revoke extends SerializableObject {
     super();
   }
 
-  protected PostOAuth2Revoke(PostOAuth2RevokeBuilder builder) {
+  protected PostOAuth2Revoke(Builder builder) {
     super();
     this.clientId = builder.clientId;
     this.clientSecret = builder.clientSecret;
@@ -73,7 +73,7 @@ public class PostOAuth2Revoke extends SerializableObject {
         + "}";
   }
 
-  public static class PostOAuth2RevokeBuilder {
+  public static class Builder {
 
     protected String clientId;
 
@@ -81,17 +81,17 @@ public class PostOAuth2Revoke extends SerializableObject {
 
     protected String token;
 
-    public PostOAuth2RevokeBuilder clientId(String clientId) {
+    public Builder clientId(String clientId) {
       this.clientId = clientId;
       return this;
     }
 
-    public PostOAuth2RevokeBuilder clientSecret(String clientSecret) {
+    public Builder clientSecret(String clientSecret) {
       this.clientSecret = clientSecret;
       return this;
     }
 
-    public PostOAuth2RevokeBuilder token(String token) {
+    public Builder token(String token) {
       this.token = token;
       return this;
     }

@@ -61,8 +61,7 @@ public class CreateClassificationTemplateRequestBodyFieldsField extends Serializ
             CreateClassificationTemplateRequestBodyFieldsDisplayNameField.CLASSIFICATION);
   }
 
-  protected CreateClassificationTemplateRequestBodyFieldsField(
-      CreateClassificationTemplateRequestBodyFieldsFieldBuilder builder) {
+  protected CreateClassificationTemplateRequestBodyFieldsField(Builder builder) {
     super();
     this.type = builder.type;
     this.key = builder.key;
@@ -139,7 +138,7 @@ public class CreateClassificationTemplateRequestBodyFieldsField extends Serializ
         + "}";
   }
 
-  public static class CreateClassificationTemplateRequestBodyFieldsFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<CreateClassificationTemplateRequestBodyFieldsTypeField> type;
 
@@ -152,8 +151,7 @@ public class CreateClassificationTemplateRequestBodyFieldsField extends Serializ
 
     protected final List<CreateClassificationTemplateRequestBodyFieldsOptionsField> options;
 
-    public CreateClassificationTemplateRequestBodyFieldsFieldBuilder(
-        List<CreateClassificationTemplateRequestBodyFieldsOptionsField> options) {
+    public Builder(List<CreateClassificationTemplateRequestBodyFieldsOptionsField> options) {
       this.options = options;
       this.type =
           new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsTypeField>(
@@ -167,31 +165,27 @@ public class CreateClassificationTemplateRequestBodyFieldsField extends Serializ
               CreateClassificationTemplateRequestBodyFieldsDisplayNameField.CLASSIFICATION);
     }
 
-    public CreateClassificationTemplateRequestBodyFieldsFieldBuilder type(
-        CreateClassificationTemplateRequestBodyFieldsTypeField type) {
+    public Builder type(CreateClassificationTemplateRequestBodyFieldsTypeField type) {
       this.type = new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsTypeField>(type);
       return this;
     }
 
-    public CreateClassificationTemplateRequestBodyFieldsFieldBuilder type(
-        EnumWrapper<CreateClassificationTemplateRequestBodyFieldsTypeField> type) {
+    public Builder type(EnumWrapper<CreateClassificationTemplateRequestBodyFieldsTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public CreateClassificationTemplateRequestBodyFieldsFieldBuilder key(
-        CreateClassificationTemplateRequestBodyFieldsKeyField key) {
+    public Builder key(CreateClassificationTemplateRequestBodyFieldsKeyField key) {
       this.key = new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsKeyField>(key);
       return this;
     }
 
-    public CreateClassificationTemplateRequestBodyFieldsFieldBuilder key(
-        EnumWrapper<CreateClassificationTemplateRequestBodyFieldsKeyField> key) {
+    public Builder key(EnumWrapper<CreateClassificationTemplateRequestBodyFieldsKeyField> key) {
       this.key = key;
       return this;
     }
 
-    public CreateClassificationTemplateRequestBodyFieldsFieldBuilder displayName(
+    public Builder displayName(
         CreateClassificationTemplateRequestBodyFieldsDisplayNameField displayName) {
       this.displayName =
           new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsDisplayNameField>(
@@ -199,13 +193,13 @@ public class CreateClassificationTemplateRequestBodyFieldsField extends Serializ
       return this;
     }
 
-    public CreateClassificationTemplateRequestBodyFieldsFieldBuilder displayName(
+    public Builder displayName(
         EnumWrapper<CreateClassificationTemplateRequestBodyFieldsDisplayNameField> displayName) {
       this.displayName = displayName;
       return this;
     }
 
-    public CreateClassificationTemplateRequestBodyFieldsFieldBuilder hidden(Boolean hidden) {
+    public Builder hidden(Boolean hidden) {
       this.hidden = hidden;
       return this;
     }

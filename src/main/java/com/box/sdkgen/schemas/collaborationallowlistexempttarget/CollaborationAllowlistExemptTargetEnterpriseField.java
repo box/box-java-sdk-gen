@@ -26,8 +26,7 @@ public class CollaborationAllowlistExemptTargetEnterpriseField extends Serializa
     super();
   }
 
-  protected CollaborationAllowlistExemptTargetEnterpriseField(
-      CollaborationAllowlistExemptTargetEnterpriseFieldBuilder builder) {
+  protected CollaborationAllowlistExemptTargetEnterpriseField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -83,7 +82,7 @@ public class CollaborationAllowlistExemptTargetEnterpriseField extends Serializa
         + "}";
   }
 
-  public static class CollaborationAllowlistExemptTargetEnterpriseFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -91,24 +90,22 @@ public class CollaborationAllowlistExemptTargetEnterpriseField extends Serializa
 
     protected String name;
 
-    public CollaborationAllowlistExemptTargetEnterpriseFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public CollaborationAllowlistExemptTargetEnterpriseFieldBuilder type(
-        CollaborationAllowlistExemptTargetEnterpriseTypeField type) {
+    public Builder type(CollaborationAllowlistExemptTargetEnterpriseTypeField type) {
       this.type = new EnumWrapper<CollaborationAllowlistExemptTargetEnterpriseTypeField>(type);
       return this;
     }
 
-    public CollaborationAllowlistExemptTargetEnterpriseFieldBuilder type(
-        EnumWrapper<CollaborationAllowlistExemptTargetEnterpriseTypeField> type) {
+    public Builder type(EnumWrapper<CollaborationAllowlistExemptTargetEnterpriseTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public CollaborationAllowlistExemptTargetEnterpriseFieldBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }

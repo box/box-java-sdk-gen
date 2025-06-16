@@ -26,7 +26,7 @@ public class TrashedFoldersManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected TrashedFoldersManager(TrashedFoldersManagerBuilder builder) {
+  protected TrashedFoldersManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -102,7 +102,7 @@ public class TrashedFoldersManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -145,7 +145,7 @@ public class TrashedFoldersManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -172,7 +172,7 @@ public class TrashedFoldersManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -195,22 +195,22 @@ public class TrashedFoldersManager {
     return networkSession;
   }
 
-  public static class TrashedFoldersManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public TrashedFoldersManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public TrashedFoldersManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public TrashedFoldersManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

@@ -48,7 +48,7 @@ See the endpoint docs at
 
 <!-- sample post_legal_hold_policies -->
 ```
-client.getLegalHoldPolicies().createLegalHoldPolicy(new CreateLegalHoldPolicyRequestBody.CreateLegalHoldPolicyRequestBodyBuilder(legalHoldPolicyName).description(legalHoldDescription).filterStartedAt(filterStartedAt).filterEndedAt(filterEndedAt).isOngoing(false).build())
+client.getLegalHoldPolicies().createLegalHoldPolicy(new CreateLegalHoldPolicyRequestBody.Builder(legalHoldPolicyName).description(legalHoldDescription).filterStartedAt(filterStartedAt).filterEndedAt(filterEndedAt).isOngoing(false).build())
 ```
 
 ### Arguments
@@ -106,7 +106,7 @@ See the endpoint docs at
 
 <!-- sample put_legal_hold_policies_id -->
 ```
-client.getLegalHoldPolicies().updateLegalHoldPolicyById(legalHoldPolicyId, new UpdateLegalHoldPolicyByIdRequestBody.UpdateLegalHoldPolicyByIdRequestBodyBuilder().policyName(updatedLegalHoldPolicyName).build())
+client.getLegalHoldPolicies().updateLegalHoldPolicyById(legalHoldPolicyId, new UpdateLegalHoldPolicyByIdRequestBody.Builder().policyName(updatedLegalHoldPolicyName).build())
 ```
 
 ### Arguments

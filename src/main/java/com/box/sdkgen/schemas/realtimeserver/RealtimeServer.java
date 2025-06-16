@@ -22,7 +22,7 @@ public class RealtimeServer extends SerializableObject {
     super();
   }
 
-  protected RealtimeServer(RealtimeServerBuilder builder) {
+  protected RealtimeServer(Builder builder) {
     super();
     this.type = builder.type;
     this.url = builder.url;
@@ -97,7 +97,7 @@ public class RealtimeServer extends SerializableObject {
         + "}";
   }
 
-  public static class RealtimeServerBuilder {
+  public static class Builder {
 
     protected String type;
 
@@ -109,27 +109,27 @@ public class RealtimeServer extends SerializableObject {
 
     protected Long retryTimeout;
 
-    public RealtimeServerBuilder type(String type) {
+    public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public RealtimeServerBuilder url(String url) {
+    public Builder url(String url) {
       this.url = url;
       return this;
     }
 
-    public RealtimeServerBuilder ttl(String ttl) {
+    public Builder ttl(String ttl) {
       this.ttl = ttl;
       return this;
     }
 
-    public RealtimeServerBuilder maxRetries(String maxRetries) {
+    public Builder maxRetries(String maxRetries) {
       this.maxRetries = maxRetries;
       return this;
     }
 
-    public RealtimeServerBuilder retryTimeout(Long retryTimeout) {
+    public Builder retryTimeout(Long retryTimeout) {
       this.retryTimeout = retryTimeout;
       return this;
     }

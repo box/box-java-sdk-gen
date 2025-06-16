@@ -22,7 +22,7 @@ public class FileVersionRetentions extends SerializableObject {
     super();
   }
 
-  protected FileVersionRetentions(FileVersionRetentionsBuilder builder) {
+  protected FileVersionRetentions(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -87,7 +87,7 @@ public class FileVersionRetentions extends SerializableObject {
         + "}";
   }
 
-  public static class FileVersionRetentionsBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -97,22 +97,22 @@ public class FileVersionRetentions extends SerializableObject {
 
     protected List<FileVersionRetention> entries;
 
-    public FileVersionRetentionsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public FileVersionRetentionsBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public FileVersionRetentionsBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public FileVersionRetentionsBuilder entries(List<FileVersionRetention> entries) {
+    public Builder entries(List<FileVersionRetention> entries) {
       this.entries = entries;
       return this;
     }

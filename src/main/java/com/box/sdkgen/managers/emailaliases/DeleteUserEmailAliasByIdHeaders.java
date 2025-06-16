@@ -12,7 +12,7 @@ public class DeleteUserEmailAliasByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteUserEmailAliasByIdHeaders(DeleteUserEmailAliasByIdHeadersBuilder builder) {
+  protected DeleteUserEmailAliasByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class DeleteUserEmailAliasByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteUserEmailAliasByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteUserEmailAliasByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteUserEmailAliasByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

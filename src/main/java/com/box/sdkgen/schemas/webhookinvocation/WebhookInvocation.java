@@ -42,7 +42,7 @@ public class WebhookInvocation extends SerializableObject {
     super();
   }
 
-  protected WebhookInvocation(WebhookInvocationBuilder builder) {
+  protected WebhookInvocation(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -137,7 +137,7 @@ public class WebhookInvocation extends SerializableObject {
         + "}";
   }
 
-  public static class WebhookInvocationBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -153,47 +153,47 @@ public class WebhookInvocation extends SerializableObject {
 
     protected FileOrFolder source;
 
-    public WebhookInvocationBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public WebhookInvocationBuilder type(WebhookInvocationTypeField type) {
+    public Builder type(WebhookInvocationTypeField type) {
       this.type = new EnumWrapper<WebhookInvocationTypeField>(type);
       return this;
     }
 
-    public WebhookInvocationBuilder type(EnumWrapper<WebhookInvocationTypeField> type) {
+    public Builder type(EnumWrapper<WebhookInvocationTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public WebhookInvocationBuilder webhook(Webhook webhook) {
+    public Builder webhook(Webhook webhook) {
       this.webhook = webhook;
       return this;
     }
 
-    public WebhookInvocationBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public WebhookInvocationBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public WebhookInvocationBuilder trigger(WebhookInvocationTriggerField trigger) {
+    public Builder trigger(WebhookInvocationTriggerField trigger) {
       this.trigger = new EnumWrapper<WebhookInvocationTriggerField>(trigger);
       return this;
     }
 
-    public WebhookInvocationBuilder trigger(EnumWrapper<WebhookInvocationTriggerField> trigger) {
+    public Builder trigger(EnumWrapper<WebhookInvocationTriggerField> trigger) {
       this.trigger = trigger;
       return this;
     }
 
-    public WebhookInvocationBuilder source(FileOrFolder source) {
+    public Builder source(FileOrFolder source) {
       this.source = source;
       return this;
     }

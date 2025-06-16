@@ -25,8 +25,7 @@ public class IntegrationMappingSlackCreateRequest extends SerializableObject {
     this.boxItem = boxItem;
   }
 
-  protected IntegrationMappingSlackCreateRequest(
-      IntegrationMappingSlackCreateRequestBuilder builder) {
+  protected IntegrationMappingSlackCreateRequest(Builder builder) {
     super();
     this.partnerItem = builder.partnerItem;
     this.boxItem = builder.boxItem;
@@ -81,7 +80,7 @@ public class IntegrationMappingSlackCreateRequest extends SerializableObject {
         + "}";
   }
 
-  public static class IntegrationMappingSlackCreateRequestBuilder {
+  public static class Builder {
 
     protected final IntegrationMappingPartnerItemSlack partnerItem;
 
@@ -89,14 +88,13 @@ public class IntegrationMappingSlackCreateRequest extends SerializableObject {
 
     protected IntegrationMappingSlackOptions options;
 
-    public IntegrationMappingSlackCreateRequestBuilder(
+    public Builder(
         IntegrationMappingPartnerItemSlack partnerItem, IntegrationMappingBoxItemSlack boxItem) {
       this.partnerItem = partnerItem;
       this.boxItem = boxItem;
     }
 
-    public IntegrationMappingSlackCreateRequestBuilder options(
-        IntegrationMappingSlackOptions options) {
+    public Builder options(IntegrationMappingSlackOptions options) {
       this.options = options;
       return this;
     }

@@ -12,8 +12,7 @@ public class DeleteShieldInformationBarrierSegmentRestrictionByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteShieldInformationBarrierSegmentRestrictionByIdHeaders(
-      DeleteShieldInformationBarrierSegmentRestrictionByIdHeadersBuilder builder) {
+  protected DeleteShieldInformationBarrierSegmentRestrictionByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class DeleteShieldInformationBarrierSegmentRestrictionByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteShieldInformationBarrierSegmentRestrictionByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteShieldInformationBarrierSegmentRestrictionByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteShieldInformationBarrierSegmentRestrictionByIdHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

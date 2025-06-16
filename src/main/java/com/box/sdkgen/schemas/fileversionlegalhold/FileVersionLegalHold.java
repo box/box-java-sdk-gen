@@ -40,7 +40,7 @@ public class FileVersionLegalHold extends SerializableObject {
     super();
   }
 
-  protected FileVersionLegalHold(FileVersionLegalHoldBuilder builder) {
+  protected FileVersionLegalHold(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -125,7 +125,7 @@ public class FileVersionLegalHold extends SerializableObject {
         + "}";
   }
 
-  public static class FileVersionLegalHoldBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -139,38 +139,38 @@ public class FileVersionLegalHold extends SerializableObject {
 
     protected Date deletedAt;
 
-    public FileVersionLegalHoldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public FileVersionLegalHoldBuilder type(FileVersionLegalHoldTypeField type) {
+    public Builder type(FileVersionLegalHoldTypeField type) {
       this.type = new EnumWrapper<FileVersionLegalHoldTypeField>(type);
       return this;
     }
 
-    public FileVersionLegalHoldBuilder type(EnumWrapper<FileVersionLegalHoldTypeField> type) {
+    public Builder type(EnumWrapper<FileVersionLegalHoldTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public FileVersionLegalHoldBuilder fileVersion(FileVersionMini fileVersion) {
+    public Builder fileVersion(FileVersionMini fileVersion) {
       this.fileVersion = fileVersion;
       return this;
     }
 
-    public FileVersionLegalHoldBuilder file(FileMini file) {
+    public Builder file(FileMini file) {
       this.file = file;
       return this;
     }
 
-    public FileVersionLegalHoldBuilder legalHoldPolicyAssignments(
+    public Builder legalHoldPolicyAssignments(
         List<LegalHoldPolicyAssignment> legalHoldPolicyAssignments) {
       this.legalHoldPolicyAssignments = legalHoldPolicyAssignments;
       return this;
     }
 
-    public FileVersionLegalHoldBuilder deletedAt(Date deletedAt) {
+    public Builder deletedAt(Date deletedAt) {
       this.deletedAt = deletedAt;
       return this;
     }

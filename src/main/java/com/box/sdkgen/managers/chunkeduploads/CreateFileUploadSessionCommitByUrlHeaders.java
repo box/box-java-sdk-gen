@@ -19,8 +19,7 @@ public class CreateFileUploadSessionCommitByUrlHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CreateFileUploadSessionCommitByUrlHeaders(
-      CreateFileUploadSessionCommitByUrlHeadersBuilder builder) {
+  protected CreateFileUploadSessionCommitByUrlHeaders(Builder builder) {
     this.digest = builder.digest;
     this.ifMatch = builder.ifMatch;
     this.ifNoneMatch = builder.ifNoneMatch;
@@ -43,7 +42,7 @@ public class CreateFileUploadSessionCommitByUrlHeaders {
     return extraHeaders;
   }
 
-  public static class CreateFileUploadSessionCommitByUrlHeadersBuilder {
+  public static class Builder {
 
     protected final String digest;
 
@@ -53,23 +52,22 @@ public class CreateFileUploadSessionCommitByUrlHeaders {
 
     protected Map<String, String> extraHeaders;
 
-    public CreateFileUploadSessionCommitByUrlHeadersBuilder(String digest) {
+    public Builder(String digest) {
       this.digest = digest;
       this.extraHeaders = mapOf();
     }
 
-    public CreateFileUploadSessionCommitByUrlHeadersBuilder ifMatch(String ifMatch) {
+    public Builder ifMatch(String ifMatch) {
       this.ifMatch = ifMatch;
       return this;
     }
 
-    public CreateFileUploadSessionCommitByUrlHeadersBuilder ifNoneMatch(String ifNoneMatch) {
+    public Builder ifNoneMatch(String ifNoneMatch) {
       this.ifNoneMatch = ifNoneMatch;
       return this;
     }
 
-    public CreateFileUploadSessionCommitByUrlHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

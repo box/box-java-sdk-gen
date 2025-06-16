@@ -22,7 +22,7 @@ public class MetadataTemplates extends SerializableObject {
     super();
   }
 
-  protected MetadataTemplates(MetadataTemplatesBuilder builder) {
+  protected MetadataTemplates(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -87,7 +87,7 @@ public class MetadataTemplates extends SerializableObject {
         + "}";
   }
 
-  public static class MetadataTemplatesBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -97,22 +97,22 @@ public class MetadataTemplates extends SerializableObject {
 
     protected List<MetadataTemplate> entries;
 
-    public MetadataTemplatesBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public MetadataTemplatesBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public MetadataTemplatesBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public MetadataTemplatesBuilder entries(List<MetadataTemplate> entries) {
+    public Builder entries(List<MetadataTemplate> entries) {
       this.entries = entries;
       return this;
     }

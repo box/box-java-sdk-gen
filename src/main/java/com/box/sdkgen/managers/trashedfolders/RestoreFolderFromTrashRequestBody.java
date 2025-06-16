@@ -13,7 +13,7 @@ public class RestoreFolderFromTrashRequestBody extends SerializableObject {
     super();
   }
 
-  protected RestoreFolderFromTrashRequestBody(RestoreFolderFromTrashRequestBodyBuilder builder) {
+  protected RestoreFolderFromTrashRequestBody(Builder builder) {
     super();
     this.name = builder.name;
     this.parent = builder.parent;
@@ -57,19 +57,18 @@ public class RestoreFolderFromTrashRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class RestoreFolderFromTrashRequestBodyBuilder {
+  public static class Builder {
 
     protected String name;
 
     protected RestoreFolderFromTrashRequestBodyParentField parent;
 
-    public RestoreFolderFromTrashRequestBodyBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public RestoreFolderFromTrashRequestBodyBuilder parent(
-        RestoreFolderFromTrashRequestBodyParentField parent) {
+    public Builder parent(RestoreFolderFromTrashRequestBodyParentField parent) {
       this.parent = parent;
       return this;
     }

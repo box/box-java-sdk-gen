@@ -45,7 +45,7 @@ public class Invite extends SerializableObject {
     this.type = new EnumWrapper<InviteTypeField>(InviteTypeField.INVITE);
   }
 
-  protected Invite(InviteBuilder builder) {
+  protected Invite(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -151,7 +151,7 @@ public class Invite extends SerializableObject {
         + "}";
   }
 
-  public static class InviteBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -169,47 +169,47 @@ public class Invite extends SerializableObject {
 
     protected Date modifiedAt;
 
-    public InviteBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type = new EnumWrapper<InviteTypeField>(InviteTypeField.INVITE);
     }
 
-    public InviteBuilder type(InviteTypeField type) {
+    public Builder type(InviteTypeField type) {
       this.type = new EnumWrapper<InviteTypeField>(type);
       return this;
     }
 
-    public InviteBuilder type(EnumWrapper<InviteTypeField> type) {
+    public Builder type(EnumWrapper<InviteTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public InviteBuilder invitedTo(InviteInvitedToField invitedTo) {
+    public Builder invitedTo(InviteInvitedToField invitedTo) {
       this.invitedTo = invitedTo;
       return this;
     }
 
-    public InviteBuilder actionableBy(UserMini actionableBy) {
+    public Builder actionableBy(UserMini actionableBy) {
       this.actionableBy = actionableBy;
       return this;
     }
 
-    public InviteBuilder invitedBy(UserMini invitedBy) {
+    public Builder invitedBy(UserMini invitedBy) {
       this.invitedBy = invitedBy;
       return this;
     }
 
-    public InviteBuilder status(String status) {
+    public Builder status(String status) {
       this.status = status;
       return this;
     }
 
-    public InviteBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public InviteBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

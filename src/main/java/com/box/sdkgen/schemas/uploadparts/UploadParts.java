@@ -23,7 +23,7 @@ public class UploadParts extends SerializableObject {
     super();
   }
 
-  protected UploadParts(UploadPartsBuilder builder) {
+  protected UploadParts(Builder builder) {
     super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
@@ -98,7 +98,7 @@ public class UploadParts extends SerializableObject {
         + "}";
   }
 
-  public static class UploadPartsBuilder {
+  public static class Builder {
 
     protected Long totalCount;
 
@@ -110,27 +110,27 @@ public class UploadParts extends SerializableObject {
 
     protected List<UploadPart> entries;
 
-    public UploadPartsBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public UploadPartsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public UploadPartsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public UploadPartsBuilder order(List<UploadPartsOrderField> order) {
+    public Builder order(List<UploadPartsOrderField> order) {
       this.order = order;
       return this;
     }
 
-    public UploadPartsBuilder entries(List<UploadPart> entries) {
+    public Builder entries(List<UploadPart> entries) {
       this.entries = entries;
       return this;
     }

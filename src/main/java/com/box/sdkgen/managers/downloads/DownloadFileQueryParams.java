@@ -8,7 +8,7 @@ public class DownloadFileQueryParams {
 
   public DownloadFileQueryParams() {}
 
-  protected DownloadFileQueryParams(DownloadFileQueryParamsBuilder builder) {
+  protected DownloadFileQueryParams(Builder builder) {
     this.version = builder.version;
     this.accessToken = builder.accessToken;
   }
@@ -21,18 +21,18 @@ public class DownloadFileQueryParams {
     return accessToken;
   }
 
-  public static class DownloadFileQueryParamsBuilder {
+  public static class Builder {
 
     protected String version;
 
     protected String accessToken;
 
-    public DownloadFileQueryParamsBuilder version(String version) {
+    public Builder version(String version) {
       this.version = version;
       return this;
     }
 
-    public DownloadFileQueryParamsBuilder accessToken(String accessToken) {
+    public Builder accessToken(String accessToken) {
       this.accessToken = accessToken;
       return this;
     }

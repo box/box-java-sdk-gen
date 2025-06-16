@@ -14,7 +14,7 @@ public class ShieldInformationBarrierReference extends SerializableObject {
     super();
   }
 
-  protected ShieldInformationBarrierReference(ShieldInformationBarrierReferenceBuilder builder) {
+  protected ShieldInformationBarrierReference(Builder builder) {
     super();
     this.shieldInformationBarrier = builder.shieldInformationBarrier;
   }
@@ -49,12 +49,11 @@ public class ShieldInformationBarrierReference extends SerializableObject {
         + "}";
   }
 
-  public static class ShieldInformationBarrierReferenceBuilder {
+  public static class Builder {
 
     protected ShieldInformationBarrierBase shieldInformationBarrier;
 
-    public ShieldInformationBarrierReferenceBuilder shieldInformationBarrier(
-        ShieldInformationBarrierBase shieldInformationBarrier) {
+    public Builder shieldInformationBarrier(ShieldInformationBarrierBase shieldInformationBarrier) {
       this.shieldInformationBarrier = shieldInformationBarrier;
       return this;
     }

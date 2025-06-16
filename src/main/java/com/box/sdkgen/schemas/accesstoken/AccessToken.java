@@ -39,7 +39,7 @@ public class AccessToken extends SerializableObject {
     super();
   }
 
-  protected AccessToken(AccessTokenBuilder builder) {
+  protected AccessToken(Builder builder) {
     super();
     this.accessToken = builder.accessToken;
     this.expiresIn = builder.expiresIn;
@@ -125,7 +125,7 @@ public class AccessToken extends SerializableObject {
         + "}";
   }
 
-  public static class AccessTokenBuilder {
+  public static class Builder {
 
     protected String accessToken;
 
@@ -139,43 +139,42 @@ public class AccessToken extends SerializableObject {
 
     protected EnumWrapper<AccessTokenIssuedTokenTypeField> issuedTokenType;
 
-    public AccessTokenBuilder accessToken(String accessToken) {
+    public Builder accessToken(String accessToken) {
       this.accessToken = accessToken;
       return this;
     }
 
-    public AccessTokenBuilder expiresIn(Long expiresIn) {
+    public Builder expiresIn(Long expiresIn) {
       this.expiresIn = expiresIn;
       return this;
     }
 
-    public AccessTokenBuilder tokenType(AccessTokenTokenTypeField tokenType) {
+    public Builder tokenType(AccessTokenTokenTypeField tokenType) {
       this.tokenType = new EnumWrapper<AccessTokenTokenTypeField>(tokenType);
       return this;
     }
 
-    public AccessTokenBuilder tokenType(EnumWrapper<AccessTokenTokenTypeField> tokenType) {
+    public Builder tokenType(EnumWrapper<AccessTokenTokenTypeField> tokenType) {
       this.tokenType = tokenType;
       return this;
     }
 
-    public AccessTokenBuilder restrictedTo(List<FileOrFolderScope> restrictedTo) {
+    public Builder restrictedTo(List<FileOrFolderScope> restrictedTo) {
       this.restrictedTo = restrictedTo;
       return this;
     }
 
-    public AccessTokenBuilder refreshToken(String refreshToken) {
+    public Builder refreshToken(String refreshToken) {
       this.refreshToken = refreshToken;
       return this;
     }
 
-    public AccessTokenBuilder issuedTokenType(AccessTokenIssuedTokenTypeField issuedTokenType) {
+    public Builder issuedTokenType(AccessTokenIssuedTokenTypeField issuedTokenType) {
       this.issuedTokenType = new EnumWrapper<AccessTokenIssuedTokenTypeField>(issuedTokenType);
       return this;
     }
 
-    public AccessTokenBuilder issuedTokenType(
-        EnumWrapper<AccessTokenIssuedTokenTypeField> issuedTokenType) {
+    public Builder issuedTokenType(EnumWrapper<AccessTokenIssuedTokenTypeField> issuedTokenType) {
       this.issuedTokenType = issuedTokenType;
       return this;
     }

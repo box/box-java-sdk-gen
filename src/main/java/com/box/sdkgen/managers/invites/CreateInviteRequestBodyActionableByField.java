@@ -11,8 +11,7 @@ public class CreateInviteRequestBodyActionableByField extends SerializableObject
     super();
   }
 
-  protected CreateInviteRequestBodyActionableByField(
-      CreateInviteRequestBodyActionableByFieldBuilder builder) {
+  protected CreateInviteRequestBodyActionableByField(Builder builder) {
     super();
     this.login = builder.login;
   }
@@ -43,11 +42,11 @@ public class CreateInviteRequestBodyActionableByField extends SerializableObject
     return "CreateInviteRequestBodyActionableByField{" + "login='" + login + '\'' + "}";
   }
 
-  public static class CreateInviteRequestBodyActionableByFieldBuilder {
+  public static class Builder {
 
     protected String login;
 
-    public CreateInviteRequestBodyActionableByFieldBuilder login(String login) {
+    public Builder login(String login) {
       this.login = login;
       return this;
     }

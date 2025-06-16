@@ -12,7 +12,7 @@ public class CreateZipDownloadHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CreateZipDownloadHeaders(CreateZipDownloadHeadersBuilder builder) {
+  protected CreateZipDownloadHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class CreateZipDownloadHeaders {
     return extraHeaders;
   }
 
-  public static class CreateZipDownloadHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CreateZipDownloadHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CreateZipDownloadHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

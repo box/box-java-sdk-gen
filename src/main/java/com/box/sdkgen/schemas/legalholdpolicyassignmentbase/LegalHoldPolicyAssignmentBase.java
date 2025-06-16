@@ -24,7 +24,7 @@ public class LegalHoldPolicyAssignmentBase extends SerializableObject {
     super();
   }
 
-  protected LegalHoldPolicyAssignmentBase(LegalHoldPolicyAssignmentBaseBuilder builder) {
+  protected LegalHoldPolicyAssignmentBase(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -68,24 +68,23 @@ public class LegalHoldPolicyAssignmentBase extends SerializableObject {
         + "}";
   }
 
-  public static class LegalHoldPolicyAssignmentBaseBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField> type;
 
-    public LegalHoldPolicyAssignmentBaseBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public LegalHoldPolicyAssignmentBaseBuilder type(LegalHoldPolicyAssignmentBaseTypeField type) {
+    public Builder type(LegalHoldPolicyAssignmentBaseTypeField type) {
       this.type = new EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField>(type);
       return this;
     }
 
-    public LegalHoldPolicyAssignmentBaseBuilder type(
-        EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField> type) {
+    public Builder type(EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField> type) {
       this.type = type;
       return this;
     }

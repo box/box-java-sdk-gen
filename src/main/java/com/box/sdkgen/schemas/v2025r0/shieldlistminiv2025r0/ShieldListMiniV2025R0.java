@@ -33,7 +33,7 @@ public class ShieldListMiniV2025R0 extends SerializableObject {
         new EnumWrapper<ShieldListMiniV2025R0TypeField>(ShieldListMiniV2025R0TypeField.SHIELD_LIST);
   }
 
-  protected ShieldListMiniV2025R0(ShieldListMiniV2025R0Builder builder) {
+  protected ShieldListMiniV2025R0(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -98,7 +98,7 @@ public class ShieldListMiniV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class ShieldListMiniV2025R0Builder {
+  public static class Builder {
 
     protected final String id;
 
@@ -108,8 +108,7 @@ public class ShieldListMiniV2025R0 extends SerializableObject {
 
     protected final ShieldListMiniV2025R0ContentField content;
 
-    public ShieldListMiniV2025R0Builder(
-        String id, String name, ShieldListMiniV2025R0ContentField content) {
+    public Builder(String id, String name, ShieldListMiniV2025R0ContentField content) {
       this.id = id;
       this.name = name;
       this.content = content;
@@ -118,12 +117,12 @@ public class ShieldListMiniV2025R0 extends SerializableObject {
               ShieldListMiniV2025R0TypeField.SHIELD_LIST);
     }
 
-    public ShieldListMiniV2025R0Builder type(ShieldListMiniV2025R0TypeField type) {
+    public Builder type(ShieldListMiniV2025R0TypeField type) {
       this.type = new EnumWrapper<ShieldListMiniV2025R0TypeField>(type);
       return this;
     }
 
-    public ShieldListMiniV2025R0Builder type(EnumWrapper<ShieldListMiniV2025R0TypeField> type) {
+    public Builder type(EnumWrapper<ShieldListMiniV2025R0TypeField> type) {
       this.type = type;
       return this;
     }

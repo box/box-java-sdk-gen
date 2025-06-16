@@ -21,7 +21,7 @@ public class GroupMini extends GroupBase {
     super(id);
   }
 
-  protected GroupMini(GroupMiniBuilder builder) {
+  protected GroupMini(Builder builder) {
     super(builder);
     this.name = builder.name;
     this.groupType = builder.groupType;
@@ -76,39 +76,39 @@ public class GroupMini extends GroupBase {
         + "}";
   }
 
-  public static class GroupMiniBuilder extends GroupBaseBuilder {
+  public static class Builder extends GroupBase.Builder {
 
     protected String name;
 
     protected EnumWrapper<GroupMiniGroupTypeField> groupType;
 
-    public GroupMiniBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public GroupMiniBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public GroupMiniBuilder groupType(GroupMiniGroupTypeField groupType) {
+    public Builder groupType(GroupMiniGroupTypeField groupType) {
       this.groupType = new EnumWrapper<GroupMiniGroupTypeField>(groupType);
       return this;
     }
 
-    public GroupMiniBuilder groupType(EnumWrapper<GroupMiniGroupTypeField> groupType) {
+    public Builder groupType(EnumWrapper<GroupMiniGroupTypeField> groupType) {
       this.groupType = groupType;
       return this;
     }
 
     @Override
-    public GroupMiniBuilder type(GroupBaseTypeField type) {
+    public Builder type(GroupBaseTypeField type) {
       this.type = new EnumWrapper<GroupBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public GroupMiniBuilder type(EnumWrapper<GroupBaseTypeField> type) {
+    public Builder type(EnumWrapper<GroupBaseTypeField> type) {
       this.type = type;
       return this;
     }

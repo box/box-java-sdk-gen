@@ -20,7 +20,7 @@ See the endpoint docs at
 
 <!-- sample post_metadata_queries_execute_read -->
 ```
-client.getSearch().searchByMetadataQuery(new MetadataQuery.MetadataQueryBuilder(searchFrom, "0").query("name = :name AND age < :age AND birthDate >= :birthDate AND countryCode = :countryCode AND sports = :sports").queryParams(mapOf(entryOf("name", "John"), entryOf("age", 50), entryOf("birthDate", "2001-01-01T02:20:10.120Z"), entryOf("countryCode", "US"), entryOf("sports", Arrays.asList("basketball", "tennis")))).build())
+client.getSearch().searchByMetadataQuery(new MetadataQuery.Builder(searchFrom, "0").query("name = :name AND age < :age AND birthDate >= :birthDate AND countryCode = :countryCode AND sports = :sports").queryParams(mapOf(entryOf("name", "John"), entryOf("age", 50), entryOf("birthDate", "2001-01-01T02:20:10.120Z"), entryOf("countryCode", "US"), entryOf("sports", Arrays.asList("basketball", "tennis")))).build())
 ```
 
 ### Arguments

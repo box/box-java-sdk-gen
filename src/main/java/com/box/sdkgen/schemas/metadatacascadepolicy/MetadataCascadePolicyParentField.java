@@ -23,7 +23,7 @@ public class MetadataCascadePolicyParentField extends SerializableObject {
     super();
   }
 
-  protected MetadataCascadePolicyParentField(MetadataCascadePolicyParentFieldBuilder builder) {
+  protected MetadataCascadePolicyParentField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -67,24 +67,23 @@ public class MetadataCascadePolicyParentField extends SerializableObject {
         + "}";
   }
 
-  public static class MetadataCascadePolicyParentFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<MetadataCascadePolicyParentTypeField> type;
 
     protected String id;
 
-    public MetadataCascadePolicyParentFieldBuilder type(MetadataCascadePolicyParentTypeField type) {
+    public Builder type(MetadataCascadePolicyParentTypeField type) {
       this.type = new EnumWrapper<MetadataCascadePolicyParentTypeField>(type);
       return this;
     }
 
-    public MetadataCascadePolicyParentFieldBuilder type(
-        EnumWrapper<MetadataCascadePolicyParentTypeField> type) {
+    public Builder type(EnumWrapper<MetadataCascadePolicyParentTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public MetadataCascadePolicyParentFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

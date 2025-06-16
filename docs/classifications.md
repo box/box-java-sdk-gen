@@ -56,7 +56,7 @@ See the endpoint docs at
 
 <!-- sample put_metadata_templates_enterprise_securityClassification-6VMVochwUWo_schema#add -->
 ```
-client.getClassifications().addClassification(Arrays.asList(new AddClassificationRequestBody(new AddClassificationRequestBodyDataField.AddClassificationRequestBodyDataFieldBuilder(getUuid()).staticConfig(new AddClassificationRequestBodyDataStaticConfigField.AddClassificationRequestBodyDataStaticConfigFieldBuilder().classification(new AddClassificationRequestBodyDataStaticConfigClassificationField.AddClassificationRequestBodyDataStaticConfigClassificationFieldBuilder().classificationDefinition("Other description").colorId(4L).build()).build()).build())))
+client.getClassifications().addClassification(Arrays.asList(new AddClassificationRequestBody(new AddClassificationRequestBodyDataField.Builder(getUuid()).staticConfig(new AddClassificationRequestBodyDataStaticConfigField.Builder().classification(new AddClassificationRequestBodyDataStaticConfigClassificationField.Builder().classificationDefinition("Other description").colorId(4L).build()).build()).build())))
 ```
 
 ### Arguments
@@ -92,7 +92,7 @@ See the endpoint docs at
 
 <!-- sample put_metadata_templates_enterprise_securityClassification-6VMVochwUWo_schema#update -->
 ```
-client.getClassifications().updateClassification(Arrays.asList(new UpdateClassificationRequestBody(classification.getKey(), new UpdateClassificationRequestBodyDataField.UpdateClassificationRequestBodyDataFieldBuilder(updatedClassificationName).staticConfig(new UpdateClassificationRequestBodyDataStaticConfigField.UpdateClassificationRequestBodyDataStaticConfigFieldBuilder().classification(new UpdateClassificationRequestBodyDataStaticConfigClassificationField.UpdateClassificationRequestBodyDataStaticConfigClassificationFieldBuilder().classificationDefinition(updatedClassificationDescription).colorId(2L).build()).build()).build())))
+client.getClassifications().updateClassification(Arrays.asList(new UpdateClassificationRequestBody(classification.getKey(), new UpdateClassificationRequestBodyDataField.Builder(updatedClassificationName).staticConfig(new UpdateClassificationRequestBodyDataStaticConfigField.Builder().classification(new UpdateClassificationRequestBodyDataStaticConfigClassificationField.Builder().classificationDefinition(updatedClassificationDescription).colorId(2L).build()).build()).build())))
 ```
 
 ### Arguments

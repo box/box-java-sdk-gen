@@ -12,7 +12,7 @@ public class GetFileCommentsHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetFileCommentsHeaders(GetFileCommentsHeadersBuilder builder) {
+  protected GetFileCommentsHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetFileCommentsHeaders {
     return extraHeaders;
   }
 
-  public static class GetFileCommentsHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetFileCommentsHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetFileCommentsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

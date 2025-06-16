@@ -26,8 +26,7 @@ public class CollaborationAllowlistExemptTargetsManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected CollaborationAllowlistExemptTargetsManager(
-      CollaborationAllowlistExemptTargetsManagerBuilder builder) {
+  protected CollaborationAllowlistExemptTargetsManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -63,7 +62,7 @@ public class CollaborationAllowlistExemptTargetsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -92,7 +91,7 @@ public class CollaborationAllowlistExemptTargetsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -123,7 +122,7 @@ public class CollaborationAllowlistExemptTargetsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -153,7 +152,7 @@ public class CollaborationAllowlistExemptTargetsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -175,23 +174,22 @@ public class CollaborationAllowlistExemptTargetsManager {
     return networkSession;
   }
 
-  public static class CollaborationAllowlistExemptTargetsManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public CollaborationAllowlistExemptTargetsManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public CollaborationAllowlistExemptTargetsManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public CollaborationAllowlistExemptTargetsManagerBuilder networkSession(
-        NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

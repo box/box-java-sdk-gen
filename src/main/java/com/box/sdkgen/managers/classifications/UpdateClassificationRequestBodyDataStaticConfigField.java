@@ -11,8 +11,7 @@ public class UpdateClassificationRequestBodyDataStaticConfigField extends Serial
     super();
   }
 
-  protected UpdateClassificationRequestBodyDataStaticConfigField(
-      UpdateClassificationRequestBodyDataStaticConfigFieldBuilder builder) {
+  protected UpdateClassificationRequestBodyDataStaticConfigField(Builder builder) {
     super();
     this.classification = builder.classification;
   }
@@ -48,11 +47,11 @@ public class UpdateClassificationRequestBodyDataStaticConfigField extends Serial
         + "}";
   }
 
-  public static class UpdateClassificationRequestBodyDataStaticConfigFieldBuilder {
+  public static class Builder {
 
     protected UpdateClassificationRequestBodyDataStaticConfigClassificationField classification;
 
-    public UpdateClassificationRequestBodyDataStaticConfigFieldBuilder classification(
+    public Builder classification(
         UpdateClassificationRequestBodyDataStaticConfigClassificationField classification) {
       this.classification = classification;
       return this;

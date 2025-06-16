@@ -24,8 +24,7 @@ public class WorkflowFlowsTriggerScopeObjectField extends SerializableObject {
     super();
   }
 
-  protected WorkflowFlowsTriggerScopeObjectField(
-      WorkflowFlowsTriggerScopeObjectFieldBuilder builder) {
+  protected WorkflowFlowsTriggerScopeObjectField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -69,25 +68,23 @@ public class WorkflowFlowsTriggerScopeObjectField extends SerializableObject {
         + "}";
   }
 
-  public static class WorkflowFlowsTriggerScopeObjectFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<WorkflowFlowsTriggerScopeObjectTypeField> type;
 
     protected String id;
 
-    public WorkflowFlowsTriggerScopeObjectFieldBuilder type(
-        WorkflowFlowsTriggerScopeObjectTypeField type) {
+    public Builder type(WorkflowFlowsTriggerScopeObjectTypeField type) {
       this.type = new EnumWrapper<WorkflowFlowsTriggerScopeObjectTypeField>(type);
       return this;
     }
 
-    public WorkflowFlowsTriggerScopeObjectFieldBuilder type(
-        EnumWrapper<WorkflowFlowsTriggerScopeObjectTypeField> type) {
+    public Builder type(EnumWrapper<WorkflowFlowsTriggerScopeObjectTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public WorkflowFlowsTriggerScopeObjectFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

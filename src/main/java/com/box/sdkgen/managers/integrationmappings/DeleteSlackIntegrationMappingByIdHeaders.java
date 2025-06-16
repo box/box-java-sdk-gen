@@ -12,8 +12,7 @@ public class DeleteSlackIntegrationMappingByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteSlackIntegrationMappingByIdHeaders(
-      DeleteSlackIntegrationMappingByIdHeadersBuilder builder) {
+  protected DeleteSlackIntegrationMappingByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class DeleteSlackIntegrationMappingByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteSlackIntegrationMappingByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteSlackIntegrationMappingByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteSlackIntegrationMappingByIdHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

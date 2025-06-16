@@ -15,7 +15,7 @@ public class InterceptorChangingResponse implements Interceptor {
 
   @Override
   public FetchResponse afterRequest(FetchResponse response) {
-    return new FetchResponse.FetchResponseBuilder(response.getStatus(), response.getHeaders())
+    return new FetchResponse.Builder(response.getStatus(), response.getHeaders())
         .url(response.getUrl())
         .data(jsonToSerializedData("{\"id\": \"123\", \"type\": \"user\"}"))
         .content(response.getContent())

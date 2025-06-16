@@ -52,7 +52,7 @@ See the endpoint docs at
 
 <!-- sample post_webhooks -->
 ```
-client.getWebhooks().createWebhook(new CreateWebhookRequestBody(new CreateWebhookRequestBodyTargetField.CreateWebhookRequestBodyTargetFieldBuilder().id(folder.getId()).type(CreateWebhookRequestBodyTargetTypeField.FOLDER).build(), "https://example.com/new-webhook", Arrays.asList(CreateWebhookRequestBodyTriggersField.FILE_UPLOADED)))
+client.getWebhooks().createWebhook(new CreateWebhookRequestBody(new CreateWebhookRequestBodyTargetField.Builder().id(folder.getId()).type(CreateWebhookRequestBodyTargetTypeField.FOLDER).build(), "https://example.com/new-webhook", Arrays.asList(CreateWebhookRequestBodyTriggersField.FILE_UPLOADED)))
 ```
 
 ### Arguments
@@ -110,7 +110,7 @@ See the endpoint docs at
 
 <!-- sample put_webhooks_id -->
 ```
-client.getWebhooks().updateWebhookById(webhook.getId(), new UpdateWebhookByIdRequestBody.UpdateWebhookByIdRequestBodyBuilder().address("https://example.com/updated-webhook").build())
+client.getWebhooks().updateWebhookById(webhook.getId(), new UpdateWebhookByIdRequestBody.Builder().address("https://example.com/updated-webhook").build())
 ```
 
 ### Arguments

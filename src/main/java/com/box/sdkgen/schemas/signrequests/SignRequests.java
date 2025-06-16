@@ -19,7 +19,7 @@ public class SignRequests extends SerializableObject {
     super();
   }
 
-  protected SignRequests(SignRequestsBuilder builder) {
+  protected SignRequests(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -74,7 +74,7 @@ public class SignRequests extends SerializableObject {
         + "}";
   }
 
-  public static class SignRequestsBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -82,17 +82,17 @@ public class SignRequests extends SerializableObject {
 
     protected List<SignRequest> entries;
 
-    public SignRequestsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public SignRequestsBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public SignRequestsBuilder entries(List<SignRequest> entries) {
+    public Builder entries(List<SignRequest> entries) {
       this.entries = entries;
       return this;
     }

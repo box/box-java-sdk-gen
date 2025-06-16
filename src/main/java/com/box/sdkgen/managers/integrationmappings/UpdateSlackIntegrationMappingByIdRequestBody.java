@@ -17,8 +17,7 @@ public class UpdateSlackIntegrationMappingByIdRequestBody extends SerializableOb
     super();
   }
 
-  protected UpdateSlackIntegrationMappingByIdRequestBody(
-      UpdateSlackIntegrationMappingByIdRequestBodyBuilder builder) {
+  protected UpdateSlackIntegrationMappingByIdRequestBody(Builder builder) {
     super();
     this.boxItem = builder.boxItem;
     this.options = builder.options;
@@ -63,20 +62,18 @@ public class UpdateSlackIntegrationMappingByIdRequestBody extends SerializableOb
         + "}";
   }
 
-  public static class UpdateSlackIntegrationMappingByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected IntegrationMappingBoxItemSlack boxItem;
 
     protected IntegrationMappingSlackOptions options;
 
-    public UpdateSlackIntegrationMappingByIdRequestBodyBuilder boxItem(
-        IntegrationMappingBoxItemSlack boxItem) {
+    public Builder boxItem(IntegrationMappingBoxItemSlack boxItem) {
       this.boxItem = boxItem;
       return this;
     }
 
-    public UpdateSlackIntegrationMappingByIdRequestBodyBuilder options(
-        IntegrationMappingSlackOptions options) {
+    public Builder options(IntegrationMappingSlackOptions options) {
       this.options = options;
       return this;
     }

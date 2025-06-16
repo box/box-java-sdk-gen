@@ -39,9 +39,9 @@ public class ShieldInformationBarrierReportsITest {
         client
             .getShieldInformationBarrierReports()
             .createShieldInformationBarrierReport(
-                new ShieldInformationBarrierReference.ShieldInformationBarrierReferenceBuilder()
+                new ShieldInformationBarrierReference.Builder()
                     .shieldInformationBarrier(
-                        new ShieldInformationBarrierBase.ShieldInformationBarrierBaseBuilder()
+                        new ShieldInformationBarrierBase.Builder()
                             .id(barrierId)
                             .type(ShieldInformationBarrierBaseTypeField.SHIELD_INFORMATION_BARRIER)
                             .build())

@@ -12,7 +12,7 @@ public class GetFolderCollaborationsQueryParams {
 
   public GetFolderCollaborationsQueryParams() {}
 
-  protected GetFolderCollaborationsQueryParams(GetFolderCollaborationsQueryParamsBuilder builder) {
+  protected GetFolderCollaborationsQueryParams(Builder builder) {
     this.fields = builder.fields;
     this.limit = builder.limit;
     this.marker = builder.marker;
@@ -30,7 +30,7 @@ public class GetFolderCollaborationsQueryParams {
     return marker;
   }
 
-  public static class GetFolderCollaborationsQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
@@ -38,17 +38,17 @@ public class GetFolderCollaborationsQueryParams {
 
     protected String marker;
 
-    public GetFolderCollaborationsQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public GetFolderCollaborationsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetFolderCollaborationsQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }

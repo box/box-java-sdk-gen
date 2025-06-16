@@ -21,7 +21,7 @@ public class CreateTaskRequestBodyItemField extends SerializableObject {
     super();
   }
 
-  protected CreateTaskRequestBodyItemField(CreateTaskRequestBodyItemFieldBuilder builder) {
+  protected CreateTaskRequestBodyItemField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -65,24 +65,23 @@ public class CreateTaskRequestBodyItemField extends SerializableObject {
         + "}";
   }
 
-  public static class CreateTaskRequestBodyItemFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected EnumWrapper<CreateTaskRequestBodyItemTypeField> type;
 
-    public CreateTaskRequestBodyItemFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public CreateTaskRequestBodyItemFieldBuilder type(CreateTaskRequestBodyItemTypeField type) {
+    public Builder type(CreateTaskRequestBodyItemTypeField type) {
       this.type = new EnumWrapper<CreateTaskRequestBodyItemTypeField>(type);
       return this;
     }
 
-    public CreateTaskRequestBodyItemFieldBuilder type(
-        EnumWrapper<CreateTaskRequestBodyItemTypeField> type) {
+    public Builder type(EnumWrapper<CreateTaskRequestBodyItemTypeField> type) {
       this.type = type;
       return this;
     }

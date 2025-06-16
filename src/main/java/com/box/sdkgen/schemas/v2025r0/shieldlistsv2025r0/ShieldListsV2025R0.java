@@ -13,7 +13,7 @@ public class ShieldListsV2025R0 extends SerializableObject {
     super();
   }
 
-  protected ShieldListsV2025R0(ShieldListsV2025R0Builder builder) {
+  protected ShieldListsV2025R0(Builder builder) {
     super();
     this.entries = builder.entries;
   }
@@ -44,11 +44,11 @@ public class ShieldListsV2025R0 extends SerializableObject {
     return "ShieldListsV2025R0{" + "entries='" + entries + '\'' + "}";
   }
 
-  public static class ShieldListsV2025R0Builder {
+  public static class Builder {
 
     protected List<ShieldListMiniV2025R0> entries;
 
-    public ShieldListsV2025R0Builder entries(List<ShieldListMiniV2025R0> entries) {
+    public Builder entries(List<ShieldListMiniV2025R0> entries) {
       this.entries = entries;
       return this;
     }

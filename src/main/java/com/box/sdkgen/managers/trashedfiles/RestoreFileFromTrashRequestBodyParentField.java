@@ -11,8 +11,7 @@ public class RestoreFileFromTrashRequestBodyParentField extends SerializableObje
     super();
   }
 
-  protected RestoreFileFromTrashRequestBodyParentField(
-      RestoreFileFromTrashRequestBodyParentFieldBuilder builder) {
+  protected RestoreFileFromTrashRequestBodyParentField(Builder builder) {
     super();
     this.id = builder.id;
   }
@@ -44,11 +43,11 @@ public class RestoreFileFromTrashRequestBodyParentField extends SerializableObje
     return "RestoreFileFromTrashRequestBodyParentField{" + "id='" + id + '\'' + "}";
   }
 
-  public static class RestoreFileFromTrashRequestBodyParentFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
-    public RestoreFileFromTrashRequestBodyParentFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

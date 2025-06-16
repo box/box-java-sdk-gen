@@ -12,7 +12,7 @@ public class RevokeAccessTokenHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected RevokeAccessTokenHeaders(RevokeAccessTokenHeadersBuilder builder) {
+  protected RevokeAccessTokenHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class RevokeAccessTokenHeaders {
     return extraHeaders;
   }
 
-  public static class RevokeAccessTokenHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public RevokeAccessTokenHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public RevokeAccessTokenHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

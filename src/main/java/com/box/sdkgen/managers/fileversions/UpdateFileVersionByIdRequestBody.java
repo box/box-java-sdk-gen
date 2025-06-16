@@ -13,7 +13,7 @@ public class UpdateFileVersionByIdRequestBody extends SerializableObject {
     super();
   }
 
-  protected UpdateFileVersionByIdRequestBody(UpdateFileVersionByIdRequestBodyBuilder builder) {
+  protected UpdateFileVersionByIdRequestBody(Builder builder) {
     super();
     this.trashedAt = builder.trashedAt;
   }
@@ -44,11 +44,11 @@ public class UpdateFileVersionByIdRequestBody extends SerializableObject {
     return "UpdateFileVersionByIdRequestBody{" + "trashedAt='" + trashedAt + '\'' + "}";
   }
 
-  public static class UpdateFileVersionByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected String trashedAt;
 
-    public UpdateFileVersionByIdRequestBodyBuilder trashedAt(String trashedAt) {
+    public Builder trashedAt(String trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }

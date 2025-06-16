@@ -36,7 +36,7 @@ public class FolderLock extends SerializableObject {
     super();
   }
 
-  protected FolderLock(FolderLockBuilder builder) {
+  protected FolderLock(Builder builder) {
     super();
     this.folder = builder.folder;
     this.id = builder.id;
@@ -131,7 +131,7 @@ public class FolderLock extends SerializableObject {
         + "}";
   }
 
-  public static class FolderLockBuilder {
+  public static class Builder {
 
     protected FolderMini folder;
 
@@ -147,37 +147,37 @@ public class FolderLock extends SerializableObject {
 
     protected String lockType;
 
-    public FolderLockBuilder folder(FolderMini folder) {
+    public Builder folder(FolderMini folder) {
       this.folder = folder;
       return this;
     }
 
-    public FolderLockBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public FolderLockBuilder type(String type) {
+    public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public FolderLockBuilder createdBy(UserBase createdBy) {
+    public Builder createdBy(UserBase createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public FolderLockBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public FolderLockBuilder lockedOperations(FolderLockLockedOperationsField lockedOperations) {
+    public Builder lockedOperations(FolderLockLockedOperationsField lockedOperations) {
       this.lockedOperations = lockedOperations;
       return this;
     }
 
-    public FolderLockBuilder lockType(String lockType) {
+    public Builder lockType(String lockType) {
       this.lockType = lockType;
       return this;
     }

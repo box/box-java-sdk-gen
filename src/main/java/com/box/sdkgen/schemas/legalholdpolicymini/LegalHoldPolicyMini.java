@@ -24,7 +24,7 @@ public class LegalHoldPolicyMini extends SerializableObject {
             LegalHoldPolicyMiniTypeField.LEGAL_HOLD_POLICY);
   }
 
-  protected LegalHoldPolicyMini(LegalHoldPolicyMiniBuilder builder) {
+  protected LegalHoldPolicyMini(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -60,25 +60,25 @@ public class LegalHoldPolicyMini extends SerializableObject {
     return "LegalHoldPolicyMini{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class LegalHoldPolicyMiniBuilder {
+  public static class Builder {
 
     protected final String id;
 
     protected EnumWrapper<LegalHoldPolicyMiniTypeField> type;
 
-    public LegalHoldPolicyMiniBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<LegalHoldPolicyMiniTypeField>(
               LegalHoldPolicyMiniTypeField.LEGAL_HOLD_POLICY);
     }
 
-    public LegalHoldPolicyMiniBuilder type(LegalHoldPolicyMiniTypeField type) {
+    public Builder type(LegalHoldPolicyMiniTypeField type) {
       this.type = new EnumWrapper<LegalHoldPolicyMiniTypeField>(type);
       return this;
     }
 
-    public LegalHoldPolicyMiniBuilder type(EnumWrapper<LegalHoldPolicyMiniTypeField> type) {
+    public Builder type(EnumWrapper<LegalHoldPolicyMiniTypeField> type) {
       this.type = type;
       return this;
     }

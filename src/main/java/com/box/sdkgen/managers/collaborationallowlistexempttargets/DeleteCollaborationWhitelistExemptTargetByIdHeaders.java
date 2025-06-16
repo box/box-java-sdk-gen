@@ -12,8 +12,7 @@ public class DeleteCollaborationWhitelistExemptTargetByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteCollaborationWhitelistExemptTargetByIdHeaders(
-      DeleteCollaborationWhitelistExemptTargetByIdHeadersBuilder builder) {
+  protected DeleteCollaborationWhitelistExemptTargetByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class DeleteCollaborationWhitelistExemptTargetByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteCollaborationWhitelistExemptTargetByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteCollaborationWhitelistExemptTargetByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteCollaborationWhitelistExemptTargetByIdHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

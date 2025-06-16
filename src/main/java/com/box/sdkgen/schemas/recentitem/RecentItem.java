@@ -35,7 +35,7 @@ public class RecentItem extends SerializableObject {
     super();
   }
 
-  protected RecentItem(RecentItemBuilder builder) {
+  protected RecentItem(Builder builder) {
     super();
     this.type = builder.type;
     this.item = builder.item;
@@ -110,7 +110,7 @@ public class RecentItem extends SerializableObject {
         + "}";
   }
 
-  public static class RecentItemBuilder {
+  public static class Builder {
 
     protected String type;
 
@@ -122,33 +122,32 @@ public class RecentItem extends SerializableObject {
 
     protected String interactionSharedLink;
 
-    public RecentItemBuilder type(String type) {
+    public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public RecentItemBuilder item(FileFullOrFolderFullOrWebLink item) {
+    public Builder item(FileFullOrFolderFullOrWebLink item) {
       this.item = item;
       return this;
     }
 
-    public RecentItemBuilder interactionType(RecentItemInteractionTypeField interactionType) {
+    public Builder interactionType(RecentItemInteractionTypeField interactionType) {
       this.interactionType = new EnumWrapper<RecentItemInteractionTypeField>(interactionType);
       return this;
     }
 
-    public RecentItemBuilder interactionType(
-        EnumWrapper<RecentItemInteractionTypeField> interactionType) {
+    public Builder interactionType(EnumWrapper<RecentItemInteractionTypeField> interactionType) {
       this.interactionType = interactionType;
       return this;
     }
 
-    public RecentItemBuilder interactedAt(Date interactedAt) {
+    public Builder interactedAt(Date interactedAt) {
       this.interactedAt = interactedAt;
       return this;
     }
 
-    public RecentItemBuilder interactionSharedLink(String interactionSharedLink) {
+    public Builder interactionSharedLink(String interactionSharedLink) {
       this.interactionSharedLink = interactionSharedLink;
       return this;
     }

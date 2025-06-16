@@ -41,7 +41,7 @@ public class GroupMembership extends SerializableObject {
     super();
   }
 
-  protected GroupMembership(GroupMembershipBuilder builder) {
+  protected GroupMembership(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -136,7 +136,7 @@ public class GroupMembership extends SerializableObject {
         + "}";
   }
 
-  public static class GroupMembershipBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -152,47 +152,47 @@ public class GroupMembership extends SerializableObject {
 
     protected Date modifiedAt;
 
-    public GroupMembershipBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public GroupMembershipBuilder type(GroupMembershipTypeField type) {
+    public Builder type(GroupMembershipTypeField type) {
       this.type = new EnumWrapper<GroupMembershipTypeField>(type);
       return this;
     }
 
-    public GroupMembershipBuilder type(EnumWrapper<GroupMembershipTypeField> type) {
+    public Builder type(EnumWrapper<GroupMembershipTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public GroupMembershipBuilder user(UserMini user) {
+    public Builder user(UserMini user) {
       this.user = user;
       return this;
     }
 
-    public GroupMembershipBuilder group(GroupMini group) {
+    public Builder group(GroupMini group) {
       this.group = group;
       return this;
     }
 
-    public GroupMembershipBuilder role(GroupMembershipRoleField role) {
+    public Builder role(GroupMembershipRoleField role) {
       this.role = new EnumWrapper<GroupMembershipRoleField>(role);
       return this;
     }
 
-    public GroupMembershipBuilder role(EnumWrapper<GroupMembershipRoleField> role) {
+    public Builder role(EnumWrapper<GroupMembershipRoleField> role) {
       this.role = role;
       return this;
     }
 
-    public GroupMembershipBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public GroupMembershipBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

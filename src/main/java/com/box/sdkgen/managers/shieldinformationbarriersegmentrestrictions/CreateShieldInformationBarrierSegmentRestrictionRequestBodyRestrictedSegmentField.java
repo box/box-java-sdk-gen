@@ -30,8 +30,7 @@ public class CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrict
   }
 
   protected CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentField(
-      CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentFieldBuilder
-          builder) {
+      Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -78,8 +77,7 @@ public class CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrict
         + "}";
   }
 
-  public static
-  class CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -87,16 +85,14 @@ public class CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrict
             CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentTypeField>
         type;
 
-    public CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentFieldBuilder
-        id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentFieldBuilder
-        type(
-            CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentTypeField
-                type) {
+    public Builder type(
+        CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentTypeField
+            type) {
       this.type =
           new EnumWrapper<
               CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentTypeField>(
@@ -104,11 +100,10 @@ public class CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrict
       return this;
     }
 
-    public CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentFieldBuilder
-        type(
-            EnumWrapper<
-                    CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentTypeField>
-                type) {
+    public Builder type(
+        EnumWrapper<
+                CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentTypeField>
+            type) {
       this.type = type;
       return this;
     }

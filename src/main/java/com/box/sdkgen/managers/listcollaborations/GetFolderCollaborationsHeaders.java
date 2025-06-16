@@ -12,7 +12,7 @@ public class GetFolderCollaborationsHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetFolderCollaborationsHeaders(GetFolderCollaborationsHeadersBuilder builder) {
+  protected GetFolderCollaborationsHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetFolderCollaborationsHeaders {
     return extraHeaders;
   }
 
-  public static class GetFolderCollaborationsHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetFolderCollaborationsHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetFolderCollaborationsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

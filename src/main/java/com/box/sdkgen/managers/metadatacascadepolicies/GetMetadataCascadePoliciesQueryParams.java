@@ -14,8 +14,7 @@ public class GetMetadataCascadePoliciesQueryParams {
     this.folderId = folderId;
   }
 
-  protected GetMetadataCascadePoliciesQueryParams(
-      GetMetadataCascadePoliciesQueryParamsBuilder builder) {
+  protected GetMetadataCascadePoliciesQueryParams(Builder builder) {
     this.folderId = builder.folderId;
     this.ownerEnterpriseId = builder.ownerEnterpriseId;
     this.marker = builder.marker;
@@ -38,7 +37,7 @@ public class GetMetadataCascadePoliciesQueryParams {
     return offset;
   }
 
-  public static class GetMetadataCascadePoliciesQueryParamsBuilder {
+  public static class Builder {
 
     protected final String folderId;
 
@@ -48,22 +47,21 @@ public class GetMetadataCascadePoliciesQueryParams {
 
     protected Long offset;
 
-    public GetMetadataCascadePoliciesQueryParamsBuilder(String folderId) {
+    public Builder(String folderId) {
       this.folderId = folderId;
     }
 
-    public GetMetadataCascadePoliciesQueryParamsBuilder ownerEnterpriseId(
-        String ownerEnterpriseId) {
+    public Builder ownerEnterpriseId(String ownerEnterpriseId) {
       this.ownerEnterpriseId = ownerEnterpriseId;
       return this;
     }
 
-    public GetMetadataCascadePoliciesQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetMetadataCascadePoliciesQueryParamsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }

@@ -47,7 +47,7 @@ public class ClientITest {
         String.join("", "{\"name\": \"", newFolderName, "\", \"parent\": { \"id\": \"0\"}}");
     FetchResponse createFolderResponse =
         client.makeRequest(
-            new FetchOptions.FetchOptionsBuilder("https://api.box.com/2.0/folders", "post")
+            new FetchOptions.Builder("https://api.box.com/2.0/folders", "post")
                 .data(jsonToSerializedData(requestBodyPost))
                 .build());
     assert createFolderResponse.getStatus() == 201;
@@ -57,7 +57,7 @@ public class ClientITest {
     String requestBodyPut = String.join("", "{\"name\": \"", updatedName, "\"}");
     FetchResponse updateFolderResponse =
         client.makeRequest(
-            new FetchOptions.FetchOptionsBuilder(
+            new FetchOptions.Builder(
                     String.join(
                         "",
                         "https://api.box.com/2.0/folders/",
@@ -105,26 +105,20 @@ public class ClientITest {
             "", "{\"name\": \"", newFileName, "\", \"parent\": { \"id\":", newFolderId, "}}");
     FetchResponse uploadFileResponse =
         client.makeRequest(
-            new FetchOptions.FetchOptionsBuilder(
-                    "https://upload.box.com/api/2.0/files/content", "POST")
+            new FetchOptions.Builder("https://upload.box.com/api/2.0/files/content", "POST")
                 .multipartData(
                     Arrays.asList(
-                        new MultipartItem.MultipartItemBuilder("attributes")
+                        new MultipartItem.Builder("attributes")
                             .data(jsonToSerializedData(multipartAttributes))
                             .build(),
-                        new MultipartItem.MultipartItemBuilder("file")
-                            .fileStream(fileContentStream)
-                            .build()))
+                        new MultipartItem.Builder("file").fileStream(fileContentStream).build()))
                 .contentType("multipart/form-data")
                 .build());
     assert uploadFileResponse.getStatus() == 201;
     client
         .getFolders()
         .deleteFolderById(
-            newFolderId,
-            new DeleteFolderByIdQueryParams.DeleteFolderByIdQueryParamsBuilder()
-                .recursive(true)
-                .build());
+            newFolderId, new DeleteFolderByIdQueryParams.Builder().recursive(true).build());
   }
 
   @Test
@@ -143,7 +137,7 @@ public class ClientITest {
     FileFull uploadedFile = uploadedFiles.getEntries().get(0);
     FetchResponse downloadFileResponse =
         client.makeRequest(
-            new FetchOptions.FetchOptionsBuilder(
+            new FetchOptions.Builder(
                     String.join(
                         "", "https://api.box.com/2.0/files/", uploadedFile.getId(), "/content"),
                     "GET")
@@ -161,9 +155,7 @@ public class ClientITest {
         client
             .getUsers()
             .createUser(
-                new CreateUserRequestBody.CreateUserRequestBodyBuilder(userName)
-                    .isPlatformAccessOnly(true)
-                    .build());
+                new CreateUserRequestBody.Builder(userName).isPlatformAccessOnly(true).build());
     BoxClient asUserClient = client.withAsUserHeader(createdUser.getId());
     UserFull adminUser = client.getUsers().getUserMe();
     assert !(convertToString(adminUser.getName()).equals(userName));
@@ -186,9 +178,7 @@ public class ClientITest {
         client
             .getUsers()
             .createUser(
-                new CreateUserRequestBody.CreateUserRequestBodyBuilder(userName)
-                    .isPlatformAccessOnly(true)
-                    .build());
+                new CreateUserRequestBody.Builder(userName).isPlatformAccessOnly(true).build());
     BoxClient asUserClient =
         client.withExtraHeaders(mapOf(entryOf("As-User", createdUser.getId())));
     UserFull adminUser = client.getUsers().getUserMe();
@@ -201,7 +191,7 @@ public class ClientITest {
   @Test
   public void testWithCustomBaseUrls() {
     BaseUrls newBaseUrls =
-        new BaseUrls.BaseUrlsBuilder()
+        new BaseUrls.Builder()
             .baseUrl("https://box.com/")
             .uploadUrl("https://box.com/")
             .oauth2Url("https://box.com/")

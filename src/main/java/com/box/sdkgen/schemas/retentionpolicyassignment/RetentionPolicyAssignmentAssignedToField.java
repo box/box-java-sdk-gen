@@ -24,8 +24,7 @@ public class RetentionPolicyAssignmentAssignedToField extends SerializableObject
     super();
   }
 
-  protected RetentionPolicyAssignmentAssignedToField(
-      RetentionPolicyAssignmentAssignedToFieldBuilder builder) {
+  protected RetentionPolicyAssignmentAssignedToField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -69,25 +68,23 @@ public class RetentionPolicyAssignmentAssignedToField extends SerializableObject
         + "}";
   }
 
-  public static class RetentionPolicyAssignmentAssignedToFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected EnumWrapper<RetentionPolicyAssignmentAssignedToTypeField> type;
 
-    public RetentionPolicyAssignmentAssignedToFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public RetentionPolicyAssignmentAssignedToFieldBuilder type(
-        RetentionPolicyAssignmentAssignedToTypeField type) {
+    public Builder type(RetentionPolicyAssignmentAssignedToTypeField type) {
       this.type = new EnumWrapper<RetentionPolicyAssignmentAssignedToTypeField>(type);
       return this;
     }
 
-    public RetentionPolicyAssignmentAssignedToFieldBuilder type(
-        EnumWrapper<RetentionPolicyAssignmentAssignedToTypeField> type) {
+    public Builder type(EnumWrapper<RetentionPolicyAssignmentAssignedToTypeField> type) {
       this.type = type;
       return this;
     }

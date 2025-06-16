@@ -8,7 +8,7 @@ public class DeveloperTokenConfig {
 
   public DeveloperTokenConfig() {}
 
-  protected DeveloperTokenConfig(DeveloperTokenConfigBuilder builder) {
+  protected DeveloperTokenConfig(Builder builder) {
     this.clientId = builder.clientId;
     this.clientSecret = builder.clientSecret;
   }
@@ -21,18 +21,18 @@ public class DeveloperTokenConfig {
     return clientSecret;
   }
 
-  public static class DeveloperTokenConfigBuilder {
+  public static class Builder {
 
     protected String clientId;
 
     protected String clientSecret;
 
-    public DeveloperTokenConfigBuilder clientId(String clientId) {
+    public Builder clientId(String clientId) {
       this.clientId = clientId;
       return this;
     }
 
-    public DeveloperTokenConfigBuilder clientSecret(String clientSecret) {
+    public Builder clientSecret(String clientSecret) {
       this.clientSecret = clientSecret;
       return this;
     }

@@ -24,8 +24,7 @@ public class CreateCollaborationRequestBodyItemField extends SerializableObject 
     super();
   }
 
-  protected CreateCollaborationRequestBodyItemField(
-      CreateCollaborationRequestBodyItemFieldBuilder builder) {
+  protected CreateCollaborationRequestBodyItemField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -69,25 +68,23 @@ public class CreateCollaborationRequestBodyItemField extends SerializableObject 
         + "}";
   }
 
-  public static class CreateCollaborationRequestBodyItemFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<CreateCollaborationRequestBodyItemTypeField> type;
 
     protected String id;
 
-    public CreateCollaborationRequestBodyItemFieldBuilder type(
-        CreateCollaborationRequestBodyItemTypeField type) {
+    public Builder type(CreateCollaborationRequestBodyItemTypeField type) {
       this.type = new EnumWrapper<CreateCollaborationRequestBodyItemTypeField>(type);
       return this;
     }
 
-    public CreateCollaborationRequestBodyItemFieldBuilder type(
-        EnumWrapper<CreateCollaborationRequestBodyItemTypeField> type) {
+    public Builder type(EnumWrapper<CreateCollaborationRequestBodyItemTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public CreateCollaborationRequestBodyItemFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

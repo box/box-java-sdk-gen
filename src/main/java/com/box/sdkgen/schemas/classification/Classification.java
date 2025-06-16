@@ -40,7 +40,7 @@ public class Classification extends SerializableObject {
     super();
   }
 
-  protected Classification(ClassificationBuilder builder) {
+  protected Classification(Builder builder) {
     super();
     this.boxSecurityClassificationKey = builder.boxSecurityClassificationKey;
     this.parent = builder.parent;
@@ -146,7 +146,7 @@ public class Classification extends SerializableObject {
         + "}";
   }
 
-  public static class ClassificationBuilder {
+  public static class Builder {
 
     protected String boxSecurityClassificationKey;
 
@@ -164,47 +164,47 @@ public class Classification extends SerializableObject {
 
     protected Boolean canEdit;
 
-    public ClassificationBuilder boxSecurityClassificationKey(String boxSecurityClassificationKey) {
+    public Builder boxSecurityClassificationKey(String boxSecurityClassificationKey) {
       this.boxSecurityClassificationKey = boxSecurityClassificationKey;
       return this;
     }
 
-    public ClassificationBuilder parent(String parent) {
+    public Builder parent(String parent) {
       this.parent = parent;
       return this;
     }
 
-    public ClassificationBuilder template(ClassificationTemplateField template) {
+    public Builder template(ClassificationTemplateField template) {
       this.template = new EnumWrapper<ClassificationTemplateField>(template);
       return this;
     }
 
-    public ClassificationBuilder template(EnumWrapper<ClassificationTemplateField> template) {
+    public Builder template(EnumWrapper<ClassificationTemplateField> template) {
       this.template = template;
       return this;
     }
 
-    public ClassificationBuilder scope(String scope) {
+    public Builder scope(String scope) {
       this.scope = scope;
       return this;
     }
 
-    public ClassificationBuilder version(Long version) {
+    public Builder version(Long version) {
       this.version = version;
       return this;
     }
 
-    public ClassificationBuilder type(String type) {
+    public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public ClassificationBuilder typeVersion(Double typeVersion) {
+    public Builder typeVersion(Double typeVersion) {
       this.typeVersion = typeVersion;
       return this;
     }
 
-    public ClassificationBuilder canEdit(Boolean canEdit) {
+    public Builder canEdit(Boolean canEdit) {
       this.canEdit = canEdit;
       return this;
     }

@@ -66,7 +66,7 @@ public class SignTemplate extends SerializableObject {
     super();
   }
 
-  protected SignTemplate(SignTemplateBuilder builder) {
+  protected SignTemplate(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -278,7 +278,7 @@ public class SignTemplate extends SerializableObject {
         + "}";
   }
 
-  public static class SignTemplateBuilder {
+  public static class Builder {
 
     protected EnumWrapper<SignTemplateTypeField> type;
 
@@ -314,92 +314,92 @@ public class SignTemplate extends SerializableObject {
 
     protected SignTemplateCustomBrandingField customBranding;
 
-    public SignTemplateBuilder type(SignTemplateTypeField type) {
+    public Builder type(SignTemplateTypeField type) {
       this.type = new EnumWrapper<SignTemplateTypeField>(type);
       return this;
     }
 
-    public SignTemplateBuilder type(EnumWrapper<SignTemplateTypeField> type) {
+    public Builder type(EnumWrapper<SignTemplateTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public SignTemplateBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public SignTemplateBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public SignTemplateBuilder emailSubject(String emailSubject) {
+    public Builder emailSubject(String emailSubject) {
       this.emailSubject = emailSubject;
       return this;
     }
 
-    public SignTemplateBuilder emailMessage(String emailMessage) {
+    public Builder emailMessage(String emailMessage) {
       this.emailMessage = emailMessage;
       return this;
     }
 
-    public SignTemplateBuilder daysValid(Long daysValid) {
+    public Builder daysValid(Long daysValid) {
       this.daysValid = daysValid;
       return this;
     }
 
-    public SignTemplateBuilder parentFolder(FolderMini parentFolder) {
+    public Builder parentFolder(FolderMini parentFolder) {
       this.parentFolder = parentFolder;
       return this;
     }
 
-    public SignTemplateBuilder sourceFiles(List<FileMini> sourceFiles) {
+    public Builder sourceFiles(List<FileMini> sourceFiles) {
       this.sourceFiles = sourceFiles;
       return this;
     }
 
-    public SignTemplateBuilder areFieldsLocked(Boolean areFieldsLocked) {
+    public Builder areFieldsLocked(Boolean areFieldsLocked) {
       this.areFieldsLocked = areFieldsLocked;
       return this;
     }
 
-    public SignTemplateBuilder areOptionsLocked(Boolean areOptionsLocked) {
+    public Builder areOptionsLocked(Boolean areOptionsLocked) {
       this.areOptionsLocked = areOptionsLocked;
       return this;
     }
 
-    public SignTemplateBuilder areRecipientsLocked(Boolean areRecipientsLocked) {
+    public Builder areRecipientsLocked(Boolean areRecipientsLocked) {
       this.areRecipientsLocked = areRecipientsLocked;
       return this;
     }
 
-    public SignTemplateBuilder areEmailSettingsLocked(Boolean areEmailSettingsLocked) {
+    public Builder areEmailSettingsLocked(Boolean areEmailSettingsLocked) {
       this.areEmailSettingsLocked = areEmailSettingsLocked;
       return this;
     }
 
-    public SignTemplateBuilder areFilesLocked(Boolean areFilesLocked) {
+    public Builder areFilesLocked(Boolean areFilesLocked) {
       this.areFilesLocked = areFilesLocked;
       return this;
     }
 
-    public SignTemplateBuilder signers(List<TemplateSigner> signers) {
+    public Builder signers(List<TemplateSigner> signers) {
       this.signers = signers;
       return this;
     }
 
-    public SignTemplateBuilder additionalInfo(SignTemplateAdditionalInfoField additionalInfo) {
+    public Builder additionalInfo(SignTemplateAdditionalInfoField additionalInfo) {
       this.additionalInfo = additionalInfo;
       return this;
     }
 
-    public SignTemplateBuilder readySignLink(SignTemplateReadySignLinkField readySignLink) {
+    public Builder readySignLink(SignTemplateReadySignLinkField readySignLink) {
       this.readySignLink = readySignLink;
       return this;
     }
 
-    public SignTemplateBuilder customBranding(SignTemplateCustomBrandingField customBranding) {
+    public Builder customBranding(SignTemplateCustomBrandingField customBranding) {
       this.customBranding = customBranding;
       return this;
     }

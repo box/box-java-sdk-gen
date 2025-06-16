@@ -45,7 +45,7 @@ public class TemplateSigner extends SerializableObject {
     super();
   }
 
-  protected TemplateSigner(TemplateSignerBuilder builder) {
+  protected TemplateSigner(Builder builder) {
     super();
     this.inputs = builder.inputs;
     this.email = builder.email;
@@ -191,7 +191,7 @@ public class TemplateSigner extends SerializableObject {
         + "}";
   }
 
-  public static class TemplateSignerBuilder {
+  public static class Builder {
 
     protected List<TemplateSignerInput> inputs;
 
@@ -215,62 +215,62 @@ public class TemplateSigner extends SerializableObject {
 
     protected Boolean loginRequired;
 
-    public TemplateSignerBuilder inputs(List<TemplateSignerInput> inputs) {
+    public Builder inputs(List<TemplateSignerInput> inputs) {
       this.inputs = inputs;
       return this;
     }
 
-    public TemplateSignerBuilder email(String email) {
+    public Builder email(String email) {
       this.email = email;
       return this;
     }
 
-    public TemplateSignerBuilder role(TemplateSignerRoleField role) {
+    public Builder role(TemplateSignerRoleField role) {
       this.role = new EnumWrapper<TemplateSignerRoleField>(role);
       return this;
     }
 
-    public TemplateSignerBuilder role(EnumWrapper<TemplateSignerRoleField> role) {
+    public Builder role(EnumWrapper<TemplateSignerRoleField> role) {
       this.role = role;
       return this;
     }
 
-    public TemplateSignerBuilder isInPerson(Boolean isInPerson) {
+    public Builder isInPerson(Boolean isInPerson) {
       this.isInPerson = isInPerson;
       return this;
     }
 
-    public TemplateSignerBuilder order(Long order) {
+    public Builder order(Long order) {
       this.order = order;
       return this;
     }
 
-    public TemplateSignerBuilder signerGroupId(String signerGroupId) {
+    public Builder signerGroupId(String signerGroupId) {
       this.signerGroupId = signerGroupId;
       return this;
     }
 
-    public TemplateSignerBuilder label(String label) {
+    public Builder label(String label) {
       this.label = label;
       return this;
     }
 
-    public TemplateSignerBuilder publicId(String publicId) {
+    public Builder publicId(String publicId) {
       this.publicId = publicId;
       return this;
     }
 
-    public TemplateSignerBuilder isPasswordRequired(Boolean isPasswordRequired) {
+    public Builder isPasswordRequired(Boolean isPasswordRequired) {
       this.isPasswordRequired = isPasswordRequired;
       return this;
     }
 
-    public TemplateSignerBuilder isPhoneNumberRequired(Boolean isPhoneNumberRequired) {
+    public Builder isPhoneNumberRequired(Boolean isPhoneNumberRequired) {
       this.isPhoneNumberRequired = isPhoneNumberRequired;
       return this;
     }
 
-    public TemplateSignerBuilder loginRequired(Boolean loginRequired) {
+    public Builder loginRequired(Boolean loginRequired) {
       this.loginRequired = loginRequired;
       return this;
     }

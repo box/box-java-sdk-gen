@@ -12,7 +12,7 @@ public class CreateTermsOfServiceHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CreateTermsOfServiceHeaders(CreateTermsOfServiceHeadersBuilder builder) {
+  protected CreateTermsOfServiceHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class CreateTermsOfServiceHeaders {
     return extraHeaders;
   }
 
-  public static class CreateTermsOfServiceHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CreateTermsOfServiceHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CreateTermsOfServiceHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

@@ -12,7 +12,7 @@ public class UpdateClassificationOnFileHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UpdateClassificationOnFileHeaders(UpdateClassificationOnFileHeadersBuilder builder) {
+  protected UpdateClassificationOnFileHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class UpdateClassificationOnFileHeaders {
     return extraHeaders;
   }
 
-  public static class UpdateClassificationOnFileHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public UpdateClassificationOnFileHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public UpdateClassificationOnFileHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

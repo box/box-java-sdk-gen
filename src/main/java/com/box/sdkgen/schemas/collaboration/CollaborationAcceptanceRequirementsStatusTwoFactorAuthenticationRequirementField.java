@@ -18,8 +18,7 @@ public class CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationReq
   }
 
   protected CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementField(
-      CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementFieldBuilder
-          builder) {
+      Builder builder) {
     super();
     this.enterpriseHasTwoFactorAuthEnabled = builder.enterpriseHasTwoFactorAuthEnabled;
     this.userHasTwoFactorAuthenticationEnabled = builder.userHasTwoFactorAuthenticationEnabled;
@@ -67,21 +66,19 @@ public class CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationReq
         + "}";
   }
 
-  public static
-  class CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementFieldBuilder {
+  public static class Builder {
 
     protected Boolean enterpriseHasTwoFactorAuthEnabled;
 
     protected Boolean userHasTwoFactorAuthenticationEnabled;
 
-    public CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementFieldBuilder
-        enterpriseHasTwoFactorAuthEnabled(Boolean enterpriseHasTwoFactorAuthEnabled) {
+    public Builder enterpriseHasTwoFactorAuthEnabled(Boolean enterpriseHasTwoFactorAuthEnabled) {
       this.enterpriseHasTwoFactorAuthEnabled = enterpriseHasTwoFactorAuthEnabled;
       return this;
     }
 
-    public CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementFieldBuilder
-        userHasTwoFactorAuthenticationEnabled(Boolean userHasTwoFactorAuthenticationEnabled) {
+    public Builder userHasTwoFactorAuthenticationEnabled(
+        Boolean userHasTwoFactorAuthenticationEnabled) {
       this.userHasTwoFactorAuthenticationEnabled = userHasTwoFactorAuthenticationEnabled;
       return this;
     }

@@ -15,8 +15,7 @@ public class KeywordSkillCardSkillCardTitleField extends SerializableObject {
     this.message = message;
   }
 
-  protected KeywordSkillCardSkillCardTitleField(
-      KeywordSkillCardSkillCardTitleFieldBuilder builder) {
+  protected KeywordSkillCardSkillCardTitleField(Builder builder) {
     super();
     this.code = builder.code;
     this.message = builder.message;
@@ -60,17 +59,17 @@ public class KeywordSkillCardSkillCardTitleField extends SerializableObject {
         + "}";
   }
 
-  public static class KeywordSkillCardSkillCardTitleFieldBuilder {
+  public static class Builder {
 
     protected String code;
 
     protected final String message;
 
-    public KeywordSkillCardSkillCardTitleFieldBuilder(String message) {
+    public Builder(String message) {
       this.message = message;
     }
 
-    public KeywordSkillCardSkillCardTitleFieldBuilder code(String code) {
+    public Builder code(String code) {
       this.code = code;
       return this;
     }

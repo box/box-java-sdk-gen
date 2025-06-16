@@ -23,7 +23,7 @@ public class MetadataQueryOrderByField extends SerializableObject {
     super();
   }
 
-  protected MetadataQueryOrderByField(MetadataQueryOrderByFieldBuilder builder) {
+  protected MetadataQueryOrderByField(Builder builder) {
     super();
     this.fieldKey = builder.fieldKey;
     this.direction = builder.direction;
@@ -67,25 +67,23 @@ public class MetadataQueryOrderByField extends SerializableObject {
         + "}";
   }
 
-  public static class MetadataQueryOrderByFieldBuilder {
+  public static class Builder {
 
     protected String fieldKey;
 
     protected EnumWrapper<MetadataQueryOrderByDirectionField> direction;
 
-    public MetadataQueryOrderByFieldBuilder fieldKey(String fieldKey) {
+    public Builder fieldKey(String fieldKey) {
       this.fieldKey = fieldKey;
       return this;
     }
 
-    public MetadataQueryOrderByFieldBuilder direction(
-        MetadataQueryOrderByDirectionField direction) {
+    public Builder direction(MetadataQueryOrderByDirectionField direction) {
       this.direction = new EnumWrapper<MetadataQueryOrderByDirectionField>(direction);
       return this;
     }
 
-    public MetadataQueryOrderByFieldBuilder direction(
-        EnumWrapper<MetadataQueryOrderByDirectionField> direction) {
+    public Builder direction(EnumWrapper<MetadataQueryOrderByDirectionField> direction) {
       this.direction = direction;
       return this;
     }

@@ -12,7 +12,7 @@ public class GetRecentItemsQueryParams {
 
   public GetRecentItemsQueryParams() {}
 
-  protected GetRecentItemsQueryParams(GetRecentItemsQueryParamsBuilder builder) {
+  protected GetRecentItemsQueryParams(Builder builder) {
     this.fields = builder.fields;
     this.limit = builder.limit;
     this.marker = builder.marker;
@@ -30,7 +30,7 @@ public class GetRecentItemsQueryParams {
     return marker;
   }
 
-  public static class GetRecentItemsQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
@@ -38,17 +38,17 @@ public class GetRecentItemsQueryParams {
 
     protected String marker;
 
-    public GetRecentItemsQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public GetRecentItemsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetRecentItemsQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }

@@ -77,7 +77,7 @@ See the endpoint docs at
 
 <!-- sample put_shield_information_barrier_segments_id -->
 ```
-client.getShieldInformationBarrierSegments().updateShieldInformationBarrierSegmentById(segmentId, new UpdateShieldInformationBarrierSegmentByIdRequestBody.UpdateShieldInformationBarrierSegmentByIdRequestBodyBuilder().description(updatedSegmentDescription).build())
+client.getShieldInformationBarrierSegments().updateShieldInformationBarrierSegmentById(segmentId, new UpdateShieldInformationBarrierSegmentByIdRequestBody.Builder().description(updatedSegmentDescription).build())
 ```
 
 ### Arguments
@@ -138,7 +138,7 @@ See the endpoint docs at
 
 <!-- sample post_shield_information_barrier_segments -->
 ```
-client.getShieldInformationBarrierSegments().createShieldInformationBarrierSegment(new CreateShieldInformationBarrierSegmentRequestBody.CreateShieldInformationBarrierSegmentRequestBodyBuilder(new ShieldInformationBarrierBase.ShieldInformationBarrierBaseBuilder().id(barrierId).type(ShieldInformationBarrierBaseTypeField.SHIELD_INFORMATION_BARRIER).build(), segmentName).description(segmentDescription).build())
+client.getShieldInformationBarrierSegments().createShieldInformationBarrierSegment(new CreateShieldInformationBarrierSegmentRequestBody.Builder(new ShieldInformationBarrierBase.Builder().id(barrierId).type(ShieldInformationBarrierBaseTypeField.SHIELD_INFORMATION_BARRIER).build(), segmentName).description(segmentDescription).build())
 ```
 
 ### Arguments

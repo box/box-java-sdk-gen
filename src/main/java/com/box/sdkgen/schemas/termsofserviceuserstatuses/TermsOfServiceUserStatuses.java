@@ -17,7 +17,7 @@ public class TermsOfServiceUserStatuses extends SerializableObject {
     super();
   }
 
-  protected TermsOfServiceUserStatuses(TermsOfServiceUserStatusesBuilder builder) {
+  protected TermsOfServiceUserStatuses(Builder builder) {
     super();
     this.totalCount = builder.totalCount;
     this.entries = builder.entries;
@@ -61,18 +61,18 @@ public class TermsOfServiceUserStatuses extends SerializableObject {
         + "}";
   }
 
-  public static class TermsOfServiceUserStatusesBuilder {
+  public static class Builder {
 
     protected Long totalCount;
 
     protected List<TermsOfServiceUserStatus> entries;
 
-    public TermsOfServiceUserStatusesBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public TermsOfServiceUserStatusesBuilder entries(List<TermsOfServiceUserStatus> entries) {
+    public Builder entries(List<TermsOfServiceUserStatus> entries) {
       this.entries = entries;
       return this;
     }

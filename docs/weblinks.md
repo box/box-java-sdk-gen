@@ -17,7 +17,7 @@ See the endpoint docs at
 
 <!-- sample post_web_links -->
 ```
-client.getWebLinks().createWebLink(new CreateWebLinkRequestBody.CreateWebLinkRequestBodyBuilder(url, new CreateWebLinkRequestBodyParentField(parent.getId())).name(name).description(description).build())
+client.getWebLinks().createWebLink(new CreateWebLinkRequestBody.Builder(url, new CreateWebLinkRequestBodyParentField(parent.getId())).name(name).description(description).build())
 ```
 
 ### Arguments
@@ -75,7 +75,7 @@ See the endpoint docs at
 
 <!-- sample put_web_links_id -->
 ```
-client.getWebLinks().updateWebLinkById(weblink.getId(), new UpdateWebLinkByIdRequestBody.UpdateWebLinkByIdRequestBodyBuilder().name(updatedName).sharedLink(new UpdateWebLinkByIdRequestBodySharedLinkField.UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder().access(UpdateWebLinkByIdRequestBodySharedLinkAccessField.OPEN).password(password).build()).build())
+client.getWebLinks().updateWebLinkById(weblink.getId(), new UpdateWebLinkByIdRequestBody.Builder().name(updatedName).sharedLink(new UpdateWebLinkByIdRequestBodySharedLinkField.Builder().access(UpdateWebLinkByIdRequestBodySharedLinkAccessField.OPEN).password(password).build()).build())
 ```
 
 ### Arguments

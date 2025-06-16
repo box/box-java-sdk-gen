@@ -22,7 +22,7 @@ public class RecentItems extends SerializableObject {
     super();
   }
 
-  protected RecentItems(RecentItemsBuilder builder) {
+  protected RecentItems(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -87,7 +87,7 @@ public class RecentItems extends SerializableObject {
         + "}";
   }
 
-  public static class RecentItemsBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -97,22 +97,22 @@ public class RecentItems extends SerializableObject {
 
     protected List<RecentItem> entries;
 
-    public RecentItemsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public RecentItemsBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public RecentItemsBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public RecentItemsBuilder entries(List<RecentItem> entries) {
+    public Builder entries(List<RecentItem> entries) {
       this.entries = entries;
       return this;
     }

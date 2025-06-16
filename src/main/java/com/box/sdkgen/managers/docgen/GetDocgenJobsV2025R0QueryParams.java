@@ -8,7 +8,7 @@ public class GetDocgenJobsV2025R0QueryParams {
 
   public GetDocgenJobsV2025R0QueryParams() {}
 
-  protected GetDocgenJobsV2025R0QueryParams(GetDocgenJobsV2025R0QueryParamsBuilder builder) {
+  protected GetDocgenJobsV2025R0QueryParams(Builder builder) {
     this.marker = builder.marker;
     this.limit = builder.limit;
   }
@@ -21,18 +21,18 @@ public class GetDocgenJobsV2025R0QueryParams {
     return limit;
   }
 
-  public static class GetDocgenJobsV2025R0QueryParamsBuilder {
+  public static class Builder {
 
     protected String marker;
 
     protected Long limit;
 
-    public GetDocgenJobsV2025R0QueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetDocgenJobsV2025R0QueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

@@ -30,7 +30,7 @@ public class TermsOfServiceUserStatusesITest {
         client
             .getUsers()
             .createUser(
-                new CreateUserRequestBody.CreateUserRequestBodyBuilder(getUuid())
+                new CreateUserRequestBody.Builder(getUuid())
                     .login(String.join("", getUuid(), "@boxdemo.com"))
                     .isPlatformAccessOnly(true)
                     .build());
@@ -59,8 +59,7 @@ public class TermsOfServiceUserStatusesITest {
         client
             .getTermsOfServiceUserStatuses()
             .getTermsOfServiceUserStatuses(
-                new GetTermsOfServiceUserStatusesQueryParams
-                        .GetTermsOfServiceUserStatusesQueryParamsBuilder(tos.getId())
+                new GetTermsOfServiceUserStatusesQueryParams.Builder(tos.getId())
                     .userId(user.getId())
                     .build());
     assert listTosUserStatuses.getTotalCount() > 0;

@@ -46,7 +46,7 @@ public class TermsOfServiceUserStatus extends SerializableObject {
             TermsOfServiceUserStatusTypeField.TERMS_OF_SERVICE_USER_STATUS);
   }
 
-  protected TermsOfServiceUserStatus(TermsOfServiceUserStatusBuilder builder) {
+  protected TermsOfServiceUserStatus(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -141,7 +141,7 @@ public class TermsOfServiceUserStatus extends SerializableObject {
         + "}";
   }
 
-  public static class TermsOfServiceUserStatusBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -157,45 +157,44 @@ public class TermsOfServiceUserStatus extends SerializableObject {
 
     protected Date modifiedAt;
 
-    public TermsOfServiceUserStatusBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<TermsOfServiceUserStatusTypeField>(
               TermsOfServiceUserStatusTypeField.TERMS_OF_SERVICE_USER_STATUS);
     }
 
-    public TermsOfServiceUserStatusBuilder type(TermsOfServiceUserStatusTypeField type) {
+    public Builder type(TermsOfServiceUserStatusTypeField type) {
       this.type = new EnumWrapper<TermsOfServiceUserStatusTypeField>(type);
       return this;
     }
 
-    public TermsOfServiceUserStatusBuilder type(
-        EnumWrapper<TermsOfServiceUserStatusTypeField> type) {
+    public Builder type(EnumWrapper<TermsOfServiceUserStatusTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TermsOfServiceUserStatusBuilder tos(TermsOfServiceBase tos) {
+    public Builder tos(TermsOfServiceBase tos) {
       this.tos = tos;
       return this;
     }
 
-    public TermsOfServiceUserStatusBuilder user(UserMini user) {
+    public Builder user(UserMini user) {
       this.user = user;
       return this;
     }
 
-    public TermsOfServiceUserStatusBuilder isAccepted(Boolean isAccepted) {
+    public Builder isAccepted(Boolean isAccepted) {
       this.isAccepted = isAccepted;
       return this;
     }
 
-    public TermsOfServiceUserStatusBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public TermsOfServiceUserStatusBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

@@ -13,7 +13,7 @@ public class GroupFullPermissionsField extends SerializableObject {
     super();
   }
 
-  protected GroupFullPermissionsField(GroupFullPermissionsFieldBuilder builder) {
+  protected GroupFullPermissionsField(Builder builder) {
     super();
     this.canInviteAsCollaborator = builder.canInviteAsCollaborator;
   }
@@ -48,12 +48,11 @@ public class GroupFullPermissionsField extends SerializableObject {
         + "}";
   }
 
-  public static class GroupFullPermissionsFieldBuilder {
+  public static class Builder {
 
     protected Boolean canInviteAsCollaborator;
 
-    public GroupFullPermissionsFieldBuilder canInviteAsCollaborator(
-        Boolean canInviteAsCollaborator) {
+    public Builder canInviteAsCollaborator(Boolean canInviteAsCollaborator) {
       this.canInviteAsCollaborator = canInviteAsCollaborator;
       return this;
     }

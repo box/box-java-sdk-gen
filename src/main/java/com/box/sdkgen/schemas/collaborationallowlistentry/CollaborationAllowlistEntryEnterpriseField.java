@@ -26,8 +26,7 @@ public class CollaborationAllowlistEntryEnterpriseField extends SerializableObje
     super();
   }
 
-  protected CollaborationAllowlistEntryEnterpriseField(
-      CollaborationAllowlistEntryEnterpriseFieldBuilder builder) {
+  protected CollaborationAllowlistEntryEnterpriseField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -83,7 +82,7 @@ public class CollaborationAllowlistEntryEnterpriseField extends SerializableObje
         + "}";
   }
 
-  public static class CollaborationAllowlistEntryEnterpriseFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -91,24 +90,22 @@ public class CollaborationAllowlistEntryEnterpriseField extends SerializableObje
 
     protected String name;
 
-    public CollaborationAllowlistEntryEnterpriseFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public CollaborationAllowlistEntryEnterpriseFieldBuilder type(
-        CollaborationAllowlistEntryEnterpriseTypeField type) {
+    public Builder type(CollaborationAllowlistEntryEnterpriseTypeField type) {
       this.type = new EnumWrapper<CollaborationAllowlistEntryEnterpriseTypeField>(type);
       return this;
     }
 
-    public CollaborationAllowlistEntryEnterpriseFieldBuilder type(
-        EnumWrapper<CollaborationAllowlistEntryEnterpriseTypeField> type) {
+    public Builder type(EnumWrapper<CollaborationAllowlistEntryEnterpriseTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public CollaborationAllowlistEntryEnterpriseFieldBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }

@@ -13,7 +13,7 @@ public class AddClassificationToFileRequestBody extends SerializableObject {
     super();
   }
 
-  protected AddClassificationToFileRequestBody(AddClassificationToFileRequestBodyBuilder builder) {
+  protected AddClassificationToFileRequestBody(Builder builder) {
     super();
     this.boxSecurityClassificationKey = builder.boxSecurityClassificationKey;
   }
@@ -48,12 +48,11 @@ public class AddClassificationToFileRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class AddClassificationToFileRequestBodyBuilder {
+  public static class Builder {
 
     protected String boxSecurityClassificationKey;
 
-    public AddClassificationToFileRequestBodyBuilder boxSecurityClassificationKey(
-        String boxSecurityClassificationKey) {
+    public Builder boxSecurityClassificationKey(String boxSecurityClassificationKey) {
       this.boxSecurityClassificationKey = boxSecurityClassificationKey;
       return this;
     }

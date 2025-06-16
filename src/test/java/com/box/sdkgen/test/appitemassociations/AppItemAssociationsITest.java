@@ -32,7 +32,7 @@ public class AppItemAssociationsITest {
             .getFiles()
             .getFileById(
                 fileId,
-                new GetFileByIdQueryParams.GetFileByIdQueryParamsBuilder()
+                new GetFileByIdQueryParams.Builder()
                     .fields(Arrays.asList("is_associated_with_app_item"))
                     .build());
     assert file.getIsAssociatedWithAppItem() == true;
@@ -54,7 +54,7 @@ public class AppItemAssociationsITest {
             .getFolders()
             .getFolderById(
                 folderId,
-                new GetFolderByIdQueryParams.GetFolderByIdQueryParamsBuilder()
+                new GetFolderByIdQueryParams.Builder()
                     .fields(Arrays.asList("is_associated_with_app_item"))
                     .build());
     assert folder.getIsAssociatedWithAppItem() == true;

@@ -22,7 +22,7 @@ public class AiCitation extends SerializableObject {
     super();
   }
 
-  protected AiCitation(AiCitationBuilder builder) {
+  protected AiCitation(Builder builder) {
     super();
     this.content = builder.content;
     this.id = builder.id;
@@ -87,7 +87,7 @@ public class AiCitation extends SerializableObject {
         + "}";
   }
 
-  public static class AiCitationBuilder {
+  public static class Builder {
 
     protected String content;
 
@@ -97,27 +97,27 @@ public class AiCitation extends SerializableObject {
 
     protected String name;
 
-    public AiCitationBuilder content(String content) {
+    public Builder content(String content) {
       this.content = content;
       return this;
     }
 
-    public AiCitationBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public AiCitationBuilder type(AiCitationTypeField type) {
+    public Builder type(AiCitationTypeField type) {
       this.type = new EnumWrapper<AiCitationTypeField>(type);
       return this;
     }
 
-    public AiCitationBuilder type(EnumWrapper<AiCitationTypeField> type) {
+    public Builder type(EnumWrapper<AiCitationTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiCitationBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }

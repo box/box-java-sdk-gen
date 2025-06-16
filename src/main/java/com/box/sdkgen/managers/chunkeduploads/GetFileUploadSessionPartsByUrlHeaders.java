@@ -12,8 +12,7 @@ public class GetFileUploadSessionPartsByUrlHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetFileUploadSessionPartsByUrlHeaders(
-      GetFileUploadSessionPartsByUrlHeadersBuilder builder) {
+  protected GetFileUploadSessionPartsByUrlHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class GetFileUploadSessionPartsByUrlHeaders {
     return extraHeaders;
   }
 
-  public static class GetFileUploadSessionPartsByUrlHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetFileUploadSessionPartsByUrlHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetFileUploadSessionPartsByUrlHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

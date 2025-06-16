@@ -15,8 +15,7 @@ public class PreflightFileUploadCheckRequestBody extends SerializableObject {
     super();
   }
 
-  protected PreflightFileUploadCheckRequestBody(
-      PreflightFileUploadCheckRequestBodyBuilder builder) {
+  protected PreflightFileUploadCheckRequestBody(Builder builder) {
     super();
     this.name = builder.name;
     this.size = builder.size;
@@ -71,7 +70,7 @@ public class PreflightFileUploadCheckRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class PreflightFileUploadCheckRequestBodyBuilder {
+  public static class Builder {
 
     protected String name;
 
@@ -79,18 +78,17 @@ public class PreflightFileUploadCheckRequestBody extends SerializableObject {
 
     protected PreflightFileUploadCheckRequestBodyParentField parent;
 
-    public PreflightFileUploadCheckRequestBodyBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public PreflightFileUploadCheckRequestBodyBuilder size(Integer size) {
+    public Builder size(Integer size) {
       this.size = size;
       return this;
     }
 
-    public PreflightFileUploadCheckRequestBodyBuilder parent(
-        PreflightFileUploadCheckRequestBodyParentField parent) {
+    public Builder parent(PreflightFileUploadCheckRequestBodyParentField parent) {
       this.parent = parent;
       return this;
     }

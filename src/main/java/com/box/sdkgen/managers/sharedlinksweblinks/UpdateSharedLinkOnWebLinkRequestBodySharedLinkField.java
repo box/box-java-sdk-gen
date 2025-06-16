@@ -37,8 +37,7 @@ public class UpdateSharedLinkOnWebLinkRequestBodySharedLinkField extends Seriali
     super();
   }
 
-  protected UpdateSharedLinkOnWebLinkRequestBodySharedLinkField(
-      UpdateSharedLinkOnWebLinkRequestBodySharedLinkFieldBuilder builder) {
+  protected UpdateSharedLinkOnWebLinkRequestBodySharedLinkField(Builder builder) {
     super();
     this.access = builder.access;
     this.password = builder.password;
@@ -114,7 +113,7 @@ public class UpdateSharedLinkOnWebLinkRequestBodySharedLinkField extends Seriali
         + "}";
   }
 
-  public static class UpdateSharedLinkOnWebLinkRequestBodySharedLinkFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField> access;
 
@@ -126,36 +125,34 @@ public class UpdateSharedLinkOnWebLinkRequestBodySharedLinkField extends Seriali
 
     protected UpdateSharedLinkOnWebLinkRequestBodySharedLinkPermissionsField permissions;
 
-    public UpdateSharedLinkOnWebLinkRequestBodySharedLinkFieldBuilder access(
-        UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField access) {
+    public Builder access(UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField access) {
       this.access =
           new EnumWrapper<UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField>(access);
       return this;
     }
 
-    public UpdateSharedLinkOnWebLinkRequestBodySharedLinkFieldBuilder access(
+    public Builder access(
         EnumWrapper<UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField> access) {
       this.access = access;
       return this;
     }
 
-    public UpdateSharedLinkOnWebLinkRequestBodySharedLinkFieldBuilder password(String password) {
+    public Builder password(String password) {
       this.password = password;
       return this;
     }
 
-    public UpdateSharedLinkOnWebLinkRequestBodySharedLinkFieldBuilder vanityName(
-        String vanityName) {
+    public Builder vanityName(String vanityName) {
       this.vanityName = vanityName;
       return this;
     }
 
-    public UpdateSharedLinkOnWebLinkRequestBodySharedLinkFieldBuilder unsharedAt(Date unsharedAt) {
+    public Builder unsharedAt(Date unsharedAt) {
       this.unsharedAt = unsharedAt;
       return this;
     }
 
-    public UpdateSharedLinkOnWebLinkRequestBodySharedLinkFieldBuilder permissions(
+    public Builder permissions(
         UpdateSharedLinkOnWebLinkRequestBodySharedLinkPermissionsField permissions) {
       this.permissions = permissions;
       return this;

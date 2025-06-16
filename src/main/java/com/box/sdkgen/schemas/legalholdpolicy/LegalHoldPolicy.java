@@ -60,7 +60,7 @@ public class LegalHoldPolicy extends LegalHoldPolicyMini {
     super(id);
   }
 
-  protected LegalHoldPolicy(LegalHoldPolicyBuilder builder) {
+  protected LegalHoldPolicy(Builder builder) {
     super(builder);
     this.policyName = builder.policyName;
     this.description = builder.description;
@@ -218,7 +218,7 @@ public class LegalHoldPolicy extends LegalHoldPolicyMini {
         + "}";
   }
 
-  public static class LegalHoldPolicyBuilder extends LegalHoldPolicyMiniBuilder {
+  public static class Builder extends LegalHoldPolicyMini.Builder {
 
     protected String policyName;
 
@@ -242,79 +242,78 @@ public class LegalHoldPolicy extends LegalHoldPolicyMini {
 
     protected String releaseNotes;
 
-    public LegalHoldPolicyBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public LegalHoldPolicyBuilder policyName(String policyName) {
+    public Builder policyName(String policyName) {
       this.policyName = policyName;
       return this;
     }
 
-    public LegalHoldPolicyBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public LegalHoldPolicyBuilder status(LegalHoldPolicyStatusField status) {
+    public Builder status(LegalHoldPolicyStatusField status) {
       this.status = new EnumWrapper<LegalHoldPolicyStatusField>(status);
       return this;
     }
 
-    public LegalHoldPolicyBuilder status(EnumWrapper<LegalHoldPolicyStatusField> status) {
+    public Builder status(EnumWrapper<LegalHoldPolicyStatusField> status) {
       this.status = status;
       return this;
     }
 
-    public LegalHoldPolicyBuilder assignmentCounts(
-        LegalHoldPolicyAssignmentCountsField assignmentCounts) {
+    public Builder assignmentCounts(LegalHoldPolicyAssignmentCountsField assignmentCounts) {
       this.assignmentCounts = assignmentCounts;
       return this;
     }
 
-    public LegalHoldPolicyBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public LegalHoldPolicyBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public LegalHoldPolicyBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public LegalHoldPolicyBuilder deletedAt(Date deletedAt) {
+    public Builder deletedAt(Date deletedAt) {
       this.deletedAt = deletedAt;
       return this;
     }
 
-    public LegalHoldPolicyBuilder filterStartedAt(Date filterStartedAt) {
+    public Builder filterStartedAt(Date filterStartedAt) {
       this.filterStartedAt = filterStartedAt;
       return this;
     }
 
-    public LegalHoldPolicyBuilder filterEndedAt(Date filterEndedAt) {
+    public Builder filterEndedAt(Date filterEndedAt) {
       this.filterEndedAt = filterEndedAt;
       return this;
     }
 
-    public LegalHoldPolicyBuilder releaseNotes(String releaseNotes) {
+    public Builder releaseNotes(String releaseNotes) {
       this.releaseNotes = releaseNotes;
       return this;
     }
 
     @Override
-    public LegalHoldPolicyBuilder type(LegalHoldPolicyMiniTypeField type) {
+    public Builder type(LegalHoldPolicyMiniTypeField type) {
       this.type = new EnumWrapper<LegalHoldPolicyMiniTypeField>(type);
       return this;
     }
 
     @Override
-    public LegalHoldPolicyBuilder type(EnumWrapper<LegalHoldPolicyMiniTypeField> type) {
+    public Builder type(EnumWrapper<LegalHoldPolicyMiniTypeField> type) {
       this.type = type;
       return this;
     }

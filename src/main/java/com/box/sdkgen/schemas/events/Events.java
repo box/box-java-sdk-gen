@@ -20,7 +20,7 @@ public class Events extends SerializableObject {
     super();
   }
 
-  protected Events(EventsBuilder builder) {
+  protected Events(Builder builder) {
     super();
     this.chunkSize = builder.chunkSize;
     this.nextStreamPosition = builder.nextStreamPosition;
@@ -75,7 +75,7 @@ public class Events extends SerializableObject {
         + "}";
   }
 
-  public static class EventsBuilder {
+  public static class Builder {
 
     protected Long chunkSize;
 
@@ -83,17 +83,17 @@ public class Events extends SerializableObject {
 
     protected List<Event> entries;
 
-    public EventsBuilder chunkSize(Long chunkSize) {
+    public Builder chunkSize(Long chunkSize) {
       this.chunkSize = chunkSize;
       return this;
     }
 
-    public EventsBuilder nextStreamPosition(EventsNextStreamPositionField nextStreamPosition) {
+    public Builder nextStreamPosition(EventsNextStreamPositionField nextStreamPosition) {
       this.nextStreamPosition = nextStreamPosition;
       return this;
     }
 
-    public EventsBuilder entries(List<Event> entries) {
+    public Builder entries(List<Event> entries) {
       this.entries = entries;
       return this;
     }

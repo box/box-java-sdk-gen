@@ -11,7 +11,7 @@ public class UpdateCommentByIdRequestBody extends SerializableObject {
     super();
   }
 
-  protected UpdateCommentByIdRequestBody(UpdateCommentByIdRequestBodyBuilder builder) {
+  protected UpdateCommentByIdRequestBody(Builder builder) {
     super();
     this.message = builder.message;
   }
@@ -42,11 +42,11 @@ public class UpdateCommentByIdRequestBody extends SerializableObject {
     return "UpdateCommentByIdRequestBody{" + "message='" + message + '\'' + "}";
   }
 
-  public static class UpdateCommentByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected String message;
 
-    public UpdateCommentByIdRequestBodyBuilder message(String message) {
+    public Builder message(String message) {
       this.message = message;
       return this;
     }

@@ -47,7 +47,7 @@ public class UpdateClassificationRequestBody extends SerializableObject {
             UpdateClassificationRequestBodyFieldKeyField.BOX__SECURITY__CLASSIFICATION__KEY);
   }
 
-  protected UpdateClassificationRequestBody(UpdateClassificationRequestBodyBuilder builder) {
+  protected UpdateClassificationRequestBody(Builder builder) {
     super();
     this.op = builder.op;
     this.fieldKey = builder.fieldKey;
@@ -112,7 +112,7 @@ public class UpdateClassificationRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateClassificationRequestBodyBuilder {
+  public static class Builder {
 
     protected EnumWrapper<UpdateClassificationRequestBodyOpField> op;
 
@@ -122,8 +122,7 @@ public class UpdateClassificationRequestBody extends SerializableObject {
 
     protected final UpdateClassificationRequestBodyDataField data;
 
-    public UpdateClassificationRequestBodyBuilder(
-        String enumOptionKey, UpdateClassificationRequestBodyDataField data) {
+    public Builder(String enumOptionKey, UpdateClassificationRequestBodyDataField data) {
       this.enumOptionKey = enumOptionKey;
       this.data = data;
       this.op =
@@ -134,25 +133,22 @@ public class UpdateClassificationRequestBody extends SerializableObject {
               UpdateClassificationRequestBodyFieldKeyField.BOX__SECURITY__CLASSIFICATION__KEY);
     }
 
-    public UpdateClassificationRequestBodyBuilder op(UpdateClassificationRequestBodyOpField op) {
+    public Builder op(UpdateClassificationRequestBodyOpField op) {
       this.op = new EnumWrapper<UpdateClassificationRequestBodyOpField>(op);
       return this;
     }
 
-    public UpdateClassificationRequestBodyBuilder op(
-        EnumWrapper<UpdateClassificationRequestBodyOpField> op) {
+    public Builder op(EnumWrapper<UpdateClassificationRequestBodyOpField> op) {
       this.op = op;
       return this;
     }
 
-    public UpdateClassificationRequestBodyBuilder fieldKey(
-        UpdateClassificationRequestBodyFieldKeyField fieldKey) {
+    public Builder fieldKey(UpdateClassificationRequestBodyFieldKeyField fieldKey) {
       this.fieldKey = new EnumWrapper<UpdateClassificationRequestBodyFieldKeyField>(fieldKey);
       return this;
     }
 
-    public UpdateClassificationRequestBodyBuilder fieldKey(
-        EnumWrapper<UpdateClassificationRequestBodyFieldKeyField> fieldKey) {
+    public Builder fieldKey(EnumWrapper<UpdateClassificationRequestBodyFieldKeyField> fieldKey) {
       this.fieldKey = fieldKey;
       return this;
     }

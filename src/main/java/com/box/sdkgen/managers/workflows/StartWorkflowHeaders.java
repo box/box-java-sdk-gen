@@ -12,7 +12,7 @@ public class StartWorkflowHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected StartWorkflowHeaders(StartWorkflowHeadersBuilder builder) {
+  protected StartWorkflowHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class StartWorkflowHeaders {
     return extraHeaders;
   }
 
-  public static class StartWorkflowHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public StartWorkflowHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public StartWorkflowHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

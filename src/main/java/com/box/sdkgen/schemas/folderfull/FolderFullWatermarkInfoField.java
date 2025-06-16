@@ -13,7 +13,7 @@ public class FolderFullWatermarkInfoField extends SerializableObject {
     super();
   }
 
-  protected FolderFullWatermarkInfoField(FolderFullWatermarkInfoFieldBuilder builder) {
+  protected FolderFullWatermarkInfoField(Builder builder) {
     super();
     this.isWatermarked = builder.isWatermarked;
   }
@@ -44,11 +44,11 @@ public class FolderFullWatermarkInfoField extends SerializableObject {
     return "FolderFullWatermarkInfoField{" + "isWatermarked='" + isWatermarked + '\'' + "}";
   }
 
-  public static class FolderFullWatermarkInfoFieldBuilder {
+  public static class Builder {
 
     protected Boolean isWatermarked;
 
-    public FolderFullWatermarkInfoFieldBuilder isWatermarked(Boolean isWatermarked) {
+    public Builder isWatermarked(Boolean isWatermarked) {
       this.isWatermarked = isWatermarked;
       return this;
     }

@@ -12,7 +12,7 @@ public class RestoreFileFromTrashHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected RestoreFileFromTrashHeaders(RestoreFileFromTrashHeadersBuilder builder) {
+  protected RestoreFileFromTrashHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class RestoreFileFromTrashHeaders {
     return extraHeaders;
   }
 
-  public static class RestoreFileFromTrashHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public RestoreFileFromTrashHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public RestoreFileFromTrashHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

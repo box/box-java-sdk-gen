@@ -37,8 +37,7 @@ public class UpdateSharedLinkOnFileRequestBodySharedLinkField extends Serializab
     super();
   }
 
-  protected UpdateSharedLinkOnFileRequestBodySharedLinkField(
-      UpdateSharedLinkOnFileRequestBodySharedLinkFieldBuilder builder) {
+  protected UpdateSharedLinkOnFileRequestBodySharedLinkField(Builder builder) {
     super();
     this.access = builder.access;
     this.password = builder.password;
@@ -114,7 +113,7 @@ public class UpdateSharedLinkOnFileRequestBodySharedLinkField extends Serializab
         + "}";
   }
 
-  public static class UpdateSharedLinkOnFileRequestBodySharedLinkFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<UpdateSharedLinkOnFileRequestBodySharedLinkAccessField> access;
 
@@ -126,34 +125,33 @@ public class UpdateSharedLinkOnFileRequestBodySharedLinkField extends Serializab
 
     protected UpdateSharedLinkOnFileRequestBodySharedLinkPermissionsField permissions;
 
-    public UpdateSharedLinkOnFileRequestBodySharedLinkFieldBuilder access(
-        UpdateSharedLinkOnFileRequestBodySharedLinkAccessField access) {
+    public Builder access(UpdateSharedLinkOnFileRequestBodySharedLinkAccessField access) {
       this.access = new EnumWrapper<UpdateSharedLinkOnFileRequestBodySharedLinkAccessField>(access);
       return this;
     }
 
-    public UpdateSharedLinkOnFileRequestBodySharedLinkFieldBuilder access(
+    public Builder access(
         EnumWrapper<UpdateSharedLinkOnFileRequestBodySharedLinkAccessField> access) {
       this.access = access;
       return this;
     }
 
-    public UpdateSharedLinkOnFileRequestBodySharedLinkFieldBuilder password(String password) {
+    public Builder password(String password) {
       this.password = password;
       return this;
     }
 
-    public UpdateSharedLinkOnFileRequestBodySharedLinkFieldBuilder vanityName(String vanityName) {
+    public Builder vanityName(String vanityName) {
       this.vanityName = vanityName;
       return this;
     }
 
-    public UpdateSharedLinkOnFileRequestBodySharedLinkFieldBuilder unsharedAt(Date unsharedAt) {
+    public Builder unsharedAt(Date unsharedAt) {
       this.unsharedAt = unsharedAt;
       return this;
     }
 
-    public UpdateSharedLinkOnFileRequestBodySharedLinkFieldBuilder permissions(
+    public Builder permissions(
         UpdateSharedLinkOnFileRequestBodySharedLinkPermissionsField permissions) {
       this.permissions = permissions;
       return this;

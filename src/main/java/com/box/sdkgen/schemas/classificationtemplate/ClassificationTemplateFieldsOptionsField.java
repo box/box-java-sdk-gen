@@ -19,8 +19,7 @@ public class ClassificationTemplateFieldsOptionsField extends SerializableObject
     this.key = key;
   }
 
-  protected ClassificationTemplateFieldsOptionsField(
-      ClassificationTemplateFieldsOptionsFieldBuilder builder) {
+  protected ClassificationTemplateFieldsOptionsField(Builder builder) {
     super();
     this.id = builder.id;
     this.key = builder.key;
@@ -75,7 +74,7 @@ public class ClassificationTemplateFieldsOptionsField extends SerializableObject
         + "}";
   }
 
-  public static class ClassificationTemplateFieldsOptionsFieldBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -83,13 +82,12 @@ public class ClassificationTemplateFieldsOptionsField extends SerializableObject
 
     protected ClassificationTemplateFieldsOptionsStaticConfigField staticConfig;
 
-    public ClassificationTemplateFieldsOptionsFieldBuilder(String id, String key) {
+    public Builder(String id, String key) {
       this.id = id;
       this.key = key;
     }
 
-    public ClassificationTemplateFieldsOptionsFieldBuilder staticConfig(
-        ClassificationTemplateFieldsOptionsStaticConfigField staticConfig) {
+    public Builder staticConfig(ClassificationTemplateFieldsOptionsStaticConfigField staticConfig) {
       this.staticConfig = staticConfig;
       return this;
     }

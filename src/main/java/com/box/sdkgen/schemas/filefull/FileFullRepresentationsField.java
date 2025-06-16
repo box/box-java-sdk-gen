@@ -12,7 +12,7 @@ public class FileFullRepresentationsField extends SerializableObject {
     super();
   }
 
-  protected FileFullRepresentationsField(FileFullRepresentationsFieldBuilder builder) {
+  protected FileFullRepresentationsField(Builder builder) {
     super();
     this.entries = builder.entries;
   }
@@ -43,12 +43,11 @@ public class FileFullRepresentationsField extends SerializableObject {
     return "FileFullRepresentationsField{" + "entries='" + entries + '\'' + "}";
   }
 
-  public static class FileFullRepresentationsFieldBuilder {
+  public static class Builder {
 
     protected List<FileFullRepresentationsEntriesField> entries;
 
-    public FileFullRepresentationsFieldBuilder entries(
-        List<FileFullRepresentationsEntriesField> entries) {
+    public Builder entries(List<FileFullRepresentationsEntriesField> entries) {
       this.entries = entries;
       return this;
     }

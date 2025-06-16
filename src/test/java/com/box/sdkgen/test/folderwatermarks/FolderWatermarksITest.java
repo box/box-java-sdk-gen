@@ -33,8 +33,7 @@ public class FolderWatermarksITest {
             .updateFolderWatermark(
                 folder.getId(),
                 new UpdateFolderWatermarkRequestBody(
-                    new UpdateFolderWatermarkRequestBodyWatermarkField
-                            .UpdateFolderWatermarkRequestBodyWatermarkFieldBuilder()
+                    new UpdateFolderWatermarkRequestBodyWatermarkField.Builder()
                         .imprint(UpdateFolderWatermarkRequestBodyWatermarkImprintField.DEFAULT)
                         .build()));
     Watermark watermark = client.getFolderWatermarks().getFolderWatermark(folder.getId());

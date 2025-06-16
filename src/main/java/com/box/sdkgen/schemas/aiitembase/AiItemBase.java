@@ -23,7 +23,7 @@ public class AiItemBase extends SerializableObject {
     this.type = new EnumWrapper<AiItemBaseTypeField>(AiItemBaseTypeField.FILE);
   }
 
-  protected AiItemBase(AiItemBaseBuilder builder) {
+  protected AiItemBase(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -78,7 +78,7 @@ public class AiItemBase extends SerializableObject {
         + "}";
   }
 
-  public static class AiItemBaseBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -86,22 +86,22 @@ public class AiItemBase extends SerializableObject {
 
     protected String content;
 
-    public AiItemBaseBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type = new EnumWrapper<AiItemBaseTypeField>(AiItemBaseTypeField.FILE);
     }
 
-    public AiItemBaseBuilder type(AiItemBaseTypeField type) {
+    public Builder type(AiItemBaseTypeField type) {
       this.type = new EnumWrapper<AiItemBaseTypeField>(type);
       return this;
     }
 
-    public AiItemBaseBuilder type(EnumWrapper<AiItemBaseTypeField> type) {
+    public Builder type(EnumWrapper<AiItemBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiItemBaseBuilder content(String content) {
+    public Builder content(String content) {
       this.content = content;
       return this;
     }

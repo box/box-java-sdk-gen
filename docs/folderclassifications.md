@@ -59,7 +59,7 @@ See the endpoint docs at
 
 <!-- sample post_folders_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
-client.getFolderClassifications().addClassificationToFolder(folder.getId(), new AddClassificationToFolderRequestBody.AddClassificationToFolderRequestBodyBuilder().boxSecurityClassificationKey(classification.getKey()).build())
+client.getFolderClassifications().addClassificationToFolder(folder.getId(), new AddClassificationToFolderRequestBody.Builder().boxSecurityClassificationKey(classification.getKey()).build())
 ```
 
 ### Arguments

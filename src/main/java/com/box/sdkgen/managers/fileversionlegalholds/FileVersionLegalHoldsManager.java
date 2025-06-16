@@ -26,7 +26,7 @@ public class FileVersionLegalHoldsManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected FileVersionLegalHoldsManager(FileVersionLegalHoldsManagerBuilder builder) {
+  protected FileVersionLegalHoldsManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -43,7 +43,7 @@ public class FileVersionLegalHoldsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -76,7 +76,7 @@ public class FileVersionLegalHoldsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -99,22 +99,22 @@ public class FileVersionLegalHoldsManager {
     return networkSession;
   }
 
-  public static class FileVersionLegalHoldsManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public FileVersionLegalHoldsManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public FileVersionLegalHoldsManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public FileVersionLegalHoldsManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

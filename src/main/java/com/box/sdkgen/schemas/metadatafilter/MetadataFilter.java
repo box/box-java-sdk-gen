@@ -25,7 +25,7 @@ public class MetadataFilter extends SerializableObject {
     super();
   }
 
-  protected MetadataFilter(MetadataFilterBuilder builder) {
+  protected MetadataFilter(Builder builder) {
     super();
     this.scope = builder.scope;
     this.templateKey = builder.templateKey;
@@ -83,7 +83,7 @@ public class MetadataFilter extends SerializableObject {
         + "}";
   }
 
-  public static class MetadataFilterBuilder {
+  public static class Builder {
 
     protected EnumWrapper<MetadataFilterScopeField> scope;
 
@@ -94,22 +94,22 @@ public class MetadataFilter extends SerializableObject {
             MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString>
         filters;
 
-    public MetadataFilterBuilder scope(MetadataFilterScopeField scope) {
+    public Builder scope(MetadataFilterScopeField scope) {
       this.scope = new EnumWrapper<MetadataFilterScopeField>(scope);
       return this;
     }
 
-    public MetadataFilterBuilder scope(EnumWrapper<MetadataFilterScopeField> scope) {
+    public Builder scope(EnumWrapper<MetadataFilterScopeField> scope) {
       this.scope = scope;
       return this;
     }
 
-    public MetadataFilterBuilder templateKey(String templateKey) {
+    public Builder templateKey(String templateKey) {
       this.templateKey = templateKey;
       return this;
     }
 
-    public MetadataFilterBuilder filters(
+    public Builder filters(
         Map<
                 String,
                 MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString>

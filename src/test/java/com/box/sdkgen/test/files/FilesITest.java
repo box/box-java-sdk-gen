@@ -87,7 +87,7 @@ public class FilesITest {
             .getFiles()
             .getFileById(
                 uploadedFile.getId(),
-                new GetFileByIdQueryParams.GetFileByIdQueryParamsBuilder()
+                new GetFileByIdQueryParams.Builder()
                     .fields(Arrays.asList("is_externally_owned", "has_collaborations"))
                     .build());
     assert file.getIsExternallyOwned() == false;
@@ -108,10 +108,8 @@ public class FilesITest {
                 .getFiles()
                 .getFileById(
                     uploadedFile.getId(),
-                    new GetFileByIdQueryParams.GetFileByIdQueryParamsBuilder()
-                        .fields(Arrays.asList("name"))
-                        .build(),
-                    new GetFileByIdHeaders.GetFileByIdHeadersBuilder()
+                    new GetFileByIdQueryParams.Builder().fields(Arrays.asList("name")).build(),
+                    new GetFileByIdHeaders.Builder()
                         .extraHeaders(mapOf(entryOf("if-none-match", file.getEtag())))
                         .build()));
     assert file.getName().equals(newFileName);
@@ -129,7 +127,7 @@ public class FilesITest {
             .getFiles()
             .updateFileById(
                 fileToUpdate.getId(),
-                new UpdateFileByIdRequestBody.UpdateFileByIdRequestBodyBuilder()
+                new UpdateFileByIdRequestBody.Builder()
                     .name(updatedName)
                     .description("Updated description")
                     .build());
@@ -146,16 +144,13 @@ public class FilesITest {
             .getFiles()
             .updateFileById(
                 file.getId(),
-                new UpdateFileByIdRequestBody.UpdateFileByIdRequestBodyBuilder()
+                new UpdateFileByIdRequestBody.Builder()
                     .lock(
-                        new UpdateFileByIdRequestBodyLockField
-                                .UpdateFileByIdRequestBodyLockFieldBuilder()
+                        new UpdateFileByIdRequestBodyLockField.Builder()
                             .access(UpdateFileByIdRequestBodyLockAccessField.LOCK)
                             .build())
                     .build(),
-                new UpdateFileByIdQueryParams.UpdateFileByIdQueryParamsBuilder()
-                    .fields(Arrays.asList("lock"))
-                    .build());
+                new UpdateFileByIdQueryParams.Builder().fields(Arrays.asList("lock")).build());
     assert !(fileWithLock.getLock() == null);
     client.getFiles().deleteFileById(file.getId());
   }
@@ -169,8 +164,7 @@ public class FilesITest {
             .getFiles()
             .copyFile(
                 fileOrigin.getId(),
-                new CopyFileRequestBody.CopyFileRequestBodyBuilder(
-                        new CopyFileRequestBodyParentField("0"))
+                new CopyFileRequestBody.Builder(new CopyFileRequestBodyParentField("0"))
                     .name(copiedFileName)
                     .build());
     assert copiedFile.getParent().getId().equals("0");

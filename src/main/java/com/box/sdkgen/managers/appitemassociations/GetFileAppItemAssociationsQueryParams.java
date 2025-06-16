@@ -10,8 +10,7 @@ public class GetFileAppItemAssociationsQueryParams {
 
   public GetFileAppItemAssociationsQueryParams() {}
 
-  protected GetFileAppItemAssociationsQueryParams(
-      GetFileAppItemAssociationsQueryParamsBuilder builder) {
+  protected GetFileAppItemAssociationsQueryParams(Builder builder) {
     this.limit = builder.limit;
     this.marker = builder.marker;
     this.applicationType = builder.applicationType;
@@ -29,7 +28,7 @@ public class GetFileAppItemAssociationsQueryParams {
     return applicationType;
   }
 
-  public static class GetFileAppItemAssociationsQueryParamsBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -37,17 +36,17 @@ public class GetFileAppItemAssociationsQueryParams {
 
     protected String applicationType;
 
-    public GetFileAppItemAssociationsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetFileAppItemAssociationsQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetFileAppItemAssociationsQueryParamsBuilder applicationType(String applicationType) {
+    public Builder applicationType(String applicationType) {
       this.applicationType = applicationType;
       return this;
     }

@@ -29,7 +29,7 @@ public class WeblinksITest {
         client
             .getWebLinks()
             .createWebLink(
-                new CreateWebLinkRequestBody.CreateWebLinkRequestBodyBuilder(
+                new CreateWebLinkRequestBody.Builder(
                         url, new CreateWebLinkRequestBodyParentField(parent.getId()))
                     .name(name)
                     .description(description)
@@ -47,11 +47,10 @@ public class WeblinksITest {
             .getWebLinks()
             .updateWebLinkById(
                 weblink.getId(),
-                new UpdateWebLinkByIdRequestBody.UpdateWebLinkByIdRequestBodyBuilder()
+                new UpdateWebLinkByIdRequestBody.Builder()
                     .name(updatedName)
                     .sharedLink(
-                        new UpdateWebLinkByIdRequestBodySharedLinkField
-                                .UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder()
+                        new UpdateWebLinkByIdRequestBodySharedLinkField.Builder()
                             .access(UpdateWebLinkByIdRequestBodySharedLinkAccessField.OPEN)
                             .password(password)
                             .build())

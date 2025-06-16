@@ -15,7 +15,7 @@ public class UserNotificationEmailField extends SerializableObject {
     super();
   }
 
-  protected UserNotificationEmailField(UserNotificationEmailFieldBuilder builder) {
+  protected UserNotificationEmailField(Builder builder) {
     super();
     this.email = builder.email;
     this.isConfirmed = builder.isConfirmed;
@@ -59,18 +59,18 @@ public class UserNotificationEmailField extends SerializableObject {
         + "}";
   }
 
-  public static class UserNotificationEmailFieldBuilder {
+  public static class Builder {
 
     protected String email;
 
     protected Boolean isConfirmed;
 
-    public UserNotificationEmailFieldBuilder email(String email) {
+    public Builder email(String email) {
       this.email = email;
       return this;
     }
 
-    public UserNotificationEmailFieldBuilder isConfirmed(Boolean isConfirmed) {
+    public Builder isConfirmed(Boolean isConfirmed) {
       this.isConfirmed = isConfirmed;
       return this;
     }

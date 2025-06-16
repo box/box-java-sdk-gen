@@ -15,7 +15,7 @@ public class FileFullMetadataField extends SerializableObject {
     super();
   }
 
-  protected FileFullMetadataField(FileFullMetadataFieldBuilder builder) {
+  protected FileFullMetadataField(Builder builder) {
     super();
     this.extraData = builder.extraData;
   }
@@ -46,12 +46,11 @@ public class FileFullMetadataField extends SerializableObject {
     return "FileFullMetadataField{" + "extraData='" + extraData + '\'' + "}";
   }
 
-  public static class FileFullMetadataFieldBuilder {
+  public static class Builder {
 
     protected Map<String, Map<String, MetadataFull>> extraData;
 
-    public FileFullMetadataFieldBuilder extraData(
-        Map<String, Map<String, MetadataFull>> extraData) {
+    public Builder extraData(Map<String, Map<String, MetadataFull>> extraData) {
       this.extraData = extraData;
       return this;
     }

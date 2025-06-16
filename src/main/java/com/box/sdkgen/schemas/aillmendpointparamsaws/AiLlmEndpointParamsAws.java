@@ -27,7 +27,7 @@ public class AiLlmEndpointParamsAws extends SerializableObject {
             AiLlmEndpointParamsAwsTypeField.AWS_PARAMS);
   }
 
-  protected AiLlmEndpointParamsAws(AiLlmEndpointParamsAwsBuilder builder) {
+  protected AiLlmEndpointParamsAws(Builder builder) {
     super();
     this.type = builder.type;
     this.temperature = builder.temperature;
@@ -82,7 +82,7 @@ public class AiLlmEndpointParamsAws extends SerializableObject {
         + "}";
   }
 
-  public static class AiLlmEndpointParamsAwsBuilder {
+  public static class Builder {
 
     protected EnumWrapper<AiLlmEndpointParamsAwsTypeField> type;
 
@@ -90,28 +90,28 @@ public class AiLlmEndpointParamsAws extends SerializableObject {
 
     protected Double topP;
 
-    public AiLlmEndpointParamsAwsBuilder() {
+    public Builder() {
       this.type =
           new EnumWrapper<AiLlmEndpointParamsAwsTypeField>(
               AiLlmEndpointParamsAwsTypeField.AWS_PARAMS);
     }
 
-    public AiLlmEndpointParamsAwsBuilder type(AiLlmEndpointParamsAwsTypeField type) {
+    public Builder type(AiLlmEndpointParamsAwsTypeField type) {
       this.type = new EnumWrapper<AiLlmEndpointParamsAwsTypeField>(type);
       return this;
     }
 
-    public AiLlmEndpointParamsAwsBuilder type(EnumWrapper<AiLlmEndpointParamsAwsTypeField> type) {
+    public Builder type(EnumWrapper<AiLlmEndpointParamsAwsTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiLlmEndpointParamsAwsBuilder temperature(Double temperature) {
+    public Builder temperature(Double temperature) {
       this.temperature = temperature;
       return this;
     }
 
-    public AiLlmEndpointParamsAwsBuilder topP(Double topP) {
+    public Builder topP(Double topP) {
       this.topP = topP;
       return this;
     }

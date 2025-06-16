@@ -35,7 +35,7 @@ public class StartWorkflowRequestBody extends SerializableObject {
     this.folder = folder;
   }
 
-  protected StartWorkflowRequestBody(StartWorkflowRequestBodyBuilder builder) {
+  protected StartWorkflowRequestBody(Builder builder) {
     super();
     this.type = builder.type;
     this.flow = builder.flow;
@@ -110,7 +110,7 @@ public class StartWorkflowRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class StartWorkflowRequestBodyBuilder {
+  public static class Builder {
 
     protected EnumWrapper<StartWorkflowRequestBodyTypeField> type;
 
@@ -122,7 +122,7 @@ public class StartWorkflowRequestBody extends SerializableObject {
 
     protected List<Outcome> outcomes;
 
-    public StartWorkflowRequestBodyBuilder(
+    public Builder(
         StartWorkflowRequestBodyFlowField flow,
         List<StartWorkflowRequestBodyFilesField> files,
         StartWorkflowRequestBodyFolderField folder) {
@@ -131,18 +131,17 @@ public class StartWorkflowRequestBody extends SerializableObject {
       this.folder = folder;
     }
 
-    public StartWorkflowRequestBodyBuilder type(StartWorkflowRequestBodyTypeField type) {
+    public Builder type(StartWorkflowRequestBodyTypeField type) {
       this.type = new EnumWrapper<StartWorkflowRequestBodyTypeField>(type);
       return this;
     }
 
-    public StartWorkflowRequestBodyBuilder type(
-        EnumWrapper<StartWorkflowRequestBodyTypeField> type) {
+    public Builder type(EnumWrapper<StartWorkflowRequestBodyTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public StartWorkflowRequestBodyBuilder outcomes(List<Outcome> outcomes) {
+    public Builder outcomes(List<Outcome> outcomes) {
       this.outcomes = outcomes;
       return this;
     }

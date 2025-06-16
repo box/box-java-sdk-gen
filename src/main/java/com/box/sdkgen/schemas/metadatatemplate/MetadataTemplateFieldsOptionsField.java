@@ -15,7 +15,7 @@ public class MetadataTemplateFieldsOptionsField extends SerializableObject {
     this.key = key;
   }
 
-  protected MetadataTemplateFieldsOptionsField(MetadataTemplateFieldsOptionsFieldBuilder builder) {
+  protected MetadataTemplateFieldsOptionsField(Builder builder) {
     super();
     this.key = builder.key;
     this.id = builder.id;
@@ -59,17 +59,17 @@ public class MetadataTemplateFieldsOptionsField extends SerializableObject {
         + "}";
   }
 
-  public static class MetadataTemplateFieldsOptionsFieldBuilder {
+  public static class Builder {
 
     protected final String key;
 
     protected String id;
 
-    public MetadataTemplateFieldsOptionsFieldBuilder(String key) {
+    public Builder(String key) {
       this.key = key;
     }
 
-    public MetadataTemplateFieldsOptionsFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

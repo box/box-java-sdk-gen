@@ -41,8 +41,7 @@ public class CreateShieldInformationBarrierSegmentMemberRequestBody extends Seri
     this.user = user;
   }
 
-  protected CreateShieldInformationBarrierSegmentMemberRequestBody(
-      CreateShieldInformationBarrierSegmentMemberRequestBodyBuilder builder) {
+  protected CreateShieldInformationBarrierSegmentMemberRequestBody(Builder builder) {
     super();
     this.type = builder.type;
     this.shieldInformationBarrier = builder.shieldInformationBarrier;
@@ -109,7 +108,7 @@ public class CreateShieldInformationBarrierSegmentMemberRequestBody extends Seri
         + "}";
   }
 
-  public static class CreateShieldInformationBarrierSegmentMemberRequestBodyBuilder {
+  public static class Builder {
 
     protected EnumWrapper<CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField> type;
 
@@ -121,7 +120,7 @@ public class CreateShieldInformationBarrierSegmentMemberRequestBody extends Seri
 
     protected final UserBase user;
 
-    public CreateShieldInformationBarrierSegmentMemberRequestBodyBuilder(
+    public Builder(
         CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField
             shieldInformationBarrierSegment,
         UserBase user) {
@@ -129,21 +128,19 @@ public class CreateShieldInformationBarrierSegmentMemberRequestBody extends Seri
       this.user = user;
     }
 
-    public CreateShieldInformationBarrierSegmentMemberRequestBodyBuilder type(
-        CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField type) {
+    public Builder type(CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField type) {
       this.type =
           new EnumWrapper<CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField>(type);
       return this;
     }
 
-    public CreateShieldInformationBarrierSegmentMemberRequestBodyBuilder type(
+    public Builder type(
         EnumWrapper<CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public CreateShieldInformationBarrierSegmentMemberRequestBodyBuilder shieldInformationBarrier(
-        ShieldInformationBarrierBase shieldInformationBarrier) {
+    public Builder shieldInformationBarrier(ShieldInformationBarrierBase shieldInformationBarrier) {
       this.shieldInformationBarrier = shieldInformationBarrier;
       return this;
     }

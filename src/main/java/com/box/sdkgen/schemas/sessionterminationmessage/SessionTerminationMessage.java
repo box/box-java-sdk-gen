@@ -11,7 +11,7 @@ public class SessionTerminationMessage extends SerializableObject {
     super();
   }
 
-  protected SessionTerminationMessage(SessionTerminationMessageBuilder builder) {
+  protected SessionTerminationMessage(Builder builder) {
     super();
     this.message = builder.message;
   }
@@ -42,11 +42,11 @@ public class SessionTerminationMessage extends SerializableObject {
     return "SessionTerminationMessage{" + "message='" + message + '\'' + "}";
   }
 
-  public static class SessionTerminationMessageBuilder {
+  public static class Builder {
 
     protected String message;
 
-    public SessionTerminationMessageBuilder message(String message) {
+    public Builder message(String message) {
       this.message = message;
       return this;
     }

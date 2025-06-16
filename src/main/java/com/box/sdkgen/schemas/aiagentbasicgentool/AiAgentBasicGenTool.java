@@ -15,7 +15,7 @@ public class AiAgentBasicGenTool extends AiAgentLongTextToolTextGen {
     super();
   }
 
-  protected AiAgentBasicGenTool(AiAgentBasicGenToolBuilder builder) {
+  protected AiAgentBasicGenTool(Builder builder) {
     super(builder);
     this.contentTemplate = builder.contentTemplate;
   }
@@ -87,48 +87,47 @@ public class AiAgentBasicGenTool extends AiAgentLongTextToolTextGen {
         + "}";
   }
 
-  public static class AiAgentBasicGenToolBuilder extends AiAgentLongTextToolTextGenBuilder {
+  public static class Builder extends AiAgentLongTextToolTextGen.Builder {
 
     protected String contentTemplate;
 
-    public AiAgentBasicGenToolBuilder contentTemplate(String contentTemplate) {
+    public Builder contentTemplate(String contentTemplate) {
       this.contentTemplate = contentTemplate;
       return this;
     }
 
     @Override
-    public AiAgentBasicGenToolBuilder model(String model) {
+    public Builder model(String model) {
       this.model = model;
       return this;
     }
 
     @Override
-    public AiAgentBasicGenToolBuilder numTokensForCompletion(Long numTokensForCompletion) {
+    public Builder numTokensForCompletion(Long numTokensForCompletion) {
       this.numTokensForCompletion = numTokensForCompletion;
       return this;
     }
 
     @Override
-    public AiAgentBasicGenToolBuilder llmEndpointParams(AiLlmEndpointParams llmEndpointParams) {
+    public Builder llmEndpointParams(AiLlmEndpointParams llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }
 
     @Override
-    public AiAgentBasicGenToolBuilder systemMessage(String systemMessage) {
+    public Builder systemMessage(String systemMessage) {
       this.systemMessage = systemMessage;
       return this;
     }
 
     @Override
-    public AiAgentBasicGenToolBuilder promptTemplate(String promptTemplate) {
+    public Builder promptTemplate(String promptTemplate) {
       this.promptTemplate = promptTemplate;
       return this;
     }
 
     @Override
-    public AiAgentBasicGenToolBuilder embeddings(
-        AiAgentLongTextToolTextGenEmbeddingsField embeddings) {
+    public Builder embeddings(AiAgentLongTextToolTextGenEmbeddingsField embeddings) {
       this.embeddings = embeddings;
       return this;
     }

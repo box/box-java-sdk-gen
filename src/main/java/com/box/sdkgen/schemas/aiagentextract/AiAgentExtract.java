@@ -29,7 +29,7 @@ public class AiAgentExtract extends SerializableObject {
     this.type = new EnumWrapper<AiAgentExtractTypeField>(AiAgentExtractTypeField.AI_AGENT_EXTRACT);
   }
 
-  protected AiAgentExtract(AiAgentExtractBuilder builder) {
+  protected AiAgentExtract(Builder builder) {
     super();
     this.type = builder.type;
     this.longText = builder.longText;
@@ -94,7 +94,7 @@ public class AiAgentExtract extends SerializableObject {
         + "}";
   }
 
-  public static class AiAgentExtractBuilder {
+  public static class Builder {
 
     protected EnumWrapper<AiAgentExtractTypeField> type;
 
@@ -104,32 +104,32 @@ public class AiAgentExtract extends SerializableObject {
 
     protected AiAgentBasicTextTool basicImage;
 
-    public AiAgentExtractBuilder() {
+    public Builder() {
       this.type =
           new EnumWrapper<AiAgentExtractTypeField>(AiAgentExtractTypeField.AI_AGENT_EXTRACT);
     }
 
-    public AiAgentExtractBuilder type(AiAgentExtractTypeField type) {
+    public Builder type(AiAgentExtractTypeField type) {
       this.type = new EnumWrapper<AiAgentExtractTypeField>(type);
       return this;
     }
 
-    public AiAgentExtractBuilder type(EnumWrapper<AiAgentExtractTypeField> type) {
+    public Builder type(EnumWrapper<AiAgentExtractTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiAgentExtractBuilder longText(AiAgentLongTextTool longText) {
+    public Builder longText(AiAgentLongTextTool longText) {
       this.longText = longText;
       return this;
     }
 
-    public AiAgentExtractBuilder basicText(AiAgentBasicTextTool basicText) {
+    public Builder basicText(AiAgentBasicTextTool basicText) {
       this.basicText = basicText;
       return this;
     }
 
-    public AiAgentExtractBuilder basicImage(AiAgentBasicTextTool basicImage) {
+    public Builder basicImage(AiAgentBasicTextTool basicImage) {
       this.basicImage = basicImage;
       return this;
     }

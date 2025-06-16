@@ -14,7 +14,7 @@ public class GetAuthorizeUrlOptions {
 
   public GetAuthorizeUrlOptions() {}
 
-  protected GetAuthorizeUrlOptions(GetAuthorizeUrlOptionsBuilder builder) {
+  protected GetAuthorizeUrlOptions(Builder builder) {
     this.clientId = builder.clientId;
     this.redirectUri = builder.redirectUri;
     this.responseType = builder.responseType;
@@ -42,7 +42,7 @@ public class GetAuthorizeUrlOptions {
     return scope;
   }
 
-  public static class GetAuthorizeUrlOptionsBuilder {
+  public static class Builder {
 
     protected String clientId;
 
@@ -54,27 +54,27 @@ public class GetAuthorizeUrlOptions {
 
     protected String scope;
 
-    public GetAuthorizeUrlOptionsBuilder clientId(String clientId) {
+    public Builder clientId(String clientId) {
       this.clientId = clientId;
       return this;
     }
 
-    public GetAuthorizeUrlOptionsBuilder redirectUri(String redirectUri) {
+    public Builder redirectUri(String redirectUri) {
       this.redirectUri = redirectUri;
       return this;
     }
 
-    public GetAuthorizeUrlOptionsBuilder responseType(String responseType) {
+    public Builder responseType(String responseType) {
       this.responseType = responseType;
       return this;
     }
 
-    public GetAuthorizeUrlOptionsBuilder state(String state) {
+    public Builder state(String state) {
       this.state = state;
       return this;
     }
 
-    public GetAuthorizeUrlOptionsBuilder scope(String scope) {
+    public Builder scope(String scope) {
       this.scope = scope;
       return this;
     }

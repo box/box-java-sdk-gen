@@ -13,7 +13,7 @@ public class FileConflict extends FileMini {
     super(id);
   }
 
-  protected FileConflict(FileConflictBuilder builder) {
+  protected FileConflict(Builder builder) {
     super(builder);
   }
 
@@ -73,50 +73,50 @@ public class FileConflict extends FileMini {
         + "}";
   }
 
-  public static class FileConflictBuilder extends FileMiniBuilder {
+  public static class Builder extends FileMini.Builder {
 
-    public FileConflictBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
     @Override
-    public FileConflictBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
     @Override
-    public FileConflictBuilder type(FileBaseTypeField type) {
+    public Builder type(FileBaseTypeField type) {
       this.type = new EnumWrapper<FileBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FileConflictBuilder type(EnumWrapper<FileBaseTypeField> type) {
+    public Builder type(EnumWrapper<FileBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public FileConflictBuilder sequenceId(String sequenceId) {
+    public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
       return this;
     }
 
     @Override
-    public FileConflictBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public FileConflictBuilder sha1(String sha1) {
+    public Builder sha1(String sha1) {
       this.sha1 = sha1;
       return this;
     }
 
     @Override
-    public FileConflictBuilder fileVersion(FileVersionMini fileVersion) {
+    public Builder fileVersion(FileVersionMini fileVersion) {
       this.fileVersion = fileVersion;
       return this;
     }

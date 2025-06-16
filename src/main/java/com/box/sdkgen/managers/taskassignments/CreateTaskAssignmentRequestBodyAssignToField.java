@@ -13,8 +13,7 @@ public class CreateTaskAssignmentRequestBodyAssignToField extends SerializableOb
     super();
   }
 
-  protected CreateTaskAssignmentRequestBodyAssignToField(
-      CreateTaskAssignmentRequestBodyAssignToFieldBuilder builder) {
+  protected CreateTaskAssignmentRequestBodyAssignToField(Builder builder) {
     super();
     this.id = builder.id;
     this.login = builder.login;
@@ -59,18 +58,18 @@ public class CreateTaskAssignmentRequestBodyAssignToField extends SerializableOb
         + "}";
   }
 
-  public static class CreateTaskAssignmentRequestBodyAssignToFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected String login;
 
-    public CreateTaskAssignmentRequestBodyAssignToFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public CreateTaskAssignmentRequestBodyAssignToFieldBuilder login(String login) {
+    public Builder login(String login) {
       this.login = login;
       return this;
     }

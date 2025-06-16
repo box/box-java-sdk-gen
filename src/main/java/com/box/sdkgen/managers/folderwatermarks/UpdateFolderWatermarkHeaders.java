@@ -12,7 +12,7 @@ public class UpdateFolderWatermarkHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UpdateFolderWatermarkHeaders(UpdateFolderWatermarkHeadersBuilder builder) {
+  protected UpdateFolderWatermarkHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class UpdateFolderWatermarkHeaders {
     return extraHeaders;
   }
 
-  public static class UpdateFolderWatermarkHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public UpdateFolderWatermarkHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public UpdateFolderWatermarkHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

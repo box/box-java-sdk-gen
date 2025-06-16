@@ -12,7 +12,7 @@ public class GetSignTemplateByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetSignTemplateByIdHeaders(GetSignTemplateByIdHeadersBuilder builder) {
+  protected GetSignTemplateByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetSignTemplateByIdHeaders {
     return extraHeaders;
   }
 
-  public static class GetSignTemplateByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetSignTemplateByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetSignTemplateByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

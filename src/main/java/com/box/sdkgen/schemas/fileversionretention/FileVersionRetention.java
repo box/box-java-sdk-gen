@@ -44,7 +44,7 @@ public class FileVersionRetention extends SerializableObject {
     super();
   }
 
-  protected FileVersionRetention(FileVersionRetentionBuilder builder) {
+  protected FileVersionRetention(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -140,7 +140,7 @@ public class FileVersionRetention extends SerializableObject {
         + "}";
   }
 
-  public static class FileVersionRetentionBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -156,43 +156,42 @@ public class FileVersionRetention extends SerializableObject {
 
     protected RetentionPolicyMini winningRetentionPolicy;
 
-    public FileVersionRetentionBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public FileVersionRetentionBuilder type(FileVersionRetentionTypeField type) {
+    public Builder type(FileVersionRetentionTypeField type) {
       this.type = new EnumWrapper<FileVersionRetentionTypeField>(type);
       return this;
     }
 
-    public FileVersionRetentionBuilder type(EnumWrapper<FileVersionRetentionTypeField> type) {
+    public Builder type(EnumWrapper<FileVersionRetentionTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public FileVersionRetentionBuilder fileVersion(FileVersionMini fileVersion) {
+    public Builder fileVersion(FileVersionMini fileVersion) {
       this.fileVersion = fileVersion;
       return this;
     }
 
-    public FileVersionRetentionBuilder file(FileMini file) {
+    public Builder file(FileMini file) {
       this.file = file;
       return this;
     }
 
-    public FileVersionRetentionBuilder appliedAt(Date appliedAt) {
+    public Builder appliedAt(Date appliedAt) {
       this.appliedAt = appliedAt;
       return this;
     }
 
-    public FileVersionRetentionBuilder dispositionAt(Date dispositionAt) {
+    public Builder dispositionAt(Date dispositionAt) {
       this.dispositionAt = dispositionAt;
       return this;
     }
 
-    public FileVersionRetentionBuilder winningRetentionPolicy(
-        RetentionPolicyMini winningRetentionPolicy) {
+    public Builder winningRetentionPolicy(RetentionPolicyMini winningRetentionPolicy) {
       this.winningRetentionPolicy = winningRetentionPolicy;
       return this;
     }

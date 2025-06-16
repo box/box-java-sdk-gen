@@ -57,7 +57,7 @@ See the endpoint docs at
 
 <!-- sample post_integration_mappings_slack -->
 ```
-userClient.getIntegrationMappings().createSlackIntegrationMapping(new IntegrationMappingSlackCreateRequest(new IntegrationMappingPartnerItemSlack.IntegrationMappingPartnerItemSlackBuilder(slackPartnerItemId).slackOrgId(slackOrgId).build(), new IntegrationMappingBoxItemSlack(folder.getId())))
+userClient.getIntegrationMappings().createSlackIntegrationMapping(new IntegrationMappingSlackCreateRequest(new IntegrationMappingPartnerItemSlack.Builder(slackPartnerItemId).slackOrgId(slackOrgId).build(), new IntegrationMappingBoxItemSlack(folder.getId())))
 ```
 
 ### Arguments
@@ -90,7 +90,7 @@ See the endpoint docs at
 
 <!-- sample put_integration_mappings_slack_id -->
 ```
-userClient.getIntegrationMappings().updateSlackIntegrationMappingById(slackIntegrationMapping.getId(), new UpdateSlackIntegrationMappingByIdRequestBody.UpdateSlackIntegrationMappingByIdRequestBodyBuilder().boxItem(new IntegrationMappingBoxItemSlack(folder.getId())).build())
+userClient.getIntegrationMappings().updateSlackIntegrationMappingById(slackIntegrationMapping.getId(), new UpdateSlackIntegrationMappingByIdRequestBody.Builder().boxItem(new IntegrationMappingBoxItemSlack(folder.getId())).build())
 ```
 
 ### Arguments
@@ -220,7 +220,7 @@ See the endpoint docs at
 
 <!-- sample put_integration_mappings_teams_id -->
 ```
-userClient.getIntegrationMappings().updateTeamsIntegrationMappingById(integrationMappingId, new UpdateTeamsIntegrationMappingByIdRequestBody.UpdateTeamsIntegrationMappingByIdRequestBodyBuilder().boxItem(new FolderReference("1234567")).build())
+userClient.getIntegrationMappings().updateTeamsIntegrationMappingById(integrationMappingId, new UpdateTeamsIntegrationMappingByIdRequestBody.Builder().boxItem(new FolderReference("1234567")).build())
 ```
 
 ### Arguments

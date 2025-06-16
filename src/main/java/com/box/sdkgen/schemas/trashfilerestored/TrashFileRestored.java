@@ -140,7 +140,7 @@ public class TrashFileRestored extends SerializableObject {
     this.type = new EnumWrapper<TrashFileRestoredTypeField>(TrashFileRestoredTypeField.FILE);
   }
 
-  protected TrashFileRestored(TrashFileRestoredBuilder builder) {
+  protected TrashFileRestored(Builder builder) {
     super();
     this.id = builder.id;
     this.etag = builder.etag;
@@ -407,7 +407,7 @@ public class TrashFileRestored extends SerializableObject {
         + "}";
   }
 
-  public static class TrashFileRestoredBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -453,7 +453,7 @@ public class TrashFileRestored extends SerializableObject {
 
     protected final EnumWrapper<TrashFileRestoredItemStatusField> itemStatus;
 
-    public TrashFileRestoredBuilder(
+    public Builder(
         String id,
         String sequenceId,
         String sha1,
@@ -479,7 +479,7 @@ public class TrashFileRestored extends SerializableObject {
       this.type = new EnumWrapper<TrashFileRestoredTypeField>(TrashFileRestoredTypeField.FILE);
     }
 
-    public TrashFileRestoredBuilder(
+    public Builder(
         String id,
         String sequenceId,
         String sha1,
@@ -505,62 +505,62 @@ public class TrashFileRestored extends SerializableObject {
       this.type = new EnumWrapper<TrashFileRestoredTypeField>(TrashFileRestoredTypeField.FILE);
     }
 
-    public TrashFileRestoredBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
-    public TrashFileRestoredBuilder type(TrashFileRestoredTypeField type) {
+    public Builder type(TrashFileRestoredTypeField type) {
       this.type = new EnumWrapper<TrashFileRestoredTypeField>(type);
       return this;
     }
 
-    public TrashFileRestoredBuilder type(EnumWrapper<TrashFileRestoredTypeField> type) {
+    public Builder type(EnumWrapper<TrashFileRestoredTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TrashFileRestoredBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public TrashFileRestoredBuilder fileVersion(FileVersionMini fileVersion) {
+    public Builder fileVersion(FileVersionMini fileVersion) {
       this.fileVersion = fileVersion;
       return this;
     }
 
-    public TrashFileRestoredBuilder trashedAt(String trashedAt) {
+    public Builder trashedAt(String trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
-    public TrashFileRestoredBuilder purgedAt(String purgedAt) {
+    public Builder purgedAt(String purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
-    public TrashFileRestoredBuilder contentCreatedAt(Date contentCreatedAt) {
+    public Builder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
-    public TrashFileRestoredBuilder contentModifiedAt(Date contentModifiedAt) {
+    public Builder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }
 
-    public TrashFileRestoredBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public TrashFileRestoredBuilder sharedLink(String sharedLink) {
+    public Builder sharedLink(String sharedLink) {
       this.sharedLink = sharedLink;
       return this;
     }
 
-    public TrashFileRestoredBuilder parent(FolderMini parent) {
+    public Builder parent(FolderMini parent) {
       this.parent = parent;
       return this;
     }

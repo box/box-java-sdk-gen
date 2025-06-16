@@ -19,7 +19,7 @@ public class GetAiAgentDefaultConfigQueryParams {
     this.mode = new EnumWrapper<GetAiAgentDefaultConfigQueryParamsModeField>(mode);
   }
 
-  protected GetAiAgentDefaultConfigQueryParams(GetAiAgentDefaultConfigQueryParamsBuilder builder) {
+  protected GetAiAgentDefaultConfigQueryParams(Builder builder) {
     this.mode = builder.mode;
     this.language = builder.language;
     this.model = builder.model;
@@ -37,7 +37,7 @@ public class GetAiAgentDefaultConfigQueryParams {
     return model;
   }
 
-  public static class GetAiAgentDefaultConfigQueryParamsBuilder {
+  public static class Builder {
 
     protected final EnumWrapper<GetAiAgentDefaultConfigQueryParamsModeField> mode;
 
@@ -45,22 +45,20 @@ public class GetAiAgentDefaultConfigQueryParams {
 
     protected String model;
 
-    public GetAiAgentDefaultConfigQueryParamsBuilder(
-        EnumWrapper<GetAiAgentDefaultConfigQueryParamsModeField> mode) {
+    public Builder(EnumWrapper<GetAiAgentDefaultConfigQueryParamsModeField> mode) {
       this.mode = mode;
     }
 
-    public GetAiAgentDefaultConfigQueryParamsBuilder(
-        GetAiAgentDefaultConfigQueryParamsModeField mode) {
+    public Builder(GetAiAgentDefaultConfigQueryParamsModeField mode) {
       this.mode = new EnumWrapper<GetAiAgentDefaultConfigQueryParamsModeField>(mode);
     }
 
-    public GetAiAgentDefaultConfigQueryParamsBuilder language(String language) {
+    public Builder language(String language) {
       this.language = language;
       return this;
     }
 
-    public GetAiAgentDefaultConfigQueryParamsBuilder model(String model) {
+    public Builder model(String model) {
       this.model = model;
       return this;
     }

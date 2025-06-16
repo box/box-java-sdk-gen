@@ -67,8 +67,7 @@ public class FileMetadataITest {
     client
         .getMetadataTemplates()
         .createMetadataTemplate(
-            new CreateMetadataTemplateRequestBody.CreateMetadataTemplateRequestBodyBuilder(
-                    "enterprise", templateKey)
+            new CreateMetadataTemplateRequestBody.Builder("enterprise", templateKey)
                 .templateKey(templateKey)
                 .fields(
                     Arrays.asList(
@@ -82,8 +81,7 @@ public class FileMetadataITest {
                             CreateMetadataTemplateRequestBodyFieldsTypeField.DATE,
                             "birthDate",
                             "birthDate"),
-                        new CreateMetadataTemplateRequestBodyFieldsField
-                                .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                        new CreateMetadataTemplateRequestBodyFieldsField.Builder(
                                 CreateMetadataTemplateRequestBodyFieldsTypeField.ENUM,
                                 "countryCode",
                                 "countryCode")
@@ -92,8 +90,7 @@ public class FileMetadataITest {
                                     new CreateMetadataTemplateRequestBodyFieldsOptionsField("US"),
                                     new CreateMetadataTemplateRequestBodyFieldsOptionsField("CA")))
                             .build(),
-                        new CreateMetadataTemplateRequestBodyFieldsField
-                                .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                        new CreateMetadataTemplateRequestBodyFieldsField.Builder(
                                 CreateMetadataTemplateRequestBodyFieldsTypeField.MULTISELECT,
                                 "sports",
                                 "sports")

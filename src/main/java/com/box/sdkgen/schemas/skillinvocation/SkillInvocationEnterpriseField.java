@@ -23,7 +23,7 @@ public class SkillInvocationEnterpriseField extends SerializableObject {
     super();
   }
 
-  protected SkillInvocationEnterpriseField(SkillInvocationEnterpriseFieldBuilder builder) {
+  protected SkillInvocationEnterpriseField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -78,7 +78,7 @@ public class SkillInvocationEnterpriseField extends SerializableObject {
         + "}";
   }
 
-  public static class SkillInvocationEnterpriseFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -86,23 +86,22 @@ public class SkillInvocationEnterpriseField extends SerializableObject {
 
     protected String name;
 
-    public SkillInvocationEnterpriseFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public SkillInvocationEnterpriseFieldBuilder type(SkillInvocationEnterpriseTypeField type) {
+    public Builder type(SkillInvocationEnterpriseTypeField type) {
       this.type = new EnumWrapper<SkillInvocationEnterpriseTypeField>(type);
       return this;
     }
 
-    public SkillInvocationEnterpriseFieldBuilder type(
-        EnumWrapper<SkillInvocationEnterpriseTypeField> type) {
+    public Builder type(EnumWrapper<SkillInvocationEnterpriseTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public SkillInvocationEnterpriseFieldBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }

@@ -12,8 +12,7 @@ public class DeleteTeamsIntegrationMappingByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteTeamsIntegrationMappingByIdHeaders(
-      DeleteTeamsIntegrationMappingByIdHeadersBuilder builder) {
+  protected DeleteTeamsIntegrationMappingByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class DeleteTeamsIntegrationMappingByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteTeamsIntegrationMappingByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteTeamsIntegrationMappingByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteTeamsIntegrationMappingByIdHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

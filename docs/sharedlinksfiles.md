@@ -89,7 +89,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id#add_shared_link -->
 ```
-client.getSharedLinksFiles().addShareLinkToFile(fileId, new AddShareLinkToFileRequestBody.AddShareLinkToFileRequestBodyBuilder().sharedLink(new AddShareLinkToFileRequestBodySharedLinkField.AddShareLinkToFileRequestBodySharedLinkFieldBuilder().access(AddShareLinkToFileRequestBodySharedLinkAccessField.OPEN).password("Secret123@").build()).build(), new AddShareLinkToFileQueryParams("shared_link"))
+client.getSharedLinksFiles().addShareLinkToFile(fileId, new AddShareLinkToFileRequestBody.Builder().sharedLink(new AddShareLinkToFileRequestBodySharedLinkField.Builder().access(AddShareLinkToFileRequestBodySharedLinkAccessField.OPEN).password("Secret123@").build()).build(), new AddShareLinkToFileQueryParams("shared_link"))
 ```
 
 ### Arguments
@@ -123,7 +123,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id#update_shared_link -->
 ```
-client.getSharedLinksFiles().updateSharedLinkOnFile(fileId, new UpdateSharedLinkOnFileRequestBody.UpdateSharedLinkOnFileRequestBodyBuilder().sharedLink(new UpdateSharedLinkOnFileRequestBodySharedLinkField.UpdateSharedLinkOnFileRequestBodySharedLinkFieldBuilder().access(UpdateSharedLinkOnFileRequestBodySharedLinkAccessField.COLLABORATORS).build()).build(), new UpdateSharedLinkOnFileQueryParams("shared_link"))
+client.getSharedLinksFiles().updateSharedLinkOnFile(fileId, new UpdateSharedLinkOnFileRequestBody.Builder().sharedLink(new UpdateSharedLinkOnFileRequestBodySharedLinkField.Builder().access(UpdateSharedLinkOnFileRequestBodySharedLinkAccessField.COLLABORATORS).build()).build(), new UpdateSharedLinkOnFileQueryParams("shared_link"))
 ```
 
 ### Arguments

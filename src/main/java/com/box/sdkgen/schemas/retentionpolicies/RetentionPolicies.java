@@ -19,7 +19,7 @@ public class RetentionPolicies extends SerializableObject {
     super();
   }
 
-  protected RetentionPolicies(RetentionPoliciesBuilder builder) {
+  protected RetentionPolicies(Builder builder) {
     super();
     this.entries = builder.entries;
     this.limit = builder.limit;
@@ -74,7 +74,7 @@ public class RetentionPolicies extends SerializableObject {
         + "}";
   }
 
-  public static class RetentionPoliciesBuilder {
+  public static class Builder {
 
     protected List<RetentionPolicy> entries;
 
@@ -82,17 +82,17 @@ public class RetentionPolicies extends SerializableObject {
 
     protected String nextMarker;
 
-    public RetentionPoliciesBuilder entries(List<RetentionPolicy> entries) {
+    public Builder entries(List<RetentionPolicy> entries) {
       this.entries = entries;
       return this;
     }
 
-    public RetentionPoliciesBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public RetentionPoliciesBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }

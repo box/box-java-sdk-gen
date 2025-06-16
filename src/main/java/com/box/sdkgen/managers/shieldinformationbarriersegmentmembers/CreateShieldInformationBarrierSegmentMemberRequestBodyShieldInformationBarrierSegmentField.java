@@ -33,8 +33,7 @@ class CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBar
 
   protected
   CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField(
-      CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentFieldBuilder
-          builder) {
+      Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -83,8 +82,7 @@ class CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBar
         + "}";
   }
 
-  public static
-  class CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -92,18 +90,14 @@ class CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBar
             CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField>
         type;
 
-    public
-    CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentFieldBuilder
-        id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public
-    CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentFieldBuilder
-        type(
-            CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField
-                type) {
+    public Builder type(
+        CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField
+            type) {
       this.type =
           new EnumWrapper<
               CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField>(
@@ -111,12 +105,10 @@ class CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBar
       return this;
     }
 
-    public
-    CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentFieldBuilder
-        type(
-            EnumWrapper<
-                    CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField>
-                type) {
+    public Builder type(
+        EnumWrapper<
+                CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField>
+            type) {
       this.type = type;
       return this;
     }

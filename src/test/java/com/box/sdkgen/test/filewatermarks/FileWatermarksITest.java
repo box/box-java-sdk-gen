@@ -39,8 +39,7 @@ public class FileWatermarksITest {
             .updateFileWatermark(
                 file.getId(),
                 new UpdateFileWatermarkRequestBody(
-                    new UpdateFileWatermarkRequestBodyWatermarkField
-                            .UpdateFileWatermarkRequestBodyWatermarkFieldBuilder()
+                    new UpdateFileWatermarkRequestBodyWatermarkField.Builder()
                         .imprint(UpdateFileWatermarkRequestBodyWatermarkImprintField.DEFAULT)
                         .build()));
     Watermark watermark = client.getFileWatermarks().getFileWatermark(file.getId());

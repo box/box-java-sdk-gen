@@ -29,7 +29,7 @@ public class UploadsManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected UploadsManager(UploadsManagerBuilder builder) {
+  protected UploadsManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -69,7 +69,7 @@ public class UploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getUploadUrl(),
@@ -81,10 +81,10 @@ public class UploadsManager {
                     .headers(headersMap)
                     .multipartData(
                         Arrays.asList(
-                            new MultipartItem.MultipartItemBuilder("attributes")
+                            new MultipartItem.Builder("attributes")
                                 .data(JsonManager.serialize(requestBody.getAttributes()))
                                 .build(),
-                            new MultipartItem.MultipartItemBuilder("file")
+                            new MultipartItem.Builder("file")
                                 .fileStream(requestBody.getFile())
                                 .fileName(requestBody.getFileFileName())
                                 .contentType(requestBody.getFileContentType())
@@ -117,7 +117,7 @@ public class UploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -160,7 +160,7 @@ public class UploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getUploadUrl(),
@@ -170,10 +170,10 @@ public class UploadsManager {
                     .headers(headersMap)
                     .multipartData(
                         Arrays.asList(
-                            new MultipartItem.MultipartItemBuilder("attributes")
+                            new MultipartItem.Builder("attributes")
                                 .data(JsonManager.serialize(requestBody.getAttributes()))
                                 .build(),
-                            new MultipartItem.MultipartItemBuilder("file")
+                            new MultipartItem.Builder("file")
                                 .fileStream(requestBody.getFile())
                                 .fileName(requestBody.getFileFileName())
                                 .contentType(requestBody.getFileContentType())
@@ -219,16 +219,15 @@ public class UploadsManager {
                 headers.getExtraHeaders()));
     UploadUrl preflightUploadUrl =
         this.preflightFileUploadCheck(
-            new PreflightFileUploadCheckRequestBody.PreflightFileUploadCheckRequestBodyBuilder()
+            new PreflightFileUploadCheckRequestBody.Builder()
                 .name(requestBody.getAttributes().getName())
                 .size(requestBody.getAttributes().getSize())
                 .parent(
-                    new PreflightFileUploadCheckRequestBodyParentField
-                            .PreflightFileUploadCheckRequestBodyParentFieldBuilder()
+                    new PreflightFileUploadCheckRequestBodyParentField.Builder()
                         .id(requestBody.getAttributes().getParent().getId())
                         .build())
                 .build(),
-            new PreflightFileUploadCheckHeaders.PreflightFileUploadCheckHeadersBuilder()
+            new PreflightFileUploadCheckHeaders.Builder()
                 .extraHeaders(headers.getExtraHeaders())
                 .build());
     if (preflightUploadUrl.getUploadUrl() == null
@@ -239,15 +238,15 @@ public class UploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(preflightUploadUrl.getUploadUrl(), "POST")
+                new FetchOptions.Builder(preflightUploadUrl.getUploadUrl(), "POST")
                     .params(queryParamsMap)
                     .headers(headersMap)
                     .multipartData(
                         Arrays.asList(
-                            new MultipartItem.MultipartItemBuilder("attributes")
+                            new MultipartItem.Builder("attributes")
                                 .data(JsonManager.serialize(requestBody.getAttributes()))
                                 .build(),
-                            new MultipartItem.MultipartItemBuilder("file")
+                            new MultipartItem.Builder("file")
                                 .fileStream(requestBody.getFile())
                                 .fileName(requestBody.getFileFileName())
                                 .contentType(requestBody.getFileContentType())
@@ -268,22 +267,22 @@ public class UploadsManager {
     return networkSession;
   }
 
-  public static class UploadsManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public UploadsManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public UploadsManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public UploadsManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

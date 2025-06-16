@@ -8,8 +8,7 @@ public class GetFilesUnderRetentionPolicyAssignmentQueryParams {
 
   public GetFilesUnderRetentionPolicyAssignmentQueryParams() {}
 
-  protected GetFilesUnderRetentionPolicyAssignmentQueryParams(
-      GetFilesUnderRetentionPolicyAssignmentQueryParamsBuilder builder) {
+  protected GetFilesUnderRetentionPolicyAssignmentQueryParams(Builder builder) {
     this.marker = builder.marker;
     this.limit = builder.limit;
   }
@@ -22,18 +21,18 @@ public class GetFilesUnderRetentionPolicyAssignmentQueryParams {
     return limit;
   }
 
-  public static class GetFilesUnderRetentionPolicyAssignmentQueryParamsBuilder {
+  public static class Builder {
 
     protected String marker;
 
     protected Long limit;
 
-    public GetFilesUnderRetentionPolicyAssignmentQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetFilesUnderRetentionPolicyAssignmentQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

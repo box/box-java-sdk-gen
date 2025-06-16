@@ -12,8 +12,7 @@ public class GetMetadataTemplatesByInstanceIdQueryParams {
     this.metadataInstanceId = metadataInstanceId;
   }
 
-  protected GetMetadataTemplatesByInstanceIdQueryParams(
-      GetMetadataTemplatesByInstanceIdQueryParamsBuilder builder) {
+  protected GetMetadataTemplatesByInstanceIdQueryParams(Builder builder) {
     this.metadataInstanceId = builder.metadataInstanceId;
     this.marker = builder.marker;
     this.limit = builder.limit;
@@ -31,7 +30,7 @@ public class GetMetadataTemplatesByInstanceIdQueryParams {
     return limit;
   }
 
-  public static class GetMetadataTemplatesByInstanceIdQueryParamsBuilder {
+  public static class Builder {
 
     protected final String metadataInstanceId;
 
@@ -39,16 +38,16 @@ public class GetMetadataTemplatesByInstanceIdQueryParams {
 
     protected Long limit;
 
-    public GetMetadataTemplatesByInstanceIdQueryParamsBuilder(String metadataInstanceId) {
+    public Builder(String metadataInstanceId) {
       this.metadataInstanceId = metadataInstanceId;
     }
 
-    public GetMetadataTemplatesByInstanceIdQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetMetadataTemplatesByInstanceIdQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

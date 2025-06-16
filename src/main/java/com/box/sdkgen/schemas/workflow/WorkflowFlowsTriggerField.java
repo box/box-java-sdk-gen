@@ -32,7 +32,7 @@ public class WorkflowFlowsTriggerField extends SerializableObject {
     super();
   }
 
-  protected WorkflowFlowsTriggerField(WorkflowFlowsTriggerFieldBuilder builder) {
+  protected WorkflowFlowsTriggerField(Builder builder) {
     super();
     this.type = builder.type;
     this.triggerType = builder.triggerType;
@@ -87,7 +87,7 @@ public class WorkflowFlowsTriggerField extends SerializableObject {
         + "}";
   }
 
-  public static class WorkflowFlowsTriggerFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<WorkflowFlowsTriggerTypeField> type;
 
@@ -95,29 +95,27 @@ public class WorkflowFlowsTriggerField extends SerializableObject {
 
     protected List<WorkflowFlowsTriggerScopeField> scope;
 
-    public WorkflowFlowsTriggerFieldBuilder type(WorkflowFlowsTriggerTypeField type) {
+    public Builder type(WorkflowFlowsTriggerTypeField type) {
       this.type = new EnumWrapper<WorkflowFlowsTriggerTypeField>(type);
       return this;
     }
 
-    public WorkflowFlowsTriggerFieldBuilder type(EnumWrapper<WorkflowFlowsTriggerTypeField> type) {
+    public Builder type(EnumWrapper<WorkflowFlowsTriggerTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public WorkflowFlowsTriggerFieldBuilder triggerType(
-        WorkflowFlowsTriggerTriggerTypeField triggerType) {
+    public Builder triggerType(WorkflowFlowsTriggerTriggerTypeField triggerType) {
       this.triggerType = new EnumWrapper<WorkflowFlowsTriggerTriggerTypeField>(triggerType);
       return this;
     }
 
-    public WorkflowFlowsTriggerFieldBuilder triggerType(
-        EnumWrapper<WorkflowFlowsTriggerTriggerTypeField> triggerType) {
+    public Builder triggerType(EnumWrapper<WorkflowFlowsTriggerTriggerTypeField> triggerType) {
       this.triggerType = triggerType;
       return this;
     }
 
-    public WorkflowFlowsTriggerFieldBuilder scope(List<WorkflowFlowsTriggerScopeField> scope) {
+    public Builder scope(List<WorkflowFlowsTriggerScopeField> scope) {
       this.scope = scope;
       return this;
     }

@@ -67,12 +67,12 @@ public class BoxJWTAuth implements Authentication {
     JwtKey jwtKey = new JwtKey(this.config.getPrivateKey(), this.config.getPrivateKeyPassphrase());
     String assertion = createJwtAssertion(claims, jwtKey, jwtOptions);
     AuthorizationManager authManager =
-        new AuthorizationManager.AuthorizationManagerBuilder()
+        new AuthorizationManager.Builder()
             .networkSession((!(networkSession == null) ? networkSession : new NetworkSession()))
             .build();
     AccessToken token =
         authManager.requestAccessToken(
-            new PostOAuth2Token.PostOAuth2TokenBuilder(
+            new PostOAuth2Token.Builder(
                     PostOAuth2TokenGrantTypeField.URN_IETF_PARAMS_OAUTH_GRANT_TYPE_JWT_BEARER)
                 .assertion(assertion)
                 .clientId(this.config.getClientId())
@@ -112,7 +112,7 @@ public class BoxJWTAuth implements Authentication {
 
   public BoxJWTAuth withUserSubject(String userId, TokenStorage tokenStorage) {
     JWTConfig newConfig =
-        new JWTConfig.JWTConfigBuilder(
+        new JWTConfig.Builder(
                 this.config.getClientId(),
                 this.config.getClientSecret(),
                 this.config.getJwtKeyId(),
@@ -132,7 +132,7 @@ public class BoxJWTAuth implements Authentication {
 
   public BoxJWTAuth withEnterpriseSubject(String enterpriseId, TokenStorage tokenStorage) {
     JWTConfig newConfig =
-        new JWTConfig.JWTConfigBuilder(
+        new JWTConfig.Builder(
                 this.config.getClientId(),
                 this.config.getClientSecret(),
                 this.config.getJwtKeyId(),
@@ -155,12 +155,12 @@ public class BoxJWTAuth implements Authentication {
           "No access token is available. Make an API call to retrieve a token before calling this method.");
     }
     AuthorizationManager authManager =
-        new AuthorizationManager.AuthorizationManagerBuilder()
+        new AuthorizationManager.Builder()
             .networkSession((!(networkSession == null) ? networkSession : new NetworkSession()))
             .build();
     AccessToken downscopedToken =
         authManager.requestAccessToken(
-            new PostOAuth2Token.PostOAuth2TokenBuilder(
+            new PostOAuth2Token.Builder(
                     PostOAuth2TokenGrantTypeField.URN_IETF_PARAMS_OAUTH_GRANT_TYPE_TOKEN_EXCHANGE)
                 .subjectToken(token.getAccessToken())
                 .subjectTokenType(
@@ -184,11 +184,11 @@ public class BoxJWTAuth implements Authentication {
       return;
     }
     AuthorizationManager authManager =
-        new AuthorizationManager.AuthorizationManagerBuilder()
+        new AuthorizationManager.Builder()
             .networkSession((!(networkSession == null) ? networkSession : new NetworkSession()))
             .build();
     authManager.revokeAccessToken(
-        new PostOAuth2Revoke.PostOAuth2RevokeBuilder()
+        new PostOAuth2Revoke.Builder()
             .clientId(this.config.getClientId())
             .clientSecret(this.config.getClientSecret())
             .token(oldToken.getAccessToken())

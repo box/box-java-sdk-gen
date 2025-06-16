@@ -17,7 +17,7 @@ public class TermsOfServices extends SerializableObject {
     super();
   }
 
-  protected TermsOfServices(TermsOfServicesBuilder builder) {
+  protected TermsOfServices(Builder builder) {
     super();
     this.totalCount = builder.totalCount;
     this.entries = builder.entries;
@@ -61,18 +61,18 @@ public class TermsOfServices extends SerializableObject {
         + "}";
   }
 
-  public static class TermsOfServicesBuilder {
+  public static class Builder {
 
     protected Long totalCount;
 
     protected List<TermsOfService> entries;
 
-    public TermsOfServicesBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public TermsOfServicesBuilder entries(List<TermsOfService> entries) {
+    public Builder entries(List<TermsOfService> entries) {
       this.entries = entries;
       return this;
     }

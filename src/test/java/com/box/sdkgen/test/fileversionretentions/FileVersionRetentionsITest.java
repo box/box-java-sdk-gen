@@ -40,7 +40,7 @@ public class FileVersionRetentionsITest {
         client
             .getRetentionPolicies()
             .createRetentionPolicy(
-                new CreateRetentionPolicyRequestBody.CreateRetentionPolicyRequestBodyBuilder(
+                new CreateRetentionPolicyRequestBody.Builder(
                         getUuid(),
                         CreateRetentionPolicyRequestBodyPolicyTypeField.FINITE,
                         CreateRetentionPolicyRequestBodyDispositionActionField.REMOVE_RETENTION)
@@ -59,8 +59,7 @@ public class FileVersionRetentionsITest {
             .createRetentionPolicyAssignment(
                 new CreateRetentionPolicyAssignmentRequestBody(
                     retentionPolicy.getId(),
-                    new CreateRetentionPolicyAssignmentRequestBodyAssignToField
-                            .CreateRetentionPolicyAssignmentRequestBodyAssignToFieldBuilder(
+                    new CreateRetentionPolicyAssignmentRequestBodyAssignToField.Builder(
                             CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField.FOLDER)
                         .id(folder.getId())
                         .build()));
@@ -96,10 +95,7 @@ public class FileVersionRetentionsITest {
       client
           .getFolders()
           .deleteFolderById(
-              folder.getId(),
-              new DeleteFolderByIdQueryParams.DeleteFolderByIdQueryParamsBuilder()
-                  .recursive(true)
-                  .build());
+              folder.getId(), new DeleteFolderByIdQueryParams.Builder().recursive(true).build());
       return;
     }
     FileVersionRetention fileVersionRetention = fileVersionRetentions.getEntries().get(0);
@@ -110,9 +106,6 @@ public class FileVersionRetentionsITest {
     client
         .getFolders()
         .deleteFolderById(
-            folder.getId(),
-            new DeleteFolderByIdQueryParams.DeleteFolderByIdQueryParamsBuilder()
-                .recursive(true)
-                .build());
+            folder.getId(), new DeleteFolderByIdQueryParams.Builder().recursive(true).build());
   }
 }

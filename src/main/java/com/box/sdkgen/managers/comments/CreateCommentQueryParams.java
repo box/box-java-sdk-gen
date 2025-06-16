@@ -8,7 +8,7 @@ public class CreateCommentQueryParams {
 
   public CreateCommentQueryParams() {}
 
-  protected CreateCommentQueryParams(CreateCommentQueryParamsBuilder builder) {
+  protected CreateCommentQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class CreateCommentQueryParams {
     return fields;
   }
 
-  public static class CreateCommentQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public CreateCommentQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

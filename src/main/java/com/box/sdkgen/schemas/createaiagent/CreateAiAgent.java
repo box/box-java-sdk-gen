@@ -44,7 +44,7 @@ public class CreateAiAgent extends SerializableObject {
     this.type = new EnumWrapper<CreateAiAgentTypeField>(CreateAiAgentTypeField.AI_AGENT);
   }
 
-  protected CreateAiAgent(CreateAiAgentBuilder builder) {
+  protected CreateAiAgent(Builder builder) {
     super();
     this.type = builder.type;
     this.name = builder.name;
@@ -150,7 +150,7 @@ public class CreateAiAgent extends SerializableObject {
         + "}";
   }
 
-  public static class CreateAiAgentBuilder {
+  public static class Builder {
 
     protected EnumWrapper<CreateAiAgentTypeField> type;
 
@@ -168,43 +168,43 @@ public class CreateAiAgent extends SerializableObject {
 
     protected AiStudioAgentExtract extract;
 
-    public CreateAiAgentBuilder(String name, String accessState) {
+    public Builder(String name, String accessState) {
       this.name = name;
       this.accessState = accessState;
       this.type = new EnumWrapper<CreateAiAgentTypeField>(CreateAiAgentTypeField.AI_AGENT);
     }
 
-    public CreateAiAgentBuilder type(CreateAiAgentTypeField type) {
+    public Builder type(CreateAiAgentTypeField type) {
       this.type = new EnumWrapper<CreateAiAgentTypeField>(type);
       return this;
     }
 
-    public CreateAiAgentBuilder type(EnumWrapper<CreateAiAgentTypeField> type) {
+    public Builder type(EnumWrapper<CreateAiAgentTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public CreateAiAgentBuilder iconReference(String iconReference) {
+    public Builder iconReference(String iconReference) {
       this.iconReference = iconReference;
       return this;
     }
 
-    public CreateAiAgentBuilder allowedEntities(List<AiAgentAllowedEntity> allowedEntities) {
+    public Builder allowedEntities(List<AiAgentAllowedEntity> allowedEntities) {
       this.allowedEntities = allowedEntities;
       return this;
     }
 
-    public CreateAiAgentBuilder ask(AiStudioAgentAsk ask) {
+    public Builder ask(AiStudioAgentAsk ask) {
       this.ask = ask;
       return this;
     }
 
-    public CreateAiAgentBuilder textGen(AiStudioAgentTextGen textGen) {
+    public Builder textGen(AiStudioAgentTextGen textGen) {
       this.textGen = textGen;
       return this;
     }
 
-    public CreateAiAgentBuilder extract(AiStudioAgentExtract extract) {
+    public Builder extract(AiStudioAgentExtract extract) {
       this.extract = extract;
       return this;
     }

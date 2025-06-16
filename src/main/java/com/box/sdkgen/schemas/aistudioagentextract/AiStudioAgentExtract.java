@@ -42,7 +42,7 @@ public class AiStudioAgentExtract extends SerializableObject {
             AiStudioAgentExtractTypeField.AI_AGENT_EXTRACT);
   }
 
-  protected AiStudioAgentExtract(AiStudioAgentExtractBuilder builder) {
+  protected AiStudioAgentExtract(Builder builder) {
     super();
     this.type = builder.type;
     this.accessState = builder.accessState;
@@ -127,7 +127,7 @@ public class AiStudioAgentExtract extends SerializableObject {
         + "}";
   }
 
-  public static class AiStudioAgentExtractBuilder {
+  public static class Builder {
 
     protected EnumWrapper<AiStudioAgentExtractTypeField> type;
 
@@ -141,7 +141,7 @@ public class AiStudioAgentExtract extends SerializableObject {
 
     protected AiStudioAgentBasicTextTool basicText;
 
-    public AiStudioAgentExtractBuilder(String accessState, String description) {
+    public Builder(String accessState, String description) {
       this.accessState = accessState;
       this.description = description;
       this.type =
@@ -149,27 +149,27 @@ public class AiStudioAgentExtract extends SerializableObject {
               AiStudioAgentExtractTypeField.AI_AGENT_EXTRACT);
     }
 
-    public AiStudioAgentExtractBuilder type(AiStudioAgentExtractTypeField type) {
+    public Builder type(AiStudioAgentExtractTypeField type) {
       this.type = new EnumWrapper<AiStudioAgentExtractTypeField>(type);
       return this;
     }
 
-    public AiStudioAgentExtractBuilder type(EnumWrapper<AiStudioAgentExtractTypeField> type) {
+    public Builder type(EnumWrapper<AiStudioAgentExtractTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiStudioAgentExtractBuilder customInstructions(String customInstructions) {
+    public Builder customInstructions(String customInstructions) {
       this.customInstructions = customInstructions;
       return this;
     }
 
-    public AiStudioAgentExtractBuilder longText(AiStudioAgentLongTextTool longText) {
+    public Builder longText(AiStudioAgentLongTextTool longText) {
       this.longText = longText;
       return this;
     }
 
-    public AiStudioAgentExtractBuilder basicText(AiStudioAgentBasicTextTool basicText) {
+    public Builder basicText(AiStudioAgentBasicTextTool basicText) {
       this.basicText = basicText;
       return this;
     }

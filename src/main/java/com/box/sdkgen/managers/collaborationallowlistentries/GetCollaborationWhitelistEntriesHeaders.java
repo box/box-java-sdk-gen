@@ -12,8 +12,7 @@ public class GetCollaborationWhitelistEntriesHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetCollaborationWhitelistEntriesHeaders(
-      GetCollaborationWhitelistEntriesHeadersBuilder builder) {
+  protected GetCollaborationWhitelistEntriesHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class GetCollaborationWhitelistEntriesHeaders {
     return extraHeaders;
   }
 
-  public static class GetCollaborationWhitelistEntriesHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetCollaborationWhitelistEntriesHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetCollaborationWhitelistEntriesHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

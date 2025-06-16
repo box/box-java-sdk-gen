@@ -14,7 +14,7 @@ public class UploadFileHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UploadFileHeaders(UploadFileHeadersBuilder builder) {
+  protected UploadFileHeaders(Builder builder) {
     this.contentMd5 = builder.contentMd5;
     this.extraHeaders = builder.extraHeaders;
   }
@@ -27,22 +27,22 @@ public class UploadFileHeaders {
     return extraHeaders;
   }
 
-  public static class UploadFileHeadersBuilder {
+  public static class Builder {
 
     protected String contentMd5;
 
     protected Map<String, String> extraHeaders;
 
-    public UploadFileHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public UploadFileHeadersBuilder contentMd5(String contentMd5) {
+    public Builder contentMd5(String contentMd5) {
       this.contentMd5 = contentMd5;
       return this;
     }
 
-    public UploadFileHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

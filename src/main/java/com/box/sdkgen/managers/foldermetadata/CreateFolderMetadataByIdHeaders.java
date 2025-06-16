@@ -12,7 +12,7 @@ public class CreateFolderMetadataByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CreateFolderMetadataByIdHeaders(CreateFolderMetadataByIdHeadersBuilder builder) {
+  protected CreateFolderMetadataByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class CreateFolderMetadataByIdHeaders {
     return extraHeaders;
   }
 
-  public static class CreateFolderMetadataByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CreateFolderMetadataByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CreateFolderMetadataByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

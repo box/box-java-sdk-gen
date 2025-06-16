@@ -13,7 +13,7 @@ public class InMemoryTokenStorage implements TokenStorage {
     this.token = token;
   }
 
-  protected InMemoryTokenStorage(InMemoryTokenStorageBuilder builder) {
+  protected InMemoryTokenStorage(Builder builder) {
     this.token = builder.token;
   }
 
@@ -32,11 +32,11 @@ public class InMemoryTokenStorage implements TokenStorage {
     this.token = null;
   }
 
-  public static class InMemoryTokenStorageBuilder {
+  public static class Builder {
 
     protected AccessToken token;
 
-    public InMemoryTokenStorageBuilder token(AccessToken token) {
+    public Builder token(AccessToken token) {
       this.token = token;
       return this;
     }

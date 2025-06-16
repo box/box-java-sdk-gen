@@ -46,7 +46,7 @@ public class UpdateMetadataTemplateRequestBody extends SerializableObject {
     this.op = new EnumWrapper<UpdateMetadataTemplateRequestBodyOpField>(op);
   }
 
-  protected UpdateMetadataTemplateRequestBody(UpdateMetadataTemplateRequestBodyBuilder builder) {
+  protected UpdateMetadataTemplateRequestBody(Builder builder) {
     super();
     this.op = builder.op;
     this.data = builder.data;
@@ -159,7 +159,7 @@ public class UpdateMetadataTemplateRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateMetadataTemplateRequestBodyBuilder {
+  public static class Builder {
 
     protected final EnumWrapper<UpdateMetadataTemplateRequestBodyOpField> op;
 
@@ -177,48 +177,45 @@ public class UpdateMetadataTemplateRequestBody extends SerializableObject {
 
     protected List<String> multiSelectOptionKeys;
 
-    public UpdateMetadataTemplateRequestBodyBuilder(
-        EnumWrapper<UpdateMetadataTemplateRequestBodyOpField> op) {
+    public Builder(EnumWrapper<UpdateMetadataTemplateRequestBodyOpField> op) {
       this.op = op;
     }
 
-    public UpdateMetadataTemplateRequestBodyBuilder(UpdateMetadataTemplateRequestBodyOpField op) {
+    public Builder(UpdateMetadataTemplateRequestBodyOpField op) {
       this.op = new EnumWrapper<UpdateMetadataTemplateRequestBodyOpField>(op);
     }
 
-    public UpdateMetadataTemplateRequestBodyBuilder data(Map<String, Object> data) {
+    public Builder data(Map<String, Object> data) {
       this.data = data;
       return this;
     }
 
-    public UpdateMetadataTemplateRequestBodyBuilder fieldKey(String fieldKey) {
+    public Builder fieldKey(String fieldKey) {
       this.fieldKey = fieldKey;
       return this;
     }
 
-    public UpdateMetadataTemplateRequestBodyBuilder fieldKeys(List<String> fieldKeys) {
+    public Builder fieldKeys(List<String> fieldKeys) {
       this.fieldKeys = fieldKeys;
       return this;
     }
 
-    public UpdateMetadataTemplateRequestBodyBuilder enumOptionKey(String enumOptionKey) {
+    public Builder enumOptionKey(String enumOptionKey) {
       this.enumOptionKey = enumOptionKey;
       return this;
     }
 
-    public UpdateMetadataTemplateRequestBodyBuilder enumOptionKeys(List<String> enumOptionKeys) {
+    public Builder enumOptionKeys(List<String> enumOptionKeys) {
       this.enumOptionKeys = enumOptionKeys;
       return this;
     }
 
-    public UpdateMetadataTemplateRequestBodyBuilder multiSelectOptionKey(
-        String multiSelectOptionKey) {
+    public Builder multiSelectOptionKey(String multiSelectOptionKey) {
       this.multiSelectOptionKey = multiSelectOptionKey;
       return this;
     }
 
-    public UpdateMetadataTemplateRequestBodyBuilder multiSelectOptionKeys(
-        List<String> multiSelectOptionKeys) {
+    public Builder multiSelectOptionKeys(List<String> multiSelectOptionKeys) {
       this.multiSelectOptionKeys = multiSelectOptionKeys;
       return this;
     }

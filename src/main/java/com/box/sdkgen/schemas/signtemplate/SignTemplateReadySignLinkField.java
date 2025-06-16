@@ -25,7 +25,7 @@ public class SignTemplateReadySignLinkField extends SerializableObject {
     super();
   }
 
-  protected SignTemplateReadySignLinkField(SignTemplateReadySignLinkFieldBuilder builder) {
+  protected SignTemplateReadySignLinkField(Builder builder) {
     super();
     this.url = builder.url;
     this.name = builder.name;
@@ -110,7 +110,7 @@ public class SignTemplateReadySignLinkField extends SerializableObject {
         + "}";
   }
 
-  public static class SignTemplateReadySignLinkFieldBuilder {
+  public static class Builder {
 
     protected String url;
 
@@ -124,33 +124,32 @@ public class SignTemplateReadySignLinkField extends SerializableObject {
 
     protected Boolean isActive;
 
-    public SignTemplateReadySignLinkFieldBuilder url(String url) {
+    public Builder url(String url) {
       this.url = url;
       return this;
     }
 
-    public SignTemplateReadySignLinkFieldBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public SignTemplateReadySignLinkFieldBuilder instructions(String instructions) {
+    public Builder instructions(String instructions) {
       this.instructions = instructions;
       return this;
     }
 
-    public SignTemplateReadySignLinkFieldBuilder folderId(String folderId) {
+    public Builder folderId(String folderId) {
       this.folderId = folderId;
       return this;
     }
 
-    public SignTemplateReadySignLinkFieldBuilder isNotificationDisabled(
-        Boolean isNotificationDisabled) {
+    public Builder isNotificationDisabled(Boolean isNotificationDisabled) {
       this.isNotificationDisabled = isNotificationDisabled;
       return this;
     }
 
-    public SignTemplateReadySignLinkFieldBuilder isActive(Boolean isActive) {
+    public Builder isActive(Boolean isActive) {
       this.isActive = isActive;
       return this;
     }

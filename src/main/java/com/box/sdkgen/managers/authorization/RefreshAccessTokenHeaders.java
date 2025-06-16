@@ -12,7 +12,7 @@ public class RefreshAccessTokenHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected RefreshAccessTokenHeaders(RefreshAccessTokenHeadersBuilder builder) {
+  protected RefreshAccessTokenHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class RefreshAccessTokenHeaders {
     return extraHeaders;
   }
 
-  public static class RefreshAccessTokenHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public RefreshAccessTokenHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public RefreshAccessTokenHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

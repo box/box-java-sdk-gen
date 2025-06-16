@@ -33,7 +33,7 @@ public class NetworkSession {
     dataSanitizer = new DataSanitizer();
   }
 
-  protected NetworkSession(NetworkSessionBuilder builder) {
+  protected NetworkSession(Builder builder) {
     this.additionalHeaders = builder.additionalHeaders;
     this.baseUrls = builder.baseUrls;
     this.networkClient = builder.networkClient;
@@ -50,7 +50,7 @@ public class NetworkSession {
     Map<String, String> newHeaders = new HashMap<>();
     newHeaders.putAll(this.additionalHeaders);
     newHeaders.putAll(additionalHeaders);
-    return new NetworkSession.NetworkSessionBuilder()
+    return new NetworkSession.Builder()
         .additionalHeaders(newHeaders)
         .baseUrls(this.baseUrls)
         .interceptors(this.interceptors)
@@ -61,7 +61,7 @@ public class NetworkSession {
   }
 
   public NetworkSession withCustomBaseUrls(BaseUrls baseUrls) {
-    return new NetworkSessionBuilder()
+    return new Builder()
         .additionalHeaders(this.additionalHeaders)
         .baseUrls(baseUrls)
         .interceptors(this.interceptors)
@@ -75,7 +75,7 @@ public class NetworkSession {
     List<Interceptor> newInterceptors =
         Stream.concat(this.interceptors.stream(), interceptors.stream())
             .collect(Collectors.toList());
-    return new NetworkSessionBuilder()
+    return new Builder()
         .additionalHeaders(this.additionalHeaders)
         .baseUrls(this.baseUrls)
         .interceptors(newInterceptors)
@@ -86,7 +86,7 @@ public class NetworkSession {
   }
 
   public NetworkSession withNetworkClient(NetworkClient networkClient) {
-    return new NetworkSessionBuilder()
+    return new Builder()
         .additionalHeaders(this.additionalHeaders)
         .baseUrls(this.baseUrls)
         .interceptors(this.interceptors)
@@ -97,7 +97,7 @@ public class NetworkSession {
   }
 
   public NetworkSession withRetryStrategy(RetryStrategy retryStrategy) {
-    return new NetworkSessionBuilder()
+    return new Builder()
         .additionalHeaders(this.additionalHeaders)
         .baseUrls(this.baseUrls)
         .interceptors(this.interceptors)
@@ -108,7 +108,7 @@ public class NetworkSession {
   }
 
   public NetworkSession withDataSanitizer(DataSanitizer dataSanitizer) {
-    return new NetworkSessionBuilder()
+    return new Builder()
         .additionalHeaders(this.additionalHeaders)
         .baseUrls(this.baseUrls)
         .interceptors(this.interceptors)
@@ -142,7 +142,7 @@ public class NetworkSession {
     return dataSanitizer;
   }
 
-  public static class NetworkSessionBuilder {
+  public static class Builder {
 
     protected Map<String, String> additionalHeaders = new HashMap<>();
 
@@ -156,38 +156,38 @@ public class NetworkSession {
 
     protected DataSanitizer dataSanitizer;
 
-    public NetworkSessionBuilder() {
+    public Builder() {
       networkClient = new BoxNetworkClient();
       retryStrategy = new BoxRetryStrategy();
       dataSanitizer = new DataSanitizer();
     }
 
-    public NetworkSessionBuilder additionalHeaders(Map<String, String> additionalHeaders) {
+    public Builder additionalHeaders(Map<String, String> additionalHeaders) {
       this.additionalHeaders = additionalHeaders;
       return this;
     }
 
-    public NetworkSessionBuilder baseUrls(BaseUrls baseUrls) {
+    public Builder baseUrls(BaseUrls baseUrls) {
       this.baseUrls = baseUrls;
       return this;
     }
 
-    public NetworkSessionBuilder networkClient(NetworkClient networkClient) {
+    public Builder networkClient(NetworkClient networkClient) {
       this.networkClient = networkClient;
       return this;
     }
 
-    public NetworkSessionBuilder interceptors(List<Interceptor> interceptors) {
+    public Builder interceptors(List<Interceptor> interceptors) {
       this.interceptors = interceptors;
       return this;
     }
 
-    public NetworkSessionBuilder retryStrategy(RetryStrategy retryStrategy) {
+    public Builder retryStrategy(RetryStrategy retryStrategy) {
       this.retryStrategy = retryStrategy;
       return this;
     }
 
-    public NetworkSessionBuilder dataSanitizer(DataSanitizer dataSanitizer) {
+    public Builder dataSanitizer(DataSanitizer dataSanitizer) {
       this.dataSanitizer = dataSanitizer;
       return this;
     }

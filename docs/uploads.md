@@ -57,7 +57,7 @@ See the endpoint docs at
 
 <!-- sample options_files_content -->
 ```
-client.getUploads().preflightFileUploadCheck(new PreflightFileUploadCheckRequestBody.PreflightFileUploadCheckRequestBodyBuilder().name(newFileName).size(1024 * 1024).parent(new PreflightFileUploadCheckRequestBodyParentField.PreflightFileUploadCheckRequestBodyParentFieldBuilder().id("0").build()).build())
+client.getUploads().preflightFileUploadCheck(new PreflightFileUploadCheckRequestBody.Builder().name(newFileName).size(1024 * 1024).parent(new PreflightFileUploadCheckRequestBodyParentField.Builder().id("0").build()).build())
 ```
 
 ### Arguments

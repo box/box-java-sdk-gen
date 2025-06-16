@@ -18,8 +18,7 @@ public class UploadWithPreflightCheckRequestBody {
     this.file = file;
   }
 
-  protected UploadWithPreflightCheckRequestBody(
-      UploadWithPreflightCheckRequestBodyBuilder builder) {
+  protected UploadWithPreflightCheckRequestBody(Builder builder) {
     this.attributes = builder.attributes;
     this.file = builder.file;
     this.fileFileName = builder.fileFileName;
@@ -42,7 +41,7 @@ public class UploadWithPreflightCheckRequestBody {
     return fileContentType;
   }
 
-  public static class UploadWithPreflightCheckRequestBodyBuilder {
+  public static class Builder {
 
     protected final UploadWithPreflightCheckRequestBodyAttributesField attributes;
 
@@ -52,18 +51,18 @@ public class UploadWithPreflightCheckRequestBody {
 
     protected String fileContentType;
 
-    public UploadWithPreflightCheckRequestBodyBuilder(
+    public Builder(
         UploadWithPreflightCheckRequestBodyAttributesField attributes, InputStream file) {
       this.attributes = attributes;
       this.file = file;
     }
 
-    public UploadWithPreflightCheckRequestBodyBuilder fileFileName(String fileFileName) {
+    public Builder fileFileName(String fileFileName) {
       this.fileFileName = fileFileName;
       return this;
     }
 
-    public UploadWithPreflightCheckRequestBodyBuilder fileContentType(String fileContentType) {
+    public Builder fileContentType(String fileContentType) {
       this.fileContentType = fileContentType;
       return this;
     }

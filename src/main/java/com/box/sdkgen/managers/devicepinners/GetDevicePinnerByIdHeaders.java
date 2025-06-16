@@ -12,7 +12,7 @@ public class GetDevicePinnerByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetDevicePinnerByIdHeaders(GetDevicePinnerByIdHeadersBuilder builder) {
+  protected GetDevicePinnerByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetDevicePinnerByIdHeaders {
     return extraHeaders;
   }
 
-  public static class GetDevicePinnerByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetDevicePinnerByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetDevicePinnerByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

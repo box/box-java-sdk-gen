@@ -12,8 +12,7 @@ public class DeleteCollaborationWhitelistEntryByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteCollaborationWhitelistEntryByIdHeaders(
-      DeleteCollaborationWhitelistEntryByIdHeadersBuilder builder) {
+  protected DeleteCollaborationWhitelistEntryByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class DeleteCollaborationWhitelistEntryByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteCollaborationWhitelistEntryByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteCollaborationWhitelistEntryByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteCollaborationWhitelistEntryByIdHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

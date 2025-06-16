@@ -85,7 +85,7 @@ public class CreateRetentionPolicyRequestBody extends SerializableObject {
         new EnumWrapper<CreateRetentionPolicyRequestBodyDispositionActionField>(dispositionAction);
   }
 
-  protected CreateRetentionPolicyRequestBody(CreateRetentionPolicyRequestBodyBuilder builder) {
+  protected CreateRetentionPolicyRequestBody(Builder builder) {
     super();
     this.policyName = builder.policyName;
     this.description = builder.description;
@@ -210,7 +210,7 @@ public class CreateRetentionPolicyRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class CreateRetentionPolicyRequestBodyBuilder {
+  public static class Builder {
 
     protected final String policyName;
 
@@ -231,7 +231,7 @@ public class CreateRetentionPolicyRequestBody extends SerializableObject {
 
     protected List<UserMini> customNotificationRecipients;
 
-    public CreateRetentionPolicyRequestBodyBuilder(
+    public Builder(
         String policyName,
         EnumWrapper<CreateRetentionPolicyRequestBodyPolicyTypeField> policyType,
         EnumWrapper<CreateRetentionPolicyRequestBodyDispositionActionField> dispositionAction) {
@@ -240,7 +240,7 @@ public class CreateRetentionPolicyRequestBody extends SerializableObject {
       this.dispositionAction = dispositionAction;
     }
 
-    public CreateRetentionPolicyRequestBodyBuilder(
+    public Builder(
         String policyName,
         CreateRetentionPolicyRequestBodyPolicyTypeField policyType,
         CreateRetentionPolicyRequestBodyDispositionActionField dispositionAction) {
@@ -252,42 +252,39 @@ public class CreateRetentionPolicyRequestBody extends SerializableObject {
               dispositionAction);
     }
 
-    public CreateRetentionPolicyRequestBodyBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public CreateRetentionPolicyRequestBodyBuilder retentionLength(String retentionLength) {
+    public Builder retentionLength(String retentionLength) {
       this.retentionLength = retentionLength;
       return this;
     }
 
-    public CreateRetentionPolicyRequestBodyBuilder retentionType(
-        CreateRetentionPolicyRequestBodyRetentionTypeField retentionType) {
+    public Builder retentionType(CreateRetentionPolicyRequestBodyRetentionTypeField retentionType) {
       this.retentionType =
           new EnumWrapper<CreateRetentionPolicyRequestBodyRetentionTypeField>(retentionType);
       return this;
     }
 
-    public CreateRetentionPolicyRequestBodyBuilder retentionType(
+    public Builder retentionType(
         EnumWrapper<CreateRetentionPolicyRequestBodyRetentionTypeField> retentionType) {
       this.retentionType = retentionType;
       return this;
     }
 
-    public CreateRetentionPolicyRequestBodyBuilder canOwnerExtendRetention(
-        Boolean canOwnerExtendRetention) {
+    public Builder canOwnerExtendRetention(Boolean canOwnerExtendRetention) {
       this.canOwnerExtendRetention = canOwnerExtendRetention;
       return this;
     }
 
-    public CreateRetentionPolicyRequestBodyBuilder areOwnersNotified(Boolean areOwnersNotified) {
+    public Builder areOwnersNotified(Boolean areOwnersNotified) {
       this.areOwnersNotified = areOwnersNotified;
       return this;
     }
 
-    public CreateRetentionPolicyRequestBodyBuilder customNotificationRecipients(
-        List<UserMini> customNotificationRecipients) {
+    public Builder customNotificationRecipients(List<UserMini> customNotificationRecipients) {
       this.customNotificationRecipients = customNotificationRecipients;
       return this;
     }

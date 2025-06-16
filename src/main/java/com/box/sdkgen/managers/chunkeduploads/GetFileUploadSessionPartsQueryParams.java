@@ -8,8 +8,7 @@ public class GetFileUploadSessionPartsQueryParams {
 
   public GetFileUploadSessionPartsQueryParams() {}
 
-  protected GetFileUploadSessionPartsQueryParams(
-      GetFileUploadSessionPartsQueryParamsBuilder builder) {
+  protected GetFileUploadSessionPartsQueryParams(Builder builder) {
     this.offset = builder.offset;
     this.limit = builder.limit;
   }
@@ -22,18 +21,18 @@ public class GetFileUploadSessionPartsQueryParams {
     return limit;
   }
 
-  public static class GetFileUploadSessionPartsQueryParamsBuilder {
+  public static class Builder {
 
     protected Long offset;
 
     protected Long limit;
 
-    public GetFileUploadSessionPartsQueryParamsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public GetFileUploadSessionPartsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

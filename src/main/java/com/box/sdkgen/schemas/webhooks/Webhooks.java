@@ -22,7 +22,7 @@ public class Webhooks extends SerializableObject {
     super();
   }
 
-  protected Webhooks(WebhooksBuilder builder) {
+  protected Webhooks(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -87,7 +87,7 @@ public class Webhooks extends SerializableObject {
         + "}";
   }
 
-  public static class WebhooksBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -97,22 +97,22 @@ public class Webhooks extends SerializableObject {
 
     protected List<WebhookMini> entries;
 
-    public WebhooksBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public WebhooksBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public WebhooksBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public WebhooksBuilder entries(List<WebhookMini> entries) {
+    public Builder entries(List<WebhookMini> entries) {
       this.entries = entries;
       return this;
     }

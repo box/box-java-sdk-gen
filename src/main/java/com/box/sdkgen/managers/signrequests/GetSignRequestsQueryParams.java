@@ -14,7 +14,7 @@ public class GetSignRequestsQueryParams {
 
   public GetSignRequestsQueryParams() {}
 
-  protected GetSignRequestsQueryParams(GetSignRequestsQueryParamsBuilder builder) {
+  protected GetSignRequestsQueryParams(Builder builder) {
     this.marker = builder.marker;
     this.limit = builder.limit;
     this.senders = builder.senders;
@@ -37,7 +37,7 @@ public class GetSignRequestsQueryParams {
     return sharedRequests;
   }
 
-  public static class GetSignRequestsQueryParamsBuilder {
+  public static class Builder {
 
     protected String marker;
 
@@ -47,22 +47,22 @@ public class GetSignRequestsQueryParams {
 
     protected Boolean sharedRequests;
 
-    public GetSignRequestsQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetSignRequestsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetSignRequestsQueryParamsBuilder senders(List<String> senders) {
+    public Builder senders(List<String> senders) {
       this.senders = senders;
       return this;
     }
 
-    public GetSignRequestsQueryParamsBuilder sharedRequests(Boolean sharedRequests) {
+    public Builder sharedRequests(Boolean sharedRequests) {
       this.sharedRequests = sharedRequests;
       return this;
     }

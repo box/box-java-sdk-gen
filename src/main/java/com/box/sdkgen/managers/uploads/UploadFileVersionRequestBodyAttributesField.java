@@ -22,8 +22,7 @@ public class UploadFileVersionRequestBodyAttributesField extends SerializableObj
     this.name = name;
   }
 
-  protected UploadFileVersionRequestBodyAttributesField(
-      UploadFileVersionRequestBodyAttributesFieldBuilder builder) {
+  protected UploadFileVersionRequestBodyAttributesField(Builder builder) {
     super();
     this.name = builder.name;
     this.contentModifiedAt = builder.contentModifiedAt;
@@ -69,18 +68,17 @@ public class UploadFileVersionRequestBodyAttributesField extends SerializableObj
         + "}";
   }
 
-  public static class UploadFileVersionRequestBodyAttributesFieldBuilder {
+  public static class Builder {
 
     protected final String name;
 
     protected Date contentModifiedAt;
 
-    public UploadFileVersionRequestBodyAttributesFieldBuilder(String name) {
+    public Builder(String name) {
       this.name = name;
     }
 
-    public UploadFileVersionRequestBodyAttributesFieldBuilder contentModifiedAt(
-        Date contentModifiedAt) {
+    public Builder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }

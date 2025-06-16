@@ -9,7 +9,7 @@ public class Metadata extends MetadataBase {
     super();
   }
 
-  protected Metadata(MetadataBuilder builder) {
+  protected Metadata(Builder builder) {
     super(builder);
   }
 
@@ -54,28 +54,28 @@ public class Metadata extends MetadataBase {
         + "}";
   }
 
-  public static class MetadataBuilder extends MetadataBaseBuilder {
+  public static class Builder extends MetadataBase.Builder {
 
     @Override
-    public MetadataBuilder parent(String parent) {
+    public Builder parent(String parent) {
       this.parent = parent;
       return this;
     }
 
     @Override
-    public MetadataBuilder template(String template) {
+    public Builder template(String template) {
       this.template = template;
       return this;
     }
 
     @Override
-    public MetadataBuilder scope(String scope) {
+    public Builder scope(String scope) {
       this.scope = scope;
       return this;
     }
 
     @Override
-    public MetadataBuilder version(Long version) {
+    public Builder version(Long version) {
       this.version = version;
       return this;
     }

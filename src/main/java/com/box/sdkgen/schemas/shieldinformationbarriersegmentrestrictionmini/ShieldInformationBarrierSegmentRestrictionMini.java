@@ -28,8 +28,7 @@ public class ShieldInformationBarrierSegmentRestrictionMini
     this.restrictedSegment = restrictedSegment;
   }
 
-  protected ShieldInformationBarrierSegmentRestrictionMini(
-      ShieldInformationBarrierSegmentRestrictionMiniBuilder builder) {
+  protected ShieldInformationBarrierSegmentRestrictionMini(Builder builder) {
     super(builder);
     this.shieldInformationBarrierSegment = builder.shieldInformationBarrierSegment;
     this.restrictedSegment = builder.restrictedSegment;
@@ -87,8 +86,7 @@ public class ShieldInformationBarrierSegmentRestrictionMini
         + "}";
   }
 
-  public static class ShieldInformationBarrierSegmentRestrictionMiniBuilder
-      extends ShieldInformationBarrierSegmentRestrictionBaseBuilder {
+  public static class Builder extends ShieldInformationBarrierSegmentRestrictionBase.Builder {
 
     protected final
     ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentField
@@ -97,7 +95,7 @@ public class ShieldInformationBarrierSegmentRestrictionMini
     protected final ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentField
         restrictedSegment;
 
-    public ShieldInformationBarrierSegmentRestrictionMiniBuilder(
+    public Builder(
         ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentField
             shieldInformationBarrierSegment,
         ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentField restrictedSegment) {
@@ -107,21 +105,19 @@ public class ShieldInformationBarrierSegmentRestrictionMini
     }
 
     @Override
-    public ShieldInformationBarrierSegmentRestrictionMiniBuilder type(
-        ShieldInformationBarrierSegmentRestrictionBaseTypeField type) {
+    public Builder type(ShieldInformationBarrierSegmentRestrictionBaseTypeField type) {
       this.type = new EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public ShieldInformationBarrierSegmentRestrictionMiniBuilder type(
-        EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField> type) {
+    public Builder type(EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public ShieldInformationBarrierSegmentRestrictionMiniBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

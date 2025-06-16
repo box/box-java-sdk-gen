@@ -30,7 +30,7 @@ public class AiItemAsk extends SerializableObject {
     this.type = new EnumWrapper<AiItemAskTypeField>(type);
   }
 
-  protected AiItemAsk(AiItemAskBuilder builder) {
+  protected AiItemAsk(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -85,7 +85,7 @@ public class AiItemAsk extends SerializableObject {
         + "}";
   }
 
-  public static class AiItemAskBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -93,17 +93,17 @@ public class AiItemAsk extends SerializableObject {
 
     protected String content;
 
-    public AiItemAskBuilder(String id, EnumWrapper<AiItemAskTypeField> type) {
+    public Builder(String id, EnumWrapper<AiItemAskTypeField> type) {
       this.id = id;
       this.type = type;
     }
 
-    public AiItemAskBuilder(String id, AiItemAskTypeField type) {
+    public Builder(String id, AiItemAskTypeField type) {
       this.id = id;
       this.type = new EnumWrapper<AiItemAskTypeField>(type);
     }
 
-    public AiItemAskBuilder content(String content) {
+    public Builder content(String content) {
       this.content = content;
       return this;
     }

@@ -14,7 +14,7 @@ public class AiAgentInfo extends SerializableObject {
     super();
   }
 
-  protected AiAgentInfo(AiAgentInfoBuilder builder) {
+  protected AiAgentInfo(Builder builder) {
     super();
     this.models = builder.models;
     this.processor = builder.processor;
@@ -58,18 +58,18 @@ public class AiAgentInfo extends SerializableObject {
         + "}";
   }
 
-  public static class AiAgentInfoBuilder {
+  public static class Builder {
 
     protected List<AiAgentInfoModelsField> models;
 
     protected String processor;
 
-    public AiAgentInfoBuilder models(List<AiAgentInfoModelsField> models) {
+    public Builder models(List<AiAgentInfoModelsField> models) {
       this.models = models;
       return this;
     }
 
-    public AiAgentInfoBuilder processor(String processor) {
+    public Builder processor(String processor) {
       this.processor = processor;
       return this;
     }

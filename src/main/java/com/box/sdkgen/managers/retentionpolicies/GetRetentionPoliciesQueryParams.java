@@ -19,7 +19,7 @@ public class GetRetentionPoliciesQueryParams {
 
   public GetRetentionPoliciesQueryParams() {}
 
-  protected GetRetentionPoliciesQueryParams(GetRetentionPoliciesQueryParamsBuilder builder) {
+  protected GetRetentionPoliciesQueryParams(Builder builder) {
     this.policyName = builder.policyName;
     this.policyType = builder.policyType;
     this.createdByUserId = builder.createdByUserId;
@@ -52,7 +52,7 @@ public class GetRetentionPoliciesQueryParams {
     return marker;
   }
 
-  public static class GetRetentionPoliciesQueryParamsBuilder {
+  public static class Builder {
 
     protected String policyName;
 
@@ -66,39 +66,38 @@ public class GetRetentionPoliciesQueryParams {
 
     protected String marker;
 
-    public GetRetentionPoliciesQueryParamsBuilder policyName(String policyName) {
+    public Builder policyName(String policyName) {
       this.policyName = policyName;
       return this;
     }
 
-    public GetRetentionPoliciesQueryParamsBuilder policyType(
-        GetRetentionPoliciesQueryParamsPolicyTypeField policyType) {
+    public Builder policyType(GetRetentionPoliciesQueryParamsPolicyTypeField policyType) {
       this.policyType = new EnumWrapper<GetRetentionPoliciesQueryParamsPolicyTypeField>(policyType);
       return this;
     }
 
-    public GetRetentionPoliciesQueryParamsBuilder policyType(
+    public Builder policyType(
         EnumWrapper<GetRetentionPoliciesQueryParamsPolicyTypeField> policyType) {
       this.policyType = policyType;
       return this;
     }
 
-    public GetRetentionPoliciesQueryParamsBuilder createdByUserId(String createdByUserId) {
+    public Builder createdByUserId(String createdByUserId) {
       this.createdByUserId = createdByUserId;
       return this;
     }
 
-    public GetRetentionPoliciesQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public GetRetentionPoliciesQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetRetentionPoliciesQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }

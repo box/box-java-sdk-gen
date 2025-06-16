@@ -18,8 +18,7 @@ public class CreateFileUploadSessionForExistingFileRequestBody extends Serializa
     this.fileSize = fileSize;
   }
 
-  protected CreateFileUploadSessionForExistingFileRequestBody(
-      CreateFileUploadSessionForExistingFileRequestBodyBuilder builder) {
+  protected CreateFileUploadSessionForExistingFileRequestBody(Builder builder) {
     super();
     this.fileSize = builder.fileSize;
     this.fileName = builder.fileName;
@@ -64,17 +63,17 @@ public class CreateFileUploadSessionForExistingFileRequestBody extends Serializa
         + "}";
   }
 
-  public static class CreateFileUploadSessionForExistingFileRequestBodyBuilder {
+  public static class Builder {
 
     protected final long fileSize;
 
     protected String fileName;
 
-    public CreateFileUploadSessionForExistingFileRequestBodyBuilder(long fileSize) {
+    public Builder(long fileSize) {
       this.fileSize = fileSize;
     }
 
-    public CreateFileUploadSessionForExistingFileRequestBodyBuilder fileName(String fileName) {
+    public Builder fileName(String fileName) {
       this.fileName = fileName;
       return this;
     }

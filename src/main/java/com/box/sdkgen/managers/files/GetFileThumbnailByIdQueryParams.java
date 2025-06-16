@@ -12,7 +12,7 @@ public class GetFileThumbnailByIdQueryParams {
 
   public GetFileThumbnailByIdQueryParams() {}
 
-  protected GetFileThumbnailByIdQueryParams(GetFileThumbnailByIdQueryParamsBuilder builder) {
+  protected GetFileThumbnailByIdQueryParams(Builder builder) {
     this.minHeight = builder.minHeight;
     this.minWidth = builder.minWidth;
     this.maxHeight = builder.maxHeight;
@@ -35,7 +35,7 @@ public class GetFileThumbnailByIdQueryParams {
     return maxWidth;
   }
 
-  public static class GetFileThumbnailByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected Long minHeight;
 
@@ -45,22 +45,22 @@ public class GetFileThumbnailByIdQueryParams {
 
     protected Long maxWidth;
 
-    public GetFileThumbnailByIdQueryParamsBuilder minHeight(Long minHeight) {
+    public Builder minHeight(Long minHeight) {
       this.minHeight = minHeight;
       return this;
     }
 
-    public GetFileThumbnailByIdQueryParamsBuilder minWidth(Long minWidth) {
+    public Builder minWidth(Long minWidth) {
       this.minWidth = minWidth;
       return this;
     }
 
-    public GetFileThumbnailByIdQueryParamsBuilder maxHeight(Long maxHeight) {
+    public Builder maxHeight(Long maxHeight) {
       this.maxHeight = maxHeight;
       return this;
     }
 
-    public GetFileThumbnailByIdQueryParamsBuilder maxWidth(Long maxWidth) {
+    public Builder maxWidth(Long maxWidth) {
       this.maxWidth = maxWidth;
       return this;
     }

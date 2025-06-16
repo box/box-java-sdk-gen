@@ -33,7 +33,7 @@ public class SkillInvocationTokenReadField extends SerializableObject {
     super();
   }
 
-  protected SkillInvocationTokenReadField(SkillInvocationTokenReadFieldBuilder builder) {
+  protected SkillInvocationTokenReadField(Builder builder) {
     super();
     this.accessToken = builder.accessToken;
     this.expiresIn = builder.expiresIn;
@@ -98,7 +98,7 @@ public class SkillInvocationTokenReadField extends SerializableObject {
         + "}";
   }
 
-  public static class SkillInvocationTokenReadFieldBuilder {
+  public static class Builder {
 
     protected String accessToken;
 
@@ -108,29 +108,27 @@ public class SkillInvocationTokenReadField extends SerializableObject {
 
     protected String restrictedTo;
 
-    public SkillInvocationTokenReadFieldBuilder accessToken(String accessToken) {
+    public Builder accessToken(String accessToken) {
       this.accessToken = accessToken;
       return this;
     }
 
-    public SkillInvocationTokenReadFieldBuilder expiresIn(Long expiresIn) {
+    public Builder expiresIn(Long expiresIn) {
       this.expiresIn = expiresIn;
       return this;
     }
 
-    public SkillInvocationTokenReadFieldBuilder tokenType(
-        SkillInvocationTokenReadTokenTypeField tokenType) {
+    public Builder tokenType(SkillInvocationTokenReadTokenTypeField tokenType) {
       this.tokenType = new EnumWrapper<SkillInvocationTokenReadTokenTypeField>(tokenType);
       return this;
     }
 
-    public SkillInvocationTokenReadFieldBuilder tokenType(
-        EnumWrapper<SkillInvocationTokenReadTokenTypeField> tokenType) {
+    public Builder tokenType(EnumWrapper<SkillInvocationTokenReadTokenTypeField> tokenType) {
       this.tokenType = tokenType;
       return this;
     }
 
-    public SkillInvocationTokenReadFieldBuilder restrictedTo(String restrictedTo) {
+    public Builder restrictedTo(String restrictedTo) {
       this.restrictedTo = restrictedTo;
       return this;
     }

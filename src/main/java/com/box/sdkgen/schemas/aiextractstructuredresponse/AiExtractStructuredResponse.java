@@ -33,7 +33,7 @@ public class AiExtractStructuredResponse extends SerializableObject {
     this.createdAt = createdAt;
   }
 
-  protected AiExtractStructuredResponse(AiExtractStructuredResponseBuilder builder) {
+  protected AiExtractStructuredResponse(Builder builder) {
     super();
     this.answer = builder.answer;
     this.createdAt = builder.createdAt;
@@ -98,7 +98,7 @@ public class AiExtractStructuredResponse extends SerializableObject {
         + "}";
   }
 
-  public static class AiExtractStructuredResponseBuilder {
+  public static class Builder {
 
     protected final AiExtractResponse answer;
 
@@ -108,17 +108,17 @@ public class AiExtractStructuredResponse extends SerializableObject {
 
     protected AiAgentInfo aiAgentInfo;
 
-    public AiExtractStructuredResponseBuilder(AiExtractResponse answer, Date createdAt) {
+    public Builder(AiExtractResponse answer, Date createdAt) {
       this.answer = answer;
       this.createdAt = createdAt;
     }
 
-    public AiExtractStructuredResponseBuilder completionReason(String completionReason) {
+    public Builder completionReason(String completionReason) {
       this.completionReason = completionReason;
       return this;
     }
 
-    public AiExtractStructuredResponseBuilder aiAgentInfo(AiAgentInfo aiAgentInfo) {
+    public Builder aiAgentInfo(AiAgentInfo aiAgentInfo) {
       this.aiAgentInfo = aiAgentInfo;
       return this;
     }

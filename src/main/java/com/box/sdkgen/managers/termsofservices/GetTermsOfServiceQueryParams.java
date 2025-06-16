@@ -8,7 +8,7 @@ public class GetTermsOfServiceQueryParams {
 
   public GetTermsOfServiceQueryParams() {}
 
-  protected GetTermsOfServiceQueryParams(GetTermsOfServiceQueryParamsBuilder builder) {
+  protected GetTermsOfServiceQueryParams(Builder builder) {
     this.tosType = builder.tosType;
   }
 
@@ -16,18 +16,16 @@ public class GetTermsOfServiceQueryParams {
     return tosType;
   }
 
-  public static class GetTermsOfServiceQueryParamsBuilder {
+  public static class Builder {
 
     protected EnumWrapper<GetTermsOfServiceQueryParamsTosTypeField> tosType;
 
-    public GetTermsOfServiceQueryParamsBuilder tosType(
-        GetTermsOfServiceQueryParamsTosTypeField tosType) {
+    public Builder tosType(GetTermsOfServiceQueryParamsTosTypeField tosType) {
       this.tosType = new EnumWrapper<GetTermsOfServiceQueryParamsTosTypeField>(tosType);
       return this;
     }
 
-    public GetTermsOfServiceQueryParamsBuilder tosType(
-        EnumWrapper<GetTermsOfServiceQueryParamsTosTypeField> tosType) {
+    public Builder tosType(EnumWrapper<GetTermsOfServiceQueryParamsTosTypeField> tosType) {
       this.tosType = tosType;
       return this;
     }

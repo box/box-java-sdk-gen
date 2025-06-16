@@ -19,8 +19,7 @@ public class LegalHoldPolicyAssignmentCountsField extends SerializableObject {
     super();
   }
 
-  protected LegalHoldPolicyAssignmentCountsField(
-      LegalHoldPolicyAssignmentCountsFieldBuilder builder) {
+  protected LegalHoldPolicyAssignmentCountsField(Builder builder) {
     super();
     this.user = builder.user;
     this.folder = builder.folder;
@@ -85,7 +84,7 @@ public class LegalHoldPolicyAssignmentCountsField extends SerializableObject {
         + "}";
   }
 
-  public static class LegalHoldPolicyAssignmentCountsFieldBuilder {
+  public static class Builder {
 
     protected Long user;
 
@@ -95,22 +94,22 @@ public class LegalHoldPolicyAssignmentCountsField extends SerializableObject {
 
     protected Long fileVersion;
 
-    public LegalHoldPolicyAssignmentCountsFieldBuilder user(Long user) {
+    public Builder user(Long user) {
       this.user = user;
       return this;
     }
 
-    public LegalHoldPolicyAssignmentCountsFieldBuilder folder(Long folder) {
+    public Builder folder(Long folder) {
       this.folder = folder;
       return this;
     }
 
-    public LegalHoldPolicyAssignmentCountsFieldBuilder file(Long file) {
+    public Builder file(Long file) {
       this.file = file;
       return this;
     }
 
-    public LegalHoldPolicyAssignmentCountsFieldBuilder fileVersion(Long fileVersion) {
+    public Builder fileVersion(Long fileVersion) {
       this.fileVersion = fileVersion;
       return this;
     }

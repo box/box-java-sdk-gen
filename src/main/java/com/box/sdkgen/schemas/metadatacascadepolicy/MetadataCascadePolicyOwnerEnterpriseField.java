@@ -24,8 +24,7 @@ public class MetadataCascadePolicyOwnerEnterpriseField extends SerializableObjec
     super();
   }
 
-  protected MetadataCascadePolicyOwnerEnterpriseField(
-      MetadataCascadePolicyOwnerEnterpriseFieldBuilder builder) {
+  protected MetadataCascadePolicyOwnerEnterpriseField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -70,25 +69,23 @@ public class MetadataCascadePolicyOwnerEnterpriseField extends SerializableObjec
         + "}";
   }
 
-  public static class MetadataCascadePolicyOwnerEnterpriseFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<MetadataCascadePolicyOwnerEnterpriseTypeField> type;
 
     protected String id;
 
-    public MetadataCascadePolicyOwnerEnterpriseFieldBuilder type(
-        MetadataCascadePolicyOwnerEnterpriseTypeField type) {
+    public Builder type(MetadataCascadePolicyOwnerEnterpriseTypeField type) {
       this.type = new EnumWrapper<MetadataCascadePolicyOwnerEnterpriseTypeField>(type);
       return this;
     }
 
-    public MetadataCascadePolicyOwnerEnterpriseFieldBuilder type(
-        EnumWrapper<MetadataCascadePolicyOwnerEnterpriseTypeField> type) {
+    public Builder type(EnumWrapper<MetadataCascadePolicyOwnerEnterpriseTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public MetadataCascadePolicyOwnerEnterpriseFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

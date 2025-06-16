@@ -23,7 +23,7 @@ public class GroupMemberships extends SerializableObject {
     super();
   }
 
-  protected GroupMemberships(GroupMembershipsBuilder builder) {
+  protected GroupMemberships(Builder builder) {
     super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
@@ -98,7 +98,7 @@ public class GroupMemberships extends SerializableObject {
         + "}";
   }
 
-  public static class GroupMembershipsBuilder {
+  public static class Builder {
 
     protected Long totalCount;
 
@@ -110,27 +110,27 @@ public class GroupMemberships extends SerializableObject {
 
     protected List<GroupMembership> entries;
 
-    public GroupMembershipsBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public GroupMembershipsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GroupMembershipsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public GroupMembershipsBuilder order(List<GroupMembershipsOrderField> order) {
+    public Builder order(List<GroupMembershipsOrderField> order) {
       this.order = order;
       return this;
     }
 
-    public GroupMembershipsBuilder entries(List<GroupMembership> entries) {
+    public Builder entries(List<GroupMembership> entries) {
       this.entries = entries;
       return this;
     }

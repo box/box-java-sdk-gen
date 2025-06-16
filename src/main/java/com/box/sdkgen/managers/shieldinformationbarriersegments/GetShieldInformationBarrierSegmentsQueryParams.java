@@ -12,8 +12,7 @@ public class GetShieldInformationBarrierSegmentsQueryParams {
     this.shieldInformationBarrierId = shieldInformationBarrierId;
   }
 
-  protected GetShieldInformationBarrierSegmentsQueryParams(
-      GetShieldInformationBarrierSegmentsQueryParamsBuilder builder) {
+  protected GetShieldInformationBarrierSegmentsQueryParams(Builder builder) {
     this.shieldInformationBarrierId = builder.shieldInformationBarrierId;
     this.marker = builder.marker;
     this.limit = builder.limit;
@@ -31,7 +30,7 @@ public class GetShieldInformationBarrierSegmentsQueryParams {
     return limit;
   }
 
-  public static class GetShieldInformationBarrierSegmentsQueryParamsBuilder {
+  public static class Builder {
 
     protected final String shieldInformationBarrierId;
 
@@ -39,17 +38,16 @@ public class GetShieldInformationBarrierSegmentsQueryParams {
 
     protected Long limit;
 
-    public GetShieldInformationBarrierSegmentsQueryParamsBuilder(
-        String shieldInformationBarrierId) {
+    public Builder(String shieldInformationBarrierId) {
       this.shieldInformationBarrierId = shieldInformationBarrierId;
     }
 
-    public GetShieldInformationBarrierSegmentsQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetShieldInformationBarrierSegmentsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

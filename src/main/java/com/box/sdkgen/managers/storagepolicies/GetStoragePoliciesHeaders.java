@@ -12,7 +12,7 @@ public class GetStoragePoliciesHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetStoragePoliciesHeaders(GetStoragePoliciesHeadersBuilder builder) {
+  protected GetStoragePoliciesHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetStoragePoliciesHeaders {
     return extraHeaders;
   }
 
-  public static class GetStoragePoliciesHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetStoragePoliciesHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetStoragePoliciesHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

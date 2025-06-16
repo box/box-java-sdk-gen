@@ -31,7 +31,7 @@ public class AiResponse extends SerializableObject {
     this.createdAt = createdAt;
   }
 
-  protected AiResponse(AiResponseBuilder builder) {
+  protected AiResponse(Builder builder) {
     super();
     this.answer = builder.answer;
     this.createdAt = builder.createdAt;
@@ -96,7 +96,7 @@ public class AiResponse extends SerializableObject {
         + "}";
   }
 
-  public static class AiResponseBuilder {
+  public static class Builder {
 
     protected final String answer;
 
@@ -106,17 +106,17 @@ public class AiResponse extends SerializableObject {
 
     protected AiAgentInfo aiAgentInfo;
 
-    public AiResponseBuilder(String answer, Date createdAt) {
+    public Builder(String answer, Date createdAt) {
       this.answer = answer;
       this.createdAt = createdAt;
     }
 
-    public AiResponseBuilder completionReason(String completionReason) {
+    public Builder completionReason(String completionReason) {
       this.completionReason = completionReason;
       return this;
     }
 
-    public AiResponseBuilder aiAgentInfo(AiAgentInfo aiAgentInfo) {
+    public Builder aiAgentInfo(AiAgentInfo aiAgentInfo) {
       this.aiAgentInfo = aiAgentInfo;
       return this;
     }

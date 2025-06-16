@@ -50,7 +50,7 @@ public class UpdateCollaborationByIdRequestBody extends SerializableObject {
     this.role = new EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField>(role);
   }
 
-  protected UpdateCollaborationByIdRequestBody(UpdateCollaborationByIdRequestBodyBuilder builder) {
+  protected UpdateCollaborationByIdRequestBody(Builder builder) {
     super();
     this.role = builder.role;
     this.status = builder.status;
@@ -115,7 +115,7 @@ public class UpdateCollaborationByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateCollaborationByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected final EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField> role;
 
@@ -125,34 +125,30 @@ public class UpdateCollaborationByIdRequestBody extends SerializableObject {
 
     protected Boolean canViewPath;
 
-    public UpdateCollaborationByIdRequestBodyBuilder(
-        EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField> role) {
+    public Builder(EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField> role) {
       this.role = role;
     }
 
-    public UpdateCollaborationByIdRequestBodyBuilder(
-        UpdateCollaborationByIdRequestBodyRoleField role) {
+    public Builder(UpdateCollaborationByIdRequestBodyRoleField role) {
       this.role = new EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField>(role);
     }
 
-    public UpdateCollaborationByIdRequestBodyBuilder status(
-        UpdateCollaborationByIdRequestBodyStatusField status) {
+    public Builder status(UpdateCollaborationByIdRequestBodyStatusField status) {
       this.status = new EnumWrapper<UpdateCollaborationByIdRequestBodyStatusField>(status);
       return this;
     }
 
-    public UpdateCollaborationByIdRequestBodyBuilder status(
-        EnumWrapper<UpdateCollaborationByIdRequestBodyStatusField> status) {
+    public Builder status(EnumWrapper<UpdateCollaborationByIdRequestBodyStatusField> status) {
       this.status = status;
       return this;
     }
 
-    public UpdateCollaborationByIdRequestBodyBuilder expiresAt(Date expiresAt) {
+    public Builder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }
 
-    public UpdateCollaborationByIdRequestBodyBuilder canViewPath(Boolean canViewPath) {
+    public Builder canViewPath(Boolean canViewPath) {
       this.canViewPath = canViewPath;
       return this;
     }

@@ -26,7 +26,7 @@ public class AuthorizeUserQueryParams {
     this.clientId = clientId;
   }
 
-  protected AuthorizeUserQueryParams(AuthorizeUserQueryParamsBuilder builder) {
+  protected AuthorizeUserQueryParams(Builder builder) {
     this.responseType = builder.responseType;
     this.clientId = builder.clientId;
     this.redirectUri = builder.redirectUri;
@@ -54,7 +54,7 @@ public class AuthorizeUserQueryParams {
     return scope;
   }
 
-  public static class AuthorizeUserQueryParamsBuilder {
+  public static class Builder {
 
     protected final EnumWrapper<AuthorizeUserQueryParamsResponseTypeField> responseType;
 
@@ -66,29 +66,28 @@ public class AuthorizeUserQueryParams {
 
     protected String scope;
 
-    public AuthorizeUserQueryParamsBuilder(
+    public Builder(
         EnumWrapper<AuthorizeUserQueryParamsResponseTypeField> responseType, String clientId) {
       this.responseType = responseType;
       this.clientId = clientId;
     }
 
-    public AuthorizeUserQueryParamsBuilder(
-        AuthorizeUserQueryParamsResponseTypeField responseType, String clientId) {
+    public Builder(AuthorizeUserQueryParamsResponseTypeField responseType, String clientId) {
       this.responseType = new EnumWrapper<AuthorizeUserQueryParamsResponseTypeField>(responseType);
       this.clientId = clientId;
     }
 
-    public AuthorizeUserQueryParamsBuilder redirectUri(String redirectUri) {
+    public Builder redirectUri(String redirectUri) {
       this.redirectUri = redirectUri;
       return this;
     }
 
-    public AuthorizeUserQueryParamsBuilder state(String state) {
+    public Builder state(String state) {
       this.state = state;
       return this;
     }
 
-    public AuthorizeUserQueryParamsBuilder scope(String scope) {
+    public Builder scope(String scope) {
       this.scope = scope;
       return this;
     }

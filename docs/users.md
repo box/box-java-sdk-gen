@@ -55,7 +55,7 @@ See the endpoint docs at
 
 <!-- sample post_users -->
 ```
-client.getUsers().createUser(new CreateUserRequestBody.CreateUserRequestBodyBuilder(userName).login(userLogin).isPlatformAccessOnly(true).build())
+client.getUsers().createUser(new CreateUserRequestBody.Builder(userName).login(userLogin).isPlatformAccessOnly(true).build())
 ```
 
 ### Arguments
@@ -172,7 +172,7 @@ See the endpoint docs at
 
 <!-- sample put_users_id -->
 ```
-client.getUsers().updateUserById(user.getId(), new UpdateUserByIdRequestBody.UpdateUserByIdRequestBodyBuilder().name(updatedUserName).build())
+client.getUsers().updateUserById(user.getId(), new UpdateUserByIdRequestBody.Builder().name(updatedUserName).build())
 ```
 
 ### Arguments

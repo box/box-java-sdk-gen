@@ -12,7 +12,7 @@ public class GetFileVersionsQueryParams {
 
   public GetFileVersionsQueryParams() {}
 
-  protected GetFileVersionsQueryParams(GetFileVersionsQueryParamsBuilder builder) {
+  protected GetFileVersionsQueryParams(Builder builder) {
     this.fields = builder.fields;
     this.limit = builder.limit;
     this.offset = builder.offset;
@@ -30,7 +30,7 @@ public class GetFileVersionsQueryParams {
     return offset;
   }
 
-  public static class GetFileVersionsQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
@@ -38,17 +38,17 @@ public class GetFileVersionsQueryParams {
 
     protected Long offset;
 
-    public GetFileVersionsQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public GetFileVersionsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetFileVersionsQueryParamsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }

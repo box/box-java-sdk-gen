@@ -53,7 +53,7 @@ See the endpoint docs at
 
 <!-- sample post_folder_locks -->
 ```
-client.getFolderLocks().createFolderLock(new CreateFolderLockRequestBody.CreateFolderLockRequestBodyBuilder(new CreateFolderLockRequestBodyFolderField("folder", folder.getId())).lockedOperations(new CreateFolderLockRequestBodyLockedOperationsField(true, true)).build())
+client.getFolderLocks().createFolderLock(new CreateFolderLockRequestBody.Builder(new CreateFolderLockRequestBodyFolderField("folder", folder.getId())).lockedOperations(new CreateFolderLockRequestBodyLockedOperationsField(true, true)).build())
 ```
 
 ### Arguments

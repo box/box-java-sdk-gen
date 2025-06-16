@@ -46,7 +46,7 @@ public class CommonsManager {
 
   public static BoxCCGAuth getCcgAuth() {
     CCGConfig ccgConfig =
-        new CCGConfig.CCGConfigBuilder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
+        new CCGConfig.Builder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
             .enterpriseId(getEnvVar("ENTERPRISE_ID"))
             .build();
     BoxCCGAuth auth = new BoxCCGAuth(ccgConfig);
@@ -120,7 +120,7 @@ public class CommonsManager {
     return client
         .getTermsOfServices()
         .createTermsOfService(
-            new CreateTermsOfServiceRequestBody.CreateTermsOfServiceRequestBodyBuilder(
+            new CreateTermsOfServiceRequestBody.Builder(
                     CreateTermsOfServiceRequestBodyStatusField.DISABLED, "Test TOS")
                 .tosType(CreateTermsOfServiceRequestBodyTosTypeField.MANAGED)
                 .build());
@@ -139,14 +139,12 @@ public class CommonsManager {
               .addClassification(
                   Arrays.asList(
                       new AddClassificationRequestBody(
-                          new AddClassificationRequestBodyDataField
-                                  .AddClassificationRequestBodyDataFieldBuilder(getUuid())
+                          new AddClassificationRequestBodyDataField.Builder(getUuid())
                               .staticConfig(
-                                  new AddClassificationRequestBodyDataStaticConfigField
-                                          .AddClassificationRequestBodyDataStaticConfigFieldBuilder()
+                                  new AddClassificationRequestBodyDataStaticConfigField.Builder()
                                       .classification(
                                           new AddClassificationRequestBodyDataStaticConfigClassificationField
-                                                  .AddClassificationRequestBodyDataStaticConfigClassificationFieldBuilder()
+                                                  .Builder()
                                               .classificationDefinition("Some description")
                                               .colorId(3L)
                                               .build())
@@ -182,7 +180,7 @@ public class CommonsManager {
           .getShieldInformationBarriers()
           .createShieldInformationBarrier(
               new CreateShieldInformationBarrierRequestBody(
-                  new EnterpriseBase.EnterpriseBaseBuilder().id(enterpriseId).build()));
+                  new EnterpriseBase.Builder().id(enterpriseId).build()));
     }
     return barriers.getEntries().get(numberOfBarriers - 1);
   }

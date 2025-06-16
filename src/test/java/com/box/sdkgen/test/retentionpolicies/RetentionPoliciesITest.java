@@ -25,7 +25,7 @@ public class RetentionPoliciesITest {
         client
             .getRetentionPolicies()
             .createRetentionPolicy(
-                new CreateRetentionPolicyRequestBody.CreateRetentionPolicyRequestBodyBuilder(
+                new CreateRetentionPolicyRequestBody.Builder(
                         retentionPolicyName,
                         CreateRetentionPolicyRequestBodyPolicyTypeField.FINITE,
                         CreateRetentionPolicyRequestBodyDispositionActionField.REMOVE_RETENTION)
@@ -48,8 +48,7 @@ public class RetentionPoliciesITest {
             .getRetentionPolicies()
             .updateRetentionPolicyById(
                 retentionPolicy.getId(),
-                new UpdateRetentionPolicyByIdRequestBody
-                        .UpdateRetentionPolicyByIdRequestBodyBuilder()
+                new UpdateRetentionPolicyByIdRequestBody.Builder()
                     .policyName(updatedRetentionPolicyName)
                     .build());
     assert updatedRetentionPolicy.getPolicyName().equals(updatedRetentionPolicyName);

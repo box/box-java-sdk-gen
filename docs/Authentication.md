@@ -78,7 +78,7 @@ BoxClient client = new BoxClient(auth);
 Otherwise, you'll need to provide the necessary configuration fields directly to the `JWTConfig` constructor:
 
 ```java
-JWTConfig config = new JWTConfig.JWTConfigBuilder("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET", "JWT_KEY_ID", "PRIVATE_KEY", "PRIVATE_KEY_PASSWORD")
+JWTConfig config = new JWTConfig.Builder("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET", "JWT_KEY_ID", "PRIVATE_KEY", "PRIVATE_KEY_PASSWORD")
     .enterpriseId("123456")
     .build();
 BoxJWTAuth auth = new BoxJWTAuth(config);
@@ -110,7 +110,7 @@ constructor as in the above examples, similarly to creating a Service Account cl
 `userId` instead of `enterpriseId` when constructing the auth config instance:
 
 ```java
-JWTConfig config = new JWTConfig.JWTConfigBuilder("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET", "JWT_KEY_ID", "PRIVATE_KEY", "PRIVATE_KEY_PASSWORD")
+JWTConfig config = new JWTConfig.Builder("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET", "JWT_KEY_ID", "PRIVATE_KEY", "PRIVATE_KEY_PASSWORD")
     .userId("123456")
     .build();
 BoxJWTAuth auth = new BoxJWTAuth(config);
@@ -132,7 +132,7 @@ and secret with enterprise or user ID, which allows you to work using service or
 You can use `CCGAuth` to initialize a client object the same way as for other authentication types:
 
 ```java
-CCGConfig config = new CCGConfig.CCGConfigBuilder("YOUR_CLIENT", "YOUR_CLIENT_SECRET")
+CCGConfig config = new CCGConfig.Builder("YOUR_CLIENT", "YOUR_CLIENT_SECRET")
     .userId("USER_ID")
     .build();
 BoxCCGAuth auth = new BoxCCGAuth(config);
@@ -153,7 +153,7 @@ are not accessible in any other account by default, and vice versa.
 To obtain service account you will have to provide enterprise ID with client id and secret:
 
 ```java
-CCGConfig config = new CCGConfig.CCGConfigBuilder("YOUR_CLIENT", "YOUR_CLIENT_SECRET")
+CCGConfig config = new CCGConfig.Builder("YOUR_CLIENT", "YOUR_CLIENT_SECRET")
     .enterpriseId("ENTERPRISE_ID")
     .build();
 BoxCCGAuth auth = new BoxCCGAuth(config);
@@ -169,7 +169,7 @@ select `Generate user access tokens`. Do not forget to re-authorize application 
 To obtain user account you will have to provide user ID with client id and secret.
 
 ```java
-CCGConfig config = new CCGConfig.CCGConfigBuilder("YOUR_CLIENT", "YOUR_CLIENT_SECRET")
+CCGConfig config = new CCGConfig.Builder("YOUR_CLIENT", "YOUR_CLIENT_SECRET")
     .userId("USER_ID")
     .build();
 BoxCCGAuth auth = new BoxCCGAuth(config);
@@ -242,7 +242,7 @@ to avoid repeating the authentication process. This can be useful when you want 
 between runs of your application.
 
 ```java
-AccessToken accessToken = new AccessToken.AccessTokenBuilder()
+AccessToken accessToken = new AccessToken.Builder()
     .accessToken("ACCESS_TOKEN")
     .refreshToken("REFRESH_TOKEN")
     .build();
@@ -358,7 +358,7 @@ TokenStorage customTokenStorage = new TokenStorage() {
     }
 };
 
-OAuthConfig config = new OAuthConfig.OAuthConfigBuilder("CLIENT_ID", "CLIENT_SECRET")
+OAuthConfig config = new OAuthConfig.Builder("CLIENT_ID", "CLIENT_SECRET")
     .tokenStorage(customTokenStorage)
     .build();
 BoxOAuth auth = new BoxOAuth(config);

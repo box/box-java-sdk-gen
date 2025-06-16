@@ -38,7 +38,7 @@ public class AiStudioAgentTextGen extends SerializableObject {
             AiStudioAgentTextGenTypeField.AI_AGENT_TEXT_GEN);
   }
 
-  protected AiStudioAgentTextGen(AiStudioAgentTextGenBuilder builder) {
+  protected AiStudioAgentTextGen(Builder builder) {
     super();
     this.type = builder.type;
     this.accessState = builder.accessState;
@@ -113,7 +113,7 @@ public class AiStudioAgentTextGen extends SerializableObject {
         + "}";
   }
 
-  public static class AiStudioAgentTextGenBuilder {
+  public static class Builder {
 
     protected EnumWrapper<AiStudioAgentTextGenTypeField> type;
 
@@ -125,7 +125,7 @@ public class AiStudioAgentTextGen extends SerializableObject {
 
     protected AiStudioAgentBasicGenTool basicGen;
 
-    public AiStudioAgentTextGenBuilder(String accessState, String description) {
+    public Builder(String accessState, String description) {
       this.accessState = accessState;
       this.description = description;
       this.type =
@@ -133,22 +133,22 @@ public class AiStudioAgentTextGen extends SerializableObject {
               AiStudioAgentTextGenTypeField.AI_AGENT_TEXT_GEN);
     }
 
-    public AiStudioAgentTextGenBuilder type(AiStudioAgentTextGenTypeField type) {
+    public Builder type(AiStudioAgentTextGenTypeField type) {
       this.type = new EnumWrapper<AiStudioAgentTextGenTypeField>(type);
       return this;
     }
 
-    public AiStudioAgentTextGenBuilder type(EnumWrapper<AiStudioAgentTextGenTypeField> type) {
+    public Builder type(EnumWrapper<AiStudioAgentTextGenTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiStudioAgentTextGenBuilder customInstructions(String customInstructions) {
+    public Builder customInstructions(String customInstructions) {
       this.customInstructions = customInstructions;
       return this;
     }
 
-    public AiStudioAgentTextGenBuilder basicGen(AiStudioAgentBasicGenTool basicGen) {
+    public Builder basicGen(AiStudioAgentBasicGenTool basicGen) {
       this.basicGen = basicGen;
       return this;
     }

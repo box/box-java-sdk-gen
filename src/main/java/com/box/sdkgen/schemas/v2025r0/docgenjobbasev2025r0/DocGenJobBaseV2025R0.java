@@ -24,7 +24,7 @@ public class DocGenJobBaseV2025R0 extends SerializableObject {
         new EnumWrapper<DocGenJobBaseV2025R0TypeField>(DocGenJobBaseV2025R0TypeField.DOCGEN_JOB);
   }
 
-  protected DocGenJobBaseV2025R0(DocGenJobBaseV2025R0Builder builder) {
+  protected DocGenJobBaseV2025R0(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -60,24 +60,24 @@ public class DocGenJobBaseV2025R0 extends SerializableObject {
     return "DocGenJobBaseV2025R0{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class DocGenJobBaseV2025R0Builder {
+  public static class Builder {
 
     protected final String id;
 
     protected EnumWrapper<DocGenJobBaseV2025R0TypeField> type;
 
-    public DocGenJobBaseV2025R0Builder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<DocGenJobBaseV2025R0TypeField>(DocGenJobBaseV2025R0TypeField.DOCGEN_JOB);
     }
 
-    public DocGenJobBaseV2025R0Builder type(DocGenJobBaseV2025R0TypeField type) {
+    public Builder type(DocGenJobBaseV2025R0TypeField type) {
       this.type = new EnumWrapper<DocGenJobBaseV2025R0TypeField>(type);
       return this;
     }
 
-    public DocGenJobBaseV2025R0Builder type(EnumWrapper<DocGenJobBaseV2025R0TypeField> type) {
+    public Builder type(EnumWrapper<DocGenJobBaseV2025R0TypeField> type) {
       this.type = type;
       return this;
     }

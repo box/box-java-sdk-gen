@@ -12,7 +12,7 @@ public class GetCollectionItemsQueryParams {
 
   public GetCollectionItemsQueryParams() {}
 
-  protected GetCollectionItemsQueryParams(GetCollectionItemsQueryParamsBuilder builder) {
+  protected GetCollectionItemsQueryParams(Builder builder) {
     this.fields = builder.fields;
     this.offset = builder.offset;
     this.limit = builder.limit;
@@ -30,7 +30,7 @@ public class GetCollectionItemsQueryParams {
     return limit;
   }
 
-  public static class GetCollectionItemsQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
@@ -38,17 +38,17 @@ public class GetCollectionItemsQueryParams {
 
     protected Long limit;
 
-    public GetCollectionItemsQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public GetCollectionItemsQueryParamsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public GetCollectionItemsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

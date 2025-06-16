@@ -32,7 +32,7 @@ public class StoragePolicyAssignment extends SerializableObject {
             StoragePolicyAssignmentTypeField.STORAGE_POLICY_ASSIGNMENT);
   }
 
-  protected StoragePolicyAssignment(StoragePolicyAssignmentBuilder builder) {
+  protected StoragePolicyAssignment(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -97,7 +97,7 @@ public class StoragePolicyAssignment extends SerializableObject {
         + "}";
   }
 
-  public static class StoragePolicyAssignmentBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -107,30 +107,29 @@ public class StoragePolicyAssignment extends SerializableObject {
 
     protected StoragePolicyAssignmentAssignedToField assignedTo;
 
-    public StoragePolicyAssignmentBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<StoragePolicyAssignmentTypeField>(
               StoragePolicyAssignmentTypeField.STORAGE_POLICY_ASSIGNMENT);
     }
 
-    public StoragePolicyAssignmentBuilder type(StoragePolicyAssignmentTypeField type) {
+    public Builder type(StoragePolicyAssignmentTypeField type) {
       this.type = new EnumWrapper<StoragePolicyAssignmentTypeField>(type);
       return this;
     }
 
-    public StoragePolicyAssignmentBuilder type(EnumWrapper<StoragePolicyAssignmentTypeField> type) {
+    public Builder type(EnumWrapper<StoragePolicyAssignmentTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public StoragePolicyAssignmentBuilder storagePolicy(StoragePolicyMini storagePolicy) {
+    public Builder storagePolicy(StoragePolicyMini storagePolicy) {
       this.storagePolicy = storagePolicy;
       return this;
     }
 
-    public StoragePolicyAssignmentBuilder assignedTo(
-        StoragePolicyAssignmentAssignedToField assignedTo) {
+    public Builder assignedTo(StoragePolicyAssignmentAssignedToField assignedTo) {
       this.assignedTo = assignedTo;
       return this;
     }

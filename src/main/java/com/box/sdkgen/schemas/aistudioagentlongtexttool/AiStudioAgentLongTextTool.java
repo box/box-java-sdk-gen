@@ -15,7 +15,7 @@ public class AiStudioAgentLongTextTool extends AiAgentLongTextTool {
     super();
   }
 
-  protected AiStudioAgentLongTextTool(AiStudioAgentLongTextToolBuilder builder) {
+  protected AiStudioAgentLongTextTool(Builder builder) {
     super(builder);
     this.isCustomInstructionsIncluded = builder.isCustomInstructionsIncluded;
   }
@@ -87,50 +87,47 @@ public class AiStudioAgentLongTextTool extends AiAgentLongTextTool {
         + "}";
   }
 
-  public static class AiStudioAgentLongTextToolBuilder extends AiAgentLongTextToolBuilder {
+  public static class Builder extends AiAgentLongTextTool.Builder {
 
     protected Boolean isCustomInstructionsIncluded;
 
-    public AiStudioAgentLongTextToolBuilder isCustomInstructionsIncluded(
-        Boolean isCustomInstructionsIncluded) {
+    public Builder isCustomInstructionsIncluded(Boolean isCustomInstructionsIncluded) {
       this.isCustomInstructionsIncluded = isCustomInstructionsIncluded;
       return this;
     }
 
     @Override
-    public AiStudioAgentLongTextToolBuilder model(String model) {
+    public Builder model(String model) {
       this.model = model;
       return this;
     }
 
     @Override
-    public AiStudioAgentLongTextToolBuilder numTokensForCompletion(Long numTokensForCompletion) {
+    public Builder numTokensForCompletion(Long numTokensForCompletion) {
       this.numTokensForCompletion = numTokensForCompletion;
       return this;
     }
 
     @Override
-    public AiStudioAgentLongTextToolBuilder llmEndpointParams(
-        AiLlmEndpointParams llmEndpointParams) {
+    public Builder llmEndpointParams(AiLlmEndpointParams llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }
 
     @Override
-    public AiStudioAgentLongTextToolBuilder systemMessage(String systemMessage) {
+    public Builder systemMessage(String systemMessage) {
       this.systemMessage = systemMessage;
       return this;
     }
 
     @Override
-    public AiStudioAgentLongTextToolBuilder promptTemplate(String promptTemplate) {
+    public Builder promptTemplate(String promptTemplate) {
       this.promptTemplate = promptTemplate;
       return this;
     }
 
     @Override
-    public AiStudioAgentLongTextToolBuilder embeddings(
-        AiAgentLongTextToolEmbeddingsField embeddings) {
+    public Builder embeddings(AiAgentLongTextToolEmbeddingsField embeddings) {
       this.embeddings = embeddings;
       return this;
     }

@@ -12,7 +12,7 @@ public class GetCommentByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetCommentByIdHeaders(GetCommentByIdHeadersBuilder builder) {
+  protected GetCommentByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetCommentByIdHeaders {
     return extraHeaders;
   }
 
-  public static class GetCommentByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetCommentByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetCommentByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

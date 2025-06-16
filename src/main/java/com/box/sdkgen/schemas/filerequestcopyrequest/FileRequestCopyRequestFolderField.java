@@ -26,7 +26,7 @@ public class FileRequestCopyRequestFolderField extends SerializableObject {
     this.id = id;
   }
 
-  protected FileRequestCopyRequestFolderField(FileRequestCopyRequestFolderFieldBuilder builder) {
+  protected FileRequestCopyRequestFolderField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -70,24 +70,22 @@ public class FileRequestCopyRequestFolderField extends SerializableObject {
         + "}";
   }
 
-  public static class FileRequestCopyRequestFolderFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<FileRequestCopyRequestFolderTypeField> type;
 
     protected final String id;
 
-    public FileRequestCopyRequestFolderFieldBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
     }
 
-    public FileRequestCopyRequestFolderFieldBuilder type(
-        FileRequestCopyRequestFolderTypeField type) {
+    public Builder type(FileRequestCopyRequestFolderTypeField type) {
       this.type = new EnumWrapper<FileRequestCopyRequestFolderTypeField>(type);
       return this;
     }
 
-    public FileRequestCopyRequestFolderFieldBuilder type(
-        EnumWrapper<FileRequestCopyRequestFolderTypeField> type) {
+    public Builder type(EnumWrapper<FileRequestCopyRequestFolderTypeField> type) {
       this.type = type;
       return this;
     }

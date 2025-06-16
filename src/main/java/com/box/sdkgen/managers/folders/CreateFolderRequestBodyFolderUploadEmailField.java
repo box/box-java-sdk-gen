@@ -22,8 +22,7 @@ public class CreateFolderRequestBodyFolderUploadEmailField extends SerializableO
     super();
   }
 
-  protected CreateFolderRequestBodyFolderUploadEmailField(
-      CreateFolderRequestBodyFolderUploadEmailFieldBuilder builder) {
+  protected CreateFolderRequestBodyFolderUploadEmailField(Builder builder) {
     super();
     this.access = builder.access;
   }
@@ -55,18 +54,16 @@ public class CreateFolderRequestBodyFolderUploadEmailField extends SerializableO
     return "CreateFolderRequestBodyFolderUploadEmailField{" + "access='" + access + '\'' + "}";
   }
 
-  public static class CreateFolderRequestBodyFolderUploadEmailFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField> access;
 
-    public CreateFolderRequestBodyFolderUploadEmailFieldBuilder access(
-        CreateFolderRequestBodyFolderUploadEmailAccessField access) {
+    public Builder access(CreateFolderRequestBodyFolderUploadEmailAccessField access) {
       this.access = new EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField>(access);
       return this;
     }
 
-    public CreateFolderRequestBodyFolderUploadEmailFieldBuilder access(
-        EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField> access) {
+    public Builder access(EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField> access) {
       this.access = access;
       return this;
     }

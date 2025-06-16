@@ -8,7 +8,7 @@ public class GetWebhooksQueryParams {
 
   public GetWebhooksQueryParams() {}
 
-  protected GetWebhooksQueryParams(GetWebhooksQueryParamsBuilder builder) {
+  protected GetWebhooksQueryParams(Builder builder) {
     this.marker = builder.marker;
     this.limit = builder.limit;
   }
@@ -21,18 +21,18 @@ public class GetWebhooksQueryParams {
     return limit;
   }
 
-  public static class GetWebhooksQueryParamsBuilder {
+  public static class Builder {
 
     protected String marker;
 
     protected Long limit;
 
-    public GetWebhooksQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetWebhooksQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

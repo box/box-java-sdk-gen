@@ -12,8 +12,7 @@ public class DeleteMetadataCascadePolicyByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteMetadataCascadePolicyByIdHeaders(
-      DeleteMetadataCascadePolicyByIdHeadersBuilder builder) {
+  protected DeleteMetadataCascadePolicyByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class DeleteMetadataCascadePolicyByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteMetadataCascadePolicyByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteMetadataCascadePolicyByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteMetadataCascadePolicyByIdHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

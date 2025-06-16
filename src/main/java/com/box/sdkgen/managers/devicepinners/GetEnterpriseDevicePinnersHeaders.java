@@ -12,7 +12,7 @@ public class GetEnterpriseDevicePinnersHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetEnterpriseDevicePinnersHeaders(GetEnterpriseDevicePinnersHeadersBuilder builder) {
+  protected GetEnterpriseDevicePinnersHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetEnterpriseDevicePinnersHeaders {
     return extraHeaders;
   }
 
-  public static class GetEnterpriseDevicePinnersHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetEnterpriseDevicePinnersHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetEnterpriseDevicePinnersHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

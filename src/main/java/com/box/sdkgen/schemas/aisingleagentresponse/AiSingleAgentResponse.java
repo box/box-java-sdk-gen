@@ -63,7 +63,7 @@ public class AiSingleAgentResponse extends SerializableObject {
     this.accessState = accessState;
   }
 
-  protected AiSingleAgentResponse(AiSingleAgentResponseBuilder builder) {
+  protected AiSingleAgentResponse(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -209,7 +209,7 @@ public class AiSingleAgentResponse extends SerializableObject {
         + "}";
   }
 
-  public static class AiSingleAgentResponseBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -233,50 +233,49 @@ public class AiSingleAgentResponse extends SerializableObject {
 
     protected List<AiAgentAllowedEntity> allowedEntities;
 
-    public AiSingleAgentResponseBuilder(String id, String origin, String name, String accessState) {
+    public Builder(String id, String origin, String name, String accessState) {
       this.id = id;
       this.origin = origin;
       this.name = name;
       this.accessState = accessState;
     }
 
-    public AiSingleAgentResponseBuilder type(AiSingleAgentResponseTypeField type) {
+    public Builder type(AiSingleAgentResponseTypeField type) {
       this.type = new EnumWrapper<AiSingleAgentResponseTypeField>(type);
       return this;
     }
 
-    public AiSingleAgentResponseBuilder type(EnumWrapper<AiSingleAgentResponseTypeField> type) {
+    public Builder type(EnumWrapper<AiSingleAgentResponseTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiSingleAgentResponseBuilder createdBy(UserBase createdBy) {
+    public Builder createdBy(UserBase createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public AiSingleAgentResponseBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public AiSingleAgentResponseBuilder modifiedBy(UserBase modifiedBy) {
+    public Builder modifiedBy(UserBase modifiedBy) {
       this.modifiedBy = modifiedBy;
       return this;
     }
 
-    public AiSingleAgentResponseBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public AiSingleAgentResponseBuilder iconReference(String iconReference) {
+    public Builder iconReference(String iconReference) {
       this.iconReference = iconReference;
       return this;
     }
 
-    public AiSingleAgentResponseBuilder allowedEntities(
-        List<AiAgentAllowedEntity> allowedEntities) {
+    public Builder allowedEntities(List<AiAgentAllowedEntity> allowedEntities) {
       this.allowedEntities = allowedEntities;
       return this;
     }

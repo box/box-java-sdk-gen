@@ -12,7 +12,7 @@ public class GetSlackIntegrationMappingHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetSlackIntegrationMappingHeaders(GetSlackIntegrationMappingHeadersBuilder builder) {
+  protected GetSlackIntegrationMappingHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetSlackIntegrationMappingHeaders {
     return extraHeaders;
   }
 
-  public static class GetSlackIntegrationMappingHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetSlackIntegrationMappingHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetSlackIntegrationMappingHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

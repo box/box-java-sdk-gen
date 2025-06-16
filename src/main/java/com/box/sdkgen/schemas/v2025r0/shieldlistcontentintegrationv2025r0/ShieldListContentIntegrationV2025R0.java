@@ -32,8 +32,7 @@ public class ShieldListContentIntegrationV2025R0 extends SerializableObject {
             ShieldListContentIntegrationV2025R0TypeField.INTEGRATION);
   }
 
-  protected ShieldListContentIntegrationV2025R0(
-      ShieldListContentIntegrationV2025R0Builder builder) {
+  protected ShieldListContentIntegrationV2025R0(Builder builder) {
     super();
     this.type = builder.type;
     this.integrations = builder.integrations;
@@ -77,28 +76,25 @@ public class ShieldListContentIntegrationV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class ShieldListContentIntegrationV2025R0Builder {
+  public static class Builder {
 
     protected EnumWrapper<ShieldListContentIntegrationV2025R0TypeField> type;
 
     protected final List<ShieldListContentIntegrationV2025R0IntegrationsField> integrations;
 
-    public ShieldListContentIntegrationV2025R0Builder(
-        List<ShieldListContentIntegrationV2025R0IntegrationsField> integrations) {
+    public Builder(List<ShieldListContentIntegrationV2025R0IntegrationsField> integrations) {
       this.integrations = integrations;
       this.type =
           new EnumWrapper<ShieldListContentIntegrationV2025R0TypeField>(
               ShieldListContentIntegrationV2025R0TypeField.INTEGRATION);
     }
 
-    public ShieldListContentIntegrationV2025R0Builder type(
-        ShieldListContentIntegrationV2025R0TypeField type) {
+    public Builder type(ShieldListContentIntegrationV2025R0TypeField type) {
       this.type = new EnumWrapper<ShieldListContentIntegrationV2025R0TypeField>(type);
       return this;
     }
 
-    public ShieldListContentIntegrationV2025R0Builder type(
-        EnumWrapper<ShieldListContentIntegrationV2025R0TypeField> type) {
+    public Builder type(EnumWrapper<ShieldListContentIntegrationV2025R0TypeField> type) {
       this.type = type;
       return this;
     }

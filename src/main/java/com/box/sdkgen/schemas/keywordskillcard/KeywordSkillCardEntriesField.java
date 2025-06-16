@@ -11,7 +11,7 @@ public class KeywordSkillCardEntriesField extends SerializableObject {
     super();
   }
 
-  protected KeywordSkillCardEntriesField(KeywordSkillCardEntriesFieldBuilder builder) {
+  protected KeywordSkillCardEntriesField(Builder builder) {
     super();
     this.text = builder.text;
   }
@@ -42,11 +42,11 @@ public class KeywordSkillCardEntriesField extends SerializableObject {
     return "KeywordSkillCardEntriesField{" + "text='" + text + '\'' + "}";
   }
 
-  public static class KeywordSkillCardEntriesFieldBuilder {
+  public static class Builder {
 
     protected String text;
 
-    public KeywordSkillCardEntriesFieldBuilder text(String text) {
+    public Builder text(String text) {
       this.text = text;
       return this;
     }

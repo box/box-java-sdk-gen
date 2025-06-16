@@ -13,7 +13,7 @@ public class ConflictErrorContextInfoField extends SerializableObject {
     super();
   }
 
-  protected ConflictErrorContextInfoField(ConflictErrorContextInfoFieldBuilder builder) {
+  protected ConflictErrorContextInfoField(Builder builder) {
     super();
     this.conflicts = builder.conflicts;
   }
@@ -44,11 +44,11 @@ public class ConflictErrorContextInfoField extends SerializableObject {
     return "ConflictErrorContextInfoField{" + "conflicts='" + conflicts + '\'' + "}";
   }
 
-  public static class ConflictErrorContextInfoFieldBuilder {
+  public static class Builder {
 
     protected List<FileConflict> conflicts;
 
-    public ConflictErrorContextInfoFieldBuilder conflicts(List<FileConflict> conflicts) {
+    public Builder conflicts(List<FileConflict> conflicts) {
       this.conflicts = conflicts;
       return this;
     }

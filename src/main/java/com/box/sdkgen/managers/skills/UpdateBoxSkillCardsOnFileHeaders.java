@@ -12,7 +12,7 @@ public class UpdateBoxSkillCardsOnFileHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UpdateBoxSkillCardsOnFileHeaders(UpdateBoxSkillCardsOnFileHeadersBuilder builder) {
+  protected UpdateBoxSkillCardsOnFileHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class UpdateBoxSkillCardsOnFileHeaders {
     return extraHeaders;
   }
 
-  public static class UpdateBoxSkillCardsOnFileHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public UpdateBoxSkillCardsOnFileHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public UpdateBoxSkillCardsOnFileHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

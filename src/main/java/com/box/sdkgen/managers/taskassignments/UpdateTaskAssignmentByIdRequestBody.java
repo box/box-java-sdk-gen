@@ -26,8 +26,7 @@ public class UpdateTaskAssignmentByIdRequestBody extends SerializableObject {
     super();
   }
 
-  protected UpdateTaskAssignmentByIdRequestBody(
-      UpdateTaskAssignmentByIdRequestBodyBuilder builder) {
+  protected UpdateTaskAssignmentByIdRequestBody(Builder builder) {
     super();
     this.message = builder.message;
     this.resolutionState = builder.resolutionState;
@@ -72,25 +71,25 @@ public class UpdateTaskAssignmentByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateTaskAssignmentByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected String message;
 
     protected EnumWrapper<UpdateTaskAssignmentByIdRequestBodyResolutionStateField> resolutionState;
 
-    public UpdateTaskAssignmentByIdRequestBodyBuilder message(String message) {
+    public Builder message(String message) {
       this.message = message;
       return this;
     }
 
-    public UpdateTaskAssignmentByIdRequestBodyBuilder resolutionState(
+    public Builder resolutionState(
         UpdateTaskAssignmentByIdRequestBodyResolutionStateField resolutionState) {
       this.resolutionState =
           new EnumWrapper<UpdateTaskAssignmentByIdRequestBodyResolutionStateField>(resolutionState);
       return this;
     }
 
-    public UpdateTaskAssignmentByIdRequestBodyBuilder resolutionState(
+    public Builder resolutionState(
         EnumWrapper<UpdateTaskAssignmentByIdRequestBodyResolutionStateField> resolutionState) {
       this.resolutionState = resolutionState;
       return this;

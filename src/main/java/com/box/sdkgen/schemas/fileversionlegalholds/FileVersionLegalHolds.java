@@ -22,7 +22,7 @@ public class FileVersionLegalHolds extends SerializableObject {
     super();
   }
 
-  protected FileVersionLegalHolds(FileVersionLegalHoldsBuilder builder) {
+  protected FileVersionLegalHolds(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -87,7 +87,7 @@ public class FileVersionLegalHolds extends SerializableObject {
         + "}";
   }
 
-  public static class FileVersionLegalHoldsBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -97,22 +97,22 @@ public class FileVersionLegalHolds extends SerializableObject {
 
     protected List<FileVersionLegalHold> entries;
 
-    public FileVersionLegalHoldsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public FileVersionLegalHoldsBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public FileVersionLegalHoldsBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public FileVersionLegalHoldsBuilder entries(List<FileVersionLegalHold> entries) {
+    public Builder entries(List<FileVersionLegalHold> entries) {
       this.entries = entries;
       return this;
     }

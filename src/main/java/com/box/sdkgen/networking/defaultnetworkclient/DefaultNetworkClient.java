@@ -89,11 +89,11 @@ public class DefaultNetworkClient implements NetworkClient {
                 : response.request().url().toString();
         fetchResponse =
             Objects.equals(fetchOptions.getResponseFormat().getEnumValue(), ResponseFormat.BINARY)
-                ? new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
+                ? new FetchResponse.Builder(response.code(), headersMap)
                     .content(response.body().byteStream())
                     .url(responseUrl)
                     .build()
-                : new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
+                : new FetchResponse.Builder(response.code(), headersMap)
                     .data(
                         response.body() != null
                             ? jsonToSerializedData(response.body().string())
@@ -131,8 +131,7 @@ public class DefaultNetworkClient implements NetworkClient {
                 "Redirect response missing Location header for " + fetchOptions.getUrl());
           }
           return fetch(
-              new FetchOptions.FetchOptionsBuilder(
-                      fetchResponse.getHeaders().get("Location"), "GET")
+              new FetchOptions.Builder(fetchResponse.getHeaders().get("Location"), "GET")
                   .responseFormat(fetchOptions.getResponseFormat())
                   .auth(fetchOptions.getAuth())
                   .networkSession(networkSession)

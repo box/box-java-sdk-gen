@@ -15,7 +15,7 @@ public class BaseUrls {
 
   public BaseUrls() {}
 
-  protected BaseUrls(BaseUrlsBuilder builder) {
+  protected BaseUrls(Builder builder) {
     this.baseUrl = builder.baseUrl;
     this.uploadUrl = builder.uploadUrl;
     this.oauth2Url = builder.oauth2Url;
@@ -69,7 +69,7 @@ public class BaseUrls {
         + "}";
   }
 
-  public static class BaseUrlsBuilder {
+  public static class Builder {
 
     protected String baseUrl = "https://api.box.com";
 
@@ -77,17 +77,17 @@ public class BaseUrls {
 
     protected String oauth2Url = "https://account.box.com/api/oauth2";
 
-    public BaseUrlsBuilder baseUrl(String baseUrl) {
+    public Builder baseUrl(String baseUrl) {
       this.baseUrl = baseUrl;
       return this;
     }
 
-    public BaseUrlsBuilder uploadUrl(String uploadUrl) {
+    public Builder uploadUrl(String uploadUrl) {
       this.uploadUrl = uploadUrl;
       return this;
     }
 
-    public BaseUrlsBuilder oauth2Url(String oauth2Url) {
+    public Builder oauth2Url(String oauth2Url) {
       this.oauth2Url = oauth2Url;
       return this;
     }

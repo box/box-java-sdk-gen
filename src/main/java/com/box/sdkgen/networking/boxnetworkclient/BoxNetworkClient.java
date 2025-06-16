@@ -107,14 +107,14 @@ public class BoxNetworkClient implements NetworkClient {
         if (Objects.equals(
             fetchOptions.getResponseFormat().getEnumValue(), ResponseFormat.BINARY)) {
           fetchResponse =
-              new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
+              new FetchResponse.Builder(response.code(), headersMap)
                   .content(response.body().byteStream())
                   .url(responseUrl)
                   .build();
         } else {
           rawResponseBody = response.body() != null ? response.body().string() : null;
           fetchResponse =
-              new FetchResponse.FetchResponseBuilder(response.code(), headersMap)
+              new FetchResponse.Builder(response.code(), headersMap)
                   .data(readJsonFromRawBody(rawResponseBody))
                   .url(responseUrl)
                   .build();
@@ -156,8 +156,7 @@ public class BoxNetworkClient implements NetworkClient {
                   && originalUri.getPort() == redirectUri.getPort()
                   && originalUri.getScheme().equals(redirectUri.getScheme());
           return fetch(
-              new FetchOptions.FetchOptionsBuilder(
-                      fetchResponse.getHeaders().get("Location"), "GET")
+              new FetchOptions.Builder(fetchResponse.getHeaders().get("Location"), "GET")
                   .responseFormat(fetchOptions.getResponseFormat())
                   .auth(sameOrigin ? fetchOptions.getAuth() : null)
                   .networkSession(networkSession)

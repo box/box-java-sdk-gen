@@ -52,7 +52,7 @@ public class KeywordSkillCard extends SerializableObject {
             KeywordSkillCardSkillCardTypeField.KEYWORD);
   }
 
-  protected KeywordSkillCard(KeywordSkillCardBuilder builder) {
+  protected KeywordSkillCard(Builder builder) {
     super();
     this.createdAt = builder.createdAt;
     this.type = builder.type;
@@ -147,7 +147,7 @@ public class KeywordSkillCard extends SerializableObject {
         + "}";
   }
 
-  public static class KeywordSkillCardBuilder {
+  public static class Builder {
 
     protected Date createdAt;
 
@@ -163,7 +163,7 @@ public class KeywordSkillCard extends SerializableObject {
 
     protected final List<KeywordSkillCardEntriesField> entries;
 
-    public KeywordSkillCardBuilder(
+    public Builder(
         KeywordSkillCardSkillField skill,
         KeywordSkillCardInvocationField invocation,
         List<KeywordSkillCardEntriesField> entries) {
@@ -176,34 +176,32 @@ public class KeywordSkillCard extends SerializableObject {
               KeywordSkillCardSkillCardTypeField.KEYWORD);
     }
 
-    public KeywordSkillCardBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public KeywordSkillCardBuilder type(KeywordSkillCardTypeField type) {
+    public Builder type(KeywordSkillCardTypeField type) {
       this.type = new EnumWrapper<KeywordSkillCardTypeField>(type);
       return this;
     }
 
-    public KeywordSkillCardBuilder type(EnumWrapper<KeywordSkillCardTypeField> type) {
+    public Builder type(EnumWrapper<KeywordSkillCardTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public KeywordSkillCardBuilder skillCardType(KeywordSkillCardSkillCardTypeField skillCardType) {
+    public Builder skillCardType(KeywordSkillCardSkillCardTypeField skillCardType) {
       this.skillCardType = new EnumWrapper<KeywordSkillCardSkillCardTypeField>(skillCardType);
       return this;
     }
 
-    public KeywordSkillCardBuilder skillCardType(
-        EnumWrapper<KeywordSkillCardSkillCardTypeField> skillCardType) {
+    public Builder skillCardType(EnumWrapper<KeywordSkillCardSkillCardTypeField> skillCardType) {
       this.skillCardType = skillCardType;
       return this;
     }
 
-    public KeywordSkillCardBuilder skillCardTitle(
-        KeywordSkillCardSkillCardTitleField skillCardTitle) {
+    public Builder skillCardTitle(KeywordSkillCardSkillCardTitleField skillCardTitle) {
       this.skillCardTitle = skillCardTitle;
       return this;
     }

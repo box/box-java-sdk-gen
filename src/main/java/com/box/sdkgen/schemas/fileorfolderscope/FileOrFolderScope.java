@@ -20,7 +20,7 @@ public class FileOrFolderScope extends SerializableObject {
     super();
   }
 
-  protected FileOrFolderScope(FileOrFolderScopeBuilder builder) {
+  protected FileOrFolderScope(Builder builder) {
     super();
     this.scope = builder.scope;
     this.object = builder.object;
@@ -64,23 +64,23 @@ public class FileOrFolderScope extends SerializableObject {
         + "}";
   }
 
-  public static class FileOrFolderScopeBuilder {
+  public static class Builder {
 
     protected EnumWrapper<FileOrFolderScopeScopeField> scope;
 
     protected FileMiniOrFolderMini object;
 
-    public FileOrFolderScopeBuilder scope(FileOrFolderScopeScopeField scope) {
+    public Builder scope(FileOrFolderScopeScopeField scope) {
       this.scope = new EnumWrapper<FileOrFolderScopeScopeField>(scope);
       return this;
     }
 
-    public FileOrFolderScopeBuilder scope(EnumWrapper<FileOrFolderScopeScopeField> scope) {
+    public Builder scope(EnumWrapper<FileOrFolderScopeScopeField> scope) {
       this.scope = scope;
       return this;
     }
 
-    public FileOrFolderScopeBuilder object(FileMiniOrFolderMini object) {
+    public Builder object(FileMiniOrFolderMini object) {
       this.object = object;
       return this;
     }

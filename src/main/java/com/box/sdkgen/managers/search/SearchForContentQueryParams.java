@@ -60,7 +60,7 @@ public class SearchForContentQueryParams {
 
   public SearchForContentQueryParams() {}
 
-  protected SearchForContentQueryParams(SearchForContentQueryParamsBuilder builder) {
+  protected SearchForContentQueryParams(Builder builder) {
     this.query = builder.query;
     this.scope = builder.scope;
     this.fileExtensions = builder.fileExtensions;
@@ -168,7 +168,7 @@ public class SearchForContentQueryParams {
     return deletedAtRange;
   }
 
-  public static class SearchForContentQueryParamsBuilder {
+  public static class Builder {
 
     protected String query;
 
@@ -212,144 +212,136 @@ public class SearchForContentQueryParams {
 
     protected List<String> deletedAtRange;
 
-    public SearchForContentQueryParamsBuilder query(String query) {
+    public Builder query(String query) {
       this.query = query;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder scope(SearchForContentQueryParamsScopeField scope) {
+    public Builder scope(SearchForContentQueryParamsScopeField scope) {
       this.scope = new EnumWrapper<SearchForContentQueryParamsScopeField>(scope);
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder scope(
-        EnumWrapper<SearchForContentQueryParamsScopeField> scope) {
+    public Builder scope(EnumWrapper<SearchForContentQueryParamsScopeField> scope) {
       this.scope = scope;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder fileExtensions(List<String> fileExtensions) {
+    public Builder fileExtensions(List<String> fileExtensions) {
       this.fileExtensions = fileExtensions;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder createdAtRange(List<String> createdAtRange) {
+    public Builder createdAtRange(List<String> createdAtRange) {
       this.createdAtRange = createdAtRange;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder updatedAtRange(List<String> updatedAtRange) {
+    public Builder updatedAtRange(List<String> updatedAtRange) {
       this.updatedAtRange = updatedAtRange;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder sizeRange(List<Long> sizeRange) {
+    public Builder sizeRange(List<Long> sizeRange) {
       this.sizeRange = sizeRange;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder ownerUserIds(List<String> ownerUserIds) {
+    public Builder ownerUserIds(List<String> ownerUserIds) {
       this.ownerUserIds = ownerUserIds;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder recentUpdaterUserIds(
-        List<String> recentUpdaterUserIds) {
+    public Builder recentUpdaterUserIds(List<String> recentUpdaterUserIds) {
       this.recentUpdaterUserIds = recentUpdaterUserIds;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder ancestorFolderIds(List<String> ancestorFolderIds) {
+    public Builder ancestorFolderIds(List<String> ancestorFolderIds) {
       this.ancestorFolderIds = ancestorFolderIds;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder contentTypes(List<? extends Valuable> contentTypes) {
+    public Builder contentTypes(List<? extends Valuable> contentTypes) {
       this.contentTypes =
           EnumWrapper.wrapValuableEnumList(
               contentTypes, SearchForContentQueryParamsContentTypesField.class);
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder type(SearchForContentQueryParamsTypeField type) {
+    public Builder type(SearchForContentQueryParamsTypeField type) {
       this.type = new EnumWrapper<SearchForContentQueryParamsTypeField>(type);
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder type(
-        EnumWrapper<SearchForContentQueryParamsTypeField> type) {
+    public Builder type(EnumWrapper<SearchForContentQueryParamsTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder trashContent(
-        SearchForContentQueryParamsTrashContentField trashContent) {
+    public Builder trashContent(SearchForContentQueryParamsTrashContentField trashContent) {
       this.trashContent =
           new EnumWrapper<SearchForContentQueryParamsTrashContentField>(trashContent);
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder trashContent(
+    public Builder trashContent(
         EnumWrapper<SearchForContentQueryParamsTrashContentField> trashContent) {
       this.trashContent = trashContent;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder mdfilters(List<MetadataFilter> mdfilters) {
+    public Builder mdfilters(List<MetadataFilter> mdfilters) {
       this.mdfilters = mdfilters;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder sort(SearchForContentQueryParamsSortField sort) {
+    public Builder sort(SearchForContentQueryParamsSortField sort) {
       this.sort = new EnumWrapper<SearchForContentQueryParamsSortField>(sort);
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder sort(
-        EnumWrapper<SearchForContentQueryParamsSortField> sort) {
+    public Builder sort(EnumWrapper<SearchForContentQueryParamsSortField> sort) {
       this.sort = sort;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder direction(
-        SearchForContentQueryParamsDirectionField direction) {
+    public Builder direction(SearchForContentQueryParamsDirectionField direction) {
       this.direction = new EnumWrapper<SearchForContentQueryParamsDirectionField>(direction);
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder direction(
-        EnumWrapper<SearchForContentQueryParamsDirectionField> direction) {
+    public Builder direction(EnumWrapper<SearchForContentQueryParamsDirectionField> direction) {
       this.direction = direction;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder includeRecentSharedLinks(
-        Boolean includeRecentSharedLinks) {
+    public Builder includeRecentSharedLinks(Boolean includeRecentSharedLinks) {
       this.includeRecentSharedLinks = includeRecentSharedLinks;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder deletedUserIds(List<String> deletedUserIds) {
+    public Builder deletedUserIds(List<String> deletedUserIds) {
       this.deletedUserIds = deletedUserIds;
       return this;
     }
 
-    public SearchForContentQueryParamsBuilder deletedAtRange(List<String> deletedAtRange) {
+    public Builder deletedAtRange(List<String> deletedAtRange) {
       this.deletedAtRange = deletedAtRange;
       return this;
     }

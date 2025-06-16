@@ -19,7 +19,7 @@ public class ShieldInformationBarriers extends SerializableObject {
     super();
   }
 
-  protected ShieldInformationBarriers(ShieldInformationBarriersBuilder builder) {
+  protected ShieldInformationBarriers(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -74,7 +74,7 @@ public class ShieldInformationBarriers extends SerializableObject {
         + "}";
   }
 
-  public static class ShieldInformationBarriersBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -82,17 +82,17 @@ public class ShieldInformationBarriers extends SerializableObject {
 
     protected List<ShieldInformationBarrier> entries;
 
-    public ShieldInformationBarriersBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public ShieldInformationBarriersBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public ShieldInformationBarriersBuilder entries(List<ShieldInformationBarrier> entries) {
+    public Builder entries(List<ShieldInformationBarrier> entries) {
       this.entries = entries;
       return this;
     }

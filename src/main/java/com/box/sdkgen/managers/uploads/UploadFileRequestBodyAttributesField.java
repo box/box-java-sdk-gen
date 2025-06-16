@@ -32,8 +32,7 @@ public class UploadFileRequestBodyAttributesField extends SerializableObject {
     this.parent = parent;
   }
 
-  protected UploadFileRequestBodyAttributesField(
-      UploadFileRequestBodyAttributesFieldBuilder builder) {
+  protected UploadFileRequestBodyAttributesField(Builder builder) {
     super();
     this.name = builder.name;
     this.parent = builder.parent;
@@ -98,7 +97,7 @@ public class UploadFileRequestBodyAttributesField extends SerializableObject {
         + "}";
   }
 
-  public static class UploadFileRequestBodyAttributesFieldBuilder {
+  public static class Builder {
 
     protected final String name;
 
@@ -108,18 +107,17 @@ public class UploadFileRequestBodyAttributesField extends SerializableObject {
 
     protected Date contentModifiedAt;
 
-    public UploadFileRequestBodyAttributesFieldBuilder(
-        String name, UploadFileRequestBodyAttributesParentField parent) {
+    public Builder(String name, UploadFileRequestBodyAttributesParentField parent) {
       this.name = name;
       this.parent = parent;
     }
 
-    public UploadFileRequestBodyAttributesFieldBuilder contentCreatedAt(Date contentCreatedAt) {
+    public Builder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
-    public UploadFileRequestBodyAttributesFieldBuilder contentModifiedAt(Date contentModifiedAt) {
+    public Builder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }

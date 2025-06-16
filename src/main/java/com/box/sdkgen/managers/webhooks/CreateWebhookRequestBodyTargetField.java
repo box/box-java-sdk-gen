@@ -24,8 +24,7 @@ public class CreateWebhookRequestBodyTargetField extends SerializableObject {
     super();
   }
 
-  protected CreateWebhookRequestBodyTargetField(
-      CreateWebhookRequestBodyTargetFieldBuilder builder) {
+  protected CreateWebhookRequestBodyTargetField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -69,25 +68,23 @@ public class CreateWebhookRequestBodyTargetField extends SerializableObject {
         + "}";
   }
 
-  public static class CreateWebhookRequestBodyTargetFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected EnumWrapper<CreateWebhookRequestBodyTargetTypeField> type;
 
-    public CreateWebhookRequestBodyTargetFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public CreateWebhookRequestBodyTargetFieldBuilder type(
-        CreateWebhookRequestBodyTargetTypeField type) {
+    public Builder type(CreateWebhookRequestBodyTargetTypeField type) {
       this.type = new EnumWrapper<CreateWebhookRequestBodyTargetTypeField>(type);
       return this;
     }
 
-    public CreateWebhookRequestBodyTargetFieldBuilder type(
-        EnumWrapper<CreateWebhookRequestBodyTargetTypeField> type) {
+    public Builder type(EnumWrapper<CreateWebhookRequestBodyTargetTypeField> type) {
       this.type = type;
       return this;
     }

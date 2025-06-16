@@ -42,7 +42,7 @@ public class UpdateTaskByIdRequestBody extends SerializableObject {
     super();
   }
 
-  protected UpdateTaskByIdRequestBody(UpdateTaskByIdRequestBodyBuilder builder) {
+  protected UpdateTaskByIdRequestBody(Builder builder) {
     super();
     this.action = builder.action;
     this.message = builder.message;
@@ -107,7 +107,7 @@ public class UpdateTaskByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateTaskByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected EnumWrapper<UpdateTaskByIdRequestBodyActionField> action;
 
@@ -117,35 +117,33 @@ public class UpdateTaskByIdRequestBody extends SerializableObject {
 
     protected EnumWrapper<UpdateTaskByIdRequestBodyCompletionRuleField> completionRule;
 
-    public UpdateTaskByIdRequestBodyBuilder action(UpdateTaskByIdRequestBodyActionField action) {
+    public Builder action(UpdateTaskByIdRequestBodyActionField action) {
       this.action = new EnumWrapper<UpdateTaskByIdRequestBodyActionField>(action);
       return this;
     }
 
-    public UpdateTaskByIdRequestBodyBuilder action(
-        EnumWrapper<UpdateTaskByIdRequestBodyActionField> action) {
+    public Builder action(EnumWrapper<UpdateTaskByIdRequestBodyActionField> action) {
       this.action = action;
       return this;
     }
 
-    public UpdateTaskByIdRequestBodyBuilder message(String message) {
+    public Builder message(String message) {
       this.message = message;
       return this;
     }
 
-    public UpdateTaskByIdRequestBodyBuilder dueAt(Date dueAt) {
+    public Builder dueAt(Date dueAt) {
       this.dueAt = dueAt;
       return this;
     }
 
-    public UpdateTaskByIdRequestBodyBuilder completionRule(
-        UpdateTaskByIdRequestBodyCompletionRuleField completionRule) {
+    public Builder completionRule(UpdateTaskByIdRequestBodyCompletionRuleField completionRule) {
       this.completionRule =
           new EnumWrapper<UpdateTaskByIdRequestBodyCompletionRuleField>(completionRule);
       return this;
     }
 
-    public UpdateTaskByIdRequestBodyBuilder completionRule(
+    public Builder completionRule(
         EnumWrapper<UpdateTaskByIdRequestBodyCompletionRuleField> completionRule) {
       this.completionRule = completionRule;
       return this;

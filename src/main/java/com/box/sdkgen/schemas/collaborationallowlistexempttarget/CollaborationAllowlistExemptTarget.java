@@ -42,7 +42,7 @@ public class CollaborationAllowlistExemptTarget extends SerializableObject {
     super();
   }
 
-  protected CollaborationAllowlistExemptTarget(CollaborationAllowlistExemptTargetBuilder builder) {
+  protected CollaborationAllowlistExemptTarget(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -127,7 +127,7 @@ public class CollaborationAllowlistExemptTarget extends SerializableObject {
         + "}";
   }
 
-  public static class CollaborationAllowlistExemptTargetBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -141,40 +141,37 @@ public class CollaborationAllowlistExemptTarget extends SerializableObject {
 
     protected Date modifiedAt;
 
-    public CollaborationAllowlistExemptTargetBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public CollaborationAllowlistExemptTargetBuilder type(
-        CollaborationAllowlistExemptTargetTypeField type) {
+    public Builder type(CollaborationAllowlistExemptTargetTypeField type) {
       this.type = new EnumWrapper<CollaborationAllowlistExemptTargetTypeField>(type);
       return this;
     }
 
-    public CollaborationAllowlistExemptTargetBuilder type(
-        EnumWrapper<CollaborationAllowlistExemptTargetTypeField> type) {
+    public Builder type(EnumWrapper<CollaborationAllowlistExemptTargetTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public CollaborationAllowlistExemptTargetBuilder enterprise(
-        CollaborationAllowlistExemptTargetEnterpriseField enterprise) {
+    public Builder enterprise(CollaborationAllowlistExemptTargetEnterpriseField enterprise) {
       this.enterprise = enterprise;
       return this;
     }
 
-    public CollaborationAllowlistExemptTargetBuilder user(UserMini user) {
+    public Builder user(UserMini user) {
       this.user = user;
       return this;
     }
 
-    public CollaborationAllowlistExemptTargetBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public CollaborationAllowlistExemptTargetBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

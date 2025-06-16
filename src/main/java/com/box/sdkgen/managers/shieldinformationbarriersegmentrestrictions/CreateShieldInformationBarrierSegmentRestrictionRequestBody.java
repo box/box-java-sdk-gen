@@ -50,8 +50,7 @@ public class CreateShieldInformationBarrierSegmentRestrictionRequestBody
                 .SHIELD_INFORMATION_BARRIER_SEGMENT_RESTRICTION);
   }
 
-  protected CreateShieldInformationBarrierSegmentRestrictionRequestBody(
-      CreateShieldInformationBarrierSegmentRestrictionRequestBodyBuilder builder) {
+  protected CreateShieldInformationBarrierSegmentRestrictionRequestBody(Builder builder) {
     super();
     this.type = builder.type;
     this.shieldInformationBarrier = builder.shieldInformationBarrier;
@@ -122,7 +121,7 @@ public class CreateShieldInformationBarrierSegmentRestrictionRequestBody
         + "}";
   }
 
-  public static class CreateShieldInformationBarrierSegmentRestrictionRequestBodyBuilder {
+  public static class Builder {
 
     protected EnumWrapper<CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField>
         type;
@@ -137,7 +136,7 @@ public class CreateShieldInformationBarrierSegmentRestrictionRequestBody
     CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentField
         restrictedSegment;
 
-    public CreateShieldInformationBarrierSegmentRestrictionRequestBodyBuilder(
+    public Builder(
         CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField
             shieldInformationBarrierSegment,
         CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentField
@@ -150,22 +149,20 @@ public class CreateShieldInformationBarrierSegmentRestrictionRequestBody
                   .SHIELD_INFORMATION_BARRIER_SEGMENT_RESTRICTION);
     }
 
-    public CreateShieldInformationBarrierSegmentRestrictionRequestBodyBuilder type(
-        CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField type) {
+    public Builder type(CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField type) {
       this.type =
           new EnumWrapper<CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField>(
               type);
       return this;
     }
 
-    public CreateShieldInformationBarrierSegmentRestrictionRequestBodyBuilder type(
+    public Builder type(
         EnumWrapper<CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public CreateShieldInformationBarrierSegmentRestrictionRequestBodyBuilder
-        shieldInformationBarrier(ShieldInformationBarrierBase shieldInformationBarrier) {
+    public Builder shieldInformationBarrier(ShieldInformationBarrierBase shieldInformationBarrier) {
       this.shieldInformationBarrier = shieldInformationBarrier;
       return this;
     }

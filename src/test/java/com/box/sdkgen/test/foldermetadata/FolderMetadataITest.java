@@ -71,8 +71,7 @@ public class FolderMetadataITest {
         client
             .getMetadataTemplates()
             .createMetadataTemplate(
-                new CreateMetadataTemplateRequestBody.CreateMetadataTemplateRequestBodyBuilder(
-                        "enterprise", templateKey)
+                new CreateMetadataTemplateRequestBody.Builder("enterprise", templateKey)
                     .templateKey(templateKey)
                     .fields(
                         Arrays.asList(
@@ -88,8 +87,7 @@ public class FolderMetadataITest {
                                 CreateMetadataTemplateRequestBodyFieldsTypeField.DATE,
                                 "birthDate",
                                 "birthDate"),
-                            new CreateMetadataTemplateRequestBodyFieldsField
-                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                            new CreateMetadataTemplateRequestBodyFieldsField.Builder(
                                     CreateMetadataTemplateRequestBodyFieldsTypeField.ENUM,
                                     "countryCode",
                                     "countryCode")
@@ -100,8 +98,7 @@ public class FolderMetadataITest {
                                         new CreateMetadataTemplateRequestBodyFieldsOptionsField(
                                             "CA")))
                                 .build(),
-                            new CreateMetadataTemplateRequestBodyFieldsField
-                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                            new CreateMetadataTemplateRequestBodyFieldsField.Builder(
                                     CreateMetadataTemplateRequestBodyFieldsTypeField.MULTISELECT,
                                     "sports",
                                     "sports")

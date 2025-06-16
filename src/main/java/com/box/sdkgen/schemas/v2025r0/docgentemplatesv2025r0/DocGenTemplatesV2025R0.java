@@ -22,7 +22,7 @@ public class DocGenTemplatesV2025R0 extends SerializableObject {
     super();
   }
 
-  protected DocGenTemplatesV2025R0(DocGenTemplatesV2025R0Builder builder) {
+  protected DocGenTemplatesV2025R0(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -87,7 +87,7 @@ public class DocGenTemplatesV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class DocGenTemplatesV2025R0Builder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -97,22 +97,22 @@ public class DocGenTemplatesV2025R0 extends SerializableObject {
 
     protected List<DocGenTemplateV2025R0> entries;
 
-    public DocGenTemplatesV2025R0Builder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public DocGenTemplatesV2025R0Builder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public DocGenTemplatesV2025R0Builder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public DocGenTemplatesV2025R0Builder entries(List<DocGenTemplateV2025R0> entries) {
+    public Builder entries(List<DocGenTemplateV2025R0> entries) {
       this.entries = entries;
       return this;
     }

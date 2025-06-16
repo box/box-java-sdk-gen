@@ -22,8 +22,7 @@ public class UpdateFolderByIdRequestBodyFolderUploadEmailField extends Serializa
     super();
   }
 
-  protected UpdateFolderByIdRequestBodyFolderUploadEmailField(
-      UpdateFolderByIdRequestBodyFolderUploadEmailFieldBuilder builder) {
+  protected UpdateFolderByIdRequestBodyFolderUploadEmailField(Builder builder) {
     super();
     this.access = builder.access;
   }
@@ -55,18 +54,17 @@ public class UpdateFolderByIdRequestBodyFolderUploadEmailField extends Serializa
     return "UpdateFolderByIdRequestBodyFolderUploadEmailField{" + "access='" + access + '\'' + "}";
   }
 
-  public static class UpdateFolderByIdRequestBodyFolderUploadEmailFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<UpdateFolderByIdRequestBodyFolderUploadEmailAccessField> access;
 
-    public UpdateFolderByIdRequestBodyFolderUploadEmailFieldBuilder access(
-        UpdateFolderByIdRequestBodyFolderUploadEmailAccessField access) {
+    public Builder access(UpdateFolderByIdRequestBodyFolderUploadEmailAccessField access) {
       this.access =
           new EnumWrapper<UpdateFolderByIdRequestBodyFolderUploadEmailAccessField>(access);
       return this;
     }
 
-    public UpdateFolderByIdRequestBodyFolderUploadEmailFieldBuilder access(
+    public Builder access(
         EnumWrapper<UpdateFolderByIdRequestBodyFolderUploadEmailAccessField> access) {
       this.access = access;
       return this;

@@ -12,7 +12,7 @@ public class GetFileWatermarkHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetFileWatermarkHeaders(GetFileWatermarkHeadersBuilder builder) {
+  protected GetFileWatermarkHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetFileWatermarkHeaders {
     return extraHeaders;
   }
 
-  public static class GetFileWatermarkHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetFileWatermarkHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetFileWatermarkHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

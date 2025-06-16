@@ -8,7 +8,7 @@ public class GetAiAgentByIdQueryParams {
 
   public GetAiAgentByIdQueryParams() {}
 
-  protected GetAiAgentByIdQueryParams(GetAiAgentByIdQueryParamsBuilder builder) {
+  protected GetAiAgentByIdQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class GetAiAgentByIdQueryParams {
     return fields;
   }
 
-  public static class GetAiAgentByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public GetAiAgentByIdQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

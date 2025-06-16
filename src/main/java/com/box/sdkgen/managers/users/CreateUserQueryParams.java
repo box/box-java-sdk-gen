@@ -8,7 +8,7 @@ public class CreateUserQueryParams {
 
   public CreateUserQueryParams() {}
 
-  protected CreateUserQueryParams(CreateUserQueryParamsBuilder builder) {
+  protected CreateUserQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class CreateUserQueryParams {
     return fields;
   }
 
-  public static class CreateUserQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public CreateUserQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

@@ -23,7 +23,7 @@ public class GetUsersQueryParams {
 
   public GetUsersQueryParams() {}
 
-  protected GetUsersQueryParams(GetUsersQueryParamsBuilder builder) {
+  protected GetUsersQueryParams(Builder builder) {
     this.filterTerm = builder.filterTerm;
     this.userType = builder.userType;
     this.externalAppUserId = builder.externalAppUserId;
@@ -66,7 +66,7 @@ public class GetUsersQueryParams {
     return marker;
   }
 
-  public static class GetUsersQueryParamsBuilder {
+  public static class Builder {
 
     protected String filterTerm;
 
@@ -84,48 +84,47 @@ public class GetUsersQueryParams {
 
     protected String marker;
 
-    public GetUsersQueryParamsBuilder filterTerm(String filterTerm) {
+    public Builder filterTerm(String filterTerm) {
       this.filterTerm = filterTerm;
       return this;
     }
 
-    public GetUsersQueryParamsBuilder userType(GetUsersQueryParamsUserTypeField userType) {
+    public Builder userType(GetUsersQueryParamsUserTypeField userType) {
       this.userType = new EnumWrapper<GetUsersQueryParamsUserTypeField>(userType);
       return this;
     }
 
-    public GetUsersQueryParamsBuilder userType(
-        EnumWrapper<GetUsersQueryParamsUserTypeField> userType) {
+    public Builder userType(EnumWrapper<GetUsersQueryParamsUserTypeField> userType) {
       this.userType = userType;
       return this;
     }
 
-    public GetUsersQueryParamsBuilder externalAppUserId(String externalAppUserId) {
+    public Builder externalAppUserId(String externalAppUserId) {
       this.externalAppUserId = externalAppUserId;
       return this;
     }
 
-    public GetUsersQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public GetUsersQueryParamsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public GetUsersQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetUsersQueryParamsBuilder usemarker(Boolean usemarker) {
+    public Builder usemarker(Boolean usemarker) {
       this.usemarker = usemarker;
       return this;
     }
 
-    public GetUsersQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }

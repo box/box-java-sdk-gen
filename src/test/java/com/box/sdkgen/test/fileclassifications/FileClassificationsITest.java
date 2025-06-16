@@ -38,14 +38,12 @@ public class FileClassificationsITest {
               .addClassification(
                   Arrays.asList(
                       new AddClassificationRequestBody(
-                          new AddClassificationRequestBodyDataField
-                                  .AddClassificationRequestBodyDataFieldBuilder(getUuid())
+                          new AddClassificationRequestBodyDataField.Builder(getUuid())
                               .staticConfig(
-                                  new AddClassificationRequestBodyDataStaticConfigField
-                                          .AddClassificationRequestBodyDataStaticConfigFieldBuilder()
+                                  new AddClassificationRequestBodyDataStaticConfigField.Builder()
                                       .classification(
                                           new AddClassificationRequestBodyDataStaticConfigClassificationField
-                                                  .AddClassificationRequestBodyDataStaticConfigClassificationFieldBuilder()
+                                                  .Builder()
                                               .classificationDefinition("Other description")
                                               .colorId(4L)
                                               .build())
@@ -70,7 +68,7 @@ public class FileClassificationsITest {
             .getFileClassifications()
             .addClassificationToFile(
                 file.getId(),
-                new AddClassificationToFileRequestBody.AddClassificationToFileRequestBodyBuilder()
+                new AddClassificationToFileRequestBody.Builder()
                     .boxSecurityClassificationKey(classification.getKey())
                     .build());
     assert createdFileClassification

@@ -26,8 +26,7 @@ public class ShieldInformationBarrierSegmentRestrictionsManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected ShieldInformationBarrierSegmentRestrictionsManager(
-      ShieldInformationBarrierSegmentRestrictionsManagerBuilder builder) {
+  protected ShieldInformationBarrierSegmentRestrictionsManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -49,7 +48,7 @@ public class ShieldInformationBarrierSegmentRestrictionsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -80,7 +79,7 @@ public class ShieldInformationBarrierSegmentRestrictionsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -116,7 +115,7 @@ public class ShieldInformationBarrierSegmentRestrictionsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -148,7 +147,7 @@ public class ShieldInformationBarrierSegmentRestrictionsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -173,23 +172,22 @@ public class ShieldInformationBarrierSegmentRestrictionsManager {
     return networkSession;
   }
 
-  public static class ShieldInformationBarrierSegmentRestrictionsManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public ShieldInformationBarrierSegmentRestrictionsManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public ShieldInformationBarrierSegmentRestrictionsManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentRestrictionsManagerBuilder networkSession(
-        NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

@@ -37,8 +37,7 @@ public class AddShareLinkToFileRequestBodySharedLinkField extends SerializableOb
     super();
   }
 
-  protected AddShareLinkToFileRequestBodySharedLinkField(
-      AddShareLinkToFileRequestBodySharedLinkFieldBuilder builder) {
+  protected AddShareLinkToFileRequestBodySharedLinkField(Builder builder) {
     super();
     this.access = builder.access;
     this.password = builder.password;
@@ -114,7 +113,7 @@ public class AddShareLinkToFileRequestBodySharedLinkField extends SerializableOb
         + "}";
   }
 
-  public static class AddShareLinkToFileRequestBodySharedLinkFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<AddShareLinkToFileRequestBodySharedLinkAccessField> access;
 
@@ -126,34 +125,32 @@ public class AddShareLinkToFileRequestBodySharedLinkField extends SerializableOb
 
     protected AddShareLinkToFileRequestBodySharedLinkPermissionsField permissions;
 
-    public AddShareLinkToFileRequestBodySharedLinkFieldBuilder access(
-        AddShareLinkToFileRequestBodySharedLinkAccessField access) {
+    public Builder access(AddShareLinkToFileRequestBodySharedLinkAccessField access) {
       this.access = new EnumWrapper<AddShareLinkToFileRequestBodySharedLinkAccessField>(access);
       return this;
     }
 
-    public AddShareLinkToFileRequestBodySharedLinkFieldBuilder access(
-        EnumWrapper<AddShareLinkToFileRequestBodySharedLinkAccessField> access) {
+    public Builder access(EnumWrapper<AddShareLinkToFileRequestBodySharedLinkAccessField> access) {
       this.access = access;
       return this;
     }
 
-    public AddShareLinkToFileRequestBodySharedLinkFieldBuilder password(String password) {
+    public Builder password(String password) {
       this.password = password;
       return this;
     }
 
-    public AddShareLinkToFileRequestBodySharedLinkFieldBuilder vanityName(String vanityName) {
+    public Builder vanityName(String vanityName) {
       this.vanityName = vanityName;
       return this;
     }
 
-    public AddShareLinkToFileRequestBodySharedLinkFieldBuilder unsharedAt(Date unsharedAt) {
+    public Builder unsharedAt(Date unsharedAt) {
       this.unsharedAt = unsharedAt;
       return this;
     }
 
-    public AddShareLinkToFileRequestBodySharedLinkFieldBuilder permissions(
+    public Builder permissions(
         AddShareLinkToFileRequestBodySharedLinkPermissionsField permissions) {
       this.permissions = permissions;
       return this;

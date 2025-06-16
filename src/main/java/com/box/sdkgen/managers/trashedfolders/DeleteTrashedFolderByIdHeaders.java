@@ -12,7 +12,7 @@ public class DeleteTrashedFolderByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteTrashedFolderByIdHeaders(DeleteTrashedFolderByIdHeadersBuilder builder) {
+  protected DeleteTrashedFolderByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class DeleteTrashedFolderByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteTrashedFolderByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteTrashedFolderByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteTrashedFolderByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

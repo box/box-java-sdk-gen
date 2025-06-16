@@ -23,7 +23,7 @@ public class FileMini extends FileBase {
     super(id);
   }
 
-  protected FileMini(FileMiniBuilder builder) {
+  protected FileMini(Builder builder) {
     super(builder);
     this.sequenceId = builder.sequenceId;
     this.name = builder.name;
@@ -103,7 +103,7 @@ public class FileMini extends FileBase {
         + "}";
   }
 
-  public static class FileMiniBuilder extends FileBaseBuilder {
+  public static class Builder extends FileBase.Builder {
 
     protected String sequenceId;
 
@@ -113,44 +113,44 @@ public class FileMini extends FileBase {
 
     protected FileVersionMini fileVersion;
 
-    public FileMiniBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public FileMiniBuilder sequenceId(String sequenceId) {
+    public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
       return this;
     }
 
-    public FileMiniBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public FileMiniBuilder sha1(String sha1) {
+    public Builder sha1(String sha1) {
       this.sha1 = sha1;
       return this;
     }
 
-    public FileMiniBuilder fileVersion(FileVersionMini fileVersion) {
+    public Builder fileVersion(FileVersionMini fileVersion) {
       this.fileVersion = fileVersion;
       return this;
     }
 
     @Override
-    public FileMiniBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
     @Override
-    public FileMiniBuilder type(FileBaseTypeField type) {
+    public Builder type(FileBaseTypeField type) {
       this.type = new EnumWrapper<FileBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FileMiniBuilder type(EnumWrapper<FileBaseTypeField> type) {
+    public Builder type(EnumWrapper<FileBaseTypeField> type) {
       this.type = type;
       return this;
     }

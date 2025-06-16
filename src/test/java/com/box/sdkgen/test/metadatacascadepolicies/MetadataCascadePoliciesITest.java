@@ -36,8 +36,7 @@ public class MetadataCascadePoliciesITest {
     client
         .getMetadataTemplates()
         .createMetadataTemplate(
-            new CreateMetadataTemplateRequestBody.CreateMetadataTemplateRequestBodyBuilder(
-                    "enterprise", templateKey)
+            new CreateMetadataTemplateRequestBody.Builder("enterprise", templateKey)
                 .templateKey(templateKey)
                 .fields(
                     Arrays.asList(

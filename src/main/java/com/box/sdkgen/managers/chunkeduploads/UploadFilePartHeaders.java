@@ -18,7 +18,7 @@ public class UploadFilePartHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UploadFilePartHeaders(UploadFilePartHeadersBuilder builder) {
+  protected UploadFilePartHeaders(Builder builder) {
     this.digest = builder.digest;
     this.contentRange = builder.contentRange;
     this.extraHeaders = builder.extraHeaders;
@@ -36,7 +36,7 @@ public class UploadFilePartHeaders {
     return extraHeaders;
   }
 
-  public static class UploadFilePartHeadersBuilder {
+  public static class Builder {
 
     protected final String digest;
 
@@ -44,13 +44,13 @@ public class UploadFilePartHeaders {
 
     protected Map<String, String> extraHeaders;
 
-    public UploadFilePartHeadersBuilder(String digest, String contentRange) {
+    public Builder(String digest, String contentRange) {
       this.digest = digest;
       this.contentRange = contentRange;
       this.extraHeaders = mapOf();
     }
 
-    public UploadFilePartHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

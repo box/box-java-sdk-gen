@@ -11,8 +11,7 @@ public class RestoreWeblinkFromTrashRequestBodyParentField extends SerializableO
     super();
   }
 
-  protected RestoreWeblinkFromTrashRequestBodyParentField(
-      RestoreWeblinkFromTrashRequestBodyParentFieldBuilder builder) {
+  protected RestoreWeblinkFromTrashRequestBodyParentField(Builder builder) {
     super();
     this.id = builder.id;
   }
@@ -44,11 +43,11 @@ public class RestoreWeblinkFromTrashRequestBodyParentField extends SerializableO
     return "RestoreWeblinkFromTrashRequestBodyParentField{" + "id='" + id + '\'' + "}";
   }
 
-  public static class RestoreWeblinkFromTrashRequestBodyParentFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
-    public RestoreWeblinkFromTrashRequestBodyParentFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

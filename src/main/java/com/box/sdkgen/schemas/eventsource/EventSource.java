@@ -46,7 +46,7 @@ public class EventSource extends SerializableObject {
     this.itemName = itemName;
   }
 
-  protected EventSource(EventSourceBuilder builder) {
+  protected EventSource(Builder builder) {
     super();
     this.itemType = builder.itemType;
     this.itemId = builder.itemId;
@@ -131,7 +131,7 @@ public class EventSource extends SerializableObject {
         + "}";
   }
 
-  public static class EventSourceBuilder {
+  public static class Builder {
 
     protected final EnumWrapper<EventSourceItemTypeField> itemType;
 
@@ -145,30 +145,29 @@ public class EventSource extends SerializableObject {
 
     protected UserMini ownedBy;
 
-    public EventSourceBuilder(
-        EnumWrapper<EventSourceItemTypeField> itemType, String itemId, String itemName) {
+    public Builder(EnumWrapper<EventSourceItemTypeField> itemType, String itemId, String itemName) {
       this.itemType = itemType;
       this.itemId = itemId;
       this.itemName = itemName;
     }
 
-    public EventSourceBuilder(EventSourceItemTypeField itemType, String itemId, String itemName) {
+    public Builder(EventSourceItemTypeField itemType, String itemId, String itemName) {
       this.itemType = new EnumWrapper<EventSourceItemTypeField>(itemType);
       this.itemId = itemId;
       this.itemName = itemName;
     }
 
-    public EventSourceBuilder classification(EventSourceClassificationField classification) {
+    public Builder classification(EventSourceClassificationField classification) {
       this.classification = classification;
       return this;
     }
 
-    public EventSourceBuilder parent(FolderMini parent) {
+    public Builder parent(FolderMini parent) {
       this.parent = parent;
       return this;
     }
 
-    public EventSourceBuilder ownedBy(UserMini ownedBy) {
+    public Builder ownedBy(UserMini ownedBy) {
       this.ownedBy = ownedBy;
       return this;
     }

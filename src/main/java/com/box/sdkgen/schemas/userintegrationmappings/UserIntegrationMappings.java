@@ -16,7 +16,7 @@ public class UserIntegrationMappings extends UserBase {
     super(id);
   }
 
-  protected UserIntegrationMappings(UserIntegrationMappingsBuilder builder) {
+  protected UserIntegrationMappings(Builder builder) {
     super(builder);
     this.name = builder.name;
     this.login = builder.login;
@@ -71,34 +71,34 @@ public class UserIntegrationMappings extends UserBase {
         + "}";
   }
 
-  public static class UserIntegrationMappingsBuilder extends UserBaseBuilder {
+  public static class Builder extends UserBase.Builder {
 
     protected String name;
 
     protected String login;
 
-    public UserIntegrationMappingsBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public UserIntegrationMappingsBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public UserIntegrationMappingsBuilder login(String login) {
+    public Builder login(String login) {
       this.login = login;
       return this;
     }
 
     @Override
-    public UserIntegrationMappingsBuilder type(UserBaseTypeField type) {
+    public Builder type(UserBaseTypeField type) {
       this.type = new EnumWrapper<UserBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public UserIntegrationMappingsBuilder type(EnumWrapper<UserBaseTypeField> type) {
+    public Builder type(EnumWrapper<UserBaseTypeField> type) {
       this.type = type;
       return this;
     }

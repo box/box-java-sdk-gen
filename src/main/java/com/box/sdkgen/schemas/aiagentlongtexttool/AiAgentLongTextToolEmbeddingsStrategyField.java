@@ -15,8 +15,7 @@ public class AiAgentLongTextToolEmbeddingsStrategyField extends SerializableObje
     super();
   }
 
-  protected AiAgentLongTextToolEmbeddingsStrategyField(
-      AiAgentLongTextToolEmbeddingsStrategyFieldBuilder builder) {
+  protected AiAgentLongTextToolEmbeddingsStrategyField(Builder builder) {
     super();
     this.id = builder.id;
     this.numTokensPerChunk = builder.numTokensPerChunk;
@@ -62,19 +61,18 @@ public class AiAgentLongTextToolEmbeddingsStrategyField extends SerializableObje
         + "}";
   }
 
-  public static class AiAgentLongTextToolEmbeddingsStrategyFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected Long numTokensPerChunk;
 
-    public AiAgentLongTextToolEmbeddingsStrategyFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public AiAgentLongTextToolEmbeddingsStrategyFieldBuilder numTokensPerChunk(
-        Long numTokensPerChunk) {
+    public Builder numTokensPerChunk(Long numTokensPerChunk) {
       this.numTokensPerChunk = numTokensPerChunk;
       return this;
     }

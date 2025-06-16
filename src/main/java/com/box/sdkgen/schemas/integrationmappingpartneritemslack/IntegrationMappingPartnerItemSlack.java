@@ -35,7 +35,7 @@ public class IntegrationMappingPartnerItemSlack extends SerializableObject {
             IntegrationMappingPartnerItemSlackTypeField.CHANNEL);
   }
 
-  protected IntegrationMappingPartnerItemSlack(IntegrationMappingPartnerItemSlackBuilder builder) {
+  protected IntegrationMappingPartnerItemSlack(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -100,7 +100,7 @@ public class IntegrationMappingPartnerItemSlack extends SerializableObject {
         + "}";
   }
 
-  public static class IntegrationMappingPartnerItemSlackBuilder {
+  public static class Builder {
 
     protected EnumWrapper<IntegrationMappingPartnerItemSlackTypeField> type;
 
@@ -110,31 +110,29 @@ public class IntegrationMappingPartnerItemSlack extends SerializableObject {
 
     protected String slackOrgId;
 
-    public IntegrationMappingPartnerItemSlackBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<IntegrationMappingPartnerItemSlackTypeField>(
               IntegrationMappingPartnerItemSlackTypeField.CHANNEL);
     }
 
-    public IntegrationMappingPartnerItemSlackBuilder type(
-        IntegrationMappingPartnerItemSlackTypeField type) {
+    public Builder type(IntegrationMappingPartnerItemSlackTypeField type) {
       this.type = new EnumWrapper<IntegrationMappingPartnerItemSlackTypeField>(type);
       return this;
     }
 
-    public IntegrationMappingPartnerItemSlackBuilder type(
-        EnumWrapper<IntegrationMappingPartnerItemSlackTypeField> type) {
+    public Builder type(EnumWrapper<IntegrationMappingPartnerItemSlackTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public IntegrationMappingPartnerItemSlackBuilder slackWorkspaceId(String slackWorkspaceId) {
+    public Builder slackWorkspaceId(String slackWorkspaceId) {
       this.slackWorkspaceId = slackWorkspaceId;
       return this;
     }
 
-    public IntegrationMappingPartnerItemSlackBuilder slackOrgId(String slackOrgId) {
+    public Builder slackOrgId(String slackOrgId) {
       this.slackOrgId = slackOrgId;
       return this;
     }

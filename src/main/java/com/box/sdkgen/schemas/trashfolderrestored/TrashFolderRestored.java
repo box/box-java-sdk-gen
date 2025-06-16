@@ -89,7 +89,7 @@ public class TrashFolderRestored extends SerializableObject {
     super();
   }
 
-  protected TrashFolderRestored(TrashFolderRestoredBuilder builder) {
+  protected TrashFolderRestored(Builder builder) {
     super();
     this.id = builder.id;
     this.etag = builder.etag;
@@ -345,7 +345,7 @@ public class TrashFolderRestored extends SerializableObject {
         + "}";
   }
 
-  public static class TrashFolderRestoredBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -389,119 +389,117 @@ public class TrashFolderRestored extends SerializableObject {
 
     protected EnumWrapper<TrashFolderRestoredItemStatusField> itemStatus;
 
-    public TrashFolderRestoredBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public TrashFolderRestoredBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
-    public TrashFolderRestoredBuilder type(TrashFolderRestoredTypeField type) {
+    public Builder type(TrashFolderRestoredTypeField type) {
       this.type = new EnumWrapper<TrashFolderRestoredTypeField>(type);
       return this;
     }
 
-    public TrashFolderRestoredBuilder type(EnumWrapper<TrashFolderRestoredTypeField> type) {
+    public Builder type(EnumWrapper<TrashFolderRestoredTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TrashFolderRestoredBuilder sequenceId(String sequenceId) {
+    public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
       return this;
     }
 
-    public TrashFolderRestoredBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public TrashFolderRestoredBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public TrashFolderRestoredBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public TrashFolderRestoredBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public TrashFolderRestoredBuilder size(Long size) {
+    public Builder size(Long size) {
       this.size = size;
       return this;
     }
 
-    public TrashFolderRestoredBuilder pathCollection(
-        TrashFolderRestoredPathCollectionField pathCollection) {
+    public Builder pathCollection(TrashFolderRestoredPathCollectionField pathCollection) {
       this.pathCollection = pathCollection;
       return this;
     }
 
-    public TrashFolderRestoredBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public TrashFolderRestoredBuilder modifiedBy(UserMini modifiedBy) {
+    public Builder modifiedBy(UserMini modifiedBy) {
       this.modifiedBy = modifiedBy;
       return this;
     }
 
-    public TrashFolderRestoredBuilder trashedAt(String trashedAt) {
+    public Builder trashedAt(String trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
-    public TrashFolderRestoredBuilder purgedAt(String purgedAt) {
+    public Builder purgedAt(String purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
-    public TrashFolderRestoredBuilder contentCreatedAt(Date contentCreatedAt) {
+    public Builder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
-    public TrashFolderRestoredBuilder contentModifiedAt(Date contentModifiedAt) {
+    public Builder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }
 
-    public TrashFolderRestoredBuilder ownedBy(UserMini ownedBy) {
+    public Builder ownedBy(UserMini ownedBy) {
       this.ownedBy = ownedBy;
       return this;
     }
 
-    public TrashFolderRestoredBuilder sharedLink(String sharedLink) {
+    public Builder sharedLink(String sharedLink) {
       this.sharedLink = sharedLink;
       return this;
     }
 
-    public TrashFolderRestoredBuilder folderUploadEmail(String folderUploadEmail) {
+    public Builder folderUploadEmail(String folderUploadEmail) {
       this.folderUploadEmail = folderUploadEmail;
       return this;
     }
 
-    public TrashFolderRestoredBuilder parent(FolderMini parent) {
+    public Builder parent(FolderMini parent) {
       this.parent = parent;
       return this;
     }
 
-    public TrashFolderRestoredBuilder itemStatus(TrashFolderRestoredItemStatusField itemStatus) {
+    public Builder itemStatus(TrashFolderRestoredItemStatusField itemStatus) {
       this.itemStatus = new EnumWrapper<TrashFolderRestoredItemStatusField>(itemStatus);
       return this;
     }
 
-    public TrashFolderRestoredBuilder itemStatus(
-        EnumWrapper<TrashFolderRestoredItemStatusField> itemStatus) {
+    public Builder itemStatus(EnumWrapper<TrashFolderRestoredItemStatusField> itemStatus) {
       this.itemStatus = itemStatus;
       return this;
     }

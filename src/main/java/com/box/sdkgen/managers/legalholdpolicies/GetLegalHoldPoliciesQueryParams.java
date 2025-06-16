@@ -14,7 +14,7 @@ public class GetLegalHoldPoliciesQueryParams {
 
   public GetLegalHoldPoliciesQueryParams() {}
 
-  protected GetLegalHoldPoliciesQueryParams(GetLegalHoldPoliciesQueryParamsBuilder builder) {
+  protected GetLegalHoldPoliciesQueryParams(Builder builder) {
     this.policyName = builder.policyName;
     this.fields = builder.fields;
     this.marker = builder.marker;
@@ -37,7 +37,7 @@ public class GetLegalHoldPoliciesQueryParams {
     return limit;
   }
 
-  public static class GetLegalHoldPoliciesQueryParamsBuilder {
+  public static class Builder {
 
     protected String policyName;
 
@@ -47,22 +47,22 @@ public class GetLegalHoldPoliciesQueryParams {
 
     protected Long limit;
 
-    public GetLegalHoldPoliciesQueryParamsBuilder policyName(String policyName) {
+    public Builder policyName(String policyName) {
       this.policyName = policyName;
       return this;
     }
 
-    public GetLegalHoldPoliciesQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public GetLegalHoldPoliciesQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetLegalHoldPoliciesQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

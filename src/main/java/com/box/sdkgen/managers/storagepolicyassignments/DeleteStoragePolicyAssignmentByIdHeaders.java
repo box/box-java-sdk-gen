@@ -12,8 +12,7 @@ public class DeleteStoragePolicyAssignmentByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteStoragePolicyAssignmentByIdHeaders(
-      DeleteStoragePolicyAssignmentByIdHeadersBuilder builder) {
+  protected DeleteStoragePolicyAssignmentByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class DeleteStoragePolicyAssignmentByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteStoragePolicyAssignmentByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteStoragePolicyAssignmentByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteStoragePolicyAssignmentByIdHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

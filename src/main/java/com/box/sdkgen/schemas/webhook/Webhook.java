@@ -43,7 +43,7 @@ public class Webhook extends WebhookMini {
     super();
   }
 
-  protected Webhook(WebhookBuilder builder) {
+  protected Webhook(Builder builder) {
     super(builder);
     this.createdBy = builder.createdBy;
     this.createdAt = builder.createdAt;
@@ -123,7 +123,7 @@ public class Webhook extends WebhookMini {
         + "}";
   }
 
-  public static class WebhookBuilder extends WebhookMiniBuilder {
+  public static class Builder extends WebhookMini.Builder {
 
     protected UserMini createdBy;
 
@@ -133,46 +133,46 @@ public class Webhook extends WebhookMini {
 
     protected List<EnumWrapper<WebhookTriggersField>> triggers;
 
-    public WebhookBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public WebhookBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public WebhookBuilder address(String address) {
+    public Builder address(String address) {
       this.address = address;
       return this;
     }
 
-    public WebhookBuilder triggers(List<? extends Valuable> triggers) {
+    public Builder triggers(List<? extends Valuable> triggers) {
       this.triggers = EnumWrapper.wrapValuableEnumList(triggers, WebhookTriggersField.class);
       return this;
     }
 
     @Override
-    public WebhookBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
     @Override
-    public WebhookBuilder type(WebhookMiniTypeField type) {
+    public Builder type(WebhookMiniTypeField type) {
       this.type = new EnumWrapper<WebhookMiniTypeField>(type);
       return this;
     }
 
     @Override
-    public WebhookBuilder type(EnumWrapper<WebhookMiniTypeField> type) {
+    public Builder type(EnumWrapper<WebhookMiniTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public WebhookBuilder target(WebhookMiniTargetField target) {
+    public Builder target(WebhookMiniTargetField target) {
       this.target = target;
       return this;
     }

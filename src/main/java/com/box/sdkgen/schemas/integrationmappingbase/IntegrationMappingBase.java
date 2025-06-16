@@ -25,7 +25,7 @@ public class IntegrationMappingBase extends SerializableObject {
             IntegrationMappingBaseTypeField.INTEGRATION_MAPPING);
   }
 
-  protected IntegrationMappingBase(IntegrationMappingBaseBuilder builder) {
+  protected IntegrationMappingBase(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -61,25 +61,25 @@ public class IntegrationMappingBase extends SerializableObject {
     return "IntegrationMappingBase{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class IntegrationMappingBaseBuilder {
+  public static class Builder {
 
     protected final String id;
 
     protected EnumWrapper<IntegrationMappingBaseTypeField> type;
 
-    public IntegrationMappingBaseBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<IntegrationMappingBaseTypeField>(
               IntegrationMappingBaseTypeField.INTEGRATION_MAPPING);
     }
 
-    public IntegrationMappingBaseBuilder type(IntegrationMappingBaseTypeField type) {
+    public Builder type(IntegrationMappingBaseTypeField type) {
       this.type = new EnumWrapper<IntegrationMappingBaseTypeField>(type);
       return this;
     }
 
-    public IntegrationMappingBaseBuilder type(EnumWrapper<IntegrationMappingBaseTypeField> type) {
+    public Builder type(EnumWrapper<IntegrationMappingBaseTypeField> type) {
       this.type = type;
       return this;
     }

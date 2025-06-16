@@ -54,7 +54,7 @@ public class TemplateSignerInput extends SignRequestPrefillTag {
     this.pageIndex = pageIndex;
   }
 
-  protected TemplateSignerInput(TemplateSignerInputBuilder builder) {
+  protected TemplateSignerInput(Builder builder) {
     super(builder);
     this.type = builder.type;
     this.contentType = builder.contentType;
@@ -224,7 +224,7 @@ public class TemplateSignerInput extends SignRequestPrefillTag {
         + "}";
   }
 
-  public static class TemplateSignerInputBuilder extends SignRequestPrefillTagBuilder {
+  public static class Builder extends SignRequestPrefillTag.Builder {
 
     protected EnumWrapper<TemplateSignerInputTypeField> type;
 
@@ -248,92 +248,91 @@ public class TemplateSignerInput extends SignRequestPrefillTag {
 
     protected Boolean readOnly;
 
-    public TemplateSignerInputBuilder(long pageIndex) {
+    public Builder(long pageIndex) {
       super();
       this.pageIndex = pageIndex;
     }
 
-    public TemplateSignerInputBuilder type(TemplateSignerInputTypeField type) {
+    public Builder type(TemplateSignerInputTypeField type) {
       this.type = new EnumWrapper<TemplateSignerInputTypeField>(type);
       return this;
     }
 
-    public TemplateSignerInputBuilder type(EnumWrapper<TemplateSignerInputTypeField> type) {
+    public Builder type(EnumWrapper<TemplateSignerInputTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TemplateSignerInputBuilder contentType(TemplateSignerInputContentTypeField contentType) {
+    public Builder contentType(TemplateSignerInputContentTypeField contentType) {
       this.contentType = new EnumWrapper<TemplateSignerInputContentTypeField>(contentType);
       return this;
     }
 
-    public TemplateSignerInputBuilder contentType(
-        EnumWrapper<TemplateSignerInputContentTypeField> contentType) {
+    public Builder contentType(EnumWrapper<TemplateSignerInputContentTypeField> contentType) {
       this.contentType = contentType;
       return this;
     }
 
-    public TemplateSignerInputBuilder isRequired(Boolean isRequired) {
+    public Builder isRequired(Boolean isRequired) {
       this.isRequired = isRequired;
       return this;
     }
 
-    public TemplateSignerInputBuilder documentId(String documentId) {
+    public Builder documentId(String documentId) {
       this.documentId = documentId;
       return this;
     }
 
-    public TemplateSignerInputBuilder dropdownChoices(List<String> dropdownChoices) {
+    public Builder dropdownChoices(List<String> dropdownChoices) {
       this.dropdownChoices = dropdownChoices;
       return this;
     }
 
-    public TemplateSignerInputBuilder groupId(String groupId) {
+    public Builder groupId(String groupId) {
       this.groupId = groupId;
       return this;
     }
 
-    public TemplateSignerInputBuilder coordinates(TemplateSignerInputCoordinatesField coordinates) {
+    public Builder coordinates(TemplateSignerInputCoordinatesField coordinates) {
       this.coordinates = coordinates;
       return this;
     }
 
-    public TemplateSignerInputBuilder dimensions(TemplateSignerInputDimensionsField dimensions) {
+    public Builder dimensions(TemplateSignerInputDimensionsField dimensions) {
       this.dimensions = dimensions;
       return this;
     }
 
-    public TemplateSignerInputBuilder label(String label) {
+    public Builder label(String label) {
       this.label = label;
       return this;
     }
 
-    public TemplateSignerInputBuilder readOnly(Boolean readOnly) {
+    public Builder readOnly(Boolean readOnly) {
       this.readOnly = readOnly;
       return this;
     }
 
     @Override
-    public TemplateSignerInputBuilder documentTagId(String documentTagId) {
+    public Builder documentTagId(String documentTagId) {
       this.documentTagId = documentTagId;
       return this;
     }
 
     @Override
-    public TemplateSignerInputBuilder textValue(String textValue) {
+    public Builder textValue(String textValue) {
       this.textValue = textValue;
       return this;
     }
 
     @Override
-    public TemplateSignerInputBuilder checkboxValue(Boolean checkboxValue) {
+    public Builder checkboxValue(Boolean checkboxValue) {
       this.checkboxValue = checkboxValue;
       return this;
     }
 
     @Override
-    public TemplateSignerInputBuilder dateValue(Date dateValue) {
+    public Builder dateValue(Date dateValue) {
       this.dateValue = dateValue;
       return this;
     }

@@ -70,7 +70,7 @@ public class CreateUserRequestBody extends SerializableObject {
     this.name = name;
   }
 
-  protected CreateUserRequestBody(CreateUserRequestBodyBuilder builder) {
+  protected CreateUserRequestBody(Builder builder) {
     super();
     this.name = builder.name;
     this.login = builder.login;
@@ -293,7 +293,7 @@ public class CreateUserRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class CreateUserRequestBodyBuilder {
+  public static class Builder {
 
     protected final String name;
 
@@ -331,104 +331,101 @@ public class CreateUserRequestBody extends SerializableObject {
 
     protected String externalAppUserId;
 
-    public CreateUserRequestBodyBuilder(String name) {
+    public Builder(String name) {
       this.name = name;
     }
 
-    public CreateUserRequestBodyBuilder login(String login) {
+    public Builder login(String login) {
       this.login = login;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder isPlatformAccessOnly(Boolean isPlatformAccessOnly) {
+    public Builder isPlatformAccessOnly(Boolean isPlatformAccessOnly) {
       this.isPlatformAccessOnly = isPlatformAccessOnly;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder role(CreateUserRequestBodyRoleField role) {
+    public Builder role(CreateUserRequestBodyRoleField role) {
       this.role = new EnumWrapper<CreateUserRequestBodyRoleField>(role);
       return this;
     }
 
-    public CreateUserRequestBodyBuilder role(EnumWrapper<CreateUserRequestBodyRoleField> role) {
+    public Builder role(EnumWrapper<CreateUserRequestBodyRoleField> role) {
       this.role = role;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder language(String language) {
+    public Builder language(String language) {
       this.language = language;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder isSyncEnabled(Boolean isSyncEnabled) {
+    public Builder isSyncEnabled(Boolean isSyncEnabled) {
       this.isSyncEnabled = isSyncEnabled;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder jobTitle(String jobTitle) {
+    public Builder jobTitle(String jobTitle) {
       this.jobTitle = jobTitle;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder phone(String phone) {
+    public Builder phone(String phone) {
       this.phone = phone;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder address(String address) {
+    public Builder address(String address) {
       this.address = address;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder spaceAmount(Long spaceAmount) {
+    public Builder spaceAmount(Long spaceAmount) {
       this.spaceAmount = spaceAmount;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder trackingCodes(List<TrackingCode> trackingCodes) {
+    public Builder trackingCodes(List<TrackingCode> trackingCodes) {
       this.trackingCodes = trackingCodes;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder canSeeManagedUsers(Boolean canSeeManagedUsers) {
+    public Builder canSeeManagedUsers(Boolean canSeeManagedUsers) {
       this.canSeeManagedUsers = canSeeManagedUsers;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder timezone(String timezone) {
+    public Builder timezone(String timezone) {
       this.timezone = timezone;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder isExternalCollabRestricted(
-        Boolean isExternalCollabRestricted) {
+    public Builder isExternalCollabRestricted(Boolean isExternalCollabRestricted) {
       this.isExternalCollabRestricted = isExternalCollabRestricted;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder isExemptFromDeviceLimits(Boolean isExemptFromDeviceLimits) {
+    public Builder isExemptFromDeviceLimits(Boolean isExemptFromDeviceLimits) {
       this.isExemptFromDeviceLimits = isExemptFromDeviceLimits;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder isExemptFromLoginVerification(
-        Boolean isExemptFromLoginVerification) {
+    public Builder isExemptFromLoginVerification(Boolean isExemptFromLoginVerification) {
       this.isExemptFromLoginVerification = isExemptFromLoginVerification;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder status(CreateUserRequestBodyStatusField status) {
+    public Builder status(CreateUserRequestBodyStatusField status) {
       this.status = new EnumWrapper<CreateUserRequestBodyStatusField>(status);
       return this;
     }
 
-    public CreateUserRequestBodyBuilder status(
-        EnumWrapper<CreateUserRequestBodyStatusField> status) {
+    public Builder status(EnumWrapper<CreateUserRequestBodyStatusField> status) {
       this.status = status;
       return this;
     }
 
-    public CreateUserRequestBodyBuilder externalAppUserId(String externalAppUserId) {
+    public Builder externalAppUserId(String externalAppUserId) {
       this.externalAppUserId = externalAppUserId;
       return this;
     }

@@ -26,7 +26,7 @@ public class FileVersionRetentionsManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected FileVersionRetentionsManager(FileVersionRetentionsManagerBuilder builder) {
+  protected FileVersionRetentionsManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -63,7 +63,7 @@ public class FileVersionRetentionsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -90,7 +90,7 @@ public class FileVersionRetentionsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -113,22 +113,22 @@ public class FileVersionRetentionsManager {
     return networkSession;
   }
 
-  public static class FileVersionRetentionsManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public FileVersionRetentionsManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public FileVersionRetentionsManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public FileVersionRetentionsManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

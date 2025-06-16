@@ -16,7 +16,7 @@ public class DownloadFileHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DownloadFileHeaders(DownloadFileHeadersBuilder builder) {
+  protected DownloadFileHeaders(Builder builder) {
     this.range = builder.range;
     this.boxapi = builder.boxapi;
     this.extraHeaders = builder.extraHeaders;
@@ -34,7 +34,7 @@ public class DownloadFileHeaders {
     return extraHeaders;
   }
 
-  public static class DownloadFileHeadersBuilder {
+  public static class Builder {
 
     protected String range;
 
@@ -42,21 +42,21 @@ public class DownloadFileHeaders {
 
     protected Map<String, String> extraHeaders;
 
-    public DownloadFileHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DownloadFileHeadersBuilder range(String range) {
+    public Builder range(String range) {
       this.range = range;
       return this;
     }
 
-    public DownloadFileHeadersBuilder boxapi(String boxapi) {
+    public Builder boxapi(String boxapi) {
       this.boxapi = boxapi;
       return this;
     }
 
-    public DownloadFileHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

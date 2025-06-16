@@ -37,7 +37,7 @@ public class FoldersITest {
             .getFolders()
             .getFolderById(
                 "0",
-                new GetFolderByIdQueryParams.GetFolderByIdQueryParamsBuilder()
+                new GetFolderByIdQueryParams.Builder()
                     .fields(Arrays.asList("has_collaborations", "tags"))
                     .build());
     assert rootFolder.getId().equals("0");
@@ -77,7 +77,7 @@ public class FoldersITest {
             .getFolders()
             .updateFolderById(
                 folderToUpdate.getId(),
-                new UpdateFolderByIdRequestBody.UpdateFolderByIdRequestBodyBuilder()
+                new UpdateFolderByIdRequestBody.Builder()
                     .name(updatedName)
                     .description("Updated description")
                     .build());
@@ -101,8 +101,7 @@ public class FoldersITest {
             .getFolders()
             .copyFolder(
                 folderOrigin.getId(),
-                new CopyFolderRequestBody.CopyFolderRequestBodyBuilder(
-                        new CopyFolderRequestBodyParentField("0"))
+                new CopyFolderRequestBody.Builder(new CopyFolderRequestBodyParentField("0"))
                     .name(copiedFolderName)
                     .build());
     assert copiedFolder.getParent().getId().equals("0");
@@ -112,11 +111,10 @@ public class FoldersITest {
             .getFolders()
             .updateFolderById(
                 copiedFolder.getId(),
-                new UpdateFolderByIdRequestBody.UpdateFolderByIdRequestBodyBuilder()
+                new UpdateFolderByIdRequestBody.Builder()
                     .name(movedFolderName)
                     .parent(
-                        new UpdateFolderByIdRequestBodyParentField
-                                .UpdateFolderByIdRequestBodyParentFieldBuilder()
+                        new UpdateFolderByIdRequestBodyParentField.Builder()
                             .id(folderOrigin.getId())
                             .build())
                     .build());

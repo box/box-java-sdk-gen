@@ -36,7 +36,7 @@ public class EventsITest {
         client
             .getEvents()
             .getEvents(
-                new GetEventsQueryParams.GetEventsQueryParamsBuilder()
+                new GetEventsQueryParams.Builder()
                     .streamType(GetEventsQueryParamsStreamTypeField.ADMIN_LOGS)
                     .eventType(Arrays.asList(GetEventsQueryParamsEventTypeField.UPLOAD))
                     .build());
@@ -51,7 +51,7 @@ public class EventsITest {
         client
             .getEvents()
             .getEvents(
-                new GetEventsQueryParams.GetEventsQueryParamsBuilder()
+                new GetEventsQueryParams.Builder()
                     .streamType(GetEventsQueryParamsStreamTypeField.ADMIN_LOGS)
                     .eventType(Arrays.asList(GetEventsQueryParamsEventTypeField.DELETE_USER))
                     .build());
@@ -66,7 +66,7 @@ public class EventsITest {
         client
             .getEvents()
             .getEvents(
-                new GetEventsQueryParams.GetEventsQueryParamsBuilder()
+                new GetEventsQueryParams.Builder()
                     .streamType(GetEventsQueryParamsStreamTypeField.CHANGES)
                     .build());
     assert events.getEntries().size() > 0;
@@ -91,7 +91,7 @@ public class EventsITest {
         client
             .getEvents()
             .getEvents(
-                new GetEventsQueryParams.GetEventsQueryParamsBuilder()
+                new GetEventsQueryParams.Builder()
                     .streamType(GetEventsQueryParamsStreamTypeField.ADMIN_LOGS)
                     .limit(1L)
                     .createdAfter(createdAfterDate)

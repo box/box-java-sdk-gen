@@ -12,7 +12,7 @@ public class CreateMetadataCascadePolicyHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CreateMetadataCascadePolicyHeaders(CreateMetadataCascadePolicyHeadersBuilder builder) {
+  protected CreateMetadataCascadePolicyHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,16 +20,15 @@ public class CreateMetadataCascadePolicyHeaders {
     return extraHeaders;
   }
 
-  public static class CreateMetadataCascadePolicyHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CreateMetadataCascadePolicyHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CreateMetadataCascadePolicyHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

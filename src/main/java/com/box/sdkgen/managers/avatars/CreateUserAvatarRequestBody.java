@@ -14,7 +14,7 @@ public class CreateUserAvatarRequestBody {
     this.pic = pic;
   }
 
-  protected CreateUserAvatarRequestBody(CreateUserAvatarRequestBodyBuilder builder) {
+  protected CreateUserAvatarRequestBody(Builder builder) {
     this.pic = builder.pic;
     this.picFileName = builder.picFileName;
     this.picContentType = builder.picContentType;
@@ -32,7 +32,7 @@ public class CreateUserAvatarRequestBody {
     return picContentType;
   }
 
-  public static class CreateUserAvatarRequestBodyBuilder {
+  public static class Builder {
 
     protected final InputStream pic;
 
@@ -40,16 +40,16 @@ public class CreateUserAvatarRequestBody {
 
     protected String picContentType;
 
-    public CreateUserAvatarRequestBodyBuilder(InputStream pic) {
+    public Builder(InputStream pic) {
       this.pic = pic;
     }
 
-    public CreateUserAvatarRequestBodyBuilder picFileName(String picFileName) {
+    public Builder picFileName(String picFileName) {
       this.picFileName = picFileName;
       return this;
     }
 
-    public CreateUserAvatarRequestBodyBuilder picContentType(String picContentType) {
+    public Builder picContentType(String picContentType) {
       this.picContentType = picContentType;
       return this;
     }

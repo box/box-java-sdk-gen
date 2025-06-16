@@ -17,8 +17,7 @@ public class CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigCla
   }
 
   protected CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigClassificationField(
-      CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigClassificationFieldBuilder
-          builder) {
+      Builder builder) {
     super();
     this.classificationDefinition = builder.classificationDefinition;
     this.colorId = builder.colorId;
@@ -64,23 +63,18 @@ public class CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigCla
         + "}";
   }
 
-  public static
-  class CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigClassificationFieldBuilder {
+  public static class Builder {
 
     protected String classificationDefinition;
 
     protected Long colorId;
 
-    public
-    CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigClassificationFieldBuilder
-        classificationDefinition(String classificationDefinition) {
+    public Builder classificationDefinition(String classificationDefinition) {
       this.classificationDefinition = classificationDefinition;
       return this;
     }
 
-    public
-    CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigClassificationFieldBuilder
-        colorId(Long colorId) {
+    public Builder colorId(Long colorId) {
       this.colorId = colorId;
       return this;
     }

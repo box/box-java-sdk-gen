@@ -21,8 +21,7 @@ public class GetLegalHoldPolicyAssignmentsQueryParams {
     this.policyId = policyId;
   }
 
-  protected GetLegalHoldPolicyAssignmentsQueryParams(
-      GetLegalHoldPolicyAssignmentsQueryParamsBuilder builder) {
+  protected GetLegalHoldPolicyAssignmentsQueryParams(Builder builder) {
     this.policyId = builder.policyId;
     this.assignToType = builder.assignToType;
     this.assignToId = builder.assignToId;
@@ -55,7 +54,7 @@ public class GetLegalHoldPolicyAssignmentsQueryParams {
     return fields;
   }
 
-  public static class GetLegalHoldPolicyAssignmentsQueryParamsBuilder {
+  public static class Builder {
 
     protected final String policyId;
 
@@ -69,39 +68,39 @@ public class GetLegalHoldPolicyAssignmentsQueryParams {
 
     protected List<String> fields;
 
-    public GetLegalHoldPolicyAssignmentsQueryParamsBuilder(String policyId) {
+    public Builder(String policyId) {
       this.policyId = policyId;
     }
 
-    public GetLegalHoldPolicyAssignmentsQueryParamsBuilder assignToType(
+    public Builder assignToType(
         GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField assignToType) {
       this.assignToType =
           new EnumWrapper<GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField>(assignToType);
       return this;
     }
 
-    public GetLegalHoldPolicyAssignmentsQueryParamsBuilder assignToType(
+    public Builder assignToType(
         EnumWrapper<GetLegalHoldPolicyAssignmentsQueryParamsAssignToTypeField> assignToType) {
       this.assignToType = assignToType;
       return this;
     }
 
-    public GetLegalHoldPolicyAssignmentsQueryParamsBuilder assignToId(String assignToId) {
+    public Builder assignToId(String assignToId) {
       this.assignToId = assignToId;
       return this;
     }
 
-    public GetLegalHoldPolicyAssignmentsQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetLegalHoldPolicyAssignmentsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetLegalHoldPolicyAssignmentsQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

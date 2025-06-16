@@ -47,7 +47,7 @@ public class AiAsk extends SerializableObject {
     this.items = items;
   }
 
-  protected AiAsk(AiAskBuilder builder) {
+  protected AiAsk(Builder builder) {
     super();
     this.mode = builder.mode;
     this.prompt = builder.prompt;
@@ -132,7 +132,7 @@ public class AiAsk extends SerializableObject {
         + "}";
   }
 
-  public static class AiAskBuilder {
+  public static class Builder {
 
     protected final EnumWrapper<AiAskModeField> mode;
 
@@ -146,29 +146,29 @@ public class AiAsk extends SerializableObject {
 
     protected AiAgentAskOrAiAgentReference aiAgent;
 
-    public AiAskBuilder(EnumWrapper<AiAskModeField> mode, String prompt, List<AiItemAsk> items) {
+    public Builder(EnumWrapper<AiAskModeField> mode, String prompt, List<AiItemAsk> items) {
       this.mode = mode;
       this.prompt = prompt;
       this.items = items;
     }
 
-    public AiAskBuilder(AiAskModeField mode, String prompt, List<AiItemAsk> items) {
+    public Builder(AiAskModeField mode, String prompt, List<AiItemAsk> items) {
       this.mode = new EnumWrapper<AiAskModeField>(mode);
       this.prompt = prompt;
       this.items = items;
     }
 
-    public AiAskBuilder dialogueHistory(List<AiDialogueHistory> dialogueHistory) {
+    public Builder dialogueHistory(List<AiDialogueHistory> dialogueHistory) {
       this.dialogueHistory = dialogueHistory;
       return this;
     }
 
-    public AiAskBuilder includeCitations(Boolean includeCitations) {
+    public Builder includeCitations(Boolean includeCitations) {
       this.includeCitations = includeCitations;
       return this;
     }
 
-    public AiAskBuilder aiAgent(AiAgentAskOrAiAgentReference aiAgent) {
+    public Builder aiAgent(AiAgentAskOrAiAgentReference aiAgent) {
       this.aiAgent = aiAgent;
       return this;
     }

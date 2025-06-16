@@ -17,7 +17,7 @@ public class UploadPartMini extends SerializableObject {
     super();
   }
 
-  protected UploadPartMini(UploadPartMiniBuilder builder) {
+  protected UploadPartMini(Builder builder) {
     super();
     this.partId = builder.partId;
     this.offset = builder.offset;
@@ -72,7 +72,7 @@ public class UploadPartMini extends SerializableObject {
         + "}";
   }
 
-  public static class UploadPartMiniBuilder {
+  public static class Builder {
 
     protected String partId;
 
@@ -80,17 +80,17 @@ public class UploadPartMini extends SerializableObject {
 
     protected Long size;
 
-    public UploadPartMiniBuilder partId(String partId) {
+    public Builder partId(String partId) {
       this.partId = partId;
       return this;
     }
 
-    public UploadPartMiniBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public UploadPartMiniBuilder size(Long size) {
+    public Builder size(Long size) {
       this.size = size;
       return this;
     }

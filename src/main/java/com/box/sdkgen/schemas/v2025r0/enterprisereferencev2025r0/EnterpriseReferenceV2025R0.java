@@ -22,7 +22,7 @@ public class EnterpriseReferenceV2025R0 extends SerializableObject {
     super();
   }
 
-  protected EnterpriseReferenceV2025R0(EnterpriseReferenceV2025R0Builder builder) {
+  protected EnterpriseReferenceV2025R0(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -58,24 +58,23 @@ public class EnterpriseReferenceV2025R0 extends SerializableObject {
     return "EnterpriseReferenceV2025R0{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class EnterpriseReferenceV2025R0Builder {
+  public static class Builder {
 
     protected String id;
 
     protected EnumWrapper<EnterpriseReferenceV2025R0TypeField> type;
 
-    public EnterpriseReferenceV2025R0Builder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public EnterpriseReferenceV2025R0Builder type(EnterpriseReferenceV2025R0TypeField type) {
+    public Builder type(EnterpriseReferenceV2025R0TypeField type) {
       this.type = new EnumWrapper<EnterpriseReferenceV2025R0TypeField>(type);
       return this;
     }
 
-    public EnterpriseReferenceV2025R0Builder type(
-        EnumWrapper<EnterpriseReferenceV2025R0TypeField> type) {
+    public Builder type(EnumWrapper<EnterpriseReferenceV2025R0TypeField> type) {
       this.type = type;
       return this;
     }

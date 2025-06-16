@@ -16,7 +16,7 @@ public class GetFolderByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetFolderByIdHeaders(GetFolderByIdHeadersBuilder builder) {
+  protected GetFolderByIdHeaders(Builder builder) {
     this.ifNoneMatch = builder.ifNoneMatch;
     this.boxapi = builder.boxapi;
     this.extraHeaders = builder.extraHeaders;
@@ -34,7 +34,7 @@ public class GetFolderByIdHeaders {
     return extraHeaders;
   }
 
-  public static class GetFolderByIdHeadersBuilder {
+  public static class Builder {
 
     protected String ifNoneMatch;
 
@@ -42,21 +42,21 @@ public class GetFolderByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
-    public GetFolderByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetFolderByIdHeadersBuilder ifNoneMatch(String ifNoneMatch) {
+    public Builder ifNoneMatch(String ifNoneMatch) {
       this.ifNoneMatch = ifNoneMatch;
       return this;
     }
 
-    public GetFolderByIdHeadersBuilder boxapi(String boxapi) {
+    public Builder boxapi(String boxapi) {
       this.boxapi = boxapi;
       return this;
     }
 
-    public GetFolderByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

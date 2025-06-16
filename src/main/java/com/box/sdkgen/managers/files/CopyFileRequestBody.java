@@ -17,7 +17,7 @@ public class CopyFileRequestBody extends SerializableObject {
     this.parent = parent;
   }
 
-  protected CopyFileRequestBody(CopyFileRequestBodyBuilder builder) {
+  protected CopyFileRequestBody(Builder builder) {
     super();
     this.name = builder.name;
     this.version = builder.version;
@@ -72,7 +72,7 @@ public class CopyFileRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class CopyFileRequestBodyBuilder {
+  public static class Builder {
 
     protected String name;
 
@@ -80,16 +80,16 @@ public class CopyFileRequestBody extends SerializableObject {
 
     protected final CopyFileRequestBodyParentField parent;
 
-    public CopyFileRequestBodyBuilder(CopyFileRequestBodyParentField parent) {
+    public Builder(CopyFileRequestBodyParentField parent) {
       this.parent = parent;
     }
 
-    public CopyFileRequestBodyBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public CopyFileRequestBodyBuilder version(String version) {
+    public Builder version(String version) {
       this.version = version;
       return this;
     }

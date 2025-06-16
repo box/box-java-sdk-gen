@@ -26,7 +26,7 @@ public class ShieldInformationBarriersManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected ShieldInformationBarriersManager(ShieldInformationBarriersManagerBuilder builder) {
+  protected ShieldInformationBarriersManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -44,7 +44,7 @@ public class ShieldInformationBarriersManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -73,7 +73,7 @@ public class ShieldInformationBarriersManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -117,7 +117,7 @@ public class ShieldInformationBarriersManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -145,7 +145,7 @@ public class ShieldInformationBarriersManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -169,22 +169,22 @@ public class ShieldInformationBarriersManager {
     return networkSession;
   }
 
-  public static class ShieldInformationBarriersManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public ShieldInformationBarriersManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public ShieldInformationBarriersManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public ShieldInformationBarriersManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

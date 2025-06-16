@@ -11,8 +11,7 @@ public class AddClassificationRequestBodyDataStaticConfigField extends Serializa
     super();
   }
 
-  protected AddClassificationRequestBodyDataStaticConfigField(
-      AddClassificationRequestBodyDataStaticConfigFieldBuilder builder) {
+  protected AddClassificationRequestBodyDataStaticConfigField(Builder builder) {
     super();
     this.classification = builder.classification;
   }
@@ -48,11 +47,11 @@ public class AddClassificationRequestBodyDataStaticConfigField extends Serializa
         + "}";
   }
 
-  public static class AddClassificationRequestBodyDataStaticConfigFieldBuilder {
+  public static class Builder {
 
     protected AddClassificationRequestBodyDataStaticConfigClassificationField classification;
 
-    public AddClassificationRequestBodyDataStaticConfigFieldBuilder classification(
+    public Builder classification(
         AddClassificationRequestBodyDataStaticConfigClassificationField classification) {
       this.classification = classification;
       return this;

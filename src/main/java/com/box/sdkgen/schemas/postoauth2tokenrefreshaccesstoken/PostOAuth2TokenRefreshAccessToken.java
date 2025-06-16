@@ -42,7 +42,7 @@ public class PostOAuth2TokenRefreshAccessToken extends SerializableObject {
             PostOAuth2TokenRefreshAccessTokenGrantTypeField.REFRESH_TOKEN);
   }
 
-  protected PostOAuth2TokenRefreshAccessToken(PostOAuth2TokenRefreshAccessTokenBuilder builder) {
+  protected PostOAuth2TokenRefreshAccessToken(Builder builder) {
     super();
     this.grantType = builder.grantType;
     this.clientId = builder.clientId;
@@ -107,7 +107,7 @@ public class PostOAuth2TokenRefreshAccessToken extends SerializableObject {
         + "}";
   }
 
-  public static class PostOAuth2TokenRefreshAccessTokenBuilder {
+  public static class Builder {
 
     protected EnumWrapper<PostOAuth2TokenRefreshAccessTokenGrantTypeField> grantType;
 
@@ -117,8 +117,7 @@ public class PostOAuth2TokenRefreshAccessToken extends SerializableObject {
 
     protected final String refreshToken;
 
-    public PostOAuth2TokenRefreshAccessTokenBuilder(
-        String clientId, String clientSecret, String refreshToken) {
+    public Builder(String clientId, String clientSecret, String refreshToken) {
       this.clientId = clientId;
       this.clientSecret = clientSecret;
       this.refreshToken = refreshToken;
@@ -127,13 +126,12 @@ public class PostOAuth2TokenRefreshAccessToken extends SerializableObject {
               PostOAuth2TokenRefreshAccessTokenGrantTypeField.REFRESH_TOKEN);
     }
 
-    public PostOAuth2TokenRefreshAccessTokenBuilder grantType(
-        PostOAuth2TokenRefreshAccessTokenGrantTypeField grantType) {
+    public Builder grantType(PostOAuth2TokenRefreshAccessTokenGrantTypeField grantType) {
       this.grantType = new EnumWrapper<PostOAuth2TokenRefreshAccessTokenGrantTypeField>(grantType);
       return this;
     }
 
-    public PostOAuth2TokenRefreshAccessTokenBuilder grantType(
+    public Builder grantType(
         EnumWrapper<PostOAuth2TokenRefreshAccessTokenGrantTypeField> grantType) {
       this.grantType = grantType;
       return this;

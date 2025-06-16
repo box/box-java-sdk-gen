@@ -19,7 +19,7 @@ public class FolderLocks extends SerializableObject {
     super();
   }
 
-  protected FolderLocks(FolderLocksBuilder builder) {
+  protected FolderLocks(Builder builder) {
     super();
     this.entries = builder.entries;
     this.limit = builder.limit;
@@ -74,7 +74,7 @@ public class FolderLocks extends SerializableObject {
         + "}";
   }
 
-  public static class FolderLocksBuilder {
+  public static class Builder {
 
     protected List<FolderLock> entries;
 
@@ -82,17 +82,17 @@ public class FolderLocks extends SerializableObject {
 
     protected String nextMarker;
 
-    public FolderLocksBuilder entries(List<FolderLock> entries) {
+    public Builder entries(List<FolderLock> entries) {
       this.entries = entries;
       return this;
     }
 
-    public FolderLocksBuilder limit(String limit) {
+    public Builder limit(String limit) {
       this.limit = limit;
       return this;
     }
 
-    public FolderLocksBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }

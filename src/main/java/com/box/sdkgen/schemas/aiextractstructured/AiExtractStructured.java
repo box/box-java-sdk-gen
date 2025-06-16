@@ -24,7 +24,7 @@ public class AiExtractStructured extends SerializableObject {
     this.items = items;
   }
 
-  protected AiExtractStructured(AiExtractStructuredBuilder builder) {
+  protected AiExtractStructured(Builder builder) {
     super();
     this.items = builder.items;
     this.metadataTemplate = builder.metadataTemplate;
@@ -89,7 +89,7 @@ public class AiExtractStructured extends SerializableObject {
         + "}";
   }
 
-  public static class AiExtractStructuredBuilder {
+  public static class Builder {
 
     protected final List<AiItemBase> items;
 
@@ -99,22 +99,21 @@ public class AiExtractStructured extends SerializableObject {
 
     protected AiAgentExtractStructuredOrAiAgentReference aiAgent;
 
-    public AiExtractStructuredBuilder(List<AiItemBase> items) {
+    public Builder(List<AiItemBase> items) {
       this.items = items;
     }
 
-    public AiExtractStructuredBuilder metadataTemplate(
-        AiExtractStructuredMetadataTemplateField metadataTemplate) {
+    public Builder metadataTemplate(AiExtractStructuredMetadataTemplateField metadataTemplate) {
       this.metadataTemplate = metadataTemplate;
       return this;
     }
 
-    public AiExtractStructuredBuilder fields(List<AiExtractStructuredFieldsField> fields) {
+    public Builder fields(List<AiExtractStructuredFieldsField> fields) {
       this.fields = fields;
       return this;
     }
 
-    public AiExtractStructuredBuilder aiAgent(AiAgentExtractStructuredOrAiAgentReference aiAgent) {
+    public Builder aiAgent(AiAgentExtractStructuredOrAiAgentReference aiAgent) {
       this.aiAgent = aiAgent;
       return this;
     }

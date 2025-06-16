@@ -25,7 +25,7 @@ public class TranscriptSkillCardSkillField extends SerializableObject {
             TranscriptSkillCardSkillTypeField.SERVICE);
   }
 
-  protected TranscriptSkillCardSkillField(TranscriptSkillCardSkillFieldBuilder builder) {
+  protected TranscriptSkillCardSkillField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -69,26 +69,25 @@ public class TranscriptSkillCardSkillField extends SerializableObject {
         + "}";
   }
 
-  public static class TranscriptSkillCardSkillFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<TranscriptSkillCardSkillTypeField> type;
 
     protected final String id;
 
-    public TranscriptSkillCardSkillFieldBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<TranscriptSkillCardSkillTypeField>(
               TranscriptSkillCardSkillTypeField.SERVICE);
     }
 
-    public TranscriptSkillCardSkillFieldBuilder type(TranscriptSkillCardSkillTypeField type) {
+    public Builder type(TranscriptSkillCardSkillTypeField type) {
       this.type = new EnumWrapper<TranscriptSkillCardSkillTypeField>(type);
       return this;
     }
 
-    public TranscriptSkillCardSkillFieldBuilder type(
-        EnumWrapper<TranscriptSkillCardSkillTypeField> type) {
+    public Builder type(EnumWrapper<TranscriptSkillCardSkillTypeField> type) {
       this.type = type;
       return this;
     }

@@ -16,8 +16,7 @@ public class CreateClassificationTemplateRequestBodyFieldsOptionsField extends S
     this.key = key;
   }
 
-  protected CreateClassificationTemplateRequestBodyFieldsOptionsField(
-      CreateClassificationTemplateRequestBodyFieldsOptionsFieldBuilder builder) {
+  protected CreateClassificationTemplateRequestBodyFieldsOptionsField(Builder builder) {
     super();
     this.key = builder.key;
     this.staticConfig = builder.staticConfig;
@@ -62,17 +61,17 @@ public class CreateClassificationTemplateRequestBodyFieldsOptionsField extends S
         + "}";
   }
 
-  public static class CreateClassificationTemplateRequestBodyFieldsOptionsFieldBuilder {
+  public static class Builder {
 
     protected final String key;
 
     protected CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigField staticConfig;
 
-    public CreateClassificationTemplateRequestBodyFieldsOptionsFieldBuilder(String key) {
+    public Builder(String key) {
       this.key = key;
     }
 
-    public CreateClassificationTemplateRequestBodyFieldsOptionsFieldBuilder staticConfig(
+    public Builder staticConfig(
         CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigField staticConfig) {
       this.staticConfig = staticConfig;
       return this;

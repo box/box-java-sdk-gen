@@ -24,7 +24,7 @@ public class AiExtractStructuredFieldsField extends SerializableObject {
     this.key = key;
   }
 
-  protected AiExtractStructuredFieldsField(AiExtractStructuredFieldsFieldBuilder builder) {
+  protected AiExtractStructuredFieldsField(Builder builder) {
     super();
     this.key = builder.key;
     this.description = builder.description;
@@ -109,7 +109,7 @@ public class AiExtractStructuredFieldsField extends SerializableObject {
         + "}";
   }
 
-  public static class AiExtractStructuredFieldsFieldBuilder {
+  public static class Builder {
 
     protected final String key;
 
@@ -123,32 +123,31 @@ public class AiExtractStructuredFieldsField extends SerializableObject {
 
     protected List<AiExtractStructuredFieldsOptionsField> options;
 
-    public AiExtractStructuredFieldsFieldBuilder(String key) {
+    public Builder(String key) {
       this.key = key;
     }
 
-    public AiExtractStructuredFieldsFieldBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public AiExtractStructuredFieldsFieldBuilder displayName(String displayName) {
+    public Builder displayName(String displayName) {
       this.displayName = displayName;
       return this;
     }
 
-    public AiExtractStructuredFieldsFieldBuilder prompt(String prompt) {
+    public Builder prompt(String prompt) {
       this.prompt = prompt;
       return this;
     }
 
-    public AiExtractStructuredFieldsFieldBuilder type(String type) {
+    public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public AiExtractStructuredFieldsFieldBuilder options(
-        List<AiExtractStructuredFieldsOptionsField> options) {
+    public Builder options(List<AiExtractStructuredFieldsOptionsField> options) {
       this.options = options;
       return this;
     }

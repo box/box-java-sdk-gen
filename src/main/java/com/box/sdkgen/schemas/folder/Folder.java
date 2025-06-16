@@ -80,7 +80,7 @@ public class Folder extends FolderMini {
     super(id);
   }
 
-  protected Folder(FolderBuilder builder) {
+  protected Folder(Builder builder) {
     super(builder);
     this.createdAt = builder.createdAt;
     this.modifiedAt = builder.modifiedAt;
@@ -322,7 +322,7 @@ public class Folder extends FolderMini {
         + "}";
   }
 
-  public static class FolderBuilder extends FolderMiniBuilder {
+  public static class Builder extends FolderMini.Builder {
 
     protected Date createdAt;
 
@@ -358,126 +358,126 @@ public class Folder extends FolderMini {
 
     protected Items itemCollection;
 
-    public FolderBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public FolderBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public FolderBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public FolderBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public FolderBuilder size(Long size) {
+    public Builder size(Long size) {
       this.size = size;
       return this;
     }
 
-    public FolderBuilder pathCollection(FolderPathCollectionField pathCollection) {
+    public Builder pathCollection(FolderPathCollectionField pathCollection) {
       this.pathCollection = pathCollection;
       return this;
     }
 
-    public FolderBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public FolderBuilder modifiedBy(UserMini modifiedBy) {
+    public Builder modifiedBy(UserMini modifiedBy) {
       this.modifiedBy = modifiedBy;
       return this;
     }
 
-    public FolderBuilder trashedAt(Date trashedAt) {
+    public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
-    public FolderBuilder purgedAt(Date purgedAt) {
+    public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
-    public FolderBuilder contentCreatedAt(Date contentCreatedAt) {
+    public Builder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
-    public FolderBuilder contentModifiedAt(Date contentModifiedAt) {
+    public Builder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }
 
-    public FolderBuilder ownedBy(UserMini ownedBy) {
+    public Builder ownedBy(UserMini ownedBy) {
       this.ownedBy = ownedBy;
       return this;
     }
 
-    public FolderBuilder sharedLink(FolderSharedLinkField sharedLink) {
+    public Builder sharedLink(FolderSharedLinkField sharedLink) {
       this.sharedLink = sharedLink;
       return this;
     }
 
-    public FolderBuilder folderUploadEmail(FolderFolderUploadEmailField folderUploadEmail) {
+    public Builder folderUploadEmail(FolderFolderUploadEmailField folderUploadEmail) {
       this.folderUploadEmail = folderUploadEmail;
       return this;
     }
 
-    public FolderBuilder parent(FolderMini parent) {
+    public Builder parent(FolderMini parent) {
       this.parent = parent;
       return this;
     }
 
-    public FolderBuilder itemStatus(FolderItemStatusField itemStatus) {
+    public Builder itemStatus(FolderItemStatusField itemStatus) {
       this.itemStatus = new EnumWrapper<FolderItemStatusField>(itemStatus);
       return this;
     }
 
-    public FolderBuilder itemStatus(EnumWrapper<FolderItemStatusField> itemStatus) {
+    public Builder itemStatus(EnumWrapper<FolderItemStatusField> itemStatus) {
       this.itemStatus = itemStatus;
       return this;
     }
 
-    public FolderBuilder itemCollection(Items itemCollection) {
+    public Builder itemCollection(Items itemCollection) {
       this.itemCollection = itemCollection;
       return this;
     }
 
     @Override
-    public FolderBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
     @Override
-    public FolderBuilder type(FolderBaseTypeField type) {
+    public Builder type(FolderBaseTypeField type) {
       this.type = new EnumWrapper<FolderBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FolderBuilder type(EnumWrapper<FolderBaseTypeField> type) {
+    public Builder type(EnumWrapper<FolderBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public FolderBuilder sequenceId(String sequenceId) {
+    public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
       return this;
     }
 
     @Override
-    public FolderBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }

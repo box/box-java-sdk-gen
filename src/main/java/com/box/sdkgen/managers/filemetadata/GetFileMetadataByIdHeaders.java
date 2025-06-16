@@ -12,7 +12,7 @@ public class GetFileMetadataByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetFileMetadataByIdHeaders(GetFileMetadataByIdHeadersBuilder builder) {
+  protected GetFileMetadataByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetFileMetadataByIdHeaders {
     return extraHeaders;
   }
 
-  public static class GetFileMetadataByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetFileMetadataByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetFileMetadataByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

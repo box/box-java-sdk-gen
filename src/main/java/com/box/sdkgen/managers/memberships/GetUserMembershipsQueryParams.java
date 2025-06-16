@@ -8,7 +8,7 @@ public class GetUserMembershipsQueryParams {
 
   public GetUserMembershipsQueryParams() {}
 
-  protected GetUserMembershipsQueryParams(GetUserMembershipsQueryParamsBuilder builder) {
+  protected GetUserMembershipsQueryParams(Builder builder) {
     this.limit = builder.limit;
     this.offset = builder.offset;
   }
@@ -21,18 +21,18 @@ public class GetUserMembershipsQueryParams {
     return offset;
   }
 
-  public static class GetUserMembershipsQueryParamsBuilder {
+  public static class Builder {
 
     protected Long limit;
 
     protected Long offset;
 
-    public GetUserMembershipsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetUserMembershipsQueryParamsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }

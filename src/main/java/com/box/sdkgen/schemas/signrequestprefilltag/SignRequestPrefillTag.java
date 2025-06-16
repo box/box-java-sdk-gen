@@ -28,7 +28,7 @@ public class SignRequestPrefillTag extends SerializableObject {
     super();
   }
 
-  protected SignRequestPrefillTag(SignRequestPrefillTagBuilder builder) {
+  protected SignRequestPrefillTag(Builder builder) {
     super();
     this.documentTagId = builder.documentTagId;
     this.textValue = builder.textValue;
@@ -93,7 +93,7 @@ public class SignRequestPrefillTag extends SerializableObject {
         + "}";
   }
 
-  public static class SignRequestPrefillTagBuilder {
+  public static class Builder {
 
     protected String documentTagId;
 
@@ -103,22 +103,22 @@ public class SignRequestPrefillTag extends SerializableObject {
 
     protected Date dateValue;
 
-    public SignRequestPrefillTagBuilder documentTagId(String documentTagId) {
+    public Builder documentTagId(String documentTagId) {
       this.documentTagId = documentTagId;
       return this;
     }
 
-    public SignRequestPrefillTagBuilder textValue(String textValue) {
+    public Builder textValue(String textValue) {
       this.textValue = textValue;
       return this;
     }
 
-    public SignRequestPrefillTagBuilder checkboxValue(Boolean checkboxValue) {
+    public Builder checkboxValue(Boolean checkboxValue) {
       this.checkboxValue = checkboxValue;
       return this;
     }
 
-    public SignRequestPrefillTagBuilder dateValue(Date dateValue) {
+    public Builder dateValue(Date dateValue) {
       this.dateValue = dateValue;
       return this;
     }

@@ -18,7 +18,7 @@ public class CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementF
   }
 
   protected CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementField(
-      CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementFieldBuilder builder) {
+      Builder builder) {
     super();
     this.enterpriseHasStrongPasswordRequiredForExternalUsers =
         builder.enterpriseHasStrongPasswordRequiredForExternalUsers;
@@ -67,23 +67,20 @@ public class CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementF
         + "}";
   }
 
-  public static
-  class CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementFieldBuilder {
+  public static class Builder {
 
     protected Boolean enterpriseHasStrongPasswordRequiredForExternalUsers;
 
     protected Boolean userHasStrongPassword;
 
-    public CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementFieldBuilder
-        enterpriseHasStrongPasswordRequiredForExternalUsers(
-            Boolean enterpriseHasStrongPasswordRequiredForExternalUsers) {
+    public Builder enterpriseHasStrongPasswordRequiredForExternalUsers(
+        Boolean enterpriseHasStrongPasswordRequiredForExternalUsers) {
       this.enterpriseHasStrongPasswordRequiredForExternalUsers =
           enterpriseHasStrongPasswordRequiredForExternalUsers;
       return this;
     }
 
-    public CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementFieldBuilder
-        userHasStrongPassword(Boolean userHasStrongPassword) {
+    public Builder userHasStrongPassword(Boolean userHasStrongPassword) {
       this.userHasStrongPassword = userHasStrongPassword;
       return this;
     }

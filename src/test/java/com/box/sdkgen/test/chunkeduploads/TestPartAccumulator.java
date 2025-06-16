@@ -27,7 +27,7 @@ public class TestPartAccumulator {
     this.uploadSessionId = "";
   }
 
-  protected TestPartAccumulator(TestPartAccumulatorBuilder builder) {
+  protected TestPartAccumulator(Builder builder) {
     this.lastIndex = builder.lastIndex;
     this.parts = builder.parts;
     this.fileSize = builder.fileSize;
@@ -60,7 +60,7 @@ public class TestPartAccumulator {
     return fileHash;
   }
 
-  public static class TestPartAccumulatorBuilder {
+  public static class Builder {
 
     protected final int lastIndex;
 
@@ -74,8 +74,7 @@ public class TestPartAccumulator {
 
     protected final Hash fileHash;
 
-    public TestPartAccumulatorBuilder(
-        int lastIndex, List<UploadPart> parts, long fileSize, Hash fileHash) {
+    public Builder(int lastIndex, List<UploadPart> parts, long fileSize, Hash fileHash) {
       this.lastIndex = lastIndex;
       this.parts = parts;
       this.fileSize = fileSize;
@@ -84,12 +83,12 @@ public class TestPartAccumulator {
       this.uploadSessionId = "";
     }
 
-    public TestPartAccumulatorBuilder uploadPartUrl(String uploadPartUrl) {
+    public Builder uploadPartUrl(String uploadPartUrl) {
       this.uploadPartUrl = uploadPartUrl;
       return this;
     }
 
-    public TestPartAccumulatorBuilder uploadSessionId(String uploadSessionId) {
+    public Builder uploadSessionId(String uploadSessionId) {
       this.uploadSessionId = uploadSessionId;
       return this;
     }

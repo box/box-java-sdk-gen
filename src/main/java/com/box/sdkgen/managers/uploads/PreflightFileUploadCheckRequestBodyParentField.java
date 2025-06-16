@@ -11,8 +11,7 @@ public class PreflightFileUploadCheckRequestBodyParentField extends Serializable
     super();
   }
 
-  protected PreflightFileUploadCheckRequestBodyParentField(
-      PreflightFileUploadCheckRequestBodyParentFieldBuilder builder) {
+  protected PreflightFileUploadCheckRequestBodyParentField(Builder builder) {
     super();
     this.id = builder.id;
   }
@@ -44,11 +43,11 @@ public class PreflightFileUploadCheckRequestBodyParentField extends Serializable
     return "PreflightFileUploadCheckRequestBodyParentField{" + "id='" + id + '\'' + "}";
   }
 
-  public static class PreflightFileUploadCheckRequestBodyParentFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
-    public PreflightFileUploadCheckRequestBodyParentFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

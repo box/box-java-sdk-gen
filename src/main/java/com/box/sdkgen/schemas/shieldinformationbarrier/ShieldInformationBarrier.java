@@ -59,7 +59,7 @@ public class ShieldInformationBarrier extends SerializableObject {
     super();
   }
 
-  protected ShieldInformationBarrier(ShieldInformationBarrierBuilder builder) {
+  protected ShieldInformationBarrier(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -194,7 +194,7 @@ public class ShieldInformationBarrier extends SerializableObject {
         + "}";
   }
 
-  public static class ShieldInformationBarrierBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -216,64 +216,62 @@ public class ShieldInformationBarrier extends SerializableObject {
 
     protected UserBase enabledBy;
 
-    public ShieldInformationBarrierBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public ShieldInformationBarrierBuilder type(ShieldInformationBarrierTypeField type) {
+    public Builder type(ShieldInformationBarrierTypeField type) {
       this.type = new EnumWrapper<ShieldInformationBarrierTypeField>(type);
       return this;
     }
 
-    public ShieldInformationBarrierBuilder type(
-        EnumWrapper<ShieldInformationBarrierTypeField> type) {
+    public Builder type(EnumWrapper<ShieldInformationBarrierTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public ShieldInformationBarrierBuilder enterprise(EnterpriseBase enterprise) {
+    public Builder enterprise(EnterpriseBase enterprise) {
       this.enterprise = enterprise;
       return this;
     }
 
-    public ShieldInformationBarrierBuilder status(ShieldInformationBarrierStatusField status) {
+    public Builder status(ShieldInformationBarrierStatusField status) {
       this.status = new EnumWrapper<ShieldInformationBarrierStatusField>(status);
       return this;
     }
 
-    public ShieldInformationBarrierBuilder status(
-        EnumWrapper<ShieldInformationBarrierStatusField> status) {
+    public Builder status(EnumWrapper<ShieldInformationBarrierStatusField> status) {
       this.status = status;
       return this;
     }
 
-    public ShieldInformationBarrierBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public ShieldInformationBarrierBuilder createdBy(UserBase createdBy) {
+    public Builder createdBy(UserBase createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public ShieldInformationBarrierBuilder updatedAt(Date updatedAt) {
+    public Builder updatedAt(Date updatedAt) {
       this.updatedAt = updatedAt;
       return this;
     }
 
-    public ShieldInformationBarrierBuilder updatedBy(UserBase updatedBy) {
+    public Builder updatedBy(UserBase updatedBy) {
       this.updatedBy = updatedBy;
       return this;
     }
 
-    public ShieldInformationBarrierBuilder enabledAt(Date enabledAt) {
+    public Builder enabledAt(Date enabledAt) {
       this.enabledAt = enabledAt;
       return this;
     }
 
-    public ShieldInformationBarrierBuilder enabledBy(UserBase enabledBy) {
+    public Builder enabledBy(UserBase enabledBy) {
       this.enabledBy = enabledBy;
       return this;
     }

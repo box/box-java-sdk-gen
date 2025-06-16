@@ -13,8 +13,7 @@ public class RetentionPolicyAssignmentFilterFieldsField extends SerializableObje
     super();
   }
 
-  protected RetentionPolicyAssignmentFilterFieldsField(
-      RetentionPolicyAssignmentFilterFieldsFieldBuilder builder) {
+  protected RetentionPolicyAssignmentFilterFieldsField(Builder builder) {
     super();
     this.field = builder.field;
     this.value = builder.value;
@@ -59,18 +58,18 @@ public class RetentionPolicyAssignmentFilterFieldsField extends SerializableObje
         + "}";
   }
 
-  public static class RetentionPolicyAssignmentFilterFieldsFieldBuilder {
+  public static class Builder {
 
     protected String field;
 
     protected String value;
 
-    public RetentionPolicyAssignmentFilterFieldsFieldBuilder field(String field) {
+    public Builder field(String field) {
       this.field = field;
       return this;
     }
 
-    public RetentionPolicyAssignmentFilterFieldsFieldBuilder value(String value) {
+    public Builder value(String value) {
       this.value = value;
       return this;
     }

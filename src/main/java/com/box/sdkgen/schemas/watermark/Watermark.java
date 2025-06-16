@@ -11,7 +11,7 @@ public class Watermark extends SerializableObject {
     super();
   }
 
-  protected Watermark(WatermarkBuilder builder) {
+  protected Watermark(Builder builder) {
     super();
     this.watermark = builder.watermark;
   }
@@ -42,11 +42,11 @@ public class Watermark extends SerializableObject {
     return "Watermark{" + "watermark='" + watermark + '\'' + "}";
   }
 
-  public static class WatermarkBuilder {
+  public static class Builder {
 
     protected WatermarkWatermarkField watermark;
 
-    public WatermarkBuilder watermark(WatermarkWatermarkField watermark) {
+    public Builder watermark(WatermarkWatermarkField watermark) {
       this.watermark = watermark;
       return this;
     }

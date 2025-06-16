@@ -81,7 +81,7 @@ public class FolderFull extends Folder {
     super(id);
   }
 
-  protected FolderFull(FolderFullBuilder builder) {
+  protected FolderFull(Builder builder) {
     super(builder);
     this.syncState = builder.syncState;
     this.hasCollaborations = builder.hasCollaborations;
@@ -405,7 +405,7 @@ public class FolderFull extends Folder {
         + "}";
   }
 
-  public static class FolderFullBuilder extends FolderBuilder {
+  public static class Builder extends Folder.Builder {
 
     protected EnumWrapper<FolderFullSyncStateField> syncState;
 
@@ -438,57 +438,57 @@ public class FolderFull extends Folder {
 
     protected Boolean isAssociatedWithAppItem;
 
-    public FolderFullBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public FolderFullBuilder syncState(FolderFullSyncStateField syncState) {
+    public Builder syncState(FolderFullSyncStateField syncState) {
       this.syncState = new EnumWrapper<FolderFullSyncStateField>(syncState);
       return this;
     }
 
-    public FolderFullBuilder syncState(EnumWrapper<FolderFullSyncStateField> syncState) {
+    public Builder syncState(EnumWrapper<FolderFullSyncStateField> syncState) {
       this.syncState = syncState;
       return this;
     }
 
-    public FolderFullBuilder hasCollaborations(Boolean hasCollaborations) {
+    public Builder hasCollaborations(Boolean hasCollaborations) {
       this.hasCollaborations = hasCollaborations;
       return this;
     }
 
-    public FolderFullBuilder permissions(FolderFullPermissionsField permissions) {
+    public Builder permissions(FolderFullPermissionsField permissions) {
       this.permissions = permissions;
       return this;
     }
 
-    public FolderFullBuilder tags(List<String> tags) {
+    public Builder tags(List<String> tags) {
       this.tags = tags;
       return this;
     }
 
-    public FolderFullBuilder canNonOwnersInvite(Boolean canNonOwnersInvite) {
+    public Builder canNonOwnersInvite(Boolean canNonOwnersInvite) {
       this.canNonOwnersInvite = canNonOwnersInvite;
       return this;
     }
 
-    public FolderFullBuilder isExternallyOwned(Boolean isExternallyOwned) {
+    public Builder isExternallyOwned(Boolean isExternallyOwned) {
       this.isExternallyOwned = isExternallyOwned;
       return this;
     }
 
-    public FolderFullBuilder metadata(FolderFullMetadataField metadata) {
+    public Builder metadata(FolderFullMetadataField metadata) {
       this.metadata = metadata;
       return this;
     }
 
-    public FolderFullBuilder isCollaborationRestrictedToEnterprise(
+    public Builder isCollaborationRestrictedToEnterprise(
         Boolean isCollaborationRestrictedToEnterprise) {
       this.isCollaborationRestrictedToEnterprise = isCollaborationRestrictedToEnterprise;
       return this;
     }
 
-    public FolderFullBuilder allowedSharedLinkAccessLevels(
+    public Builder allowedSharedLinkAccessLevels(
         List<? extends Valuable> allowedSharedLinkAccessLevels) {
       this.allowedSharedLinkAccessLevels =
           EnumWrapper.wrapValuableEnumList(
@@ -496,172 +496,172 @@ public class FolderFull extends Folder {
       return this;
     }
 
-    public FolderFullBuilder allowedInviteeRoles(List<? extends Valuable> allowedInviteeRoles) {
+    public Builder allowedInviteeRoles(List<? extends Valuable> allowedInviteeRoles) {
       this.allowedInviteeRoles =
           EnumWrapper.wrapValuableEnumList(
               allowedInviteeRoles, FolderFullAllowedInviteeRolesField.class);
       return this;
     }
 
-    public FolderFullBuilder watermarkInfo(FolderFullWatermarkInfoField watermarkInfo) {
+    public Builder watermarkInfo(FolderFullWatermarkInfoField watermarkInfo) {
       this.watermarkInfo = watermarkInfo;
       return this;
     }
 
-    public FolderFullBuilder isAccessibleViaSharedLink(Boolean isAccessibleViaSharedLink) {
+    public Builder isAccessibleViaSharedLink(Boolean isAccessibleViaSharedLink) {
       this.isAccessibleViaSharedLink = isAccessibleViaSharedLink;
       return this;
     }
 
-    public FolderFullBuilder canNonOwnersViewCollaborators(Boolean canNonOwnersViewCollaborators) {
+    public Builder canNonOwnersViewCollaborators(Boolean canNonOwnersViewCollaborators) {
       this.canNonOwnersViewCollaborators = canNonOwnersViewCollaborators;
       return this;
     }
 
-    public FolderFullBuilder classification(FolderFullClassificationField classification) {
+    public Builder classification(FolderFullClassificationField classification) {
       this.classification = classification;
       return this;
     }
 
-    public FolderFullBuilder isAssociatedWithAppItem(Boolean isAssociatedWithAppItem) {
+    public Builder isAssociatedWithAppItem(Boolean isAssociatedWithAppItem) {
       this.isAssociatedWithAppItem = isAssociatedWithAppItem;
       return this;
     }
 
     @Override
-    public FolderFullBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
     @Override
-    public FolderFullBuilder type(FolderBaseTypeField type) {
+    public Builder type(FolderBaseTypeField type) {
       this.type = new EnumWrapper<FolderBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FolderFullBuilder type(EnumWrapper<FolderBaseTypeField> type) {
+    public Builder type(EnumWrapper<FolderBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public FolderFullBuilder sequenceId(String sequenceId) {
+    public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
       return this;
     }
 
     @Override
-    public FolderFullBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public FolderFullBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
     @Override
-    public FolderFullBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
     @Override
-    public FolderFullBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
     @Override
-    public FolderFullBuilder size(Long size) {
+    public Builder size(Long size) {
       this.size = size;
       return this;
     }
 
     @Override
-    public FolderFullBuilder pathCollection(FolderPathCollectionField pathCollection) {
+    public Builder pathCollection(FolderPathCollectionField pathCollection) {
       this.pathCollection = pathCollection;
       return this;
     }
 
     @Override
-    public FolderFullBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
     @Override
-    public FolderFullBuilder modifiedBy(UserMini modifiedBy) {
+    public Builder modifiedBy(UserMini modifiedBy) {
       this.modifiedBy = modifiedBy;
       return this;
     }
 
     @Override
-    public FolderFullBuilder trashedAt(Date trashedAt) {
+    public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
     @Override
-    public FolderFullBuilder purgedAt(Date purgedAt) {
+    public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
     @Override
-    public FolderFullBuilder contentCreatedAt(Date contentCreatedAt) {
+    public Builder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
     @Override
-    public FolderFullBuilder contentModifiedAt(Date contentModifiedAt) {
+    public Builder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }
 
     @Override
-    public FolderFullBuilder ownedBy(UserMini ownedBy) {
+    public Builder ownedBy(UserMini ownedBy) {
       this.ownedBy = ownedBy;
       return this;
     }
 
     @Override
-    public FolderFullBuilder sharedLink(FolderSharedLinkField sharedLink) {
+    public Builder sharedLink(FolderSharedLinkField sharedLink) {
       this.sharedLink = sharedLink;
       return this;
     }
 
     @Override
-    public FolderFullBuilder folderUploadEmail(FolderFolderUploadEmailField folderUploadEmail) {
+    public Builder folderUploadEmail(FolderFolderUploadEmailField folderUploadEmail) {
       this.folderUploadEmail = folderUploadEmail;
       return this;
     }
 
     @Override
-    public FolderFullBuilder parent(FolderMini parent) {
+    public Builder parent(FolderMini parent) {
       this.parent = parent;
       return this;
     }
 
     @Override
-    public FolderFullBuilder itemStatus(FolderItemStatusField itemStatus) {
+    public Builder itemStatus(FolderItemStatusField itemStatus) {
       this.itemStatus = new EnumWrapper<FolderItemStatusField>(itemStatus);
       return this;
     }
 
     @Override
-    public FolderFullBuilder itemStatus(EnumWrapper<FolderItemStatusField> itemStatus) {
+    public Builder itemStatus(EnumWrapper<FolderItemStatusField> itemStatus) {
       this.itemStatus = itemStatus;
       return this;
     }
 
     @Override
-    public FolderFullBuilder itemCollection(Items itemCollection) {
+    public Builder itemCollection(Items itemCollection) {
       this.itemCollection = itemCollection;
       return this;
     }

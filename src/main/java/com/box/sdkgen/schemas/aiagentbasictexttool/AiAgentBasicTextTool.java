@@ -17,7 +17,7 @@ public class AiAgentBasicTextTool extends AiAgentBasicTextToolBase {
     super();
   }
 
-  protected AiAgentBasicTextTool(AiAgentBasicTextToolBuilder builder) {
+  protected AiAgentBasicTextTool(Builder builder) {
     super(builder);
     this.systemMessage = builder.systemMessage;
     this.promptTemplate = builder.promptTemplate;
@@ -78,36 +78,36 @@ public class AiAgentBasicTextTool extends AiAgentBasicTextToolBase {
         + "}";
   }
 
-  public static class AiAgentBasicTextToolBuilder extends AiAgentBasicTextToolBaseBuilder {
+  public static class Builder extends AiAgentBasicTextToolBase.Builder {
 
     protected String systemMessage;
 
     protected String promptTemplate;
 
-    public AiAgentBasicTextToolBuilder systemMessage(String systemMessage) {
+    public Builder systemMessage(String systemMessage) {
       this.systemMessage = systemMessage;
       return this;
     }
 
-    public AiAgentBasicTextToolBuilder promptTemplate(String promptTemplate) {
+    public Builder promptTemplate(String promptTemplate) {
       this.promptTemplate = promptTemplate;
       return this;
     }
 
     @Override
-    public AiAgentBasicTextToolBuilder model(String model) {
+    public Builder model(String model) {
       this.model = model;
       return this;
     }
 
     @Override
-    public AiAgentBasicTextToolBuilder numTokensForCompletion(Long numTokensForCompletion) {
+    public Builder numTokensForCompletion(Long numTokensForCompletion) {
       this.numTokensForCompletion = numTokensForCompletion;
       return this;
     }
 
     @Override
-    public AiAgentBasicTextToolBuilder llmEndpointParams(AiLlmEndpointParams llmEndpointParams) {
+    public Builder llmEndpointParams(AiLlmEndpointParams llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }

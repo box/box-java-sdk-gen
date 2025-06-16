@@ -31,8 +31,7 @@ public class LegalHoldPolicyAssignmentsITest {
         client
             .getLegalHoldPolicies()
             .createLegalHoldPolicy(
-                new CreateLegalHoldPolicyRequestBody.CreateLegalHoldPolicyRequestBodyBuilder(
-                        legalHoldPolicyName)
+                new CreateLegalHoldPolicyRequestBody.Builder(legalHoldPolicyName)
                     .description(legalHoldDescription)
                     .isOngoing(true)
                     .build());

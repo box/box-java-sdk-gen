@@ -13,8 +13,7 @@ public class RemoveSharedLinkFromWebLinkRequestBody extends SerializableObject {
     super();
   }
 
-  protected RemoveSharedLinkFromWebLinkRequestBody(
-      RemoveSharedLinkFromWebLinkRequestBodyBuilder builder) {
+  protected RemoveSharedLinkFromWebLinkRequestBody(Builder builder) {
     super();
     this.sharedLink = builder.sharedLink;
   }
@@ -45,12 +44,11 @@ public class RemoveSharedLinkFromWebLinkRequestBody extends SerializableObject {
     return "RemoveSharedLinkFromWebLinkRequestBody{" + "sharedLink='" + sharedLink + '\'' + "}";
   }
 
-  public static class RemoveSharedLinkFromWebLinkRequestBodyBuilder {
+  public static class Builder {
 
     protected RemoveSharedLinkFromWebLinkRequestBodySharedLinkField sharedLink;
 
-    public RemoveSharedLinkFromWebLinkRequestBodyBuilder sharedLink(
-        RemoveSharedLinkFromWebLinkRequestBodySharedLinkField sharedLink) {
+    public Builder sharedLink(RemoveSharedLinkFromWebLinkRequestBodySharedLinkField sharedLink) {
       this.sharedLink = sharedLink;
       return this;
     }

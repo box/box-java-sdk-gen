@@ -24,7 +24,7 @@ public class EmailAlias extends SerializableObject {
     super();
   }
 
-  protected EmailAlias(EmailAliasBuilder builder) {
+  protected EmailAlias(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -89,7 +89,7 @@ public class EmailAlias extends SerializableObject {
         + "}";
   }
 
-  public static class EmailAliasBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -99,27 +99,27 @@ public class EmailAlias extends SerializableObject {
 
     protected Boolean isConfirmed;
 
-    public EmailAliasBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public EmailAliasBuilder type(EmailAliasTypeField type) {
+    public Builder type(EmailAliasTypeField type) {
       this.type = new EnumWrapper<EmailAliasTypeField>(type);
       return this;
     }
 
-    public EmailAliasBuilder type(EnumWrapper<EmailAliasTypeField> type) {
+    public Builder type(EnumWrapper<EmailAliasTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public EmailAliasBuilder email(String email) {
+    public Builder email(String email) {
       this.email = email;
       return this;
     }
 
-    public EmailAliasBuilder isConfirmed(Boolean isConfirmed) {
+    public Builder isConfirmed(Boolean isConfirmed) {
       this.isConfirmed = isConfirmed;
       return this;
     }

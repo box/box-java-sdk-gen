@@ -12,8 +12,7 @@ public class DeleteLegalHoldPolicyAssignmentByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteLegalHoldPolicyAssignmentByIdHeaders(
-      DeleteLegalHoldPolicyAssignmentByIdHeadersBuilder builder) {
+  protected DeleteLegalHoldPolicyAssignmentByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class DeleteLegalHoldPolicyAssignmentByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteLegalHoldPolicyAssignmentByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteLegalHoldPolicyAssignmentByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteLegalHoldPolicyAssignmentByIdHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

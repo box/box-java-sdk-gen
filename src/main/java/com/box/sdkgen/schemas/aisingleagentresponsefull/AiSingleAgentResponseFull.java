@@ -30,7 +30,7 @@ public class AiSingleAgentResponseFull extends AiSingleAgentResponse {
     super(id, origin, name, accessState);
   }
 
-  protected AiSingleAgentResponseFull(AiSingleAgentResponseFullBuilder builder) {
+  protected AiSingleAgentResponseFull(Builder builder) {
     super(builder);
     this.ask = builder.ask;
     this.textGen = builder.textGen;
@@ -154,7 +154,7 @@ public class AiSingleAgentResponseFull extends AiSingleAgentResponse {
         + "}";
   }
 
-  public static class AiSingleAgentResponseFullBuilder extends AiSingleAgentResponseBuilder {
+  public static class Builder extends AiSingleAgentResponse.Builder {
 
     protected AiStudioAgentAskResponse ask;
 
@@ -162,71 +162,69 @@ public class AiSingleAgentResponseFull extends AiSingleAgentResponse {
 
     protected AiStudioAgentExtractResponse extract;
 
-    public AiSingleAgentResponseFullBuilder(
-        String id, String origin, String name, String accessState) {
+    public Builder(String id, String origin, String name, String accessState) {
       super(id, origin, name, accessState);
     }
 
-    public AiSingleAgentResponseFullBuilder ask(AiStudioAgentAskResponse ask) {
+    public Builder ask(AiStudioAgentAskResponse ask) {
       this.ask = ask;
       return this;
     }
 
-    public AiSingleAgentResponseFullBuilder textGen(AiStudioAgentTextGenResponse textGen) {
+    public Builder textGen(AiStudioAgentTextGenResponse textGen) {
       this.textGen = textGen;
       return this;
     }
 
-    public AiSingleAgentResponseFullBuilder extract(AiStudioAgentExtractResponse extract) {
+    public Builder extract(AiStudioAgentExtractResponse extract) {
       this.extract = extract;
       return this;
     }
 
     @Override
-    public AiSingleAgentResponseFullBuilder type(AiSingleAgentResponseTypeField type) {
+    public Builder type(AiSingleAgentResponseTypeField type) {
       this.type = new EnumWrapper<AiSingleAgentResponseTypeField>(type);
       return this;
     }
 
     @Override
-    public AiSingleAgentResponseFullBuilder type(EnumWrapper<AiSingleAgentResponseTypeField> type) {
+    public Builder type(EnumWrapper<AiSingleAgentResponseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public AiSingleAgentResponseFullBuilder createdBy(UserBase createdBy) {
+    public Builder createdBy(UserBase createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
     @Override
-    public AiSingleAgentResponseFullBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
     @Override
-    public AiSingleAgentResponseFullBuilder modifiedBy(UserBase modifiedBy) {
+    public Builder modifiedBy(UserBase modifiedBy) {
       this.modifiedBy = modifiedBy;
       return this;
     }
 
     @Override
-    public AiSingleAgentResponseFullBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
     @Override
-    public AiSingleAgentResponseFullBuilder iconReference(String iconReference) {
+    public Builder iconReference(String iconReference) {
       this.iconReference = iconReference;
       return this;
     }
 
     @Override
-    public AiSingleAgentResponseFullBuilder allowedEntities(
-        List<AiAgentAllowedEntity> allowedEntities) {
+    public Builder allowedEntities(List<AiAgentAllowedEntity> allowedEntities) {
       this.allowedEntities = allowedEntities;
       return this;
     }

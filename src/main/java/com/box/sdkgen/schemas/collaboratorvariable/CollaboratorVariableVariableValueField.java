@@ -29,8 +29,7 @@ public class CollaboratorVariableVariableValueField extends SerializableObject {
             CollaboratorVariableVariableValueTypeField.USER);
   }
 
-  protected CollaboratorVariableVariableValueField(
-      CollaboratorVariableVariableValueFieldBuilder builder) {
+  protected CollaboratorVariableVariableValueField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -74,27 +73,25 @@ public class CollaboratorVariableVariableValueField extends SerializableObject {
         + "}";
   }
 
-  public static class CollaboratorVariableVariableValueFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<CollaboratorVariableVariableValueTypeField> type;
 
     protected final String id;
 
-    public CollaboratorVariableVariableValueFieldBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<CollaboratorVariableVariableValueTypeField>(
               CollaboratorVariableVariableValueTypeField.USER);
     }
 
-    public CollaboratorVariableVariableValueFieldBuilder type(
-        CollaboratorVariableVariableValueTypeField type) {
+    public Builder type(CollaboratorVariableVariableValueTypeField type) {
       this.type = new EnumWrapper<CollaboratorVariableVariableValueTypeField>(type);
       return this;
     }
 
-    public CollaboratorVariableVariableValueFieldBuilder type(
-        EnumWrapper<CollaboratorVariableVariableValueTypeField> type) {
+    public Builder type(EnumWrapper<CollaboratorVariableVariableValueTypeField> type) {
       this.type = type;
       return this;
     }

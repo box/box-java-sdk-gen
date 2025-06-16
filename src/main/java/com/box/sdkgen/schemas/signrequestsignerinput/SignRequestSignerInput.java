@@ -38,7 +38,7 @@ public class SignRequestSignerInput extends SignRequestPrefillTag {
     this.pageIndex = pageIndex;
   }
 
-  protected SignRequestSignerInput(SignRequestSignerInputBuilder builder) {
+  protected SignRequestSignerInput(Builder builder) {
     super(builder);
     this.type = builder.type;
     this.contentType = builder.contentType;
@@ -124,7 +124,7 @@ public class SignRequestSignerInput extends SignRequestPrefillTag {
         + "}";
   }
 
-  public static class SignRequestSignerInputBuilder extends SignRequestPrefillTagBuilder {
+  public static class Builder extends SignRequestPrefillTag.Builder {
 
     protected EnumWrapper<SignRequestSignerInputTypeField> type;
 
@@ -134,58 +134,56 @@ public class SignRequestSignerInput extends SignRequestPrefillTag {
 
     protected Boolean readOnly;
 
-    public SignRequestSignerInputBuilder(long pageIndex) {
+    public Builder(long pageIndex) {
       super();
       this.pageIndex = pageIndex;
     }
 
-    public SignRequestSignerInputBuilder type(SignRequestSignerInputTypeField type) {
+    public Builder type(SignRequestSignerInputTypeField type) {
       this.type = new EnumWrapper<SignRequestSignerInputTypeField>(type);
       return this;
     }
 
-    public SignRequestSignerInputBuilder type(EnumWrapper<SignRequestSignerInputTypeField> type) {
+    public Builder type(EnumWrapper<SignRequestSignerInputTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public SignRequestSignerInputBuilder contentType(
-        SignRequestSignerInputContentTypeField contentType) {
+    public Builder contentType(SignRequestSignerInputContentTypeField contentType) {
       this.contentType = new EnumWrapper<SignRequestSignerInputContentTypeField>(contentType);
       return this;
     }
 
-    public SignRequestSignerInputBuilder contentType(
-        EnumWrapper<SignRequestSignerInputContentTypeField> contentType) {
+    public Builder contentType(EnumWrapper<SignRequestSignerInputContentTypeField> contentType) {
       this.contentType = contentType;
       return this;
     }
 
-    public SignRequestSignerInputBuilder readOnly(Boolean readOnly) {
+    public Builder readOnly(Boolean readOnly) {
       this.readOnly = readOnly;
       return this;
     }
 
     @Override
-    public SignRequestSignerInputBuilder documentTagId(String documentTagId) {
+    public Builder documentTagId(String documentTagId) {
       this.documentTagId = documentTagId;
       return this;
     }
 
     @Override
-    public SignRequestSignerInputBuilder textValue(String textValue) {
+    public Builder textValue(String textValue) {
       this.textValue = textValue;
       return this;
     }
 
     @Override
-    public SignRequestSignerInputBuilder checkboxValue(Boolean checkboxValue) {
+    public Builder checkboxValue(Boolean checkboxValue) {
       this.checkboxValue = checkboxValue;
       return this;
     }
 
     @Override
-    public SignRequestSignerInputBuilder dateValue(Date dateValue) {
+    public Builder dateValue(Date dateValue) {
       this.dateValue = dateValue;
       return this;
     }
