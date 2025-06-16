@@ -64,7 +64,7 @@ client.getShieldInformationBarrierSegmentRestrictions().deleteShieldInformationB
 
 This function returns a value of type `void`.
 
-Empty body in response
+Empty body in response.
 
 
 ## List shield information barrier segment restrictions

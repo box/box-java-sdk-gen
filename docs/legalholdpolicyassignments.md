@@ -82,7 +82,7 @@ client.getLegalHoldPolicyAssignments().getLegalHoldPolicyAssignmentById(legalHol
 ### Arguments
 
 - legalHoldPolicyAssignmentId `String`
-  - The ID of the legal hold policy assignment Example: "753465"
+  - The ID of the legal hold policy assignment. Example: "753465"
 - headers `GetLegalHoldPolicyAssignmentByIdHeaders`
   - Headers of getLegalHoldPolicyAssignmentById method
 
@@ -114,7 +114,7 @@ client.getLegalHoldPolicyAssignments().deleteLegalHoldPolicyAssignmentById(legal
 ### Arguments
 
 - legalHoldPolicyAssignmentId `String`
-  - The ID of the legal hold policy assignment Example: "753465"
+  - The ID of the legal hold policy assignment. Example: "753465"
 - headers `DeleteLegalHoldPolicyAssignmentByIdHeaders`
   - Headers of deleteLegalHoldPolicyAssignmentById method
 
@@ -162,7 +162,7 @@ client.getLegalHoldPolicyAssignments().getLegalHoldPolicyAssignmentFileOnHold(le
 ### Arguments
 
 - legalHoldPolicyAssignmentId `String`
-  - The ID of the legal hold policy assignment Example: "753465"
+  - The ID of the legal hold policy assignment. Example: "753465"
 - queryParams `GetLegalHoldPolicyAssignmentFileOnHoldQueryParams`
   - Query parameters of getLegalHoldPolicyAssignmentFileOnHold method
 - headers `GetLegalHoldPolicyAssignmentFileOnHoldHeaders`

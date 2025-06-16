@@ -100,7 +100,7 @@ client.getGroups().getGroupById(group.getId(), new GetGroupByIdQueryParams.Build
 
 This function returns a value of type `GroupFull`.
 
-Returns the group object
+Returns the group object.
 
 
 ## Update group
