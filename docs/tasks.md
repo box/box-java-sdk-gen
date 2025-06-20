@@ -128,7 +128,7 @@ client.getTasks().updateTaskById(task.getId(), new UpdateTaskByIdRequestBody.Bui
 
 This function returns a value of type `Task`.
 
-Returns the updated task object
+Returns the updated task object.
 
 
 ## Remove task
