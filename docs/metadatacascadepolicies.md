@@ -35,7 +35,7 @@ client.getMetadataCascadePolicies().getMetadataCascadePolicies(new GetMetadataCa
 
 This function returns a value of type `MetadataCascadePolicies`.
 
-Returns a list of metadata cascade policies
+Returns a list of metadata cascade policies.
 
 
 ## Create metadata cascade policy
@@ -69,7 +69,7 @@ client.getMetadataCascadePolicies().createMetadataCascadePolicy(new CreateMetada
 
 This function returns a value of type `MetadataCascadePolicy`.
 
-Returns a new of metadata cascade policy
+Returns a new of metadata cascade policy.
 
 
 ## Get metadata cascade policy
@@ -98,7 +98,7 @@ client.getMetadataCascadePolicies().getMetadataCascadePolicyById(cascadePolicyId
 
 This function returns a value of type `MetadataCascadePolicy`.
 
-Returns a metadata cascade policy
+Returns a metadata cascade policy.
 
 
 ## Remove metadata cascade policy

@@ -83,7 +83,7 @@ client.getLegalHoldPolicies().getLegalHoldPolicyById(legalHoldPolicyId)
 ### Arguments
 
 - legalHoldPolicyId `String`
-  - The ID of the legal hold policy Example: "324432"
+  - The ID of the legal hold policy. Example: "324432"
 - headers `GetLegalHoldPolicyByIdHeaders`
   - Headers of getLegalHoldPolicyById method
 
@@ -112,7 +112,7 @@ client.getLegalHoldPolicies().updateLegalHoldPolicyById(legalHoldPolicyId, new U
 ### Arguments
 
 - legalHoldPolicyId `String`
-  - The ID of the legal hold policy Example: "324432"
+  - The ID of the legal hold policy. Example: "324432"
 - requestBody `UpdateLegalHoldPolicyByIdRequestBody`
   - Request body of updateLegalHoldPolicyById method
 - headers `UpdateLegalHoldPolicyByIdHeaders`
@@ -146,7 +146,7 @@ client.getLegalHoldPolicies().deleteLegalHoldPolicyById(legalHoldPolicy.getId())
 ### Arguments
 
 - legalHoldPolicyId `String`
-  - The ID of the legal hold policy Example: "324432"
+  - The ID of the legal hold policy. Example: "324432"
 - headers `DeleteLegalHoldPolicyByIdHeaders`
   - Headers of deleteLegalHoldPolicyById method
 

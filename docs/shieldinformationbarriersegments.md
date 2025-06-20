@@ -63,7 +63,7 @@ client.getShieldInformationBarrierSegments().deleteShieldInformationBarrierSegme
 
 This function returns a value of type `void`.
 
-Empty body in response
+Empty body in response.
 
 
 ## Update shield information barrier segment with specified ID

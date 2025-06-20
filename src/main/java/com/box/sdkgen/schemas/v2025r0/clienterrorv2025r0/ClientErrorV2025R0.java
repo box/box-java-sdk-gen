@@ -5,6 +5,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Map;
 import java.util.Objects;
 
 public class ClientErrorV2025R0 extends SerializableObject {
@@ -24,7 +25,7 @@ public class ClientErrorV2025R0 extends SerializableObject {
   protected String message;
 
   @JsonProperty("context_info")
-  protected ClientErrorV2025R0ContextInfoField contextInfo;
+  protected Map<String, Object> contextInfo;
 
   @JsonProperty("help_url")
   protected String helpUrl;
@@ -63,7 +64,7 @@ public class ClientErrorV2025R0 extends SerializableObject {
     return message;
   }
 
-  public ClientErrorV2025R0ContextInfoField getContextInfo() {
+  public Map<String, Object> getContextInfo() {
     return contextInfo;
   }
 
@@ -141,7 +142,7 @@ public class ClientErrorV2025R0 extends SerializableObject {
 
     protected String message;
 
-    protected ClientErrorV2025R0ContextInfoField contextInfo;
+    protected Map<String, Object> contextInfo;
 
     protected String helpUrl;
 
@@ -177,7 +178,7 @@ public class ClientErrorV2025R0 extends SerializableObject {
       return this;
     }
 
-    public Builder contextInfo(ClientErrorV2025R0ContextInfoField contextInfo) {
+    public Builder contextInfo(Map<String, Object> contextInfo) {
       this.contextInfo = contextInfo;
       return this;
     }
