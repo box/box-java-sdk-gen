@@ -39,7 +39,7 @@ userClient.getIntegrationMappings().getSlackIntegrationMapping()
 
 This function returns a value of type `IntegrationMappings`.
 
-Returns a collection of integration mappings
+Returns a collection of integration mappings.
 
 
 ## Create Slack integration mapping
@@ -96,7 +96,7 @@ userClient.getIntegrationMappings().updateSlackIntegrationMappingById(slackInteg
 ### Arguments
 
 - integrationMappingId `String`
-  - An ID of an integration mapping Example: "11235432"
+  - An ID of an integration mapping. Example: "11235432"
 - requestBody `UpdateSlackIntegrationMappingByIdRequestBody`
   - Request body of updateSlackIntegrationMappingById method
 - headers `UpdateSlackIntegrationMappingByIdHeaders`
@@ -131,7 +131,7 @@ userClient.getIntegrationMappings().deleteSlackIntegrationMappingById(slackInteg
 ### Arguments
 
 - integrationMappingId `String`
-  - An ID of an integration mapping Example: "11235432"
+  - An ID of an integration mapping. Example: "11235432"
 - headers `DeleteSlackIntegrationMappingByIdHeaders`
   - Headers of deleteSlackIntegrationMappingById method
 
@@ -140,7 +140,7 @@ userClient.getIntegrationMappings().deleteSlackIntegrationMappingById(slackInteg
 
 This function returns a value of type `void`.
 
-Empty body in response
+Empty body in response.
 
 
 ## List Teams integration mappings
@@ -171,7 +171,7 @@ userClient.getIntegrationMappings().getTeamsIntegrationMapping()
 
 This function returns a value of type `IntegrationMappingsTeams`.
 
-Returns a collection of integration mappings
+Returns a collection of integration mappings.
 
 
 ## Create Teams integration mapping
@@ -226,7 +226,7 @@ userClient.getIntegrationMappings().updateTeamsIntegrationMappingById(integratio
 ### Arguments
 
 - integrationMappingId `String`
-  - An ID of an integration mapping Example: "11235432"
+  - An ID of an integration mapping. Example: "11235432"
 - requestBody `UpdateTeamsIntegrationMappingByIdRequestBody`
   - Request body of updateTeamsIntegrationMappingById method
 - headers `UpdateTeamsIntegrationMappingByIdHeaders`
@@ -259,7 +259,7 @@ userClient.getIntegrationMappings().deleteTeamsIntegrationMappingById(integratio
 ### Arguments
 
 - integrationMappingId `String`
-  - An ID of an integration mapping Example: "11235432"
+  - An ID of an integration mapping. Example: "11235432"
 - headers `DeleteTeamsIntegrationMappingByIdHeaders`
   - Headers of deleteTeamsIntegrationMappingById method
 
@@ -268,6 +268,6 @@ userClient.getIntegrationMappings().deleteTeamsIntegrationMappingById(integratio
 
 This function returns a value of type `void`.
 
-Empty body in response
+Empty body in response.
 
 
