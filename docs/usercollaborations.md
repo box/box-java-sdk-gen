@@ -23,7 +23,7 @@ client.getUserCollaborations().getCollaborationById(collaborationId)
 ### Arguments
 
 - collaborationId `String`
-  - The ID of the collaboration Example: "1234"
+  - The ID of the collaboration. Example: "1234"
 - queryParams `GetCollaborationByIdQueryParams`
   - Query parameters of getCollaborationById method
 - headers `GetCollaborationByIdHeaders`
@@ -56,7 +56,7 @@ client.getUserCollaborations().updateCollaborationById(collaborationId, new Upda
 ### Arguments
 
 - collaborationId `String`
-  - The ID of the collaboration Example: "1234"
+  - The ID of the collaboration. Example: "1234"
 - requestBody `UpdateCollaborationByIdRequestBody`
   - Request body of updateCollaborationById method
 - headers `UpdateCollaborationByIdHeaders`
@@ -89,7 +89,7 @@ client.getUserCollaborations().deleteCollaborationById(collaborationId)
 ### Arguments
 
 - collaborationId `String`
-  - The ID of the collaboration Example: "1234"
+  - The ID of the collaboration. Example: "1234"
 - headers `DeleteCollaborationByIdHeaders`
   - Headers of deleteCollaborationById method
 
