@@ -13,7 +13,7 @@ public class ConflictError extends ClientError {
     super();
   }
 
-  protected ConflictError(ConflictErrorBuilder builder) {
+  protected ConflictError(Builder builder) {
     super(builder);
   }
 
@@ -73,58 +73,58 @@ public class ConflictError extends ClientError {
         + "}";
   }
 
-  public static class ConflictErrorBuilder extends ClientErrorBuilder {
+  public static class Builder extends ClientError.Builder {
 
     @Override
-    public ConflictErrorBuilder type(ClientErrorTypeField type) {
+    public Builder type(ClientErrorTypeField type) {
       this.type = new EnumWrapper<ClientErrorTypeField>(type);
       return this;
     }
 
     @Override
-    public ConflictErrorBuilder type(EnumWrapper<ClientErrorTypeField> type) {
+    public Builder type(EnumWrapper<ClientErrorTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public ConflictErrorBuilder status(Integer status) {
+    public Builder status(Integer status) {
       this.status = status;
       return this;
     }
 
     @Override
-    public ConflictErrorBuilder code(ClientErrorCodeField code) {
+    public Builder code(ClientErrorCodeField code) {
       this.code = new EnumWrapper<ClientErrorCodeField>(code);
       return this;
     }
 
     @Override
-    public ConflictErrorBuilder code(EnumWrapper<ClientErrorCodeField> code) {
+    public Builder code(EnumWrapper<ClientErrorCodeField> code) {
       this.code = code;
       return this;
     }
 
     @Override
-    public ConflictErrorBuilder message(String message) {
+    public Builder message(String message) {
       this.message = message;
       return this;
     }
 
     @Override
-    public ConflictErrorBuilder contextInfo(Map<String, Object> contextInfo) {
+    public Builder contextInfo(Map<String, Object> contextInfo) {
       this.contextInfo = contextInfo;
       return this;
     }
 
     @Override
-    public ConflictErrorBuilder helpUrl(String helpUrl) {
+    public Builder helpUrl(String helpUrl) {
       this.helpUrl = helpUrl;
       return this;
     }
 
     @Override
-    public ConflictErrorBuilder requestId(String requestId) {
+    public Builder requestId(String requestId) {
       this.requestId = requestId;
       return this;
     }

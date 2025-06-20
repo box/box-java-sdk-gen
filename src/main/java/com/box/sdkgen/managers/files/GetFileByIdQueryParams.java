@@ -8,7 +8,7 @@ public class GetFileByIdQueryParams {
 
   public GetFileByIdQueryParams() {}
 
-  protected GetFileByIdQueryParams(GetFileByIdQueryParamsBuilder builder) {
+  protected GetFileByIdQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class GetFileByIdQueryParams {
     return fields;
   }
 
-  public static class GetFileByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public GetFileByIdQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

@@ -12,8 +12,7 @@ public class CreateShieldInformationBarrierReportHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CreateShieldInformationBarrierReportHeaders(
-      CreateShieldInformationBarrierReportHeadersBuilder builder) {
+  protected CreateShieldInformationBarrierReportHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class CreateShieldInformationBarrierReportHeaders {
     return extraHeaders;
   }
 
-  public static class CreateShieldInformationBarrierReportHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CreateShieldInformationBarrierReportHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CreateShieldInformationBarrierReportHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

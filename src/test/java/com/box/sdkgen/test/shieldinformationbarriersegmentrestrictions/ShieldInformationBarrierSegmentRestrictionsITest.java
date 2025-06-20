@@ -35,9 +35,8 @@ public class ShieldInformationBarrierSegmentRestrictionsITest {
         client
             .getShieldInformationBarrierSegments()
             .createShieldInformationBarrierSegment(
-                new CreateShieldInformationBarrierSegmentRequestBody
-                        .CreateShieldInformationBarrierSegmentRequestBodyBuilder(
-                        new ShieldInformationBarrierBase.ShieldInformationBarrierBaseBuilder()
+                new CreateShieldInformationBarrierSegmentRequestBody.Builder(
+                        new ShieldInformationBarrierBase.Builder()
                             .id(barrierId)
                             .type(ShieldInformationBarrierBaseTypeField.SHIELD_INFORMATION_BARRIER)
                             .build(),
@@ -49,9 +48,8 @@ public class ShieldInformationBarrierSegmentRestrictionsITest {
         client
             .getShieldInformationBarrierSegments()
             .createShieldInformationBarrierSegment(
-                new CreateShieldInformationBarrierSegmentRequestBody
-                        .CreateShieldInformationBarrierSegmentRequestBodyBuilder(
-                        new ShieldInformationBarrierBase.ShieldInformationBarrierBaseBuilder()
+                new CreateShieldInformationBarrierSegmentRequestBody.Builder(
+                        new ShieldInformationBarrierBase.Builder()
                             .id(barrierId)
                             .type(ShieldInformationBarrierBaseTypeField.SHIELD_INFORMATION_BARRIER)
                             .build(),
@@ -63,17 +61,16 @@ public class ShieldInformationBarrierSegmentRestrictionsITest {
         client
             .getShieldInformationBarrierSegmentRestrictions()
             .createShieldInformationBarrierSegmentRestriction(
-                new CreateShieldInformationBarrierSegmentRestrictionRequestBody
-                        .CreateShieldInformationBarrierSegmentRestrictionRequestBodyBuilder(
+                new CreateShieldInformationBarrierSegmentRestrictionRequestBody.Builder(
                         new CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentField
-                                .CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentFieldBuilder()
+                                .Builder()
                             .id(segmentId)
                             .type(
                                 CreateShieldInformationBarrierSegmentRestrictionRequestBodyShieldInformationBarrierSegmentTypeField
                                     .SHIELD_INFORMATION_BARRIER_SEGMENT)
                             .build(),
                         new CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentField
-                                .CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentFieldBuilder()
+                                .Builder()
                             .id(segmentToRestrictId)
                             .type(
                                 CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentTypeField

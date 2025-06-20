@@ -28,7 +28,7 @@ public class FolderLocksITest {
         client
             .getFolderLocks()
             .createFolderLock(
-                new CreateFolderLockRequestBody.CreateFolderLockRequestBodyBuilder(
+                new CreateFolderLockRequestBody.Builder(
                         new CreateFolderLockRequestBodyFolderField("folder", folder.getId()))
                     .lockedOperations(
                         new CreateFolderLockRequestBodyLockedOperationsField(true, true))

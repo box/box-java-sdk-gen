@@ -12,7 +12,7 @@ public class GetTrashedFileByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetTrashedFileByIdHeaders(GetTrashedFileByIdHeadersBuilder builder) {
+  protected GetTrashedFileByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetTrashedFileByIdHeaders {
     return extraHeaders;
   }
 
-  public static class GetTrashedFileByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetTrashedFileByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetTrashedFileByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

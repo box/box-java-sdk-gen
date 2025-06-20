@@ -13,7 +13,7 @@ public class TemplateSignerInputDimensionsField extends SerializableObject {
     super();
   }
 
-  protected TemplateSignerInputDimensionsField(TemplateSignerInputDimensionsFieldBuilder builder) {
+  protected TemplateSignerInputDimensionsField(Builder builder) {
     super();
     this.width = builder.width;
     this.height = builder.height;
@@ -57,18 +57,18 @@ public class TemplateSignerInputDimensionsField extends SerializableObject {
         + "}";
   }
 
-  public static class TemplateSignerInputDimensionsFieldBuilder {
+  public static class Builder {
 
     protected Double width;
 
     protected Double height;
 
-    public TemplateSignerInputDimensionsFieldBuilder width(Double width) {
+    public Builder width(Double width) {
       this.width = width;
       return this;
     }
 
-    public TemplateSignerInputDimensionsFieldBuilder height(Double height) {
+    public Builder height(Double height) {
       this.height = height;
       return this;
     }

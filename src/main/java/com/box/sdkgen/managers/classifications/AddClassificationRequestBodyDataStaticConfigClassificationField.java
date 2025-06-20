@@ -16,8 +16,7 @@ public class AddClassificationRequestBodyDataStaticConfigClassificationField
     super();
   }
 
-  protected AddClassificationRequestBodyDataStaticConfigClassificationField(
-      AddClassificationRequestBodyDataStaticConfigClassificationFieldBuilder builder) {
+  protected AddClassificationRequestBodyDataStaticConfigClassificationField(Builder builder) {
     super();
     this.classificationDefinition = builder.classificationDefinition;
     this.colorId = builder.colorId;
@@ -63,20 +62,18 @@ public class AddClassificationRequestBodyDataStaticConfigClassificationField
         + "}";
   }
 
-  public static class AddClassificationRequestBodyDataStaticConfigClassificationFieldBuilder {
+  public static class Builder {
 
     protected String classificationDefinition;
 
     protected Long colorId;
 
-    public AddClassificationRequestBodyDataStaticConfigClassificationFieldBuilder
-        classificationDefinition(String classificationDefinition) {
+    public Builder classificationDefinition(String classificationDefinition) {
       this.classificationDefinition = classificationDefinition;
       return this;
     }
 
-    public AddClassificationRequestBodyDataStaticConfigClassificationFieldBuilder colorId(
-        Long colorId) {
+    public Builder colorId(Long colorId) {
       this.colorId = colorId;
       return this;
     }

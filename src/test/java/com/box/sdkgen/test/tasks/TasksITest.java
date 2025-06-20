@@ -43,8 +43,8 @@ public class TasksITest {
         client
             .getTasks()
             .createTask(
-                new CreateTaskRequestBody.CreateTaskRequestBodyBuilder(
-                        new CreateTaskRequestBodyItemField.CreateTaskRequestBodyItemFieldBuilder()
+                new CreateTaskRequestBody.Builder(
+                        new CreateTaskRequestBodyItemField.Builder()
                             .id(file.getId())
                             .type(CreateTaskRequestBodyItemTypeField.FILE)
                             .build())
@@ -65,9 +65,7 @@ public class TasksITest {
             .getTasks()
             .updateTaskById(
                 task.getId(),
-                new UpdateTaskByIdRequestBody.UpdateTaskByIdRequestBodyBuilder()
-                    .message("updated message")
-                    .build());
+                new UpdateTaskByIdRequestBody.Builder().message("updated message").build());
     assert updatedTask.getMessage().equals("updated message");
     client.getTasks().deleteTaskById(task.getId());
     client.getFiles().deleteFileById(file.getId());

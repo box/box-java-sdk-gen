@@ -12,7 +12,7 @@ public class UpdateSharedLinkOnFileHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UpdateSharedLinkOnFileHeaders(UpdateSharedLinkOnFileHeadersBuilder builder) {
+  protected UpdateSharedLinkOnFileHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class UpdateSharedLinkOnFileHeaders {
     return extraHeaders;
   }
 
-  public static class UpdateSharedLinkOnFileHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public UpdateSharedLinkOnFileHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public UpdateSharedLinkOnFileHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

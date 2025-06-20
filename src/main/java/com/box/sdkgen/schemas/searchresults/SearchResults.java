@@ -30,7 +30,7 @@ public class SearchResults extends SerializableObject {
         new EnumWrapper<SearchResultsTypeField>(SearchResultsTypeField.SEARCH_RESULTS_ITEMS);
   }
 
-  protected SearchResults(SearchResultsBuilder builder) {
+  protected SearchResults(Builder builder) {
     super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
@@ -105,7 +105,7 @@ public class SearchResults extends SerializableObject {
         + "}";
   }
 
-  public static class SearchResultsBuilder {
+  public static class Builder {
 
     protected Long totalCount;
 
@@ -117,37 +117,37 @@ public class SearchResults extends SerializableObject {
 
     protected List<FileFullOrFolderFullOrWebLink> entries;
 
-    public SearchResultsBuilder() {
+    public Builder() {
       this.type =
           new EnumWrapper<SearchResultsTypeField>(SearchResultsTypeField.SEARCH_RESULTS_ITEMS);
     }
 
-    public SearchResultsBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public SearchResultsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public SearchResultsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public SearchResultsBuilder type(SearchResultsTypeField type) {
+    public Builder type(SearchResultsTypeField type) {
       this.type = new EnumWrapper<SearchResultsTypeField>(type);
       return this;
     }
 
-    public SearchResultsBuilder type(EnumWrapper<SearchResultsTypeField> type) {
+    public Builder type(EnumWrapper<SearchResultsTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public SearchResultsBuilder entries(List<FileFullOrFolderFullOrWebLink> entries) {
+    public Builder entries(List<FileFullOrFolderFullOrWebLink> entries) {
       this.entries = entries;
       return this;
     }

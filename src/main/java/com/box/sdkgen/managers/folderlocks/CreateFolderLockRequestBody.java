@@ -17,7 +17,7 @@ public class CreateFolderLockRequestBody extends SerializableObject {
     this.folder = folder;
   }
 
-  protected CreateFolderLockRequestBody(CreateFolderLockRequestBodyBuilder builder) {
+  protected CreateFolderLockRequestBody(Builder builder) {
     super();
     this.lockedOperations = builder.lockedOperations;
     this.folder = builder.folder;
@@ -62,17 +62,17 @@ public class CreateFolderLockRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class CreateFolderLockRequestBodyBuilder {
+  public static class Builder {
 
     protected CreateFolderLockRequestBodyLockedOperationsField lockedOperations;
 
     protected final CreateFolderLockRequestBodyFolderField folder;
 
-    public CreateFolderLockRequestBodyBuilder(CreateFolderLockRequestBodyFolderField folder) {
+    public Builder(CreateFolderLockRequestBodyFolderField folder) {
       this.folder = folder;
     }
 
-    public CreateFolderLockRequestBodyBuilder lockedOperations(
+    public Builder lockedOperations(
         CreateFolderLockRequestBodyLockedOperationsField lockedOperations) {
       this.lockedOperations = lockedOperations;
       return this;

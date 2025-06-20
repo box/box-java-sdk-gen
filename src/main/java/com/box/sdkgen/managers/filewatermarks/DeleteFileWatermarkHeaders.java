@@ -12,7 +12,7 @@ public class DeleteFileWatermarkHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteFileWatermarkHeaders(DeleteFileWatermarkHeadersBuilder builder) {
+  protected DeleteFileWatermarkHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class DeleteFileWatermarkHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteFileWatermarkHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteFileWatermarkHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteFileWatermarkHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

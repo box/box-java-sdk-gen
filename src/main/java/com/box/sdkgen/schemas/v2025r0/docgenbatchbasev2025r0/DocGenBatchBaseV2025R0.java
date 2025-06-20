@@ -25,7 +25,7 @@ public class DocGenBatchBaseV2025R0 extends SerializableObject {
             DocGenBatchBaseV2025R0TypeField.DOCGEN_BATCH);
   }
 
-  protected DocGenBatchBaseV2025R0(DocGenBatchBaseV2025R0Builder builder) {
+  protected DocGenBatchBaseV2025R0(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -61,25 +61,25 @@ public class DocGenBatchBaseV2025R0 extends SerializableObject {
     return "DocGenBatchBaseV2025R0{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class DocGenBatchBaseV2025R0Builder {
+  public static class Builder {
 
     protected final String id;
 
     protected EnumWrapper<DocGenBatchBaseV2025R0TypeField> type;
 
-    public DocGenBatchBaseV2025R0Builder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<DocGenBatchBaseV2025R0TypeField>(
               DocGenBatchBaseV2025R0TypeField.DOCGEN_BATCH);
     }
 
-    public DocGenBatchBaseV2025R0Builder type(DocGenBatchBaseV2025R0TypeField type) {
+    public Builder type(DocGenBatchBaseV2025R0TypeField type) {
       this.type = new EnumWrapper<DocGenBatchBaseV2025R0TypeField>(type);
       return this;
     }
 
-    public DocGenBatchBaseV2025R0Builder type(EnumWrapper<DocGenBatchBaseV2025R0TypeField> type) {
+    public Builder type(EnumWrapper<DocGenBatchBaseV2025R0TypeField> type) {
       this.type = type;
       return this;
     }

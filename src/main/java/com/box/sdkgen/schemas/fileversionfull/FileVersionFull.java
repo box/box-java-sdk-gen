@@ -17,7 +17,7 @@ public class FileVersionFull extends FileVersion {
     super(id);
   }
 
-  protected FileVersionFull(FileVersionFullBuilder builder) {
+  protected FileVersionFull(Builder builder) {
     super(builder);
     this.versionNumber = builder.versionNumber;
   }
@@ -137,99 +137,99 @@ public class FileVersionFull extends FileVersion {
         + "}";
   }
 
-  public static class FileVersionFullBuilder extends FileVersionBuilder {
+  public static class Builder extends FileVersion.Builder {
 
     protected String versionNumber;
 
-    public FileVersionFullBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public FileVersionFullBuilder versionNumber(String versionNumber) {
+    public Builder versionNumber(String versionNumber) {
       this.versionNumber = versionNumber;
       return this;
     }
 
     @Override
-    public FileVersionFullBuilder type(FileVersionBaseTypeField type) {
+    public Builder type(FileVersionBaseTypeField type) {
       this.type = new EnumWrapper<FileVersionBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FileVersionFullBuilder type(EnumWrapper<FileVersionBaseTypeField> type) {
+    public Builder type(EnumWrapper<FileVersionBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public FileVersionFullBuilder sha1(String sha1) {
+    public Builder sha1(String sha1) {
       this.sha1 = sha1;
       return this;
     }
 
     @Override
-    public FileVersionFullBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public FileVersionFullBuilder size(Long size) {
+    public Builder size(Long size) {
       this.size = size;
       return this;
     }
 
     @Override
-    public FileVersionFullBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
     @Override
-    public FileVersionFullBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
     @Override
-    public FileVersionFullBuilder modifiedBy(UserMini modifiedBy) {
+    public Builder modifiedBy(UserMini modifiedBy) {
       this.modifiedBy = modifiedBy;
       return this;
     }
 
     @Override
-    public FileVersionFullBuilder trashedAt(Date trashedAt) {
+    public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
     @Override
-    public FileVersionFullBuilder trashedBy(UserMini trashedBy) {
+    public Builder trashedBy(UserMini trashedBy) {
       this.trashedBy = trashedBy;
       return this;
     }
 
     @Override
-    public FileVersionFullBuilder restoredAt(Date restoredAt) {
+    public Builder restoredAt(Date restoredAt) {
       this.restoredAt = restoredAt;
       return this;
     }
 
     @Override
-    public FileVersionFullBuilder restoredBy(UserMini restoredBy) {
+    public Builder restoredBy(UserMini restoredBy) {
       this.restoredBy = restoredBy;
       return this;
     }
 
     @Override
-    public FileVersionFullBuilder purgedAt(Date purgedAt) {
+    public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
     @Override
-    public FileVersionFullBuilder uploaderDisplayName(String uploaderDisplayName) {
+    public Builder uploaderDisplayName(String uploaderDisplayName) {
       this.uploaderDisplayName = uploaderDisplayName;
       return this;
     }

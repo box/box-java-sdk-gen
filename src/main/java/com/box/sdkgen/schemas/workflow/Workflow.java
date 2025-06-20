@@ -14,7 +14,7 @@ public class Workflow extends WorkflowMini {
     super();
   }
 
-  protected Workflow(WorkflowBuilder builder) {
+  protected Workflow(Builder builder) {
     super(builder);
     this.flows = builder.flows;
   }
@@ -74,47 +74,47 @@ public class Workflow extends WorkflowMini {
         + "}";
   }
 
-  public static class WorkflowBuilder extends WorkflowMiniBuilder {
+  public static class Builder extends WorkflowMini.Builder {
 
     protected List<WorkflowFlowsField> flows;
 
-    public WorkflowBuilder flows(List<WorkflowFlowsField> flows) {
+    public Builder flows(List<WorkflowFlowsField> flows) {
       this.flows = flows;
       return this;
     }
 
     @Override
-    public WorkflowBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
     @Override
-    public WorkflowBuilder type(WorkflowMiniTypeField type) {
+    public Builder type(WorkflowMiniTypeField type) {
       this.type = new EnumWrapper<WorkflowMiniTypeField>(type);
       return this;
     }
 
     @Override
-    public WorkflowBuilder type(EnumWrapper<WorkflowMiniTypeField> type) {
+    public Builder type(EnumWrapper<WorkflowMiniTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public WorkflowBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public WorkflowBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
     @Override
-    public WorkflowBuilder isEnabled(Boolean isEnabled) {
+    public Builder isEnabled(Boolean isEnabled) {
       this.isEnabled = isEnabled;
       return this;
     }

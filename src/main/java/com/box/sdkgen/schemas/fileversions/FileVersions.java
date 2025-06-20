@@ -23,7 +23,7 @@ public class FileVersions extends SerializableObject {
     super();
   }
 
-  protected FileVersions(FileVersionsBuilder builder) {
+  protected FileVersions(Builder builder) {
     super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
@@ -98,7 +98,7 @@ public class FileVersions extends SerializableObject {
         + "}";
   }
 
-  public static class FileVersionsBuilder {
+  public static class Builder {
 
     protected Long totalCount;
 
@@ -110,27 +110,27 @@ public class FileVersions extends SerializableObject {
 
     protected List<FileVersionFull> entries;
 
-    public FileVersionsBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public FileVersionsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public FileVersionsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public FileVersionsBuilder order(List<FileVersionsOrderField> order) {
+    public Builder order(List<FileVersionsOrderField> order) {
       this.order = order;
       return this;
     }
 
-    public FileVersionsBuilder entries(List<FileVersionFull> entries) {
+    public Builder entries(List<FileVersionFull> entries) {
       this.entries = entries;
       return this;
     }

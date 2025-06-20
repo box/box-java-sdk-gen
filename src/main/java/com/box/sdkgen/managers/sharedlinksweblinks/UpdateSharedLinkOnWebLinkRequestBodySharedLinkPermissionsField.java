@@ -20,8 +20,7 @@ public class UpdateSharedLinkOnWebLinkRequestBodySharedLinkPermissionsField
     super();
   }
 
-  protected UpdateSharedLinkOnWebLinkRequestBodySharedLinkPermissionsField(
-      UpdateSharedLinkOnWebLinkRequestBodySharedLinkPermissionsFieldBuilder builder) {
+  protected UpdateSharedLinkOnWebLinkRequestBodySharedLinkPermissionsField(Builder builder) {
     super();
     this.canDownload = builder.canDownload;
     this.canPreview = builder.canPreview;
@@ -77,7 +76,7 @@ public class UpdateSharedLinkOnWebLinkRequestBodySharedLinkPermissionsField
         + "}";
   }
 
-  public static class UpdateSharedLinkOnWebLinkRequestBodySharedLinkPermissionsFieldBuilder {
+  public static class Builder {
 
     protected Boolean canDownload;
 
@@ -85,20 +84,17 @@ public class UpdateSharedLinkOnWebLinkRequestBodySharedLinkPermissionsField
 
     protected Boolean canEdit;
 
-    public UpdateSharedLinkOnWebLinkRequestBodySharedLinkPermissionsFieldBuilder canDownload(
-        Boolean canDownload) {
+    public Builder canDownload(Boolean canDownload) {
       this.canDownload = canDownload;
       return this;
     }
 
-    public UpdateSharedLinkOnWebLinkRequestBodySharedLinkPermissionsFieldBuilder canPreview(
-        Boolean canPreview) {
+    public Builder canPreview(Boolean canPreview) {
       this.canPreview = canPreview;
       return this;
     }
 
-    public UpdateSharedLinkOnWebLinkRequestBodySharedLinkPermissionsFieldBuilder canEdit(
-        Boolean canEdit) {
+    public Builder canEdit(Boolean canEdit) {
       this.canEdit = canEdit;
       return this;
     }

@@ -17,7 +17,7 @@ public class FolderMini extends FolderBase {
     super(id);
   }
 
-  protected FolderMini(FolderMiniBuilder builder) {
+  protected FolderMini(Builder builder) {
     super(builder);
     this.sequenceId = builder.sequenceId;
     this.name = builder.name;
@@ -77,40 +77,40 @@ public class FolderMini extends FolderBase {
         + "}";
   }
 
-  public static class FolderMiniBuilder extends FolderBaseBuilder {
+  public static class Builder extends FolderBase.Builder {
 
     protected String sequenceId;
 
     protected String name;
 
-    public FolderMiniBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public FolderMiniBuilder sequenceId(String sequenceId) {
+    public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
       return this;
     }
 
-    public FolderMiniBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public FolderMiniBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
     @Override
-    public FolderMiniBuilder type(FolderBaseTypeField type) {
+    public Builder type(FolderBaseTypeField type) {
       this.type = new EnumWrapper<FolderBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FolderMiniBuilder type(EnumWrapper<FolderBaseTypeField> type) {
+    public Builder type(EnumWrapper<FolderBaseTypeField> type) {
       this.type = type;
       return this;
     }

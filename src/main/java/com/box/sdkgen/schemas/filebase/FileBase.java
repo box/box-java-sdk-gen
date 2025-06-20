@@ -23,7 +23,7 @@ public class FileBase extends SerializableObject {
     this.type = new EnumWrapper<FileBaseTypeField>(FileBaseTypeField.FILE);
   }
 
-  protected FileBase(FileBaseBuilder builder) {
+  protected FileBase(Builder builder) {
     super();
     this.id = builder.id;
     this.etag = builder.etag;
@@ -78,7 +78,7 @@ public class FileBase extends SerializableObject {
         + "}";
   }
 
-  public static class FileBaseBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -86,22 +86,22 @@ public class FileBase extends SerializableObject {
 
     protected EnumWrapper<FileBaseTypeField> type;
 
-    public FileBaseBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type = new EnumWrapper<FileBaseTypeField>(FileBaseTypeField.FILE);
     }
 
-    public FileBaseBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
-    public FileBaseBuilder type(FileBaseTypeField type) {
+    public Builder type(FileBaseTypeField type) {
       this.type = new EnumWrapper<FileBaseTypeField>(type);
       return this;
     }
 
-    public FileBaseBuilder type(EnumWrapper<FileBaseTypeField> type) {
+    public Builder type(EnumWrapper<FileBaseTypeField> type) {
       this.type = type;
       return this;
     }

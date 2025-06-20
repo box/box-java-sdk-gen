@@ -12,7 +12,7 @@ public class CopyFolderHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CopyFolderHeaders(CopyFolderHeadersBuilder builder) {
+  protected CopyFolderHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class CopyFolderHeaders {
     return extraHeaders;
   }
 
-  public static class CopyFolderHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CopyFolderHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CopyFolderHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

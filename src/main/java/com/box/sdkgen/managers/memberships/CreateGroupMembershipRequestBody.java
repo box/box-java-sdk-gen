@@ -35,7 +35,7 @@ public class CreateGroupMembershipRequestBody extends SerializableObject {
     this.group = group;
   }
 
-  protected CreateGroupMembershipRequestBody(CreateGroupMembershipRequestBodyBuilder builder) {
+  protected CreateGroupMembershipRequestBody(Builder builder) {
     super();
     this.user = builder.user;
     this.group = builder.group;
@@ -100,7 +100,7 @@ public class CreateGroupMembershipRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class CreateGroupMembershipRequestBodyBuilder {
+  public static class Builder {
 
     protected final CreateGroupMembershipRequestBodyUserField user;
 
@@ -110,27 +110,24 @@ public class CreateGroupMembershipRequestBody extends SerializableObject {
 
     protected Map<String, Boolean> configurablePermissions;
 
-    public CreateGroupMembershipRequestBodyBuilder(
+    public Builder(
         CreateGroupMembershipRequestBodyUserField user,
         CreateGroupMembershipRequestBodyGroupField group) {
       this.user = user;
       this.group = group;
     }
 
-    public CreateGroupMembershipRequestBodyBuilder role(
-        CreateGroupMembershipRequestBodyRoleField role) {
+    public Builder role(CreateGroupMembershipRequestBodyRoleField role) {
       this.role = new EnumWrapper<CreateGroupMembershipRequestBodyRoleField>(role);
       return this;
     }
 
-    public CreateGroupMembershipRequestBodyBuilder role(
-        EnumWrapper<CreateGroupMembershipRequestBodyRoleField> role) {
+    public Builder role(EnumWrapper<CreateGroupMembershipRequestBodyRoleField> role) {
       this.role = role;
       return this;
     }
 
-    public CreateGroupMembershipRequestBodyBuilder configurablePermissions(
-        Map<String, Boolean> configurablePermissions) {
+    public Builder configurablePermissions(Map<String, Boolean> configurablePermissions) {
       this.configurablePermissions = configurablePermissions;
       return this;
     }

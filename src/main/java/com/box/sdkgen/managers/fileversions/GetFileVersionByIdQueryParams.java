@@ -8,7 +8,7 @@ public class GetFileVersionByIdQueryParams {
 
   public GetFileVersionByIdQueryParams() {}
 
-  protected GetFileVersionByIdQueryParams(GetFileVersionByIdQueryParamsBuilder builder) {
+  protected GetFileVersionByIdQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class GetFileVersionByIdQueryParams {
     return fields;
   }
 
-  public static class GetFileVersionByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public GetFileVersionByIdQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

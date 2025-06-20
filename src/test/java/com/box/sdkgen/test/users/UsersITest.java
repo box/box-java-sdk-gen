@@ -35,7 +35,7 @@ public class UsersITest {
         client
             .getUsers()
             .createUser(
-                new CreateUserRequestBody.CreateUserRequestBodyBuilder(userName)
+                new CreateUserRequestBody.Builder(userName)
                     .login(userLogin)
                     .isPlatformAccessOnly(true)
                     .build());
@@ -48,9 +48,7 @@ public class UsersITest {
             .getUsers()
             .updateUserById(
                 user.getId(),
-                new UpdateUserByIdRequestBody.UpdateUserByIdRequestBodyBuilder()
-                    .name(updatedUserName)
-                    .build());
+                new UpdateUserByIdRequestBody.Builder().name(updatedUserName).build());
     assert updatedUser.getName().equals(updatedUserName);
     client.getUsers().deleteUserById(user.getId());
   }

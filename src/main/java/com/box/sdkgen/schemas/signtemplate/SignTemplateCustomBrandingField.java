@@ -22,7 +22,7 @@ public class SignTemplateCustomBrandingField extends SerializableObject {
     super();
   }
 
-  protected SignTemplateCustomBrandingField(SignTemplateCustomBrandingFieldBuilder builder) {
+  protected SignTemplateCustomBrandingField(Builder builder) {
     super();
     this.companyName = builder.companyName;
     this.logoUri = builder.logoUri;
@@ -87,7 +87,7 @@ public class SignTemplateCustomBrandingField extends SerializableObject {
         + "}";
   }
 
-  public static class SignTemplateCustomBrandingFieldBuilder {
+  public static class Builder {
 
     protected String companyName;
 
@@ -97,22 +97,22 @@ public class SignTemplateCustomBrandingField extends SerializableObject {
 
     protected String emailFooterText;
 
-    public SignTemplateCustomBrandingFieldBuilder companyName(String companyName) {
+    public Builder companyName(String companyName) {
       this.companyName = companyName;
       return this;
     }
 
-    public SignTemplateCustomBrandingFieldBuilder logoUri(String logoUri) {
+    public Builder logoUri(String logoUri) {
       this.logoUri = logoUri;
       return this;
     }
 
-    public SignTemplateCustomBrandingFieldBuilder brandingColor(String brandingColor) {
+    public Builder brandingColor(String brandingColor) {
       this.brandingColor = brandingColor;
       return this;
     }
 
-    public SignTemplateCustomBrandingFieldBuilder emailFooterText(String emailFooterText) {
+    public Builder emailFooterText(String emailFooterText) {
       this.emailFooterText = emailFooterText;
       return this;
     }

@@ -23,8 +23,7 @@ public class CreateShieldInformationBarrierSegmentRequestBody extends Serializab
     this.name = name;
   }
 
-  protected CreateShieldInformationBarrierSegmentRequestBody(
-      CreateShieldInformationBarrierSegmentRequestBodyBuilder builder) {
+  protected CreateShieldInformationBarrierSegmentRequestBody(Builder builder) {
     super();
     this.shieldInformationBarrier = builder.shieldInformationBarrier;
     this.name = builder.name;
@@ -80,7 +79,7 @@ public class CreateShieldInformationBarrierSegmentRequestBody extends Serializab
         + "}";
   }
 
-  public static class CreateShieldInformationBarrierSegmentRequestBodyBuilder {
+  public static class Builder {
 
     protected final ShieldInformationBarrierBase shieldInformationBarrier;
 
@@ -88,13 +87,12 @@ public class CreateShieldInformationBarrierSegmentRequestBody extends Serializab
 
     protected String description;
 
-    public CreateShieldInformationBarrierSegmentRequestBodyBuilder(
-        ShieldInformationBarrierBase shieldInformationBarrier, String name) {
+    public Builder(ShieldInformationBarrierBase shieldInformationBarrier, String name) {
       this.shieldInformationBarrier = shieldInformationBarrier;
       this.name = name;
     }
 
-    public CreateShieldInformationBarrierSegmentRequestBodyBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }

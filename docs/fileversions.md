@@ -173,7 +173,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_versions_current -->
 ```
-client.getFileVersions().promoteFileVersion(file.getId(), new PromoteFileVersionRequestBody.PromoteFileVersionRequestBodyBuilder().id(fileVersions.getEntries().get(0).getId()).type(PromoteFileVersionRequestBodyTypeField.FILE_VERSION).build())
+client.getFileVersions().promoteFileVersion(file.getId(), new PromoteFileVersionRequestBody.Builder().id(fileVersions.getEntries().get(0).getId()).type(PromoteFileVersionRequestBodyTypeField.FILE_VERSION).build())
 ```
 
 ### Arguments

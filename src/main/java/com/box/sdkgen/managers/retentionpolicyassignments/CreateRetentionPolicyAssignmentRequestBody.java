@@ -27,8 +27,7 @@ public class CreateRetentionPolicyAssignmentRequestBody extends SerializableObje
     this.assignTo = assignTo;
   }
 
-  protected CreateRetentionPolicyAssignmentRequestBody(
-      CreateRetentionPolicyAssignmentRequestBodyBuilder builder) {
+  protected CreateRetentionPolicyAssignmentRequestBody(Builder builder) {
     super();
     this.policyId = builder.policyId;
     this.assignTo = builder.assignTo;
@@ -94,7 +93,7 @@ public class CreateRetentionPolicyAssignmentRequestBody extends SerializableObje
         + "}";
   }
 
-  public static class CreateRetentionPolicyAssignmentRequestBodyBuilder {
+  public static class Builder {
 
     protected final String policyId;
 
@@ -104,19 +103,19 @@ public class CreateRetentionPolicyAssignmentRequestBody extends SerializableObje
 
     protected String startDateField;
 
-    public CreateRetentionPolicyAssignmentRequestBodyBuilder(
+    public Builder(
         String policyId, CreateRetentionPolicyAssignmentRequestBodyAssignToField assignTo) {
       this.policyId = policyId;
       this.assignTo = assignTo;
     }
 
-    public CreateRetentionPolicyAssignmentRequestBodyBuilder filterFields(
+    public Builder filterFields(
         List<CreateRetentionPolicyAssignmentRequestBodyFilterFieldsField> filterFields) {
       this.filterFields = filterFields;
       return this;
     }
 
-    public CreateRetentionPolicyAssignmentRequestBodyBuilder startDateField(String startDateField) {
+    public Builder startDateField(String startDateField) {
       this.startDateField = startDateField;
       return this;
     }

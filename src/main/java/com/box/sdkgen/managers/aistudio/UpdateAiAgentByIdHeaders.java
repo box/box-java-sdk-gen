@@ -12,7 +12,7 @@ public class UpdateAiAgentByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UpdateAiAgentByIdHeaders(UpdateAiAgentByIdHeadersBuilder builder) {
+  protected UpdateAiAgentByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class UpdateAiAgentByIdHeaders {
     return extraHeaders;
   }
 
-  public static class UpdateAiAgentByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public UpdateAiAgentByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public UpdateAiAgentByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

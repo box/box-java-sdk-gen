@@ -13,8 +13,7 @@ public class UpdateAllSkillCardsOnFileRequestBodyUsageField extends Serializable
     super();
   }
 
-  protected UpdateAllSkillCardsOnFileRequestBodyUsageField(
-      UpdateAllSkillCardsOnFileRequestBodyUsageFieldBuilder builder) {
+  protected UpdateAllSkillCardsOnFileRequestBodyUsageField(Builder builder) {
     super();
     this.unit = builder.unit;
     this.value = builder.value;
@@ -59,18 +58,18 @@ public class UpdateAllSkillCardsOnFileRequestBodyUsageField extends Serializable
         + "}";
   }
 
-  public static class UpdateAllSkillCardsOnFileRequestBodyUsageFieldBuilder {
+  public static class Builder {
 
     protected String unit;
 
     protected Double value;
 
-    public UpdateAllSkillCardsOnFileRequestBodyUsageFieldBuilder unit(String unit) {
+    public Builder unit(String unit) {
       this.unit = unit;
       return this;
     }
 
-    public UpdateAllSkillCardsOnFileRequestBodyUsageFieldBuilder value(Double value) {
+    public Builder value(Double value) {
       this.value = value;
       return this;
     }

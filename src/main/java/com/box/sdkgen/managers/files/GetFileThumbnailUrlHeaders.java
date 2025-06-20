@@ -12,7 +12,7 @@ public class GetFileThumbnailUrlHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetFileThumbnailUrlHeaders(GetFileThumbnailUrlHeadersBuilder builder) {
+  protected GetFileThumbnailUrlHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetFileThumbnailUrlHeaders {
     return extraHeaders;
   }
 
-  public static class GetFileThumbnailUrlHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetFileThumbnailUrlHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetFileThumbnailUrlHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

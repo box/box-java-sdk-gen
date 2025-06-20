@@ -22,8 +22,7 @@ public class GetFileVersionRetentionsQueryParams {
 
   public GetFileVersionRetentionsQueryParams() {}
 
-  protected GetFileVersionRetentionsQueryParams(
-      GetFileVersionRetentionsQueryParamsBuilder builder) {
+  protected GetFileVersionRetentionsQueryParams(Builder builder) {
     this.fileId = builder.fileId;
     this.fileVersionId = builder.fileVersionId;
     this.policyId = builder.policyId;
@@ -67,7 +66,7 @@ public class GetFileVersionRetentionsQueryParams {
     return marker;
   }
 
-  public static class GetFileVersionRetentionsQueryParamsBuilder {
+  public static class Builder {
 
     protected String fileId;
 
@@ -86,22 +85,22 @@ public class GetFileVersionRetentionsQueryParams {
 
     protected String marker;
 
-    public GetFileVersionRetentionsQueryParamsBuilder fileId(String fileId) {
+    public Builder fileId(String fileId) {
       this.fileId = fileId;
       return this;
     }
 
-    public GetFileVersionRetentionsQueryParamsBuilder fileVersionId(String fileVersionId) {
+    public Builder fileVersionId(String fileVersionId) {
       this.fileVersionId = fileVersionId;
       return this;
     }
 
-    public GetFileVersionRetentionsQueryParamsBuilder policyId(String policyId) {
+    public Builder policyId(String policyId) {
       this.policyId = policyId;
       return this;
     }
 
-    public GetFileVersionRetentionsQueryParamsBuilder dispositionAction(
+    public Builder dispositionAction(
         GetFileVersionRetentionsQueryParamsDispositionActionField dispositionAction) {
       this.dispositionAction =
           new EnumWrapper<GetFileVersionRetentionsQueryParamsDispositionActionField>(
@@ -109,28 +108,28 @@ public class GetFileVersionRetentionsQueryParams {
       return this;
     }
 
-    public GetFileVersionRetentionsQueryParamsBuilder dispositionAction(
+    public Builder dispositionAction(
         EnumWrapper<GetFileVersionRetentionsQueryParamsDispositionActionField> dispositionAction) {
       this.dispositionAction = dispositionAction;
       return this;
     }
 
-    public GetFileVersionRetentionsQueryParamsBuilder dispositionBefore(String dispositionBefore) {
+    public Builder dispositionBefore(String dispositionBefore) {
       this.dispositionBefore = dispositionBefore;
       return this;
     }
 
-    public GetFileVersionRetentionsQueryParamsBuilder dispositionAfter(String dispositionAfter) {
+    public Builder dispositionAfter(String dispositionAfter) {
       this.dispositionAfter = dispositionAfter;
       return this;
     }
 
-    public GetFileVersionRetentionsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetFileVersionRetentionsQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }

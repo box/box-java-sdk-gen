@@ -13,8 +13,7 @@ public class UpdateFolderByIdRequestBodySharedLinkPermissionsField extends Seria
     super();
   }
 
-  protected UpdateFolderByIdRequestBodySharedLinkPermissionsField(
-      UpdateFolderByIdRequestBodySharedLinkPermissionsFieldBuilder builder) {
+  protected UpdateFolderByIdRequestBodySharedLinkPermissionsField(Builder builder) {
     super();
     this.canDownload = builder.canDownload;
   }
@@ -50,12 +49,11 @@ public class UpdateFolderByIdRequestBodySharedLinkPermissionsField extends Seria
         + "}";
   }
 
-  public static class UpdateFolderByIdRequestBodySharedLinkPermissionsFieldBuilder {
+  public static class Builder {
 
     protected Boolean canDownload;
 
-    public UpdateFolderByIdRequestBodySharedLinkPermissionsFieldBuilder canDownload(
-        Boolean canDownload) {
+    public Builder canDownload(Boolean canDownload) {
       this.canDownload = canDownload;
       return this;
     }

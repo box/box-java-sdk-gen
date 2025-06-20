@@ -12,8 +12,7 @@ public class UpdateStoragePolicyAssignmentByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UpdateStoragePolicyAssignmentByIdHeaders(
-      UpdateStoragePolicyAssignmentByIdHeadersBuilder builder) {
+  protected UpdateStoragePolicyAssignmentByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class UpdateStoragePolicyAssignmentByIdHeaders {
     return extraHeaders;
   }
 
-  public static class UpdateStoragePolicyAssignmentByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public UpdateStoragePolicyAssignmentByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public UpdateStoragePolicyAssignmentByIdHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

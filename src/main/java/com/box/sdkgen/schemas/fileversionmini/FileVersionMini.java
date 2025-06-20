@@ -14,7 +14,7 @@ public class FileVersionMini extends FileVersionBase {
     super(id);
   }
 
-  protected FileVersionMini(FileVersionMiniBuilder builder) {
+  protected FileVersionMini(Builder builder) {
     super(builder);
     this.sha1 = builder.sha1;
   }
@@ -59,27 +59,27 @@ public class FileVersionMini extends FileVersionBase {
         + "}";
   }
 
-  public static class FileVersionMiniBuilder extends FileVersionBaseBuilder {
+  public static class Builder extends FileVersionBase.Builder {
 
     protected String sha1;
 
-    public FileVersionMiniBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public FileVersionMiniBuilder sha1(String sha1) {
+    public Builder sha1(String sha1) {
       this.sha1 = sha1;
       return this;
     }
 
     @Override
-    public FileVersionMiniBuilder type(FileVersionBaseTypeField type) {
+    public Builder type(FileVersionBaseTypeField type) {
       this.type = new EnumWrapper<FileVersionBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FileVersionMiniBuilder type(EnumWrapper<FileVersionBaseTypeField> type) {
+    public Builder type(EnumWrapper<FileVersionBaseTypeField> type) {
       this.type = type;
       return this;
     }

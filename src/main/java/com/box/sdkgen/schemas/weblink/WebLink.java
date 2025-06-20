@@ -62,7 +62,7 @@ public class WebLink extends WebLinkMini {
     super(id);
   }
 
-  protected WebLink(WebLinkBuilder builder) {
+  protected WebLink(Builder builder) {
     super(builder);
     this.parent = builder.parent;
     this.description = builder.description;
@@ -255,7 +255,7 @@ public class WebLink extends WebLinkMini {
         + "}";
   }
 
-  public static class WebLinkBuilder extends WebLinkMiniBuilder {
+  public static class Builder extends WebLinkMini.Builder {
 
     protected FolderMini parent;
 
@@ -281,107 +281,107 @@ public class WebLink extends WebLinkMini {
 
     protected EnumWrapper<WebLinkItemStatusField> itemStatus;
 
-    public WebLinkBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public WebLinkBuilder parent(FolderMini parent) {
+    public Builder parent(FolderMini parent) {
       this.parent = parent;
       return this;
     }
 
-    public WebLinkBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public WebLinkBuilder pathCollection(WebLinkPathCollectionField pathCollection) {
+    public Builder pathCollection(WebLinkPathCollectionField pathCollection) {
       this.pathCollection = pathCollection;
       return this;
     }
 
-    public WebLinkBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public WebLinkBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public WebLinkBuilder trashedAt(Date trashedAt) {
+    public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
-    public WebLinkBuilder purgedAt(Date purgedAt) {
+    public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
-    public WebLinkBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public WebLinkBuilder modifiedBy(UserMini modifiedBy) {
+    public Builder modifiedBy(UserMini modifiedBy) {
       this.modifiedBy = modifiedBy;
       return this;
     }
 
-    public WebLinkBuilder ownedBy(UserMini ownedBy) {
+    public Builder ownedBy(UserMini ownedBy) {
       this.ownedBy = ownedBy;
       return this;
     }
 
-    public WebLinkBuilder sharedLink(WebLinkSharedLinkField sharedLink) {
+    public Builder sharedLink(WebLinkSharedLinkField sharedLink) {
       this.sharedLink = sharedLink;
       return this;
     }
 
-    public WebLinkBuilder itemStatus(WebLinkItemStatusField itemStatus) {
+    public Builder itemStatus(WebLinkItemStatusField itemStatus) {
       this.itemStatus = new EnumWrapper<WebLinkItemStatusField>(itemStatus);
       return this;
     }
 
-    public WebLinkBuilder itemStatus(EnumWrapper<WebLinkItemStatusField> itemStatus) {
+    public Builder itemStatus(EnumWrapper<WebLinkItemStatusField> itemStatus) {
       this.itemStatus = itemStatus;
       return this;
     }
 
     @Override
-    public WebLinkBuilder type(WebLinkBaseTypeField type) {
+    public Builder type(WebLinkBaseTypeField type) {
       this.type = new EnumWrapper<WebLinkBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public WebLinkBuilder type(EnumWrapper<WebLinkBaseTypeField> type) {
+    public Builder type(EnumWrapper<WebLinkBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public WebLinkBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
     @Override
-    public WebLinkBuilder url(String url) {
+    public Builder url(String url) {
       this.url = url;
       return this;
     }
 
     @Override
-    public WebLinkBuilder sequenceId(String sequenceId) {
+    public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
       return this;
     }
 
     @Override
-    public WebLinkBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }

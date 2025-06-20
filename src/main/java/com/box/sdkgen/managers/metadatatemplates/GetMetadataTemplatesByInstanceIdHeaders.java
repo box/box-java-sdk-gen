@@ -12,8 +12,7 @@ public class GetMetadataTemplatesByInstanceIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetMetadataTemplatesByInstanceIdHeaders(
-      GetMetadataTemplatesByInstanceIdHeadersBuilder builder) {
+  protected GetMetadataTemplatesByInstanceIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class GetMetadataTemplatesByInstanceIdHeaders {
     return extraHeaders;
   }
 
-  public static class GetMetadataTemplatesByInstanceIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetMetadataTemplatesByInstanceIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetMetadataTemplatesByInstanceIdHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

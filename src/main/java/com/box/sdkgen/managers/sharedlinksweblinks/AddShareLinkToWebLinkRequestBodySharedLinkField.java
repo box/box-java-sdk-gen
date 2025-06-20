@@ -37,8 +37,7 @@ public class AddShareLinkToWebLinkRequestBodySharedLinkField extends Serializabl
     super();
   }
 
-  protected AddShareLinkToWebLinkRequestBodySharedLinkField(
-      AddShareLinkToWebLinkRequestBodySharedLinkFieldBuilder builder) {
+  protected AddShareLinkToWebLinkRequestBodySharedLinkField(Builder builder) {
     super();
     this.access = builder.access;
     this.password = builder.password;
@@ -114,7 +113,7 @@ public class AddShareLinkToWebLinkRequestBodySharedLinkField extends Serializabl
         + "}";
   }
 
-  public static class AddShareLinkToWebLinkRequestBodySharedLinkFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<AddShareLinkToWebLinkRequestBodySharedLinkAccessField> access;
 
@@ -126,34 +125,33 @@ public class AddShareLinkToWebLinkRequestBodySharedLinkField extends Serializabl
 
     protected AddShareLinkToWebLinkRequestBodySharedLinkPermissionsField permissions;
 
-    public AddShareLinkToWebLinkRequestBodySharedLinkFieldBuilder access(
-        AddShareLinkToWebLinkRequestBodySharedLinkAccessField access) {
+    public Builder access(AddShareLinkToWebLinkRequestBodySharedLinkAccessField access) {
       this.access = new EnumWrapper<AddShareLinkToWebLinkRequestBodySharedLinkAccessField>(access);
       return this;
     }
 
-    public AddShareLinkToWebLinkRequestBodySharedLinkFieldBuilder access(
+    public Builder access(
         EnumWrapper<AddShareLinkToWebLinkRequestBodySharedLinkAccessField> access) {
       this.access = access;
       return this;
     }
 
-    public AddShareLinkToWebLinkRequestBodySharedLinkFieldBuilder password(String password) {
+    public Builder password(String password) {
       this.password = password;
       return this;
     }
 
-    public AddShareLinkToWebLinkRequestBodySharedLinkFieldBuilder vanityName(String vanityName) {
+    public Builder vanityName(String vanityName) {
       this.vanityName = vanityName;
       return this;
     }
 
-    public AddShareLinkToWebLinkRequestBodySharedLinkFieldBuilder unsharedAt(Date unsharedAt) {
+    public Builder unsharedAt(Date unsharedAt) {
       this.unsharedAt = unsharedAt;
       return this;
     }
 
-    public AddShareLinkToWebLinkRequestBodySharedLinkFieldBuilder permissions(
+    public Builder permissions(
         AddShareLinkToWebLinkRequestBodySharedLinkPermissionsField permissions) {
       this.permissions = permissions;
       return this;

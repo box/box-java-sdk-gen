@@ -21,7 +21,7 @@ public class UserBaseV2025R0 extends SerializableObject {
     this.type = new EnumWrapper<UserBaseV2025R0TypeField>(UserBaseV2025R0TypeField.USER);
   }
 
-  protected UserBaseV2025R0(UserBaseV2025R0Builder builder) {
+  protected UserBaseV2025R0(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -57,23 +57,23 @@ public class UserBaseV2025R0 extends SerializableObject {
     return "UserBaseV2025R0{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class UserBaseV2025R0Builder {
+  public static class Builder {
 
     protected final String id;
 
     protected EnumWrapper<UserBaseV2025R0TypeField> type;
 
-    public UserBaseV2025R0Builder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type = new EnumWrapper<UserBaseV2025R0TypeField>(UserBaseV2025R0TypeField.USER);
     }
 
-    public UserBaseV2025R0Builder type(UserBaseV2025R0TypeField type) {
+    public Builder type(UserBaseV2025R0TypeField type) {
       this.type = new EnumWrapper<UserBaseV2025R0TypeField>(type);
       return this;
     }
 
-    public UserBaseV2025R0Builder type(EnumWrapper<UserBaseV2025R0TypeField> type) {
+    public Builder type(EnumWrapper<UserBaseV2025R0TypeField> type) {
       this.type = type;
       return this;
     }

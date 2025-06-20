@@ -43,7 +43,7 @@ public class DocGenBatchCreateRequestV2025R0 extends SerializableObject {
     this.documentGenerationData = documentGenerationData;
   }
 
-  protected DocGenBatchCreateRequestV2025R0(DocGenBatchCreateRequestV2025R0Builder builder) {
+  protected DocGenBatchCreateRequestV2025R0(Builder builder) {
     super();
     this.file = builder.file;
     this.fileVersion = builder.fileVersion;
@@ -129,7 +129,7 @@ public class DocGenBatchCreateRequestV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class DocGenBatchCreateRequestV2025R0Builder {
+  public static class Builder {
 
     protected final FileReferenceV2025R0 file;
 
@@ -143,7 +143,7 @@ public class DocGenBatchCreateRequestV2025R0 extends SerializableObject {
 
     protected final List<DocGenDocumentGenerationDataV2025R0> documentGenerationData;
 
-    public DocGenBatchCreateRequestV2025R0Builder(
+    public Builder(
         FileReferenceV2025R0 file,
         String inputSource,
         DocGenBatchCreateRequestV2025R0DestinationFolderField destinationFolder,
@@ -156,7 +156,7 @@ public class DocGenBatchCreateRequestV2025R0 extends SerializableObject {
       this.documentGenerationData = documentGenerationData;
     }
 
-    public DocGenBatchCreateRequestV2025R0Builder fileVersion(FileVersionBaseV2025R0 fileVersion) {
+    public Builder fileVersion(FileVersionBaseV2025R0 fileVersion) {
       this.fileVersion = fileVersion;
       return this;
     }

@@ -18,7 +18,7 @@ public class TimelineSkillCardEntriesField extends SerializableObject {
     super();
   }
 
-  protected TimelineSkillCardEntriesField(TimelineSkillCardEntriesFieldBuilder builder) {
+  protected TimelineSkillCardEntriesField(Builder builder) {
     super();
     this.text = builder.text;
     this.appears = builder.appears;
@@ -73,7 +73,7 @@ public class TimelineSkillCardEntriesField extends SerializableObject {
         + "}";
   }
 
-  public static class TimelineSkillCardEntriesFieldBuilder {
+  public static class Builder {
 
     protected String text;
 
@@ -81,18 +81,17 @@ public class TimelineSkillCardEntriesField extends SerializableObject {
 
     protected String imageUrl;
 
-    public TimelineSkillCardEntriesFieldBuilder text(String text) {
+    public Builder text(String text) {
       this.text = text;
       return this;
     }
 
-    public TimelineSkillCardEntriesFieldBuilder appears(
-        List<TimelineSkillCardEntriesAppearsField> appears) {
+    public Builder appears(List<TimelineSkillCardEntriesAppearsField> appears) {
       this.appears = appears;
       return this;
     }
 
-    public TimelineSkillCardEntriesFieldBuilder imageUrl(String imageUrl) {
+    public Builder imageUrl(String imageUrl) {
       this.imageUrl = imageUrl;
       return this;
     }

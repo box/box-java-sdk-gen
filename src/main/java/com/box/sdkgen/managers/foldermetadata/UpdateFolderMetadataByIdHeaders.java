@@ -12,7 +12,7 @@ public class UpdateFolderMetadataByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UpdateFolderMetadataByIdHeaders(UpdateFolderMetadataByIdHeadersBuilder builder) {
+  protected UpdateFolderMetadataByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class UpdateFolderMetadataByIdHeaders {
     return extraHeaders;
   }
 
-  public static class UpdateFolderMetadataByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public UpdateFolderMetadataByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public UpdateFolderMetadataByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

@@ -22,7 +22,7 @@ public class SignTemplates extends SerializableObject {
     super();
   }
 
-  protected SignTemplates(SignTemplatesBuilder builder) {
+  protected SignTemplates(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -87,7 +87,7 @@ public class SignTemplates extends SerializableObject {
         + "}";
   }
 
-  public static class SignTemplatesBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -97,22 +97,22 @@ public class SignTemplates extends SerializableObject {
 
     protected List<SignTemplate> entries;
 
-    public SignTemplatesBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public SignTemplatesBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public SignTemplatesBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public SignTemplatesBuilder entries(List<SignTemplate> entries) {
+    public Builder entries(List<SignTemplate> entries) {
       this.entries = entries;
       return this;
     }

@@ -70,7 +70,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id -->
 ```
-client.getFolders().updateFolderById(folderToUpdate.getId(), new UpdateFolderByIdRequestBody.UpdateFolderByIdRequestBodyBuilder().name(updatedName).description("Updated description").build())
+client.getFolders().updateFolderById(folderToUpdate.getId(), new UpdateFolderByIdRequestBody.Builder().name(updatedName).description("Updated description").build())
 ```
 
 ### Arguments
@@ -217,7 +217,7 @@ See the endpoint docs at
 
 <!-- sample post_folders_id_copy -->
 ```
-client.getFolders().copyFolder(folderOrigin.getId(), new CopyFolderRequestBody.CopyFolderRequestBodyBuilder(new CopyFolderRequestBodyParentField("0")).name(copiedFolderName).build())
+client.getFolders().copyFolder(folderOrigin.getId(), new CopyFolderRequestBody.Builder(new CopyFolderRequestBodyParentField("0")).name(copiedFolderName).build())
 ```
 
 ### Arguments

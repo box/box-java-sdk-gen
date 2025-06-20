@@ -82,7 +82,7 @@ See the endpoint docs at
 
 <!-- sample put_comments_id -->
 ```
-client.getComments().updateCommentById(newReplyComment.getId(), new UpdateCommentByIdRequestBody.UpdateCommentByIdRequestBodyBuilder().message(newMessage).build())
+client.getComments().updateCommentById(newReplyComment.getId(), new UpdateCommentByIdRequestBody.Builder().message(newMessage).build())
 ```
 
 ### Arguments

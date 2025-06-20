@@ -12,7 +12,7 @@ public class GetLegalHoldPolicyByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetLegalHoldPolicyByIdHeaders(GetLegalHoldPolicyByIdHeadersBuilder builder) {
+  protected GetLegalHoldPolicyByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetLegalHoldPolicyByIdHeaders {
     return extraHeaders;
   }
 
-  public static class GetLegalHoldPolicyByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetLegalHoldPolicyByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetLegalHoldPolicyByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

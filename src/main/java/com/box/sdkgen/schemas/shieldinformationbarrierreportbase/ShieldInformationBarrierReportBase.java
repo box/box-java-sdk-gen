@@ -24,7 +24,7 @@ public class ShieldInformationBarrierReportBase extends SerializableObject {
     super();
   }
 
-  protected ShieldInformationBarrierReportBase(ShieldInformationBarrierReportBaseBuilder builder) {
+  protected ShieldInformationBarrierReportBase(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -68,25 +68,23 @@ public class ShieldInformationBarrierReportBase extends SerializableObject {
         + "}";
   }
 
-  public static class ShieldInformationBarrierReportBaseBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected EnumWrapper<ShieldInformationBarrierReportBaseTypeField> type;
 
-    public ShieldInformationBarrierReportBaseBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public ShieldInformationBarrierReportBaseBuilder type(
-        ShieldInformationBarrierReportBaseTypeField type) {
+    public Builder type(ShieldInformationBarrierReportBaseTypeField type) {
       this.type = new EnumWrapper<ShieldInformationBarrierReportBaseTypeField>(type);
       return this;
     }
 
-    public ShieldInformationBarrierReportBaseBuilder type(
-        EnumWrapper<ShieldInformationBarrierReportBaseTypeField> type) {
+    public Builder type(EnumWrapper<ShieldInformationBarrierReportBaseTypeField> type) {
       this.type = type;
       return this;
     }

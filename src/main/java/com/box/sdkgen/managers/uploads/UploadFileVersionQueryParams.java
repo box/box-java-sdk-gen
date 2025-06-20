@@ -8,7 +8,7 @@ public class UploadFileVersionQueryParams {
 
   public UploadFileVersionQueryParams() {}
 
-  protected UploadFileVersionQueryParams(UploadFileVersionQueryParamsBuilder builder) {
+  protected UploadFileVersionQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class UploadFileVersionQueryParams {
     return fields;
   }
 
-  public static class UploadFileVersionQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public UploadFileVersionQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

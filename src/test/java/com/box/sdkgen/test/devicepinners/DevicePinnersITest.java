@@ -25,8 +25,7 @@ public class DevicePinnersITest {
             .getDevicePinners()
             .getEnterpriseDevicePinners(
                 enterpriseId,
-                new GetEnterpriseDevicePinnersQueryParams
-                        .GetEnterpriseDevicePinnersQueryParamsBuilder()
+                new GetEnterpriseDevicePinnersQueryParams.Builder()
                     .direction(GetEnterpriseDevicePinnersQueryParamsDirectionField.DESC)
                     .build());
     assert devicePinnersInDescDirection.getEntries().size() >= 0;

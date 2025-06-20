@@ -21,7 +21,7 @@ public class FileVersionBase extends SerializableObject {
     this.type = new EnumWrapper<FileVersionBaseTypeField>(FileVersionBaseTypeField.FILE_VERSION);
   }
 
-  protected FileVersionBase(FileVersionBaseBuilder builder) {
+  protected FileVersionBase(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -57,23 +57,23 @@ public class FileVersionBase extends SerializableObject {
     return "FileVersionBase{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class FileVersionBaseBuilder {
+  public static class Builder {
 
     protected final String id;
 
     protected EnumWrapper<FileVersionBaseTypeField> type;
 
-    public FileVersionBaseBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type = new EnumWrapper<FileVersionBaseTypeField>(FileVersionBaseTypeField.FILE_VERSION);
     }
 
-    public FileVersionBaseBuilder type(FileVersionBaseTypeField type) {
+    public Builder type(FileVersionBaseTypeField type) {
       this.type = new EnumWrapper<FileVersionBaseTypeField>(type);
       return this;
     }
 
-    public FileVersionBaseBuilder type(EnumWrapper<FileVersionBaseTypeField> type) {
+    public Builder type(EnumWrapper<FileVersionBaseTypeField> type) {
       this.type = type;
       return this;
     }

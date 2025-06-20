@@ -8,7 +8,7 @@ public class GetCommentByIdQueryParams {
 
   public GetCommentByIdQueryParams() {}
 
-  protected GetCommentByIdQueryParams(GetCommentByIdQueryParamsBuilder builder) {
+  protected GetCommentByIdQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class GetCommentByIdQueryParams {
     return fields;
   }
 
-  public static class GetCommentByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public GetCommentByIdQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

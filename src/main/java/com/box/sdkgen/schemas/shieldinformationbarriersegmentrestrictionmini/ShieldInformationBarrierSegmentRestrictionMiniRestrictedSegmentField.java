@@ -28,8 +28,7 @@ public class ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFiel
     super();
   }
 
-  protected ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentField(
-      ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFieldBuilder builder) {
+  protected ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -75,20 +74,19 @@ public class ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFiel
         + "}";
   }
 
-  public static class ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected EnumWrapper<ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField>
         type;
 
-    public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFieldBuilder id(
-        String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFieldBuilder type(
+    public Builder type(
         ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField type) {
       this.type =
           new EnumWrapper<ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField>(
@@ -96,7 +94,7 @@ public class ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFiel
       return this;
     }
 
-    public ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentFieldBuilder type(
+    public Builder type(
         EnumWrapper<ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentTypeField>
             type) {
       this.type = type;

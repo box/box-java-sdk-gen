@@ -36,8 +36,7 @@ public class WebhooksITest {
             .getWebhooks()
             .createWebhook(
                 new CreateWebhookRequestBody(
-                    new CreateWebhookRequestBodyTargetField
-                            .CreateWebhookRequestBodyTargetFieldBuilder()
+                    new CreateWebhookRequestBodyTargetField.Builder()
                         .id(folder.getId())
                         .type(CreateWebhookRequestBodyTargetTypeField.FOLDER)
                         .build(),
@@ -58,7 +57,7 @@ public class WebhooksITest {
             .getWebhooks()
             .updateWebhookById(
                 webhook.getId(),
-                new UpdateWebhookByIdRequestBody.UpdateWebhookByIdRequestBodyBuilder()
+                new UpdateWebhookByIdRequestBody.Builder()
                     .address("https://example.com/updated-webhook")
                     .build());
     assert updatedWebhook.getId().equals(webhook.getId());

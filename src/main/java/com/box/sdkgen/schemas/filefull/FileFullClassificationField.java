@@ -15,7 +15,7 @@ public class FileFullClassificationField extends SerializableObject {
     super();
   }
 
-  protected FileFullClassificationField(FileFullClassificationFieldBuilder builder) {
+  protected FileFullClassificationField(Builder builder) {
     super();
     this.name = builder.name;
     this.definition = builder.definition;
@@ -70,7 +70,7 @@ public class FileFullClassificationField extends SerializableObject {
         + "}";
   }
 
-  public static class FileFullClassificationFieldBuilder {
+  public static class Builder {
 
     protected String name;
 
@@ -78,17 +78,17 @@ public class FileFullClassificationField extends SerializableObject {
 
     protected String color;
 
-    public FileFullClassificationFieldBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public FileFullClassificationFieldBuilder definition(String definition) {
+    public Builder definition(String definition) {
       this.definition = definition;
       return this;
     }
 
-    public FileFullClassificationFieldBuilder color(String color) {
+    public Builder color(String color) {
       this.color = color;
       return this;
     }

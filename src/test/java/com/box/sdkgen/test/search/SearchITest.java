@@ -37,8 +37,7 @@ public class SearchITest {
         client
             .getMetadataTemplates()
             .createMetadataTemplate(
-                new CreateMetadataTemplateRequestBody.CreateMetadataTemplateRequestBodyBuilder(
-                        "enterprise", templateKey)
+                new CreateMetadataTemplateRequestBody.Builder("enterprise", templateKey)
                     .templateKey(templateKey)
                     .fields(
                         Arrays.asList(
@@ -54,8 +53,7 @@ public class SearchITest {
                                 CreateMetadataTemplateRequestBodyFieldsTypeField.DATE,
                                 "birthDate",
                                 "birthDate"),
-                            new CreateMetadataTemplateRequestBodyFieldsField
-                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                            new CreateMetadataTemplateRequestBodyFieldsField.Builder(
                                     CreateMetadataTemplateRequestBodyFieldsTypeField.ENUM,
                                     "countryCode",
                                     "countryCode")
@@ -66,8 +64,7 @@ public class SearchITest {
                                         new CreateMetadataTemplateRequestBodyFieldsOptionsField(
                                             "CA")))
                                 .build(),
-                            new CreateMetadataTemplateRequestBodyFieldsField
-                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                            new CreateMetadataTemplateRequestBodyFieldsField.Builder(
                                     CreateMetadataTemplateRequestBodyFieldsTypeField.MULTISELECT,
                                     "sports",
                                     "sports")
@@ -112,7 +109,7 @@ public class SearchITest {
         client
             .getSearch()
             .searchByMetadataQuery(
-                new MetadataQuery.MetadataQueryBuilder(searchFrom, "0")
+                new MetadataQuery.Builder(searchFrom, "0")
                     .query(
                         "name = :name AND age < :age AND birthDate >= :birthDate AND countryCode = :countryCode AND sports = :sports")
                     .queryParams(

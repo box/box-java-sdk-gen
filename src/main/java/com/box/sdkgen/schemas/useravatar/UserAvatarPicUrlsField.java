@@ -15,7 +15,7 @@ public class UserAvatarPicUrlsField extends SerializableObject {
     super();
   }
 
-  protected UserAvatarPicUrlsField(UserAvatarPicUrlsFieldBuilder builder) {
+  protected UserAvatarPicUrlsField(Builder builder) {
     super();
     this.small = builder.small;
     this.large = builder.large;
@@ -70,7 +70,7 @@ public class UserAvatarPicUrlsField extends SerializableObject {
         + "}";
   }
 
-  public static class UserAvatarPicUrlsFieldBuilder {
+  public static class Builder {
 
     protected String small;
 
@@ -78,17 +78,17 @@ public class UserAvatarPicUrlsField extends SerializableObject {
 
     protected String preview;
 
-    public UserAvatarPicUrlsFieldBuilder small(String small) {
+    public Builder small(String small) {
       this.small = small;
       return this;
     }
 
-    public UserAvatarPicUrlsFieldBuilder large(String large) {
+    public Builder large(String large) {
       this.large = large;
       return this;
     }
 
-    public UserAvatarPicUrlsFieldBuilder preview(String preview) {
+    public Builder preview(String preview) {
       this.preview = preview;
       return this;
     }

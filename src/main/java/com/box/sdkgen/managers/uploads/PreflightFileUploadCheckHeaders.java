@@ -12,7 +12,7 @@ public class PreflightFileUploadCheckHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected PreflightFileUploadCheckHeaders(PreflightFileUploadCheckHeadersBuilder builder) {
+  protected PreflightFileUploadCheckHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class PreflightFileUploadCheckHeaders {
     return extraHeaders;
   }
 
-  public static class PreflightFileUploadCheckHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public PreflightFileUploadCheckHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public PreflightFileUploadCheckHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

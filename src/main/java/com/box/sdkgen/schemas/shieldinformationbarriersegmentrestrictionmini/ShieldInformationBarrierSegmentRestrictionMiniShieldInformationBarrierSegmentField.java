@@ -30,8 +30,7 @@ public class ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarr
   }
 
   protected ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentField(
-      ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentFieldBuilder
-          builder) {
+      Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -78,8 +77,7 @@ public class ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarr
         + "}";
   }
 
-  public static
-  class ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -87,16 +85,14 @@ public class ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarr
             ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField>
         type;
 
-    public ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentFieldBuilder
-        id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentFieldBuilder
-        type(
-            ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField
-                type) {
+    public Builder type(
+        ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField
+            type) {
       this.type =
           new EnumWrapper<
               ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField>(
@@ -104,11 +100,10 @@ public class ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarr
       return this;
     }
 
-    public ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentFieldBuilder
-        type(
-            EnumWrapper<
-                    ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField>
-                type) {
+    public Builder type(
+        EnumWrapper<
+                ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentTypeField>
+            type) {
       this.type = type;
       return this;
     }

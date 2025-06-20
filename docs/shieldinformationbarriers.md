@@ -109,7 +109,7 @@ See the endpoint docs at
 
 <!-- sample post_shield_information_barriers -->
 ```
-client.getShieldInformationBarriers().createShieldInformationBarrier(new CreateShieldInformationBarrierRequestBody(new EnterpriseBase.EnterpriseBaseBuilder().id(enterpriseId).build()))
+client.getShieldInformationBarriers().createShieldInformationBarrier(new CreateShieldInformationBarrierRequestBody(new EnterpriseBase.Builder().id(enterpriseId).build()))
 ```
 
 ### Arguments

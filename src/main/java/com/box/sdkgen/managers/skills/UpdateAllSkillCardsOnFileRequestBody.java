@@ -48,8 +48,7 @@ public class UpdateAllSkillCardsOnFileRequestBody extends SerializableObject {
     this.file = file;
   }
 
-  protected UpdateAllSkillCardsOnFileRequestBody(
-      UpdateAllSkillCardsOnFileRequestBodyBuilder builder) {
+  protected UpdateAllSkillCardsOnFileRequestBody(Builder builder) {
     super();
     this.status = builder.status;
     this.metadata = builder.metadata;
@@ -124,7 +123,7 @@ public class UpdateAllSkillCardsOnFileRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateAllSkillCardsOnFileRequestBodyBuilder {
+  public static class Builder {
 
     protected final EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField> status;
 
@@ -136,7 +135,7 @@ public class UpdateAllSkillCardsOnFileRequestBody extends SerializableObject {
 
     protected UpdateAllSkillCardsOnFileRequestBodyUsageField usage;
 
-    public UpdateAllSkillCardsOnFileRequestBodyBuilder(
+    public Builder(
         EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField> status,
         UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata,
         UpdateAllSkillCardsOnFileRequestBodyFileField file) {
@@ -145,7 +144,7 @@ public class UpdateAllSkillCardsOnFileRequestBody extends SerializableObject {
       this.file = file;
     }
 
-    public UpdateAllSkillCardsOnFileRequestBodyBuilder(
+    public Builder(
         UpdateAllSkillCardsOnFileRequestBodyStatusField status,
         UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata,
         UpdateAllSkillCardsOnFileRequestBodyFileField file) {
@@ -154,14 +153,12 @@ public class UpdateAllSkillCardsOnFileRequestBody extends SerializableObject {
       this.file = file;
     }
 
-    public UpdateAllSkillCardsOnFileRequestBodyBuilder fileVersion(
-        UpdateAllSkillCardsOnFileRequestBodyFileVersionField fileVersion) {
+    public Builder fileVersion(UpdateAllSkillCardsOnFileRequestBodyFileVersionField fileVersion) {
       this.fileVersion = fileVersion;
       return this;
     }
 
-    public UpdateAllSkillCardsOnFileRequestBodyBuilder usage(
-        UpdateAllSkillCardsOnFileRequestBodyUsageField usage) {
+    public Builder usage(UpdateAllSkillCardsOnFileRequestBodyUsageField usage) {
       this.usage = usage;
       return this;
     }

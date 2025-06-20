@@ -45,8 +45,7 @@ public class ShieldInformationBarrierSegmentRestriction
     super(shieldInformationBarrierSegment, restrictedSegment);
   }
 
-  protected ShieldInformationBarrierSegmentRestriction(
-      ShieldInformationBarrierSegmentRestrictionBuilder builder) {
+  protected ShieldInformationBarrierSegmentRestriction(Builder builder) {
     super(builder);
     this.shieldInformationBarrier = builder.shieldInformationBarrier;
     this.createdAt = builder.createdAt;
@@ -151,8 +150,7 @@ public class ShieldInformationBarrierSegmentRestriction
         + "}";
   }
 
-  public static class ShieldInformationBarrierSegmentRestrictionBuilder
-      extends ShieldInformationBarrierSegmentRestrictionMiniBuilder {
+  public static class Builder extends ShieldInformationBarrierSegmentRestrictionMini.Builder {
 
     protected ShieldInformationBarrierBase shieldInformationBarrier;
 
@@ -164,55 +162,52 @@ public class ShieldInformationBarrierSegmentRestriction
 
     protected UserBase updatedBy;
 
-    public ShieldInformationBarrierSegmentRestrictionBuilder(
+    public Builder(
         ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentField
             shieldInformationBarrierSegment,
         ShieldInformationBarrierSegmentRestrictionMiniRestrictedSegmentField restrictedSegment) {
       super(shieldInformationBarrierSegment, restrictedSegment);
     }
 
-    public ShieldInformationBarrierSegmentRestrictionBuilder shieldInformationBarrier(
-        ShieldInformationBarrierBase shieldInformationBarrier) {
+    public Builder shieldInformationBarrier(ShieldInformationBarrierBase shieldInformationBarrier) {
       this.shieldInformationBarrier = shieldInformationBarrier;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentRestrictionBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentRestrictionBuilder createdBy(UserBase createdBy) {
+    public Builder createdBy(UserBase createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentRestrictionBuilder updatedAt(Date updatedAt) {
+    public Builder updatedAt(Date updatedAt) {
       this.updatedAt = updatedAt;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentRestrictionBuilder updatedBy(UserBase updatedBy) {
+    public Builder updatedBy(UserBase updatedBy) {
       this.updatedBy = updatedBy;
       return this;
     }
 
     @Override
-    public ShieldInformationBarrierSegmentRestrictionBuilder type(
-        ShieldInformationBarrierSegmentRestrictionBaseTypeField type) {
+    public Builder type(ShieldInformationBarrierSegmentRestrictionBaseTypeField type) {
       this.type = new EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public ShieldInformationBarrierSegmentRestrictionBuilder type(
-        EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField> type) {
+    public Builder type(EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public ShieldInformationBarrierSegmentRestrictionBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

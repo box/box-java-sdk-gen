@@ -36,7 +36,7 @@ public class AppItemAssociation extends SerializableObject {
             AppItemAssociationTypeField.APP_ITEM_ASSOCIATION);
   }
 
-  protected AppItemAssociation(AppItemAssociationBuilder builder) {
+  protected AppItemAssociation(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -101,7 +101,7 @@ public class AppItemAssociation extends SerializableObject {
         + "}";
   }
 
-  public static class AppItemAssociationBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -111,8 +111,7 @@ public class AppItemAssociation extends SerializableObject {
 
     protected final FileBaseOrFolderBaseOrWebLinkBase item;
 
-    public AppItemAssociationBuilder(
-        String id, AppItem appItem, FileBaseOrFolderBaseOrWebLinkBase item) {
+    public Builder(String id, AppItem appItem, FileBaseOrFolderBaseOrWebLinkBase item) {
       this.id = id;
       this.appItem = appItem;
       this.item = item;
@@ -121,12 +120,12 @@ public class AppItemAssociation extends SerializableObject {
               AppItemAssociationTypeField.APP_ITEM_ASSOCIATION);
     }
 
-    public AppItemAssociationBuilder type(AppItemAssociationTypeField type) {
+    public Builder type(AppItemAssociationTypeField type) {
       this.type = new EnumWrapper<AppItemAssociationTypeField>(type);
       return this;
     }
 
-    public AppItemAssociationBuilder type(EnumWrapper<AppItemAssociationTypeField> type) {
+    public Builder type(EnumWrapper<AppItemAssociationTypeField> type) {
       this.type = type;
       return this;
     }

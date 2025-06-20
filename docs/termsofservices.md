@@ -49,7 +49,7 @@ See the endpoint docs at
 
 <!-- sample post_terms_of_services -->
 ```
-client.getTermsOfServices().createTermsOfService(new CreateTermsOfServiceRequestBody.CreateTermsOfServiceRequestBodyBuilder(CreateTermsOfServiceRequestBodyStatusField.DISABLED, "Test TOS").tosType(CreateTermsOfServiceRequestBodyTosTypeField.MANAGED).build())
+client.getTermsOfServices().createTermsOfService(new CreateTermsOfServiceRequestBody.Builder(CreateTermsOfServiceRequestBodyStatusField.DISABLED, "Test TOS").tosType(CreateTermsOfServiceRequestBodyTosTypeField.MANAGED).build())
 ```
 
 ### Arguments

@@ -62,7 +62,7 @@ public class ClassificationTemplateFieldsField extends SerializableObject {
             ClassificationTemplateFieldsDisplayNameField.CLASSIFICATION);
   }
 
-  protected ClassificationTemplateFieldsField(ClassificationTemplateFieldsFieldBuilder builder) {
+  protected ClassificationTemplateFieldsField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -147,7 +147,7 @@ public class ClassificationTemplateFieldsField extends SerializableObject {
         + "}";
   }
 
-  public static class ClassificationTemplateFieldsFieldBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -161,8 +161,7 @@ public class ClassificationTemplateFieldsField extends SerializableObject {
 
     protected final List<ClassificationTemplateFieldsOptionsField> options;
 
-    public ClassificationTemplateFieldsFieldBuilder(
-        String id, List<ClassificationTemplateFieldsOptionsField> options) {
+    public Builder(String id, List<ClassificationTemplateFieldsOptionsField> options) {
       this.id = id;
       this.options = options;
       this.type =
@@ -176,42 +175,38 @@ public class ClassificationTemplateFieldsField extends SerializableObject {
               ClassificationTemplateFieldsDisplayNameField.CLASSIFICATION);
     }
 
-    public ClassificationTemplateFieldsFieldBuilder type(
-        ClassificationTemplateFieldsTypeField type) {
+    public Builder type(ClassificationTemplateFieldsTypeField type) {
       this.type = new EnumWrapper<ClassificationTemplateFieldsTypeField>(type);
       return this;
     }
 
-    public ClassificationTemplateFieldsFieldBuilder type(
-        EnumWrapper<ClassificationTemplateFieldsTypeField> type) {
+    public Builder type(EnumWrapper<ClassificationTemplateFieldsTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public ClassificationTemplateFieldsFieldBuilder key(ClassificationTemplateFieldsKeyField key) {
+    public Builder key(ClassificationTemplateFieldsKeyField key) {
       this.key = new EnumWrapper<ClassificationTemplateFieldsKeyField>(key);
       return this;
     }
 
-    public ClassificationTemplateFieldsFieldBuilder key(
-        EnumWrapper<ClassificationTemplateFieldsKeyField> key) {
+    public Builder key(EnumWrapper<ClassificationTemplateFieldsKeyField> key) {
       this.key = key;
       return this;
     }
 
-    public ClassificationTemplateFieldsFieldBuilder displayName(
-        ClassificationTemplateFieldsDisplayNameField displayName) {
+    public Builder displayName(ClassificationTemplateFieldsDisplayNameField displayName) {
       this.displayName = new EnumWrapper<ClassificationTemplateFieldsDisplayNameField>(displayName);
       return this;
     }
 
-    public ClassificationTemplateFieldsFieldBuilder displayName(
+    public Builder displayName(
         EnumWrapper<ClassificationTemplateFieldsDisplayNameField> displayName) {
       this.displayName = displayName;
       return this;
     }
 
-    public ClassificationTemplateFieldsFieldBuilder hidden(Boolean hidden) {
+    public Builder hidden(Boolean hidden) {
       this.hidden = hidden;
       return this;
     }

@@ -8,8 +8,7 @@ public class GetCollaborationWhitelistExemptTargetsQueryParams {
 
   public GetCollaborationWhitelistExemptTargetsQueryParams() {}
 
-  protected GetCollaborationWhitelistExemptTargetsQueryParams(
-      GetCollaborationWhitelistExemptTargetsQueryParamsBuilder builder) {
+  protected GetCollaborationWhitelistExemptTargetsQueryParams(Builder builder) {
     this.marker = builder.marker;
     this.limit = builder.limit;
   }
@@ -22,18 +21,18 @@ public class GetCollaborationWhitelistExemptTargetsQueryParams {
     return limit;
   }
 
-  public static class GetCollaborationWhitelistExemptTargetsQueryParamsBuilder {
+  public static class Builder {
 
     protected String marker;
 
     protected Long limit;
 
-    public GetCollaborationWhitelistExemptTargetsQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetCollaborationWhitelistExemptTargetsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

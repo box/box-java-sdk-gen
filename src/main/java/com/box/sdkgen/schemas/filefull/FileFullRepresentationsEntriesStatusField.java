@@ -22,8 +22,7 @@ public class FileFullRepresentationsEntriesStatusField extends SerializableObjec
     super();
   }
 
-  protected FileFullRepresentationsEntriesStatusField(
-      FileFullRepresentationsEntriesStatusFieldBuilder builder) {
+  protected FileFullRepresentationsEntriesStatusField(Builder builder) {
     super();
     this.state = builder.state;
   }
@@ -55,18 +54,16 @@ public class FileFullRepresentationsEntriesStatusField extends SerializableObjec
     return "FileFullRepresentationsEntriesStatusField{" + "state='" + state + '\'' + "}";
   }
 
-  public static class FileFullRepresentationsEntriesStatusFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<FileFullRepresentationsEntriesStatusStateField> state;
 
-    public FileFullRepresentationsEntriesStatusFieldBuilder state(
-        FileFullRepresentationsEntriesStatusStateField state) {
+    public Builder state(FileFullRepresentationsEntriesStatusStateField state) {
       this.state = new EnumWrapper<FileFullRepresentationsEntriesStatusStateField>(state);
       return this;
     }
 
-    public FileFullRepresentationsEntriesStatusFieldBuilder state(
-        EnumWrapper<FileFullRepresentationsEntriesStatusStateField> state) {
+    public Builder state(EnumWrapper<FileFullRepresentationsEntriesStatusStateField> state) {
       this.state = state;
       return this;
     }

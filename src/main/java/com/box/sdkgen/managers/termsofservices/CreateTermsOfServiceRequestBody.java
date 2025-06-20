@@ -47,7 +47,7 @@ public class CreateTermsOfServiceRequestBody extends SerializableObject {
     this.text = text;
   }
 
-  protected CreateTermsOfServiceRequestBody(CreateTermsOfServiceRequestBodyBuilder builder) {
+  protected CreateTermsOfServiceRequestBody(Builder builder) {
     super();
     this.status = builder.status;
     this.tosType = builder.tosType;
@@ -102,7 +102,7 @@ public class CreateTermsOfServiceRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class CreateTermsOfServiceRequestBodyBuilder {
+  public static class Builder {
 
     protected final EnumWrapper<CreateTermsOfServiceRequestBodyStatusField> status;
 
@@ -110,26 +110,22 @@ public class CreateTermsOfServiceRequestBody extends SerializableObject {
 
     protected final String text;
 
-    public CreateTermsOfServiceRequestBodyBuilder(
-        EnumWrapper<CreateTermsOfServiceRequestBodyStatusField> status, String text) {
+    public Builder(EnumWrapper<CreateTermsOfServiceRequestBodyStatusField> status, String text) {
       this.status = status;
       this.text = text;
     }
 
-    public CreateTermsOfServiceRequestBodyBuilder(
-        CreateTermsOfServiceRequestBodyStatusField status, String text) {
+    public Builder(CreateTermsOfServiceRequestBodyStatusField status, String text) {
       this.status = new EnumWrapper<CreateTermsOfServiceRequestBodyStatusField>(status);
       this.text = text;
     }
 
-    public CreateTermsOfServiceRequestBodyBuilder tosType(
-        CreateTermsOfServiceRequestBodyTosTypeField tosType) {
+    public Builder tosType(CreateTermsOfServiceRequestBodyTosTypeField tosType) {
       this.tosType = new EnumWrapper<CreateTermsOfServiceRequestBodyTosTypeField>(tosType);
       return this;
     }
 
-    public CreateTermsOfServiceRequestBodyBuilder tosType(
-        EnumWrapper<CreateTermsOfServiceRequestBodyTosTypeField> tosType) {
+    public Builder tosType(EnumWrapper<CreateTermsOfServiceRequestBodyTosTypeField> tosType) {
       this.tosType = tosType;
       return this;
     }

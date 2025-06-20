@@ -17,7 +17,7 @@ public class AiResponseFull extends AiResponse {
     super(answer, createdAt);
   }
 
-  protected AiResponseFull(AiResponseFullBuilder builder) {
+  protected AiResponseFull(Builder builder) {
     super(builder);
     this.citations = builder.citations;
   }
@@ -72,27 +72,27 @@ public class AiResponseFull extends AiResponse {
         + "}";
   }
 
-  public static class AiResponseFullBuilder extends AiResponseBuilder {
+  public static class Builder extends AiResponse.Builder {
 
     protected List<AiCitation> citations;
 
-    public AiResponseFullBuilder(String answer, Date createdAt) {
+    public Builder(String answer, Date createdAt) {
       super(answer, createdAt);
     }
 
-    public AiResponseFullBuilder citations(List<AiCitation> citations) {
+    public Builder citations(List<AiCitation> citations) {
       this.citations = citations;
       return this;
     }
 
     @Override
-    public AiResponseFullBuilder completionReason(String completionReason) {
+    public Builder completionReason(String completionReason) {
       this.completionReason = completionReason;
       return this;
     }
 
     @Override
-    public AiResponseFullBuilder aiAgentInfo(AiAgentInfo aiAgentInfo) {
+    public Builder aiAgentInfo(AiAgentInfo aiAgentInfo) {
       this.aiAgentInfo = aiAgentInfo;
       return this;
     }

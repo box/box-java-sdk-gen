@@ -106,12 +106,11 @@ public class UploadsITest {
         client
             .getUploads()
             .preflightFileUploadCheck(
-                new PreflightFileUploadCheckRequestBody.PreflightFileUploadCheckRequestBodyBuilder()
+                new PreflightFileUploadCheckRequestBody.Builder()
                     .name(newFileName)
                     .size(1024 * 1024)
                     .parent(
-                        new PreflightFileUploadCheckRequestBodyParentField
-                                .PreflightFileUploadCheckRequestBodyParentFieldBuilder()
+                        new PreflightFileUploadCheckRequestBodyParentField.Builder()
                             .id("0")
                             .build())
                     .build());

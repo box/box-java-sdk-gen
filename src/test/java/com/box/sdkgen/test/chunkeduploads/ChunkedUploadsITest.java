@@ -73,7 +73,7 @@ public class ChunkedUploadsITest {
     assert part.getSize() == chunkSize;
     assert part.getOffset() == bytesStart;
     acc.getFileHash().updateHash(chunkBuffer);
-    return new TestPartAccumulator.TestPartAccumulatorBuilder(
+    return new TestPartAccumulator.Builder(
             bytesEnd,
             Stream.concat(parts.stream(), Arrays.asList(part).stream())
                 .collect(Collectors.toList()),
@@ -116,7 +116,7 @@ public class ChunkedUploadsITest {
     assert part.getSize() == chunkSize;
     assert part.getOffset() == bytesStart;
     acc.getFileHash().updateHash(chunkBuffer);
-    return new TestPartAccumulator.TestPartAccumulatorBuilder(
+    return new TestPartAccumulator.Builder(
             bytesEnd,
             Stream.concat(parts.stream(), Arrays.asList(part).stream())
                 .collect(Collectors.toList()),
@@ -148,8 +148,7 @@ public class ChunkedUploadsITest {
         reduceIterator(
             chunksIterator,
             (TestPartAccumulator acc, InputStream chunk) -> reducerById(acc, chunk),
-            new TestPartAccumulator.TestPartAccumulatorBuilder(
-                    -1, Collections.emptyList(), fileSize, fileHash)
+            new TestPartAccumulator.Builder(-1, Collections.emptyList(), fileSize, fileHash)
                 .uploadSessionId(uploadSessionId)
                 .build());
     List<UploadPart> parts = results.getParts();
@@ -199,8 +198,7 @@ public class ChunkedUploadsITest {
         reduceIterator(
             chunksIterator,
             (TestPartAccumulator acc, InputStream chunk) -> reducerByUrl(acc, chunk),
-            new TestPartAccumulator.TestPartAccumulatorBuilder(
-                    -1, Collections.emptyList(), fileSize, fileHash)
+            new TestPartAccumulator.Builder(-1, Collections.emptyList(), fileSize, fileHash)
                 .uploadPartUrl(uploadPartUrl)
                 .build());
     List<UploadPart> parts = results.getParts();

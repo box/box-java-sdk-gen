@@ -28,7 +28,7 @@ public class SignRequestSigner extends SignRequestCreateSigner {
     super();
   }
 
-  protected SignRequestSigner(SignRequestSignerBuilder builder) {
+  protected SignRequestSigner(Builder builder) {
     super(builder);
     this.hasViewedDocument = builder.hasViewedDocument;
     this.signerDecision = builder.signerDecision;
@@ -180,7 +180,7 @@ public class SignRequestSigner extends SignRequestCreateSigner {
         + "}";
   }
 
-  public static class SignRequestSignerBuilder extends SignRequestCreateSignerBuilder {
+  public static class Builder extends SignRequestCreateSigner.Builder {
 
     protected Boolean hasViewedDocument;
 
@@ -192,106 +192,105 @@ public class SignRequestSigner extends SignRequestCreateSigner {
 
     protected String iframeableEmbedUrl;
 
-    public SignRequestSignerBuilder hasViewedDocument(Boolean hasViewedDocument) {
+    public Builder hasViewedDocument(Boolean hasViewedDocument) {
       this.hasViewedDocument = hasViewedDocument;
       return this;
     }
 
-    public SignRequestSignerBuilder signerDecision(
-        SignRequestSignerSignerDecisionField signerDecision) {
+    public Builder signerDecision(SignRequestSignerSignerDecisionField signerDecision) {
       this.signerDecision = signerDecision;
       return this;
     }
 
-    public SignRequestSignerBuilder inputs(List<SignRequestSignerInput> inputs) {
+    public Builder inputs(List<SignRequestSignerInput> inputs) {
       this.inputs = inputs;
       return this;
     }
 
-    public SignRequestSignerBuilder embedUrl(String embedUrl) {
+    public Builder embedUrl(String embedUrl) {
       this.embedUrl = embedUrl;
       return this;
     }
 
-    public SignRequestSignerBuilder iframeableEmbedUrl(String iframeableEmbedUrl) {
+    public Builder iframeableEmbedUrl(String iframeableEmbedUrl) {
       this.iframeableEmbedUrl = iframeableEmbedUrl;
       return this;
     }
 
     @Override
-    public SignRequestSignerBuilder email(String email) {
+    public Builder email(String email) {
       this.email = email;
       return this;
     }
 
     @Override
-    public SignRequestSignerBuilder role(SignRequestCreateSignerRoleField role) {
+    public Builder role(SignRequestCreateSignerRoleField role) {
       this.role = new EnumWrapper<SignRequestCreateSignerRoleField>(role);
       return this;
     }
 
     @Override
-    public SignRequestSignerBuilder role(EnumWrapper<SignRequestCreateSignerRoleField> role) {
+    public Builder role(EnumWrapper<SignRequestCreateSignerRoleField> role) {
       this.role = role;
       return this;
     }
 
     @Override
-    public SignRequestSignerBuilder isInPerson(Boolean isInPerson) {
+    public Builder isInPerson(Boolean isInPerson) {
       this.isInPerson = isInPerson;
       return this;
     }
 
     @Override
-    public SignRequestSignerBuilder order(Long order) {
+    public Builder order(Long order) {
       this.order = order;
       return this;
     }
 
     @Override
-    public SignRequestSignerBuilder embedUrlExternalUserId(String embedUrlExternalUserId) {
+    public Builder embedUrlExternalUserId(String embedUrlExternalUserId) {
       this.embedUrlExternalUserId = embedUrlExternalUserId;
       return this;
     }
 
     @Override
-    public SignRequestSignerBuilder redirectUrl(String redirectUrl) {
+    public Builder redirectUrl(String redirectUrl) {
       this.redirectUrl = redirectUrl;
       return this;
     }
 
     @Override
-    public SignRequestSignerBuilder declinedRedirectUrl(String declinedRedirectUrl) {
+    public Builder declinedRedirectUrl(String declinedRedirectUrl) {
       this.declinedRedirectUrl = declinedRedirectUrl;
       return this;
     }
 
     @Override
-    public SignRequestSignerBuilder loginRequired(Boolean loginRequired) {
+    public Builder loginRequired(Boolean loginRequired) {
       this.loginRequired = loginRequired;
       return this;
     }
 
     @Override
-    public SignRequestSignerBuilder verificationPhoneNumber(String verificationPhoneNumber) {
+    public Builder verificationPhoneNumber(String verificationPhoneNumber) {
       this.verificationPhoneNumber = verificationPhoneNumber;
       return this;
     }
 
     @Override
-    public SignRequestSignerBuilder password(String password) {
+    public Builder password(String password) {
       this.password = password;
       return this;
     }
 
     @Override
-    public SignRequestSignerBuilder signerGroupId(String signerGroupId) {
+    public Builder signerGroupId(String signerGroupId) {
       this.signerGroupId = signerGroupId;
       return this;
     }
 
     @Override
-    public SignRequestSignerBuilder suppressNotifications(Boolean suppressNotifications) {
+    public Builder suppressNotifications(Boolean suppressNotifications) {
       this.suppressNotifications = suppressNotifications;
       return this;
     }

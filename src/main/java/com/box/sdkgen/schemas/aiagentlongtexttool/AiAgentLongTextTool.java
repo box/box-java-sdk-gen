@@ -12,7 +12,7 @@ public class AiAgentLongTextTool extends AiAgentBasicTextTool {
     super();
   }
 
-  protected AiAgentLongTextTool(AiAgentLongTextToolBuilder builder) {
+  protected AiAgentLongTextTool(Builder builder) {
     super(builder);
     this.embeddings = builder.embeddings;
   }
@@ -78,41 +78,41 @@ public class AiAgentLongTextTool extends AiAgentBasicTextTool {
         + "}";
   }
 
-  public static class AiAgentLongTextToolBuilder extends AiAgentBasicTextToolBuilder {
+  public static class Builder extends AiAgentBasicTextTool.Builder {
 
     protected AiAgentLongTextToolEmbeddingsField embeddings;
 
-    public AiAgentLongTextToolBuilder embeddings(AiAgentLongTextToolEmbeddingsField embeddings) {
+    public Builder embeddings(AiAgentLongTextToolEmbeddingsField embeddings) {
       this.embeddings = embeddings;
       return this;
     }
 
     @Override
-    public AiAgentLongTextToolBuilder model(String model) {
+    public Builder model(String model) {
       this.model = model;
       return this;
     }
 
     @Override
-    public AiAgentLongTextToolBuilder numTokensForCompletion(Long numTokensForCompletion) {
+    public Builder numTokensForCompletion(Long numTokensForCompletion) {
       this.numTokensForCompletion = numTokensForCompletion;
       return this;
     }
 
     @Override
-    public AiAgentLongTextToolBuilder llmEndpointParams(AiLlmEndpointParams llmEndpointParams) {
+    public Builder llmEndpointParams(AiLlmEndpointParams llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }
 
     @Override
-    public AiAgentLongTextToolBuilder systemMessage(String systemMessage) {
+    public Builder systemMessage(String systemMessage) {
       this.systemMessage = systemMessage;
       return this;
     }
 
     @Override
-    public AiAgentLongTextToolBuilder promptTemplate(String promptTemplate) {
+    public Builder promptTemplate(String promptTemplate) {
       this.promptTemplate = promptTemplate;
       return this;
     }

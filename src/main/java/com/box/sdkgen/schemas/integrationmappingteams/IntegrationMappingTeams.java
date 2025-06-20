@@ -53,7 +53,7 @@ public class IntegrationMappingTeams extends IntegrationMappingBase {
     this.boxItem = boxItem;
   }
 
-  protected IntegrationMappingTeams(IntegrationMappingTeamsBuilder builder) {
+  protected IntegrationMappingTeams(Builder builder) {
     super(builder);
     this.integrationType = builder.integrationType;
     this.isOverriddenByManualMapping = builder.isOverriddenByManualMapping;
@@ -156,7 +156,7 @@ public class IntegrationMappingTeams extends IntegrationMappingBase {
         + "}";
   }
 
-  public static class IntegrationMappingTeamsBuilder extends IntegrationMappingBaseBuilder {
+  public static class Builder extends IntegrationMappingBase.Builder {
 
     protected EnumWrapper<IntegrationMappingTeamsIntegrationTypeField> integrationType;
 
@@ -170,50 +170,48 @@ public class IntegrationMappingTeams extends IntegrationMappingBase {
 
     protected Date modifiedAt;
 
-    public IntegrationMappingTeamsBuilder(
+    public Builder(
         String id, IntegrationMappingPartnerItemTeamsUnion partnerItem, FolderReference boxItem) {
       super(id);
       this.partnerItem = partnerItem;
       this.boxItem = boxItem;
     }
 
-    public IntegrationMappingTeamsBuilder integrationType(
-        IntegrationMappingTeamsIntegrationTypeField integrationType) {
+    public Builder integrationType(IntegrationMappingTeamsIntegrationTypeField integrationType) {
       this.integrationType =
           new EnumWrapper<IntegrationMappingTeamsIntegrationTypeField>(integrationType);
       return this;
     }
 
-    public IntegrationMappingTeamsBuilder integrationType(
+    public Builder integrationType(
         EnumWrapper<IntegrationMappingTeamsIntegrationTypeField> integrationType) {
       this.integrationType = integrationType;
       return this;
     }
 
-    public IntegrationMappingTeamsBuilder isOverriddenByManualMapping(
-        Boolean isOverriddenByManualMapping) {
+    public Builder isOverriddenByManualMapping(Boolean isOverriddenByManualMapping) {
       this.isOverriddenByManualMapping = isOverriddenByManualMapping;
       return this;
     }
 
-    public IntegrationMappingTeamsBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public IntegrationMappingTeamsBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
     @Override
-    public IntegrationMappingTeamsBuilder type(IntegrationMappingBaseTypeField type) {
+    public Builder type(IntegrationMappingBaseTypeField type) {
       this.type = new EnumWrapper<IntegrationMappingBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public IntegrationMappingTeamsBuilder type(EnumWrapper<IntegrationMappingBaseTypeField> type) {
+    public Builder type(EnumWrapper<IntegrationMappingBaseTypeField> type) {
       this.type = type;
       return this;
     }

@@ -45,7 +45,7 @@ public class CollaborationAllowlistEntry extends SerializableObject {
     super();
   }
 
-  protected CollaborationAllowlistEntry(CollaborationAllowlistEntryBuilder builder) {
+  protected CollaborationAllowlistEntry(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -130,7 +130,7 @@ public class CollaborationAllowlistEntry extends SerializableObject {
         + "}";
   }
 
-  public static class CollaborationAllowlistEntryBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -144,46 +144,42 @@ public class CollaborationAllowlistEntry extends SerializableObject {
 
     protected Date createdAt;
 
-    public CollaborationAllowlistEntryBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public CollaborationAllowlistEntryBuilder type(CollaborationAllowlistEntryTypeField type) {
+    public Builder type(CollaborationAllowlistEntryTypeField type) {
       this.type = new EnumWrapper<CollaborationAllowlistEntryTypeField>(type);
       return this;
     }
 
-    public CollaborationAllowlistEntryBuilder type(
-        EnumWrapper<CollaborationAllowlistEntryTypeField> type) {
+    public Builder type(EnumWrapper<CollaborationAllowlistEntryTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public CollaborationAllowlistEntryBuilder domain(String domain) {
+    public Builder domain(String domain) {
       this.domain = domain;
       return this;
     }
 
-    public CollaborationAllowlistEntryBuilder direction(
-        CollaborationAllowlistEntryDirectionField direction) {
+    public Builder direction(CollaborationAllowlistEntryDirectionField direction) {
       this.direction = new EnumWrapper<CollaborationAllowlistEntryDirectionField>(direction);
       return this;
     }
 
-    public CollaborationAllowlistEntryBuilder direction(
-        EnumWrapper<CollaborationAllowlistEntryDirectionField> direction) {
+    public Builder direction(EnumWrapper<CollaborationAllowlistEntryDirectionField> direction) {
       this.direction = direction;
       return this;
     }
 
-    public CollaborationAllowlistEntryBuilder enterprise(
-        CollaborationAllowlistEntryEnterpriseField enterprise) {
+    public Builder enterprise(CollaborationAllowlistEntryEnterpriseField enterprise) {
       this.enterprise = enterprise;
       return this;
     }
 
-    public CollaborationAllowlistEntryBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }

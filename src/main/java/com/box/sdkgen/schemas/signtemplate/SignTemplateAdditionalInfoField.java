@@ -31,7 +31,7 @@ public class SignTemplateAdditionalInfoField extends SerializableObject {
     super();
   }
 
-  protected SignTemplateAdditionalInfoField(SignTemplateAdditionalInfoFieldBuilder builder) {
+  protected SignTemplateAdditionalInfoField(Builder builder) {
     super();
     this.nonEditable = builder.nonEditable;
     this.required = builder.required;
@@ -76,22 +76,20 @@ public class SignTemplateAdditionalInfoField extends SerializableObject {
         + "}";
   }
 
-  public static class SignTemplateAdditionalInfoFieldBuilder {
+  public static class Builder {
 
     protected List<EnumWrapper<SignTemplateAdditionalInfoNonEditableField>> nonEditable;
 
     protected SignTemplateAdditionalInfoRequiredField required;
 
-    public SignTemplateAdditionalInfoFieldBuilder nonEditable(
-        List<? extends Valuable> nonEditable) {
+    public Builder nonEditable(List<? extends Valuable> nonEditable) {
       this.nonEditable =
           EnumWrapper.wrapValuableEnumList(
               nonEditable, SignTemplateAdditionalInfoNonEditableField.class);
       return this;
     }
 
-    public SignTemplateAdditionalInfoFieldBuilder required(
-        SignTemplateAdditionalInfoRequiredField required) {
+    public Builder required(SignTemplateAdditionalInfoRequiredField required) {
       this.required = required;
       return this;
     }

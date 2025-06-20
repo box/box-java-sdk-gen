@@ -15,7 +15,7 @@ public class OAuth2Error extends SerializableObject {
     super();
   }
 
-  protected OAuth2Error(OAuth2ErrorBuilder builder) {
+  protected OAuth2Error(Builder builder) {
     super();
     this.error = builder.error;
     this.errorDescription = builder.errorDescription;
@@ -60,18 +60,18 @@ public class OAuth2Error extends SerializableObject {
         + "}";
   }
 
-  public static class OAuth2ErrorBuilder {
+  public static class Builder {
 
     protected String error;
 
     protected String errorDescription;
 
-    public OAuth2ErrorBuilder error(String error) {
+    public Builder error(String error) {
       this.error = error;
       return this;
     }
 
-    public OAuth2ErrorBuilder errorDescription(String errorDescription) {
+    public Builder errorDescription(String errorDescription) {
       this.errorDescription = errorDescription;
       return this;
     }

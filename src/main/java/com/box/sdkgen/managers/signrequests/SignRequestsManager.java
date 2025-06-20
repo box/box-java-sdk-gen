@@ -27,7 +27,7 @@ public class SignRequestsManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected SignRequestsManager(SignRequestsManagerBuilder builder) {
+  protected SignRequestsManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -42,7 +42,7 @@ public class SignRequestsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -68,7 +68,7 @@ public class SignRequestsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -93,7 +93,7 @@ public class SignRequestsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -134,7 +134,7 @@ public class SignRequestsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -160,7 +160,7 @@ public class SignRequestsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -184,22 +184,22 @@ public class SignRequestsManager {
     return networkSession;
   }
 
-  public static class SignRequestsManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public SignRequestsManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public SignRequestsManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public SignRequestsManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

@@ -26,7 +26,7 @@ public class WorkflowMini extends SerializableObject {
     super();
   }
 
-  protected WorkflowMini(WorkflowMiniBuilder builder) {
+  protected WorkflowMini(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -101,7 +101,7 @@ public class WorkflowMini extends SerializableObject {
         + "}";
   }
 
-  public static class WorkflowMiniBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -113,32 +113,32 @@ public class WorkflowMini extends SerializableObject {
 
     protected Boolean isEnabled;
 
-    public WorkflowMiniBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public WorkflowMiniBuilder type(WorkflowMiniTypeField type) {
+    public Builder type(WorkflowMiniTypeField type) {
       this.type = new EnumWrapper<WorkflowMiniTypeField>(type);
       return this;
     }
 
-    public WorkflowMiniBuilder type(EnumWrapper<WorkflowMiniTypeField> type) {
+    public Builder type(EnumWrapper<WorkflowMiniTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public WorkflowMiniBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public WorkflowMiniBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public WorkflowMiniBuilder isEnabled(Boolean isEnabled) {
+    public Builder isEnabled(Boolean isEnabled) {
       this.isEnabled = isEnabled;
       return this;
     }

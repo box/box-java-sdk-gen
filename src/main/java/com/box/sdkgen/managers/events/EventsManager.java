@@ -26,7 +26,7 @@ public class EventsManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected EventsManager(EventsManagerBuilder builder) {
+  protected EventsManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -41,7 +41,7 @@ public class EventsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/events"),
                         "OPTIONS")
@@ -80,7 +80,7 @@ public class EventsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/events"),
                         "GET")
@@ -101,22 +101,22 @@ public class EventsManager {
     return networkSession;
   }
 
-  public static class EventsManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public EventsManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public EventsManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public EventsManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

@@ -13,8 +13,7 @@ public class UpdateShieldInformationBarrierSegmentByIdRequestBody extends Serial
     super();
   }
 
-  protected UpdateShieldInformationBarrierSegmentByIdRequestBody(
-      UpdateShieldInformationBarrierSegmentByIdRequestBodyBuilder builder) {
+  protected UpdateShieldInformationBarrierSegmentByIdRequestBody(Builder builder) {
     super();
     this.name = builder.name;
     this.description = builder.description;
@@ -59,19 +58,18 @@ public class UpdateShieldInformationBarrierSegmentByIdRequestBody extends Serial
         + "}";
   }
 
-  public static class UpdateShieldInformationBarrierSegmentByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected String name;
 
     protected String description;
 
-    public UpdateShieldInformationBarrierSegmentByIdRequestBodyBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public UpdateShieldInformationBarrierSegmentByIdRequestBodyBuilder description(
-        String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }

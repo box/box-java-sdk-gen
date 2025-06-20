@@ -8,8 +8,7 @@ public class GetRetentionPolicyAssignmentByIdQueryParams {
 
   public GetRetentionPolicyAssignmentByIdQueryParams() {}
 
-  protected GetRetentionPolicyAssignmentByIdQueryParams(
-      GetRetentionPolicyAssignmentByIdQueryParamsBuilder builder) {
+  protected GetRetentionPolicyAssignmentByIdQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -17,11 +16,11 @@ public class GetRetentionPolicyAssignmentByIdQueryParams {
     return fields;
   }
 
-  public static class GetRetentionPolicyAssignmentByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public GetRetentionPolicyAssignmentByIdQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

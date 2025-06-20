@@ -73,7 +73,7 @@ public class FileRequest extends SerializableObject {
     this.type = new EnumWrapper<FileRequestTypeField>(FileRequestTypeField.FILE_REQUEST);
   }
 
-  protected FileRequest(FileRequestBuilder builder) {
+  protected FileRequest(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -263,7 +263,7 @@ public class FileRequest extends SerializableObject {
         + "}";
   }
 
-  public static class FileRequestBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -295,7 +295,7 @@ public class FileRequest extends SerializableObject {
 
     protected final Date updatedAt;
 
-    public FileRequestBuilder(String id, FolderMini folder, Date createdAt, Date updatedAt) {
+    public Builder(String id, FolderMini folder, Date createdAt, Date updatedAt) {
       this.id = id;
       this.folder = folder;
       this.createdAt = createdAt;
@@ -303,67 +303,67 @@ public class FileRequest extends SerializableObject {
       this.type = new EnumWrapper<FileRequestTypeField>(FileRequestTypeField.FILE_REQUEST);
     }
 
-    public FileRequestBuilder type(FileRequestTypeField type) {
+    public Builder type(FileRequestTypeField type) {
       this.type = new EnumWrapper<FileRequestTypeField>(type);
       return this;
     }
 
-    public FileRequestBuilder type(EnumWrapper<FileRequestTypeField> type) {
+    public Builder type(EnumWrapper<FileRequestTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public FileRequestBuilder title(String title) {
+    public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    public FileRequestBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public FileRequestBuilder status(FileRequestStatusField status) {
+    public Builder status(FileRequestStatusField status) {
       this.status = new EnumWrapper<FileRequestStatusField>(status);
       return this;
     }
 
-    public FileRequestBuilder status(EnumWrapper<FileRequestStatusField> status) {
+    public Builder status(EnumWrapper<FileRequestStatusField> status) {
       this.status = status;
       return this;
     }
 
-    public FileRequestBuilder isEmailRequired(Boolean isEmailRequired) {
+    public Builder isEmailRequired(Boolean isEmailRequired) {
       this.isEmailRequired = isEmailRequired;
       return this;
     }
 
-    public FileRequestBuilder isDescriptionRequired(Boolean isDescriptionRequired) {
+    public Builder isDescriptionRequired(Boolean isDescriptionRequired) {
       this.isDescriptionRequired = isDescriptionRequired;
       return this;
     }
 
-    public FileRequestBuilder expiresAt(Date expiresAt) {
+    public Builder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }
 
-    public FileRequestBuilder url(String url) {
+    public Builder url(String url) {
       this.url = url;
       return this;
     }
 
-    public FileRequestBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
-    public FileRequestBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public FileRequestBuilder updatedBy(UserMini updatedBy) {
+    public Builder updatedBy(UserMini updatedBy) {
       this.updatedBy = updatedBy;
       return this;
     }

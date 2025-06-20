@@ -26,7 +26,7 @@ public class AvatarsITest {
             .getAvatars()
             .createUserAvatar(
                 user.getId(),
-                new CreateUserAvatarRequestBody.CreateUserAvatarRequestBodyBuilder(
+                new CreateUserAvatarRequestBody.Builder(
                         decodeBase64ByteStream(
                             "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEW10NBjBBbqAAAAH0lEQVRoge3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAvg0hAAABmmDh1QAAAABJRU5ErkJggg=="))
                     .picFileName("avatar.png")

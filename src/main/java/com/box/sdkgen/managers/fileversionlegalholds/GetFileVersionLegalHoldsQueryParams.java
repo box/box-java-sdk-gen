@@ -12,8 +12,7 @@ public class GetFileVersionLegalHoldsQueryParams {
     this.policyId = policyId;
   }
 
-  protected GetFileVersionLegalHoldsQueryParams(
-      GetFileVersionLegalHoldsQueryParamsBuilder builder) {
+  protected GetFileVersionLegalHoldsQueryParams(Builder builder) {
     this.policyId = builder.policyId;
     this.marker = builder.marker;
     this.limit = builder.limit;
@@ -31,7 +30,7 @@ public class GetFileVersionLegalHoldsQueryParams {
     return limit;
   }
 
-  public static class GetFileVersionLegalHoldsQueryParamsBuilder {
+  public static class Builder {
 
     protected final String policyId;
 
@@ -39,16 +38,16 @@ public class GetFileVersionLegalHoldsQueryParams {
 
     protected Long limit;
 
-    public GetFileVersionLegalHoldsQueryParamsBuilder(String policyId) {
+    public Builder(String policyId) {
       this.policyId = policyId;
     }
 
-    public GetFileVersionLegalHoldsQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetFileVersionLegalHoldsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

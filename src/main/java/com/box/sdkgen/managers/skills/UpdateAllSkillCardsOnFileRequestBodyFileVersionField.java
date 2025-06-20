@@ -24,8 +24,7 @@ public class UpdateAllSkillCardsOnFileRequestBodyFileVersionField extends Serial
     super();
   }
 
-  protected UpdateAllSkillCardsOnFileRequestBodyFileVersionField(
-      UpdateAllSkillCardsOnFileRequestBodyFileVersionFieldBuilder builder) {
+  protected UpdateAllSkillCardsOnFileRequestBodyFileVersionField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -70,25 +69,24 @@ public class UpdateAllSkillCardsOnFileRequestBodyFileVersionField extends Serial
         + "}";
   }
 
-  public static class UpdateAllSkillCardsOnFileRequestBodyFileVersionFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField> type;
 
     protected String id;
 
-    public UpdateAllSkillCardsOnFileRequestBodyFileVersionFieldBuilder type(
-        UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField type) {
+    public Builder type(UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField type) {
       this.type = new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField>(type);
       return this;
     }
 
-    public UpdateAllSkillCardsOnFileRequestBodyFileVersionFieldBuilder type(
+    public Builder type(
         EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyFileVersionTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public UpdateAllSkillCardsOnFileRequestBodyFileVersionFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

@@ -26,7 +26,7 @@ public class MetadataQueryIndexFieldsField extends SerializableObject {
     super();
   }
 
-  protected MetadataQueryIndexFieldsField(MetadataQueryIndexFieldsFieldBuilder builder) {
+  protected MetadataQueryIndexFieldsField(Builder builder) {
     super();
     this.key = builder.key;
     this.sortDirection = builder.sortDirection;
@@ -70,25 +70,24 @@ public class MetadataQueryIndexFieldsField extends SerializableObject {
         + "}";
   }
 
-  public static class MetadataQueryIndexFieldsFieldBuilder {
+  public static class Builder {
 
     protected String key;
 
     protected EnumWrapper<MetadataQueryIndexFieldsSortDirectionField> sortDirection;
 
-    public MetadataQueryIndexFieldsFieldBuilder key(String key) {
+    public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    public MetadataQueryIndexFieldsFieldBuilder sortDirection(
-        MetadataQueryIndexFieldsSortDirectionField sortDirection) {
+    public Builder sortDirection(MetadataQueryIndexFieldsSortDirectionField sortDirection) {
       this.sortDirection =
           new EnumWrapper<MetadataQueryIndexFieldsSortDirectionField>(sortDirection);
       return this;
     }
 
-    public MetadataQueryIndexFieldsFieldBuilder sortDirection(
+    public Builder sortDirection(
         EnumWrapper<MetadataQueryIndexFieldsSortDirectionField> sortDirection) {
       this.sortDirection = sortDirection;
       return this;

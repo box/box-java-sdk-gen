@@ -62,8 +62,7 @@ public class CreateClassificationTemplateRequestBody extends SerializableObject 
             CreateClassificationTemplateRequestBodyDisplayNameField.CLASSIFICATION);
   }
 
-  protected CreateClassificationTemplateRequestBody(
-      CreateClassificationTemplateRequestBodyBuilder builder) {
+  protected CreateClassificationTemplateRequestBody(Builder builder) {
     super();
     this.scope = builder.scope;
     this.templateKey = builder.templateKey;
@@ -148,7 +147,7 @@ public class CreateClassificationTemplateRequestBody extends SerializableObject 
         + "}";
   }
 
-  public static class CreateClassificationTemplateRequestBodyBuilder {
+  public static class Builder {
 
     protected EnumWrapper<CreateClassificationTemplateRequestBodyScopeField> scope;
 
@@ -162,8 +161,7 @@ public class CreateClassificationTemplateRequestBody extends SerializableObject 
 
     protected final List<CreateClassificationTemplateRequestBodyFieldsField> fields;
 
-    public CreateClassificationTemplateRequestBodyBuilder(
-        List<CreateClassificationTemplateRequestBodyFieldsField> fields) {
+    public Builder(List<CreateClassificationTemplateRequestBodyFieldsField> fields) {
       this.fields = fields;
       this.scope =
           new EnumWrapper<CreateClassificationTemplateRequestBodyScopeField>(
@@ -177,51 +175,48 @@ public class CreateClassificationTemplateRequestBody extends SerializableObject 
               CreateClassificationTemplateRequestBodyDisplayNameField.CLASSIFICATION);
     }
 
-    public CreateClassificationTemplateRequestBodyBuilder scope(
-        CreateClassificationTemplateRequestBodyScopeField scope) {
+    public Builder scope(CreateClassificationTemplateRequestBodyScopeField scope) {
       this.scope = new EnumWrapper<CreateClassificationTemplateRequestBodyScopeField>(scope);
       return this;
     }
 
-    public CreateClassificationTemplateRequestBodyBuilder scope(
-        EnumWrapper<CreateClassificationTemplateRequestBodyScopeField> scope) {
+    public Builder scope(EnumWrapper<CreateClassificationTemplateRequestBodyScopeField> scope) {
       this.scope = scope;
       return this;
     }
 
-    public CreateClassificationTemplateRequestBodyBuilder templateKey(
+    public Builder templateKey(
         CreateClassificationTemplateRequestBodyTemplateKeyField templateKey) {
       this.templateKey =
           new EnumWrapper<CreateClassificationTemplateRequestBodyTemplateKeyField>(templateKey);
       return this;
     }
 
-    public CreateClassificationTemplateRequestBodyBuilder templateKey(
+    public Builder templateKey(
         EnumWrapper<CreateClassificationTemplateRequestBodyTemplateKeyField> templateKey) {
       this.templateKey = templateKey;
       return this;
     }
 
-    public CreateClassificationTemplateRequestBodyBuilder displayName(
+    public Builder displayName(
         CreateClassificationTemplateRequestBodyDisplayNameField displayName) {
       this.displayName =
           new EnumWrapper<CreateClassificationTemplateRequestBodyDisplayNameField>(displayName);
       return this;
     }
 
-    public CreateClassificationTemplateRequestBodyBuilder displayName(
+    public Builder displayName(
         EnumWrapper<CreateClassificationTemplateRequestBodyDisplayNameField> displayName) {
       this.displayName = displayName;
       return this;
     }
 
-    public CreateClassificationTemplateRequestBodyBuilder hidden(Boolean hidden) {
+    public Builder hidden(Boolean hidden) {
       this.hidden = hidden;
       return this;
     }
 
-    public CreateClassificationTemplateRequestBodyBuilder copyInstanceOnItemCopy(
-        Boolean copyInstanceOnItemCopy) {
+    public Builder copyInstanceOnItemCopy(Boolean copyInstanceOnItemCopy) {
       this.copyInstanceOnItemCopy = copyInstanceOnItemCopy;
       return this;
     }

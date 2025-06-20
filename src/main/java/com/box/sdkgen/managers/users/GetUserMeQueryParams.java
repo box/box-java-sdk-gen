@@ -8,7 +8,7 @@ public class GetUserMeQueryParams {
 
   public GetUserMeQueryParams() {}
 
-  protected GetUserMeQueryParams(GetUserMeQueryParamsBuilder builder) {
+  protected GetUserMeQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class GetUserMeQueryParams {
     return fields;
   }
 
-  public static class GetUserMeQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public GetUserMeQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

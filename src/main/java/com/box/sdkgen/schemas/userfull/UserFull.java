@@ -54,7 +54,7 @@ public class UserFull extends User {
     super(id);
   }
 
-  protected UserFull(UserFullBuilder builder) {
+  protected UserFull(Builder builder) {
     super(builder);
     this.role = builder.role;
     this.trackingCodes = builder.trackingCodes;
@@ -313,7 +313,7 @@ public class UserFull extends User {
         + "}";
   }
 
-  public static class UserFullBuilder extends UserBuilder {
+  public static class Builder extends User.Builder {
 
     protected EnumWrapper<UserFullRoleField> role;
 
@@ -339,179 +339,179 @@ public class UserFull extends User {
 
     protected String externalAppUserId;
 
-    public UserFullBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public UserFullBuilder role(UserFullRoleField role) {
+    public Builder role(UserFullRoleField role) {
       this.role = new EnumWrapper<UserFullRoleField>(role);
       return this;
     }
 
-    public UserFullBuilder role(EnumWrapper<UserFullRoleField> role) {
+    public Builder role(EnumWrapper<UserFullRoleField> role) {
       this.role = role;
       return this;
     }
 
-    public UserFullBuilder trackingCodes(List<TrackingCode> trackingCodes) {
+    public Builder trackingCodes(List<TrackingCode> trackingCodes) {
       this.trackingCodes = trackingCodes;
       return this;
     }
 
-    public UserFullBuilder canSeeManagedUsers(Boolean canSeeManagedUsers) {
+    public Builder canSeeManagedUsers(Boolean canSeeManagedUsers) {
       this.canSeeManagedUsers = canSeeManagedUsers;
       return this;
     }
 
-    public UserFullBuilder isSyncEnabled(Boolean isSyncEnabled) {
+    public Builder isSyncEnabled(Boolean isSyncEnabled) {
       this.isSyncEnabled = isSyncEnabled;
       return this;
     }
 
-    public UserFullBuilder isExternalCollabRestricted(Boolean isExternalCollabRestricted) {
+    public Builder isExternalCollabRestricted(Boolean isExternalCollabRestricted) {
       this.isExternalCollabRestricted = isExternalCollabRestricted;
       return this;
     }
 
-    public UserFullBuilder isExemptFromDeviceLimits(Boolean isExemptFromDeviceLimits) {
+    public Builder isExemptFromDeviceLimits(Boolean isExemptFromDeviceLimits) {
       this.isExemptFromDeviceLimits = isExemptFromDeviceLimits;
       return this;
     }
 
-    public UserFullBuilder isExemptFromLoginVerification(Boolean isExemptFromLoginVerification) {
+    public Builder isExemptFromLoginVerification(Boolean isExemptFromLoginVerification) {
       this.isExemptFromLoginVerification = isExemptFromLoginVerification;
       return this;
     }
 
-    public UserFullBuilder enterprise(UserFullEnterpriseField enterprise) {
+    public Builder enterprise(UserFullEnterpriseField enterprise) {
       this.enterprise = enterprise;
       return this;
     }
 
-    public UserFullBuilder myTags(List<String> myTags) {
+    public Builder myTags(List<String> myTags) {
       this.myTags = myTags;
       return this;
     }
 
-    public UserFullBuilder hostname(String hostname) {
+    public Builder hostname(String hostname) {
       this.hostname = hostname;
       return this;
     }
 
-    public UserFullBuilder isPlatformAccessOnly(Boolean isPlatformAccessOnly) {
+    public Builder isPlatformAccessOnly(Boolean isPlatformAccessOnly) {
       this.isPlatformAccessOnly = isPlatformAccessOnly;
       return this;
     }
 
-    public UserFullBuilder externalAppUserId(String externalAppUserId) {
+    public Builder externalAppUserId(String externalAppUserId) {
       this.externalAppUserId = externalAppUserId;
       return this;
     }
 
     @Override
-    public UserFullBuilder type(UserBaseTypeField type) {
+    public Builder type(UserBaseTypeField type) {
       this.type = new EnumWrapper<UserBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public UserFullBuilder type(EnumWrapper<UserBaseTypeField> type) {
+    public Builder type(EnumWrapper<UserBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public UserFullBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public UserFullBuilder login(String login) {
+    public Builder login(String login) {
       this.login = login;
       return this;
     }
 
     @Override
-    public UserFullBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
     @Override
-    public UserFullBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
     @Override
-    public UserFullBuilder language(String language) {
+    public Builder language(String language) {
       this.language = language;
       return this;
     }
 
     @Override
-    public UserFullBuilder timezone(String timezone) {
+    public Builder timezone(String timezone) {
       this.timezone = timezone;
       return this;
     }
 
     @Override
-    public UserFullBuilder spaceAmount(Long spaceAmount) {
+    public Builder spaceAmount(Long spaceAmount) {
       this.spaceAmount = spaceAmount;
       return this;
     }
 
     @Override
-    public UserFullBuilder spaceUsed(Long spaceUsed) {
+    public Builder spaceUsed(Long spaceUsed) {
       this.spaceUsed = spaceUsed;
       return this;
     }
 
     @Override
-    public UserFullBuilder maxUploadSize(Long maxUploadSize) {
+    public Builder maxUploadSize(Long maxUploadSize) {
       this.maxUploadSize = maxUploadSize;
       return this;
     }
 
     @Override
-    public UserFullBuilder status(UserStatusField status) {
+    public Builder status(UserStatusField status) {
       this.status = new EnumWrapper<UserStatusField>(status);
       return this;
     }
 
     @Override
-    public UserFullBuilder status(EnumWrapper<UserStatusField> status) {
+    public Builder status(EnumWrapper<UserStatusField> status) {
       this.status = status;
       return this;
     }
 
     @Override
-    public UserFullBuilder jobTitle(String jobTitle) {
+    public Builder jobTitle(String jobTitle) {
       this.jobTitle = jobTitle;
       return this;
     }
 
     @Override
-    public UserFullBuilder phone(String phone) {
+    public Builder phone(String phone) {
       this.phone = phone;
       return this;
     }
 
     @Override
-    public UserFullBuilder address(String address) {
+    public Builder address(String address) {
       this.address = address;
       return this;
     }
 
     @Override
-    public UserFullBuilder avatarUrl(String avatarUrl) {
+    public Builder avatarUrl(String avatarUrl) {
       this.avatarUrl = avatarUrl;
       return this;
     }
 
     @Override
-    public UserFullBuilder notificationEmail(UserNotificationEmailField notificationEmail) {
+    public Builder notificationEmail(UserNotificationEmailField notificationEmail) {
       this.notificationEmail = notificationEmail;
       return this;
     }

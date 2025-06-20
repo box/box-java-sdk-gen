@@ -12,7 +12,7 @@ public class GetEventsWithLongPollingHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetEventsWithLongPollingHeaders(GetEventsWithLongPollingHeadersBuilder builder) {
+  protected GetEventsWithLongPollingHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetEventsWithLongPollingHeaders {
     return extraHeaders;
   }
 
-  public static class GetEventsWithLongPollingHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetEventsWithLongPollingHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetEventsWithLongPollingHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

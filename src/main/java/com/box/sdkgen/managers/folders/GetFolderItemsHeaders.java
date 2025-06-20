@@ -14,7 +14,7 @@ public class GetFolderItemsHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetFolderItemsHeaders(GetFolderItemsHeadersBuilder builder) {
+  protected GetFolderItemsHeaders(Builder builder) {
     this.boxapi = builder.boxapi;
     this.extraHeaders = builder.extraHeaders;
   }
@@ -27,22 +27,22 @@ public class GetFolderItemsHeaders {
     return extraHeaders;
   }
 
-  public static class GetFolderItemsHeadersBuilder {
+  public static class Builder {
 
     protected String boxapi;
 
     protected Map<String, String> extraHeaders;
 
-    public GetFolderItemsHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetFolderItemsHeadersBuilder boxapi(String boxapi) {
+    public Builder boxapi(String boxapi) {
       this.boxapi = boxapi;
       return this;
     }
 
-    public GetFolderItemsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

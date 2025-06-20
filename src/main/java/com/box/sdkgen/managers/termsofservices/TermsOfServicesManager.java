@@ -26,7 +26,7 @@ public class TermsOfServicesManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected TermsOfServicesManager(TermsOfServicesManagerBuilder builder) {
+  protected TermsOfServicesManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -52,7 +52,7 @@ public class TermsOfServicesManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -78,7 +78,7 @@ public class TermsOfServicesManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -105,7 +105,7 @@ public class TermsOfServicesManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -135,7 +135,7 @@ public class TermsOfServicesManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -160,22 +160,22 @@ public class TermsOfServicesManager {
     return networkSession;
   }
 
-  public static class TermsOfServicesManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public TermsOfServicesManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public TermsOfServicesManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public TermsOfServicesManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

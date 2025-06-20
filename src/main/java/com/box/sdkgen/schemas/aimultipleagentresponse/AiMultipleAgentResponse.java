@@ -23,7 +23,7 @@ public class AiMultipleAgentResponse extends SerializableObject {
     this.entries = entries;
   }
 
-  protected AiMultipleAgentResponse(AiMultipleAgentResponseBuilder builder) {
+  protected AiMultipleAgentResponse(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -88,7 +88,7 @@ public class AiMultipleAgentResponse extends SerializableObject {
         + "}";
   }
 
-  public static class AiMultipleAgentResponseBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -98,21 +98,21 @@ public class AiMultipleAgentResponse extends SerializableObject {
 
     protected final List<AiSingleAgentResponseFull> entries;
 
-    public AiMultipleAgentResponseBuilder(List<AiSingleAgentResponseFull> entries) {
+    public Builder(List<AiSingleAgentResponseFull> entries) {
       this.entries = entries;
     }
 
-    public AiMultipleAgentResponseBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public AiMultipleAgentResponseBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public AiMultipleAgentResponseBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }

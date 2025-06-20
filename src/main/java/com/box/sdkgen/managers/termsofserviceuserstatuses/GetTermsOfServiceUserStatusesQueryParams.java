@@ -10,8 +10,7 @@ public class GetTermsOfServiceUserStatusesQueryParams {
     this.tosId = tosId;
   }
 
-  protected GetTermsOfServiceUserStatusesQueryParams(
-      GetTermsOfServiceUserStatusesQueryParamsBuilder builder) {
+  protected GetTermsOfServiceUserStatusesQueryParams(Builder builder) {
     this.tosId = builder.tosId;
     this.userId = builder.userId;
   }
@@ -24,17 +23,17 @@ public class GetTermsOfServiceUserStatusesQueryParams {
     return userId;
   }
 
-  public static class GetTermsOfServiceUserStatusesQueryParamsBuilder {
+  public static class Builder {
 
     protected final String tosId;
 
     protected String userId;
 
-    public GetTermsOfServiceUserStatusesQueryParamsBuilder(String tosId) {
+    public Builder(String tosId) {
       this.tosId = tosId;
     }
 
-    public GetTermsOfServiceUserStatusesQueryParamsBuilder userId(String userId) {
+    public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }

@@ -23,7 +23,7 @@ public class AiExtract extends SerializableObject {
     this.items = items;
   }
 
-  protected AiExtract(AiExtractBuilder builder) {
+  protected AiExtract(Builder builder) {
     super();
     this.prompt = builder.prompt;
     this.items = builder.items;
@@ -78,7 +78,7 @@ public class AiExtract extends SerializableObject {
         + "}";
   }
 
-  public static class AiExtractBuilder {
+  public static class Builder {
 
     protected final String prompt;
 
@@ -86,12 +86,12 @@ public class AiExtract extends SerializableObject {
 
     protected AiAgentExtractOrAiAgentReference aiAgent;
 
-    public AiExtractBuilder(String prompt, List<AiItemBase> items) {
+    public Builder(String prompt, List<AiItemBase> items) {
       this.prompt = prompt;
       this.items = items;
     }
 
-    public AiExtractBuilder aiAgent(AiAgentExtractOrAiAgentReference aiAgent) {
+    public Builder aiAgent(AiAgentExtractOrAiAgentReference aiAgent) {
       this.aiAgent = aiAgent;
       return this;
     }

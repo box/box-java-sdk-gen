@@ -11,8 +11,7 @@ public class UpdateUserByIdRequestBodyNotificationEmailField extends Serializabl
     super();
   }
 
-  protected UpdateUserByIdRequestBodyNotificationEmailField(
-      UpdateUserByIdRequestBodyNotificationEmailFieldBuilder builder) {
+  protected UpdateUserByIdRequestBodyNotificationEmailField(Builder builder) {
     super();
     this.email = builder.email;
   }
@@ -44,11 +43,11 @@ public class UpdateUserByIdRequestBodyNotificationEmailField extends Serializabl
     return "UpdateUserByIdRequestBodyNotificationEmailField{" + "email='" + email + '\'' + "}";
   }
 
-  public static class UpdateUserByIdRequestBodyNotificationEmailFieldBuilder {
+  public static class Builder {
 
     protected String email;
 
-    public UpdateUserByIdRequestBodyNotificationEmailFieldBuilder email(String email) {
+    public Builder email(String email) {
       this.email = email;
       return this;
     }

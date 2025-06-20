@@ -23,7 +23,7 @@ public class SessionTerminationManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected SessionTerminationManager(SessionTerminationManagerBuilder builder) {
+  protected SessionTerminationManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -40,7 +40,7 @@ public class SessionTerminationManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -68,7 +68,7 @@ public class SessionTerminationManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -92,22 +92,22 @@ public class SessionTerminationManager {
     return networkSession;
   }
 
-  public static class SessionTerminationManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public SessionTerminationManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public SessionTerminationManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public SessionTerminationManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

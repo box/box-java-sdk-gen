@@ -12,8 +12,7 @@ public class GetFolderAppItemAssociationsHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetFolderAppItemAssociationsHeaders(
-      GetFolderAppItemAssociationsHeadersBuilder builder) {
+  protected GetFolderAppItemAssociationsHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class GetFolderAppItemAssociationsHeaders {
     return extraHeaders;
   }
 
-  public static class GetFolderAppItemAssociationsHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetFolderAppItemAssociationsHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetFolderAppItemAssociationsHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

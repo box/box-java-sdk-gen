@@ -45,7 +45,7 @@ public class UpdateGroupByIdRequestBody extends SerializableObject {
     super();
   }
 
-  protected UpdateGroupByIdRequestBody(UpdateGroupByIdRequestBodyBuilder builder) {
+  protected UpdateGroupByIdRequestBody(Builder builder) {
     super();
     this.name = builder.name;
     this.provenance = builder.provenance;
@@ -137,7 +137,7 @@ public class UpdateGroupByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateGroupByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected String name;
 
@@ -152,40 +152,40 @@ public class UpdateGroupByIdRequestBody extends SerializableObject {
     protected EnumWrapper<UpdateGroupByIdRequestBodyMemberViewabilityLevelField>
         memberViewabilityLevel;
 
-    public UpdateGroupByIdRequestBodyBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public UpdateGroupByIdRequestBodyBuilder provenance(String provenance) {
+    public Builder provenance(String provenance) {
       this.provenance = provenance;
       return this;
     }
 
-    public UpdateGroupByIdRequestBodyBuilder externalSyncIdentifier(String externalSyncIdentifier) {
+    public Builder externalSyncIdentifier(String externalSyncIdentifier) {
       this.externalSyncIdentifier = externalSyncIdentifier;
       return this;
     }
 
-    public UpdateGroupByIdRequestBodyBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public UpdateGroupByIdRequestBodyBuilder invitabilityLevel(
+    public Builder invitabilityLevel(
         UpdateGroupByIdRequestBodyInvitabilityLevelField invitabilityLevel) {
       this.invitabilityLevel =
           new EnumWrapper<UpdateGroupByIdRequestBodyInvitabilityLevelField>(invitabilityLevel);
       return this;
     }
 
-    public UpdateGroupByIdRequestBodyBuilder invitabilityLevel(
+    public Builder invitabilityLevel(
         EnumWrapper<UpdateGroupByIdRequestBodyInvitabilityLevelField> invitabilityLevel) {
       this.invitabilityLevel = invitabilityLevel;
       return this;
     }
 
-    public UpdateGroupByIdRequestBodyBuilder memberViewabilityLevel(
+    public Builder memberViewabilityLevel(
         UpdateGroupByIdRequestBodyMemberViewabilityLevelField memberViewabilityLevel) {
       this.memberViewabilityLevel =
           new EnumWrapper<UpdateGroupByIdRequestBodyMemberViewabilityLevelField>(
@@ -193,7 +193,7 @@ public class UpdateGroupByIdRequestBody extends SerializableObject {
       return this;
     }
 
-    public UpdateGroupByIdRequestBodyBuilder memberViewabilityLevel(
+    public Builder memberViewabilityLevel(
         EnumWrapper<UpdateGroupByIdRequestBodyMemberViewabilityLevelField> memberViewabilityLevel) {
       this.memberViewabilityLevel = memberViewabilityLevel;
       return this;

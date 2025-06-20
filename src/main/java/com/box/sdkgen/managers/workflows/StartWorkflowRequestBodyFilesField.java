@@ -24,7 +24,7 @@ public class StartWorkflowRequestBodyFilesField extends SerializableObject {
     super();
   }
 
-  protected StartWorkflowRequestBodyFilesField(StartWorkflowRequestBodyFilesFieldBuilder builder) {
+  protected StartWorkflowRequestBodyFilesField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -68,25 +68,23 @@ public class StartWorkflowRequestBodyFilesField extends SerializableObject {
         + "}";
   }
 
-  public static class StartWorkflowRequestBodyFilesFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<StartWorkflowRequestBodyFilesTypeField> type;
 
     protected String id;
 
-    public StartWorkflowRequestBodyFilesFieldBuilder type(
-        StartWorkflowRequestBodyFilesTypeField type) {
+    public Builder type(StartWorkflowRequestBodyFilesTypeField type) {
       this.type = new EnumWrapper<StartWorkflowRequestBodyFilesTypeField>(type);
       return this;
     }
 
-    public StartWorkflowRequestBodyFilesFieldBuilder type(
-        EnumWrapper<StartWorkflowRequestBodyFilesTypeField> type) {
+    public Builder type(EnumWrapper<StartWorkflowRequestBodyFilesTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public StartWorkflowRequestBodyFilesFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

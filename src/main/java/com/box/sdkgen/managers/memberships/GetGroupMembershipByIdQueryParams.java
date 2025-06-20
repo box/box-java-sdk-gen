@@ -8,7 +8,7 @@ public class GetGroupMembershipByIdQueryParams {
 
   public GetGroupMembershipByIdQueryParams() {}
 
-  protected GetGroupMembershipByIdQueryParams(GetGroupMembershipByIdQueryParamsBuilder builder) {
+  protected GetGroupMembershipByIdQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class GetGroupMembershipByIdQueryParams {
     return fields;
   }
 
-  public static class GetGroupMembershipByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public GetGroupMembershipByIdQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

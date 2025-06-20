@@ -17,10 +17,7 @@ public class SignTemplatesITest {
     SignTemplates signTemplates =
         client
             .getSignTemplates()
-            .getSignTemplates(
-                new GetSignTemplatesQueryParams.GetSignTemplatesQueryParamsBuilder()
-                    .limit(2L)
-                    .build());
+            .getSignTemplates(new GetSignTemplatesQueryParams.Builder().limit(2L).build());
     assert signTemplates.getEntries().size() >= 0;
   }
 
@@ -30,10 +27,7 @@ public class SignTemplatesITest {
     SignTemplates signTemplates =
         client
             .getSignTemplates()
-            .getSignTemplates(
-                new GetSignTemplatesQueryParams.GetSignTemplatesQueryParamsBuilder()
-                    .limit(2L)
-                    .build());
+            .getSignTemplates(new GetSignTemplatesQueryParams.Builder().limit(2L).build());
     assert signTemplates.getEntries().size() >= 0;
     if (signTemplates.getEntries().size() > 0) {
       SignTemplate signTemplate =

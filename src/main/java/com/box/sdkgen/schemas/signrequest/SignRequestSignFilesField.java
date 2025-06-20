@@ -17,7 +17,7 @@ public class SignRequestSignFilesField extends SerializableObject {
     super();
   }
 
-  protected SignRequestSignFilesField(SignRequestSignFilesFieldBuilder builder) {
+  protected SignRequestSignFilesField(Builder builder) {
     super();
     this.files = builder.files;
     this.isReadyForDownload = builder.isReadyForDownload;
@@ -62,18 +62,18 @@ public class SignRequestSignFilesField extends SerializableObject {
         + "}";
   }
 
-  public static class SignRequestSignFilesFieldBuilder {
+  public static class Builder {
 
     protected List<FileMini> files;
 
     protected Boolean isReadyForDownload;
 
-    public SignRequestSignFilesFieldBuilder files(List<FileMini> files) {
+    public Builder files(List<FileMini> files) {
       this.files = files;
       return this;
     }
 
-    public SignRequestSignFilesFieldBuilder isReadyForDownload(Boolean isReadyForDownload) {
+    public Builder isReadyForDownload(Boolean isReadyForDownload) {
       this.isReadyForDownload = isReadyForDownload;
       return this;
     }

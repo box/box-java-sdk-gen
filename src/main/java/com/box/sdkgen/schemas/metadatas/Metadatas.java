@@ -15,7 +15,7 @@ public class Metadatas extends SerializableObject {
     super();
   }
 
-  protected Metadatas(MetadatasBuilder builder) {
+  protected Metadatas(Builder builder) {
     super();
     this.entries = builder.entries;
     this.limit = builder.limit;
@@ -51,18 +51,18 @@ public class Metadatas extends SerializableObject {
     return "Metadatas{" + "entries='" + entries + '\'' + ", " + "limit='" + limit + '\'' + "}";
   }
 
-  public static class MetadatasBuilder {
+  public static class Builder {
 
     protected List<Metadata> entries;
 
     protected Long limit;
 
-    public MetadatasBuilder entries(List<Metadata> entries) {
+    public Builder entries(List<Metadata> entries) {
       this.entries = entries;
       return this;
     }
 
-    public MetadatasBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

@@ -22,7 +22,7 @@ public class Workflows extends SerializableObject {
     super();
   }
 
-  protected Workflows(WorkflowsBuilder builder) {
+  protected Workflows(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -87,7 +87,7 @@ public class Workflows extends SerializableObject {
         + "}";
   }
 
-  public static class WorkflowsBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -97,22 +97,22 @@ public class Workflows extends SerializableObject {
 
     protected List<Workflow> entries;
 
-    public WorkflowsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public WorkflowsBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public WorkflowsBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public WorkflowsBuilder entries(List<Workflow> entries) {
+    public Builder entries(List<Workflow> entries) {
       this.entries = entries;
       return this;
     }

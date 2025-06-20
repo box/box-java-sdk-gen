@@ -22,7 +22,7 @@ public class MetadataCascadePolicies extends SerializableObject {
     super();
   }
 
-  protected MetadataCascadePolicies(MetadataCascadePoliciesBuilder builder) {
+  protected MetadataCascadePolicies(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -87,7 +87,7 @@ public class MetadataCascadePolicies extends SerializableObject {
         + "}";
   }
 
-  public static class MetadataCascadePoliciesBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -97,22 +97,22 @@ public class MetadataCascadePolicies extends SerializableObject {
 
     protected List<MetadataCascadePolicy> entries;
 
-    public MetadataCascadePoliciesBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public MetadataCascadePoliciesBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public MetadataCascadePoliciesBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public MetadataCascadePoliciesBuilder entries(List<MetadataCascadePolicy> entries) {
+    public Builder entries(List<MetadataCascadePolicy> entries) {
       this.entries = entries;
       return this;
     }

@@ -8,8 +8,7 @@ public class FindWebLinkForSharedLinkQueryParams {
 
   public FindWebLinkForSharedLinkQueryParams() {}
 
-  protected FindWebLinkForSharedLinkQueryParams(
-      FindWebLinkForSharedLinkQueryParamsBuilder builder) {
+  protected FindWebLinkForSharedLinkQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -17,11 +16,11 @@ public class FindWebLinkForSharedLinkQueryParams {
     return fields;
   }
 
-  public static class FindWebLinkForSharedLinkQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public FindWebLinkForSharedLinkQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

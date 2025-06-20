@@ -25,7 +25,7 @@ public class WorkflowsManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected WorkflowsManager(WorkflowsManagerBuilder builder) {
+  protected WorkflowsManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -47,7 +47,7 @@ public class WorkflowsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/workflows"),
                         "GET")
@@ -71,7 +71,7 @@ public class WorkflowsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -96,22 +96,22 @@ public class WorkflowsManager {
     return networkSession;
   }
 
-  public static class WorkflowsManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public WorkflowsManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public WorkflowsManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public WorkflowsManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

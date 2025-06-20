@@ -19,7 +19,7 @@ See the endpoint docs at
 
 <!-- sample get_files_id -->
 ```
-client.getFiles().getFileById(uploadedFile.getId(), new GetFileByIdQueryParams.GetFileByIdQueryParamsBuilder().fields(Arrays.asList("is_externally_owned", "has_collaborations")).build())
+client.getFiles().getFileById(uploadedFile.getId(), new GetFileByIdQueryParams.Builder().fields(Arrays.asList("is_externally_owned", "has_collaborations")).build())
 ```
 
 ### Arguments
@@ -55,7 +55,7 @@ See the endpoint docs at
 
 <!-- sample put_files_id -->
 ```
-client.getFiles().updateFileById(fileToUpdate.getId(), new UpdateFileByIdRequestBody.UpdateFileByIdRequestBodyBuilder().name(updatedName).description("Updated description").build())
+client.getFiles().updateFileById(fileToUpdate.getId(), new UpdateFileByIdRequestBody.Builder().name(updatedName).description("Updated description").build())
 ```
 
 ### Arguments
@@ -126,7 +126,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_copy -->
 ```
-client.getFiles().copyFile(fileOrigin.getId(), new CopyFileRequestBody.CopyFileRequestBodyBuilder(new CopyFileRequestBodyParentField("0")).name(copiedFileName).build())
+client.getFiles().copyFile(fileOrigin.getId(), new CopyFileRequestBody.Builder(new CopyFileRequestBodyParentField("0")).name(copiedFileName).build())
 ```
 
 ### Arguments

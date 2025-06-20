@@ -27,8 +27,7 @@ public class UpdateBoxSkillCardsOnFileRequestBody extends SerializableObject {
     super();
   }
 
-  protected UpdateBoxSkillCardsOnFileRequestBody(
-      UpdateBoxSkillCardsOnFileRequestBodyBuilder builder) {
+  protected UpdateBoxSkillCardsOnFileRequestBody(Builder builder) {
     super();
     this.op = builder.op;
     this.path = builder.path;
@@ -83,7 +82,7 @@ public class UpdateBoxSkillCardsOnFileRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateBoxSkillCardsOnFileRequestBodyBuilder {
+  public static class Builder {
 
     protected EnumWrapper<UpdateBoxSkillCardsOnFileRequestBodyOpField> op;
 
@@ -91,24 +90,22 @@ public class UpdateBoxSkillCardsOnFileRequestBody extends SerializableObject {
 
     protected KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard value;
 
-    public UpdateBoxSkillCardsOnFileRequestBodyBuilder op(
-        UpdateBoxSkillCardsOnFileRequestBodyOpField op) {
+    public Builder op(UpdateBoxSkillCardsOnFileRequestBodyOpField op) {
       this.op = new EnumWrapper<UpdateBoxSkillCardsOnFileRequestBodyOpField>(op);
       return this;
     }
 
-    public UpdateBoxSkillCardsOnFileRequestBodyBuilder op(
-        EnumWrapper<UpdateBoxSkillCardsOnFileRequestBodyOpField> op) {
+    public Builder op(EnumWrapper<UpdateBoxSkillCardsOnFileRequestBodyOpField> op) {
       this.op = op;
       return this;
     }
 
-    public UpdateBoxSkillCardsOnFileRequestBodyBuilder path(String path) {
+    public Builder path(String path) {
       this.path = path;
       return this;
     }
 
-    public UpdateBoxSkillCardsOnFileRequestBodyBuilder value(
+    public Builder value(
         KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard value) {
       this.value = value;
       return this;

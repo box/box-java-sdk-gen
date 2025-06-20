@@ -26,7 +26,7 @@ public class StatusSkillCardInvocationField extends SerializableObject {
             StatusSkillCardInvocationTypeField.SKILL_INVOCATION);
   }
 
-  protected StatusSkillCardInvocationField(StatusSkillCardInvocationFieldBuilder builder) {
+  protected StatusSkillCardInvocationField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -70,26 +70,25 @@ public class StatusSkillCardInvocationField extends SerializableObject {
         + "}";
   }
 
-  public static class StatusSkillCardInvocationFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<StatusSkillCardInvocationTypeField> type;
 
     protected final String id;
 
-    public StatusSkillCardInvocationFieldBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<StatusSkillCardInvocationTypeField>(
               StatusSkillCardInvocationTypeField.SKILL_INVOCATION);
     }
 
-    public StatusSkillCardInvocationFieldBuilder type(StatusSkillCardInvocationTypeField type) {
+    public Builder type(StatusSkillCardInvocationTypeField type) {
       this.type = new EnumWrapper<StatusSkillCardInvocationTypeField>(type);
       return this;
     }
 
-    public StatusSkillCardInvocationFieldBuilder type(
-        EnumWrapper<StatusSkillCardInvocationTypeField> type) {
+    public Builder type(EnumWrapper<StatusSkillCardInvocationTypeField> type) {
       this.type = type;
       return this;
     }

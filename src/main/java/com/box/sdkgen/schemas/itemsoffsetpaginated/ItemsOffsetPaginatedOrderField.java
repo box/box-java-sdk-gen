@@ -24,7 +24,7 @@ public class ItemsOffsetPaginatedOrderField extends SerializableObject {
     super();
   }
 
-  protected ItemsOffsetPaginatedOrderField(ItemsOffsetPaginatedOrderFieldBuilder builder) {
+  protected ItemsOffsetPaginatedOrderField(Builder builder) {
     super();
     this.by = builder.by;
     this.direction = builder.direction;
@@ -68,25 +68,23 @@ public class ItemsOffsetPaginatedOrderField extends SerializableObject {
         + "}";
   }
 
-  public static class ItemsOffsetPaginatedOrderFieldBuilder {
+  public static class Builder {
 
     protected String by;
 
     protected EnumWrapper<ItemsOffsetPaginatedOrderDirectionField> direction;
 
-    public ItemsOffsetPaginatedOrderFieldBuilder by(String by) {
+    public Builder by(String by) {
       this.by = by;
       return this;
     }
 
-    public ItemsOffsetPaginatedOrderFieldBuilder direction(
-        ItemsOffsetPaginatedOrderDirectionField direction) {
+    public Builder direction(ItemsOffsetPaginatedOrderDirectionField direction) {
       this.direction = new EnumWrapper<ItemsOffsetPaginatedOrderDirectionField>(direction);
       return this;
     }
 
-    public ItemsOffsetPaginatedOrderFieldBuilder direction(
-        EnumWrapper<ItemsOffsetPaginatedOrderDirectionField> direction) {
+    public Builder direction(EnumWrapper<ItemsOffsetPaginatedOrderDirectionField> direction) {
       this.direction = direction;
       return this;
     }

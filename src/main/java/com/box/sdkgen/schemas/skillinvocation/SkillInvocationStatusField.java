@@ -27,7 +27,7 @@ public class SkillInvocationStatusField extends SerializableObject {
     super();
   }
 
-  protected SkillInvocationStatusField(SkillInvocationStatusFieldBuilder builder) {
+  protected SkillInvocationStatusField(Builder builder) {
     super();
     this.state = builder.state;
     this.message = builder.message;
@@ -92,7 +92,7 @@ public class SkillInvocationStatusField extends SerializableObject {
         + "}";
   }
 
-  public static class SkillInvocationStatusFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<SkillInvocationStatusStateField> state;
 
@@ -102,28 +102,27 @@ public class SkillInvocationStatusField extends SerializableObject {
 
     protected String additionalInfo;
 
-    public SkillInvocationStatusFieldBuilder state(SkillInvocationStatusStateField state) {
+    public Builder state(SkillInvocationStatusStateField state) {
       this.state = new EnumWrapper<SkillInvocationStatusStateField>(state);
       return this;
     }
 
-    public SkillInvocationStatusFieldBuilder state(
-        EnumWrapper<SkillInvocationStatusStateField> state) {
+    public Builder state(EnumWrapper<SkillInvocationStatusStateField> state) {
       this.state = state;
       return this;
     }
 
-    public SkillInvocationStatusFieldBuilder message(String message) {
+    public Builder message(String message) {
       this.message = message;
       return this;
     }
 
-    public SkillInvocationStatusFieldBuilder errorCode(String errorCode) {
+    public Builder errorCode(String errorCode) {
       this.errorCode = errorCode;
       return this;
     }
 
-    public SkillInvocationStatusFieldBuilder additionalInfo(String additionalInfo) {
+    public Builder additionalInfo(String additionalInfo) {
       this.additionalInfo = additionalInfo;
       return this;
     }

@@ -17,7 +17,7 @@ public class Files extends SerializableObject {
     super();
   }
 
-  protected Files(FilesBuilder builder) {
+  protected Files(Builder builder) {
     super();
     this.totalCount = builder.totalCount;
     this.entries = builder.entries;
@@ -61,18 +61,18 @@ public class Files extends SerializableObject {
         + "}";
   }
 
-  public static class FilesBuilder {
+  public static class Builder {
 
     protected Long totalCount;
 
     protected List<FileFull> entries;
 
-    public FilesBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public FilesBuilder entries(List<FileFull> entries) {
+    public Builder entries(List<FileFull> entries) {
       this.entries = entries;
       return this;
     }

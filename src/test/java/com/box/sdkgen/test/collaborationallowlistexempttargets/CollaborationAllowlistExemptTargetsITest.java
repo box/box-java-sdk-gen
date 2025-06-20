@@ -27,7 +27,7 @@ public class CollaborationAllowlistExemptTargetsITest {
         client
             .getUsers()
             .createUser(
-                new CreateUserRequestBody.CreateUserRequestBodyBuilder(getUuid())
+                new CreateUserRequestBody.Builder(getUuid())
                     .login(String.join("", getUuid(), "@boxdemo.com"))
                     .isPlatformAccessOnly(true)
                     .build());

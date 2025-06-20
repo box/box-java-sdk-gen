@@ -12,7 +12,7 @@ public class DeleteWebLinkByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteWebLinkByIdHeaders(DeleteWebLinkByIdHeadersBuilder builder) {
+  protected DeleteWebLinkByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class DeleteWebLinkByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteWebLinkByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteWebLinkByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteWebLinkByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

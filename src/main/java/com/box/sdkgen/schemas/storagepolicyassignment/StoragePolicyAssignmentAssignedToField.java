@@ -13,8 +13,7 @@ public class StoragePolicyAssignmentAssignedToField extends SerializableObject {
     super();
   }
 
-  protected StoragePolicyAssignmentAssignedToField(
-      StoragePolicyAssignmentAssignedToFieldBuilder builder) {
+  protected StoragePolicyAssignmentAssignedToField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -58,18 +57,18 @@ public class StoragePolicyAssignmentAssignedToField extends SerializableObject {
         + "}";
   }
 
-  public static class StoragePolicyAssignmentAssignedToFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected String type;
 
-    public StoragePolicyAssignmentAssignedToFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public StoragePolicyAssignmentAssignedToFieldBuilder type(String type) {
+    public Builder type(String type) {
       this.type = type;
       return this;
     }

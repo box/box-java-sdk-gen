@@ -18,7 +18,7 @@ See the endpoint docs at
 
 <!-- sample get_terms_of_service_user_statuses -->
 ```
-client.getTermsOfServiceUserStatuses().getTermsOfServiceUserStatuses(new GetTermsOfServiceUserStatusesQueryParams.GetTermsOfServiceUserStatusesQueryParamsBuilder(tos.getId()).userId(user.getId()).build())
+client.getTermsOfServiceUserStatuses().getTermsOfServiceUserStatuses(new GetTermsOfServiceUserStatusesQueryParams.Builder(tos.getId()).userId(user.getId()).build())
 ```
 
 ### Arguments

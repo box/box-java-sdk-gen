@@ -19,7 +19,7 @@ public class IntegrationMappings extends SerializableObject {
     super();
   }
 
-  protected IntegrationMappings(IntegrationMappingsBuilder builder) {
+  protected IntegrationMappings(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -74,7 +74,7 @@ public class IntegrationMappings extends SerializableObject {
         + "}";
   }
 
-  public static class IntegrationMappingsBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -82,17 +82,17 @@ public class IntegrationMappings extends SerializableObject {
 
     protected List<IntegrationMapping> entries;
 
-    public IntegrationMappingsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public IntegrationMappingsBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public IntegrationMappingsBuilder entries(List<IntegrationMapping> entries) {
+    public Builder entries(List<IntegrationMapping> entries) {
       this.entries = entries;
       return this;
     }

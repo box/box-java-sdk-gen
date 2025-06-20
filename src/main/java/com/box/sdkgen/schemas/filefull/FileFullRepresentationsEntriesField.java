@@ -19,8 +19,7 @@ public class FileFullRepresentationsEntriesField extends SerializableObject {
     super();
   }
 
-  protected FileFullRepresentationsEntriesField(
-      FileFullRepresentationsEntriesFieldBuilder builder) {
+  protected FileFullRepresentationsEntriesField(Builder builder) {
     super();
     this.content = builder.content;
     this.info = builder.info;
@@ -95,7 +94,7 @@ public class FileFullRepresentationsEntriesField extends SerializableObject {
         + "}";
   }
 
-  public static class FileFullRepresentationsEntriesFieldBuilder {
+  public static class Builder {
 
     protected FileFullRepresentationsEntriesContentField content;
 
@@ -107,31 +106,27 @@ public class FileFullRepresentationsEntriesField extends SerializableObject {
 
     protected FileFullRepresentationsEntriesStatusField status;
 
-    public FileFullRepresentationsEntriesFieldBuilder content(
-        FileFullRepresentationsEntriesContentField content) {
+    public Builder content(FileFullRepresentationsEntriesContentField content) {
       this.content = content;
       return this;
     }
 
-    public FileFullRepresentationsEntriesFieldBuilder info(
-        FileFullRepresentationsEntriesInfoField info) {
+    public Builder info(FileFullRepresentationsEntriesInfoField info) {
       this.info = info;
       return this;
     }
 
-    public FileFullRepresentationsEntriesFieldBuilder properties(
-        FileFullRepresentationsEntriesPropertiesField properties) {
+    public Builder properties(FileFullRepresentationsEntriesPropertiesField properties) {
       this.properties = properties;
       return this;
     }
 
-    public FileFullRepresentationsEntriesFieldBuilder representation(String representation) {
+    public Builder representation(String representation) {
       this.representation = representation;
       return this;
     }
 
-    public FileFullRepresentationsEntriesFieldBuilder status(
-        FileFullRepresentationsEntriesStatusField status) {
+    public Builder status(FileFullRepresentationsEntriesStatusField status) {
       this.status = status;
       return this;
     }

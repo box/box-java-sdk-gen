@@ -86,7 +86,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id#add_shared_link -->
 ```
-client.getSharedLinksFolders().addShareLinkToFolder(folder.getId(), new AddShareLinkToFolderRequestBody.AddShareLinkToFolderRequestBodyBuilder().sharedLink(new AddShareLinkToFolderRequestBodySharedLinkField.AddShareLinkToFolderRequestBodySharedLinkFieldBuilder().access(AddShareLinkToFolderRequestBodySharedLinkAccessField.OPEN).password("Secret123@").build()).build(), new AddShareLinkToFolderQueryParams("shared_link"))
+client.getSharedLinksFolders().addShareLinkToFolder(folder.getId(), new AddShareLinkToFolderRequestBody.Builder().sharedLink(new AddShareLinkToFolderRequestBodySharedLinkField.Builder().access(AddShareLinkToFolderRequestBodySharedLinkAccessField.OPEN).password("Secret123@").build()).build(), new AddShareLinkToFolderQueryParams("shared_link"))
 ```
 
 ### Arguments
@@ -120,7 +120,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id#update_shared_link -->
 ```
-client.getSharedLinksFolders().updateSharedLinkOnFolder(folder.getId(), new UpdateSharedLinkOnFolderRequestBody.UpdateSharedLinkOnFolderRequestBodyBuilder().sharedLink(new UpdateSharedLinkOnFolderRequestBodySharedLinkField.UpdateSharedLinkOnFolderRequestBodySharedLinkFieldBuilder().access(UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField.COLLABORATORS).build()).build(), new UpdateSharedLinkOnFolderQueryParams("shared_link"))
+client.getSharedLinksFolders().updateSharedLinkOnFolder(folder.getId(), new UpdateSharedLinkOnFolderRequestBody.Builder().sharedLink(new UpdateSharedLinkOnFolderRequestBodySharedLinkField.Builder().access(UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField.COLLABORATORS).build()).build(), new UpdateSharedLinkOnFolderQueryParams("shared_link"))
 ```
 
 ### Arguments

@@ -11,7 +11,7 @@ public class EventSourceClassificationField extends SerializableObject {
     super();
   }
 
-  protected EventSourceClassificationField(EventSourceClassificationFieldBuilder builder) {
+  protected EventSourceClassificationField(Builder builder) {
     super();
     this.name = builder.name;
   }
@@ -42,11 +42,11 @@ public class EventSourceClassificationField extends SerializableObject {
     return "EventSourceClassificationField{" + "name='" + name + '\'' + "}";
   }
 
-  public static class EventSourceClassificationFieldBuilder {
+  public static class Builder {
 
     protected String name;
 
-    public EventSourceClassificationFieldBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }

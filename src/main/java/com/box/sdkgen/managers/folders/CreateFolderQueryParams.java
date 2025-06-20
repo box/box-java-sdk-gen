@@ -8,7 +8,7 @@ public class CreateFolderQueryParams {
 
   public CreateFolderQueryParams() {}
 
-  protected CreateFolderQueryParams(CreateFolderQueryParamsBuilder builder) {
+  protected CreateFolderQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class CreateFolderQueryParams {
     return fields;
   }
 
-  public static class CreateFolderQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public CreateFolderQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

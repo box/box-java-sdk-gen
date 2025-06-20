@@ -58,7 +58,7 @@ public class FileVersion extends FileVersionMini {
     super(id);
   }
 
-  protected FileVersion(FileVersionBuilder builder) {
+  protected FileVersion(Builder builder) {
     super(builder);
     this.name = builder.name;
     this.size = builder.size;
@@ -222,7 +222,7 @@ public class FileVersion extends FileVersionMini {
         + "}";
   }
 
-  public static class FileVersionBuilder extends FileVersionMiniBuilder {
+  public static class Builder extends FileVersionMini.Builder {
 
     protected String name;
 
@@ -246,79 +246,79 @@ public class FileVersion extends FileVersionMini {
 
     protected String uploaderDisplayName;
 
-    public FileVersionBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public FileVersionBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public FileVersionBuilder size(Long size) {
+    public Builder size(Long size) {
       this.size = size;
       return this;
     }
 
-    public FileVersionBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public FileVersionBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public FileVersionBuilder modifiedBy(UserMini modifiedBy) {
+    public Builder modifiedBy(UserMini modifiedBy) {
       this.modifiedBy = modifiedBy;
       return this;
     }
 
-    public FileVersionBuilder trashedAt(Date trashedAt) {
+    public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
-    public FileVersionBuilder trashedBy(UserMini trashedBy) {
+    public Builder trashedBy(UserMini trashedBy) {
       this.trashedBy = trashedBy;
       return this;
     }
 
-    public FileVersionBuilder restoredAt(Date restoredAt) {
+    public Builder restoredAt(Date restoredAt) {
       this.restoredAt = restoredAt;
       return this;
     }
 
-    public FileVersionBuilder restoredBy(UserMini restoredBy) {
+    public Builder restoredBy(UserMini restoredBy) {
       this.restoredBy = restoredBy;
       return this;
     }
 
-    public FileVersionBuilder purgedAt(Date purgedAt) {
+    public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
-    public FileVersionBuilder uploaderDisplayName(String uploaderDisplayName) {
+    public Builder uploaderDisplayName(String uploaderDisplayName) {
       this.uploaderDisplayName = uploaderDisplayName;
       return this;
     }
 
     @Override
-    public FileVersionBuilder type(FileVersionBaseTypeField type) {
+    public Builder type(FileVersionBaseTypeField type) {
       this.type = new EnumWrapper<FileVersionBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public FileVersionBuilder type(EnumWrapper<FileVersionBaseTypeField> type) {
+    public Builder type(EnumWrapper<FileVersionBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public FileVersionBuilder sha1(String sha1) {
+    public Builder sha1(String sha1) {
       this.sha1 = sha1;
       return this;
     }

@@ -32,7 +32,7 @@ public class AiManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected AiManager(AiManagerBuilder builder) {
+  protected AiManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -47,7 +47,7 @@ public class AiManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/ai/ask"),
                         "POST")
@@ -74,7 +74,7 @@ public class AiManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/ai/text_gen"),
                         "POST")
@@ -107,7 +107,7 @@ public class AiManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -134,7 +134,7 @@ public class AiManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/ai/extract"),
                         "POST")
@@ -159,7 +159,7 @@ public class AiManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -183,22 +183,22 @@ public class AiManager {
     return networkSession;
   }
 
-  public static class AiManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public AiManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public AiManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public AiManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

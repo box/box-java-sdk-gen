@@ -33,8 +33,7 @@ public class SignRequestSignerSignerDecisionField extends SerializableObject {
     super();
   }
 
-  protected SignRequestSignerSignerDecisionField(
-      SignRequestSignerSignerDecisionFieldBuilder builder) {
+  protected SignRequestSignerSignerDecisionField(Builder builder) {
     super();
     this.type = builder.type;
     this.finalizedAt = builder.finalizedAt;
@@ -89,7 +88,7 @@ public class SignRequestSignerSignerDecisionField extends SerializableObject {
         + "}";
   }
 
-  public static class SignRequestSignerSignerDecisionFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<SignRequestSignerSignerDecisionTypeField> type;
 
@@ -97,24 +96,22 @@ public class SignRequestSignerSignerDecisionField extends SerializableObject {
 
     protected String additionalInfo;
 
-    public SignRequestSignerSignerDecisionFieldBuilder type(
-        SignRequestSignerSignerDecisionTypeField type) {
+    public Builder type(SignRequestSignerSignerDecisionTypeField type) {
       this.type = new EnumWrapper<SignRequestSignerSignerDecisionTypeField>(type);
       return this;
     }
 
-    public SignRequestSignerSignerDecisionFieldBuilder type(
-        EnumWrapper<SignRequestSignerSignerDecisionTypeField> type) {
+    public Builder type(EnumWrapper<SignRequestSignerSignerDecisionTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public SignRequestSignerSignerDecisionFieldBuilder finalizedAt(Date finalizedAt) {
+    public Builder finalizedAt(Date finalizedAt) {
       this.finalizedAt = finalizedAt;
       return this;
     }
 
-    public SignRequestSignerSignerDecisionFieldBuilder additionalInfo(String additionalInfo) {
+    public Builder additionalInfo(String additionalInfo) {
       this.additionalInfo = additionalInfo;
       return this;
     }

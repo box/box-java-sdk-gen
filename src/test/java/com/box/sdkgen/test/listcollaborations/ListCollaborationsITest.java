@@ -38,13 +38,11 @@ public class ListCollaborationsITest {
             .getUserCollaborations()
             .createCollaboration(
                 new CreateCollaborationRequestBody(
-                    new CreateCollaborationRequestBodyItemField
-                            .CreateCollaborationRequestBodyItemFieldBuilder()
+                    new CreateCollaborationRequestBodyItemField.Builder()
                         .type(CreateCollaborationRequestBodyItemTypeField.FOLDER)
                         .id(folder.getId())
                         .build(),
-                    new CreateCollaborationRequestBodyAccessibleByField
-                            .CreateCollaborationRequestBodyAccessibleByFieldBuilder(
+                    new CreateCollaborationRequestBodyAccessibleByField.Builder(
                             CreateCollaborationRequestBodyAccessibleByTypeField.GROUP)
                         .id(group.getId())
                         .build(),
@@ -54,13 +52,11 @@ public class ListCollaborationsITest {
             .getUserCollaborations()
             .createCollaboration(
                 new CreateCollaborationRequestBody(
-                    new CreateCollaborationRequestBodyItemField
-                            .CreateCollaborationRequestBodyItemFieldBuilder()
+                    new CreateCollaborationRequestBodyItemField.Builder()
                         .type(CreateCollaborationRequestBodyItemTypeField.FILE)
                         .id(file.getId())
                         .build(),
-                    new CreateCollaborationRequestBodyAccessibleByField
-                            .CreateCollaborationRequestBodyAccessibleByFieldBuilder(
+                    new CreateCollaborationRequestBodyAccessibleByField.Builder(
                             CreateCollaborationRequestBodyAccessibleByTypeField.USER)
                         .id(getEnvVar("USER_ID"))
                         .build(),

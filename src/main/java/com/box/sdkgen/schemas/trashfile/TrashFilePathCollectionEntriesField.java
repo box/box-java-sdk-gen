@@ -32,8 +32,7 @@ public class TrashFilePathCollectionEntriesField extends SerializableObject {
     super();
   }
 
-  protected TrashFilePathCollectionEntriesField(
-      TrashFilePathCollectionEntriesFieldBuilder builder) {
+  protected TrashFilePathCollectionEntriesField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -108,7 +107,7 @@ public class TrashFilePathCollectionEntriesField extends SerializableObject {
         + "}";
   }
 
-  public static class TrashFilePathCollectionEntriesFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<TrashFilePathCollectionEntriesTypeField> type;
 
@@ -120,34 +119,32 @@ public class TrashFilePathCollectionEntriesField extends SerializableObject {
 
     protected String name;
 
-    public TrashFilePathCollectionEntriesFieldBuilder type(
-        TrashFilePathCollectionEntriesTypeField type) {
+    public Builder type(TrashFilePathCollectionEntriesTypeField type) {
       this.type = new EnumWrapper<TrashFilePathCollectionEntriesTypeField>(type);
       return this;
     }
 
-    public TrashFilePathCollectionEntriesFieldBuilder type(
-        EnumWrapper<TrashFilePathCollectionEntriesTypeField> type) {
+    public Builder type(EnumWrapper<TrashFilePathCollectionEntriesTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TrashFilePathCollectionEntriesFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public TrashFilePathCollectionEntriesFieldBuilder sequenceId(String sequenceId) {
+    public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
       return this;
     }
 
-    public TrashFilePathCollectionEntriesFieldBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
-    public TrashFilePathCollectionEntriesFieldBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }

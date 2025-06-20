@@ -18,7 +18,7 @@ public class CommentFull extends Comment {
     super();
   }
 
-  protected CommentFull(CommentFullBuilder builder) {
+  protected CommentFull(Builder builder) {
     super(builder);
     this.taggedMessage = builder.taggedMessage;
   }
@@ -94,65 +94,65 @@ public class CommentFull extends Comment {
         + "}";
   }
 
-  public static class CommentFullBuilder extends CommentBuilder {
+  public static class Builder extends Comment.Builder {
 
     protected String taggedMessage;
 
-    public CommentFullBuilder taggedMessage(String taggedMessage) {
+    public Builder taggedMessage(String taggedMessage) {
       this.taggedMessage = taggedMessage;
       return this;
     }
 
     @Override
-    public CommentFullBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
     @Override
-    public CommentFullBuilder type(CommentBaseTypeField type) {
+    public Builder type(CommentBaseTypeField type) {
       this.type = new EnumWrapper<CommentBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public CommentFullBuilder type(EnumWrapper<CommentBaseTypeField> type) {
+    public Builder type(EnumWrapper<CommentBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public CommentFullBuilder isReplyComment(Boolean isReplyComment) {
+    public Builder isReplyComment(Boolean isReplyComment) {
       this.isReplyComment = isReplyComment;
       return this;
     }
 
     @Override
-    public CommentFullBuilder message(String message) {
+    public Builder message(String message) {
       this.message = message;
       return this;
     }
 
     @Override
-    public CommentFullBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
     @Override
-    public CommentFullBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
     @Override
-    public CommentFullBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
     @Override
-    public CommentFullBuilder item(CommentItemField item) {
+    public Builder item(CommentItemField item) {
       this.item = item;
       return this;
     }

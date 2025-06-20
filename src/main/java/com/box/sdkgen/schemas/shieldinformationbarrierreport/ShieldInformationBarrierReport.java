@@ -47,7 +47,7 @@ public class ShieldInformationBarrierReport extends ShieldInformationBarrierRepo
     super();
   }
 
-  protected ShieldInformationBarrierReport(ShieldInformationBarrierReportBuilder builder) {
+  protected ShieldInformationBarrierReport(Builder builder) {
     super(builder);
     this.shieldInformationBarrier = builder.shieldInformationBarrier;
     this.status = builder.status;
@@ -143,8 +143,7 @@ public class ShieldInformationBarrierReport extends ShieldInformationBarrierRepo
         + "}";
   }
 
-  public static class ShieldInformationBarrierReportBuilder
-      extends ShieldInformationBarrierReportBaseBuilder {
+  public static class Builder extends ShieldInformationBarrierReportBase.Builder {
 
     protected ShieldInformationBarrierReference shieldInformationBarrier;
 
@@ -158,61 +157,56 @@ public class ShieldInformationBarrierReport extends ShieldInformationBarrierRepo
 
     protected Date updatedAt;
 
-    public ShieldInformationBarrierReportBuilder shieldInformationBarrier(
+    public Builder shieldInformationBarrier(
         ShieldInformationBarrierReference shieldInformationBarrier) {
       this.shieldInformationBarrier = shieldInformationBarrier;
       return this;
     }
 
-    public ShieldInformationBarrierReportBuilder status(
-        ShieldInformationBarrierReportStatusField status) {
+    public Builder status(ShieldInformationBarrierReportStatusField status) {
       this.status = new EnumWrapper<ShieldInformationBarrierReportStatusField>(status);
       return this;
     }
 
-    public ShieldInformationBarrierReportBuilder status(
-        EnumWrapper<ShieldInformationBarrierReportStatusField> status) {
+    public Builder status(EnumWrapper<ShieldInformationBarrierReportStatusField> status) {
       this.status = status;
       return this;
     }
 
-    public ShieldInformationBarrierReportBuilder details(
-        ShieldInformationBarrierReportDetails details) {
+    public Builder details(ShieldInformationBarrierReportDetails details) {
       this.details = details;
       return this;
     }
 
-    public ShieldInformationBarrierReportBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public ShieldInformationBarrierReportBuilder createdBy(UserBase createdBy) {
+    public Builder createdBy(UserBase createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public ShieldInformationBarrierReportBuilder updatedAt(Date updatedAt) {
+    public Builder updatedAt(Date updatedAt) {
       this.updatedAt = updatedAt;
       return this;
     }
 
     @Override
-    public ShieldInformationBarrierReportBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
     @Override
-    public ShieldInformationBarrierReportBuilder type(
-        ShieldInformationBarrierReportBaseTypeField type) {
+    public Builder type(ShieldInformationBarrierReportBaseTypeField type) {
       this.type = new EnumWrapper<ShieldInformationBarrierReportBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public ShieldInformationBarrierReportBuilder type(
-        EnumWrapper<ShieldInformationBarrierReportBaseTypeField> type) {
+    public Builder type(EnumWrapper<ShieldInformationBarrierReportBaseTypeField> type) {
       this.type = type;
       return this;
     }

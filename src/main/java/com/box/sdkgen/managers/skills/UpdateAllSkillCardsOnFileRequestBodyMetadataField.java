@@ -13,8 +13,7 @@ public class UpdateAllSkillCardsOnFileRequestBodyMetadataField extends Serializa
     super();
   }
 
-  protected UpdateAllSkillCardsOnFileRequestBodyMetadataField(
-      UpdateAllSkillCardsOnFileRequestBodyMetadataFieldBuilder builder) {
+  protected UpdateAllSkillCardsOnFileRequestBodyMetadataField(Builder builder) {
     super();
     this.cards = builder.cards;
   }
@@ -47,11 +46,11 @@ public class UpdateAllSkillCardsOnFileRequestBodyMetadataField extends Serializa
     return "UpdateAllSkillCardsOnFileRequestBodyMetadataField{" + "cards='" + cards + '\'' + "}";
   }
 
-  public static class UpdateAllSkillCardsOnFileRequestBodyMetadataFieldBuilder {
+  public static class Builder {
 
     protected List<KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard> cards;
 
-    public UpdateAllSkillCardsOnFileRequestBodyMetadataFieldBuilder cards(
+    public Builder cards(
         List<KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard> cards) {
       this.cards = cards;
       return this;

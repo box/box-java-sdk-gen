@@ -24,7 +24,7 @@ public class WatermarkWatermarkField extends SerializableObject {
     super();
   }
 
-  protected WatermarkWatermarkField(WatermarkWatermarkFieldBuilder builder) {
+  protected WatermarkWatermarkField(Builder builder) {
     super();
     this.createdAt = builder.createdAt;
     this.modifiedAt = builder.modifiedAt;
@@ -69,18 +69,18 @@ public class WatermarkWatermarkField extends SerializableObject {
         + "}";
   }
 
-  public static class WatermarkWatermarkFieldBuilder {
+  public static class Builder {
 
     protected Date createdAt;
 
     protected Date modifiedAt;
 
-    public WatermarkWatermarkFieldBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public WatermarkWatermarkFieldBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

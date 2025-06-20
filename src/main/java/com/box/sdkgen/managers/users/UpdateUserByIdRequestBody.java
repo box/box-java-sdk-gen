@@ -80,7 +80,7 @@ public class UpdateUserByIdRequestBody extends SerializableObject {
     super();
   }
 
-  protected UpdateUserByIdRequestBody(UpdateUserByIdRequestBodyBuilder builder) {
+  protected UpdateUserByIdRequestBody(Builder builder) {
     super();
     this.enterprise = builder.enterprise;
     this.notify = builder.notify;
@@ -336,7 +336,7 @@ public class UpdateUserByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateUserByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected String enterprise;
 
@@ -380,124 +380,118 @@ public class UpdateUserByIdRequestBody extends SerializableObject {
 
     protected String externalAppUserId;
 
-    public UpdateUserByIdRequestBodyBuilder enterprise(String enterprise) {
+    public Builder enterprise(String enterprise) {
       this.enterprise = enterprise;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder notify(Boolean notify) {
+    public Builder notify(Boolean notify) {
       this.notify = notify;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder login(String login) {
+    public Builder login(String login) {
       this.login = login;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder role(UpdateUserByIdRequestBodyRoleField role) {
+    public Builder role(UpdateUserByIdRequestBodyRoleField role) {
       this.role = new EnumWrapper<UpdateUserByIdRequestBodyRoleField>(role);
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder role(
-        EnumWrapper<UpdateUserByIdRequestBodyRoleField> role) {
+    public Builder role(EnumWrapper<UpdateUserByIdRequestBodyRoleField> role) {
       this.role = role;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder language(String language) {
+    public Builder language(String language) {
       this.language = language;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder isSyncEnabled(Boolean isSyncEnabled) {
+    public Builder isSyncEnabled(Boolean isSyncEnabled) {
       this.isSyncEnabled = isSyncEnabled;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder jobTitle(String jobTitle) {
+    public Builder jobTitle(String jobTitle) {
       this.jobTitle = jobTitle;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder phone(String phone) {
+    public Builder phone(String phone) {
       this.phone = phone;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder address(String address) {
+    public Builder address(String address) {
       this.address = address;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder trackingCodes(List<TrackingCode> trackingCodes) {
+    public Builder trackingCodes(List<TrackingCode> trackingCodes) {
       this.trackingCodes = trackingCodes;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder canSeeManagedUsers(Boolean canSeeManagedUsers) {
+    public Builder canSeeManagedUsers(Boolean canSeeManagedUsers) {
       this.canSeeManagedUsers = canSeeManagedUsers;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder timezone(String timezone) {
+    public Builder timezone(String timezone) {
       this.timezone = timezone;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder isExternalCollabRestricted(
-        Boolean isExternalCollabRestricted) {
+    public Builder isExternalCollabRestricted(Boolean isExternalCollabRestricted) {
       this.isExternalCollabRestricted = isExternalCollabRestricted;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder isExemptFromDeviceLimits(
-        Boolean isExemptFromDeviceLimits) {
+    public Builder isExemptFromDeviceLimits(Boolean isExemptFromDeviceLimits) {
       this.isExemptFromDeviceLimits = isExemptFromDeviceLimits;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder isExemptFromLoginVerification(
-        Boolean isExemptFromLoginVerification) {
+    public Builder isExemptFromLoginVerification(Boolean isExemptFromLoginVerification) {
       this.isExemptFromLoginVerification = isExemptFromLoginVerification;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder isPasswordResetRequired(
-        Boolean isPasswordResetRequired) {
+    public Builder isPasswordResetRequired(Boolean isPasswordResetRequired) {
       this.isPasswordResetRequired = isPasswordResetRequired;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder status(UpdateUserByIdRequestBodyStatusField status) {
+    public Builder status(UpdateUserByIdRequestBodyStatusField status) {
       this.status = new EnumWrapper<UpdateUserByIdRequestBodyStatusField>(status);
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder status(
-        EnumWrapper<UpdateUserByIdRequestBodyStatusField> status) {
+    public Builder status(EnumWrapper<UpdateUserByIdRequestBodyStatusField> status) {
       this.status = status;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder spaceAmount(Long spaceAmount) {
+    public Builder spaceAmount(Long spaceAmount) {
       this.spaceAmount = spaceAmount;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder notificationEmail(
+    public Builder notificationEmail(
         UpdateUserByIdRequestBodyNotificationEmailField notificationEmail) {
       this.notificationEmail = notificationEmail;
       return this;
     }
 
-    public UpdateUserByIdRequestBodyBuilder externalAppUserId(String externalAppUserId) {
+    public Builder externalAppUserId(String externalAppUserId) {
       this.externalAppUserId = externalAppUserId;
       return this;
     }

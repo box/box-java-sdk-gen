@@ -31,7 +31,7 @@ public class AiLlmEndpointParamsGoogle extends SerializableObject {
             AiLlmEndpointParamsGoogleTypeField.GOOGLE_PARAMS);
   }
 
-  protected AiLlmEndpointParamsGoogle(AiLlmEndpointParamsGoogleBuilder builder) {
+  protected AiLlmEndpointParamsGoogle(Builder builder) {
     super();
     this.type = builder.type;
     this.temperature = builder.temperature;
@@ -96,7 +96,7 @@ public class AiLlmEndpointParamsGoogle extends SerializableObject {
         + "}";
   }
 
-  public static class AiLlmEndpointParamsGoogleBuilder {
+  public static class Builder {
 
     protected EnumWrapper<AiLlmEndpointParamsGoogleTypeField> type;
 
@@ -106,34 +106,33 @@ public class AiLlmEndpointParamsGoogle extends SerializableObject {
 
     protected Double topK;
 
-    public AiLlmEndpointParamsGoogleBuilder() {
+    public Builder() {
       this.type =
           new EnumWrapper<AiLlmEndpointParamsGoogleTypeField>(
               AiLlmEndpointParamsGoogleTypeField.GOOGLE_PARAMS);
     }
 
-    public AiLlmEndpointParamsGoogleBuilder type(AiLlmEndpointParamsGoogleTypeField type) {
+    public Builder type(AiLlmEndpointParamsGoogleTypeField type) {
       this.type = new EnumWrapper<AiLlmEndpointParamsGoogleTypeField>(type);
       return this;
     }
 
-    public AiLlmEndpointParamsGoogleBuilder type(
-        EnumWrapper<AiLlmEndpointParamsGoogleTypeField> type) {
+    public Builder type(EnumWrapper<AiLlmEndpointParamsGoogleTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiLlmEndpointParamsGoogleBuilder temperature(Double temperature) {
+    public Builder temperature(Double temperature) {
       this.temperature = temperature;
       return this;
     }
 
-    public AiLlmEndpointParamsGoogleBuilder topP(Double topP) {
+    public Builder topP(Double topP) {
       this.topP = topP;
       return this;
     }
 
-    public AiLlmEndpointParamsGoogleBuilder topK(Double topK) {
+    public Builder topK(Double topK) {
       this.topK = topK;
       return this;
     }

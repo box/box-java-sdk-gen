@@ -52,7 +52,7 @@ See the endpoint docs at
 
 <!-- sample post_tasks -->
 ```
-client.getTasks().createTask(new CreateTaskRequestBody.CreateTaskRequestBodyBuilder(new CreateTaskRequestBodyItemField.CreateTaskRequestBodyItemFieldBuilder().id(file.getId()).type(CreateTaskRequestBodyItemTypeField.FILE).build()).action(CreateTaskRequestBodyActionField.REVIEW).message("test message").dueAt(dateTime).completionRule(CreateTaskRequestBodyCompletionRuleField.ALL_ASSIGNEES).build())
+client.getTasks().createTask(new CreateTaskRequestBody.Builder(new CreateTaskRequestBodyItemField.Builder().id(file.getId()).type(CreateTaskRequestBodyItemTypeField.FILE).build()).action(CreateTaskRequestBodyActionField.REVIEW).message("test message").dueAt(dateTime).completionRule(CreateTaskRequestBodyCompletionRuleField.ALL_ASSIGNEES).build())
 ```
 
 ### Arguments
@@ -111,7 +111,7 @@ See the endpoint docs at
 
 <!-- sample put_tasks_id -->
 ```
-client.getTasks().updateTaskById(task.getId(), new UpdateTaskByIdRequestBody.UpdateTaskByIdRequestBodyBuilder().message("updated message").build())
+client.getTasks().updateTaskById(task.getId(), new UpdateTaskByIdRequestBody.Builder().message("updated message").build())
 ```
 
 ### Arguments

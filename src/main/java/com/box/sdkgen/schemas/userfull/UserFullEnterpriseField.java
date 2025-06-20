@@ -21,7 +21,7 @@ public class UserFullEnterpriseField extends SerializableObject {
     super();
   }
 
-  protected UserFullEnterpriseField(UserFullEnterpriseFieldBuilder builder) {
+  protected UserFullEnterpriseField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -76,7 +76,7 @@ public class UserFullEnterpriseField extends SerializableObject {
         + "}";
   }
 
-  public static class UserFullEnterpriseFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -84,22 +84,22 @@ public class UserFullEnterpriseField extends SerializableObject {
 
     protected String name;
 
-    public UserFullEnterpriseFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public UserFullEnterpriseFieldBuilder type(UserFullEnterpriseTypeField type) {
+    public Builder type(UserFullEnterpriseTypeField type) {
       this.type = new EnumWrapper<UserFullEnterpriseTypeField>(type);
       return this;
     }
 
-    public UserFullEnterpriseFieldBuilder type(EnumWrapper<UserFullEnterpriseTypeField> type) {
+    public Builder type(EnumWrapper<UserFullEnterpriseTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public UserFullEnterpriseFieldBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }

@@ -10,8 +10,7 @@ public class GetFolderAppItemAssociationsQueryParams {
 
   public GetFolderAppItemAssociationsQueryParams() {}
 
-  protected GetFolderAppItemAssociationsQueryParams(
-      GetFolderAppItemAssociationsQueryParamsBuilder builder) {
+  protected GetFolderAppItemAssociationsQueryParams(Builder builder) {
     this.limit = builder.limit;
     this.marker = builder.marker;
     this.applicationType = builder.applicationType;
@@ -29,7 +28,7 @@ public class GetFolderAppItemAssociationsQueryParams {
     return applicationType;
   }
 
-  public static class GetFolderAppItemAssociationsQueryParamsBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -37,17 +36,17 @@ public class GetFolderAppItemAssociationsQueryParams {
 
     protected String applicationType;
 
-    public GetFolderAppItemAssociationsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetFolderAppItemAssociationsQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetFolderAppItemAssociationsQueryParamsBuilder applicationType(String applicationType) {
+    public Builder applicationType(String applicationType) {
       this.applicationType = applicationType;
       return this;
     }

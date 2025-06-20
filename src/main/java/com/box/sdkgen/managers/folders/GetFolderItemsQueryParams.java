@@ -21,7 +21,7 @@ public class GetFolderItemsQueryParams {
 
   public GetFolderItemsQueryParams() {}
 
-  protected GetFolderItemsQueryParams(GetFolderItemsQueryParamsBuilder builder) {
+  protected GetFolderItemsQueryParams(Builder builder) {
     this.fields = builder.fields;
     this.usemarker = builder.usemarker;
     this.marker = builder.marker;
@@ -59,7 +59,7 @@ public class GetFolderItemsQueryParams {
     return direction;
   }
 
-  public static class GetFolderItemsQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
@@ -75,50 +75,47 @@ public class GetFolderItemsQueryParams {
 
     protected EnumWrapper<GetFolderItemsQueryParamsDirectionField> direction;
 
-    public GetFolderItemsQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public GetFolderItemsQueryParamsBuilder usemarker(Boolean usemarker) {
+    public Builder usemarker(Boolean usemarker) {
       this.usemarker = usemarker;
       return this;
     }
 
-    public GetFolderItemsQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetFolderItemsQueryParamsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public GetFolderItemsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetFolderItemsQueryParamsBuilder sort(GetFolderItemsQueryParamsSortField sort) {
+    public Builder sort(GetFolderItemsQueryParamsSortField sort) {
       this.sort = new EnumWrapper<GetFolderItemsQueryParamsSortField>(sort);
       return this;
     }
 
-    public GetFolderItemsQueryParamsBuilder sort(
-        EnumWrapper<GetFolderItemsQueryParamsSortField> sort) {
+    public Builder sort(EnumWrapper<GetFolderItemsQueryParamsSortField> sort) {
       this.sort = sort;
       return this;
     }
 
-    public GetFolderItemsQueryParamsBuilder direction(
-        GetFolderItemsQueryParamsDirectionField direction) {
+    public Builder direction(GetFolderItemsQueryParamsDirectionField direction) {
       this.direction = new EnumWrapper<GetFolderItemsQueryParamsDirectionField>(direction);
       return this;
     }
 
-    public GetFolderItemsQueryParamsBuilder direction(
-        EnumWrapper<GetFolderItemsQueryParamsDirectionField> direction) {
+    public Builder direction(EnumWrapper<GetFolderItemsQueryParamsDirectionField> direction) {
       this.direction = direction;
       return this;
     }

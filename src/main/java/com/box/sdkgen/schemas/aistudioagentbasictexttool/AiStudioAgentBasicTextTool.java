@@ -14,7 +14,7 @@ public class AiStudioAgentBasicTextTool extends AiAgentBasicTextTool {
     super();
   }
 
-  protected AiStudioAgentBasicTextTool(AiStudioAgentBasicTextToolBuilder builder) {
+  protected AiStudioAgentBasicTextTool(Builder builder) {
     super(builder);
     this.isCustomInstructionsIncluded = builder.isCustomInstructionsIncluded;
   }
@@ -80,43 +80,41 @@ public class AiStudioAgentBasicTextTool extends AiAgentBasicTextTool {
         + "}";
   }
 
-  public static class AiStudioAgentBasicTextToolBuilder extends AiAgentBasicTextToolBuilder {
+  public static class Builder extends AiAgentBasicTextTool.Builder {
 
     protected Boolean isCustomInstructionsIncluded;
 
-    public AiStudioAgentBasicTextToolBuilder isCustomInstructionsIncluded(
-        Boolean isCustomInstructionsIncluded) {
+    public Builder isCustomInstructionsIncluded(Boolean isCustomInstructionsIncluded) {
       this.isCustomInstructionsIncluded = isCustomInstructionsIncluded;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicTextToolBuilder model(String model) {
+    public Builder model(String model) {
       this.model = model;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicTextToolBuilder numTokensForCompletion(Long numTokensForCompletion) {
+    public Builder numTokensForCompletion(Long numTokensForCompletion) {
       this.numTokensForCompletion = numTokensForCompletion;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicTextToolBuilder llmEndpointParams(
-        AiLlmEndpointParams llmEndpointParams) {
+    public Builder llmEndpointParams(AiLlmEndpointParams llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicTextToolBuilder systemMessage(String systemMessage) {
+    public Builder systemMessage(String systemMessage) {
       this.systemMessage = systemMessage;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicTextToolBuilder promptTemplate(String promptTemplate) {
+    public Builder promptTemplate(String promptTemplate) {
       this.promptTemplate = promptTemplate;
       return this;
     }

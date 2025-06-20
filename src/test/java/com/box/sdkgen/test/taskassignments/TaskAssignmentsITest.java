@@ -38,8 +38,8 @@ public class TaskAssignmentsITest {
         client
             .getTasks()
             .createTask(
-                new CreateTaskRequestBody.CreateTaskRequestBodyBuilder(
-                        new CreateTaskRequestBodyItemField.CreateTaskRequestBodyItemFieldBuilder()
+                new CreateTaskRequestBody.Builder(
+                        new CreateTaskRequestBodyItemField.Builder()
                             .id(file.getId())
                             .type(CreateTaskRequestBodyItemTypeField.FILE)
                             .build())
@@ -56,12 +56,10 @@ public class TaskAssignmentsITest {
             .getTaskAssignments()
             .createTaskAssignment(
                 new CreateTaskAssignmentRequestBody(
-                    new CreateTaskAssignmentRequestBodyTaskField
-                            .CreateTaskAssignmentRequestBodyTaskFieldBuilder(task.getId())
+                    new CreateTaskAssignmentRequestBodyTaskField.Builder(task.getId())
                         .type(CreateTaskAssignmentRequestBodyTaskTypeField.TASK)
                         .build(),
-                    new CreateTaskAssignmentRequestBodyAssignToField
-                            .CreateTaskAssignmentRequestBodyAssignToFieldBuilder()
+                    new CreateTaskAssignmentRequestBodyAssignToField.Builder()
                         .id(currentUser.getId())
                         .build()));
     assert taskAssignment.getItem().getId().equals(file.getId());
@@ -77,7 +75,7 @@ public class TaskAssignmentsITest {
             .getTaskAssignments()
             .updateTaskAssignmentById(
                 taskAssignment.getId(),
-                new UpdateTaskAssignmentByIdRequestBody.UpdateTaskAssignmentByIdRequestBodyBuilder()
+                new UpdateTaskAssignmentByIdRequestBody.Builder()
                     .message("updated message")
                     .resolutionState(
                         UpdateTaskAssignmentByIdRequestBodyResolutionStateField.APPROVED)

@@ -12,7 +12,7 @@ public class GetFileVersionByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetFileVersionByIdHeaders(GetFileVersionByIdHeadersBuilder builder) {
+  protected GetFileVersionByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetFileVersionByIdHeaders {
     return extraHeaders;
   }
 
-  public static class GetFileVersionByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetFileVersionByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetFileVersionByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

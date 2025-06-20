@@ -39,8 +39,7 @@ public class MetadataTemplatesITest {
         client
             .getMetadataTemplates()
             .createMetadataTemplate(
-                new CreateMetadataTemplateRequestBody.CreateMetadataTemplateRequestBodyBuilder(
-                        "enterprise", templateKey)
+                new CreateMetadataTemplateRequestBody.Builder("enterprise", templateKey)
                     .templateKey(templateKey)
                     .fields(
                         Arrays.asList(
@@ -56,8 +55,7 @@ public class MetadataTemplatesITest {
                                 CreateMetadataTemplateRequestBodyFieldsTypeField.DATE,
                                 "birthDate",
                                 "birthDate"),
-                            new CreateMetadataTemplateRequestBodyFieldsField
-                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                            new CreateMetadataTemplateRequestBodyFieldsField.Builder(
                                     CreateMetadataTemplateRequestBodyFieldsTypeField.ENUM,
                                     "countryCode",
                                     "countryCode")
@@ -68,8 +66,7 @@ public class MetadataTemplatesITest {
                                         new CreateMetadataTemplateRequestBodyFieldsOptionsField(
                                             "CA")))
                                 .build(),
-                            new CreateMetadataTemplateRequestBodyFieldsField
-                                    .CreateMetadataTemplateRequestBodyFieldsFieldBuilder(
+                            new CreateMetadataTemplateRequestBodyFieldsField.Builder(
                                     CreateMetadataTemplateRequestBodyFieldsTypeField.MULTISELECT,
                                     "sports",
                                     "sports")
@@ -108,7 +105,7 @@ public class MetadataTemplatesITest {
                 UpdateMetadataTemplateScope.ENTERPRISE,
                 templateKey,
                 Arrays.asList(
-                    new UpdateMetadataTemplateRequestBody.UpdateMetadataTemplateRequestBodyBuilder(
+                    new UpdateMetadataTemplateRequestBody.Builder(
                             UpdateMetadataTemplateRequestBodyOpField.ADDFIELD)
                         .data(
                             mapOf(
@@ -152,8 +149,7 @@ public class MetadataTemplatesITest {
         client
             .getMetadataTemplates()
             .createMetadataTemplate(
-                new CreateMetadataTemplateRequestBody.CreateMetadataTemplateRequestBodyBuilder(
-                        "enterprise", templateKey)
+                new CreateMetadataTemplateRequestBody.Builder("enterprise", templateKey)
                     .templateKey(templateKey)
                     .fields(
                         Arrays.asList(

@@ -8,7 +8,7 @@ public class CreateInviteQueryParams {
 
   public CreateInviteQueryParams() {}
 
-  protected CreateInviteQueryParams(CreateInviteQueryParamsBuilder builder) {
+  protected CreateInviteQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class CreateInviteQueryParams {
     return fields;
   }
 
-  public static class CreateInviteQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public CreateInviteQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

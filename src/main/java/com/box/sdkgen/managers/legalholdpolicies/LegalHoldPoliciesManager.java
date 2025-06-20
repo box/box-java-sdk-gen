@@ -26,7 +26,7 @@ public class LegalHoldPoliciesManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected LegalHoldPoliciesManager(LegalHoldPoliciesManagerBuilder builder) {
+  protected LegalHoldPoliciesManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -58,7 +58,7 @@ public class LegalHoldPoliciesManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -84,7 +84,7 @@ public class LegalHoldPoliciesManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -111,7 +111,7 @@ public class LegalHoldPoliciesManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -154,7 +154,7 @@ public class LegalHoldPoliciesManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -182,7 +182,7 @@ public class LegalHoldPoliciesManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -204,22 +204,22 @@ public class LegalHoldPoliciesManager {
     return networkSession;
   }
 
-  public static class LegalHoldPoliciesManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public LegalHoldPoliciesManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public LegalHoldPoliciesManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public LegalHoldPoliciesManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

@@ -27,7 +27,7 @@ public class MetadataFull extends Metadata {
     super();
   }
 
-  protected MetadataFull(MetadataFullBuilder builder) {
+  protected MetadataFull(Builder builder) {
     super(builder);
     this.canEdit = builder.canEdit;
     this.id = builder.id;
@@ -123,7 +123,7 @@ public class MetadataFull extends Metadata {
         + "}";
   }
 
-  public static class MetadataFullBuilder extends MetadataBuilder {
+  public static class Builder extends Metadata.Builder {
 
     protected Boolean canEdit;
 
@@ -135,51 +135,51 @@ public class MetadataFull extends Metadata {
 
     protected Map<String, Object> extraData;
 
-    public MetadataFullBuilder canEdit(Boolean canEdit) {
+    public Builder canEdit(Boolean canEdit) {
       this.canEdit = canEdit;
       return this;
     }
 
-    public MetadataFullBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public MetadataFullBuilder type(String type) {
+    public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public MetadataFullBuilder typeVersion(Long typeVersion) {
+    public Builder typeVersion(Long typeVersion) {
       this.typeVersion = typeVersion;
       return this;
     }
 
-    public MetadataFullBuilder extraData(Map<String, Object> extraData) {
+    public Builder extraData(Map<String, Object> extraData) {
       this.extraData = extraData;
       return this;
     }
 
     @Override
-    public MetadataFullBuilder parent(String parent) {
+    public Builder parent(String parent) {
       this.parent = parent;
       return this;
     }
 
     @Override
-    public MetadataFullBuilder template(String template) {
+    public Builder template(String template) {
       this.template = template;
       return this;
     }
 
     @Override
-    public MetadataFullBuilder scope(String scope) {
+    public Builder scope(String scope) {
       this.scope = scope;
       return this;
     }
 
     @Override
-    public MetadataFullBuilder version(Long version) {
+    public Builder version(Long version) {
       this.version = version;
       return this;
     }

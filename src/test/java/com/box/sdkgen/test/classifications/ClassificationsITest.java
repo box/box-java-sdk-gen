@@ -41,15 +41,13 @@ public class ClassificationsITest {
                 Arrays.asList(
                     new UpdateClassificationRequestBody(
                         classification.getKey(),
-                        new UpdateClassificationRequestBodyDataField
-                                .UpdateClassificationRequestBodyDataFieldBuilder(
+                        new UpdateClassificationRequestBodyDataField.Builder(
                                 updatedClassificationName)
                             .staticConfig(
-                                new UpdateClassificationRequestBodyDataStaticConfigField
-                                        .UpdateClassificationRequestBodyDataStaticConfigFieldBuilder()
+                                new UpdateClassificationRequestBodyDataStaticConfigField.Builder()
                                     .classification(
                                         new UpdateClassificationRequestBodyDataStaticConfigClassificationField
-                                                .UpdateClassificationRequestBodyDataStaticConfigClassificationFieldBuilder()
+                                                .Builder()
                                             .classificationDefinition(
                                                 updatedClassificationDescription)
                                             .colorId(2L)

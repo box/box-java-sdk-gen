@@ -35,7 +35,7 @@ public class MetadataQuery extends SerializableObject {
     this.ancestorFolderId = ancestorFolderId;
   }
 
-  protected MetadataQuery(MetadataQueryBuilder builder) {
+  protected MetadataQuery(Builder builder) {
     super();
     this.from = builder.from;
     this.query = builder.query;
@@ -140,7 +140,7 @@ public class MetadataQuery extends SerializableObject {
         + "}";
   }
 
-  public static class MetadataQueryBuilder {
+  public static class Builder {
 
     protected final String from;
 
@@ -158,37 +158,37 @@ public class MetadataQuery extends SerializableObject {
 
     protected List<String> fields;
 
-    public MetadataQueryBuilder(String from, String ancestorFolderId) {
+    public Builder(String from, String ancestorFolderId) {
       this.from = from;
       this.ancestorFolderId = ancestorFolderId;
     }
 
-    public MetadataQueryBuilder query(String query) {
+    public Builder query(String query) {
       this.query = query;
       return this;
     }
 
-    public MetadataQueryBuilder queryParams(Map<String, Object> queryParams) {
+    public Builder queryParams(Map<String, Object> queryParams) {
       this.queryParams = queryParams;
       return this;
     }
 
-    public MetadataQueryBuilder orderBy(List<MetadataQueryOrderByField> orderBy) {
+    public Builder orderBy(List<MetadataQueryOrderByField> orderBy) {
       this.orderBy = orderBy;
       return this;
     }
 
-    public MetadataQueryBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public MetadataQueryBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public MetadataQueryBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

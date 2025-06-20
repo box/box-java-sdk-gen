@@ -8,8 +8,7 @@ public class DownloadFileToOutputStreamQueryParams {
 
   public DownloadFileToOutputStreamQueryParams() {}
 
-  protected DownloadFileToOutputStreamQueryParams(
-      DownloadFileToOutputStreamQueryParamsBuilder builder) {
+  protected DownloadFileToOutputStreamQueryParams(Builder builder) {
     this.version = builder.version;
     this.accessToken = builder.accessToken;
   }
@@ -22,18 +21,18 @@ public class DownloadFileToOutputStreamQueryParams {
     return accessToken;
   }
 
-  public static class DownloadFileToOutputStreamQueryParamsBuilder {
+  public static class Builder {
 
     protected String version;
 
     protected String accessToken;
 
-    public DownloadFileToOutputStreamQueryParamsBuilder version(String version) {
+    public Builder version(String version) {
       this.version = version;
       return this;
     }
 
-    public DownloadFileToOutputStreamQueryParamsBuilder accessToken(String accessToken) {
+    public Builder accessToken(String accessToken) {
       this.accessToken = accessToken;
       return this;
     }

@@ -12,7 +12,7 @@ public class DeleteDevicePinnerByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteDevicePinnerByIdHeaders(DeleteDevicePinnerByIdHeadersBuilder builder) {
+  protected DeleteDevicePinnerByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class DeleteDevicePinnerByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteDevicePinnerByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteDevicePinnerByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteDevicePinnerByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

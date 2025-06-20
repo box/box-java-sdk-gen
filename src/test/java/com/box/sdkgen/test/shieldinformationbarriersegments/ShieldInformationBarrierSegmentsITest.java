@@ -32,9 +32,8 @@ public class ShieldInformationBarrierSegmentsITest {
         client
             .getShieldInformationBarrierSegments()
             .createShieldInformationBarrierSegment(
-                new CreateShieldInformationBarrierSegmentRequestBody
-                        .CreateShieldInformationBarrierSegmentRequestBodyBuilder(
-                        new ShieldInformationBarrierBase.ShieldInformationBarrierBaseBuilder()
+                new CreateShieldInformationBarrierSegmentRequestBody.Builder(
+                        new ShieldInformationBarrierBase.Builder()
                             .id(barrierId)
                             .type(ShieldInformationBarrierBaseTypeField.SHIELD_INFORMATION_BARRIER)
                             .build(),
@@ -64,8 +63,7 @@ public class ShieldInformationBarrierSegmentsITest {
             .getShieldInformationBarrierSegments()
             .updateShieldInformationBarrierSegmentById(
                 segmentId,
-                new UpdateShieldInformationBarrierSegmentByIdRequestBody
-                        .UpdateShieldInformationBarrierSegmentByIdRequestBodyBuilder()
+                new UpdateShieldInformationBarrierSegmentByIdRequestBody.Builder()
                     .description(updatedSegmentDescription)
                     .build());
     assert updatedSegment.getDescription().equals(updatedSegmentDescription);

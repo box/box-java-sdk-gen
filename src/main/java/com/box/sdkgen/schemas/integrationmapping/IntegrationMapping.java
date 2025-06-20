@@ -63,7 +63,7 @@ public class IntegrationMapping extends IntegrationMappingBase {
     this.boxItem = boxItem;
   }
 
-  protected IntegrationMapping(IntegrationMappingBuilder builder) {
+  protected IntegrationMapping(Builder builder) {
     super(builder);
     this.integrationType = builder.integrationType;
     this.isManuallyCreated = builder.isManuallyCreated;
@@ -199,7 +199,7 @@ public class IntegrationMapping extends IntegrationMappingBase {
         + "}";
   }
 
-  public static class IntegrationMappingBuilder extends IntegrationMappingBaseBuilder {
+  public static class Builder extends IntegrationMappingBase.Builder {
 
     protected EnumWrapper<IntegrationMappingIntegrationTypeField> integrationType;
 
@@ -219,64 +219,63 @@ public class IntegrationMapping extends IntegrationMappingBase {
 
     protected Date modifiedAt;
 
-    public IntegrationMappingBuilder(
+    public Builder(
         String id, IntegrationMappingPartnerItemSlackUnion partnerItem, FolderMini boxItem) {
       super(id);
       this.partnerItem = partnerItem;
       this.boxItem = boxItem;
     }
 
-    public IntegrationMappingBuilder integrationType(
-        IntegrationMappingIntegrationTypeField integrationType) {
+    public Builder integrationType(IntegrationMappingIntegrationTypeField integrationType) {
       this.integrationType =
           new EnumWrapper<IntegrationMappingIntegrationTypeField>(integrationType);
       return this;
     }
 
-    public IntegrationMappingBuilder integrationType(
+    public Builder integrationType(
         EnumWrapper<IntegrationMappingIntegrationTypeField> integrationType) {
       this.integrationType = integrationType;
       return this;
     }
 
-    public IntegrationMappingBuilder isManuallyCreated(Boolean isManuallyCreated) {
+    public Builder isManuallyCreated(Boolean isManuallyCreated) {
       this.isManuallyCreated = isManuallyCreated;
       return this;
     }
 
-    public IntegrationMappingBuilder options(IntegrationMappingSlackOptions options) {
+    public Builder options(IntegrationMappingSlackOptions options) {
       this.options = options;
       return this;
     }
 
-    public IntegrationMappingBuilder createdBy(UserIntegrationMappings createdBy) {
+    public Builder createdBy(UserIntegrationMappings createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public IntegrationMappingBuilder modifiedBy(UserIntegrationMappings modifiedBy) {
+    public Builder modifiedBy(UserIntegrationMappings modifiedBy) {
       this.modifiedBy = modifiedBy;
       return this;
     }
 
-    public IntegrationMappingBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public IntegrationMappingBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
     @Override
-    public IntegrationMappingBuilder type(IntegrationMappingBaseTypeField type) {
+    public Builder type(IntegrationMappingBaseTypeField type) {
       this.type = new EnumWrapper<IntegrationMappingBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public IntegrationMappingBuilder type(EnumWrapper<IntegrationMappingBaseTypeField> type) {
+    public Builder type(EnumWrapper<IntegrationMappingBaseTypeField> type) {
       this.type = type;
       return this;
     }

@@ -24,9 +24,7 @@ public class InvitesITest {
         client
             .getUsers()
             .getUserMe(
-                new GetUserMeQueryParams.GetUserMeQueryParamsBuilder()
-                    .fields(Arrays.asList("enterprise"))
-                    .build());
+                new GetUserMeQueryParams.Builder().fields(Arrays.asList("enterprise")).build());
     String email = getEnvVar("BOX_EXTERNAL_USER_EMAIL");
     Invite invitation =
         client
@@ -34,10 +32,7 @@ public class InvitesITest {
             .createInvite(
                 new CreateInviteRequestBody(
                     new CreateInviteRequestBodyEnterpriseField(currentUser.getEnterprise().getId()),
-                    new CreateInviteRequestBodyActionableByField
-                            .CreateInviteRequestBodyActionableByFieldBuilder()
-                        .login(email)
-                        .build()));
+                    new CreateInviteRequestBodyActionableByField.Builder().login(email).build()));
     assert convertToString(invitation.getType()).equals("invite");
     assert invitation.getInvitedTo().getId().equals(currentUser.getEnterprise().getId());
     assert invitation.getActionableBy().getLogin().equals(email);

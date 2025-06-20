@@ -12,7 +12,7 @@ public class SearchForContentHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected SearchForContentHeaders(SearchForContentHeadersBuilder builder) {
+  protected SearchForContentHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class SearchForContentHeaders {
     return extraHeaders;
   }
 
-  public static class SearchForContentHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public SearchForContentHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public SearchForContentHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

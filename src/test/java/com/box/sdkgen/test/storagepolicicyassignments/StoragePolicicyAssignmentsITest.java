@@ -59,9 +59,7 @@ public class StoragePolicicyAssignmentsITest {
         client
             .getUsers()
             .createUser(
-                new CreateUserRequestBody.CreateUserRequestBodyBuilder(userName)
-                    .isPlatformAccessOnly(true)
-                    .build());
+                new CreateUserRequestBody.Builder(userName).isPlatformAccessOnly(true).build());
     StoragePolicies storagePolicies = client.getStoragePolicies().getStoragePolicies();
     StoragePolicy storagePolicy1 = storagePolicies.getEntries().get(0);
     StoragePolicy storagePolicy2 = storagePolicies.getEntries().get(1);

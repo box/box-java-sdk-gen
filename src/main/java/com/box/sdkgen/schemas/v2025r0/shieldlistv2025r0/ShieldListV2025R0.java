@@ -52,7 +52,7 @@ public class ShieldListV2025R0 extends SerializableObject {
     this.content = content;
   }
 
-  protected ShieldListV2025R0(ShieldListV2025R0Builder builder) {
+  protected ShieldListV2025R0(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -157,7 +157,7 @@ public class ShieldListV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class ShieldListV2025R0Builder {
+  public static class Builder {
 
     protected final String id;
 
@@ -175,7 +175,7 @@ public class ShieldListV2025R0 extends SerializableObject {
 
     protected final ShieldListContentV2025R0 content;
 
-    public ShieldListV2025R0Builder(
+    public Builder(
         String id,
         String type,
         String name,
@@ -192,7 +192,7 @@ public class ShieldListV2025R0 extends SerializableObject {
       this.content = content;
     }
 
-    public ShieldListV2025R0Builder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }

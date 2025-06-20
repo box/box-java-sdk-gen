@@ -15,8 +15,7 @@ public class FileFullRepresentationsEntriesPropertiesField extends SerializableO
     super();
   }
 
-  protected FileFullRepresentationsEntriesPropertiesField(
-      FileFullRepresentationsEntriesPropertiesFieldBuilder builder) {
+  protected FileFullRepresentationsEntriesPropertiesField(Builder builder) {
     super();
     this.dimensions = builder.dimensions;
     this.paged = builder.paged;
@@ -72,7 +71,7 @@ public class FileFullRepresentationsEntriesPropertiesField extends SerializableO
         + "}";
   }
 
-  public static class FileFullRepresentationsEntriesPropertiesFieldBuilder {
+  public static class Builder {
 
     protected String dimensions;
 
@@ -80,17 +79,17 @@ public class FileFullRepresentationsEntriesPropertiesField extends SerializableO
 
     protected String thumb;
 
-    public FileFullRepresentationsEntriesPropertiesFieldBuilder dimensions(String dimensions) {
+    public Builder dimensions(String dimensions) {
       this.dimensions = dimensions;
       return this;
     }
 
-    public FileFullRepresentationsEntriesPropertiesFieldBuilder paged(String paged) {
+    public Builder paged(String paged) {
       this.paged = paged;
       return this;
     }
 
-    public FileFullRepresentationsEntriesPropertiesFieldBuilder thumb(String thumb) {
+    public Builder thumb(String thumb) {
       this.thumb = thumb;
       return this;
     }

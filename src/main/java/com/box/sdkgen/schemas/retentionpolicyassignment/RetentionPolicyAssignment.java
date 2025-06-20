@@ -51,7 +51,7 @@ public class RetentionPolicyAssignment extends SerializableObject {
             RetentionPolicyAssignmentTypeField.RETENTION_POLICY_ASSIGNMENT);
   }
 
-  protected RetentionPolicyAssignment(RetentionPolicyAssignmentBuilder builder) {
+  protected RetentionPolicyAssignment(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -164,7 +164,7 @@ public class RetentionPolicyAssignment extends SerializableObject {
         + "}";
   }
 
-  public static class RetentionPolicyAssignmentBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -182,52 +182,49 @@ public class RetentionPolicyAssignment extends SerializableObject {
 
     protected String startDateField;
 
-    public RetentionPolicyAssignmentBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<RetentionPolicyAssignmentTypeField>(
               RetentionPolicyAssignmentTypeField.RETENTION_POLICY_ASSIGNMENT);
     }
 
-    public RetentionPolicyAssignmentBuilder type(RetentionPolicyAssignmentTypeField type) {
+    public Builder type(RetentionPolicyAssignmentTypeField type) {
       this.type = new EnumWrapper<RetentionPolicyAssignmentTypeField>(type);
       return this;
     }
 
-    public RetentionPolicyAssignmentBuilder type(
-        EnumWrapper<RetentionPolicyAssignmentTypeField> type) {
+    public Builder type(EnumWrapper<RetentionPolicyAssignmentTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public RetentionPolicyAssignmentBuilder retentionPolicy(RetentionPolicyMini retentionPolicy) {
+    public Builder retentionPolicy(RetentionPolicyMini retentionPolicy) {
       this.retentionPolicy = retentionPolicy;
       return this;
     }
 
-    public RetentionPolicyAssignmentBuilder assignedTo(
-        RetentionPolicyAssignmentAssignedToField assignedTo) {
+    public Builder assignedTo(RetentionPolicyAssignmentAssignedToField assignedTo) {
       this.assignedTo = assignedTo;
       return this;
     }
 
-    public RetentionPolicyAssignmentBuilder filterFields(
-        List<RetentionPolicyAssignmentFilterFieldsField> filterFields) {
+    public Builder filterFields(List<RetentionPolicyAssignmentFilterFieldsField> filterFields) {
       this.filterFields = filterFields;
       return this;
     }
 
-    public RetentionPolicyAssignmentBuilder assignedBy(UserMini assignedBy) {
+    public Builder assignedBy(UserMini assignedBy) {
       this.assignedBy = assignedBy;
       return this;
     }
 
-    public RetentionPolicyAssignmentBuilder assignedAt(Date assignedAt) {
+    public Builder assignedAt(Date assignedAt) {
       this.assignedAt = assignedAt;
       return this;
     }
 
-    public RetentionPolicyAssignmentBuilder startDateField(String startDateField) {
+    public Builder startDateField(String startDateField) {
       this.startDateField = startDateField;
       return this;
     }

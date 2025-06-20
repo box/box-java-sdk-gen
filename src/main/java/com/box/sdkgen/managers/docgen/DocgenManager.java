@@ -29,7 +29,7 @@ public class DocgenManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected DocgenManager(DocgenManagerBuilder builder) {
+  protected DocgenManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -49,7 +49,7 @@ public class DocgenManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -93,7 +93,7 @@ public class DocgenManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/docgen_jobs"),
                         "GET")
@@ -143,7 +143,7 @@ public class DocgenManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -175,7 +175,7 @@ public class DocgenManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -199,22 +199,22 @@ public class DocgenManager {
     return networkSession;
   }
 
-  public static class DocgenManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public DocgenManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public DocgenManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public DocgenManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

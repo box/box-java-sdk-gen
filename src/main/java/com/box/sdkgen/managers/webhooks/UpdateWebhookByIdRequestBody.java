@@ -31,7 +31,7 @@ public class UpdateWebhookByIdRequestBody extends SerializableObject {
     super();
   }
 
-  protected UpdateWebhookByIdRequestBody(UpdateWebhookByIdRequestBodyBuilder builder) {
+  protected UpdateWebhookByIdRequestBody(Builder builder) {
     super();
     this.target = builder.target;
     this.address = builder.address;
@@ -86,7 +86,7 @@ public class UpdateWebhookByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateWebhookByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected UpdateWebhookByIdRequestBodyTargetField target;
 
@@ -94,18 +94,17 @@ public class UpdateWebhookByIdRequestBody extends SerializableObject {
 
     protected List<EnumWrapper<UpdateWebhookByIdRequestBodyTriggersField>> triggers;
 
-    public UpdateWebhookByIdRequestBodyBuilder target(
-        UpdateWebhookByIdRequestBodyTargetField target) {
+    public Builder target(UpdateWebhookByIdRequestBodyTargetField target) {
       this.target = target;
       return this;
     }
 
-    public UpdateWebhookByIdRequestBodyBuilder address(String address) {
+    public Builder address(String address) {
       this.address = address;
       return this;
     }
 
-    public UpdateWebhookByIdRequestBodyBuilder triggers(List<? extends Valuable> triggers) {
+    public Builder triggers(List<? extends Valuable> triggers) {
       this.triggers =
           EnumWrapper.wrapValuableEnumList(
               triggers, UpdateWebhookByIdRequestBodyTriggersField.class);

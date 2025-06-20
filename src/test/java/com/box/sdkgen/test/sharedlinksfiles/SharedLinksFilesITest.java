@@ -46,10 +46,9 @@ public class SharedLinksFilesITest {
         .getSharedLinksFiles()
         .addShareLinkToFile(
             fileId,
-            new AddShareLinkToFileRequestBody.AddShareLinkToFileRequestBodyBuilder()
+            new AddShareLinkToFileRequestBody.Builder()
                 .sharedLink(
-                    new AddShareLinkToFileRequestBodySharedLinkField
-                            .AddShareLinkToFileRequestBodySharedLinkFieldBuilder()
+                    new AddShareLinkToFileRequestBodySharedLinkField.Builder()
                         .access(AddShareLinkToFileRequestBodySharedLinkAccessField.OPEN)
                         .password("Secret123@")
                         .build())
@@ -92,10 +91,9 @@ public class SharedLinksFilesITest {
             .getSharedLinksFiles()
             .updateSharedLinkOnFile(
                 fileId,
-                new UpdateSharedLinkOnFileRequestBody.UpdateSharedLinkOnFileRequestBodyBuilder()
+                new UpdateSharedLinkOnFileRequestBody.Builder()
                     .sharedLink(
-                        new UpdateSharedLinkOnFileRequestBodySharedLinkField
-                                .UpdateSharedLinkOnFileRequestBodySharedLinkFieldBuilder()
+                        new UpdateSharedLinkOnFileRequestBodySharedLinkField.Builder()
                             .access(
                                 UpdateSharedLinkOnFileRequestBodySharedLinkAccessField
                                     .COLLABORATORS)

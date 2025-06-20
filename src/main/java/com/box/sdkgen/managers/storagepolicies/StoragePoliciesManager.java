@@ -26,7 +26,7 @@ public class StoragePoliciesManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected StoragePoliciesManager(StoragePoliciesManagerBuilder builder) {
+  protected StoragePoliciesManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -56,7 +56,7 @@ public class StoragePoliciesManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -82,7 +82,7 @@ public class StoragePoliciesManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -105,22 +105,22 @@ public class StoragePoliciesManager {
     return networkSession;
   }
 
-  public static class StoragePoliciesManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public StoragePoliciesManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public StoragePoliciesManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public StoragePoliciesManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

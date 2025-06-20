@@ -8,8 +8,7 @@ public class GetGlobalMetadataTemplatesQueryParams {
 
   public GetGlobalMetadataTemplatesQueryParams() {}
 
-  protected GetGlobalMetadataTemplatesQueryParams(
-      GetGlobalMetadataTemplatesQueryParamsBuilder builder) {
+  protected GetGlobalMetadataTemplatesQueryParams(Builder builder) {
     this.marker = builder.marker;
     this.limit = builder.limit;
   }
@@ -22,18 +21,18 @@ public class GetGlobalMetadataTemplatesQueryParams {
     return limit;
   }
 
-  public static class GetGlobalMetadataTemplatesQueryParamsBuilder {
+  public static class Builder {
 
     protected String marker;
 
     protected Long limit;
 
-    public GetGlobalMetadataTemplatesQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetGlobalMetadataTemplatesQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

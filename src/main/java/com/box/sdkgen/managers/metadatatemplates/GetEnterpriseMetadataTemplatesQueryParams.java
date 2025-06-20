@@ -8,8 +8,7 @@ public class GetEnterpriseMetadataTemplatesQueryParams {
 
   public GetEnterpriseMetadataTemplatesQueryParams() {}
 
-  protected GetEnterpriseMetadataTemplatesQueryParams(
-      GetEnterpriseMetadataTemplatesQueryParamsBuilder builder) {
+  protected GetEnterpriseMetadataTemplatesQueryParams(Builder builder) {
     this.marker = builder.marker;
     this.limit = builder.limit;
   }
@@ -22,18 +21,18 @@ public class GetEnterpriseMetadataTemplatesQueryParams {
     return limit;
   }
 
-  public static class GetEnterpriseMetadataTemplatesQueryParamsBuilder {
+  public static class Builder {
 
     protected String marker;
 
     protected Long limit;
 
-    public GetEnterpriseMetadataTemplatesQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetEnterpriseMetadataTemplatesQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

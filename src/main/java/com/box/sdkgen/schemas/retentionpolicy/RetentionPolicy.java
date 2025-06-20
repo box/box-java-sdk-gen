@@ -64,7 +64,7 @@ public class RetentionPolicy extends RetentionPolicyMini {
     super(id);
   }
 
-  protected RetentionPolicy(RetentionPolicyBuilder builder) {
+  protected RetentionPolicy(Builder builder) {
     super(builder);
     this.description = builder.description;
     this.policyType = builder.policyType;
@@ -240,7 +240,7 @@ public class RetentionPolicy extends RetentionPolicyMini {
         + "}";
   }
 
-  public static class RetentionPolicyBuilder extends RetentionPolicyMiniBuilder {
+  public static class Builder extends RetentionPolicyMini.Builder {
 
     protected String description;
 
@@ -264,118 +264,113 @@ public class RetentionPolicy extends RetentionPolicyMini {
 
     protected RetentionPolicyAssignmentCountsField assignmentCounts;
 
-    public RetentionPolicyBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public RetentionPolicyBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public RetentionPolicyBuilder policyType(RetentionPolicyPolicyTypeField policyType) {
+    public Builder policyType(RetentionPolicyPolicyTypeField policyType) {
       this.policyType = new EnumWrapper<RetentionPolicyPolicyTypeField>(policyType);
       return this;
     }
 
-    public RetentionPolicyBuilder policyType(
-        EnumWrapper<RetentionPolicyPolicyTypeField> policyType) {
+    public Builder policyType(EnumWrapper<RetentionPolicyPolicyTypeField> policyType) {
       this.policyType = policyType;
       return this;
     }
 
-    public RetentionPolicyBuilder retentionType(RetentionPolicyRetentionTypeField retentionType) {
+    public Builder retentionType(RetentionPolicyRetentionTypeField retentionType) {
       this.retentionType = new EnumWrapper<RetentionPolicyRetentionTypeField>(retentionType);
       return this;
     }
 
-    public RetentionPolicyBuilder retentionType(
-        EnumWrapper<RetentionPolicyRetentionTypeField> retentionType) {
+    public Builder retentionType(EnumWrapper<RetentionPolicyRetentionTypeField> retentionType) {
       this.retentionType = retentionType;
       return this;
     }
 
-    public RetentionPolicyBuilder status(RetentionPolicyStatusField status) {
+    public Builder status(RetentionPolicyStatusField status) {
       this.status = new EnumWrapper<RetentionPolicyStatusField>(status);
       return this;
     }
 
-    public RetentionPolicyBuilder status(EnumWrapper<RetentionPolicyStatusField> status) {
+    public Builder status(EnumWrapper<RetentionPolicyStatusField> status) {
       this.status = status;
       return this;
     }
 
-    public RetentionPolicyBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public RetentionPolicyBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public RetentionPolicyBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public RetentionPolicyBuilder canOwnerExtendRetention(Boolean canOwnerExtendRetention) {
+    public Builder canOwnerExtendRetention(Boolean canOwnerExtendRetention) {
       this.canOwnerExtendRetention = canOwnerExtendRetention;
       return this;
     }
 
-    public RetentionPolicyBuilder areOwnersNotified(Boolean areOwnersNotified) {
+    public Builder areOwnersNotified(Boolean areOwnersNotified) {
       this.areOwnersNotified = areOwnersNotified;
       return this;
     }
 
-    public RetentionPolicyBuilder customNotificationRecipients(
-        List<UserMini> customNotificationRecipients) {
+    public Builder customNotificationRecipients(List<UserMini> customNotificationRecipients) {
       this.customNotificationRecipients = customNotificationRecipients;
       return this;
     }
 
-    public RetentionPolicyBuilder assignmentCounts(
-        RetentionPolicyAssignmentCountsField assignmentCounts) {
+    public Builder assignmentCounts(RetentionPolicyAssignmentCountsField assignmentCounts) {
       this.assignmentCounts = assignmentCounts;
       return this;
     }
 
     @Override
-    public RetentionPolicyBuilder type(RetentionPolicyBaseTypeField type) {
+    public Builder type(RetentionPolicyBaseTypeField type) {
       this.type = new EnumWrapper<RetentionPolicyBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public RetentionPolicyBuilder type(EnumWrapper<RetentionPolicyBaseTypeField> type) {
+    public Builder type(EnumWrapper<RetentionPolicyBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public RetentionPolicyBuilder policyName(String policyName) {
+    public Builder policyName(String policyName) {
       this.policyName = policyName;
       return this;
     }
 
     @Override
-    public RetentionPolicyBuilder retentionLength(String retentionLength) {
+    public Builder retentionLength(String retentionLength) {
       this.retentionLength = retentionLength;
       return this;
     }
 
     @Override
-    public RetentionPolicyBuilder dispositionAction(
-        RetentionPolicyMiniDispositionActionField dispositionAction) {
+    public Builder dispositionAction(RetentionPolicyMiniDispositionActionField dispositionAction) {
       this.dispositionAction =
           new EnumWrapper<RetentionPolicyMiniDispositionActionField>(dispositionAction);
       return this;
     }
 
     @Override
-    public RetentionPolicyBuilder dispositionAction(
+    public Builder dispositionAction(
         EnumWrapper<RetentionPolicyMiniDispositionActionField> dispositionAction) {
       this.dispositionAction = dispositionAction;
       return this;

@@ -51,13 +51,11 @@ public class IntegrationMappingsITest {
         .getUserCollaborations()
         .createCollaboration(
             new CreateCollaborationRequestBody(
-                new CreateCollaborationRequestBodyItemField
-                        .CreateCollaborationRequestBodyItemFieldBuilder()
+                new CreateCollaborationRequestBodyItemField.Builder()
                     .type(CreateCollaborationRequestBodyItemTypeField.FOLDER)
                     .id(folder.getId())
                     .build(),
-                new CreateCollaborationRequestBodyAccessibleByField
-                        .CreateCollaborationRequestBodyAccessibleByFieldBuilder(
+                new CreateCollaborationRequestBodyAccessibleByField.Builder(
                         CreateCollaborationRequestBodyAccessibleByTypeField.USER)
                     .id(slackAutomationUserId)
                     .build(),
@@ -69,8 +67,7 @@ public class IntegrationMappingsITest {
           .getIntegrationMappings()
           .createSlackIntegrationMapping(
               new IntegrationMappingSlackCreateRequest(
-                  new IntegrationMappingPartnerItemSlack.IntegrationMappingPartnerItemSlackBuilder(
-                          slackPartnerItemId)
+                  new IntegrationMappingPartnerItemSlack.Builder(slackPartnerItemId)
                       .slackOrgId(slackOrgId)
                       .build(),
                   new IntegrationMappingBoxItemSlack(folder.getId())));
@@ -87,8 +84,7 @@ public class IntegrationMappingsITest {
             .getIntegrationMappings()
             .updateSlackIntegrationMappingById(
                 slackIntegrationMapping.getId(),
-                new UpdateSlackIntegrationMappingByIdRequestBody
-                        .UpdateSlackIntegrationMappingByIdRequestBodyBuilder()
+                new UpdateSlackIntegrationMappingByIdRequestBody.Builder()
                     .boxItem(new IntegrationMappingBoxItemSlack(folder.getId()))
                     .build());
     assert convertToString(updatedSlackMapping.getBoxItem().getType()).equals("folder");
@@ -138,8 +134,7 @@ public class IntegrationMappingsITest {
                 .getIntegrationMappings()
                 .updateTeamsIntegrationMappingById(
                     integrationMappingId,
-                    new UpdateTeamsIntegrationMappingByIdRequestBody
-                            .UpdateTeamsIntegrationMappingByIdRequestBodyBuilder()
+                    new UpdateTeamsIntegrationMappingByIdRequestBody.Builder()
                         .boxItem(new FolderReference("1234567"))
                         .build()));
     assertThrows(

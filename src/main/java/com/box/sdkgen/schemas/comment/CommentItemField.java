@@ -13,7 +13,7 @@ public class CommentItemField extends SerializableObject {
     super();
   }
 
-  protected CommentItemField(CommentItemFieldBuilder builder) {
+  protected CommentItemField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -49,18 +49,18 @@ public class CommentItemField extends SerializableObject {
     return "CommentItemField{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class CommentItemFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected String type;
 
-    public CommentItemFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public CommentItemFieldBuilder type(String type) {
+    public Builder type(String type) {
       this.type = type;
       return this;
     }

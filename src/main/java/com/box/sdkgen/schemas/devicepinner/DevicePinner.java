@@ -26,7 +26,7 @@ public class DevicePinner extends SerializableObject {
     super();
   }
 
-  protected DevicePinner(DevicePinnerBuilder builder) {
+  protected DevicePinner(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -91,7 +91,7 @@ public class DevicePinner extends SerializableObject {
         + "}";
   }
 
-  public static class DevicePinnerBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -101,27 +101,27 @@ public class DevicePinner extends SerializableObject {
 
     protected String productName;
 
-    public DevicePinnerBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public DevicePinnerBuilder type(DevicePinnerTypeField type) {
+    public Builder type(DevicePinnerTypeField type) {
       this.type = new EnumWrapper<DevicePinnerTypeField>(type);
       return this;
     }
 
-    public DevicePinnerBuilder type(EnumWrapper<DevicePinnerTypeField> type) {
+    public Builder type(EnumWrapper<DevicePinnerTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public DevicePinnerBuilder ownedBy(UserMini ownedBy) {
+    public Builder ownedBy(UserMini ownedBy) {
       this.ownedBy = ownedBy;
       return this;
     }
 
-    public DevicePinnerBuilder productName(String productName) {
+    public Builder productName(String productName) {
       this.productName = productName;
       return this;
     }

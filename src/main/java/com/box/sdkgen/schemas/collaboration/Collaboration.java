@@ -75,7 +75,7 @@ public class Collaboration extends SerializableObject {
     this.type = new EnumWrapper<CollaborationTypeField>(CollaborationTypeField.COLLABORATION);
   }
 
-  protected Collaboration(CollaborationBuilder builder) {
+  protected Collaboration(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -265,7 +265,7 @@ public class Collaboration extends SerializableObject {
         + "}";
   }
 
-  public static class CollaborationBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -297,92 +297,92 @@ public class Collaboration extends SerializableObject {
 
     protected CollaborationAcceptanceRequirementsStatusField acceptanceRequirementsStatus;
 
-    public CollaborationBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type = new EnumWrapper<CollaborationTypeField>(CollaborationTypeField.COLLABORATION);
     }
 
-    public CollaborationBuilder type(CollaborationTypeField type) {
+    public Builder type(CollaborationTypeField type) {
       this.type = new EnumWrapper<CollaborationTypeField>(type);
       return this;
     }
 
-    public CollaborationBuilder type(EnumWrapper<CollaborationTypeField> type) {
+    public Builder type(EnumWrapper<CollaborationTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public CollaborationBuilder item(FileOrFolderOrWebLink item) {
+    public Builder item(FileOrFolderOrWebLink item) {
       this.item = item;
       return this;
     }
 
-    public CollaborationBuilder appItem(AppItem appItem) {
+    public Builder appItem(AppItem appItem) {
       this.appItem = appItem;
       return this;
     }
 
-    public CollaborationBuilder accessibleBy(GroupMiniOrUserCollaborations accessibleBy) {
+    public Builder accessibleBy(GroupMiniOrUserCollaborations accessibleBy) {
       this.accessibleBy = accessibleBy;
       return this;
     }
 
-    public CollaborationBuilder inviteEmail(String inviteEmail) {
+    public Builder inviteEmail(String inviteEmail) {
       this.inviteEmail = inviteEmail;
       return this;
     }
 
-    public CollaborationBuilder role(CollaborationRoleField role) {
+    public Builder role(CollaborationRoleField role) {
       this.role = new EnumWrapper<CollaborationRoleField>(role);
       return this;
     }
 
-    public CollaborationBuilder role(EnumWrapper<CollaborationRoleField> role) {
+    public Builder role(EnumWrapper<CollaborationRoleField> role) {
       this.role = role;
       return this;
     }
 
-    public CollaborationBuilder expiresAt(Date expiresAt) {
+    public Builder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }
 
-    public CollaborationBuilder isAccessOnly(Boolean isAccessOnly) {
+    public Builder isAccessOnly(Boolean isAccessOnly) {
       this.isAccessOnly = isAccessOnly;
       return this;
     }
 
-    public CollaborationBuilder status(CollaborationStatusField status) {
+    public Builder status(CollaborationStatusField status) {
       this.status = new EnumWrapper<CollaborationStatusField>(status);
       return this;
     }
 
-    public CollaborationBuilder status(EnumWrapper<CollaborationStatusField> status) {
+    public Builder status(EnumWrapper<CollaborationStatusField> status) {
       this.status = status;
       return this;
     }
 
-    public CollaborationBuilder acknowledgedAt(Date acknowledgedAt) {
+    public Builder acknowledgedAt(Date acknowledgedAt) {
       this.acknowledgedAt = acknowledgedAt;
       return this;
     }
 
-    public CollaborationBuilder createdBy(UserCollaborations createdBy) {
+    public Builder createdBy(UserCollaborations createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public CollaborationBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public CollaborationBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public CollaborationBuilder acceptanceRequirementsStatus(
+    public Builder acceptanceRequirementsStatus(
         CollaborationAcceptanceRequirementsStatusField acceptanceRequirementsStatus) {
       this.acceptanceRequirementsStatus = acceptanceRequirementsStatus;
       return this;

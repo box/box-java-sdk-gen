@@ -37,7 +37,7 @@ public class Comment extends CommentBase {
     super();
   }
 
-  protected Comment(CommentBuilder builder) {
+  protected Comment(Builder builder) {
     super(builder);
     this.isReplyComment = builder.isReplyComment;
     this.message = builder.message;
@@ -132,7 +132,7 @@ public class Comment extends CommentBase {
         + "}";
   }
 
-  public static class CommentBuilder extends CommentBaseBuilder {
+  public static class Builder extends CommentBase.Builder {
 
     protected Boolean isReplyComment;
 
@@ -146,50 +146,50 @@ public class Comment extends CommentBase {
 
     protected CommentItemField item;
 
-    public CommentBuilder isReplyComment(Boolean isReplyComment) {
+    public Builder isReplyComment(Boolean isReplyComment) {
       this.isReplyComment = isReplyComment;
       return this;
     }
 
-    public CommentBuilder message(String message) {
+    public Builder message(String message) {
       this.message = message;
       return this;
     }
 
-    public CommentBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public CommentBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public CommentBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public CommentBuilder item(CommentItemField item) {
+    public Builder item(CommentItemField item) {
       this.item = item;
       return this;
     }
 
     @Override
-    public CommentBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
     @Override
-    public CommentBuilder type(CommentBaseTypeField type) {
+    public Builder type(CommentBaseTypeField type) {
       this.type = new EnumWrapper<CommentBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public CommentBuilder type(EnumWrapper<CommentBaseTypeField> type) {
+    public Builder type(EnumWrapper<CommentBaseTypeField> type) {
       this.type = type;
       return this;
     }

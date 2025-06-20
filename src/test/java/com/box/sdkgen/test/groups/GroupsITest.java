@@ -31,7 +31,7 @@ public class GroupsITest {
         client
             .getGroups()
             .createGroup(
-                new CreateGroupRequestBody.CreateGroupRequestBodyBuilder(groupName)
+                new CreateGroupRequestBody.Builder(groupName)
                     .description(groupDescription)
                     .build());
     assert group.getName().equals(groupName);
@@ -40,7 +40,7 @@ public class GroupsITest {
             .getGroups()
             .getGroupById(
                 group.getId(),
-                new GetGroupByIdQueryParams.GetGroupByIdQueryParamsBuilder()
+                new GetGroupByIdQueryParams.Builder()
                     .fields(Arrays.asList("id", "name", "description", "group_type"))
                     .build());
     assert groupById.getId().equals(group.getId());
@@ -51,9 +51,7 @@ public class GroupsITest {
             .getGroups()
             .updateGroupById(
                 group.getId(),
-                new UpdateGroupByIdRequestBody.UpdateGroupByIdRequestBodyBuilder()
-                    .name(updatedGroupName)
-                    .build());
+                new UpdateGroupByIdRequestBody.Builder().name(updatedGroupName).build());
     assert updatedGroup.getName().equals(updatedGroupName);
     client.getGroups().deleteGroupById(group.getId());
     assertThrows(RuntimeException.class, () -> client.getGroups().getGroupById(group.getId()));

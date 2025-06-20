@@ -19,7 +19,7 @@ public class UserCollaborations extends UserBase {
     super(id);
   }
 
-  protected UserCollaborations(UserCollaborationsBuilder builder) {
+  protected UserCollaborations(Builder builder) {
     super(builder);
     this.name = builder.name;
     this.login = builder.login;
@@ -84,7 +84,7 @@ public class UserCollaborations extends UserBase {
         + "}";
   }
 
-  public static class UserCollaborationsBuilder extends UserBaseBuilder {
+  public static class Builder extends UserBase.Builder {
 
     protected String name;
 
@@ -92,33 +92,33 @@ public class UserCollaborations extends UserBase {
 
     protected Boolean isActive;
 
-    public UserCollaborationsBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public UserCollaborationsBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public UserCollaborationsBuilder login(String login) {
+    public Builder login(String login) {
       this.login = login;
       return this;
     }
 
-    public UserCollaborationsBuilder isActive(Boolean isActive) {
+    public Builder isActive(Boolean isActive) {
       this.isActive = isActive;
       return this;
     }
 
     @Override
-    public UserCollaborationsBuilder type(UserBaseTypeField type) {
+    public Builder type(UserBaseTypeField type) {
       this.type = new EnumWrapper<UserBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public UserCollaborationsBuilder type(EnumWrapper<UserBaseTypeField> type) {
+    public Builder type(EnumWrapper<UserBaseTypeField> type) {
       this.type = type;
       return this;
     }

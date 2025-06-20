@@ -17,8 +17,7 @@ public class GetDocgenBatchJobByIdV2025R0Headers {
     this.extraHeaders = mapOf();
   }
 
-  protected GetDocgenBatchJobByIdV2025R0Headers(
-      GetDocgenBatchJobByIdV2025R0HeadersBuilder builder) {
+  protected GetDocgenBatchJobByIdV2025R0Headers(Builder builder) {
     this.boxVersion = builder.boxVersion;
     this.extraHeaders = builder.extraHeaders;
   }
@@ -31,31 +30,28 @@ public class GetDocgenBatchJobByIdV2025R0Headers {
     return extraHeaders;
   }
 
-  public static class GetDocgenBatchJobByIdV2025R0HeadersBuilder {
+  public static class Builder {
 
     protected EnumWrapper<BoxVersionHeaderV2025R0> boxVersion;
 
     protected Map<String, String> extraHeaders;
 
-    public GetDocgenBatchJobByIdV2025R0HeadersBuilder() {
+    public Builder() {
       this.boxVersion = new EnumWrapper<BoxVersionHeaderV2025R0>(BoxVersionHeaderV2025R0._2025_0);
       this.extraHeaders = mapOf();
     }
 
-    public GetDocgenBatchJobByIdV2025R0HeadersBuilder boxVersion(
-        BoxVersionHeaderV2025R0 boxVersion) {
+    public Builder boxVersion(BoxVersionHeaderV2025R0 boxVersion) {
       this.boxVersion = new EnumWrapper<BoxVersionHeaderV2025R0>(boxVersion);
       return this;
     }
 
-    public GetDocgenBatchJobByIdV2025R0HeadersBuilder boxVersion(
-        EnumWrapper<BoxVersionHeaderV2025R0> boxVersion) {
+    public Builder boxVersion(EnumWrapper<BoxVersionHeaderV2025R0> boxVersion) {
       this.boxVersion = boxVersion;
       return this;
     }
 
-    public GetDocgenBatchJobByIdV2025R0HeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

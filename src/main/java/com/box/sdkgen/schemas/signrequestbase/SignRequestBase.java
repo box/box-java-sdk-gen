@@ -50,7 +50,7 @@ public class SignRequestBase extends SerializableObject {
     super();
   }
 
-  protected SignRequestBase(SignRequestBaseBuilder builder) {
+  protected SignRequestBase(Builder builder) {
     super();
     this.isDocumentPreparationNeeded = builder.isDocumentPreparationNeeded;
     this.redirectUrl = builder.redirectUrl;
@@ -218,7 +218,7 @@ public class SignRequestBase extends SerializableObject {
         + "}";
   }
 
-  public static class SignRequestBaseBuilder {
+  public static class Builder {
 
     protected Boolean isDocumentPreparationNeeded;
 
@@ -246,67 +246,67 @@ public class SignRequestBase extends SerializableObject {
 
     protected String externalSystemName;
 
-    public SignRequestBaseBuilder isDocumentPreparationNeeded(Boolean isDocumentPreparationNeeded) {
+    public Builder isDocumentPreparationNeeded(Boolean isDocumentPreparationNeeded) {
       this.isDocumentPreparationNeeded = isDocumentPreparationNeeded;
       return this;
     }
 
-    public SignRequestBaseBuilder redirectUrl(String redirectUrl) {
+    public Builder redirectUrl(String redirectUrl) {
       this.redirectUrl = redirectUrl;
       return this;
     }
 
-    public SignRequestBaseBuilder declinedRedirectUrl(String declinedRedirectUrl) {
+    public Builder declinedRedirectUrl(String declinedRedirectUrl) {
       this.declinedRedirectUrl = declinedRedirectUrl;
       return this;
     }
 
-    public SignRequestBaseBuilder areTextSignaturesEnabled(Boolean areTextSignaturesEnabled) {
+    public Builder areTextSignaturesEnabled(Boolean areTextSignaturesEnabled) {
       this.areTextSignaturesEnabled = areTextSignaturesEnabled;
       return this;
     }
 
-    public SignRequestBaseBuilder emailSubject(String emailSubject) {
+    public Builder emailSubject(String emailSubject) {
       this.emailSubject = emailSubject;
       return this;
     }
 
-    public SignRequestBaseBuilder emailMessage(String emailMessage) {
+    public Builder emailMessage(String emailMessage) {
       this.emailMessage = emailMessage;
       return this;
     }
 
-    public SignRequestBaseBuilder areRemindersEnabled(Boolean areRemindersEnabled) {
+    public Builder areRemindersEnabled(Boolean areRemindersEnabled) {
       this.areRemindersEnabled = areRemindersEnabled;
       return this;
     }
 
-    public SignRequestBaseBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public SignRequestBaseBuilder prefillTags(List<SignRequestPrefillTag> prefillTags) {
+    public Builder prefillTags(List<SignRequestPrefillTag> prefillTags) {
       this.prefillTags = prefillTags;
       return this;
     }
 
-    public SignRequestBaseBuilder daysValid(Long daysValid) {
+    public Builder daysValid(Long daysValid) {
       this.daysValid = daysValid;
       return this;
     }
 
-    public SignRequestBaseBuilder externalId(String externalId) {
+    public Builder externalId(String externalId) {
       this.externalId = externalId;
       return this;
     }
 
-    public SignRequestBaseBuilder templateId(String templateId) {
+    public Builder templateId(String templateId) {
       this.templateId = templateId;
       return this;
     }
 
-    public SignRequestBaseBuilder externalSystemName(String externalSystemName) {
+    public Builder externalSystemName(String externalSystemName) {
       this.externalSystemName = externalSystemName;
       return this;
     }

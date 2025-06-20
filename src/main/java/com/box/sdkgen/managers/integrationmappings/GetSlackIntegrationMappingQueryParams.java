@@ -20,8 +20,7 @@ public class GetSlackIntegrationMappingQueryParams {
 
   public GetSlackIntegrationMappingQueryParams() {}
 
-  protected GetSlackIntegrationMappingQueryParams(
-      GetSlackIntegrationMappingQueryParamsBuilder builder) {
+  protected GetSlackIntegrationMappingQueryParams(Builder builder) {
     this.marker = builder.marker;
     this.limit = builder.limit;
     this.partnerItemType = builder.partnerItemType;
@@ -60,7 +59,7 @@ public class GetSlackIntegrationMappingQueryParams {
     return isManuallyCreated;
   }
 
-  public static class GetSlackIntegrationMappingQueryParamsBuilder {
+  public static class Builder {
 
     protected String marker;
 
@@ -77,17 +76,17 @@ public class GetSlackIntegrationMappingQueryParams {
 
     protected Boolean isManuallyCreated;
 
-    public GetSlackIntegrationMappingQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetSlackIntegrationMappingQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetSlackIntegrationMappingQueryParamsBuilder partnerItemType(
+    public Builder partnerItemType(
         GetSlackIntegrationMappingQueryParamsPartnerItemTypeField partnerItemType) {
       this.partnerItemType =
           new EnumWrapper<GetSlackIntegrationMappingQueryParamsPartnerItemTypeField>(
@@ -95,37 +94,35 @@ public class GetSlackIntegrationMappingQueryParams {
       return this;
     }
 
-    public GetSlackIntegrationMappingQueryParamsBuilder partnerItemType(
+    public Builder partnerItemType(
         EnumWrapper<GetSlackIntegrationMappingQueryParamsPartnerItemTypeField> partnerItemType) {
       this.partnerItemType = partnerItemType;
       return this;
     }
 
-    public GetSlackIntegrationMappingQueryParamsBuilder partnerItemId(String partnerItemId) {
+    public Builder partnerItemId(String partnerItemId) {
       this.partnerItemId = partnerItemId;
       return this;
     }
 
-    public GetSlackIntegrationMappingQueryParamsBuilder boxItemId(String boxItemId) {
+    public Builder boxItemId(String boxItemId) {
       this.boxItemId = boxItemId;
       return this;
     }
 
-    public GetSlackIntegrationMappingQueryParamsBuilder boxItemType(
-        GetSlackIntegrationMappingQueryParamsBoxItemTypeField boxItemType) {
+    public Builder boxItemType(GetSlackIntegrationMappingQueryParamsBoxItemTypeField boxItemType) {
       this.boxItemType =
           new EnumWrapper<GetSlackIntegrationMappingQueryParamsBoxItemTypeField>(boxItemType);
       return this;
     }
 
-    public GetSlackIntegrationMappingQueryParamsBuilder boxItemType(
+    public Builder boxItemType(
         EnumWrapper<GetSlackIntegrationMappingQueryParamsBoxItemTypeField> boxItemType) {
       this.boxItemType = boxItemType;
       return this;
     }
 
-    public GetSlackIntegrationMappingQueryParamsBuilder isManuallyCreated(
-        Boolean isManuallyCreated) {
+    public Builder isManuallyCreated(Boolean isManuallyCreated) {
       this.isManuallyCreated = isManuallyCreated;
       return this;
     }

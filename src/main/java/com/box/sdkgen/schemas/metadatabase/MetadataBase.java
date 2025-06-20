@@ -22,7 +22,7 @@ public class MetadataBase extends SerializableObject {
     super();
   }
 
-  protected MetadataBase(MetadataBaseBuilder builder) {
+  protected MetadataBase(Builder builder) {
     super();
     this.parent = builder.parent;
     this.template = builder.template;
@@ -87,7 +87,7 @@ public class MetadataBase extends SerializableObject {
         + "}";
   }
 
-  public static class MetadataBaseBuilder {
+  public static class Builder {
 
     protected String parent;
 
@@ -97,22 +97,22 @@ public class MetadataBase extends SerializableObject {
 
     protected Long version;
 
-    public MetadataBaseBuilder parent(String parent) {
+    public Builder parent(String parent) {
       this.parent = parent;
       return this;
     }
 
-    public MetadataBaseBuilder template(String template) {
+    public Builder template(String template) {
       this.template = template;
       return this;
     }
 
-    public MetadataBaseBuilder scope(String scope) {
+    public Builder scope(String scope) {
       this.scope = scope;
       return this;
     }
 
-    public MetadataBaseBuilder version(Long version) {
+    public Builder version(Long version) {
       this.version = version;
       return this;
     }

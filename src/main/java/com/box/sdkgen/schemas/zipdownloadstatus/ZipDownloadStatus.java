@@ -30,7 +30,7 @@ public class ZipDownloadStatus extends SerializableObject {
     super();
   }
 
-  protected ZipDownloadStatus(ZipDownloadStatusBuilder builder) {
+  protected ZipDownloadStatus(Builder builder) {
     super();
     this.totalFileCount = builder.totalFileCount;
     this.downloadedFileCount = builder.downloadedFileCount;
@@ -106,7 +106,7 @@ public class ZipDownloadStatus extends SerializableObject {
         + "}";
   }
 
-  public static class ZipDownloadStatusBuilder {
+  public static class Builder {
 
     protected Long totalFileCount;
 
@@ -118,32 +118,32 @@ public class ZipDownloadStatus extends SerializableObject {
 
     protected EnumWrapper<ZipDownloadStatusStateField> state;
 
-    public ZipDownloadStatusBuilder totalFileCount(Long totalFileCount) {
+    public Builder totalFileCount(Long totalFileCount) {
       this.totalFileCount = totalFileCount;
       return this;
     }
 
-    public ZipDownloadStatusBuilder downloadedFileCount(Long downloadedFileCount) {
+    public Builder downloadedFileCount(Long downloadedFileCount) {
       this.downloadedFileCount = downloadedFileCount;
       return this;
     }
 
-    public ZipDownloadStatusBuilder skippedFileCount(Long skippedFileCount) {
+    public Builder skippedFileCount(Long skippedFileCount) {
       this.skippedFileCount = skippedFileCount;
       return this;
     }
 
-    public ZipDownloadStatusBuilder skippedFolderCount(Long skippedFolderCount) {
+    public Builder skippedFolderCount(Long skippedFolderCount) {
       this.skippedFolderCount = skippedFolderCount;
       return this;
     }
 
-    public ZipDownloadStatusBuilder state(ZipDownloadStatusStateField state) {
+    public Builder state(ZipDownloadStatusStateField state) {
       this.state = new EnumWrapper<ZipDownloadStatusStateField>(state);
       return this;
     }
 
-    public ZipDownloadStatusBuilder state(EnumWrapper<ZipDownloadStatusStateField> state) {
+    public Builder state(EnumWrapper<ZipDownloadStatusStateField> state) {
       this.state = state;
       return this;
     }

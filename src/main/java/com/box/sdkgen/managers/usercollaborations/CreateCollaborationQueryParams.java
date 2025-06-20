@@ -10,7 +10,7 @@ public class CreateCollaborationQueryParams {
 
   public CreateCollaborationQueryParams() {}
 
-  protected CreateCollaborationQueryParams(CreateCollaborationQueryParamsBuilder builder) {
+  protected CreateCollaborationQueryParams(Builder builder) {
     this.fields = builder.fields;
     this.notify = builder.notify;
   }
@@ -23,18 +23,18 @@ public class CreateCollaborationQueryParams {
     return notify;
   }
 
-  public static class CreateCollaborationQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
     protected Boolean notify;
 
-    public CreateCollaborationQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public CreateCollaborationQueryParamsBuilder notify(Boolean notify) {
+    public Builder notify(Boolean notify) {
       this.notify = notify;
       return this;
     }

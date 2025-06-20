@@ -28,7 +28,7 @@ public class TimelineSkillCardInvocationField extends SerializableObject {
             TimelineSkillCardInvocationTypeField.SKILL_INVOCATION);
   }
 
-  protected TimelineSkillCardInvocationField(TimelineSkillCardInvocationFieldBuilder builder) {
+  protected TimelineSkillCardInvocationField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -72,26 +72,25 @@ public class TimelineSkillCardInvocationField extends SerializableObject {
         + "}";
   }
 
-  public static class TimelineSkillCardInvocationFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<TimelineSkillCardInvocationTypeField> type;
 
     protected final String id;
 
-    public TimelineSkillCardInvocationFieldBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<TimelineSkillCardInvocationTypeField>(
               TimelineSkillCardInvocationTypeField.SKILL_INVOCATION);
     }
 
-    public TimelineSkillCardInvocationFieldBuilder type(TimelineSkillCardInvocationTypeField type) {
+    public Builder type(TimelineSkillCardInvocationTypeField type) {
       this.type = new EnumWrapper<TimelineSkillCardInvocationTypeField>(type);
       return this;
     }
 
-    public TimelineSkillCardInvocationFieldBuilder type(
-        EnumWrapper<TimelineSkillCardInvocationTypeField> type) {
+    public Builder type(EnumWrapper<TimelineSkillCardInvocationTypeField> type) {
       this.type = type;
       return this;
     }

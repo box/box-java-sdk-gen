@@ -38,7 +38,7 @@ public class UploadSession extends SerializableObject {
     super();
   }
 
-  protected UploadSession(UploadSessionBuilder builder) {
+  protected UploadSession(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -134,7 +134,7 @@ public class UploadSession extends SerializableObject {
         + "}";
   }
 
-  public static class UploadSessionBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -150,43 +150,42 @@ public class UploadSession extends SerializableObject {
 
     protected UploadSessionSessionEndpointsField sessionEndpoints;
 
-    public UploadSessionBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public UploadSessionBuilder type(UploadSessionTypeField type) {
+    public Builder type(UploadSessionTypeField type) {
       this.type = new EnumWrapper<UploadSessionTypeField>(type);
       return this;
     }
 
-    public UploadSessionBuilder type(EnumWrapper<UploadSessionTypeField> type) {
+    public Builder type(EnumWrapper<UploadSessionTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public UploadSessionBuilder sessionExpiresAt(Date sessionExpiresAt) {
+    public Builder sessionExpiresAt(Date sessionExpiresAt) {
       this.sessionExpiresAt = sessionExpiresAt;
       return this;
     }
 
-    public UploadSessionBuilder partSize(Long partSize) {
+    public Builder partSize(Long partSize) {
       this.partSize = partSize;
       return this;
     }
 
-    public UploadSessionBuilder totalParts(Integer totalParts) {
+    public Builder totalParts(Integer totalParts) {
       this.totalParts = totalParts;
       return this;
     }
 
-    public UploadSessionBuilder numPartsProcessed(Integer numPartsProcessed) {
+    public Builder numPartsProcessed(Integer numPartsProcessed) {
       this.numPartsProcessed = numPartsProcessed;
       return this;
     }
 
-    public UploadSessionBuilder sessionEndpoints(
-        UploadSessionSessionEndpointsField sessionEndpoints) {
+    public Builder sessionEndpoints(UploadSessionSessionEndpointsField sessionEndpoints) {
       this.sessionEndpoints = sessionEndpoints;
       return this;
     }

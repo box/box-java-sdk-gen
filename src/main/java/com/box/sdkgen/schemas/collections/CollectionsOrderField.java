@@ -20,7 +20,7 @@ public class CollectionsOrderField extends SerializableObject {
     super();
   }
 
-  protected CollectionsOrderField(CollectionsOrderFieldBuilder builder) {
+  protected CollectionsOrderField(Builder builder) {
     super();
     this.by = builder.by;
     this.direction = builder.direction;
@@ -64,24 +64,23 @@ public class CollectionsOrderField extends SerializableObject {
         + "}";
   }
 
-  public static class CollectionsOrderFieldBuilder {
+  public static class Builder {
 
     protected String by;
 
     protected EnumWrapper<CollectionsOrderDirectionField> direction;
 
-    public CollectionsOrderFieldBuilder by(String by) {
+    public Builder by(String by) {
       this.by = by;
       return this;
     }
 
-    public CollectionsOrderFieldBuilder direction(CollectionsOrderDirectionField direction) {
+    public Builder direction(CollectionsOrderDirectionField direction) {
       this.direction = new EnumWrapper<CollectionsOrderDirectionField>(direction);
       return this;
     }
 
-    public CollectionsOrderFieldBuilder direction(
-        EnumWrapper<CollectionsOrderDirectionField> direction) {
+    public Builder direction(EnumWrapper<CollectionsOrderDirectionField> direction) {
       this.direction = direction;
       return this;
     }

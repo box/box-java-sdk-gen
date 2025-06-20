@@ -15,7 +15,7 @@ public class AiStudioAgentBasicGenTool extends AiAgentBasicGenTool {
     super();
   }
 
-  protected AiStudioAgentBasicGenTool(AiStudioAgentBasicGenToolBuilder builder) {
+  protected AiStudioAgentBasicGenTool(Builder builder) {
     super(builder);
     this.isCustomInstructionsIncluded = builder.isCustomInstructionsIncluded;
   }
@@ -93,56 +93,53 @@ public class AiStudioAgentBasicGenTool extends AiAgentBasicGenTool {
         + "}";
   }
 
-  public static class AiStudioAgentBasicGenToolBuilder extends AiAgentBasicGenToolBuilder {
+  public static class Builder extends AiAgentBasicGenTool.Builder {
 
     protected Boolean isCustomInstructionsIncluded;
 
-    public AiStudioAgentBasicGenToolBuilder isCustomInstructionsIncluded(
-        Boolean isCustomInstructionsIncluded) {
+    public Builder isCustomInstructionsIncluded(Boolean isCustomInstructionsIncluded) {
       this.isCustomInstructionsIncluded = isCustomInstructionsIncluded;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicGenToolBuilder model(String model) {
+    public Builder model(String model) {
       this.model = model;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicGenToolBuilder numTokensForCompletion(Long numTokensForCompletion) {
+    public Builder numTokensForCompletion(Long numTokensForCompletion) {
       this.numTokensForCompletion = numTokensForCompletion;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicGenToolBuilder llmEndpointParams(
-        AiLlmEndpointParams llmEndpointParams) {
+    public Builder llmEndpointParams(AiLlmEndpointParams llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicGenToolBuilder systemMessage(String systemMessage) {
+    public Builder systemMessage(String systemMessage) {
       this.systemMessage = systemMessage;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicGenToolBuilder promptTemplate(String promptTemplate) {
+    public Builder promptTemplate(String promptTemplate) {
       this.promptTemplate = promptTemplate;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicGenToolBuilder embeddings(
-        AiAgentLongTextToolTextGenEmbeddingsField embeddings) {
+    public Builder embeddings(AiAgentLongTextToolTextGenEmbeddingsField embeddings) {
       this.embeddings = embeddings;
       return this;
     }
 
     @Override
-    public AiStudioAgentBasicGenToolBuilder contentTemplate(String contentTemplate) {
+    public Builder contentTemplate(String contentTemplate) {
       this.contentTemplate = contentTemplate;
       return this;
     }

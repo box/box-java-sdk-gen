@@ -12,7 +12,7 @@ public class GetFileTasksHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetFileTasksHeaders(GetFileTasksHeadersBuilder builder) {
+  protected GetFileTasksHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetFileTasksHeaders {
     return extraHeaders;
   }
 
-  public static class GetFileTasksHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetFileTasksHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetFileTasksHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

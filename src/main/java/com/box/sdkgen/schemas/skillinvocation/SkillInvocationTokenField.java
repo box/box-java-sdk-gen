@@ -13,7 +13,7 @@ public class SkillInvocationTokenField extends SerializableObject {
     super();
   }
 
-  protected SkillInvocationTokenField(SkillInvocationTokenFieldBuilder builder) {
+  protected SkillInvocationTokenField(Builder builder) {
     super();
     this.read = builder.read;
     this.write = builder.write;
@@ -57,18 +57,18 @@ public class SkillInvocationTokenField extends SerializableObject {
         + "}";
   }
 
-  public static class SkillInvocationTokenFieldBuilder {
+  public static class Builder {
 
     protected SkillInvocationTokenReadField read;
 
     protected SkillInvocationTokenWriteField write;
 
-    public SkillInvocationTokenFieldBuilder read(SkillInvocationTokenReadField read) {
+    public Builder read(SkillInvocationTokenReadField read) {
       this.read = read;
       return this;
     }
 
-    public SkillInvocationTokenFieldBuilder write(SkillInvocationTokenWriteField write) {
+    public Builder write(SkillInvocationTokenWriteField write) {
       this.write = write;
       return this;
     }

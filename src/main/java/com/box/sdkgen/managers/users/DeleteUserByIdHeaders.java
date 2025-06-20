@@ -12,7 +12,7 @@ public class DeleteUserByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteUserByIdHeaders(DeleteUserByIdHeadersBuilder builder) {
+  protected DeleteUserByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class DeleteUserByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteUserByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteUserByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteUserByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

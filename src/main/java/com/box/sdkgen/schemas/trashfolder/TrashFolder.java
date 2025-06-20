@@ -131,7 +131,7 @@ public class TrashFolder extends SerializableObject {
     this.type = new EnumWrapper<TrashFolderTypeField>(TrashFolderTypeField.FOLDER);
   }
 
-  protected TrashFolder(TrashFolderBuilder builder) {
+  protected TrashFolder(Builder builder) {
     super();
     this.id = builder.id;
     this.etag = builder.etag;
@@ -387,7 +387,7 @@ public class TrashFolder extends SerializableObject {
         + "}";
   }
 
-  public static class TrashFolderBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -431,7 +431,7 @@ public class TrashFolder extends SerializableObject {
 
     protected final EnumWrapper<TrashFolderItemStatusField> itemStatus;
 
-    public TrashFolderBuilder(
+    public Builder(
         String id,
         String name,
         String description,
@@ -453,7 +453,7 @@ public class TrashFolder extends SerializableObject {
       this.type = new EnumWrapper<TrashFolderTypeField>(TrashFolderTypeField.FOLDER);
     }
 
-    public TrashFolderBuilder(
+    public Builder(
         String id,
         String name,
         String description,
@@ -475,67 +475,67 @@ public class TrashFolder extends SerializableObject {
       this.type = new EnumWrapper<TrashFolderTypeField>(TrashFolderTypeField.FOLDER);
     }
 
-    public TrashFolderBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
-    public TrashFolderBuilder type(TrashFolderTypeField type) {
+    public Builder type(TrashFolderTypeField type) {
       this.type = new EnumWrapper<TrashFolderTypeField>(type);
       return this;
     }
 
-    public TrashFolderBuilder type(EnumWrapper<TrashFolderTypeField> type) {
+    public Builder type(EnumWrapper<TrashFolderTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TrashFolderBuilder sequenceId(String sequenceId) {
+    public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
       return this;
     }
 
-    public TrashFolderBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public TrashFolderBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public TrashFolderBuilder trashedAt(Date trashedAt) {
+    public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
-    public TrashFolderBuilder purgedAt(Date purgedAt) {
+    public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
-    public TrashFolderBuilder contentCreatedAt(Date contentCreatedAt) {
+    public Builder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
-    public TrashFolderBuilder contentModifiedAt(Date contentModifiedAt) {
+    public Builder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }
 
-    public TrashFolderBuilder sharedLink(String sharedLink) {
+    public Builder sharedLink(String sharedLink) {
       this.sharedLink = sharedLink;
       return this;
     }
 
-    public TrashFolderBuilder folderUploadEmail(String folderUploadEmail) {
+    public Builder folderUploadEmail(String folderUploadEmail) {
       this.folderUploadEmail = folderUploadEmail;
       return this;
     }
 
-    public TrashFolderBuilder parent(FolderMini parent) {
+    public Builder parent(FolderMini parent) {
       this.parent = parent;
       return this;
     }

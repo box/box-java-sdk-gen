@@ -47,7 +47,7 @@ See the endpoint docs at
 
 <!-- sample post_ai_agents -->
 ```
-client.getAiStudio().createAiAgent(new CreateAiAgent.CreateAiAgentBuilder(agentName, "enabled").ask(new AiStudioAgentAsk("enabled", "desc1")).build())
+client.getAiStudio().createAiAgent(new CreateAiAgent.Builder(agentName, "enabled").ask(new AiStudioAgentAsk("enabled", "desc1")).build())
 ```
 
 ### Arguments
@@ -76,7 +76,7 @@ See the endpoint docs at
 
 <!-- sample put_ai_agents_id -->
 ```
-client.getAiStudio().updateAiAgentById(createdAgent.getId(), new CreateAiAgent.CreateAiAgentBuilder(agentName, "enabled").ask(new AiStudioAgentAsk("disabled", "desc2")).build())
+client.getAiStudio().updateAiAgentById(createdAgent.getId(), new CreateAiAgent.Builder(agentName, "enabled").ask(new AiStudioAgentAsk("disabled", "desc2")).build())
 ```
 
 ### Arguments
@@ -107,7 +107,7 @@ See the endpoint docs at
 
 <!-- sample get_ai_agents_id -->
 ```
-client.getAiStudio().getAiAgentById(createdAgent.getId(), new GetAiAgentByIdQueryParams.GetAiAgentByIdQueryParamsBuilder().fields(Arrays.asList("ask")).build())
+client.getAiStudio().getAiAgentById(createdAgent.getId(), new GetAiAgentByIdQueryParams.Builder().fields(Arrays.asList("ask")).build())
 ```
 
 ### Arguments

@@ -21,7 +21,7 @@ public class BoxSDKError extends RuntimeException {
     this.name = "BoxSDKError";
   }
 
-  protected BoxSDKError(BoxSDKErrorBuilder builder) {
+  protected BoxSDKError(Builder builder) {
     this.message = builder.message;
     this.timestamp = builder.timestamp;
     this.error = builder.error;
@@ -44,7 +44,7 @@ public class BoxSDKError extends RuntimeException {
     return name;
   }
 
-  public static class BoxSDKErrorBuilder {
+  public static class Builder {
 
     protected final String message;
 
@@ -54,22 +54,22 @@ public class BoxSDKError extends RuntimeException {
 
     protected String name;
 
-    public BoxSDKErrorBuilder(String message) {
+    public Builder(String message) {
       this.message = message;
       this.name = "BoxSDKError";
     }
 
-    public BoxSDKErrorBuilder timestamp(String timestamp) {
+    public Builder timestamp(String timestamp) {
       this.timestamp = timestamp;
       return this;
     }
 
-    public BoxSDKErrorBuilder error(Exception error) {
+    public Builder error(Exception error) {
       this.error = error;
       return this;
     }
 
-    public BoxSDKErrorBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }

@@ -17,7 +17,7 @@ public class OAuthConfig {
     this.tokenStorage = new InMemoryTokenStorage();
   }
 
-  protected OAuthConfig(OAuthConfigBuilder builder) {
+  protected OAuthConfig(Builder builder) {
     this.clientId = builder.clientId;
     this.clientSecret = builder.clientSecret;
     this.tokenStorage = builder.tokenStorage;
@@ -35,7 +35,7 @@ public class OAuthConfig {
     return tokenStorage;
   }
 
-  public static class OAuthConfigBuilder {
+  public static class Builder {
 
     protected final String clientId;
 
@@ -43,13 +43,13 @@ public class OAuthConfig {
 
     protected TokenStorage tokenStorage;
 
-    public OAuthConfigBuilder(String clientId, String clientSecret) {
+    public Builder(String clientId, String clientSecret) {
       this.clientId = clientId;
       this.clientSecret = clientSecret;
       this.tokenStorage = new InMemoryTokenStorage();
     }
 
-    public OAuthConfigBuilder tokenStorage(TokenStorage tokenStorage) {
+    public Builder tokenStorage(TokenStorage tokenStorage) {
       this.tokenStorage = tokenStorage;
       return this;
     }

@@ -20,7 +20,7 @@ public class InviteInvitedToField extends SerializableObject {
     super();
   }
 
-  protected InviteInvitedToField(InviteInvitedToFieldBuilder builder) {
+  protected InviteInvitedToField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -75,7 +75,7 @@ public class InviteInvitedToField extends SerializableObject {
         + "}";
   }
 
-  public static class InviteInvitedToFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -83,22 +83,22 @@ public class InviteInvitedToField extends SerializableObject {
 
     protected String name;
 
-    public InviteInvitedToFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public InviteInvitedToFieldBuilder type(InviteInvitedToTypeField type) {
+    public Builder type(InviteInvitedToTypeField type) {
       this.type = new EnumWrapper<InviteInvitedToTypeField>(type);
       return this;
     }
 
-    public InviteInvitedToFieldBuilder type(EnumWrapper<InviteInvitedToTypeField> type) {
+    public Builder type(EnumWrapper<InviteInvitedToTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public InviteInvitedToFieldBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }

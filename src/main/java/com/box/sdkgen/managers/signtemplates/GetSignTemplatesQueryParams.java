@@ -8,7 +8,7 @@ public class GetSignTemplatesQueryParams {
 
   public GetSignTemplatesQueryParams() {}
 
-  protected GetSignTemplatesQueryParams(GetSignTemplatesQueryParamsBuilder builder) {
+  protected GetSignTemplatesQueryParams(Builder builder) {
     this.marker = builder.marker;
     this.limit = builder.limit;
   }
@@ -21,18 +21,18 @@ public class GetSignTemplatesQueryParams {
     return limit;
   }
 
-  public static class GetSignTemplatesQueryParamsBuilder {
+  public static class Builder {
 
     protected String marker;
 
     protected Long limit;
 
-    public GetSignTemplatesQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetSignTemplatesQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

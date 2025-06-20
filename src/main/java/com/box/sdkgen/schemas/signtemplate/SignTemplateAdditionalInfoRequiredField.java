@@ -27,8 +27,7 @@ public class SignTemplateAdditionalInfoRequiredField extends SerializableObject 
     super();
   }
 
-  protected SignTemplateAdditionalInfoRequiredField(
-      SignTemplateAdditionalInfoRequiredFieldBuilder builder) {
+  protected SignTemplateAdditionalInfoRequiredField(Builder builder) {
     super();
     this.signers = builder.signers;
   }
@@ -59,12 +58,11 @@ public class SignTemplateAdditionalInfoRequiredField extends SerializableObject 
     return "SignTemplateAdditionalInfoRequiredField{" + "signers='" + signers + '\'' + "}";
   }
 
-  public static class SignTemplateAdditionalInfoRequiredFieldBuilder {
+  public static class Builder {
 
     protected List<List<EnumWrapper<SignTemplateAdditionalInfoRequiredSignersField>>> signers;
 
-    public SignTemplateAdditionalInfoRequiredFieldBuilder signers(
-        List<List<? extends Valuable>> signers) {
+    public Builder signers(List<List<? extends Valuable>> signers) {
       this.signers =
           EnumWrapper.wrapValuableEnumListOfLists(
               signers, SignTemplateAdditionalInfoRequiredSignersField.class);

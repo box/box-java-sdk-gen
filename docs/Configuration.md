@@ -16,10 +16,10 @@ To change this number you should initialize `BoxRetryStrategy` with the new valu
 
 ```java
 BoxDeveloperTokenAuth auth = new BoxDeveloperTokenAuth("DEVELOPER_TOKEN");
-NetworkSession session = new NetworkSession.NetworkSessionBuilder()
-    .retryStrategy(new BoxRetryStrategy.BoxRetryStrategyBuilder().maxAttempts(3).build())
+NetworkSession session = new NetworkSession.Builder()
+    .retryStrategy(new BoxRetryStrategy.Builder().maxAttempts(3).build())
     .build();
-BoxClient client = new BoxClient.BoxClientBuilder(auth)
+BoxClient client = new BoxClient.Builder(auth)
     .networkSession(session)
     .build();
 ```
@@ -42,10 +42,10 @@ RetryStrategy customRetryStrategy = new RetryStrategy() {
         return 1.0;
     }
 };
-NetworkSession session = new NetworkSession.NetworkSessionBuilder()
+NetworkSession session = new NetworkSession.Builder()
     .retryStrategy(customRetryStrategy)
     .build();
-BoxClient client = new BoxClient.BoxClientBuilder(auth)
+BoxClient client = new BoxClient.Builder(auth)
     .networkSession(session)
     .build();
 ```

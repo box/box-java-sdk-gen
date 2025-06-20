@@ -32,7 +32,7 @@ See the endpoint docs at
 
 <!-- sample post_zip_downloads -->
 ```
-client.getZipDownloads().createZipDownload(new ZipDownloadRequest.ZipDownloadRequestBuilder(Arrays.asList(new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FILE, file1.getId()), new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FILE, file2.getId()), new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FOLDER, folder1.getId()))).downloadFileName("zip").build())
+client.getZipDownloads().createZipDownload(new ZipDownloadRequest.Builder(Arrays.asList(new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FILE, file1.getId()), new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FILE, file2.getId()), new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FOLDER, folder1.getId()))).downloadFileName("zip").build())
 ```
 
 ### Arguments
@@ -143,7 +143,7 @@ This operation is performed by calling function `downloadZip`.
 
 
 ```
-client.getZipDownloads().downloadZip(new ZipDownloadRequest.ZipDownloadRequestBuilder(Arrays.asList(new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FILE, file1.getId()), new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FILE, file2.getId()), new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FOLDER, folder1.getId()))).downloadFileName("zip").build())
+client.getZipDownloads().downloadZip(new ZipDownloadRequest.Builder(Arrays.asList(new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FILE, file1.getId()), new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FILE, file2.getId()), new ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField.FOLDER, folder1.getId()))).downloadFileName("zip").build())
 ```
 
 ### Arguments

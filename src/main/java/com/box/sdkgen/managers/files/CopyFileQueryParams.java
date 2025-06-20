@@ -8,7 +8,7 @@ public class CopyFileQueryParams {
 
   public CopyFileQueryParams() {}
 
-  protected CopyFileQueryParams(CopyFileQueryParamsBuilder builder) {
+  protected CopyFileQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class CopyFileQueryParams {
     return fields;
   }
 
-  public static class CopyFileQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public CopyFileQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

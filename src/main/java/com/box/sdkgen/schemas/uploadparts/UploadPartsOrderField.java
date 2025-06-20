@@ -20,7 +20,7 @@ public class UploadPartsOrderField extends SerializableObject {
     super();
   }
 
-  protected UploadPartsOrderField(UploadPartsOrderFieldBuilder builder) {
+  protected UploadPartsOrderField(Builder builder) {
     super();
     this.by = builder.by;
     this.direction = builder.direction;
@@ -64,24 +64,23 @@ public class UploadPartsOrderField extends SerializableObject {
         + "}";
   }
 
-  public static class UploadPartsOrderFieldBuilder {
+  public static class Builder {
 
     protected String by;
 
     protected EnumWrapper<UploadPartsOrderDirectionField> direction;
 
-    public UploadPartsOrderFieldBuilder by(String by) {
+    public Builder by(String by) {
       this.by = by;
       return this;
     }
 
-    public UploadPartsOrderFieldBuilder direction(UploadPartsOrderDirectionField direction) {
+    public Builder direction(UploadPartsOrderDirectionField direction) {
       this.direction = new EnumWrapper<UploadPartsOrderDirectionField>(direction);
       return this;
     }
 
-    public UploadPartsOrderFieldBuilder direction(
-        EnumWrapper<UploadPartsOrderDirectionField> direction) {
+    public Builder direction(EnumWrapper<UploadPartsOrderDirectionField> direction) {
       this.direction = direction;
       return this;
     }

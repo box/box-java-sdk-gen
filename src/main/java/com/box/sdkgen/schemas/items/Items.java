@@ -29,7 +29,7 @@ public class Items extends SerializableObject {
     super();
   }
 
-  protected Items(ItemsBuilder builder) {
+  protected Items(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -124,7 +124,7 @@ public class Items extends SerializableObject {
         + "}";
   }
 
-  public static class ItemsBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -140,37 +140,37 @@ public class Items extends SerializableObject {
 
     protected List<FileFullOrFolderFullOrWebLink> entries;
 
-    public ItemsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public ItemsBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public ItemsBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public ItemsBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public ItemsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public ItemsBuilder order(List<ItemsOrderField> order) {
+    public Builder order(List<ItemsOrderField> order) {
       this.order = order;
       return this;
     }
 
-    public ItemsBuilder entries(List<FileFullOrFolderFullOrWebLink> entries) {
+    public Builder entries(List<FileFullOrFolderFullOrWebLink> entries) {
       this.entries = entries;
       return this;
     }

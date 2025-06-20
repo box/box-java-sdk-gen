@@ -27,8 +27,7 @@ public class LegalHoldPoliciesITest {
         client
             .getLegalHoldPolicies()
             .createLegalHoldPolicy(
-                new CreateLegalHoldPolicyRequestBody.CreateLegalHoldPolicyRequestBodyBuilder(
-                        legalHoldPolicyName)
+                new CreateLegalHoldPolicyRequestBody.Builder(legalHoldPolicyName)
                     .description(legalHoldDescription)
                     .filterStartedAt(filterStartedAt)
                     .filterEndedAt(filterEndedAt)
@@ -51,8 +50,7 @@ public class LegalHoldPoliciesITest {
         client
             .getLegalHoldPolicies()
             .createLegalHoldPolicy(
-                new CreateLegalHoldPolicyRequestBody.CreateLegalHoldPolicyRequestBodyBuilder(
-                        legalHoldPolicyName)
+                new CreateLegalHoldPolicyRequestBody.Builder(legalHoldPolicyName)
                     .description(legalHoldDescription)
                     .isOngoing(true)
                     .build());
@@ -70,8 +68,7 @@ public class LegalHoldPoliciesITest {
             .getLegalHoldPolicies()
             .updateLegalHoldPolicyById(
                 legalHoldPolicyId,
-                new UpdateLegalHoldPolicyByIdRequestBody
-                        .UpdateLegalHoldPolicyByIdRequestBodyBuilder()
+                new UpdateLegalHoldPolicyByIdRequestBody.Builder()
                     .policyName(updatedLegalHoldPolicyName)
                     .build());
     assert updatedLegalHoldPolicy.getPolicyName().equals(updatedLegalHoldPolicyName);

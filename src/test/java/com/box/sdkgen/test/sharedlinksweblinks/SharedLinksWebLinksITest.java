@@ -36,7 +36,7 @@ public class SharedLinksWebLinksITest {
         client
             .getWebLinks()
             .createWebLink(
-                new CreateWebLinkRequestBody.CreateWebLinkRequestBodyBuilder(
+                new CreateWebLinkRequestBody.Builder(
                         "https://www.box.com",
                         new CreateWebLinkRequestBodyParentField(parent.getId()))
                     .name(getUuid())
@@ -47,10 +47,9 @@ public class SharedLinksWebLinksITest {
         .getSharedLinksWebLinks()
         .addShareLinkToWebLink(
             webLinkId,
-            new AddShareLinkToWebLinkRequestBody.AddShareLinkToWebLinkRequestBodyBuilder()
+            new AddShareLinkToWebLinkRequestBody.Builder()
                 .sharedLink(
-                    new AddShareLinkToWebLinkRequestBodySharedLinkField
-                            .AddShareLinkToWebLinkRequestBodySharedLinkFieldBuilder()
+                    new AddShareLinkToWebLinkRequestBodySharedLinkField.Builder()
                         .access(AddShareLinkToWebLinkRequestBodySharedLinkAccessField.OPEN)
                         .password("Secret123@")
                         .build())
@@ -94,11 +93,9 @@ public class SharedLinksWebLinksITest {
             .getSharedLinksWebLinks()
             .updateSharedLinkOnWebLink(
                 webLinkId,
-                new UpdateSharedLinkOnWebLinkRequestBody
-                        .UpdateSharedLinkOnWebLinkRequestBodyBuilder()
+                new UpdateSharedLinkOnWebLinkRequestBody.Builder()
                     .sharedLink(
-                        new UpdateSharedLinkOnWebLinkRequestBodySharedLinkField
-                                .UpdateSharedLinkOnWebLinkRequestBodySharedLinkFieldBuilder()
+                        new UpdateSharedLinkOnWebLinkRequestBodySharedLinkField.Builder()
                             .access(
                                 UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField
                                     .COLLABORATORS)

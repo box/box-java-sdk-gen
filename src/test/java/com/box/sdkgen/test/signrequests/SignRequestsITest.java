@@ -36,9 +36,9 @@ public class SignRequestsITest {
         client
             .getSignRequests()
             .createSignRequest(
-                new SignRequestCreateRequest.SignRequestCreateRequestBuilder(
+                new SignRequestCreateRequest.Builder(
                         Arrays.asList(
-                            new SignRequestCreateSigner.SignRequestCreateSignerBuilder()
+                            new SignRequestCreateSigner.Builder()
                                 .email(signerEmail)
                                 .role(SignRequestCreateSignerRoleField.SIGNER)
                                 .isInPerson(false)
@@ -60,7 +60,7 @@ public class SignRequestsITest {
                     .name("Sign Request")
                     .prefillTags(
                         Arrays.asList(
-                            new SignRequestPrefillTag.SignRequestPrefillTagBuilder()
+                            new SignRequestPrefillTag.Builder()
                                 .documentTagId("0")
                                 .dateValue(dateFromString("2035-01-01"))
                                 .build()))
@@ -118,9 +118,7 @@ public class SignRequestsITest {
         .getFolders()
         .deleteFolderById(
             destinationFolder.getId(),
-            new DeleteFolderByIdQueryParams.DeleteFolderByIdQueryParamsBuilder()
-                .recursive(true)
-                .build());
+            new DeleteFolderByIdQueryParams.Builder().recursive(true).build());
     client.getFiles().deleteFileById(fileToSign.getId());
   }
 
@@ -134,13 +132,13 @@ public class SignRequestsITest {
         client
             .getSignRequests()
             .createSignRequest(
-                new SignRequestCreateRequest.SignRequestCreateRequestBuilder(
+                new SignRequestCreateRequest.Builder(
                         Arrays.asList(
-                            new SignRequestCreateSigner.SignRequestCreateSignerBuilder()
+                            new SignRequestCreateSigner.Builder()
                                 .email(signer1Email)
                                 .signerGroupId("user")
                                 .build(),
-                            new SignRequestCreateSigner.SignRequestCreateSignerBuilder()
+                            new SignRequestCreateSigner.Builder()
                                 .email(signer2Email)
                                 .signerGroupId("user")
                                 .build()))
@@ -158,9 +156,7 @@ public class SignRequestsITest {
         .getFolders()
         .deleteFolderById(
             destinationFolder.getId(),
-            new DeleteFolderByIdQueryParams.DeleteFolderByIdQueryParamsBuilder()
-                .recursive(true)
-                .build());
+            new DeleteFolderByIdQueryParams.Builder().recursive(true).build());
     client.getFiles().deleteFileById(fileToSign.getId());
   }
 }

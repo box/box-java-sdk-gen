@@ -13,7 +13,7 @@ public class IntegrationMappingsTeams extends SerializableObject {
     super();
   }
 
-  protected IntegrationMappingsTeams(IntegrationMappingsTeamsBuilder builder) {
+  protected IntegrationMappingsTeams(Builder builder) {
     super();
     this.entries = builder.entries;
   }
@@ -44,11 +44,11 @@ public class IntegrationMappingsTeams extends SerializableObject {
     return "IntegrationMappingsTeams{" + "entries='" + entries + '\'' + "}";
   }
 
-  public static class IntegrationMappingsTeamsBuilder {
+  public static class Builder {
 
     protected List<IntegrationMappingTeams> entries;
 
-    public IntegrationMappingsTeamsBuilder entries(List<IntegrationMappingTeams> entries) {
+    public Builder entries(List<IntegrationMappingTeams> entries) {
       this.entries = entries;
       return this;
     }

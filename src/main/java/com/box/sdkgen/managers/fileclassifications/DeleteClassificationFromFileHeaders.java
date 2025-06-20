@@ -12,8 +12,7 @@ public class DeleteClassificationFromFileHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteClassificationFromFileHeaders(
-      DeleteClassificationFromFileHeadersBuilder builder) {
+  protected DeleteClassificationFromFileHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class DeleteClassificationFromFileHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteClassificationFromFileHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteClassificationFromFileHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteClassificationFromFileHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

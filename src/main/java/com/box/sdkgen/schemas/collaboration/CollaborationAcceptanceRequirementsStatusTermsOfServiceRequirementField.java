@@ -19,7 +19,7 @@ public class CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementF
   }
 
   protected CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementField(
-      CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementFieldBuilder builder) {
+      Builder builder) {
     super();
     this.isAccepted = builder.isAccepted;
     this.termsOfService = builder.termsOfService;
@@ -65,21 +65,18 @@ public class CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementF
         + "}";
   }
 
-  public static
-  class CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementFieldBuilder {
+  public static class Builder {
 
     protected Boolean isAccepted;
 
     protected TermsOfServiceBase termsOfService;
 
-    public CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementFieldBuilder
-        isAccepted(Boolean isAccepted) {
+    public Builder isAccepted(Boolean isAccepted) {
       this.isAccepted = isAccepted;
       return this;
     }
 
-    public CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementFieldBuilder
-        termsOfService(TermsOfServiceBase termsOfService) {
+    public Builder termsOfService(TermsOfServiceBase termsOfService) {
       this.termsOfService = termsOfService;
       return this;
     }

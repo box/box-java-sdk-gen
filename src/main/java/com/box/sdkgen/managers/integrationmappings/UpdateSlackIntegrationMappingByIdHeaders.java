@@ -12,8 +12,7 @@ public class UpdateSlackIntegrationMappingByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UpdateSlackIntegrationMappingByIdHeaders(
-      UpdateSlackIntegrationMappingByIdHeadersBuilder builder) {
+  protected UpdateSlackIntegrationMappingByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class UpdateSlackIntegrationMappingByIdHeaders {
     return extraHeaders;
   }
 
-  public static class UpdateSlackIntegrationMappingByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public UpdateSlackIntegrationMappingByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public UpdateSlackIntegrationMappingByIdHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

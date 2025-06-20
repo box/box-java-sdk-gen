@@ -8,7 +8,7 @@ public class GetGroupByIdQueryParams {
 
   public GetGroupByIdQueryParams() {}
 
-  protected GetGroupByIdQueryParams(GetGroupByIdQueryParamsBuilder builder) {
+  protected GetGroupByIdQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class GetGroupByIdQueryParams {
     return fields;
   }
 
-  public static class GetGroupByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public GetGroupByIdQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

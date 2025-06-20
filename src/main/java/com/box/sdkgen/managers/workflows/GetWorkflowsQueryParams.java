@@ -14,7 +14,7 @@ public class GetWorkflowsQueryParams {
     this.folderId = folderId;
   }
 
-  protected GetWorkflowsQueryParams(GetWorkflowsQueryParamsBuilder builder) {
+  protected GetWorkflowsQueryParams(Builder builder) {
     this.folderId = builder.folderId;
     this.triggerType = builder.triggerType;
     this.limit = builder.limit;
@@ -37,7 +37,7 @@ public class GetWorkflowsQueryParams {
     return marker;
   }
 
-  public static class GetWorkflowsQueryParamsBuilder {
+  public static class Builder {
 
     protected final String folderId;
 
@@ -47,21 +47,21 @@ public class GetWorkflowsQueryParams {
 
     protected String marker;
 
-    public GetWorkflowsQueryParamsBuilder(String folderId) {
+    public Builder(String folderId) {
       this.folderId = folderId;
     }
 
-    public GetWorkflowsQueryParamsBuilder triggerType(String triggerType) {
+    public Builder triggerType(String triggerType) {
       this.triggerType = triggerType;
       return this;
     }
 
-    public GetWorkflowsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetWorkflowsQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }

@@ -13,8 +13,7 @@ public class AiAgentLongTextToolTextGenEmbeddingsField extends SerializableObjec
     super();
   }
 
-  protected AiAgentLongTextToolTextGenEmbeddingsField(
-      AiAgentLongTextToolTextGenEmbeddingsFieldBuilder builder) {
+  protected AiAgentLongTextToolTextGenEmbeddingsField(Builder builder) {
     super();
     this.model = builder.model;
     this.strategy = builder.strategy;
@@ -59,19 +58,18 @@ public class AiAgentLongTextToolTextGenEmbeddingsField extends SerializableObjec
         + "}";
   }
 
-  public static class AiAgentLongTextToolTextGenEmbeddingsFieldBuilder {
+  public static class Builder {
 
     protected String model;
 
     protected AiAgentLongTextToolTextGenEmbeddingsStrategyField strategy;
 
-    public AiAgentLongTextToolTextGenEmbeddingsFieldBuilder model(String model) {
+    public Builder model(String model) {
       this.model = model;
       return this;
     }
 
-    public AiAgentLongTextToolTextGenEmbeddingsFieldBuilder strategy(
-        AiAgentLongTextToolTextGenEmbeddingsStrategyField strategy) {
+    public Builder strategy(AiAgentLongTextToolTextGenEmbeddingsStrategyField strategy) {
       this.strategy = strategy;
       return this;
     }

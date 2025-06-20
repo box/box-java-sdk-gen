@@ -12,7 +12,7 @@ public class GetCollectionByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetCollectionByIdHeaders(GetCollectionByIdHeadersBuilder builder) {
+  protected GetCollectionByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetCollectionByIdHeaders {
     return extraHeaders;
   }
 
-  public static class GetCollectionByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetCollectionByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetCollectionByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

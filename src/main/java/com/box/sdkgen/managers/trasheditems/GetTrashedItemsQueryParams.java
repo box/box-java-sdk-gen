@@ -21,7 +21,7 @@ public class GetTrashedItemsQueryParams {
 
   public GetTrashedItemsQueryParams() {}
 
-  protected GetTrashedItemsQueryParams(GetTrashedItemsQueryParamsBuilder builder) {
+  protected GetTrashedItemsQueryParams(Builder builder) {
     this.fields = builder.fields;
     this.limit = builder.limit;
     this.offset = builder.offset;
@@ -59,7 +59,7 @@ public class GetTrashedItemsQueryParams {
     return sort;
   }
 
-  public static class GetTrashedItemsQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
@@ -75,50 +75,47 @@ public class GetTrashedItemsQueryParams {
 
     protected EnumWrapper<GetTrashedItemsQueryParamsSortField> sort;
 
-    public GetTrashedItemsQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public GetTrashedItemsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetTrashedItemsQueryParamsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public GetTrashedItemsQueryParamsBuilder usemarker(Boolean usemarker) {
+    public Builder usemarker(Boolean usemarker) {
       this.usemarker = usemarker;
       return this;
     }
 
-    public GetTrashedItemsQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetTrashedItemsQueryParamsBuilder direction(
-        GetTrashedItemsQueryParamsDirectionField direction) {
+    public Builder direction(GetTrashedItemsQueryParamsDirectionField direction) {
       this.direction = new EnumWrapper<GetTrashedItemsQueryParamsDirectionField>(direction);
       return this;
     }
 
-    public GetTrashedItemsQueryParamsBuilder direction(
-        EnumWrapper<GetTrashedItemsQueryParamsDirectionField> direction) {
+    public Builder direction(EnumWrapper<GetTrashedItemsQueryParamsDirectionField> direction) {
       this.direction = direction;
       return this;
     }
 
-    public GetTrashedItemsQueryParamsBuilder sort(GetTrashedItemsQueryParamsSortField sort) {
+    public Builder sort(GetTrashedItemsQueryParamsSortField sort) {
       this.sort = new EnumWrapper<GetTrashedItemsQueryParamsSortField>(sort);
       return this;
     }
 
-    public GetTrashedItemsQueryParamsBuilder sort(
-        EnumWrapper<GetTrashedItemsQueryParamsSortField> sort) {
+    public Builder sort(EnumWrapper<GetTrashedItemsQueryParamsSortField> sort) {
       this.sort = sort;
       return this;
     }

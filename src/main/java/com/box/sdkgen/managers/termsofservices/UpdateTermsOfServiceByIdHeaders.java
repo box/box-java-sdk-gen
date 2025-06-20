@@ -12,7 +12,7 @@ public class UpdateTermsOfServiceByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UpdateTermsOfServiceByIdHeaders(UpdateTermsOfServiceByIdHeadersBuilder builder) {
+  protected UpdateTermsOfServiceByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class UpdateTermsOfServiceByIdHeaders {
     return extraHeaders;
   }
 
-  public static class UpdateTermsOfServiceByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public UpdateTermsOfServiceByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public UpdateTermsOfServiceByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

@@ -16,7 +16,7 @@ public class UploadFileVersionHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UploadFileVersionHeaders(UploadFileVersionHeadersBuilder builder) {
+  protected UploadFileVersionHeaders(Builder builder) {
     this.ifMatch = builder.ifMatch;
     this.contentMd5 = builder.contentMd5;
     this.extraHeaders = builder.extraHeaders;
@@ -34,7 +34,7 @@ public class UploadFileVersionHeaders {
     return extraHeaders;
   }
 
-  public static class UploadFileVersionHeadersBuilder {
+  public static class Builder {
 
     protected String ifMatch;
 
@@ -42,21 +42,21 @@ public class UploadFileVersionHeaders {
 
     protected Map<String, String> extraHeaders;
 
-    public UploadFileVersionHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public UploadFileVersionHeadersBuilder ifMatch(String ifMatch) {
+    public Builder ifMatch(String ifMatch) {
       this.ifMatch = ifMatch;
       return this;
     }
 
-    public UploadFileVersionHeadersBuilder contentMd5(String contentMd5) {
+    public Builder contentMd5(String contentMd5) {
       this.contentMd5 = contentMd5;
       return this;
     }
 
-    public UploadFileVersionHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

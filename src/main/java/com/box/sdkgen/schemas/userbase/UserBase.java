@@ -21,7 +21,7 @@ public class UserBase extends SerializableObject {
     this.type = new EnumWrapper<UserBaseTypeField>(UserBaseTypeField.USER);
   }
 
-  protected UserBase(UserBaseBuilder builder) {
+  protected UserBase(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -57,23 +57,23 @@ public class UserBase extends SerializableObject {
     return "UserBase{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class UserBaseBuilder {
+  public static class Builder {
 
     protected final String id;
 
     protected EnumWrapper<UserBaseTypeField> type;
 
-    public UserBaseBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type = new EnumWrapper<UserBaseTypeField>(UserBaseTypeField.USER);
     }
 
-    public UserBaseBuilder type(UserBaseTypeField type) {
+    public Builder type(UserBaseTypeField type) {
       this.type = new EnumWrapper<UserBaseTypeField>(type);
       return this;
     }
 
-    public UserBaseBuilder type(EnumWrapper<UserBaseTypeField> type) {
+    public Builder type(EnumWrapper<UserBaseTypeField> type) {
       this.type = type;
       return this;
     }

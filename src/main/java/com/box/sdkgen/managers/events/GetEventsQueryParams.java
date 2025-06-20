@@ -30,7 +30,7 @@ public class GetEventsQueryParams {
 
   public GetEventsQueryParams() {}
 
-  protected GetEventsQueryParams(GetEventsQueryParamsBuilder builder) {
+  protected GetEventsQueryParams(Builder builder) {
     this.streamType = builder.streamType;
     this.streamPosition = builder.streamPosition;
     this.limit = builder.limit;
@@ -63,7 +63,7 @@ public class GetEventsQueryParams {
     return createdBefore;
   }
 
-  public static class GetEventsQueryParamsBuilder {
+  public static class Builder {
 
     protected EnumWrapper<GetEventsQueryParamsStreamTypeField> streamType;
 
@@ -77,39 +77,38 @@ public class GetEventsQueryParams {
 
     protected Date createdBefore;
 
-    public GetEventsQueryParamsBuilder streamType(GetEventsQueryParamsStreamTypeField streamType) {
+    public Builder streamType(GetEventsQueryParamsStreamTypeField streamType) {
       this.streamType = new EnumWrapper<GetEventsQueryParamsStreamTypeField>(streamType);
       return this;
     }
 
-    public GetEventsQueryParamsBuilder streamType(
-        EnumWrapper<GetEventsQueryParamsStreamTypeField> streamType) {
+    public Builder streamType(EnumWrapper<GetEventsQueryParamsStreamTypeField> streamType) {
       this.streamType = streamType;
       return this;
     }
 
-    public GetEventsQueryParamsBuilder streamPosition(String streamPosition) {
+    public Builder streamPosition(String streamPosition) {
       this.streamPosition = streamPosition;
       return this;
     }
 
-    public GetEventsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetEventsQueryParamsBuilder eventType(List<? extends Valuable> eventType) {
+    public Builder eventType(List<? extends Valuable> eventType) {
       this.eventType =
           EnumWrapper.wrapValuableEnumList(eventType, GetEventsQueryParamsEventTypeField.class);
       return this;
     }
 
-    public GetEventsQueryParamsBuilder createdAfter(Date createdAfter) {
+    public Builder createdAfter(Date createdAfter) {
       this.createdAfter = createdAfter;
       return this;
     }
 
-    public GetEventsQueryParamsBuilder createdBefore(Date createdBefore) {
+    public Builder createdBefore(Date createdBefore) {
       this.createdBefore = createdBefore;
       return this;
     }

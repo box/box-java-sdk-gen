@@ -21,7 +21,7 @@ public class DevicePinners extends SerializableObject {
     super();
   }
 
-  protected DevicePinners(DevicePinnersBuilder builder) {
+  protected DevicePinners(Builder builder) {
     super();
     this.entries = builder.entries;
     this.limit = builder.limit;
@@ -86,7 +86,7 @@ public class DevicePinners extends SerializableObject {
         + "}";
   }
 
-  public static class DevicePinnersBuilder {
+  public static class Builder {
 
     protected List<DevicePinner> entries;
 
@@ -96,22 +96,22 @@ public class DevicePinners extends SerializableObject {
 
     protected List<DevicePinnersOrderField> order;
 
-    public DevicePinnersBuilder entries(List<DevicePinner> entries) {
+    public Builder entries(List<DevicePinner> entries) {
       this.entries = entries;
       return this;
     }
 
-    public DevicePinnersBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public DevicePinnersBuilder nextMarker(Long nextMarker) {
+    public Builder nextMarker(Long nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public DevicePinnersBuilder order(List<DevicePinnersOrderField> order) {
+    public Builder order(List<DevicePinnersOrderField> order) {
       this.order = order;
       return this;
     }

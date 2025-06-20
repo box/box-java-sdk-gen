@@ -24,7 +24,7 @@ public class KeywordSkillCardSkillField extends SerializableObject {
         new EnumWrapper<KeywordSkillCardSkillTypeField>(KeywordSkillCardSkillTypeField.SERVICE);
   }
 
-  protected KeywordSkillCardSkillField(KeywordSkillCardSkillFieldBuilder builder) {
+  protected KeywordSkillCardSkillField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -60,25 +60,24 @@ public class KeywordSkillCardSkillField extends SerializableObject {
     return "KeywordSkillCardSkillField{" + "type='" + type + '\'' + ", " + "id='" + id + '\'' + "}";
   }
 
-  public static class KeywordSkillCardSkillFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<KeywordSkillCardSkillTypeField> type;
 
     protected final String id;
 
-    public KeywordSkillCardSkillFieldBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<KeywordSkillCardSkillTypeField>(KeywordSkillCardSkillTypeField.SERVICE);
     }
 
-    public KeywordSkillCardSkillFieldBuilder type(KeywordSkillCardSkillTypeField type) {
+    public Builder type(KeywordSkillCardSkillTypeField type) {
       this.type = new EnumWrapper<KeywordSkillCardSkillTypeField>(type);
       return this;
     }
 
-    public KeywordSkillCardSkillFieldBuilder type(
-        EnumWrapper<KeywordSkillCardSkillTypeField> type) {
+    public Builder type(EnumWrapper<KeywordSkillCardSkillTypeField> type) {
       this.type = type;
       return this;
     }

@@ -12,7 +12,7 @@ public class GetGroupMembershipsHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetGroupMembershipsHeaders(GetGroupMembershipsHeadersBuilder builder) {
+  protected GetGroupMembershipsHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetGroupMembershipsHeaders {
     return extraHeaders;
   }
 
-  public static class GetGroupMembershipsHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetGroupMembershipsHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetGroupMembershipsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

@@ -22,7 +22,7 @@ public class LegalHoldPolicies extends SerializableObject {
     super();
   }
 
-  protected LegalHoldPolicies(LegalHoldPoliciesBuilder builder) {
+  protected LegalHoldPolicies(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -87,7 +87,7 @@ public class LegalHoldPolicies extends SerializableObject {
         + "}";
   }
 
-  public static class LegalHoldPoliciesBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -97,22 +97,22 @@ public class LegalHoldPolicies extends SerializableObject {
 
     protected List<LegalHoldPolicy> entries;
 
-    public LegalHoldPoliciesBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public LegalHoldPoliciesBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public LegalHoldPoliciesBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public LegalHoldPoliciesBuilder entries(List<LegalHoldPolicy> entries) {
+    public Builder entries(List<LegalHoldPolicy> entries) {
       this.entries = entries;
       return this;
     }

@@ -33,7 +33,7 @@ public class UpdateFileByIdRequestBodyLockField extends SerializableObject {
     super();
   }
 
-  protected UpdateFileByIdRequestBodyLockField(UpdateFileByIdRequestBodyLockFieldBuilder builder) {
+  protected UpdateFileByIdRequestBodyLockField(Builder builder) {
     super();
     this.access = builder.access;
     this.expiresAt = builder.expiresAt;
@@ -88,7 +88,7 @@ public class UpdateFileByIdRequestBodyLockField extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateFileByIdRequestBodyLockFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<UpdateFileByIdRequestBodyLockAccessField> access;
 
@@ -96,25 +96,22 @@ public class UpdateFileByIdRequestBodyLockField extends SerializableObject {
 
     protected Boolean isDownloadPrevented;
 
-    public UpdateFileByIdRequestBodyLockFieldBuilder access(
-        UpdateFileByIdRequestBodyLockAccessField access) {
+    public Builder access(UpdateFileByIdRequestBodyLockAccessField access) {
       this.access = new EnumWrapper<UpdateFileByIdRequestBodyLockAccessField>(access);
       return this;
     }
 
-    public UpdateFileByIdRequestBodyLockFieldBuilder access(
-        EnumWrapper<UpdateFileByIdRequestBodyLockAccessField> access) {
+    public Builder access(EnumWrapper<UpdateFileByIdRequestBodyLockAccessField> access) {
       this.access = access;
       return this;
     }
 
-    public UpdateFileByIdRequestBodyLockFieldBuilder expiresAt(Date expiresAt) {
+    public Builder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }
 
-    public UpdateFileByIdRequestBodyLockFieldBuilder isDownloadPrevented(
-        Boolean isDownloadPrevented) {
+    public Builder isDownloadPrevented(Boolean isDownloadPrevented) {
       this.isDownloadPrevented = isDownloadPrevented;
       return this;
     }

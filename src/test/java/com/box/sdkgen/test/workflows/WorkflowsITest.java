@@ -64,19 +64,17 @@ public class WorkflowsITest {
         .getWorkflows()
         .startWorkflow(
             workflowToRun.getId(),
-            new StartWorkflowRequestBody.StartWorkflowRequestBodyBuilder(
-                    new StartWorkflowRequestBodyFlowField.StartWorkflowRequestBodyFlowFieldBuilder()
+            new StartWorkflowRequestBody.Builder(
+                    new StartWorkflowRequestBodyFlowField.Builder()
                         .type("flow")
                         .id(workflowToRun.getFlows().get(0).getId())
                         .build(),
                     Arrays.asList(
-                        new StartWorkflowRequestBodyFilesField
-                                .StartWorkflowRequestBodyFilesFieldBuilder()
+                        new StartWorkflowRequestBodyFilesField.Builder()
                             .type(StartWorkflowRequestBodyFilesTypeField.FILE)
                             .id(workflowFileId)
                             .build()),
-                    new StartWorkflowRequestBodyFolderField
-                            .StartWorkflowRequestBodyFolderFieldBuilder()
+                    new StartWorkflowRequestBodyFolderField.Builder()
                         .type(StartWorkflowRequestBodyFolderTypeField.FOLDER)
                         .id(workflowFolderId)
                         .build())

@@ -19,7 +19,7 @@ public class MetadataQueryResults extends SerializableObject {
     super();
   }
 
-  protected MetadataQueryResults(MetadataQueryResultsBuilder builder) {
+  protected MetadataQueryResults(Builder builder) {
     super();
     this.entries = builder.entries;
     this.limit = builder.limit;
@@ -74,7 +74,7 @@ public class MetadataQueryResults extends SerializableObject {
         + "}";
   }
 
-  public static class MetadataQueryResultsBuilder {
+  public static class Builder {
 
     protected List<FileFullOrFolderFull> entries;
 
@@ -82,17 +82,17 @@ public class MetadataQueryResults extends SerializableObject {
 
     protected String nextMarker;
 
-    public MetadataQueryResultsBuilder entries(List<FileFullOrFolderFull> entries) {
+    public Builder entries(List<FileFullOrFolderFull> entries) {
       this.entries = entries;
       return this;
     }
 
-    public MetadataQueryResultsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public MetadataQueryResultsBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }

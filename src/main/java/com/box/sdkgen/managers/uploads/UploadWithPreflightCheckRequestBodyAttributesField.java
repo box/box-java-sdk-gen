@@ -36,8 +36,7 @@ public class UploadWithPreflightCheckRequestBodyAttributesField extends Serializ
     this.size = size;
   }
 
-  protected UploadWithPreflightCheckRequestBodyAttributesField(
-      UploadWithPreflightCheckRequestBodyAttributesFieldBuilder builder) {
+  protected UploadWithPreflightCheckRequestBodyAttributesField(Builder builder) {
     super();
     this.name = builder.name;
     this.parent = builder.parent;
@@ -113,7 +112,7 @@ public class UploadWithPreflightCheckRequestBodyAttributesField extends Serializ
         + "}";
   }
 
-  public static class UploadWithPreflightCheckRequestBodyAttributesFieldBuilder {
+  public static class Builder {
 
     protected final String name;
 
@@ -125,21 +124,19 @@ public class UploadWithPreflightCheckRequestBodyAttributesField extends Serializ
 
     protected final int size;
 
-    public UploadWithPreflightCheckRequestBodyAttributesFieldBuilder(
+    public Builder(
         String name, UploadWithPreflightCheckRequestBodyAttributesParentField parent, int size) {
       this.name = name;
       this.parent = parent;
       this.size = size;
     }
 
-    public UploadWithPreflightCheckRequestBodyAttributesFieldBuilder contentCreatedAt(
-        Date contentCreatedAt) {
+    public Builder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
       return this;
     }
 
-    public UploadWithPreflightCheckRequestBodyAttributesFieldBuilder contentModifiedAt(
-        Date contentModifiedAt) {
+    public Builder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
       return this;
     }

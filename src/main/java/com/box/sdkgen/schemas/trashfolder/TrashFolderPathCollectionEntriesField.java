@@ -32,8 +32,7 @@ public class TrashFolderPathCollectionEntriesField extends SerializableObject {
     super();
   }
 
-  protected TrashFolderPathCollectionEntriesField(
-      TrashFolderPathCollectionEntriesFieldBuilder builder) {
+  protected TrashFolderPathCollectionEntriesField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -108,7 +107,7 @@ public class TrashFolderPathCollectionEntriesField extends SerializableObject {
         + "}";
   }
 
-  public static class TrashFolderPathCollectionEntriesFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<TrashFolderPathCollectionEntriesTypeField> type;
 
@@ -120,34 +119,32 @@ public class TrashFolderPathCollectionEntriesField extends SerializableObject {
 
     protected String name;
 
-    public TrashFolderPathCollectionEntriesFieldBuilder type(
-        TrashFolderPathCollectionEntriesTypeField type) {
+    public Builder type(TrashFolderPathCollectionEntriesTypeField type) {
       this.type = new EnumWrapper<TrashFolderPathCollectionEntriesTypeField>(type);
       return this;
     }
 
-    public TrashFolderPathCollectionEntriesFieldBuilder type(
-        EnumWrapper<TrashFolderPathCollectionEntriesTypeField> type) {
+    public Builder type(EnumWrapper<TrashFolderPathCollectionEntriesTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TrashFolderPathCollectionEntriesFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public TrashFolderPathCollectionEntriesFieldBuilder sequenceId(String sequenceId) {
+    public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
       return this;
     }
 
-    public TrashFolderPathCollectionEntriesFieldBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
-    public TrashFolderPathCollectionEntriesFieldBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }

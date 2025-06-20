@@ -23,7 +23,7 @@ public class Comments extends SerializableObject {
     super();
   }
 
-  protected Comments(CommentsBuilder builder) {
+  protected Comments(Builder builder) {
     super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
@@ -98,7 +98,7 @@ public class Comments extends SerializableObject {
         + "}";
   }
 
-  public static class CommentsBuilder {
+  public static class Builder {
 
     protected Long totalCount;
 
@@ -110,27 +110,27 @@ public class Comments extends SerializableObject {
 
     protected List<CommentFull> entries;
 
-    public CommentsBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public CommentsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public CommentsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public CommentsBuilder order(List<CommentsOrderField> order) {
+    public Builder order(List<CommentsOrderField> order) {
       this.order = order;
       return this;
     }
 
-    public CommentsBuilder entries(List<CommentFull> entries) {
+    public Builder entries(List<CommentFull> entries) {
       this.entries = entries;
       return this;
     }

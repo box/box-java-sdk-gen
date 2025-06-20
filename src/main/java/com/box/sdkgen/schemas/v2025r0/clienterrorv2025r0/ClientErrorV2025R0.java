@@ -36,7 +36,7 @@ public class ClientErrorV2025R0 extends SerializableObject {
     super();
   }
 
-  protected ClientErrorV2025R0(ClientErrorV2025R0Builder builder) {
+  protected ClientErrorV2025R0(Builder builder) {
     super();
     this.type = builder.type;
     this.status = builder.status;
@@ -131,7 +131,7 @@ public class ClientErrorV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class ClientErrorV2025R0Builder {
+  public static class Builder {
 
     protected EnumWrapper<ClientErrorV2025R0TypeField> type;
 
@@ -147,47 +147,47 @@ public class ClientErrorV2025R0 extends SerializableObject {
 
     protected String requestId;
 
-    public ClientErrorV2025R0Builder type(ClientErrorV2025R0TypeField type) {
+    public Builder type(ClientErrorV2025R0TypeField type) {
       this.type = new EnumWrapper<ClientErrorV2025R0TypeField>(type);
       return this;
     }
 
-    public ClientErrorV2025R0Builder type(EnumWrapper<ClientErrorV2025R0TypeField> type) {
+    public Builder type(EnumWrapper<ClientErrorV2025R0TypeField> type) {
       this.type = type;
       return this;
     }
 
-    public ClientErrorV2025R0Builder status(Integer status) {
+    public Builder status(Integer status) {
       this.status = status;
       return this;
     }
 
-    public ClientErrorV2025R0Builder code(ClientErrorV2025R0CodeField code) {
+    public Builder code(ClientErrorV2025R0CodeField code) {
       this.code = new EnumWrapper<ClientErrorV2025R0CodeField>(code);
       return this;
     }
 
-    public ClientErrorV2025R0Builder code(EnumWrapper<ClientErrorV2025R0CodeField> code) {
+    public Builder code(EnumWrapper<ClientErrorV2025R0CodeField> code) {
       this.code = code;
       return this;
     }
 
-    public ClientErrorV2025R0Builder message(String message) {
+    public Builder message(String message) {
       this.message = message;
       return this;
     }
 
-    public ClientErrorV2025R0Builder contextInfo(ClientErrorV2025R0ContextInfoField contextInfo) {
+    public Builder contextInfo(ClientErrorV2025R0ContextInfoField contextInfo) {
       this.contextInfo = contextInfo;
       return this;
     }
 
-    public ClientErrorV2025R0Builder helpUrl(String helpUrl) {
+    public Builder helpUrl(String helpUrl) {
       this.helpUrl = helpUrl;
       return this;
     }
 
-    public ClientErrorV2025R0Builder requestId(String requestId) {
+    public Builder requestId(String requestId) {
       this.requestId = requestId;
       return this;
     }

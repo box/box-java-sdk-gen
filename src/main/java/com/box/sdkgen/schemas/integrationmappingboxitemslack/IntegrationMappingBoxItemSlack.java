@@ -29,7 +29,7 @@ public class IntegrationMappingBoxItemSlack extends SerializableObject {
             IntegrationMappingBoxItemSlackTypeField.FOLDER);
   }
 
-  protected IntegrationMappingBoxItemSlack(IntegrationMappingBoxItemSlackBuilder builder) {
+  protected IntegrationMappingBoxItemSlack(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -73,27 +73,25 @@ public class IntegrationMappingBoxItemSlack extends SerializableObject {
         + "}";
   }
 
-  public static class IntegrationMappingBoxItemSlackBuilder {
+  public static class Builder {
 
     protected EnumWrapper<IntegrationMappingBoxItemSlackTypeField> type;
 
     protected final String id;
 
-    public IntegrationMappingBoxItemSlackBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<IntegrationMappingBoxItemSlackTypeField>(
               IntegrationMappingBoxItemSlackTypeField.FOLDER);
     }
 
-    public IntegrationMappingBoxItemSlackBuilder type(
-        IntegrationMappingBoxItemSlackTypeField type) {
+    public Builder type(IntegrationMappingBoxItemSlackTypeField type) {
       this.type = new EnumWrapper<IntegrationMappingBoxItemSlackTypeField>(type);
       return this;
     }
 
-    public IntegrationMappingBoxItemSlackBuilder type(
-        EnumWrapper<IntegrationMappingBoxItemSlackTypeField> type) {
+    public Builder type(EnumWrapper<IntegrationMappingBoxItemSlackTypeField> type) {
       this.type = type;
       return this;
     }

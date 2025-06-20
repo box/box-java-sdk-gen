@@ -12,7 +12,7 @@ public class RestoreWeblinkFromTrashHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected RestoreWeblinkFromTrashHeaders(RestoreWeblinkFromTrashHeadersBuilder builder) {
+  protected RestoreWeblinkFromTrashHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class RestoreWeblinkFromTrashHeaders {
     return extraHeaders;
   }
 
-  public static class RestoreWeblinkFromTrashHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public RestoreWeblinkFromTrashHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public RestoreWeblinkFromTrashHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

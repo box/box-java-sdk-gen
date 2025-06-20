@@ -38,7 +38,7 @@ public class SkillCardsMetadata extends SerializableObject {
     super();
   }
 
-  protected SkillCardsMetadata(SkillCardsMetadataBuilder builder) {
+  protected SkillCardsMetadata(Builder builder) {
     super();
     this.canEdit = builder.canEdit;
     this.id = builder.id;
@@ -154,7 +154,7 @@ public class SkillCardsMetadata extends SerializableObject {
         + "}";
   }
 
-  public static class SkillCardsMetadataBuilder {
+  public static class Builder {
 
     protected Boolean canEdit;
 
@@ -174,47 +174,47 @@ public class SkillCardsMetadata extends SerializableObject {
 
     protected List<KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard> cards;
 
-    public SkillCardsMetadataBuilder canEdit(Boolean canEdit) {
+    public Builder canEdit(Boolean canEdit) {
       this.canEdit = canEdit;
       return this;
     }
 
-    public SkillCardsMetadataBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public SkillCardsMetadataBuilder parent(String parent) {
+    public Builder parent(String parent) {
       this.parent = parent;
       return this;
     }
 
-    public SkillCardsMetadataBuilder scope(String scope) {
+    public Builder scope(String scope) {
       this.scope = scope;
       return this;
     }
 
-    public SkillCardsMetadataBuilder template(String template) {
+    public Builder template(String template) {
       this.template = template;
       return this;
     }
 
-    public SkillCardsMetadataBuilder type(String type) {
+    public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public SkillCardsMetadataBuilder typeVersion(Long typeVersion) {
+    public Builder typeVersion(Long typeVersion) {
       this.typeVersion = typeVersion;
       return this;
     }
 
-    public SkillCardsMetadataBuilder version(Long version) {
+    public Builder version(Long version) {
       this.version = version;
       return this;
     }
 
-    public SkillCardsMetadataBuilder cards(
+    public Builder cards(
         List<KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard> cards) {
       this.cards = cards;
       return this;

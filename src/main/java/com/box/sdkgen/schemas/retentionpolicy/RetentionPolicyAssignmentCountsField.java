@@ -17,8 +17,7 @@ public class RetentionPolicyAssignmentCountsField extends SerializableObject {
     super();
   }
 
-  protected RetentionPolicyAssignmentCountsField(
-      RetentionPolicyAssignmentCountsFieldBuilder builder) {
+  protected RetentionPolicyAssignmentCountsField(Builder builder) {
     super();
     this.enterprise = builder.enterprise;
     this.folder = builder.folder;
@@ -73,7 +72,7 @@ public class RetentionPolicyAssignmentCountsField extends SerializableObject {
         + "}";
   }
 
-  public static class RetentionPolicyAssignmentCountsFieldBuilder {
+  public static class Builder {
 
     protected Long enterprise;
 
@@ -81,17 +80,17 @@ public class RetentionPolicyAssignmentCountsField extends SerializableObject {
 
     protected Long metadataTemplate;
 
-    public RetentionPolicyAssignmentCountsFieldBuilder enterprise(Long enterprise) {
+    public Builder enterprise(Long enterprise) {
       this.enterprise = enterprise;
       return this;
     }
 
-    public RetentionPolicyAssignmentCountsFieldBuilder folder(Long folder) {
+    public Builder folder(Long folder) {
       this.folder = folder;
       return this;
     }
 
-    public RetentionPolicyAssignmentCountsFieldBuilder metadataTemplate(Long metadataTemplate) {
+    public Builder metadataTemplate(Long metadataTemplate) {
       this.metadataTemplate = metadataTemplate;
       return this;
     }

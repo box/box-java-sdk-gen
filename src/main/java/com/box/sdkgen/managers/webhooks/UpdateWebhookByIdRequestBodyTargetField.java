@@ -24,8 +24,7 @@ public class UpdateWebhookByIdRequestBodyTargetField extends SerializableObject 
     super();
   }
 
-  protected UpdateWebhookByIdRequestBodyTargetField(
-      UpdateWebhookByIdRequestBodyTargetFieldBuilder builder) {
+  protected UpdateWebhookByIdRequestBodyTargetField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -69,25 +68,23 @@ public class UpdateWebhookByIdRequestBodyTargetField extends SerializableObject 
         + "}";
   }
 
-  public static class UpdateWebhookByIdRequestBodyTargetFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField> type;
 
-    public UpdateWebhookByIdRequestBodyTargetFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public UpdateWebhookByIdRequestBodyTargetFieldBuilder type(
-        UpdateWebhookByIdRequestBodyTargetTypeField type) {
+    public Builder type(UpdateWebhookByIdRequestBodyTargetTypeField type) {
       this.type = new EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField>(type);
       return this;
     }
 
-    public UpdateWebhookByIdRequestBodyTargetFieldBuilder type(
-        EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField> type) {
+    public Builder type(EnumWrapper<UpdateWebhookByIdRequestBodyTargetTypeField> type) {
       this.type = type;
       return this;
     }

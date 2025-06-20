@@ -23,7 +23,7 @@ public class WebLinkBase extends SerializableObject {
     this.type = new EnumWrapper<WebLinkBaseTypeField>(WebLinkBaseTypeField.WEB_LINK);
   }
 
-  protected WebLinkBase(WebLinkBaseBuilder builder) {
+  protected WebLinkBase(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -78,7 +78,7 @@ public class WebLinkBase extends SerializableObject {
         + "}";
   }
 
-  public static class WebLinkBaseBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -86,22 +86,22 @@ public class WebLinkBase extends SerializableObject {
 
     protected String etag;
 
-    public WebLinkBaseBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type = new EnumWrapper<WebLinkBaseTypeField>(WebLinkBaseTypeField.WEB_LINK);
     }
 
-    public WebLinkBaseBuilder type(WebLinkBaseTypeField type) {
+    public Builder type(WebLinkBaseTypeField type) {
       this.type = new EnumWrapper<WebLinkBaseTypeField>(type);
       return this;
     }
 
-    public WebLinkBaseBuilder type(EnumWrapper<WebLinkBaseTypeField> type) {
+    public Builder type(EnumWrapper<WebLinkBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public WebLinkBaseBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }

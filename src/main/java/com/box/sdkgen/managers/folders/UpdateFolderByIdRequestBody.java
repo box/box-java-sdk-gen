@@ -50,7 +50,7 @@ public class UpdateFolderByIdRequestBody extends SerializableObject {
     super();
   }
 
-  protected UpdateFolderByIdRequestBody(UpdateFolderByIdRequestBodyBuilder builder) {
+  protected UpdateFolderByIdRequestBody(Builder builder) {
     super();
     this.name = builder.name;
     this.description = builder.description;
@@ -197,7 +197,7 @@ public class UpdateFolderByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateFolderByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected String name;
 
@@ -221,70 +221,64 @@ public class UpdateFolderByIdRequestBody extends SerializableObject {
 
     protected Boolean canNonOwnersViewCollaborators;
 
-    public UpdateFolderByIdRequestBodyBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public UpdateFolderByIdRequestBodyBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public UpdateFolderByIdRequestBodyBuilder syncState(
-        UpdateFolderByIdRequestBodySyncStateField syncState) {
+    public Builder syncState(UpdateFolderByIdRequestBodySyncStateField syncState) {
       this.syncState = new EnumWrapper<UpdateFolderByIdRequestBodySyncStateField>(syncState);
       return this;
     }
 
-    public UpdateFolderByIdRequestBodyBuilder syncState(
-        EnumWrapper<UpdateFolderByIdRequestBodySyncStateField> syncState) {
+    public Builder syncState(EnumWrapper<UpdateFolderByIdRequestBodySyncStateField> syncState) {
       this.syncState = syncState;
       return this;
     }
 
-    public UpdateFolderByIdRequestBodyBuilder canNonOwnersInvite(Boolean canNonOwnersInvite) {
+    public Builder canNonOwnersInvite(Boolean canNonOwnersInvite) {
       this.canNonOwnersInvite = canNonOwnersInvite;
       return this;
     }
 
-    public UpdateFolderByIdRequestBodyBuilder parent(
-        UpdateFolderByIdRequestBodyParentField parent) {
+    public Builder parent(UpdateFolderByIdRequestBodyParentField parent) {
       this.parent = parent;
       return this;
     }
 
-    public UpdateFolderByIdRequestBodyBuilder sharedLink(
-        UpdateFolderByIdRequestBodySharedLinkField sharedLink) {
+    public Builder sharedLink(UpdateFolderByIdRequestBodySharedLinkField sharedLink) {
       this.sharedLink = sharedLink;
       return this;
     }
 
-    public UpdateFolderByIdRequestBodyBuilder folderUploadEmail(
+    public Builder folderUploadEmail(
         UpdateFolderByIdRequestBodyFolderUploadEmailField folderUploadEmail) {
       this.folderUploadEmail = folderUploadEmail;
       return this;
     }
 
-    public UpdateFolderByIdRequestBodyBuilder tags(List<String> tags) {
+    public Builder tags(List<String> tags) {
       this.tags = tags;
       return this;
     }
 
-    public UpdateFolderByIdRequestBodyBuilder isCollaborationRestrictedToEnterprise(
+    public Builder isCollaborationRestrictedToEnterprise(
         Boolean isCollaborationRestrictedToEnterprise) {
       this.isCollaborationRestrictedToEnterprise = isCollaborationRestrictedToEnterprise;
       return this;
     }
 
-    public UpdateFolderByIdRequestBodyBuilder collections(
-        List<UpdateFolderByIdRequestBodyCollectionsField> collections) {
+    public Builder collections(List<UpdateFolderByIdRequestBodyCollectionsField> collections) {
       this.collections = collections;
       return this;
     }
 
-    public UpdateFolderByIdRequestBodyBuilder canNonOwnersViewCollaborators(
-        Boolean canNonOwnersViewCollaborators) {
+    public Builder canNonOwnersViewCollaborators(Boolean canNonOwnersViewCollaborators) {
       this.canNonOwnersViewCollaborators = canNonOwnersViewCollaborators;
       return this;
     }

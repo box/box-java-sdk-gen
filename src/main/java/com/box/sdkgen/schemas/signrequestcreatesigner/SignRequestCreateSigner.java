@@ -49,7 +49,7 @@ public class SignRequestCreateSigner extends SerializableObject {
     super();
   }
 
-  protected SignRequestCreateSigner(SignRequestCreateSignerBuilder builder) {
+  protected SignRequestCreateSigner(Builder builder) {
     super();
     this.email = builder.email;
     this.role = builder.role;
@@ -206,7 +206,7 @@ public class SignRequestCreateSigner extends SerializableObject {
         + "}";
   }
 
-  public static class SignRequestCreateSignerBuilder {
+  public static class Builder {
 
     protected String email;
 
@@ -232,67 +232,67 @@ public class SignRequestCreateSigner extends SerializableObject {
 
     protected Boolean suppressNotifications;
 
-    public SignRequestCreateSignerBuilder email(String email) {
+    public Builder email(String email) {
       this.email = email;
       return this;
     }
 
-    public SignRequestCreateSignerBuilder role(SignRequestCreateSignerRoleField role) {
+    public Builder role(SignRequestCreateSignerRoleField role) {
       this.role = new EnumWrapper<SignRequestCreateSignerRoleField>(role);
       return this;
     }
 
-    public SignRequestCreateSignerBuilder role(EnumWrapper<SignRequestCreateSignerRoleField> role) {
+    public Builder role(EnumWrapper<SignRequestCreateSignerRoleField> role) {
       this.role = role;
       return this;
     }
 
-    public SignRequestCreateSignerBuilder isInPerson(Boolean isInPerson) {
+    public Builder isInPerson(Boolean isInPerson) {
       this.isInPerson = isInPerson;
       return this;
     }
 
-    public SignRequestCreateSignerBuilder order(Long order) {
+    public Builder order(Long order) {
       this.order = order;
       return this;
     }
 
-    public SignRequestCreateSignerBuilder embedUrlExternalUserId(String embedUrlExternalUserId) {
+    public Builder embedUrlExternalUserId(String embedUrlExternalUserId) {
       this.embedUrlExternalUserId = embedUrlExternalUserId;
       return this;
     }
 
-    public SignRequestCreateSignerBuilder redirectUrl(String redirectUrl) {
+    public Builder redirectUrl(String redirectUrl) {
       this.redirectUrl = redirectUrl;
       return this;
     }
 
-    public SignRequestCreateSignerBuilder declinedRedirectUrl(String declinedRedirectUrl) {
+    public Builder declinedRedirectUrl(String declinedRedirectUrl) {
       this.declinedRedirectUrl = declinedRedirectUrl;
       return this;
     }
 
-    public SignRequestCreateSignerBuilder loginRequired(Boolean loginRequired) {
+    public Builder loginRequired(Boolean loginRequired) {
       this.loginRequired = loginRequired;
       return this;
     }
 
-    public SignRequestCreateSignerBuilder verificationPhoneNumber(String verificationPhoneNumber) {
+    public Builder verificationPhoneNumber(String verificationPhoneNumber) {
       this.verificationPhoneNumber = verificationPhoneNumber;
       return this;
     }
 
-    public SignRequestCreateSignerBuilder password(String password) {
+    public Builder password(String password) {
       this.password = password;
       return this;
     }
 
-    public SignRequestCreateSignerBuilder signerGroupId(String signerGroupId) {
+    public Builder signerGroupId(String signerGroupId) {
       this.signerGroupId = signerGroupId;
       return this;
     }
 
-    public SignRequestCreateSignerBuilder suppressNotifications(Boolean suppressNotifications) {
+    public Builder suppressNotifications(Boolean suppressNotifications) {
       this.suppressNotifications = suppressNotifications;
       return this;
     }

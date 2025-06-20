@@ -12,7 +12,7 @@ public class AiAgentLongTextToolTextGen extends AiAgentBasicTextToolTextGen {
     super();
   }
 
-  protected AiAgentLongTextToolTextGen(AiAgentLongTextToolTextGenBuilder builder) {
+  protected AiAgentLongTextToolTextGen(Builder builder) {
     super(builder);
     this.embeddings = builder.embeddings;
   }
@@ -78,43 +78,41 @@ public class AiAgentLongTextToolTextGen extends AiAgentBasicTextToolTextGen {
         + "}";
   }
 
-  public static class AiAgentLongTextToolTextGenBuilder extends AiAgentBasicTextToolTextGenBuilder {
+  public static class Builder extends AiAgentBasicTextToolTextGen.Builder {
 
     protected AiAgentLongTextToolTextGenEmbeddingsField embeddings;
 
-    public AiAgentLongTextToolTextGenBuilder embeddings(
-        AiAgentLongTextToolTextGenEmbeddingsField embeddings) {
+    public Builder embeddings(AiAgentLongTextToolTextGenEmbeddingsField embeddings) {
       this.embeddings = embeddings;
       return this;
     }
 
     @Override
-    public AiAgentLongTextToolTextGenBuilder model(String model) {
+    public Builder model(String model) {
       this.model = model;
       return this;
     }
 
     @Override
-    public AiAgentLongTextToolTextGenBuilder numTokensForCompletion(Long numTokensForCompletion) {
+    public Builder numTokensForCompletion(Long numTokensForCompletion) {
       this.numTokensForCompletion = numTokensForCompletion;
       return this;
     }
 
     @Override
-    public AiAgentLongTextToolTextGenBuilder llmEndpointParams(
-        AiLlmEndpointParams llmEndpointParams) {
+    public Builder llmEndpointParams(AiLlmEndpointParams llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }
 
     @Override
-    public AiAgentLongTextToolTextGenBuilder systemMessage(String systemMessage) {
+    public Builder systemMessage(String systemMessage) {
       this.systemMessage = systemMessage;
       return this;
     }
 
     @Override
-    public AiAgentLongTextToolTextGenBuilder promptTemplate(String promptTemplate) {
+    public Builder promptTemplate(String promptTemplate) {
       this.promptTemplate = promptTemplate;
       return this;
     }

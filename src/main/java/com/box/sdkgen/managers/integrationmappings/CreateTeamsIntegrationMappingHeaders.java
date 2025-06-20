@@ -12,8 +12,7 @@ public class CreateTeamsIntegrationMappingHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CreateTeamsIntegrationMappingHeaders(
-      CreateTeamsIntegrationMappingHeadersBuilder builder) {
+  protected CreateTeamsIntegrationMappingHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class CreateTeamsIntegrationMappingHeaders {
     return extraHeaders;
   }
 
-  public static class CreateTeamsIntegrationMappingHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CreateTeamsIntegrationMappingHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CreateTeamsIntegrationMappingHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

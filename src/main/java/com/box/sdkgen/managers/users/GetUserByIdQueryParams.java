@@ -8,7 +8,7 @@ public class GetUserByIdQueryParams {
 
   public GetUserByIdQueryParams() {}
 
-  protected GetUserByIdQueryParams(GetUserByIdQueryParamsBuilder builder) {
+  protected GetUserByIdQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class GetUserByIdQueryParams {
     return fields;
   }
 
-  public static class GetUserByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public GetUserByIdQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

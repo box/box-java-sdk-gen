@@ -22,7 +22,7 @@ public class CreateWebLinkRequestBody extends SerializableObject {
     this.parent = parent;
   }
 
-  protected CreateWebLinkRequestBody(CreateWebLinkRequestBodyBuilder builder) {
+  protected CreateWebLinkRequestBody(Builder builder) {
     super();
     this.url = builder.url;
     this.parent = builder.parent;
@@ -87,7 +87,7 @@ public class CreateWebLinkRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class CreateWebLinkRequestBodyBuilder {
+  public static class Builder {
 
     protected final String url;
 
@@ -97,17 +97,17 @@ public class CreateWebLinkRequestBody extends SerializableObject {
 
     protected String description;
 
-    public CreateWebLinkRequestBodyBuilder(String url, CreateWebLinkRequestBodyParentField parent) {
+    public Builder(String url, CreateWebLinkRequestBodyParentField parent) {
       this.url = url;
       this.parent = parent;
     }
 
-    public CreateWebLinkRequestBodyBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public CreateWebLinkRequestBodyBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }

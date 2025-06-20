@@ -27,8 +27,7 @@ public class UpdateGroupMembershipByIdRequestBody extends SerializableObject {
     super();
   }
 
-  protected UpdateGroupMembershipByIdRequestBody(
-      UpdateGroupMembershipByIdRequestBodyBuilder builder) {
+  protected UpdateGroupMembershipByIdRequestBody(Builder builder) {
     super();
     this.role = builder.role;
     this.configurablePermissions = builder.configurablePermissions;
@@ -73,26 +72,23 @@ public class UpdateGroupMembershipByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateGroupMembershipByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected EnumWrapper<UpdateGroupMembershipByIdRequestBodyRoleField> role;
 
     protected Map<String, Boolean> configurablePermissions;
 
-    public UpdateGroupMembershipByIdRequestBodyBuilder role(
-        UpdateGroupMembershipByIdRequestBodyRoleField role) {
+    public Builder role(UpdateGroupMembershipByIdRequestBodyRoleField role) {
       this.role = new EnumWrapper<UpdateGroupMembershipByIdRequestBodyRoleField>(role);
       return this;
     }
 
-    public UpdateGroupMembershipByIdRequestBodyBuilder role(
-        EnumWrapper<UpdateGroupMembershipByIdRequestBodyRoleField> role) {
+    public Builder role(EnumWrapper<UpdateGroupMembershipByIdRequestBodyRoleField> role) {
       this.role = role;
       return this;
     }
 
-    public UpdateGroupMembershipByIdRequestBodyBuilder configurablePermissions(
-        Map<String, Boolean> configurablePermissions) {
+    public Builder configurablePermissions(Map<String, Boolean> configurablePermissions) {
       this.configurablePermissions = configurablePermissions;
       return this;
     }

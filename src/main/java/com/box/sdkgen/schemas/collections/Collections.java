@@ -23,7 +23,7 @@ public class Collections extends SerializableObject {
     super();
   }
 
-  protected Collections(CollectionsBuilder builder) {
+  protected Collections(Builder builder) {
     super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
@@ -98,7 +98,7 @@ public class Collections extends SerializableObject {
         + "}";
   }
 
-  public static class CollectionsBuilder {
+  public static class Builder {
 
     protected Long totalCount;
 
@@ -110,27 +110,27 @@ public class Collections extends SerializableObject {
 
     protected List<Collection> entries;
 
-    public CollectionsBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public CollectionsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public CollectionsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public CollectionsBuilder order(List<CollectionsOrderField> order) {
+    public Builder order(List<CollectionsOrderField> order) {
       this.order = order;
       return this;
     }
 
-    public CollectionsBuilder entries(List<Collection> entries) {
+    public Builder entries(List<Collection> entries) {
       this.entries = entries;
       return this;
     }

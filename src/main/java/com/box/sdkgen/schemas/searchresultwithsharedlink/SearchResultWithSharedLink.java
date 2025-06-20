@@ -18,7 +18,7 @@ public class SearchResultWithSharedLink extends SerializableObject {
     super();
   }
 
-  protected SearchResultWithSharedLink(SearchResultWithSharedLinkBuilder builder) {
+  protected SearchResultWithSharedLink(Builder builder) {
     super();
     this.accessibleViaSharedLink = builder.accessibleViaSharedLink;
     this.item = builder.item;
@@ -73,7 +73,7 @@ public class SearchResultWithSharedLink extends SerializableObject {
         + "}";
   }
 
-  public static class SearchResultWithSharedLinkBuilder {
+  public static class Builder {
 
     protected String accessibleViaSharedLink;
 
@@ -81,18 +81,17 @@ public class SearchResultWithSharedLink extends SerializableObject {
 
     protected String type;
 
-    public SearchResultWithSharedLinkBuilder accessibleViaSharedLink(
-        String accessibleViaSharedLink) {
+    public Builder accessibleViaSharedLink(String accessibleViaSharedLink) {
       this.accessibleViaSharedLink = accessibleViaSharedLink;
       return this;
     }
 
-    public SearchResultWithSharedLinkBuilder item(FileFullOrFolderFullOrWebLink item) {
+    public Builder item(FileFullOrFolderFullOrWebLink item) {
       this.item = item;
       return this;
     }
 
-    public SearchResultWithSharedLinkBuilder type(String type) {
+    public Builder type(String type) {
       this.type = type;
       return this;
     }

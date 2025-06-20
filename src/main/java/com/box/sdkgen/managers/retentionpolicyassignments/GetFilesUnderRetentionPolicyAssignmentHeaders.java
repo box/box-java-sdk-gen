@@ -12,8 +12,7 @@ public class GetFilesUnderRetentionPolicyAssignmentHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetFilesUnderRetentionPolicyAssignmentHeaders(
-      GetFilesUnderRetentionPolicyAssignmentHeadersBuilder builder) {
+  protected GetFilesUnderRetentionPolicyAssignmentHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class GetFilesUnderRetentionPolicyAssignmentHeaders {
     return extraHeaders;
   }
 
-  public static class GetFilesUnderRetentionPolicyAssignmentHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetFilesUnderRetentionPolicyAssignmentHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetFilesUnderRetentionPolicyAssignmentHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

@@ -35,8 +35,7 @@ public class UpdateWebLinkByIdRequestBodySharedLinkField extends SerializableObj
     super();
   }
 
-  protected UpdateWebLinkByIdRequestBodySharedLinkField(
-      UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder builder) {
+  protected UpdateWebLinkByIdRequestBodySharedLinkField(Builder builder) {
     super();
     this.access = builder.access;
     this.password = builder.password;
@@ -102,7 +101,7 @@ public class UpdateWebLinkByIdRequestBodySharedLinkField extends SerializableObj
         + "}";
   }
 
-  public static class UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<UpdateWebLinkByIdRequestBodySharedLinkAccessField> access;
 
@@ -112,29 +111,27 @@ public class UpdateWebLinkByIdRequestBodySharedLinkField extends SerializableObj
 
     protected Date unsharedAt;
 
-    public UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder access(
-        UpdateWebLinkByIdRequestBodySharedLinkAccessField access) {
+    public Builder access(UpdateWebLinkByIdRequestBodySharedLinkAccessField access) {
       this.access = new EnumWrapper<UpdateWebLinkByIdRequestBodySharedLinkAccessField>(access);
       return this;
     }
 
-    public UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder access(
-        EnumWrapper<UpdateWebLinkByIdRequestBodySharedLinkAccessField> access) {
+    public Builder access(EnumWrapper<UpdateWebLinkByIdRequestBodySharedLinkAccessField> access) {
       this.access = access;
       return this;
     }
 
-    public UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder password(String password) {
+    public Builder password(String password) {
       this.password = password;
       return this;
     }
 
-    public UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder vanityName(String vanityName) {
+    public Builder vanityName(String vanityName) {
       this.vanityName = vanityName;
       return this;
     }
 
-    public UpdateWebLinkByIdRequestBodySharedLinkFieldBuilder unsharedAt(Date unsharedAt) {
+    public Builder unsharedAt(Date unsharedAt) {
       this.unsharedAt = unsharedAt;
       return this;
     }

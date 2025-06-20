@@ -26,7 +26,7 @@ public class DevicePinnersManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected DevicePinnersManager(DevicePinnersManagerBuilder builder) {
+  protected DevicePinnersManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -42,7 +42,7 @@ public class DevicePinnersManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -67,7 +67,7 @@ public class DevicePinnersManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -115,7 +115,7 @@ public class DevicePinnersManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -140,22 +140,22 @@ public class DevicePinnersManager {
     return networkSession;
   }
 
-  public static class DevicePinnersManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public DevicePinnersManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public DevicePinnersManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public DevicePinnersManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

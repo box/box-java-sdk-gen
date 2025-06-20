@@ -25,7 +25,7 @@ public class UserCollaborationsManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected UserCollaborationsManager(UserCollaborationsManagerBuilder builder) {
+  protected UserCollaborationsManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -56,7 +56,7 @@ public class UserCollaborationsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -87,7 +87,7 @@ public class UserCollaborationsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -118,7 +118,7 @@ public class UserCollaborationsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -161,7 +161,7 @@ public class UserCollaborationsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -186,22 +186,22 @@ public class UserCollaborationsManager {
     return networkSession;
   }
 
-  public static class UserCollaborationsManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public UserCollaborationsManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public UserCollaborationsManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public UserCollaborationsManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

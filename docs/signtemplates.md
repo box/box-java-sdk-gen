@@ -15,7 +15,7 @@ See the endpoint docs at
 
 <!-- sample get_sign_templates -->
 ```
-client.getSignTemplates().getSignTemplates(new GetSignTemplatesQueryParams.GetSignTemplatesQueryParamsBuilder().limit(2L).build())
+client.getSignTemplates().getSignTemplates(new GetSignTemplatesQueryParams.Builder().limit(2L).build())
 ```
 
 ### Arguments

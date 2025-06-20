@@ -12,8 +12,7 @@ public class CreateClassificationTemplateHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CreateClassificationTemplateHeaders(
-      CreateClassificationTemplateHeadersBuilder builder) {
+  protected CreateClassificationTemplateHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class CreateClassificationTemplateHeaders {
     return extraHeaders;
   }
 
-  public static class CreateClassificationTemplateHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CreateClassificationTemplateHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CreateClassificationTemplateHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

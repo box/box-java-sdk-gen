@@ -8,7 +8,7 @@ public class DeleteUserByIdQueryParams {
 
   public DeleteUserByIdQueryParams() {}
 
-  protected DeleteUserByIdQueryParams(DeleteUserByIdQueryParamsBuilder builder) {
+  protected DeleteUserByIdQueryParams(Builder builder) {
     this.notify = builder.notify;
     this.force = builder.force;
   }
@@ -21,18 +21,18 @@ public class DeleteUserByIdQueryParams {
     return force;
   }
 
-  public static class DeleteUserByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected Boolean notify;
 
     protected Boolean force;
 
-    public DeleteUserByIdQueryParamsBuilder notify(Boolean notify) {
+    public Builder notify(Boolean notify) {
       this.notify = notify;
       return this;
     }
 
-    public DeleteUserByIdQueryParamsBuilder force(Boolean force) {
+    public Builder force(Boolean force) {
       this.force = force;
       return this;
     }

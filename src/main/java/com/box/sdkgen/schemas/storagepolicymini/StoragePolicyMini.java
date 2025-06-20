@@ -22,7 +22,7 @@ public class StoragePolicyMini extends SerializableObject {
         new EnumWrapper<StoragePolicyMiniTypeField>(StoragePolicyMiniTypeField.STORAGE_POLICY);
   }
 
-  protected StoragePolicyMini(StoragePolicyMiniBuilder builder) {
+  protected StoragePolicyMini(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -58,24 +58,24 @@ public class StoragePolicyMini extends SerializableObject {
     return "StoragePolicyMini{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class StoragePolicyMiniBuilder {
+  public static class Builder {
 
     protected final String id;
 
     protected EnumWrapper<StoragePolicyMiniTypeField> type;
 
-    public StoragePolicyMiniBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<StoragePolicyMiniTypeField>(StoragePolicyMiniTypeField.STORAGE_POLICY);
     }
 
-    public StoragePolicyMiniBuilder type(StoragePolicyMiniTypeField type) {
+    public Builder type(StoragePolicyMiniTypeField type) {
       this.type = new EnumWrapper<StoragePolicyMiniTypeField>(type);
       return this;
     }
 
-    public StoragePolicyMiniBuilder type(EnumWrapper<StoragePolicyMiniTypeField> type) {
+    public Builder type(EnumWrapper<StoragePolicyMiniTypeField> type) {
       this.type = type;
       return this;
     }

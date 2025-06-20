@@ -17,7 +17,7 @@ public class GetFolderByIdQueryParams {
 
   public GetFolderByIdQueryParams() {}
 
-  protected GetFolderByIdQueryParams(GetFolderByIdQueryParamsBuilder builder) {
+  protected GetFolderByIdQueryParams(Builder builder) {
     this.fields = builder.fields;
     this.sort = builder.sort;
     this.direction = builder.direction;
@@ -45,7 +45,7 @@ public class GetFolderByIdQueryParams {
     return limit;
   }
 
-  public static class GetFolderByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
@@ -57,40 +57,37 @@ public class GetFolderByIdQueryParams {
 
     protected Long limit;
 
-    public GetFolderByIdQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public GetFolderByIdQueryParamsBuilder sort(GetFolderByIdQueryParamsSortField sort) {
+    public Builder sort(GetFolderByIdQueryParamsSortField sort) {
       this.sort = new EnumWrapper<GetFolderByIdQueryParamsSortField>(sort);
       return this;
     }
 
-    public GetFolderByIdQueryParamsBuilder sort(
-        EnumWrapper<GetFolderByIdQueryParamsSortField> sort) {
+    public Builder sort(EnumWrapper<GetFolderByIdQueryParamsSortField> sort) {
       this.sort = sort;
       return this;
     }
 
-    public GetFolderByIdQueryParamsBuilder direction(
-        GetFolderByIdQueryParamsDirectionField direction) {
+    public Builder direction(GetFolderByIdQueryParamsDirectionField direction) {
       this.direction = new EnumWrapper<GetFolderByIdQueryParamsDirectionField>(direction);
       return this;
     }
 
-    public GetFolderByIdQueryParamsBuilder direction(
-        EnumWrapper<GetFolderByIdQueryParamsDirectionField> direction) {
+    public Builder direction(EnumWrapper<GetFolderByIdQueryParamsDirectionField> direction) {
       this.direction = direction;
       return this;
     }
 
-    public GetFolderByIdQueryParamsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public GetFolderByIdQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

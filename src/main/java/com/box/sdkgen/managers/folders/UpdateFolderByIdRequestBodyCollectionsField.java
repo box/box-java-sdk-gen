@@ -13,8 +13,7 @@ public class UpdateFolderByIdRequestBodyCollectionsField extends SerializableObj
     super();
   }
 
-  protected UpdateFolderByIdRequestBodyCollectionsField(
-      UpdateFolderByIdRequestBodyCollectionsFieldBuilder builder) {
+  protected UpdateFolderByIdRequestBodyCollectionsField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -59,18 +58,18 @@ public class UpdateFolderByIdRequestBodyCollectionsField extends SerializableObj
         + "}";
   }
 
-  public static class UpdateFolderByIdRequestBodyCollectionsFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected String type;
 
-    public UpdateFolderByIdRequestBodyCollectionsFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public UpdateFolderByIdRequestBodyCollectionsFieldBuilder type(String type) {
+    public Builder type(String type) {
       this.type = type;
       return this;
     }

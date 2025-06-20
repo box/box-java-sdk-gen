@@ -19,7 +19,7 @@ public class WebLinkMini extends WebLinkBase {
     super(id);
   }
 
-  protected WebLinkMini(WebLinkMiniBuilder builder) {
+  protected WebLinkMini(Builder builder) {
     super(builder);
     this.url = builder.url;
     this.sequenceId = builder.sequenceId;
@@ -89,7 +89,7 @@ public class WebLinkMini extends WebLinkBase {
         + "}";
   }
 
-  public static class WebLinkMiniBuilder extends WebLinkBaseBuilder {
+  public static class Builder extends WebLinkBase.Builder {
 
     protected String url;
 
@@ -97,39 +97,39 @@ public class WebLinkMini extends WebLinkBase {
 
     protected String name;
 
-    public WebLinkMiniBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public WebLinkMiniBuilder url(String url) {
+    public Builder url(String url) {
       this.url = url;
       return this;
     }
 
-    public WebLinkMiniBuilder sequenceId(String sequenceId) {
+    public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
       return this;
     }
 
-    public WebLinkMiniBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public WebLinkMiniBuilder type(WebLinkBaseTypeField type) {
+    public Builder type(WebLinkBaseTypeField type) {
       this.type = new EnumWrapper<WebLinkBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public WebLinkMiniBuilder type(EnumWrapper<WebLinkBaseTypeField> type) {
+    public Builder type(EnumWrapper<WebLinkBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public WebLinkMiniBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }

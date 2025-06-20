@@ -56,7 +56,7 @@ public class User extends UserMini {
     super(id);
   }
 
-  protected User(UserBuilder builder) {
+  protected User(Builder builder) {
     super(builder);
     this.createdAt = builder.createdAt;
     this.modifiedAt = builder.modifiedAt;
@@ -248,7 +248,7 @@ public class User extends UserMini {
         + "}";
   }
 
-  public static class UserBuilder extends UserMiniBuilder {
+  public static class Builder extends UserMini.Builder {
 
     protected Date createdAt;
 
@@ -276,100 +276,100 @@ public class User extends UserMini {
 
     protected UserNotificationEmailField notificationEmail;
 
-    public UserBuilder(String id) {
+    public Builder(String id) {
       super(id);
     }
 
-    public UserBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public UserBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public UserBuilder language(String language) {
+    public Builder language(String language) {
       this.language = language;
       return this;
     }
 
-    public UserBuilder timezone(String timezone) {
+    public Builder timezone(String timezone) {
       this.timezone = timezone;
       return this;
     }
 
-    public UserBuilder spaceAmount(Long spaceAmount) {
+    public Builder spaceAmount(Long spaceAmount) {
       this.spaceAmount = spaceAmount;
       return this;
     }
 
-    public UserBuilder spaceUsed(Long spaceUsed) {
+    public Builder spaceUsed(Long spaceUsed) {
       this.spaceUsed = spaceUsed;
       return this;
     }
 
-    public UserBuilder maxUploadSize(Long maxUploadSize) {
+    public Builder maxUploadSize(Long maxUploadSize) {
       this.maxUploadSize = maxUploadSize;
       return this;
     }
 
-    public UserBuilder status(UserStatusField status) {
+    public Builder status(UserStatusField status) {
       this.status = new EnumWrapper<UserStatusField>(status);
       return this;
     }
 
-    public UserBuilder status(EnumWrapper<UserStatusField> status) {
+    public Builder status(EnumWrapper<UserStatusField> status) {
       this.status = status;
       return this;
     }
 
-    public UserBuilder jobTitle(String jobTitle) {
+    public Builder jobTitle(String jobTitle) {
       this.jobTitle = jobTitle;
       return this;
     }
 
-    public UserBuilder phone(String phone) {
+    public Builder phone(String phone) {
       this.phone = phone;
       return this;
     }
 
-    public UserBuilder address(String address) {
+    public Builder address(String address) {
       this.address = address;
       return this;
     }
 
-    public UserBuilder avatarUrl(String avatarUrl) {
+    public Builder avatarUrl(String avatarUrl) {
       this.avatarUrl = avatarUrl;
       return this;
     }
 
-    public UserBuilder notificationEmail(UserNotificationEmailField notificationEmail) {
+    public Builder notificationEmail(UserNotificationEmailField notificationEmail) {
       this.notificationEmail = notificationEmail;
       return this;
     }
 
     @Override
-    public UserBuilder type(UserBaseTypeField type) {
+    public Builder type(UserBaseTypeField type) {
       this.type = new EnumWrapper<UserBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public UserBuilder type(EnumWrapper<UserBaseTypeField> type) {
+    public Builder type(EnumWrapper<UserBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public UserBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public UserBuilder login(String login) {
+    public Builder login(String login) {
       this.login = login;
       return this;
     }

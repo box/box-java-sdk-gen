@@ -45,7 +45,7 @@ public class ChunkedUploadsManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected ChunkedUploadsManager(ChunkedUploadsManagerBuilder builder) {
+  protected ChunkedUploadsManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -61,7 +61,7 @@ public class ChunkedUploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getUploadUrl(),
@@ -92,7 +92,7 @@ public class ChunkedUploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getUploadUrl(),
@@ -121,7 +121,7 @@ public class ChunkedUploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(url, "GET")
+                new FetchOptions.Builder(url, "GET")
                     .headers(headersMap)
                     .responseFormat(ResponseFormat.JSON)
                     .auth(this.auth)
@@ -141,7 +141,7 @@ public class ChunkedUploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getUploadUrl(),
@@ -169,7 +169,7 @@ public class ChunkedUploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(url, "PUT")
+                new FetchOptions.Builder(url, "PUT")
                     .headers(headersMap)
                     .fileStream(requestBody)
                     .contentType("application/octet-stream")
@@ -193,7 +193,7 @@ public class ChunkedUploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getUploadUrl(),
@@ -221,7 +221,7 @@ public class ChunkedUploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(url, "DELETE")
+                new FetchOptions.Builder(url, "DELETE")
                     .headers(headersMap)
                     .responseFormat(ResponseFormat.NO_CONTENT)
                     .auth(this.auth)
@@ -240,7 +240,7 @@ public class ChunkedUploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getUploadUrl(),
@@ -287,7 +287,7 @@ public class ChunkedUploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(url, "GET")
+                new FetchOptions.Builder(url, "GET")
                     .params(queryParamsMap)
                     .headers(headersMap)
                     .responseFormat(ResponseFormat.JSON)
@@ -330,7 +330,7 @@ public class ChunkedUploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getUploadUrl(),
@@ -363,7 +363,7 @@ public class ChunkedUploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(url, "POST")
+                new FetchOptions.Builder(url, "POST")
                     .headers(headersMap)
                     .data(JsonManager.serialize(requestBody))
                     .contentType("application/json")
@@ -393,7 +393,7 @@ public class ChunkedUploadsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getUploadUrl(),
@@ -493,22 +493,22 @@ public class ChunkedUploadsManager {
     return networkSession;
   }
 
-  public static class ChunkedUploadsManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public ChunkedUploadsManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public ChunkedUploadsManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public ChunkedUploadsManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

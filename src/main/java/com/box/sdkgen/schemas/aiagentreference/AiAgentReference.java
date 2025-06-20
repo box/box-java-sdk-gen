@@ -19,7 +19,7 @@ public class AiAgentReference extends SerializableObject {
     this.type = new EnumWrapper<AiAgentReferenceTypeField>(AiAgentReferenceTypeField.AI_AGENT_ID);
   }
 
-  protected AiAgentReference(AiAgentReferenceBuilder builder) {
+  protected AiAgentReference(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -55,27 +55,27 @@ public class AiAgentReference extends SerializableObject {
     return "AiAgentReference{" + "type='" + type + '\'' + ", " + "id='" + id + '\'' + "}";
   }
 
-  public static class AiAgentReferenceBuilder {
+  public static class Builder {
 
     protected EnumWrapper<AiAgentReferenceTypeField> type;
 
     protected String id;
 
-    public AiAgentReferenceBuilder() {
+    public Builder() {
       this.type = new EnumWrapper<AiAgentReferenceTypeField>(AiAgentReferenceTypeField.AI_AGENT_ID);
     }
 
-    public AiAgentReferenceBuilder type(AiAgentReferenceTypeField type) {
+    public Builder type(AiAgentReferenceTypeField type) {
       this.type = new EnumWrapper<AiAgentReferenceTypeField>(type);
       return this;
     }
 
-    public AiAgentReferenceBuilder type(EnumWrapper<AiAgentReferenceTypeField> type) {
+    public Builder type(EnumWrapper<AiAgentReferenceTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiAgentReferenceBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

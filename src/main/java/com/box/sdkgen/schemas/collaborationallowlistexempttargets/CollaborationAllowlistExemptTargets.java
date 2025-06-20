@@ -22,8 +22,7 @@ public class CollaborationAllowlistExemptTargets extends SerializableObject {
     super();
   }
 
-  protected CollaborationAllowlistExemptTargets(
-      CollaborationAllowlistExemptTargetsBuilder builder) {
+  protected CollaborationAllowlistExemptTargets(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -88,7 +87,7 @@ public class CollaborationAllowlistExemptTargets extends SerializableObject {
         + "}";
   }
 
-  public static class CollaborationAllowlistExemptTargetsBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -98,23 +97,22 @@ public class CollaborationAllowlistExemptTargets extends SerializableObject {
 
     protected List<CollaborationAllowlistExemptTarget> entries;
 
-    public CollaborationAllowlistExemptTargetsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public CollaborationAllowlistExemptTargetsBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public CollaborationAllowlistExemptTargetsBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public CollaborationAllowlistExemptTargetsBuilder entries(
-        List<CollaborationAllowlistExemptTarget> entries) {
+    public Builder entries(List<CollaborationAllowlistExemptTarget> entries) {
       this.entries = entries;
       return this;
     }

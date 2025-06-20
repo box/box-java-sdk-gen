@@ -27,7 +27,7 @@ public class KeywordSkillCardInvocationField extends SerializableObject {
             KeywordSkillCardInvocationTypeField.SKILL_INVOCATION);
   }
 
-  protected KeywordSkillCardInvocationField(KeywordSkillCardInvocationFieldBuilder builder) {
+  protected KeywordSkillCardInvocationField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -71,26 +71,25 @@ public class KeywordSkillCardInvocationField extends SerializableObject {
         + "}";
   }
 
-  public static class KeywordSkillCardInvocationFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<KeywordSkillCardInvocationTypeField> type;
 
     protected final String id;
 
-    public KeywordSkillCardInvocationFieldBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<KeywordSkillCardInvocationTypeField>(
               KeywordSkillCardInvocationTypeField.SKILL_INVOCATION);
     }
 
-    public KeywordSkillCardInvocationFieldBuilder type(KeywordSkillCardInvocationTypeField type) {
+    public Builder type(KeywordSkillCardInvocationTypeField type) {
       this.type = new EnumWrapper<KeywordSkillCardInvocationTypeField>(type);
       return this;
     }
 
-    public KeywordSkillCardInvocationFieldBuilder type(
-        EnumWrapper<KeywordSkillCardInvocationTypeField> type) {
+    public Builder type(EnumWrapper<KeywordSkillCardInvocationTypeField> type) {
       this.type = type;
       return this;
     }

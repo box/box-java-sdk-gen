@@ -25,8 +25,7 @@ public class UpdateFolderWatermarkRequestBodyWatermarkField extends Serializable
             UpdateFolderWatermarkRequestBodyWatermarkImprintField.DEFAULT);
   }
 
-  protected UpdateFolderWatermarkRequestBodyWatermarkField(
-      UpdateFolderWatermarkRequestBodyWatermarkFieldBuilder builder) {
+  protected UpdateFolderWatermarkRequestBodyWatermarkField(Builder builder) {
     super();
     this.imprint = builder.imprint;
   }
@@ -58,24 +57,23 @@ public class UpdateFolderWatermarkRequestBodyWatermarkField extends Serializable
     return "UpdateFolderWatermarkRequestBodyWatermarkField{" + "imprint='" + imprint + '\'' + "}";
   }
 
-  public static class UpdateFolderWatermarkRequestBodyWatermarkFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<UpdateFolderWatermarkRequestBodyWatermarkImprintField> imprint;
 
-    public UpdateFolderWatermarkRequestBodyWatermarkFieldBuilder() {
+    public Builder() {
       this.imprint =
           new EnumWrapper<UpdateFolderWatermarkRequestBodyWatermarkImprintField>(
               UpdateFolderWatermarkRequestBodyWatermarkImprintField.DEFAULT);
     }
 
-    public UpdateFolderWatermarkRequestBodyWatermarkFieldBuilder imprint(
-        UpdateFolderWatermarkRequestBodyWatermarkImprintField imprint) {
+    public Builder imprint(UpdateFolderWatermarkRequestBodyWatermarkImprintField imprint) {
       this.imprint =
           new EnumWrapper<UpdateFolderWatermarkRequestBodyWatermarkImprintField>(imprint);
       return this;
     }
 
-    public UpdateFolderWatermarkRequestBodyWatermarkFieldBuilder imprint(
+    public Builder imprint(
         EnumWrapper<UpdateFolderWatermarkRequestBodyWatermarkImprintField> imprint) {
       this.imprint = imprint;
       return this;

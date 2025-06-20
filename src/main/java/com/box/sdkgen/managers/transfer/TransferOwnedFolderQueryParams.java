@@ -10,7 +10,7 @@ public class TransferOwnedFolderQueryParams {
 
   public TransferOwnedFolderQueryParams() {}
 
-  protected TransferOwnedFolderQueryParams(TransferOwnedFolderQueryParamsBuilder builder) {
+  protected TransferOwnedFolderQueryParams(Builder builder) {
     this.fields = builder.fields;
     this.notify = builder.notify;
   }
@@ -23,18 +23,18 @@ public class TransferOwnedFolderQueryParams {
     return notify;
   }
 
-  public static class TransferOwnedFolderQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
     protected Boolean notify;
 
-    public TransferOwnedFolderQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public TransferOwnedFolderQueryParamsBuilder notify(Boolean notify) {
+    public Builder notify(Boolean notify) {
       this.notify = notify;
       return this;
     }

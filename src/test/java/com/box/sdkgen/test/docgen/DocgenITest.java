@@ -71,9 +71,7 @@ public class DocgenITest {
         client
             .getDocgen()
             .getDocgenJobsV2025R0(
-                new GetDocgenJobsV2025R0QueryParams.GetDocgenJobsV2025R0QueryParamsBuilder()
-                    .limit(500L)
-                    .build());
+                new GetDocgenJobsV2025R0QueryParams.Builder().limit(500L).build());
     assert docgenJobs.getEntries().size() >= 1;
     assert !(docgenJobs.getEntries().get(0).getBatch().getId().equals(""));
     assert !(docgenJobs.getEntries().get(0).getCreatedBy().getId().equals(""));

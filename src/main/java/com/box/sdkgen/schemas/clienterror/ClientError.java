@@ -35,7 +35,7 @@ public class ClientError extends SerializableObject {
     super();
   }
 
-  protected ClientError(ClientErrorBuilder builder) {
+  protected ClientError(Builder builder) {
     super();
     this.type = builder.type;
     this.status = builder.status;
@@ -130,7 +130,7 @@ public class ClientError extends SerializableObject {
         + "}";
   }
 
-  public static class ClientErrorBuilder {
+  public static class Builder {
 
     protected EnumWrapper<ClientErrorTypeField> type;
 
@@ -146,47 +146,47 @@ public class ClientError extends SerializableObject {
 
     protected String requestId;
 
-    public ClientErrorBuilder type(ClientErrorTypeField type) {
+    public Builder type(ClientErrorTypeField type) {
       this.type = new EnumWrapper<ClientErrorTypeField>(type);
       return this;
     }
 
-    public ClientErrorBuilder type(EnumWrapper<ClientErrorTypeField> type) {
+    public Builder type(EnumWrapper<ClientErrorTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public ClientErrorBuilder status(Integer status) {
+    public Builder status(Integer status) {
       this.status = status;
       return this;
     }
 
-    public ClientErrorBuilder code(ClientErrorCodeField code) {
+    public Builder code(ClientErrorCodeField code) {
       this.code = new EnumWrapper<ClientErrorCodeField>(code);
       return this;
     }
 
-    public ClientErrorBuilder code(EnumWrapper<ClientErrorCodeField> code) {
+    public Builder code(EnumWrapper<ClientErrorCodeField> code) {
       this.code = code;
       return this;
     }
 
-    public ClientErrorBuilder message(String message) {
+    public Builder message(String message) {
       this.message = message;
       return this;
     }
 
-    public ClientErrorBuilder contextInfo(Map<String, Object> contextInfo) {
+    public Builder contextInfo(Map<String, Object> contextInfo) {
       this.contextInfo = contextInfo;
       return this;
     }
 
-    public ClientErrorBuilder helpUrl(String helpUrl) {
+    public Builder helpUrl(String helpUrl) {
       this.helpUrl = helpUrl;
       return this;
     }
 
-    public ClientErrorBuilder requestId(String requestId) {
+    public Builder requestId(String requestId) {
       this.requestId = requestId;
       return this;
     }

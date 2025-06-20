@@ -29,7 +29,7 @@ public class ShieldListContentIpV2025R0 extends SerializableObject {
             ShieldListContentIpV2025R0TypeField.IP);
   }
 
-  protected ShieldListContentIpV2025R0(ShieldListContentIpV2025R0Builder builder) {
+  protected ShieldListContentIpV2025R0(Builder builder) {
     super();
     this.type = builder.type;
     this.ipAddresses = builder.ipAddresses;
@@ -73,26 +73,25 @@ public class ShieldListContentIpV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class ShieldListContentIpV2025R0Builder {
+  public static class Builder {
 
     protected EnumWrapper<ShieldListContentIpV2025R0TypeField> type;
 
     protected final List<String> ipAddresses;
 
-    public ShieldListContentIpV2025R0Builder(List<String> ipAddresses) {
+    public Builder(List<String> ipAddresses) {
       this.ipAddresses = ipAddresses;
       this.type =
           new EnumWrapper<ShieldListContentIpV2025R0TypeField>(
               ShieldListContentIpV2025R0TypeField.IP);
     }
 
-    public ShieldListContentIpV2025R0Builder type(ShieldListContentIpV2025R0TypeField type) {
+    public Builder type(ShieldListContentIpV2025R0TypeField type) {
       this.type = new EnumWrapper<ShieldListContentIpV2025R0TypeField>(type);
       return this;
     }
 
-    public ShieldListContentIpV2025R0Builder type(
-        EnumWrapper<ShieldListContentIpV2025R0TypeField> type) {
+    public Builder type(EnumWrapper<ShieldListContentIpV2025R0TypeField> type) {
       this.type = type;
       return this;
     }

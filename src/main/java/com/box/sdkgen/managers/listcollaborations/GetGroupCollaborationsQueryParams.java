@@ -8,7 +8,7 @@ public class GetGroupCollaborationsQueryParams {
 
   public GetGroupCollaborationsQueryParams() {}
 
-  protected GetGroupCollaborationsQueryParams(GetGroupCollaborationsQueryParamsBuilder builder) {
+  protected GetGroupCollaborationsQueryParams(Builder builder) {
     this.limit = builder.limit;
     this.offset = builder.offset;
   }
@@ -21,18 +21,18 @@ public class GetGroupCollaborationsQueryParams {
     return offset;
   }
 
-  public static class GetGroupCollaborationsQueryParamsBuilder {
+  public static class Builder {
 
     protected Long limit;
 
     protected Long offset;
 
-    public GetGroupCollaborationsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetGroupCollaborationsQueryParamsBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }

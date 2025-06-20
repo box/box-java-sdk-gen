@@ -21,7 +21,7 @@ public class FolderReference extends SerializableObject {
     this.type = new EnumWrapper<FolderReferenceTypeField>(FolderReferenceTypeField.FOLDER);
   }
 
-  protected FolderReference(FolderReferenceBuilder builder) {
+  protected FolderReference(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -57,23 +57,23 @@ public class FolderReference extends SerializableObject {
     return "FolderReference{" + "type='" + type + '\'' + ", " + "id='" + id + '\'' + "}";
   }
 
-  public static class FolderReferenceBuilder {
+  public static class Builder {
 
     protected EnumWrapper<FolderReferenceTypeField> type;
 
     protected final String id;
 
-    public FolderReferenceBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type = new EnumWrapper<FolderReferenceTypeField>(FolderReferenceTypeField.FOLDER);
     }
 
-    public FolderReferenceBuilder type(FolderReferenceTypeField type) {
+    public Builder type(FolderReferenceTypeField type) {
       this.type = new EnumWrapper<FolderReferenceTypeField>(type);
       return this;
     }
 
-    public FolderReferenceBuilder type(EnumWrapper<FolderReferenceTypeField> type) {
+    public Builder type(EnumWrapper<FolderReferenceTypeField> type) {
       this.type = type;
       return this;
     }

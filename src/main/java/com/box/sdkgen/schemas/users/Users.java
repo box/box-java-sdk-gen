@@ -29,7 +29,7 @@ public class Users extends SerializableObject {
     super();
   }
 
-  protected Users(UsersBuilder builder) {
+  protected Users(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -124,7 +124,7 @@ public class Users extends SerializableObject {
         + "}";
   }
 
-  public static class UsersBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -140,37 +140,37 @@ public class Users extends SerializableObject {
 
     protected List<UserFull> entries;
 
-    public UsersBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public UsersBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public UsersBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public UsersBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public UsersBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public UsersBuilder order(List<UsersOrderField> order) {
+    public Builder order(List<UsersOrderField> order) {
       this.order = order;
       return this;
     }
 
-    public UsersBuilder entries(List<UserFull> entries) {
+    public Builder entries(List<UserFull> entries) {
       this.entries = entries;
       return this;
     }

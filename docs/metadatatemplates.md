@@ -93,7 +93,7 @@ See the endpoint docs at
 
 <!-- sample put_metadata_templates_id_id_schema -->
 ```
-client.getMetadataTemplates().updateMetadataTemplate(UpdateMetadataTemplateScope.ENTERPRISE, templateKey, Arrays.asList(new UpdateMetadataTemplateRequestBody.UpdateMetadataTemplateRequestBodyBuilder(UpdateMetadataTemplateRequestBodyOpField.ADDFIELD).data(mapOf(entryOf("type", "string"), entryOf("displayName", "newFieldName"))).fieldKey("newfieldname").build()))
+client.getMetadataTemplates().updateMetadataTemplate(UpdateMetadataTemplateScope.ENTERPRISE, templateKey, Arrays.asList(new UpdateMetadataTemplateRequestBody.Builder(UpdateMetadataTemplateRequestBodyOpField.ADDFIELD).data(mapOf(entryOf("type", "string"), entryOf("displayName", "newFieldName"))).fieldKey("newfieldname").build()))
 ```
 
 ### Arguments
@@ -252,7 +252,7 @@ See the endpoint docs at
 
 <!-- sample post_metadata_templates_schema -->
 ```
-client.getMetadataTemplates().createMetadataTemplate(new CreateMetadataTemplateRequestBody.CreateMetadataTemplateRequestBodyBuilder("enterprise", templateKey).templateKey(templateKey).fields(Arrays.asList(new CreateMetadataTemplateRequestBodyFieldsField(CreateMetadataTemplateRequestBodyFieldsTypeField.STRING, "testName", "testName"), new CreateMetadataTemplateRequestBodyFieldsField(CreateMetadataTemplateRequestBodyFieldsTypeField.FLOAT, "age", "age"), new CreateMetadataTemplateRequestBodyFieldsField(CreateMetadataTemplateRequestBodyFieldsTypeField.DATE, "birthDate", "birthDate"), new CreateMetadataTemplateRequestBodyFieldsField.CreateMetadataTemplateRequestBodyFieldsFieldBuilder(CreateMetadataTemplateRequestBodyFieldsTypeField.ENUM, "countryCode", "countryCode").options(Arrays.asList(new CreateMetadataTemplateRequestBodyFieldsOptionsField("US"), new CreateMetadataTemplateRequestBodyFieldsOptionsField("CA"))).build(), new CreateMetadataTemplateRequestBodyFieldsField.CreateMetadataTemplateRequestBodyFieldsFieldBuilder(CreateMetadataTemplateRequestBodyFieldsTypeField.MULTISELECT, "sports", "sports").options(Arrays.asList(new CreateMetadataTemplateRequestBodyFieldsOptionsField("basketball"), new CreateMetadataTemplateRequestBodyFieldsOptionsField("football"), new CreateMetadataTemplateRequestBodyFieldsOptionsField("tennis"))).build())).build())
+client.getMetadataTemplates().createMetadataTemplate(new CreateMetadataTemplateRequestBody.Builder("enterprise", templateKey).templateKey(templateKey).fields(Arrays.asList(new CreateMetadataTemplateRequestBodyFieldsField(CreateMetadataTemplateRequestBodyFieldsTypeField.STRING, "testName", "testName"), new CreateMetadataTemplateRequestBodyFieldsField(CreateMetadataTemplateRequestBodyFieldsTypeField.FLOAT, "age", "age"), new CreateMetadataTemplateRequestBodyFieldsField(CreateMetadataTemplateRequestBodyFieldsTypeField.DATE, "birthDate", "birthDate"), new CreateMetadataTemplateRequestBodyFieldsField.Builder(CreateMetadataTemplateRequestBodyFieldsTypeField.ENUM, "countryCode", "countryCode").options(Arrays.asList(new CreateMetadataTemplateRequestBodyFieldsOptionsField("US"), new CreateMetadataTemplateRequestBodyFieldsOptionsField("CA"))).build(), new CreateMetadataTemplateRequestBodyFieldsField.Builder(CreateMetadataTemplateRequestBodyFieldsTypeField.MULTISELECT, "sports", "sports").options(Arrays.asList(new CreateMetadataTemplateRequestBodyFieldsOptionsField("basketball"), new CreateMetadataTemplateRequestBodyFieldsOptionsField("football"), new CreateMetadataTemplateRequestBodyFieldsOptionsField("tennis"))).build())).build())
 ```
 
 ### Arguments

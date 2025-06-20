@@ -33,7 +33,7 @@ public class AiAgentExtractStructured extends SerializableObject {
             AiAgentExtractStructuredTypeField.AI_AGENT_EXTRACT_STRUCTURED);
   }
 
-  protected AiAgentExtractStructured(AiAgentExtractStructuredBuilder builder) {
+  protected AiAgentExtractStructured(Builder builder) {
     super();
     this.type = builder.type;
     this.longText = builder.longText;
@@ -98,7 +98,7 @@ public class AiAgentExtractStructured extends SerializableObject {
         + "}";
   }
 
-  public static class AiAgentExtractStructuredBuilder {
+  public static class Builder {
 
     protected EnumWrapper<AiAgentExtractStructuredTypeField> type;
 
@@ -108,34 +108,33 @@ public class AiAgentExtractStructured extends SerializableObject {
 
     protected AiAgentBasicTextTool basicImage;
 
-    public AiAgentExtractStructuredBuilder() {
+    public Builder() {
       this.type =
           new EnumWrapper<AiAgentExtractStructuredTypeField>(
               AiAgentExtractStructuredTypeField.AI_AGENT_EXTRACT_STRUCTURED);
     }
 
-    public AiAgentExtractStructuredBuilder type(AiAgentExtractStructuredTypeField type) {
+    public Builder type(AiAgentExtractStructuredTypeField type) {
       this.type = new EnumWrapper<AiAgentExtractStructuredTypeField>(type);
       return this;
     }
 
-    public AiAgentExtractStructuredBuilder type(
-        EnumWrapper<AiAgentExtractStructuredTypeField> type) {
+    public Builder type(EnumWrapper<AiAgentExtractStructuredTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiAgentExtractStructuredBuilder longText(AiAgentLongTextTool longText) {
+    public Builder longText(AiAgentLongTextTool longText) {
       this.longText = longText;
       return this;
     }
 
-    public AiAgentExtractStructuredBuilder basicText(AiAgentBasicTextTool basicText) {
+    public Builder basicText(AiAgentBasicTextTool basicText) {
       this.basicText = basicText;
       return this;
     }
 
-    public AiAgentExtractStructuredBuilder basicImage(AiAgentBasicTextTool basicImage) {
+    public Builder basicImage(AiAgentBasicTextTool basicImage) {
       this.basicImage = basicImage;
       return this;
     }

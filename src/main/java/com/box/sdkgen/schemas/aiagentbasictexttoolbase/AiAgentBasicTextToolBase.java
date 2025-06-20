@@ -19,7 +19,7 @@ public class AiAgentBasicTextToolBase extends SerializableObject {
     super();
   }
 
-  protected AiAgentBasicTextToolBase(AiAgentBasicTextToolBaseBuilder builder) {
+  protected AiAgentBasicTextToolBase(Builder builder) {
     super();
     this.model = builder.model;
     this.numTokensForCompletion = builder.numTokensForCompletion;
@@ -74,7 +74,7 @@ public class AiAgentBasicTextToolBase extends SerializableObject {
         + "}";
   }
 
-  public static class AiAgentBasicTextToolBaseBuilder {
+  public static class Builder {
 
     protected String model;
 
@@ -82,18 +82,17 @@ public class AiAgentBasicTextToolBase extends SerializableObject {
 
     protected AiLlmEndpointParams llmEndpointParams;
 
-    public AiAgentBasicTextToolBaseBuilder model(String model) {
+    public Builder model(String model) {
       this.model = model;
       return this;
     }
 
-    public AiAgentBasicTextToolBaseBuilder numTokensForCompletion(Long numTokensForCompletion) {
+    public Builder numTokensForCompletion(Long numTokensForCompletion) {
       this.numTokensForCompletion = numTokensForCompletion;
       return this;
     }
 
-    public AiAgentBasicTextToolBaseBuilder llmEndpointParams(
-        AiLlmEndpointParams llmEndpointParams) {
+    public Builder llmEndpointParams(AiLlmEndpointParams llmEndpointParams) {
       this.llmEndpointParams = llmEndpointParams;
       return this;
     }

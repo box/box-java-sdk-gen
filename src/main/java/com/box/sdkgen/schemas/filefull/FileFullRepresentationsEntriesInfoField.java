@@ -11,8 +11,7 @@ public class FileFullRepresentationsEntriesInfoField extends SerializableObject 
     super();
   }
 
-  protected FileFullRepresentationsEntriesInfoField(
-      FileFullRepresentationsEntriesInfoFieldBuilder builder) {
+  protected FileFullRepresentationsEntriesInfoField(Builder builder) {
     super();
     this.url = builder.url;
   }
@@ -43,11 +42,11 @@ public class FileFullRepresentationsEntriesInfoField extends SerializableObject 
     return "FileFullRepresentationsEntriesInfoField{" + "url='" + url + '\'' + "}";
   }
 
-  public static class FileFullRepresentationsEntriesInfoFieldBuilder {
+  public static class Builder {
 
     protected String url;
 
-    public FileFullRepresentationsEntriesInfoFieldBuilder url(String url) {
+    public Builder url(String url) {
       this.url = url;
       return this;
     }

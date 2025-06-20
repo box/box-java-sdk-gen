@@ -25,7 +25,7 @@ public class SharedLinksFoldersManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected SharedLinksFoldersManager(SharedLinksFoldersManagerBuilder builder) {
+  protected SharedLinksFoldersManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -49,7 +49,7 @@ public class SharedLinksFoldersManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -80,7 +80,7 @@ public class SharedLinksFoldersManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -134,7 +134,7 @@ public class SharedLinksFoldersManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -190,7 +190,7 @@ public class SharedLinksFoldersManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -246,7 +246,7 @@ public class SharedLinksFoldersManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -273,22 +273,22 @@ public class SharedLinksFoldersManager {
     return networkSession;
   }
 
-  public static class SharedLinksFoldersManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public SharedLinksFoldersManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public SharedLinksFoldersManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public SharedLinksFoldersManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

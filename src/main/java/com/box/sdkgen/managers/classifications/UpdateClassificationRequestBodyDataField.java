@@ -15,8 +15,7 @@ public class UpdateClassificationRequestBodyDataField extends SerializableObject
     this.key = key;
   }
 
-  protected UpdateClassificationRequestBodyDataField(
-      UpdateClassificationRequestBodyDataFieldBuilder builder) {
+  protected UpdateClassificationRequestBodyDataField(Builder builder) {
     super();
     this.key = builder.key;
     this.staticConfig = builder.staticConfig;
@@ -60,18 +59,17 @@ public class UpdateClassificationRequestBodyDataField extends SerializableObject
         + "}";
   }
 
-  public static class UpdateClassificationRequestBodyDataFieldBuilder {
+  public static class Builder {
 
     protected final String key;
 
     protected UpdateClassificationRequestBodyDataStaticConfigField staticConfig;
 
-    public UpdateClassificationRequestBodyDataFieldBuilder(String key) {
+    public Builder(String key) {
       this.key = key;
     }
 
-    public UpdateClassificationRequestBodyDataFieldBuilder staticConfig(
-        UpdateClassificationRequestBodyDataStaticConfigField staticConfig) {
+    public Builder staticConfig(UpdateClassificationRequestBodyDataStaticConfigField staticConfig) {
       this.staticConfig = staticConfig;
       return this;
     }

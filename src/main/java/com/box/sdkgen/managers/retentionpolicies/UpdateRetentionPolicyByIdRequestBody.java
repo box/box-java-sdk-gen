@@ -37,8 +37,7 @@ public class UpdateRetentionPolicyByIdRequestBody extends SerializableObject {
     super();
   }
 
-  protected UpdateRetentionPolicyByIdRequestBody(
-      UpdateRetentionPolicyByIdRequestBodyBuilder builder) {
+  protected UpdateRetentionPolicyByIdRequestBody(Builder builder) {
     super();
     this.policyName = builder.policyName;
     this.description = builder.description;
@@ -162,7 +161,7 @@ public class UpdateRetentionPolicyByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateRetentionPolicyByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected String policyName;
 
@@ -182,50 +181,47 @@ public class UpdateRetentionPolicyByIdRequestBody extends SerializableObject {
 
     protected List<UserBase> customNotificationRecipients;
 
-    public UpdateRetentionPolicyByIdRequestBodyBuilder policyName(String policyName) {
+    public Builder policyName(String policyName) {
       this.policyName = policyName;
       return this;
     }
 
-    public UpdateRetentionPolicyByIdRequestBodyBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public UpdateRetentionPolicyByIdRequestBodyBuilder dispositionAction(String dispositionAction) {
+    public Builder dispositionAction(String dispositionAction) {
       this.dispositionAction = dispositionAction;
       return this;
     }
 
-    public UpdateRetentionPolicyByIdRequestBodyBuilder retentionType(String retentionType) {
+    public Builder retentionType(String retentionType) {
       this.retentionType = retentionType;
       return this;
     }
 
-    public UpdateRetentionPolicyByIdRequestBodyBuilder retentionLength(String retentionLength) {
+    public Builder retentionLength(String retentionLength) {
       this.retentionLength = retentionLength;
       return this;
     }
 
-    public UpdateRetentionPolicyByIdRequestBodyBuilder status(String status) {
+    public Builder status(String status) {
       this.status = status;
       return this;
     }
 
-    public UpdateRetentionPolicyByIdRequestBodyBuilder canOwnerExtendRetention(
-        Boolean canOwnerExtendRetention) {
+    public Builder canOwnerExtendRetention(Boolean canOwnerExtendRetention) {
       this.canOwnerExtendRetention = canOwnerExtendRetention;
       return this;
     }
 
-    public UpdateRetentionPolicyByIdRequestBodyBuilder areOwnersNotified(
-        Boolean areOwnersNotified) {
+    public Builder areOwnersNotified(Boolean areOwnersNotified) {
       this.areOwnersNotified = areOwnersNotified;
       return this;
     }
 
-    public UpdateRetentionPolicyByIdRequestBodyBuilder customNotificationRecipients(
-        List<UserBase> customNotificationRecipients) {
+    public Builder customNotificationRecipients(List<UserBase> customNotificationRecipients) {
       this.customNotificationRecipients = customNotificationRecipients;
       return this;
     }

@@ -82,7 +82,7 @@ public class TrashWebLinkRestored extends SerializableObject {
     this.pathCollection = pathCollection;
   }
 
-  protected TrashWebLinkRestored(TrashWebLinkRestoredBuilder builder) {
+  protected TrashWebLinkRestored(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -305,7 +305,7 @@ public class TrashWebLinkRestored extends SerializableObject {
         + "}";
   }
 
-  public static class TrashWebLinkRestoredBuilder {
+  public static class Builder {
 
     protected EnumWrapper<TrashWebLinkRestoredTypeField> type;
 
@@ -343,99 +343,97 @@ public class TrashWebLinkRestored extends SerializableObject {
 
     protected EnumWrapper<TrashWebLinkRestoredItemStatusField> itemStatus;
 
-    public TrashWebLinkRestoredBuilder(
-        String sequenceId, TrashWebLinkRestoredPathCollectionField pathCollection) {
+    public Builder(String sequenceId, TrashWebLinkRestoredPathCollectionField pathCollection) {
       this.sequenceId = sequenceId;
       this.pathCollection = pathCollection;
     }
 
-    public TrashWebLinkRestoredBuilder type(TrashWebLinkRestoredTypeField type) {
+    public Builder type(TrashWebLinkRestoredTypeField type) {
       this.type = new EnumWrapper<TrashWebLinkRestoredTypeField>(type);
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder type(EnumWrapper<TrashWebLinkRestoredTypeField> type) {
+    public Builder type(EnumWrapper<TrashWebLinkRestoredTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder etag(String etag) {
+    public Builder etag(String etag) {
       this.etag = etag;
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder url(String url) {
+    public Builder url(String url) {
       this.url = url;
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder parent(FolderMini parent) {
+    public Builder parent(FolderMini parent) {
       this.parent = parent;
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder trashedAt(String trashedAt) {
+    public Builder trashedAt(String trashedAt) {
       this.trashedAt = trashedAt;
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder purgedAt(String purgedAt) {
+    public Builder purgedAt(String purgedAt) {
       this.purgedAt = purgedAt;
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder createdBy(UserMini createdBy) {
+    public Builder createdBy(UserMini createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder modifiedBy(UserMini modifiedBy) {
+    public Builder modifiedBy(UserMini modifiedBy) {
       this.modifiedBy = modifiedBy;
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder ownedBy(UserMini ownedBy) {
+    public Builder ownedBy(UserMini ownedBy) {
       this.ownedBy = ownedBy;
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder sharedLink(String sharedLink) {
+    public Builder sharedLink(String sharedLink) {
       this.sharedLink = sharedLink;
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder itemStatus(TrashWebLinkRestoredItemStatusField itemStatus) {
+    public Builder itemStatus(TrashWebLinkRestoredItemStatusField itemStatus) {
       this.itemStatus = new EnumWrapper<TrashWebLinkRestoredItemStatusField>(itemStatus);
       return this;
     }
 
-    public TrashWebLinkRestoredBuilder itemStatus(
-        EnumWrapper<TrashWebLinkRestoredItemStatusField> itemStatus) {
+    public Builder itemStatus(EnumWrapper<TrashWebLinkRestoredItemStatusField> itemStatus) {
       this.itemStatus = itemStatus;
       return this;
     }

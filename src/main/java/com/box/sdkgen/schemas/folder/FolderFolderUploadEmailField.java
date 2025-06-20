@@ -21,7 +21,7 @@ public class FolderFolderUploadEmailField extends SerializableObject {
     super();
   }
 
-  protected FolderFolderUploadEmailField(FolderFolderUploadEmailFieldBuilder builder) {
+  protected FolderFolderUploadEmailField(Builder builder) {
     super();
     this.access = builder.access;
     this.email = builder.email;
@@ -65,24 +65,23 @@ public class FolderFolderUploadEmailField extends SerializableObject {
         + "}";
   }
 
-  public static class FolderFolderUploadEmailFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<FolderFolderUploadEmailAccessField> access;
 
     protected String email;
 
-    public FolderFolderUploadEmailFieldBuilder access(FolderFolderUploadEmailAccessField access) {
+    public Builder access(FolderFolderUploadEmailAccessField access) {
       this.access = new EnumWrapper<FolderFolderUploadEmailAccessField>(access);
       return this;
     }
 
-    public FolderFolderUploadEmailFieldBuilder access(
-        EnumWrapper<FolderFolderUploadEmailAccessField> access) {
+    public Builder access(EnumWrapper<FolderFolderUploadEmailAccessField> access) {
       this.access = access;
       return this;
     }
 
-    public FolderFolderUploadEmailFieldBuilder email(String email) {
+    public Builder email(String email) {
       this.email = email;
       return this;
     }

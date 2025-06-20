@@ -82,7 +82,7 @@ public class PostOAuth2Token extends SerializableObject {
     this.grantType = new EnumWrapper<PostOAuth2TokenGrantTypeField>(grantType);
   }
 
-  protected PostOAuth2Token(PostOAuth2TokenBuilder builder) {
+  protected PostOAuth2Token(Builder builder) {
     super();
     this.grantType = builder.grantType;
     this.clientId = builder.clientId;
@@ -272,7 +272,7 @@ public class PostOAuth2Token extends SerializableObject {
         + "}";
   }
 
-  public static class PostOAuth2TokenBuilder {
+  public static class Builder {
 
     protected final EnumWrapper<PostOAuth2TokenGrantTypeField> grantType;
 
@@ -304,102 +304,97 @@ public class PostOAuth2Token extends SerializableObject {
 
     protected String boxSharedLink;
 
-    public PostOAuth2TokenBuilder(EnumWrapper<PostOAuth2TokenGrantTypeField> grantType) {
+    public Builder(EnumWrapper<PostOAuth2TokenGrantTypeField> grantType) {
       this.grantType = grantType;
     }
 
-    public PostOAuth2TokenBuilder(PostOAuth2TokenGrantTypeField grantType) {
+    public Builder(PostOAuth2TokenGrantTypeField grantType) {
       this.grantType = new EnumWrapper<PostOAuth2TokenGrantTypeField>(grantType);
     }
 
-    public PostOAuth2TokenBuilder clientId(String clientId) {
+    public Builder clientId(String clientId) {
       this.clientId = clientId;
       return this;
     }
 
-    public PostOAuth2TokenBuilder clientSecret(String clientSecret) {
+    public Builder clientSecret(String clientSecret) {
       this.clientSecret = clientSecret;
       return this;
     }
 
-    public PostOAuth2TokenBuilder code(String code) {
+    public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    public PostOAuth2TokenBuilder refreshToken(String refreshToken) {
+    public Builder refreshToken(String refreshToken) {
       this.refreshToken = refreshToken;
       return this;
     }
 
-    public PostOAuth2TokenBuilder assertion(String assertion) {
+    public Builder assertion(String assertion) {
       this.assertion = assertion;
       return this;
     }
 
-    public PostOAuth2TokenBuilder subjectToken(String subjectToken) {
+    public Builder subjectToken(String subjectToken) {
       this.subjectToken = subjectToken;
       return this;
     }
 
-    public PostOAuth2TokenBuilder subjectTokenType(
-        PostOAuth2TokenSubjectTokenTypeField subjectTokenType) {
+    public Builder subjectTokenType(PostOAuth2TokenSubjectTokenTypeField subjectTokenType) {
       this.subjectTokenType =
           new EnumWrapper<PostOAuth2TokenSubjectTokenTypeField>(subjectTokenType);
       return this;
     }
 
-    public PostOAuth2TokenBuilder subjectTokenType(
+    public Builder subjectTokenType(
         EnumWrapper<PostOAuth2TokenSubjectTokenTypeField> subjectTokenType) {
       this.subjectTokenType = subjectTokenType;
       return this;
     }
 
-    public PostOAuth2TokenBuilder actorToken(String actorToken) {
+    public Builder actorToken(String actorToken) {
       this.actorToken = actorToken;
       return this;
     }
 
-    public PostOAuth2TokenBuilder actorTokenType(
-        PostOAuth2TokenActorTokenTypeField actorTokenType) {
+    public Builder actorTokenType(PostOAuth2TokenActorTokenTypeField actorTokenType) {
       this.actorTokenType = new EnumWrapper<PostOAuth2TokenActorTokenTypeField>(actorTokenType);
       return this;
     }
 
-    public PostOAuth2TokenBuilder actorTokenType(
-        EnumWrapper<PostOAuth2TokenActorTokenTypeField> actorTokenType) {
+    public Builder actorTokenType(EnumWrapper<PostOAuth2TokenActorTokenTypeField> actorTokenType) {
       this.actorTokenType = actorTokenType;
       return this;
     }
 
-    public PostOAuth2TokenBuilder scope(String scope) {
+    public Builder scope(String scope) {
       this.scope = scope;
       return this;
     }
 
-    public PostOAuth2TokenBuilder resource(String resource) {
+    public Builder resource(String resource) {
       this.resource = resource;
       return this;
     }
 
-    public PostOAuth2TokenBuilder boxSubjectType(
-        PostOAuth2TokenBoxSubjectTypeField boxSubjectType) {
+    public Builder boxSubjectType(PostOAuth2TokenBoxSubjectTypeField boxSubjectType) {
       this.boxSubjectType = new EnumWrapper<PostOAuth2TokenBoxSubjectTypeField>(boxSubjectType);
       return this;
     }
 
-    public PostOAuth2TokenBuilder boxSubjectType(
-        EnumWrapper<PostOAuth2TokenBoxSubjectTypeField> boxSubjectType) {
+    public Builder boxSubjectType(EnumWrapper<PostOAuth2TokenBoxSubjectTypeField> boxSubjectType) {
       this.boxSubjectType = boxSubjectType;
       return this;
     }
 
-    public PostOAuth2TokenBuilder boxSubjectId(String boxSubjectId) {
+    public Builder boxSubjectId(String boxSubjectId) {
       this.boxSubjectId = boxSubjectId;
       return this;
     }
 
-    public PostOAuth2TokenBuilder boxSharedLink(String boxSharedLink) {
+    public Builder boxSharedLink(String boxSharedLink) {
       this.boxSharedLink = boxSharedLink;
       return this;
     }

@@ -27,7 +27,7 @@ public class AiTextGen extends SerializableObject {
     this.items = items;
   }
 
-  protected AiTextGen(AiTextGenBuilder builder) {
+  protected AiTextGen(Builder builder) {
     super();
     this.prompt = builder.prompt;
     this.items = builder.items;
@@ -92,7 +92,7 @@ public class AiTextGen extends SerializableObject {
         + "}";
   }
 
-  public static class AiTextGenBuilder {
+  public static class Builder {
 
     protected final String prompt;
 
@@ -102,17 +102,17 @@ public class AiTextGen extends SerializableObject {
 
     protected AiAgentReferenceOrAiAgentTextGen aiAgent;
 
-    public AiTextGenBuilder(String prompt, List<AiTextGenItemsField> items) {
+    public Builder(String prompt, List<AiTextGenItemsField> items) {
       this.prompt = prompt;
       this.items = items;
     }
 
-    public AiTextGenBuilder dialogueHistory(List<AiDialogueHistory> dialogueHistory) {
+    public Builder dialogueHistory(List<AiDialogueHistory> dialogueHistory) {
       this.dialogueHistory = dialogueHistory;
       return this;
     }
 
-    public AiTextGenBuilder aiAgent(AiAgentReferenceOrAiAgentTextGen aiAgent) {
+    public Builder aiAgent(AiAgentReferenceOrAiAgentTextGen aiAgent) {
       this.aiAgent = aiAgent;
       return this;
     }

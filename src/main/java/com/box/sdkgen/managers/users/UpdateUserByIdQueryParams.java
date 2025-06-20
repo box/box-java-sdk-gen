@@ -8,7 +8,7 @@ public class UpdateUserByIdQueryParams {
 
   public UpdateUserByIdQueryParams() {}
 
-  protected UpdateUserByIdQueryParams(UpdateUserByIdQueryParamsBuilder builder) {
+  protected UpdateUserByIdQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class UpdateUserByIdQueryParams {
     return fields;
   }
 
-  public static class UpdateUserByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public UpdateUserByIdQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

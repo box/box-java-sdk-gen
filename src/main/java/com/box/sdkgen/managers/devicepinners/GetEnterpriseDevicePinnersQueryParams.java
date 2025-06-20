@@ -12,8 +12,7 @@ public class GetEnterpriseDevicePinnersQueryParams {
 
   public GetEnterpriseDevicePinnersQueryParams() {}
 
-  protected GetEnterpriseDevicePinnersQueryParams(
-      GetEnterpriseDevicePinnersQueryParamsBuilder builder) {
+  protected GetEnterpriseDevicePinnersQueryParams(Builder builder) {
     this.marker = builder.marker;
     this.limit = builder.limit;
     this.direction = builder.direction;
@@ -31,7 +30,7 @@ public class GetEnterpriseDevicePinnersQueryParams {
     return direction;
   }
 
-  public static class GetEnterpriseDevicePinnersQueryParamsBuilder {
+  public static class Builder {
 
     protected String marker;
 
@@ -39,24 +38,23 @@ public class GetEnterpriseDevicePinnersQueryParams {
 
     protected EnumWrapper<GetEnterpriseDevicePinnersQueryParamsDirectionField> direction;
 
-    public GetEnterpriseDevicePinnersQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetEnterpriseDevicePinnersQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public GetEnterpriseDevicePinnersQueryParamsBuilder direction(
-        GetEnterpriseDevicePinnersQueryParamsDirectionField direction) {
+    public Builder direction(GetEnterpriseDevicePinnersQueryParamsDirectionField direction) {
       this.direction =
           new EnumWrapper<GetEnterpriseDevicePinnersQueryParamsDirectionField>(direction);
       return this;
     }
 
-    public GetEnterpriseDevicePinnersQueryParamsBuilder direction(
+    public Builder direction(
         EnumWrapper<GetEnterpriseDevicePinnersQueryParamsDirectionField> direction) {
       this.direction = direction;
       return this;

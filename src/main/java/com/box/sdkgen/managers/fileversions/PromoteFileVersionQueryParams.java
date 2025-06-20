@@ -8,7 +8,7 @@ public class PromoteFileVersionQueryParams {
 
   public PromoteFileVersionQueryParams() {}
 
-  protected PromoteFileVersionQueryParams(PromoteFileVersionQueryParamsBuilder builder) {
+  protected PromoteFileVersionQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class PromoteFileVersionQueryParams {
     return fields;
   }
 
-  public static class PromoteFileVersionQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public PromoteFileVersionQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

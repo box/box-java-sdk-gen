@@ -8,7 +8,7 @@ public class FindFileForSharedLinkQueryParams {
 
   public FindFileForSharedLinkQueryParams() {}
 
-  protected FindFileForSharedLinkQueryParams(FindFileForSharedLinkQueryParamsBuilder builder) {
+  protected FindFileForSharedLinkQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class FindFileForSharedLinkQueryParams {
     return fields;
   }
 
-  public static class FindFileForSharedLinkQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public FindFileForSharedLinkQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

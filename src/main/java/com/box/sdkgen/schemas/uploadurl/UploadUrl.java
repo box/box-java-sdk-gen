@@ -16,7 +16,7 @@ public class UploadUrl extends SerializableObject {
     super();
   }
 
-  protected UploadUrl(UploadUrlBuilder builder) {
+  protected UploadUrl(Builder builder) {
     super();
     this.uploadUrl = builder.uploadUrl;
     this.uploadToken = builder.uploadToken;
@@ -61,18 +61,18 @@ public class UploadUrl extends SerializableObject {
         + "}";
   }
 
-  public static class UploadUrlBuilder {
+  public static class Builder {
 
     protected String uploadUrl;
 
     protected String uploadToken;
 
-    public UploadUrlBuilder uploadUrl(String uploadUrl) {
+    public Builder uploadUrl(String uploadUrl) {
       this.uploadUrl = uploadUrl;
       return this;
     }
 
-    public UploadUrlBuilder uploadToken(String uploadToken) {
+    public Builder uploadToken(String uploadToken) {
       this.uploadToken = uploadToken;
       return this;
     }

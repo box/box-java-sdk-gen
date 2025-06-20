@@ -37,7 +37,7 @@ public class SearchResultsWithSharedLinks extends SerializableObject {
             SearchResultsWithSharedLinksTypeField.SEARCH_RESULTS_WITH_SHARED_LINKS);
   }
 
-  protected SearchResultsWithSharedLinks(SearchResultsWithSharedLinksBuilder builder) {
+  protected SearchResultsWithSharedLinks(Builder builder) {
     super();
     this.totalCount = builder.totalCount;
     this.limit = builder.limit;
@@ -112,7 +112,7 @@ public class SearchResultsWithSharedLinks extends SerializableObject {
         + "}";
   }
 
-  public static class SearchResultsWithSharedLinksBuilder {
+  public static class Builder {
 
     protected Long totalCount;
 
@@ -124,39 +124,38 @@ public class SearchResultsWithSharedLinks extends SerializableObject {
 
     protected List<SearchResultWithSharedLink> entries;
 
-    public SearchResultsWithSharedLinksBuilder() {
+    public Builder() {
       this.type =
           new EnumWrapper<SearchResultsWithSharedLinksTypeField>(
               SearchResultsWithSharedLinksTypeField.SEARCH_RESULTS_WITH_SHARED_LINKS);
     }
 
-    public SearchResultsWithSharedLinksBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public SearchResultsWithSharedLinksBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public SearchResultsWithSharedLinksBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
-    public SearchResultsWithSharedLinksBuilder type(SearchResultsWithSharedLinksTypeField type) {
+    public Builder type(SearchResultsWithSharedLinksTypeField type) {
       this.type = new EnumWrapper<SearchResultsWithSharedLinksTypeField>(type);
       return this;
     }
 
-    public SearchResultsWithSharedLinksBuilder type(
-        EnumWrapper<SearchResultsWithSharedLinksTypeField> type) {
+    public Builder type(EnumWrapper<SearchResultsWithSharedLinksTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public SearchResultsWithSharedLinksBuilder entries(List<SearchResultWithSharedLink> entries) {
+    public Builder entries(List<SearchResultWithSharedLink> entries) {
       this.entries = entries;
       return this;
     }

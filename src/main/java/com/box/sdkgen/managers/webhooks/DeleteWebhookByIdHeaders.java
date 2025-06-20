@@ -12,7 +12,7 @@ public class DeleteWebhookByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteWebhookByIdHeaders(DeleteWebhookByIdHeadersBuilder builder) {
+  protected DeleteWebhookByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class DeleteWebhookByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteWebhookByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteWebhookByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteWebhookByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

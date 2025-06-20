@@ -21,7 +21,7 @@ public class UpdateWebLinkByIdRequestBody extends SerializableObject {
     super();
   }
 
-  protected UpdateWebLinkByIdRequestBody(UpdateWebLinkByIdRequestBodyBuilder builder) {
+  protected UpdateWebLinkByIdRequestBody(Builder builder) {
     super();
     this.url = builder.url;
     this.parent = builder.parent;
@@ -96,7 +96,7 @@ public class UpdateWebLinkByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateWebLinkByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected String url;
 
@@ -108,29 +108,27 @@ public class UpdateWebLinkByIdRequestBody extends SerializableObject {
 
     protected UpdateWebLinkByIdRequestBodySharedLinkField sharedLink;
 
-    public UpdateWebLinkByIdRequestBodyBuilder url(String url) {
+    public Builder url(String url) {
       this.url = url;
       return this;
     }
 
-    public UpdateWebLinkByIdRequestBodyBuilder parent(
-        UpdateWebLinkByIdRequestBodyParentField parent) {
+    public Builder parent(UpdateWebLinkByIdRequestBodyParentField parent) {
       this.parent = parent;
       return this;
     }
 
-    public UpdateWebLinkByIdRequestBodyBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public UpdateWebLinkByIdRequestBodyBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public UpdateWebLinkByIdRequestBodyBuilder sharedLink(
-        UpdateWebLinkByIdRequestBodySharedLinkField sharedLink) {
+    public Builder sharedLink(UpdateWebLinkByIdRequestBodySharedLinkField sharedLink) {
       this.sharedLink = sharedLink;
       return this;
     }

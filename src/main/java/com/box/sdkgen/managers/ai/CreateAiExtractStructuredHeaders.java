@@ -12,7 +12,7 @@ public class CreateAiExtractStructuredHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CreateAiExtractStructuredHeaders(CreateAiExtractStructuredHeadersBuilder builder) {
+  protected CreateAiExtractStructuredHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class CreateAiExtractStructuredHeaders {
     return extraHeaders;
   }
 
-  public static class CreateAiExtractStructuredHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CreateAiExtractStructuredHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CreateAiExtractStructuredHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

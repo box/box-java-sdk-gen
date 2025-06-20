@@ -15,8 +15,7 @@ public class GetRetentionPolicyAssignmentsQueryParams {
 
   public GetRetentionPolicyAssignmentsQueryParams() {}
 
-  protected GetRetentionPolicyAssignmentsQueryParams(
-      GetRetentionPolicyAssignmentsQueryParamsBuilder builder) {
+  protected GetRetentionPolicyAssignmentsQueryParams(Builder builder) {
     this.type = builder.type;
     this.fields = builder.fields;
     this.marker = builder.marker;
@@ -39,7 +38,7 @@ public class GetRetentionPolicyAssignmentsQueryParams {
     return limit;
   }
 
-  public static class GetRetentionPolicyAssignmentsQueryParamsBuilder {
+  public static class Builder {
 
     protected EnumWrapper<GetRetentionPolicyAssignmentsQueryParamsTypeField> type;
 
@@ -49,29 +48,27 @@ public class GetRetentionPolicyAssignmentsQueryParams {
 
     protected Long limit;
 
-    public GetRetentionPolicyAssignmentsQueryParamsBuilder type(
-        GetRetentionPolicyAssignmentsQueryParamsTypeField type) {
+    public Builder type(GetRetentionPolicyAssignmentsQueryParamsTypeField type) {
       this.type = new EnumWrapper<GetRetentionPolicyAssignmentsQueryParamsTypeField>(type);
       return this;
     }
 
-    public GetRetentionPolicyAssignmentsQueryParamsBuilder type(
-        EnumWrapper<GetRetentionPolicyAssignmentsQueryParamsTypeField> type) {
+    public Builder type(EnumWrapper<GetRetentionPolicyAssignmentsQueryParamsTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public GetRetentionPolicyAssignmentsQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }
 
-    public GetRetentionPolicyAssignmentsQueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetRetentionPolicyAssignmentsQueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

@@ -13,8 +13,7 @@ public class FileFullRepresentationsEntriesContentField extends SerializableObje
     super();
   }
 
-  protected FileFullRepresentationsEntriesContentField(
-      FileFullRepresentationsEntriesContentFieldBuilder builder) {
+  protected FileFullRepresentationsEntriesContentField(Builder builder) {
     super();
     this.urlTemplate = builder.urlTemplate;
   }
@@ -50,11 +49,11 @@ public class FileFullRepresentationsEntriesContentField extends SerializableObje
         + "}";
   }
 
-  public static class FileFullRepresentationsEntriesContentFieldBuilder {
+  public static class Builder {
 
     protected String urlTemplate;
 
-    public FileFullRepresentationsEntriesContentFieldBuilder urlTemplate(String urlTemplate) {
+    public Builder urlTemplate(String urlTemplate) {
       this.urlTemplate = urlTemplate;
       return this;
     }

@@ -22,7 +22,7 @@ public class Collaborations extends SerializableObject {
     super();
   }
 
-  protected Collaborations(CollaborationsBuilder builder) {
+  protected Collaborations(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -87,7 +87,7 @@ public class Collaborations extends SerializableObject {
         + "}";
   }
 
-  public static class CollaborationsBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -97,22 +97,22 @@ public class Collaborations extends SerializableObject {
 
     protected List<Collaboration> entries;
 
-    public CollaborationsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public CollaborationsBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public CollaborationsBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public CollaborationsBuilder entries(List<Collaboration> entries) {
+    public Builder entries(List<Collaboration> entries) {
       this.entries = entries;
       return this;
     }

@@ -38,7 +38,7 @@ public class AiAgentAsk extends SerializableObject {
     this.type = new EnumWrapper<AiAgentAskTypeField>(AiAgentAskTypeField.AI_AGENT_ASK);
   }
 
-  protected AiAgentAsk(AiAgentAskBuilder builder) {
+  protected AiAgentAsk(Builder builder) {
     super();
     this.type = builder.type;
     this.longText = builder.longText;
@@ -134,7 +134,7 @@ public class AiAgentAsk extends SerializableObject {
         + "}";
   }
 
-  public static class AiAgentAskBuilder {
+  public static class Builder {
 
     protected EnumWrapper<AiAgentAskTypeField> type;
 
@@ -150,46 +150,46 @@ public class AiAgentAsk extends SerializableObject {
 
     protected AiAgentBasicTextTool basicImageMulti;
 
-    public AiAgentAskBuilder() {
+    public Builder() {
       this.type = new EnumWrapper<AiAgentAskTypeField>(AiAgentAskTypeField.AI_AGENT_ASK);
     }
 
-    public AiAgentAskBuilder type(AiAgentAskTypeField type) {
+    public Builder type(AiAgentAskTypeField type) {
       this.type = new EnumWrapper<AiAgentAskTypeField>(type);
       return this;
     }
 
-    public AiAgentAskBuilder type(EnumWrapper<AiAgentAskTypeField> type) {
+    public Builder type(EnumWrapper<AiAgentAskTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiAgentAskBuilder longText(AiAgentLongTextTool longText) {
+    public Builder longText(AiAgentLongTextTool longText) {
       this.longText = longText;
       return this;
     }
 
-    public AiAgentAskBuilder basicText(AiAgentBasicTextTool basicText) {
+    public Builder basicText(AiAgentBasicTextTool basicText) {
       this.basicText = basicText;
       return this;
     }
 
-    public AiAgentAskBuilder longTextMulti(AiAgentLongTextTool longTextMulti) {
+    public Builder longTextMulti(AiAgentLongTextTool longTextMulti) {
       this.longTextMulti = longTextMulti;
       return this;
     }
 
-    public AiAgentAskBuilder basicTextMulti(AiAgentBasicTextTool basicTextMulti) {
+    public Builder basicTextMulti(AiAgentBasicTextTool basicTextMulti) {
       this.basicTextMulti = basicTextMulti;
       return this;
     }
 
-    public AiAgentAskBuilder basicImage(AiAgentBasicTextTool basicImage) {
+    public Builder basicImage(AiAgentBasicTextTool basicImage) {
       this.basicImage = basicImage;
       return this;
     }
 
-    public AiAgentAskBuilder basicImageMulti(AiAgentBasicTextTool basicImageMulti) {
+    public Builder basicImageMulti(AiAgentBasicTextTool basicImageMulti) {
       this.basicImageMulti = basicImageMulti;
       return this;
     }

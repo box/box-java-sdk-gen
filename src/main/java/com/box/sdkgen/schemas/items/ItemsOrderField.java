@@ -18,7 +18,7 @@ public class ItemsOrderField extends SerializableObject {
     super();
   }
 
-  protected ItemsOrderField(ItemsOrderFieldBuilder builder) {
+  protected ItemsOrderField(Builder builder) {
     super();
     this.by = builder.by;
     this.direction = builder.direction;
@@ -54,23 +54,23 @@ public class ItemsOrderField extends SerializableObject {
     return "ItemsOrderField{" + "by='" + by + '\'' + ", " + "direction='" + direction + '\'' + "}";
   }
 
-  public static class ItemsOrderFieldBuilder {
+  public static class Builder {
 
     protected String by;
 
     protected EnumWrapper<ItemsOrderDirectionField> direction;
 
-    public ItemsOrderFieldBuilder by(String by) {
+    public Builder by(String by) {
       this.by = by;
       return this;
     }
 
-    public ItemsOrderFieldBuilder direction(ItemsOrderDirectionField direction) {
+    public Builder direction(ItemsOrderDirectionField direction) {
       this.direction = new EnumWrapper<ItemsOrderDirectionField>(direction);
       return this;
     }
 
-    public ItemsOrderFieldBuilder direction(EnumWrapper<ItemsOrderDirectionField> direction) {
+    public Builder direction(EnumWrapper<ItemsOrderDirectionField> direction) {
       this.direction = direction;
       return this;
     }

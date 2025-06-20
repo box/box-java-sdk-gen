@@ -51,7 +51,7 @@ See the endpoint docs at
 
 <!-- sample post_task_assignments -->
 ```
-client.getTaskAssignments().createTaskAssignment(new CreateTaskAssignmentRequestBody(new CreateTaskAssignmentRequestBodyTaskField.CreateTaskAssignmentRequestBodyTaskFieldBuilder(task.getId()).type(CreateTaskAssignmentRequestBodyTaskTypeField.TASK).build(), new CreateTaskAssignmentRequestBodyAssignToField.CreateTaskAssignmentRequestBodyAssignToFieldBuilder().id(currentUser.getId()).build()))
+client.getTaskAssignments().createTaskAssignment(new CreateTaskAssignmentRequestBody(new CreateTaskAssignmentRequestBodyTaskField.Builder(task.getId()).type(CreateTaskAssignmentRequestBodyTaskTypeField.TASK).build(), new CreateTaskAssignmentRequestBodyAssignToField.Builder().id(currentUser.getId()).build()))
 ```
 
 ### Arguments
@@ -111,7 +111,7 @@ See the endpoint docs at
 
 <!-- sample put_task_assignments_id -->
 ```
-client.getTaskAssignments().updateTaskAssignmentById(taskAssignment.getId(), new UpdateTaskAssignmentByIdRequestBody.UpdateTaskAssignmentByIdRequestBodyBuilder().message("updated message").resolutionState(UpdateTaskAssignmentByIdRequestBodyResolutionStateField.APPROVED).build())
+client.getTaskAssignments().updateTaskAssignmentById(taskAssignment.getId(), new UpdateTaskAssignmentByIdRequestBody.Builder().message("updated message").resolutionState(UpdateTaskAssignmentByIdRequestBodyResolutionStateField.APPROVED).build())
 ```
 
 ### Arguments

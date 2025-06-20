@@ -8,7 +8,7 @@ public class RestoreWeblinkFromTrashQueryParams {
 
   public RestoreWeblinkFromTrashQueryParams() {}
 
-  protected RestoreWeblinkFromTrashQueryParams(RestoreWeblinkFromTrashQueryParamsBuilder builder) {
+  protected RestoreWeblinkFromTrashQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class RestoreWeblinkFromTrashQueryParams {
     return fields;
   }
 
-  public static class RestoreWeblinkFromTrashQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public RestoreWeblinkFromTrashQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

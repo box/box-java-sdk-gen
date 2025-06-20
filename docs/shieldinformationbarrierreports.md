@@ -45,7 +45,7 @@ See the endpoint docs at
 
 <!-- sample post_shield_information_barrier_reports -->
 ```
-client.getShieldInformationBarrierReports().createShieldInformationBarrierReport(new ShieldInformationBarrierReference.ShieldInformationBarrierReferenceBuilder().shieldInformationBarrier(new ShieldInformationBarrierBase.ShieldInformationBarrierBaseBuilder().id(barrierId).type(ShieldInformationBarrierBaseTypeField.SHIELD_INFORMATION_BARRIER).build()).build())
+client.getShieldInformationBarrierReports().createShieldInformationBarrierReport(new ShieldInformationBarrierReference.Builder().shieldInformationBarrier(new ShieldInformationBarrierBase.Builder().id(barrierId).type(ShieldInformationBarrierBaseTypeField.SHIELD_INFORMATION_BARRIER).build()).build())
 ```
 
 ### Arguments

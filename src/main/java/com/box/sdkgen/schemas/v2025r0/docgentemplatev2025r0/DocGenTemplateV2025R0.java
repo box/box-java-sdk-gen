@@ -14,7 +14,7 @@ public class DocGenTemplateV2025R0 extends DocGenTemplateBaseV2025R0 {
     super();
   }
 
-  protected DocGenTemplateV2025R0(DocGenTemplateV2025R0Builder builder) {
+  protected DocGenTemplateV2025R0(Builder builder) {
     super(builder);
     this.fileName = builder.fileName;
   }
@@ -53,17 +53,17 @@ public class DocGenTemplateV2025R0 extends DocGenTemplateBaseV2025R0 {
         + "}";
   }
 
-  public static class DocGenTemplateV2025R0Builder extends DocGenTemplateBaseV2025R0Builder {
+  public static class Builder extends DocGenTemplateBaseV2025R0.Builder {
 
     protected String fileName;
 
-    public DocGenTemplateV2025R0Builder fileName(String fileName) {
+    public Builder fileName(String fileName) {
       this.fileName = fileName;
       return this;
     }
 
     @Override
-    public DocGenTemplateV2025R0Builder file(FileReferenceV2025R0 file) {
+    public Builder file(FileReferenceV2025R0 file) {
       this.file = file;
       return this;
     }

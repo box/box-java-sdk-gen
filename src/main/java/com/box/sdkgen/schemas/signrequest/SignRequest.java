@@ -65,7 +65,7 @@ public class SignRequest extends SignRequestBase {
     super();
   }
 
-  protected SignRequest(SignRequestBuilder builder) {
+  protected SignRequest(Builder builder) {
     super(builder);
     this.type = builder.type;
     this.sourceFiles = builder.sourceFiles;
@@ -322,7 +322,7 @@ public class SignRequest extends SignRequestBase {
         + "}";
   }
 
-  public static class SignRequestBuilder extends SignRequestBaseBuilder {
+  public static class Builder extends SignRequestBase.Builder {
 
     protected EnumWrapper<SignRequestTypeField> type;
 
@@ -352,160 +352,160 @@ public class SignRequest extends SignRequestBase {
 
     protected Long senderId;
 
-    public SignRequestBuilder type(SignRequestTypeField type) {
+    public Builder type(SignRequestTypeField type) {
       this.type = new EnumWrapper<SignRequestTypeField>(type);
       return this;
     }
 
-    public SignRequestBuilder type(EnumWrapper<SignRequestTypeField> type) {
+    public Builder type(EnumWrapper<SignRequestTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public SignRequestBuilder sourceFiles(List<FileBase> sourceFiles) {
+    public Builder sourceFiles(List<FileBase> sourceFiles) {
       this.sourceFiles = sourceFiles;
       return this;
     }
 
-    public SignRequestBuilder signers(List<SignRequestSigner> signers) {
+    public Builder signers(List<SignRequestSigner> signers) {
       this.signers = signers;
       return this;
     }
 
-    public SignRequestBuilder signatureColor(String signatureColor) {
+    public Builder signatureColor(String signatureColor) {
       this.signatureColor = signatureColor;
       return this;
     }
 
-    public SignRequestBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public SignRequestBuilder prepareUrl(String prepareUrl) {
+    public Builder prepareUrl(String prepareUrl) {
       this.prepareUrl = prepareUrl;
       return this;
     }
 
-    public SignRequestBuilder signingLog(FileMini signingLog) {
+    public Builder signingLog(FileMini signingLog) {
       this.signingLog = signingLog;
       return this;
     }
 
-    public SignRequestBuilder status(SignRequestStatusField status) {
+    public Builder status(SignRequestStatusField status) {
       this.status = new EnumWrapper<SignRequestStatusField>(status);
       return this;
     }
 
-    public SignRequestBuilder status(EnumWrapper<SignRequestStatusField> status) {
+    public Builder status(EnumWrapper<SignRequestStatusField> status) {
       this.status = status;
       return this;
     }
 
-    public SignRequestBuilder signFiles(SignRequestSignFilesField signFiles) {
+    public Builder signFiles(SignRequestSignFilesField signFiles) {
       this.signFiles = signFiles;
       return this;
     }
 
-    public SignRequestBuilder autoExpireAt(Date autoExpireAt) {
+    public Builder autoExpireAt(Date autoExpireAt) {
       this.autoExpireAt = autoExpireAt;
       return this;
     }
 
-    public SignRequestBuilder parentFolder(FolderMini parentFolder) {
+    public Builder parentFolder(FolderMini parentFolder) {
       this.parentFolder = parentFolder;
       return this;
     }
 
-    public SignRequestBuilder collaboratorLevel(String collaboratorLevel) {
+    public Builder collaboratorLevel(String collaboratorLevel) {
       this.collaboratorLevel = collaboratorLevel;
       return this;
     }
 
-    public SignRequestBuilder senderEmail(String senderEmail) {
+    public Builder senderEmail(String senderEmail) {
       this.senderEmail = senderEmail;
       return this;
     }
 
-    public SignRequestBuilder senderId(Long senderId) {
+    public Builder senderId(Long senderId) {
       this.senderId = senderId;
       return this;
     }
 
     @Override
-    public SignRequestBuilder isDocumentPreparationNeeded(Boolean isDocumentPreparationNeeded) {
+    public Builder isDocumentPreparationNeeded(Boolean isDocumentPreparationNeeded) {
       this.isDocumentPreparationNeeded = isDocumentPreparationNeeded;
       return this;
     }
 
     @Override
-    public SignRequestBuilder redirectUrl(String redirectUrl) {
+    public Builder redirectUrl(String redirectUrl) {
       this.redirectUrl = redirectUrl;
       return this;
     }
 
     @Override
-    public SignRequestBuilder declinedRedirectUrl(String declinedRedirectUrl) {
+    public Builder declinedRedirectUrl(String declinedRedirectUrl) {
       this.declinedRedirectUrl = declinedRedirectUrl;
       return this;
     }
 
     @Override
-    public SignRequestBuilder areTextSignaturesEnabled(Boolean areTextSignaturesEnabled) {
+    public Builder areTextSignaturesEnabled(Boolean areTextSignaturesEnabled) {
       this.areTextSignaturesEnabled = areTextSignaturesEnabled;
       return this;
     }
 
     @Override
-    public SignRequestBuilder emailSubject(String emailSubject) {
+    public Builder emailSubject(String emailSubject) {
       this.emailSubject = emailSubject;
       return this;
     }
 
     @Override
-    public SignRequestBuilder emailMessage(String emailMessage) {
+    public Builder emailMessage(String emailMessage) {
       this.emailMessage = emailMessage;
       return this;
     }
 
     @Override
-    public SignRequestBuilder areRemindersEnabled(Boolean areRemindersEnabled) {
+    public Builder areRemindersEnabled(Boolean areRemindersEnabled) {
       this.areRemindersEnabled = areRemindersEnabled;
       return this;
     }
 
     @Override
-    public SignRequestBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public SignRequestBuilder prefillTags(List<SignRequestPrefillTag> prefillTags) {
+    public Builder prefillTags(List<SignRequestPrefillTag> prefillTags) {
       this.prefillTags = prefillTags;
       return this;
     }
 
     @Override
-    public SignRequestBuilder daysValid(Long daysValid) {
+    public Builder daysValid(Long daysValid) {
       this.daysValid = daysValid;
       return this;
     }
 
     @Override
-    public SignRequestBuilder externalId(String externalId) {
+    public Builder externalId(String externalId) {
       this.externalId = externalId;
       return this;
     }
 
     @Override
-    public SignRequestBuilder templateId(String templateId) {
+    public Builder templateId(String templateId) {
       this.templateId = templateId;
       return this;
     }
 
     @Override
-    public SignRequestBuilder externalSystemName(String externalSystemName) {
+    public Builder externalSystemName(String externalSystemName) {
       this.externalSystemName = externalSystemName;
       return this;
     }

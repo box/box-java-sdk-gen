@@ -36,7 +36,7 @@ public class BoxAPIError extends BoxSDKError {
             .map(JsonNode::asText)
             .orElse("");
 
-    return new BoxAPIErrorBuilder(
+    return new Builder(
             String.format("Status %d; Request ID: %s", responseInfo.getStatusCode(), requestId),
             requestInfo,
             responseInfo)
@@ -45,7 +45,7 @@ public class BoxAPIError extends BoxSDKError {
         .build();
   }
 
-  protected BoxAPIError(BoxAPIErrorBuilder builder) {
+  protected BoxAPIError(Builder builder) {
     super(builder);
     this.requestInfo = builder.requestInfo;
     this.responseInfo = builder.responseInfo;
@@ -60,7 +60,7 @@ public class BoxAPIError extends BoxSDKError {
     return responseInfo;
   }
 
-  public static class BoxAPIErrorBuilder extends BoxSDKErrorBuilder {
+  public static class Builder extends BoxSDKError.Builder {
 
     protected final RequestInfo requestInfo;
 
@@ -68,7 +68,7 @@ public class BoxAPIError extends BoxSDKError {
 
     protected DataSanitizer dataSanitizer;
 
-    public BoxAPIErrorBuilder(String message, RequestInfo requestInfo, ResponseInfo responseInfo) {
+    public Builder(String message, RequestInfo requestInfo, ResponseInfo responseInfo) {
       super(message);
       this.requestInfo = requestInfo;
       this.responseInfo = responseInfo;
@@ -76,24 +76,24 @@ public class BoxAPIError extends BoxSDKError {
     }
 
     @Override
-    public BoxAPIErrorBuilder timestamp(String timestamp) {
+    public Builder timestamp(String timestamp) {
       this.timestamp = timestamp;
       return this;
     }
 
     @Override
-    public BoxAPIErrorBuilder error(Exception error) {
+    public Builder error(Exception error) {
       this.error = error;
       return this;
     }
 
     @Override
-    public BoxAPIErrorBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public BoxAPIErrorBuilder dataSanitizer(DataSanitizer dataSanitizer) {
+    public Builder dataSanitizer(DataSanitizer dataSanitizer) {
       this.dataSanitizer = dataSanitizer;
       return this;
     }

@@ -15,8 +15,7 @@ public class TimelineSkillCardSkillCardTitleField extends SerializableObject {
     this.message = message;
   }
 
-  protected TimelineSkillCardSkillCardTitleField(
-      TimelineSkillCardSkillCardTitleFieldBuilder builder) {
+  protected TimelineSkillCardSkillCardTitleField(Builder builder) {
     super();
     this.code = builder.code;
     this.message = builder.message;
@@ -60,17 +59,17 @@ public class TimelineSkillCardSkillCardTitleField extends SerializableObject {
         + "}";
   }
 
-  public static class TimelineSkillCardSkillCardTitleFieldBuilder {
+  public static class Builder {
 
     protected String code;
 
     protected final String message;
 
-    public TimelineSkillCardSkillCardTitleFieldBuilder(String message) {
+    public Builder(String message) {
       this.message = message;
     }
 
-    public TimelineSkillCardSkillCardTitleFieldBuilder code(String code) {
+    public Builder code(String code) {
       this.code = code;
       return this;
     }

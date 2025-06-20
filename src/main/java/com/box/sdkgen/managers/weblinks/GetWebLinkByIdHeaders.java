@@ -14,7 +14,7 @@ public class GetWebLinkByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetWebLinkByIdHeaders(GetWebLinkByIdHeadersBuilder builder) {
+  protected GetWebLinkByIdHeaders(Builder builder) {
     this.boxapi = builder.boxapi;
     this.extraHeaders = builder.extraHeaders;
   }
@@ -27,22 +27,22 @@ public class GetWebLinkByIdHeaders {
     return extraHeaders;
   }
 
-  public static class GetWebLinkByIdHeadersBuilder {
+  public static class Builder {
 
     protected String boxapi;
 
     protected Map<String, String> extraHeaders;
 
-    public GetWebLinkByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetWebLinkByIdHeadersBuilder boxapi(String boxapi) {
+    public Builder boxapi(String boxapi) {
       this.boxapi = boxapi;
       return this;
     }
 
-    public GetWebLinkByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

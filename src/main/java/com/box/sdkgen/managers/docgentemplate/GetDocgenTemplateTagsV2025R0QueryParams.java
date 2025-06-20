@@ -10,8 +10,7 @@ public class GetDocgenTemplateTagsV2025R0QueryParams {
 
   public GetDocgenTemplateTagsV2025R0QueryParams() {}
 
-  protected GetDocgenTemplateTagsV2025R0QueryParams(
-      GetDocgenTemplateTagsV2025R0QueryParamsBuilder builder) {
+  protected GetDocgenTemplateTagsV2025R0QueryParams(Builder builder) {
     this.templateVersionId = builder.templateVersionId;
     this.marker = builder.marker;
     this.limit = builder.limit;
@@ -29,7 +28,7 @@ public class GetDocgenTemplateTagsV2025R0QueryParams {
     return limit;
   }
 
-  public static class GetDocgenTemplateTagsV2025R0QueryParamsBuilder {
+  public static class Builder {
 
     protected String templateVersionId;
 
@@ -37,18 +36,17 @@ public class GetDocgenTemplateTagsV2025R0QueryParams {
 
     protected Long limit;
 
-    public GetDocgenTemplateTagsV2025R0QueryParamsBuilder templateVersionId(
-        String templateVersionId) {
+    public Builder templateVersionId(String templateVersionId) {
       this.templateVersionId = templateVersionId;
       return this;
     }
 
-    public GetDocgenTemplateTagsV2025R0QueryParamsBuilder marker(String marker) {
+    public Builder marker(String marker) {
       this.marker = marker;
       return this;
     }
 
-    public GetDocgenTemplateTagsV2025R0QueryParamsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }

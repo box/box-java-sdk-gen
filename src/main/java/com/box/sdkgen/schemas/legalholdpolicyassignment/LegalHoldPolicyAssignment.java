@@ -38,7 +38,7 @@ public class LegalHoldPolicyAssignment extends LegalHoldPolicyAssignmentBase {
     super();
   }
 
-  protected LegalHoldPolicyAssignment(LegalHoldPolicyAssignmentBuilder builder) {
+  protected LegalHoldPolicyAssignment(Builder builder) {
     super(builder);
     this.legalHoldPolicy = builder.legalHoldPolicy;
     this.assignedTo = builder.assignedTo;
@@ -123,8 +123,7 @@ public class LegalHoldPolicyAssignment extends LegalHoldPolicyAssignmentBase {
         + "}";
   }
 
-  public static class LegalHoldPolicyAssignmentBuilder
-      extends LegalHoldPolicyAssignmentBaseBuilder {
+  public static class Builder extends LegalHoldPolicyAssignmentBase.Builder {
 
     protected LegalHoldPolicyMini legalHoldPolicy;
 
@@ -136,46 +135,45 @@ public class LegalHoldPolicyAssignment extends LegalHoldPolicyAssignmentBase {
 
     protected Date deletedAt;
 
-    public LegalHoldPolicyAssignmentBuilder legalHoldPolicy(LegalHoldPolicyMini legalHoldPolicy) {
+    public Builder legalHoldPolicy(LegalHoldPolicyMini legalHoldPolicy) {
       this.legalHoldPolicy = legalHoldPolicy;
       return this;
     }
 
-    public LegalHoldPolicyAssignmentBuilder assignedTo(FileOrFolderOrWebLink assignedTo) {
+    public Builder assignedTo(FileOrFolderOrWebLink assignedTo) {
       this.assignedTo = assignedTo;
       return this;
     }
 
-    public LegalHoldPolicyAssignmentBuilder assignedBy(UserMini assignedBy) {
+    public Builder assignedBy(UserMini assignedBy) {
       this.assignedBy = assignedBy;
       return this;
     }
 
-    public LegalHoldPolicyAssignmentBuilder assignedAt(Date assignedAt) {
+    public Builder assignedAt(Date assignedAt) {
       this.assignedAt = assignedAt;
       return this;
     }
 
-    public LegalHoldPolicyAssignmentBuilder deletedAt(Date deletedAt) {
+    public Builder deletedAt(Date deletedAt) {
       this.deletedAt = deletedAt;
       return this;
     }
 
     @Override
-    public LegalHoldPolicyAssignmentBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
     @Override
-    public LegalHoldPolicyAssignmentBuilder type(LegalHoldPolicyAssignmentBaseTypeField type) {
+    public Builder type(LegalHoldPolicyAssignmentBaseTypeField type) {
       this.type = new EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public LegalHoldPolicyAssignmentBuilder type(
-        EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField> type) {
+    public Builder type(EnumWrapper<LegalHoldPolicyAssignmentBaseTypeField> type) {
       this.type = type;
       return this;
     }

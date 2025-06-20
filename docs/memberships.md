@@ -154,7 +154,7 @@ See the endpoint docs at
 
 <!-- sample put_group_memberships_id -->
 ```
-client.getMemberships().updateGroupMembershipById(groupMembership.getId(), new UpdateGroupMembershipByIdRequestBody.UpdateGroupMembershipByIdRequestBodyBuilder().role(UpdateGroupMembershipByIdRequestBodyRoleField.ADMIN).build())
+client.getMemberships().updateGroupMembershipById(groupMembership.getId(), new UpdateGroupMembershipByIdRequestBody.Builder().role(UpdateGroupMembershipByIdRequestBodyRoleField.ADMIN).build())
 ```
 
 ### Arguments

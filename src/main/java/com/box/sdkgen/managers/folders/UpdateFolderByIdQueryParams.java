@@ -8,7 +8,7 @@ public class UpdateFolderByIdQueryParams {
 
   public UpdateFolderByIdQueryParams() {}
 
-  protected UpdateFolderByIdQueryParams(UpdateFolderByIdQueryParamsBuilder builder) {
+  protected UpdateFolderByIdQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class UpdateFolderByIdQueryParams {
     return fields;
   }
 
-  public static class UpdateFolderByIdQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public UpdateFolderByIdQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

@@ -27,7 +27,7 @@ public class ZipDownloadNameConflictsField extends SerializableObject {
     super();
   }
 
-  protected ZipDownloadNameConflictsField(ZipDownloadNameConflictsFieldBuilder builder) {
+  protected ZipDownloadNameConflictsField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -92,7 +92,7 @@ public class ZipDownloadNameConflictsField extends SerializableObject {
         + "}";
   }
 
-  public static class ZipDownloadNameConflictsFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -102,28 +102,27 @@ public class ZipDownloadNameConflictsField extends SerializableObject {
 
     protected String downloadName;
 
-    public ZipDownloadNameConflictsFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public ZipDownloadNameConflictsFieldBuilder type(ZipDownloadNameConflictsTypeField type) {
+    public Builder type(ZipDownloadNameConflictsTypeField type) {
       this.type = new EnumWrapper<ZipDownloadNameConflictsTypeField>(type);
       return this;
     }
 
-    public ZipDownloadNameConflictsFieldBuilder type(
-        EnumWrapper<ZipDownloadNameConflictsTypeField> type) {
+    public Builder type(EnumWrapper<ZipDownloadNameConflictsTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public ZipDownloadNameConflictsFieldBuilder originalName(String originalName) {
+    public Builder originalName(String originalName) {
       this.originalName = originalName;
       return this;
     }
 
-    public ZipDownloadNameConflictsFieldBuilder downloadName(String downloadName) {
+    public Builder downloadName(String downloadName) {
       this.downloadName = downloadName;
       return this;
     }

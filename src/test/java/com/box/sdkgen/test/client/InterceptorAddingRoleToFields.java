@@ -12,7 +12,7 @@ public class InterceptorAddingRoleToFields implements Interceptor {
 
   @Override
   public FetchOptions beforeRequest(FetchOptions options) {
-    return new FetchOptions.FetchOptionsBuilder(options.getUrl(), options.getMethod())
+    return new FetchOptions.Builder(options.getUrl(), options.getMethod())
         .params(mergeMaps(options.getParams(), mapOf(entryOf("fields", "role"))))
         .headers(options.getHeaders())
         .data(options.getData())

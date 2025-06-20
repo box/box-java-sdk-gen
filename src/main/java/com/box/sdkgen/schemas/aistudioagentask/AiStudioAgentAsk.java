@@ -44,7 +44,7 @@ public class AiStudioAgentAsk extends SerializableObject {
     this.type = new EnumWrapper<AiStudioAgentAskTypeField>(AiStudioAgentAskTypeField.AI_AGENT_ASK);
   }
 
-  protected AiStudioAgentAsk(AiStudioAgentAskBuilder builder) {
+  protected AiStudioAgentAsk(Builder builder) {
     super();
     this.type = builder.type;
     this.accessState = builder.accessState;
@@ -157,7 +157,7 @@ public class AiStudioAgentAsk extends SerializableObject {
         + "}";
   }
 
-  public static class AiStudioAgentAskBuilder {
+  public static class Builder {
 
     protected EnumWrapper<AiStudioAgentAskTypeField> type;
 
@@ -175,44 +175,44 @@ public class AiStudioAgentAsk extends SerializableObject {
 
     protected AiStudioAgentBasicTextTool basicTextMulti;
 
-    public AiStudioAgentAskBuilder(String accessState, String description) {
+    public Builder(String accessState, String description) {
       this.accessState = accessState;
       this.description = description;
       this.type =
           new EnumWrapper<AiStudioAgentAskTypeField>(AiStudioAgentAskTypeField.AI_AGENT_ASK);
     }
 
-    public AiStudioAgentAskBuilder type(AiStudioAgentAskTypeField type) {
+    public Builder type(AiStudioAgentAskTypeField type) {
       this.type = new EnumWrapper<AiStudioAgentAskTypeField>(type);
       return this;
     }
 
-    public AiStudioAgentAskBuilder type(EnumWrapper<AiStudioAgentAskTypeField> type) {
+    public Builder type(EnumWrapper<AiStudioAgentAskTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiStudioAgentAskBuilder customInstructions(String customInstructions) {
+    public Builder customInstructions(String customInstructions) {
       this.customInstructions = customInstructions;
       return this;
     }
 
-    public AiStudioAgentAskBuilder longText(AiStudioAgentLongTextTool longText) {
+    public Builder longText(AiStudioAgentLongTextTool longText) {
       this.longText = longText;
       return this;
     }
 
-    public AiStudioAgentAskBuilder basicText(AiStudioAgentBasicTextTool basicText) {
+    public Builder basicText(AiStudioAgentBasicTextTool basicText) {
       this.basicText = basicText;
       return this;
     }
 
-    public AiStudioAgentAskBuilder longTextMulti(AiStudioAgentLongTextTool longTextMulti) {
+    public Builder longTextMulti(AiStudioAgentLongTextTool longTextMulti) {
       this.longTextMulti = longTextMulti;
       return this;
     }
 
-    public AiStudioAgentAskBuilder basicTextMulti(AiStudioAgentBasicTextTool basicTextMulti) {
+    public Builder basicTextMulti(AiStudioAgentBasicTextTool basicTextMulti) {
       this.basicTextMulti = basicTextMulti;
       return this;
     }

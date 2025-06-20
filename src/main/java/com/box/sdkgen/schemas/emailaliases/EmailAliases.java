@@ -17,7 +17,7 @@ public class EmailAliases extends SerializableObject {
     super();
   }
 
-  protected EmailAliases(EmailAliasesBuilder builder) {
+  protected EmailAliases(Builder builder) {
     super();
     this.totalCount = builder.totalCount;
     this.entries = builder.entries;
@@ -61,18 +61,18 @@ public class EmailAliases extends SerializableObject {
         + "}";
   }
 
-  public static class EmailAliasesBuilder {
+  public static class Builder {
 
     protected Long totalCount;
 
     protected List<EmailAlias> entries;
 
-    public EmailAliasesBuilder totalCount(Long totalCount) {
+    public Builder totalCount(Long totalCount) {
       this.totalCount = totalCount;
       return this;
     }
 
-    public EmailAliasesBuilder entries(List<EmailAlias> entries) {
+    public Builder entries(List<EmailAlias> entries) {
       this.entries = entries;
       return this;
     }

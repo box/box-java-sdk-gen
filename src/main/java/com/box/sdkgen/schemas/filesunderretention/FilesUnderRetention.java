@@ -22,7 +22,7 @@ public class FilesUnderRetention extends SerializableObject {
     super();
   }
 
-  protected FilesUnderRetention(FilesUnderRetentionBuilder builder) {
+  protected FilesUnderRetention(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -87,7 +87,7 @@ public class FilesUnderRetention extends SerializableObject {
         + "}";
   }
 
-  public static class FilesUnderRetentionBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -97,22 +97,22 @@ public class FilesUnderRetention extends SerializableObject {
 
     protected List<FileMini> entries;
 
-    public FilesUnderRetentionBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public FilesUnderRetentionBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public FilesUnderRetentionBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public FilesUnderRetentionBuilder entries(List<FileMini> entries) {
+    public Builder entries(List<FileMini> entries) {
       this.entries = entries;
       return this;
     }

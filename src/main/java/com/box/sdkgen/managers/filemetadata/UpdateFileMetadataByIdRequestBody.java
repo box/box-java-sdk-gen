@@ -29,7 +29,7 @@ public class UpdateFileMetadataByIdRequestBody extends SerializableObject {
     super();
   }
 
-  protected UpdateFileMetadataByIdRequestBody(UpdateFileMetadataByIdRequestBodyBuilder builder) {
+  protected UpdateFileMetadataByIdRequestBody(Builder builder) {
     super();
     this.op = builder.op;
     this.path = builder.path;
@@ -94,7 +94,7 @@ public class UpdateFileMetadataByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateFileMetadataByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected EnumWrapper<UpdateFileMetadataByIdRequestBodyOpField> op;
 
@@ -104,29 +104,27 @@ public class UpdateFileMetadataByIdRequestBody extends SerializableObject {
 
     protected String from;
 
-    public UpdateFileMetadataByIdRequestBodyBuilder op(
-        UpdateFileMetadataByIdRequestBodyOpField op) {
+    public Builder op(UpdateFileMetadataByIdRequestBodyOpField op) {
       this.op = new EnumWrapper<UpdateFileMetadataByIdRequestBodyOpField>(op);
       return this;
     }
 
-    public UpdateFileMetadataByIdRequestBodyBuilder op(
-        EnumWrapper<UpdateFileMetadataByIdRequestBodyOpField> op) {
+    public Builder op(EnumWrapper<UpdateFileMetadataByIdRequestBodyOpField> op) {
       this.op = op;
       return this;
     }
 
-    public UpdateFileMetadataByIdRequestBodyBuilder path(String path) {
+    public Builder path(String path) {
       this.path = path;
       return this;
     }
 
-    public UpdateFileMetadataByIdRequestBodyBuilder value(MetadataInstanceValue value) {
+    public Builder value(MetadataInstanceValue value) {
       this.value = value;
       return this;
     }
 
-    public UpdateFileMetadataByIdRequestBodyBuilder from(String from) {
+    public Builder from(String from) {
       this.from = from;
       return this;
     }

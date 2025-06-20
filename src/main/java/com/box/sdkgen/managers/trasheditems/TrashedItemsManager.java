@@ -25,7 +25,7 @@ public class TrashedItemsManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected TrashedItemsManager(TrashedItemsManagerBuilder builder) {
+  protected TrashedItemsManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -59,7 +59,7 @@ public class TrashedItemsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -82,22 +82,22 @@ public class TrashedItemsManager {
     return networkSession;
   }
 
-  public static class TrashedItemsManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public TrashedItemsManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public TrashedItemsManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public TrashedItemsManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

@@ -12,7 +12,7 @@ public class GetFileVersionsHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetFileVersionsHeaders(GetFileVersionsHeadersBuilder builder) {
+  protected GetFileVersionsHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetFileVersionsHeaders {
     return extraHeaders;
   }
 
-  public static class GetFileVersionsHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetFileVersionsHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetFileVersionsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

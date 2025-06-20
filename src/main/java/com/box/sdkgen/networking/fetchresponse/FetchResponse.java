@@ -21,7 +21,7 @@ public class FetchResponse {
     this.headers = headers;
   }
 
-  protected FetchResponse(FetchResponseBuilder builder) {
+  protected FetchResponse(Builder builder) {
     this.url = builder.url;
     this.status = builder.status;
     this.data = builder.data;
@@ -49,7 +49,7 @@ public class FetchResponse {
     return headers;
   }
 
-  public static class FetchResponseBuilder {
+  public static class Builder {
 
     protected String url;
 
@@ -61,22 +61,22 @@ public class FetchResponse {
 
     protected final Map<String, String> headers;
 
-    public FetchResponseBuilder(int status, Map<String, String> headers) {
+    public Builder(int status, Map<String, String> headers) {
       this.status = status;
       this.headers = headers;
     }
 
-    public FetchResponseBuilder url(String url) {
+    public Builder url(String url) {
       this.url = url;
       return this;
     }
 
-    public FetchResponseBuilder data(JsonNode data) {
+    public Builder data(JsonNode data) {
       this.data = data;
       return this;
     }
 
-    public FetchResponseBuilder content(InputStream content) {
+    public Builder content(InputStream content) {
       this.content = content;
       return this;
     }

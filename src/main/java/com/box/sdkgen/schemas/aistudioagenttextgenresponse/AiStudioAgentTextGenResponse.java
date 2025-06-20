@@ -42,7 +42,7 @@ public class AiStudioAgentTextGenResponse extends SerializableObject {
             AiStudioAgentTextGenResponseTypeField.AI_AGENT_TEXT_GEN);
   }
 
-  protected AiStudioAgentTextGenResponse(AiStudioAgentTextGenResponseBuilder builder) {
+  protected AiStudioAgentTextGenResponse(Builder builder) {
     super();
     this.type = builder.type;
     this.accessState = builder.accessState;
@@ -117,7 +117,7 @@ public class AiStudioAgentTextGenResponse extends SerializableObject {
         + "}";
   }
 
-  public static class AiStudioAgentTextGenResponseBuilder {
+  public static class Builder {
 
     protected EnumWrapper<AiStudioAgentTextGenResponseTypeField> type;
 
@@ -129,7 +129,7 @@ public class AiStudioAgentTextGenResponse extends SerializableObject {
 
     protected AiStudioAgentBasicGenToolResponse basicGen;
 
-    public AiStudioAgentTextGenResponseBuilder(String accessState, String description) {
+    public Builder(String accessState, String description) {
       this.accessState = accessState;
       this.description = description;
       this.type =
@@ -137,24 +137,22 @@ public class AiStudioAgentTextGenResponse extends SerializableObject {
               AiStudioAgentTextGenResponseTypeField.AI_AGENT_TEXT_GEN);
     }
 
-    public AiStudioAgentTextGenResponseBuilder type(AiStudioAgentTextGenResponseTypeField type) {
+    public Builder type(AiStudioAgentTextGenResponseTypeField type) {
       this.type = new EnumWrapper<AiStudioAgentTextGenResponseTypeField>(type);
       return this;
     }
 
-    public AiStudioAgentTextGenResponseBuilder type(
-        EnumWrapper<AiStudioAgentTextGenResponseTypeField> type) {
+    public Builder type(EnumWrapper<AiStudioAgentTextGenResponseTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiStudioAgentTextGenResponseBuilder customInstructions(String customInstructions) {
+    public Builder customInstructions(String customInstructions) {
       this.customInstructions = customInstructions;
       return this;
     }
 
-    public AiStudioAgentTextGenResponseBuilder basicGen(
-        AiStudioAgentBasicGenToolResponse basicGen) {
+    public Builder basicGen(AiStudioAgentBasicGenToolResponse basicGen) {
       this.basicGen = basicGen;
       return this;
     }

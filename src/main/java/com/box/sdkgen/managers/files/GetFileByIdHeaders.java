@@ -18,7 +18,7 @@ public class GetFileByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetFileByIdHeaders(GetFileByIdHeadersBuilder builder) {
+  protected GetFileByIdHeaders(Builder builder) {
     this.ifNoneMatch = builder.ifNoneMatch;
     this.boxapi = builder.boxapi;
     this.xRepHints = builder.xRepHints;
@@ -41,7 +41,7 @@ public class GetFileByIdHeaders {
     return extraHeaders;
   }
 
-  public static class GetFileByIdHeadersBuilder {
+  public static class Builder {
 
     protected String ifNoneMatch;
 
@@ -51,26 +51,26 @@ public class GetFileByIdHeaders {
 
     protected Map<String, String> extraHeaders;
 
-    public GetFileByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetFileByIdHeadersBuilder ifNoneMatch(String ifNoneMatch) {
+    public Builder ifNoneMatch(String ifNoneMatch) {
       this.ifNoneMatch = ifNoneMatch;
       return this;
     }
 
-    public GetFileByIdHeadersBuilder boxapi(String boxapi) {
+    public Builder boxapi(String boxapi) {
       this.boxapi = boxapi;
       return this;
     }
 
-    public GetFileByIdHeadersBuilder xRepHints(String xRepHints) {
+    public Builder xRepHints(String xRepHints) {
       this.xRepHints = xRepHints;
       return this;
     }
 
-    public GetFileByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

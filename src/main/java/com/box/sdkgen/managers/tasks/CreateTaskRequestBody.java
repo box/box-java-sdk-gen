@@ -42,7 +42,7 @@ public class CreateTaskRequestBody extends SerializableObject {
     this.item = item;
   }
 
-  protected CreateTaskRequestBody(CreateTaskRequestBodyBuilder builder) {
+  protected CreateTaskRequestBody(Builder builder) {
     super();
     this.item = builder.item;
     this.action = builder.action;
@@ -117,7 +117,7 @@ public class CreateTaskRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class CreateTaskRequestBodyBuilder {
+  public static class Builder {
 
     protected final CreateTaskRequestBodyItemField item;
 
@@ -129,39 +129,37 @@ public class CreateTaskRequestBody extends SerializableObject {
 
     protected EnumWrapper<CreateTaskRequestBodyCompletionRuleField> completionRule;
 
-    public CreateTaskRequestBodyBuilder(CreateTaskRequestBodyItemField item) {
+    public Builder(CreateTaskRequestBodyItemField item) {
       this.item = item;
     }
 
-    public CreateTaskRequestBodyBuilder action(CreateTaskRequestBodyActionField action) {
+    public Builder action(CreateTaskRequestBodyActionField action) {
       this.action = new EnumWrapper<CreateTaskRequestBodyActionField>(action);
       return this;
     }
 
-    public CreateTaskRequestBodyBuilder action(
-        EnumWrapper<CreateTaskRequestBodyActionField> action) {
+    public Builder action(EnumWrapper<CreateTaskRequestBodyActionField> action) {
       this.action = action;
       return this;
     }
 
-    public CreateTaskRequestBodyBuilder message(String message) {
+    public Builder message(String message) {
       this.message = message;
       return this;
     }
 
-    public CreateTaskRequestBodyBuilder dueAt(Date dueAt) {
+    public Builder dueAt(Date dueAt) {
       this.dueAt = dueAt;
       return this;
     }
 
-    public CreateTaskRequestBodyBuilder completionRule(
-        CreateTaskRequestBodyCompletionRuleField completionRule) {
+    public Builder completionRule(CreateTaskRequestBodyCompletionRuleField completionRule) {
       this.completionRule =
           new EnumWrapper<CreateTaskRequestBodyCompletionRuleField>(completionRule);
       return this;
     }
 
-    public CreateTaskRequestBodyBuilder completionRule(
+    public Builder completionRule(
         EnumWrapper<CreateTaskRequestBodyCompletionRuleField> completionRule) {
       this.completionRule = completionRule;
       return this;

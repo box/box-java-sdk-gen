@@ -22,7 +22,7 @@ public class StoragePolicyAssignments extends SerializableObject {
     super();
   }
 
-  protected StoragePolicyAssignments(StoragePolicyAssignmentsBuilder builder) {
+  protected StoragePolicyAssignments(Builder builder) {
     super();
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
@@ -87,7 +87,7 @@ public class StoragePolicyAssignments extends SerializableObject {
         + "}";
   }
 
-  public static class StoragePolicyAssignmentsBuilder {
+  public static class Builder {
 
     protected Long limit;
 
@@ -97,22 +97,22 @@ public class StoragePolicyAssignments extends SerializableObject {
 
     protected List<StoragePolicyAssignment> entries;
 
-    public StoragePolicyAssignmentsBuilder limit(Long limit) {
+    public Builder limit(Long limit) {
       this.limit = limit;
       return this;
     }
 
-    public StoragePolicyAssignmentsBuilder nextMarker(String nextMarker) {
+    public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
       return this;
     }
 
-    public StoragePolicyAssignmentsBuilder prevMarker(String prevMarker) {
+    public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
       return this;
     }
 
-    public StoragePolicyAssignmentsBuilder entries(List<StoragePolicyAssignment> entries) {
+    public Builder entries(List<StoragePolicyAssignment> entries) {
       this.entries = entries;
       return this;
     }

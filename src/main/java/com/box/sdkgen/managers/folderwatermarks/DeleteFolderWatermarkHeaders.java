@@ -12,7 +12,7 @@ public class DeleteFolderWatermarkHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteFolderWatermarkHeaders(DeleteFolderWatermarkHeadersBuilder builder) {
+  protected DeleteFolderWatermarkHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class DeleteFolderWatermarkHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteFolderWatermarkHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteFolderWatermarkHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteFolderWatermarkHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

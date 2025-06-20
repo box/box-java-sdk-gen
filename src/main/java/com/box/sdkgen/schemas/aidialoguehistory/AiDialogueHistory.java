@@ -23,7 +23,7 @@ public class AiDialogueHistory extends SerializableObject {
     super();
   }
 
-  protected AiDialogueHistory(AiDialogueHistoryBuilder builder) {
+  protected AiDialogueHistory(Builder builder) {
     super();
     this.prompt = builder.prompt;
     this.answer = builder.answer;
@@ -78,7 +78,7 @@ public class AiDialogueHistory extends SerializableObject {
         + "}";
   }
 
-  public static class AiDialogueHistoryBuilder {
+  public static class Builder {
 
     protected String prompt;
 
@@ -86,17 +86,17 @@ public class AiDialogueHistory extends SerializableObject {
 
     protected Date createdAt;
 
-    public AiDialogueHistoryBuilder prompt(String prompt) {
+    public Builder prompt(String prompt) {
       this.prompt = prompt;
       return this;
     }
 
-    public AiDialogueHistoryBuilder answer(String answer) {
+    public Builder answer(String answer) {
       this.answer = answer;
       return this;
     }
 
-    public AiDialogueHistoryBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }

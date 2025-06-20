@@ -22,7 +22,7 @@ public class TermsOfServiceEnterpriseField extends SerializableObject {
     super();
   }
 
-  protected TermsOfServiceEnterpriseField(TermsOfServiceEnterpriseFieldBuilder builder) {
+  protected TermsOfServiceEnterpriseField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -77,7 +77,7 @@ public class TermsOfServiceEnterpriseField extends SerializableObject {
         + "}";
   }
 
-  public static class TermsOfServiceEnterpriseFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -85,23 +85,22 @@ public class TermsOfServiceEnterpriseField extends SerializableObject {
 
     protected String name;
 
-    public TermsOfServiceEnterpriseFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public TermsOfServiceEnterpriseFieldBuilder type(TermsOfServiceEnterpriseTypeField type) {
+    public Builder type(TermsOfServiceEnterpriseTypeField type) {
       this.type = new EnumWrapper<TermsOfServiceEnterpriseTypeField>(type);
       return this;
     }
 
-    public TermsOfServiceEnterpriseFieldBuilder type(
-        EnumWrapper<TermsOfServiceEnterpriseTypeField> type) {
+    public Builder type(EnumWrapper<TermsOfServiceEnterpriseTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TermsOfServiceEnterpriseFieldBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }

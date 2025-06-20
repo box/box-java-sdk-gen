@@ -32,7 +32,7 @@ public class ShieldListContentEmailV2025R0 extends SerializableObject {
             ShieldListContentEmailV2025R0TypeField.EMAIL);
   }
 
-  protected ShieldListContentEmailV2025R0(ShieldListContentEmailV2025R0Builder builder) {
+  protected ShieldListContentEmailV2025R0(Builder builder) {
     super();
     this.type = builder.type;
     this.emailAddresses = builder.emailAddresses;
@@ -77,26 +77,25 @@ public class ShieldListContentEmailV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class ShieldListContentEmailV2025R0Builder {
+  public static class Builder {
 
     protected EnumWrapper<ShieldListContentEmailV2025R0TypeField> type;
 
     protected final List<String> emailAddresses;
 
-    public ShieldListContentEmailV2025R0Builder(List<String> emailAddresses) {
+    public Builder(List<String> emailAddresses) {
       this.emailAddresses = emailAddresses;
       this.type =
           new EnumWrapper<ShieldListContentEmailV2025R0TypeField>(
               ShieldListContentEmailV2025R0TypeField.EMAIL);
     }
 
-    public ShieldListContentEmailV2025R0Builder type(ShieldListContentEmailV2025R0TypeField type) {
+    public Builder type(ShieldListContentEmailV2025R0TypeField type) {
       this.type = new EnumWrapper<ShieldListContentEmailV2025R0TypeField>(type);
       return this;
     }
 
-    public ShieldListContentEmailV2025R0Builder type(
-        EnumWrapper<ShieldListContentEmailV2025R0TypeField> type) {
+    public Builder type(EnumWrapper<ShieldListContentEmailV2025R0TypeField> type) {
       this.type = type;
       return this;
     }

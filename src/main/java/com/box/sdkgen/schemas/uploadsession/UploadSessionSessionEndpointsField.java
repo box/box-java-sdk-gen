@@ -25,7 +25,7 @@ public class UploadSessionSessionEndpointsField extends SerializableObject {
     super();
   }
 
-  protected UploadSessionSessionEndpointsField(UploadSessionSessionEndpointsFieldBuilder builder) {
+  protected UploadSessionSessionEndpointsField(Builder builder) {
     super();
     this.uploadPart = builder.uploadPart;
     this.commit = builder.commit;
@@ -110,7 +110,7 @@ public class UploadSessionSessionEndpointsField extends SerializableObject {
         + "}";
   }
 
-  public static class UploadSessionSessionEndpointsFieldBuilder {
+  public static class Builder {
 
     protected String uploadPart;
 
@@ -124,32 +124,32 @@ public class UploadSessionSessionEndpointsField extends SerializableObject {
 
     protected String logEvent;
 
-    public UploadSessionSessionEndpointsFieldBuilder uploadPart(String uploadPart) {
+    public Builder uploadPart(String uploadPart) {
       this.uploadPart = uploadPart;
       return this;
     }
 
-    public UploadSessionSessionEndpointsFieldBuilder commit(String commit) {
+    public Builder commit(String commit) {
       this.commit = commit;
       return this;
     }
 
-    public UploadSessionSessionEndpointsFieldBuilder abort(String abort) {
+    public Builder abort(String abort) {
       this.abort = abort;
       return this;
     }
 
-    public UploadSessionSessionEndpointsFieldBuilder listParts(String listParts) {
+    public Builder listParts(String listParts) {
       this.listParts = listParts;
       return this;
     }
 
-    public UploadSessionSessionEndpointsFieldBuilder status(String status) {
+    public Builder status(String status) {
       this.status = status;
       return this;
     }
 
-    public UploadSessionSessionEndpointsFieldBuilder logEvent(String logEvent) {
+    public Builder logEvent(String logEvent) {
       this.logEvent = logEvent;
       return this;
     }

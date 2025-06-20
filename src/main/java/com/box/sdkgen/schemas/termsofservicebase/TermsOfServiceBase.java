@@ -23,7 +23,7 @@ public class TermsOfServiceBase extends SerializableObject {
         new EnumWrapper<TermsOfServiceBaseTypeField>(TermsOfServiceBaseTypeField.TERMS_OF_SERVICE);
   }
 
-  protected TermsOfServiceBase(TermsOfServiceBaseBuilder builder) {
+  protected TermsOfServiceBase(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -59,25 +59,25 @@ public class TermsOfServiceBase extends SerializableObject {
     return "TermsOfServiceBase{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class TermsOfServiceBaseBuilder {
+  public static class Builder {
 
     protected final String id;
 
     protected EnumWrapper<TermsOfServiceBaseTypeField> type;
 
-    public TermsOfServiceBaseBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<TermsOfServiceBaseTypeField>(
               TermsOfServiceBaseTypeField.TERMS_OF_SERVICE);
     }
 
-    public TermsOfServiceBaseBuilder type(TermsOfServiceBaseTypeField type) {
+    public Builder type(TermsOfServiceBaseTypeField type) {
       this.type = new EnumWrapper<TermsOfServiceBaseTypeField>(type);
       return this;
     }
 
-    public TermsOfServiceBaseBuilder type(EnumWrapper<TermsOfServiceBaseTypeField> type) {
+    public Builder type(EnumWrapper<TermsOfServiceBaseTypeField> type) {
       this.type = type;
       return this;
     }

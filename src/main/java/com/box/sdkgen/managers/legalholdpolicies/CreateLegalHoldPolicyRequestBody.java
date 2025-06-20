@@ -33,7 +33,7 @@ public class CreateLegalHoldPolicyRequestBody extends SerializableObject {
     this.policyName = policyName;
   }
 
-  protected CreateLegalHoldPolicyRequestBody(CreateLegalHoldPolicyRequestBodyBuilder builder) {
+  protected CreateLegalHoldPolicyRequestBody(Builder builder) {
     super();
     this.policyName = builder.policyName;
     this.description = builder.description;
@@ -108,7 +108,7 @@ public class CreateLegalHoldPolicyRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class CreateLegalHoldPolicyRequestBodyBuilder {
+  public static class Builder {
 
     protected final String policyName;
 
@@ -120,26 +120,26 @@ public class CreateLegalHoldPolicyRequestBody extends SerializableObject {
 
     protected Boolean isOngoing;
 
-    public CreateLegalHoldPolicyRequestBodyBuilder(String policyName) {
+    public Builder(String policyName) {
       this.policyName = policyName;
     }
 
-    public CreateLegalHoldPolicyRequestBodyBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public CreateLegalHoldPolicyRequestBodyBuilder filterStartedAt(Date filterStartedAt) {
+    public Builder filterStartedAt(Date filterStartedAt) {
       this.filterStartedAt = filterStartedAt;
       return this;
     }
 
-    public CreateLegalHoldPolicyRequestBodyBuilder filterEndedAt(Date filterEndedAt) {
+    public Builder filterEndedAt(Date filterEndedAt) {
       this.filterEndedAt = filterEndedAt;
       return this;
     }
 
-    public CreateLegalHoldPolicyRequestBodyBuilder isOngoing(Boolean isOngoing) {
+    public Builder isOngoing(Boolean isOngoing) {
       this.isOngoing = isOngoing;
       return this;
     }

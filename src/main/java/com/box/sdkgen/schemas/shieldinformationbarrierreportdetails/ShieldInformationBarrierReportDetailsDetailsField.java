@@ -13,8 +13,7 @@ public class ShieldInformationBarrierReportDetailsDetailsField extends Serializa
     super();
   }
 
-  protected ShieldInformationBarrierReportDetailsDetailsField(
-      ShieldInformationBarrierReportDetailsDetailsFieldBuilder builder) {
+  protected ShieldInformationBarrierReportDetailsDetailsField(Builder builder) {
     super();
     this.folderId = builder.folderId;
   }
@@ -50,11 +49,11 @@ public class ShieldInformationBarrierReportDetailsDetailsField extends Serializa
         + "}";
   }
 
-  public static class ShieldInformationBarrierReportDetailsDetailsFieldBuilder {
+  public static class Builder {
 
     protected String folderId;
 
-    public ShieldInformationBarrierReportDetailsDetailsFieldBuilder folderId(String folderId) {
+    public Builder folderId(String folderId) {
       this.folderId = folderId;
       return this;
     }

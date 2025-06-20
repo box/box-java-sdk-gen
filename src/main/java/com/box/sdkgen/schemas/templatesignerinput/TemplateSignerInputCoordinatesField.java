@@ -13,8 +13,7 @@ public class TemplateSignerInputCoordinatesField extends SerializableObject {
     super();
   }
 
-  protected TemplateSignerInputCoordinatesField(
-      TemplateSignerInputCoordinatesFieldBuilder builder) {
+  protected TemplateSignerInputCoordinatesField(Builder builder) {
     super();
     this.x = builder.x;
     this.y = builder.y;
@@ -58,18 +57,18 @@ public class TemplateSignerInputCoordinatesField extends SerializableObject {
         + "}";
   }
 
-  public static class TemplateSignerInputCoordinatesFieldBuilder {
+  public static class Builder {
 
     protected Double x;
 
     protected Double y;
 
-    public TemplateSignerInputCoordinatesFieldBuilder x(Double x) {
+    public Builder x(Double x) {
       this.x = x;
       return this;
     }
 
-    public TemplateSignerInputCoordinatesFieldBuilder y(Double y) {
+    public Builder y(Double y) {
       this.y = y;
       return this;
     }

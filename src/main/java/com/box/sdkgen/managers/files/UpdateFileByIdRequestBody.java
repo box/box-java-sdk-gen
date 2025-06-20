@@ -37,7 +37,7 @@ public class UpdateFileByIdRequestBody extends SerializableObject {
     super();
   }
 
-  protected UpdateFileByIdRequestBody(UpdateFileByIdRequestBodyBuilder builder) {
+  protected UpdateFileByIdRequestBody(Builder builder) {
     super();
     this.name = builder.name;
     this.description = builder.description;
@@ -153,7 +153,7 @@ public class UpdateFileByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class UpdateFileByIdRequestBodyBuilder {
+  public static class Builder {
 
     protected String name;
 
@@ -173,50 +173,47 @@ public class UpdateFileByIdRequestBody extends SerializableObject {
 
     protected List<String> tags;
 
-    public UpdateFileByIdRequestBodyBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public UpdateFileByIdRequestBodyBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public UpdateFileByIdRequestBodyBuilder parent(UpdateFileByIdRequestBodyParentField parent) {
+    public Builder parent(UpdateFileByIdRequestBodyParentField parent) {
       this.parent = parent;
       return this;
     }
 
-    public UpdateFileByIdRequestBodyBuilder sharedLink(
-        UpdateFileByIdRequestBodySharedLinkField sharedLink) {
+    public Builder sharedLink(UpdateFileByIdRequestBodySharedLinkField sharedLink) {
       this.sharedLink = sharedLink;
       return this;
     }
 
-    public UpdateFileByIdRequestBodyBuilder lock(UpdateFileByIdRequestBodyLockField lock) {
+    public Builder lock(UpdateFileByIdRequestBodyLockField lock) {
       this.lock = lock;
       return this;
     }
 
-    public UpdateFileByIdRequestBodyBuilder dispositionAt(Date dispositionAt) {
+    public Builder dispositionAt(Date dispositionAt) {
       this.dispositionAt = dispositionAt;
       return this;
     }
 
-    public UpdateFileByIdRequestBodyBuilder permissions(
-        UpdateFileByIdRequestBodyPermissionsField permissions) {
+    public Builder permissions(UpdateFileByIdRequestBodyPermissionsField permissions) {
       this.permissions = permissions;
       return this;
     }
 
-    public UpdateFileByIdRequestBodyBuilder collections(
-        List<UpdateFileByIdRequestBodyCollectionsField> collections) {
+    public Builder collections(List<UpdateFileByIdRequestBodyCollectionsField> collections) {
       this.collections = collections;
       return this;
     }
 
-    public UpdateFileByIdRequestBodyBuilder tags(List<String> tags) {
+    public Builder tags(List<String> tags) {
       this.tags = tags;
       return this;
     }

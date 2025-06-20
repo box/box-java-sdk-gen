@@ -44,7 +44,7 @@ public class JWTConfig {
     this.tokenStorage = new InMemoryTokenStorage();
   }
 
-  protected JWTConfig(JWTConfigBuilder builder) {
+  protected JWTConfig(Builder builder) {
     this.clientId = builder.clientId;
     this.clientSecret = builder.clientSecret;
     this.jwtKeyId = builder.jwtKeyId;
@@ -65,7 +65,7 @@ public class JWTConfig {
         JsonManager.deserialize(jsonToSerializedData(configJsonString), JwtConfigFile.class);
     JWTConfig newConfig =
         (!(tokenStorage == null)
-            ? new JWTConfig.JWTConfigBuilder(
+            ? new JWTConfig.Builder(
                     configJson.getBoxAppSettings().getClientId(),
                     configJson.getBoxAppSettings().getClientSecret(),
                     configJson.getBoxAppSettings().getAppAuth().getPublicKeyId(),
@@ -75,7 +75,7 @@ public class JWTConfig {
                 .userId(configJson.getUserId())
                 .tokenStorage(tokenStorage)
                 .build()
-            : new JWTConfig.JWTConfigBuilder(
+            : new JWTConfig.Builder(
                     configJson.getBoxAppSettings().getClientId(),
                     configJson.getBoxAppSettings().getClientSecret(),
                     configJson.getBoxAppSettings().getAppAuth().getPublicKeyId(),
@@ -132,7 +132,7 @@ public class JWTConfig {
     return tokenStorage;
   }
 
-  public static class JWTConfigBuilder {
+  public static class Builder {
 
     protected final String clientId;
 
@@ -152,7 +152,7 @@ public class JWTConfig {
 
     protected TokenStorage tokenStorage;
 
-    public JWTConfigBuilder(
+    public Builder(
         String clientId,
         String clientSecret,
         String jwtKeyId,
@@ -167,27 +167,27 @@ public class JWTConfig {
       this.tokenStorage = new InMemoryTokenStorage();
     }
 
-    public JWTConfigBuilder enterpriseId(String enterpriseId) {
+    public Builder enterpriseId(String enterpriseId) {
       this.enterpriseId = enterpriseId;
       return this;
     }
 
-    public JWTConfigBuilder userId(String userId) {
+    public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
-    public JWTConfigBuilder algorithm(JwtAlgorithm algorithm) {
+    public Builder algorithm(JwtAlgorithm algorithm) {
       this.algorithm = new EnumWrapper<JwtAlgorithm>(algorithm);
       return this;
     }
 
-    public JWTConfigBuilder algorithm(EnumWrapper<JwtAlgorithm> algorithm) {
+    public Builder algorithm(EnumWrapper<JwtAlgorithm> algorithm) {
       this.algorithm = algorithm;
       return this;
     }
 
-    public JWTConfigBuilder tokenStorage(TokenStorage tokenStorage) {
+    public Builder tokenStorage(TokenStorage tokenStorage) {
       this.tokenStorage = tokenStorage;
       return this;
     }

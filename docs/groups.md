@@ -50,7 +50,7 @@ See the endpoint docs at
 
 <!-- sample post_groups -->
 ```
-client.getGroups().createGroup(new CreateGroupRequestBody.CreateGroupRequestBodyBuilder(groupName).description(groupDescription).build())
+client.getGroups().createGroup(new CreateGroupRequestBody.Builder(groupName).description(groupDescription).build())
 ```
 
 ### Arguments
@@ -83,7 +83,7 @@ See the endpoint docs at
 
 <!-- sample get_groups_id -->
 ```
-client.getGroups().getGroupById(group.getId(), new GetGroupByIdQueryParams.GetGroupByIdQueryParamsBuilder().fields(Arrays.asList("id", "name", "description", "group_type")).build())
+client.getGroups().getGroupById(group.getId(), new GetGroupByIdQueryParams.Builder().fields(Arrays.asList("id", "name", "description", "group_type")).build())
 ```
 
 ### Arguments
@@ -116,7 +116,7 @@ See the endpoint docs at
 
 <!-- sample put_groups_id -->
 ```
-client.getGroups().updateGroupById(group.getId(), new UpdateGroupByIdRequestBody.UpdateGroupByIdRequestBodyBuilder().name(updatedGroupName).build())
+client.getGroups().updateGroupById(group.getId(), new UpdateGroupByIdRequestBody.Builder().name(updatedGroupName).build())
 ```
 
 ### Arguments

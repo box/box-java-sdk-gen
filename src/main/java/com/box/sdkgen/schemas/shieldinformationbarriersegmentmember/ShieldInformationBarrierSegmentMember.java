@@ -42,8 +42,7 @@ public class ShieldInformationBarrierSegmentMember
     super();
   }
 
-  protected ShieldInformationBarrierSegmentMember(
-      ShieldInformationBarrierSegmentMemberBuilder builder) {
+  protected ShieldInformationBarrierSegmentMember(Builder builder) {
     super(builder);
     this.shieldInformationBarrier = builder.shieldInformationBarrier;
     this.shieldInformationBarrierSegment = builder.shieldInformationBarrierSegment;
@@ -153,8 +152,7 @@ public class ShieldInformationBarrierSegmentMember
         + "}";
   }
 
-  public static class ShieldInformationBarrierSegmentMemberBuilder
-      extends ShieldInformationBarrierSegmentMemberMiniBuilder {
+  public static class Builder extends ShieldInformationBarrierSegmentMemberMini.Builder {
 
     protected ShieldInformationBarrierBase shieldInformationBarrier;
 
@@ -169,61 +167,58 @@ public class ShieldInformationBarrierSegmentMember
 
     protected UserBase updatedBy;
 
-    public ShieldInformationBarrierSegmentMemberBuilder shieldInformationBarrier(
-        ShieldInformationBarrierBase shieldInformationBarrier) {
+    public Builder shieldInformationBarrier(ShieldInformationBarrierBase shieldInformationBarrier) {
       this.shieldInformationBarrier = shieldInformationBarrier;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentMemberBuilder shieldInformationBarrierSegment(
+    public Builder shieldInformationBarrierSegment(
         ShieldInformationBarrierSegmentMemberShieldInformationBarrierSegmentField
             shieldInformationBarrierSegment) {
       this.shieldInformationBarrierSegment = shieldInformationBarrierSegment;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentMemberBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentMemberBuilder createdBy(UserBase createdBy) {
+    public Builder createdBy(UserBase createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentMemberBuilder updatedAt(Date updatedAt) {
+    public Builder updatedAt(Date updatedAt) {
       this.updatedAt = updatedAt;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentMemberBuilder updatedBy(UserBase updatedBy) {
+    public Builder updatedBy(UserBase updatedBy) {
       this.updatedBy = updatedBy;
       return this;
     }
 
     @Override
-    public ShieldInformationBarrierSegmentMemberBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
     @Override
-    public ShieldInformationBarrierSegmentMemberBuilder type(
-        ShieldInformationBarrierSegmentMemberBaseTypeField type) {
+    public Builder type(ShieldInformationBarrierSegmentMemberBaseTypeField type) {
       this.type = new EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField>(type);
       return this;
     }
 
     @Override
-    public ShieldInformationBarrierSegmentMemberBuilder type(
-        EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField> type) {
+    public Builder type(EnumWrapper<ShieldInformationBarrierSegmentMemberBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public ShieldInformationBarrierSegmentMemberBuilder user(UserBase user) {
+    public Builder user(UserBase user) {
       this.user = user;
       return this;
     }

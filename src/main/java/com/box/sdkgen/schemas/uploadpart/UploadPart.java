@@ -11,7 +11,7 @@ public class UploadPart extends UploadPartMini {
     super();
   }
 
-  protected UploadPart(UploadPartBuilder builder) {
+  protected UploadPart(Builder builder) {
     super(builder);
     this.sha1 = builder.sha1;
   }
@@ -61,29 +61,29 @@ public class UploadPart extends UploadPartMini {
         + "}";
   }
 
-  public static class UploadPartBuilder extends UploadPartMiniBuilder {
+  public static class Builder extends UploadPartMini.Builder {
 
     protected String sha1;
 
-    public UploadPartBuilder sha1(String sha1) {
+    public Builder sha1(String sha1) {
       this.sha1 = sha1;
       return this;
     }
 
     @Override
-    public UploadPartBuilder partId(String partId) {
+    public Builder partId(String partId) {
       this.partId = partId;
       return this;
     }
 
     @Override
-    public UploadPartBuilder offset(Long offset) {
+    public Builder offset(Long offset) {
       this.offset = offset;
       return this;
     }
 
     @Override
-    public UploadPartBuilder size(Long size) {
+    public Builder size(Long size) {
       this.size = size;
       return this;
     }

@@ -24,8 +24,7 @@ public class UpdateFileByIdRequestBodyPermissionsField extends SerializableObjec
     super();
   }
 
-  protected UpdateFileByIdRequestBodyPermissionsField(
-      UpdateFileByIdRequestBodyPermissionsFieldBuilder builder) {
+  protected UpdateFileByIdRequestBodyPermissionsField(Builder builder) {
     super();
     this.canDownload = builder.canDownload;
   }
@@ -61,18 +60,17 @@ public class UpdateFileByIdRequestBodyPermissionsField extends SerializableObjec
         + "}";
   }
 
-  public static class UpdateFileByIdRequestBodyPermissionsFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField> canDownload;
 
-    public UpdateFileByIdRequestBodyPermissionsFieldBuilder canDownload(
-        UpdateFileByIdRequestBodyPermissionsCanDownloadField canDownload) {
+    public Builder canDownload(UpdateFileByIdRequestBodyPermissionsCanDownloadField canDownload) {
       this.canDownload =
           new EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField>(canDownload);
       return this;
     }
 
-    public UpdateFileByIdRequestBodyPermissionsFieldBuilder canDownload(
+    public Builder canDownload(
         EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField> canDownload) {
       this.canDownload = canDownload;
       return this;

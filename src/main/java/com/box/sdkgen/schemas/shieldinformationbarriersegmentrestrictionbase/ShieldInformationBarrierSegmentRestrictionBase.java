@@ -24,8 +24,7 @@ public class ShieldInformationBarrierSegmentRestrictionBase extends Serializable
     super();
   }
 
-  protected ShieldInformationBarrierSegmentRestrictionBase(
-      ShieldInformationBarrierSegmentRestrictionBaseBuilder builder) {
+  protected ShieldInformationBarrierSegmentRestrictionBase(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -70,25 +69,23 @@ public class ShieldInformationBarrierSegmentRestrictionBase extends Serializable
         + "}";
   }
 
-  public static class ShieldInformationBarrierSegmentRestrictionBaseBuilder {
+  public static class Builder {
 
     protected EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField> type;
 
     protected String id;
 
-    public ShieldInformationBarrierSegmentRestrictionBaseBuilder type(
-        ShieldInformationBarrierSegmentRestrictionBaseTypeField type) {
+    public Builder type(ShieldInformationBarrierSegmentRestrictionBaseTypeField type) {
       this.type = new EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField>(type);
       return this;
     }
 
-    public ShieldInformationBarrierSegmentRestrictionBaseBuilder type(
-        EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField> type) {
+    public Builder type(EnumWrapper<ShieldInformationBarrierSegmentRestrictionBaseTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public ShieldInformationBarrierSegmentRestrictionBaseBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

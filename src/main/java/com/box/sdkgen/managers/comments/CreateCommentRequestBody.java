@@ -21,7 +21,7 @@ public class CreateCommentRequestBody extends SerializableObject {
     this.item = item;
   }
 
-  protected CreateCommentRequestBody(CreateCommentRequestBodyBuilder builder) {
+  protected CreateCommentRequestBody(Builder builder) {
     super();
     this.message = builder.message;
     this.taggedMessage = builder.taggedMessage;
@@ -76,7 +76,7 @@ public class CreateCommentRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class CreateCommentRequestBodyBuilder {
+  public static class Builder {
 
     protected final String message;
 
@@ -84,12 +84,12 @@ public class CreateCommentRequestBody extends SerializableObject {
 
     protected final CreateCommentRequestBodyItemField item;
 
-    public CreateCommentRequestBodyBuilder(String message, CreateCommentRequestBodyItemField item) {
+    public Builder(String message, CreateCommentRequestBodyItemField item) {
       this.message = message;
       this.item = item;
     }
 
-    public CreateCommentRequestBodyBuilder taggedMessage(String taggedMessage) {
+    public Builder taggedMessage(String taggedMessage) {
       this.taggedMessage = taggedMessage;
       return this;
     }

@@ -35,7 +35,7 @@ public class WorkflowFlowsField extends SerializableObject {
     super();
   }
 
-  protected WorkflowFlowsField(WorkflowFlowsFieldBuilder builder) {
+  protected WorkflowFlowsField(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -120,7 +120,7 @@ public class WorkflowFlowsField extends SerializableObject {
         + "}";
   }
 
-  public static class WorkflowFlowsFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
@@ -134,37 +134,37 @@ public class WorkflowFlowsField extends SerializableObject {
 
     protected UserBase createdBy;
 
-    public WorkflowFlowsFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public WorkflowFlowsFieldBuilder type(WorkflowFlowsTypeField type) {
+    public Builder type(WorkflowFlowsTypeField type) {
       this.type = new EnumWrapper<WorkflowFlowsTypeField>(type);
       return this;
     }
 
-    public WorkflowFlowsFieldBuilder type(EnumWrapper<WorkflowFlowsTypeField> type) {
+    public Builder type(EnumWrapper<WorkflowFlowsTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public WorkflowFlowsFieldBuilder trigger(WorkflowFlowsTriggerField trigger) {
+    public Builder trigger(WorkflowFlowsTriggerField trigger) {
       this.trigger = trigger;
       return this;
     }
 
-    public WorkflowFlowsFieldBuilder outcomes(List<WorkflowFlowsOutcomesField> outcomes) {
+    public Builder outcomes(List<WorkflowFlowsOutcomesField> outcomes) {
       this.outcomes = outcomes;
       return this;
     }
 
-    public WorkflowFlowsFieldBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public WorkflowFlowsFieldBuilder createdBy(UserBase createdBy) {
+    public Builder createdBy(UserBase createdBy) {
       this.createdBy = createdBy;
       return this;
     }

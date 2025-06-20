@@ -14,7 +14,7 @@ public class UpdateFileByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected UpdateFileByIdHeaders(UpdateFileByIdHeadersBuilder builder) {
+  protected UpdateFileByIdHeaders(Builder builder) {
     this.ifMatch = builder.ifMatch;
     this.extraHeaders = builder.extraHeaders;
   }
@@ -27,22 +27,22 @@ public class UpdateFileByIdHeaders {
     return extraHeaders;
   }
 
-  public static class UpdateFileByIdHeadersBuilder {
+  public static class Builder {
 
     protected String ifMatch;
 
     protected Map<String, String> extraHeaders;
 
-    public UpdateFileByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public UpdateFileByIdHeadersBuilder ifMatch(String ifMatch) {
+    public Builder ifMatch(String ifMatch) {
       this.ifMatch = ifMatch;
       return this;
     }
 
-    public UpdateFileByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

@@ -13,7 +13,7 @@ public class IntegrationMappingSlackOptions extends SerializableObject {
     super();
   }
 
-  protected IntegrationMappingSlackOptions(IntegrationMappingSlackOptionsBuilder builder) {
+  protected IntegrationMappingSlackOptions(Builder builder) {
     super();
     this.isAccessManagementDisabled = builder.isAccessManagementDisabled;
   }
@@ -48,12 +48,11 @@ public class IntegrationMappingSlackOptions extends SerializableObject {
         + "}";
   }
 
-  public static class IntegrationMappingSlackOptionsBuilder {
+  public static class Builder {
 
     protected Boolean isAccessManagementDisabled;
 
-    public IntegrationMappingSlackOptionsBuilder isAccessManagementDisabled(
-        Boolean isAccessManagementDisabled) {
+    public Builder isAccessManagementDisabled(Boolean isAccessManagementDisabled) {
       this.isAccessManagementDisabled = isAccessManagementDisabled;
       return this;
     }

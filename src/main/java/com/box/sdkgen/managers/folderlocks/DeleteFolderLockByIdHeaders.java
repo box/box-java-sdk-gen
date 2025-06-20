@@ -12,7 +12,7 @@ public class DeleteFolderLockByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteFolderLockByIdHeaders(DeleteFolderLockByIdHeadersBuilder builder) {
+  protected DeleteFolderLockByIdHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class DeleteFolderLockByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteFolderLockByIdHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteFolderLockByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteFolderLockByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

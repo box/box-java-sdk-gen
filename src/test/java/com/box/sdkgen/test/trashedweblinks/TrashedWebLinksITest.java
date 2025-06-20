@@ -28,7 +28,7 @@ public class TrashedWebLinksITest {
         client
             .getWebLinks()
             .createWebLink(
-                new CreateWebLinkRequestBody.CreateWebLinkRequestBodyBuilder(
+                new CreateWebLinkRequestBody.Builder(
                         url, new CreateWebLinkRequestBodyParentField(parent.getId()))
                     .name(name)
                     .description(description)

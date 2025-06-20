@@ -34,7 +34,7 @@ public class MetadataCascadePolicy extends SerializableObject {
             MetadataCascadePolicyTypeField.METADATA_CASCADE_POLICY);
   }
 
-  protected MetadataCascadePolicy(MetadataCascadePolicyBuilder builder) {
+  protected MetadataCascadePolicy(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -119,7 +119,7 @@ public class MetadataCascadePolicy extends SerializableObject {
         + "}";
   }
 
-  public static class MetadataCascadePolicyBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -133,40 +133,39 @@ public class MetadataCascadePolicy extends SerializableObject {
 
     protected String templateKey;
 
-    public MetadataCascadePolicyBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<MetadataCascadePolicyTypeField>(
               MetadataCascadePolicyTypeField.METADATA_CASCADE_POLICY);
     }
 
-    public MetadataCascadePolicyBuilder type(MetadataCascadePolicyTypeField type) {
+    public Builder type(MetadataCascadePolicyTypeField type) {
       this.type = new EnumWrapper<MetadataCascadePolicyTypeField>(type);
       return this;
     }
 
-    public MetadataCascadePolicyBuilder type(EnumWrapper<MetadataCascadePolicyTypeField> type) {
+    public Builder type(EnumWrapper<MetadataCascadePolicyTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public MetadataCascadePolicyBuilder ownerEnterprise(
-        MetadataCascadePolicyOwnerEnterpriseField ownerEnterprise) {
+    public Builder ownerEnterprise(MetadataCascadePolicyOwnerEnterpriseField ownerEnterprise) {
       this.ownerEnterprise = ownerEnterprise;
       return this;
     }
 
-    public MetadataCascadePolicyBuilder parent(MetadataCascadePolicyParentField parent) {
+    public Builder parent(MetadataCascadePolicyParentField parent) {
       this.parent = parent;
       return this;
     }
 
-    public MetadataCascadePolicyBuilder scope(String scope) {
+    public Builder scope(String scope) {
       this.scope = scope;
       return this;
     }
 
-    public MetadataCascadePolicyBuilder templateKey(String templateKey) {
+    public Builder templateKey(String templateKey) {
       this.templateKey = templateKey;
       return this;
     }

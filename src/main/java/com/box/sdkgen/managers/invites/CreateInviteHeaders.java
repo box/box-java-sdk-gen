@@ -12,7 +12,7 @@ public class CreateInviteHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CreateInviteHeaders(CreateInviteHeadersBuilder builder) {
+  protected CreateInviteHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class CreateInviteHeaders {
     return extraHeaders;
   }
 
-  public static class CreateInviteHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CreateInviteHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CreateInviteHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

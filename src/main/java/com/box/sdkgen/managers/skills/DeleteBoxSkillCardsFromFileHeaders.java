@@ -12,7 +12,7 @@ public class DeleteBoxSkillCardsFromFileHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteBoxSkillCardsFromFileHeaders(DeleteBoxSkillCardsFromFileHeadersBuilder builder) {
+  protected DeleteBoxSkillCardsFromFileHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,16 +20,15 @@ public class DeleteBoxSkillCardsFromFileHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteBoxSkillCardsFromFileHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteBoxSkillCardsFromFileHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteBoxSkillCardsFromFileHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

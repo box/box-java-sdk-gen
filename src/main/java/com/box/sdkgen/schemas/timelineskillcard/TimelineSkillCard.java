@@ -55,7 +55,7 @@ public class TimelineSkillCard extends SerializableObject {
             TimelineSkillCardSkillCardTypeField.TIMELINE);
   }
 
-  protected TimelineSkillCard(TimelineSkillCardBuilder builder) {
+  protected TimelineSkillCard(Builder builder) {
     super();
     this.createdAt = builder.createdAt;
     this.type = builder.type;
@@ -161,7 +161,7 @@ public class TimelineSkillCard extends SerializableObject {
         + "}";
   }
 
-  public static class TimelineSkillCardBuilder {
+  public static class Builder {
 
     protected Date createdAt;
 
@@ -179,7 +179,7 @@ public class TimelineSkillCard extends SerializableObject {
 
     protected final List<TimelineSkillCardEntriesField> entries;
 
-    public TimelineSkillCardBuilder(
+    public Builder(
         TimelineSkillCardSkillField skill,
         TimelineSkillCardInvocationField invocation,
         List<TimelineSkillCardEntriesField> entries) {
@@ -193,40 +193,37 @@ public class TimelineSkillCard extends SerializableObject {
               TimelineSkillCardSkillCardTypeField.TIMELINE);
     }
 
-    public TimelineSkillCardBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public TimelineSkillCardBuilder type(TimelineSkillCardTypeField type) {
+    public Builder type(TimelineSkillCardTypeField type) {
       this.type = new EnumWrapper<TimelineSkillCardTypeField>(type);
       return this;
     }
 
-    public TimelineSkillCardBuilder type(EnumWrapper<TimelineSkillCardTypeField> type) {
+    public Builder type(EnumWrapper<TimelineSkillCardTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TimelineSkillCardBuilder skillCardType(
-        TimelineSkillCardSkillCardTypeField skillCardType) {
+    public Builder skillCardType(TimelineSkillCardSkillCardTypeField skillCardType) {
       this.skillCardType = new EnumWrapper<TimelineSkillCardSkillCardTypeField>(skillCardType);
       return this;
     }
 
-    public TimelineSkillCardBuilder skillCardType(
-        EnumWrapper<TimelineSkillCardSkillCardTypeField> skillCardType) {
+    public Builder skillCardType(EnumWrapper<TimelineSkillCardSkillCardTypeField> skillCardType) {
       this.skillCardType = skillCardType;
       return this;
     }
 
-    public TimelineSkillCardBuilder skillCardTitle(
-        TimelineSkillCardSkillCardTitleField skillCardTitle) {
+    public Builder skillCardTitle(TimelineSkillCardSkillCardTitleField skillCardTitle) {
       this.skillCardTitle = skillCardTitle;
       return this;
     }
 
-    public TimelineSkillCardBuilder duration(Long duration) {
+    public Builder duration(Long duration) {
       this.duration = duration;
       return this;
     }

@@ -29,8 +29,7 @@ public class FileRequestsITest {
             .createFileRequestCopy(
                 fileRequestId,
                 new FileRequestCopyRequest(
-                    new FileRequestCopyRequestFolderField.FileRequestCopyRequestFolderFieldBuilder(
-                            fileRequest.getFolder().getId())
+                    new FileRequestCopyRequestFolderField.Builder(fileRequest.getFolder().getId())
                         .type(FileRequestCopyRequestFolderTypeField.FOLDER)
                         .build()));
     assert !(copiedFileRequest.getId().equals(fileRequestId));
@@ -41,7 +40,7 @@ public class FileRequestsITest {
             .getFileRequests()
             .updateFileRequestById(
                 copiedFileRequest.getId(),
-                new FileRequestUpdateRequest.FileRequestUpdateRequestBuilder()
+                new FileRequestUpdateRequest.Builder()
                     .title("updated title")
                     .description("updated description")
                     .build());

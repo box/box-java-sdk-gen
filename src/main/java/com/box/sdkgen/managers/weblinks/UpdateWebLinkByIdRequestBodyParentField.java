@@ -15,8 +15,7 @@ public class UpdateWebLinkByIdRequestBodyParentField extends SerializableObject 
     super();
   }
 
-  protected UpdateWebLinkByIdRequestBodyParentField(
-      UpdateWebLinkByIdRequestBodyParentFieldBuilder builder) {
+  protected UpdateWebLinkByIdRequestBodyParentField(Builder builder) {
     super();
     this.id = builder.id;
     this.userId = builder.userId;
@@ -60,18 +59,18 @@ public class UpdateWebLinkByIdRequestBodyParentField extends SerializableObject 
         + "}";
   }
 
-  public static class UpdateWebLinkByIdRequestBodyParentFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected String userId;
 
-    public UpdateWebLinkByIdRequestBodyParentFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public UpdateWebLinkByIdRequestBodyParentFieldBuilder userId(String userId) {
+    public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }

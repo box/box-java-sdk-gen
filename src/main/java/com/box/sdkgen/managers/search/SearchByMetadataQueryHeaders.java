@@ -12,7 +12,7 @@ public class SearchByMetadataQueryHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected SearchByMetadataQueryHeaders(SearchByMetadataQueryHeadersBuilder builder) {
+  protected SearchByMetadataQueryHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class SearchByMetadataQueryHeaders {
     return extraHeaders;
   }
 
-  public static class SearchByMetadataQueryHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public SearchByMetadataQueryHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public SearchByMetadataQueryHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

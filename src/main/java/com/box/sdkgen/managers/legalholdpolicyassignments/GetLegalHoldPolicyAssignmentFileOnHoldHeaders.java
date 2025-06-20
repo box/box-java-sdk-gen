@@ -12,8 +12,7 @@ public class GetLegalHoldPolicyAssignmentFileOnHoldHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetLegalHoldPolicyAssignmentFileOnHoldHeaders(
-      GetLegalHoldPolicyAssignmentFileOnHoldHeadersBuilder builder) {
+  protected GetLegalHoldPolicyAssignmentFileOnHoldHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -21,16 +20,15 @@ public class GetLegalHoldPolicyAssignmentFileOnHoldHeaders {
     return extraHeaders;
   }
 
-  public static class GetLegalHoldPolicyAssignmentFileOnHoldHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetLegalHoldPolicyAssignmentFileOnHoldHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetLegalHoldPolicyAssignmentFileOnHoldHeadersBuilder extraHeaders(
-        Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

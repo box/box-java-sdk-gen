@@ -35,7 +35,7 @@ public class WorkflowFull extends Workflow {
     super();
   }
 
-  protected WorkflowFull(WorkflowFullBuilder builder) {
+  protected WorkflowFull(Builder builder) {
     super(builder);
     this.createdAt = builder.createdAt;
     this.modifiedAt = builder.modifiedAt;
@@ -140,7 +140,7 @@ public class WorkflowFull extends Workflow {
         + "}";
   }
 
-  public static class WorkflowFullBuilder extends WorkflowBuilder {
+  public static class Builder extends Workflow.Builder {
 
     protected Date createdAt;
 
@@ -150,64 +150,64 @@ public class WorkflowFull extends Workflow {
 
     protected UserBase modifiedBy;
 
-    public WorkflowFullBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public WorkflowFullBuilder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }
 
-    public WorkflowFullBuilder createdBy(UserBase createdBy) {
+    public Builder createdBy(UserBase createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    public WorkflowFullBuilder modifiedBy(UserBase modifiedBy) {
+    public Builder modifiedBy(UserBase modifiedBy) {
       this.modifiedBy = modifiedBy;
       return this;
     }
 
     @Override
-    public WorkflowFullBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
     @Override
-    public WorkflowFullBuilder type(WorkflowMiniTypeField type) {
+    public Builder type(WorkflowMiniTypeField type) {
       this.type = new EnumWrapper<WorkflowMiniTypeField>(type);
       return this;
     }
 
     @Override
-    public WorkflowFullBuilder type(EnumWrapper<WorkflowMiniTypeField> type) {
+    public Builder type(EnumWrapper<WorkflowMiniTypeField> type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public WorkflowFullBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
     @Override
-    public WorkflowFullBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
     @Override
-    public WorkflowFullBuilder isEnabled(Boolean isEnabled) {
+    public Builder isEnabled(Boolean isEnabled) {
       this.isEnabled = isEnabled;
       return this;
     }
 
     @Override
-    public WorkflowFullBuilder flows(List<WorkflowFlowsField> flows) {
+    public Builder flows(List<WorkflowFlowsField> flows) {
       this.flows = flows;
       return this;
     }

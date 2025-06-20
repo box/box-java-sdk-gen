@@ -12,7 +12,7 @@ public class GetZipDownloadContentHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetZipDownloadContentHeaders(GetZipDownloadContentHeadersBuilder builder) {
+  protected GetZipDownloadContentHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetZipDownloadContentHeaders {
     return extraHeaders;
   }
 
-  public static class GetZipDownloadContentHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetZipDownloadContentHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetZipDownloadContentHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

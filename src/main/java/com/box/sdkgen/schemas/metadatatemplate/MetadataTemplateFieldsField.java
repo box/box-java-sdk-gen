@@ -46,7 +46,7 @@ public class MetadataTemplateFieldsField extends SerializableObject {
     this.displayName = displayName;
   }
 
-  protected MetadataTemplateFieldsField(MetadataTemplateFieldsFieldBuilder builder) {
+  protected MetadataTemplateFieldsField(Builder builder) {
     super();
     this.type = builder.type;
     this.key = builder.key;
@@ -141,7 +141,7 @@ public class MetadataTemplateFieldsField extends SerializableObject {
         + "}";
   }
 
-  public static class MetadataTemplateFieldsFieldBuilder {
+  public static class Builder {
 
     protected final EnumWrapper<MetadataTemplateFieldsTypeField> type;
 
@@ -157,37 +157,35 @@ public class MetadataTemplateFieldsField extends SerializableObject {
 
     protected String id;
 
-    public MetadataTemplateFieldsFieldBuilder(
+    public Builder(
         EnumWrapper<MetadataTemplateFieldsTypeField> type, String key, String displayName) {
       this.type = type;
       this.key = key;
       this.displayName = displayName;
     }
 
-    public MetadataTemplateFieldsFieldBuilder(
-        MetadataTemplateFieldsTypeField type, String key, String displayName) {
+    public Builder(MetadataTemplateFieldsTypeField type, String key, String displayName) {
       this.type = new EnumWrapper<MetadataTemplateFieldsTypeField>(type);
       this.key = key;
       this.displayName = displayName;
     }
 
-    public MetadataTemplateFieldsFieldBuilder description(String description) {
+    public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    public MetadataTemplateFieldsFieldBuilder hidden(Boolean hidden) {
+    public Builder hidden(Boolean hidden) {
       this.hidden = hidden;
       return this;
     }
 
-    public MetadataTemplateFieldsFieldBuilder options(
-        List<MetadataTemplateFieldsOptionsField> options) {
+    public Builder options(List<MetadataTemplateFieldsOptionsField> options) {
       this.options = options;
       return this;
     }
 
-    public MetadataTemplateFieldsFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

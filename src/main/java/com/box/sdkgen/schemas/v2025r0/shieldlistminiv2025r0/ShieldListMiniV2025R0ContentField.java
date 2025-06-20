@@ -11,7 +11,7 @@ public class ShieldListMiniV2025R0ContentField extends SerializableObject {
     super();
   }
 
-  protected ShieldListMiniV2025R0ContentField(ShieldListMiniV2025R0ContentFieldBuilder builder) {
+  protected ShieldListMiniV2025R0ContentField(Builder builder) {
     super();
     this.type = builder.type;
   }
@@ -42,11 +42,11 @@ public class ShieldListMiniV2025R0ContentField extends SerializableObject {
     return "ShieldListMiniV2025R0ContentField{" + "type='" + type + '\'' + "}";
   }
 
-  public static class ShieldListMiniV2025R0ContentFieldBuilder {
+  public static class Builder {
 
     protected String type;
 
-    public ShieldListMiniV2025R0ContentFieldBuilder type(String type) {
+    public Builder type(String type) {
       this.type = type;
       return this;
     }

@@ -11,8 +11,7 @@ public class ShieldListContentIntegrationV2025R0IntegrationsField extends Serial
     super();
   }
 
-  protected ShieldListContentIntegrationV2025R0IntegrationsField(
-      ShieldListContentIntegrationV2025R0IntegrationsFieldBuilder builder) {
+  protected ShieldListContentIntegrationV2025R0IntegrationsField(Builder builder) {
     super();
     this.id = builder.id;
   }
@@ -44,11 +43,11 @@ public class ShieldListContentIntegrationV2025R0IntegrationsField extends Serial
     return "ShieldListContentIntegrationV2025R0IntegrationsField{" + "id='" + id + '\'' + "}";
   }
 
-  public static class ShieldListContentIntegrationV2025R0IntegrationsFieldBuilder {
+  public static class Builder {
 
     protected String id;
 
-    public ShieldListContentIntegrationV2025R0IntegrationsFieldBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

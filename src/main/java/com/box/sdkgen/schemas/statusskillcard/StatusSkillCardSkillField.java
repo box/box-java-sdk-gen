@@ -24,7 +24,7 @@ public class StatusSkillCardSkillField extends SerializableObject {
         new EnumWrapper<StatusSkillCardSkillTypeField>(StatusSkillCardSkillTypeField.SERVICE);
   }
 
-  protected StatusSkillCardSkillField(StatusSkillCardSkillFieldBuilder builder) {
+  protected StatusSkillCardSkillField(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -60,24 +60,24 @@ public class StatusSkillCardSkillField extends SerializableObject {
     return "StatusSkillCardSkillField{" + "type='" + type + '\'' + ", " + "id='" + id + '\'' + "}";
   }
 
-  public static class StatusSkillCardSkillFieldBuilder {
+  public static class Builder {
 
     protected EnumWrapper<StatusSkillCardSkillTypeField> type;
 
     protected final String id;
 
-    public StatusSkillCardSkillFieldBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<StatusSkillCardSkillTypeField>(StatusSkillCardSkillTypeField.SERVICE);
     }
 
-    public StatusSkillCardSkillFieldBuilder type(StatusSkillCardSkillTypeField type) {
+    public Builder type(StatusSkillCardSkillTypeField type) {
       this.type = new EnumWrapper<StatusSkillCardSkillTypeField>(type);
       return this;
     }
 
-    public StatusSkillCardSkillFieldBuilder type(EnumWrapper<StatusSkillCardSkillTypeField> type) {
+    public Builder type(EnumWrapper<StatusSkillCardSkillTypeField> type) {
       this.type = type;
       return this;
     }

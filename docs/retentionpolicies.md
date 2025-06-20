@@ -47,7 +47,7 @@ See the endpoint docs at
 
 <!-- sample post_retention_policies -->
 ```
-client.getRetentionPolicies().createRetentionPolicy(new CreateRetentionPolicyRequestBody.CreateRetentionPolicyRequestBodyBuilder(retentionPolicyName, CreateRetentionPolicyRequestBodyPolicyTypeField.FINITE, CreateRetentionPolicyRequestBodyDispositionActionField.REMOVE_RETENTION).description(retentionDescription).retentionLength("1").retentionType(CreateRetentionPolicyRequestBodyRetentionTypeField.MODIFIABLE).canOwnerExtendRetention(true).areOwnersNotified(true).build())
+client.getRetentionPolicies().createRetentionPolicy(new CreateRetentionPolicyRequestBody.Builder(retentionPolicyName, CreateRetentionPolicyRequestBodyPolicyTypeField.FINITE, CreateRetentionPolicyRequestBodyDispositionActionField.REMOVE_RETENTION).description(retentionDescription).retentionLength("1").retentionType(CreateRetentionPolicyRequestBodyRetentionTypeField.MODIFIABLE).canOwnerExtendRetention(true).areOwnersNotified(true).build())
 ```
 
 ### Arguments
@@ -107,7 +107,7 @@ See the endpoint docs at
 
 <!-- sample put_retention_policies_id -->
 ```
-client.getRetentionPolicies().updateRetentionPolicyById(retentionPolicy.getId(), new UpdateRetentionPolicyByIdRequestBody.UpdateRetentionPolicyByIdRequestBodyBuilder().policyName(updatedRetentionPolicyName).build())
+client.getRetentionPolicies().updateRetentionPolicyById(retentionPolicy.getId(), new UpdateRetentionPolicyByIdRequestBody.Builder().policyName(updatedRetentionPolicyName).build())
 ```
 
 ### Arguments

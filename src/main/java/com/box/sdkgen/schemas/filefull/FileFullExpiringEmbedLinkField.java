@@ -37,7 +37,7 @@ public class FileFullExpiringEmbedLinkField extends SerializableObject {
     super();
   }
 
-  protected FileFullExpiringEmbedLinkField(FileFullExpiringEmbedLinkFieldBuilder builder) {
+  protected FileFullExpiringEmbedLinkField(Builder builder) {
     super();
     this.accessToken = builder.accessToken;
     this.expiresIn = builder.expiresIn;
@@ -112,7 +112,7 @@ public class FileFullExpiringEmbedLinkField extends SerializableObject {
         + "}";
   }
 
-  public static class FileFullExpiringEmbedLinkFieldBuilder {
+  public static class Builder {
 
     protected String accessToken;
 
@@ -124,35 +124,32 @@ public class FileFullExpiringEmbedLinkField extends SerializableObject {
 
     protected String url;
 
-    public FileFullExpiringEmbedLinkFieldBuilder accessToken(String accessToken) {
+    public Builder accessToken(String accessToken) {
       this.accessToken = accessToken;
       return this;
     }
 
-    public FileFullExpiringEmbedLinkFieldBuilder expiresIn(Long expiresIn) {
+    public Builder expiresIn(Long expiresIn) {
       this.expiresIn = expiresIn;
       return this;
     }
 
-    public FileFullExpiringEmbedLinkFieldBuilder tokenType(
-        FileFullExpiringEmbedLinkTokenTypeField tokenType) {
+    public Builder tokenType(FileFullExpiringEmbedLinkTokenTypeField tokenType) {
       this.tokenType = new EnumWrapper<FileFullExpiringEmbedLinkTokenTypeField>(tokenType);
       return this;
     }
 
-    public FileFullExpiringEmbedLinkFieldBuilder tokenType(
-        EnumWrapper<FileFullExpiringEmbedLinkTokenTypeField> tokenType) {
+    public Builder tokenType(EnumWrapper<FileFullExpiringEmbedLinkTokenTypeField> tokenType) {
       this.tokenType = tokenType;
       return this;
     }
 
-    public FileFullExpiringEmbedLinkFieldBuilder restrictedTo(
-        List<FileOrFolderScope> restrictedTo) {
+    public Builder restrictedTo(List<FileOrFolderScope> restrictedTo) {
       this.restrictedTo = restrictedTo;
       return this;
     }
 
-    public FileFullExpiringEmbedLinkFieldBuilder url(String url) {
+    public Builder url(String url) {
       this.url = url;
       return this;
     }

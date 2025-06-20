@@ -14,7 +14,7 @@ public class DeleteFileByIdHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected DeleteFileByIdHeaders(DeleteFileByIdHeadersBuilder builder) {
+  protected DeleteFileByIdHeaders(Builder builder) {
     this.ifMatch = builder.ifMatch;
     this.extraHeaders = builder.extraHeaders;
   }
@@ -27,22 +27,22 @@ public class DeleteFileByIdHeaders {
     return extraHeaders;
   }
 
-  public static class DeleteFileByIdHeadersBuilder {
+  public static class Builder {
 
     protected String ifMatch;
 
     protected Map<String, String> extraHeaders;
 
-    public DeleteFileByIdHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public DeleteFileByIdHeadersBuilder ifMatch(String ifMatch) {
+    public Builder ifMatch(String ifMatch) {
       this.ifMatch = ifMatch;
       return this;
     }
 
-    public DeleteFileByIdHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

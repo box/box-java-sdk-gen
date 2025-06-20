@@ -3,34 +3,35 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Migration guide from `box-java-sdk` to `box-java-sdk-gen`](#migration-guide-from-box-java-sdk-to-box-java-sdk-gen)
-  - [Introduction](#introduction)
-  - [Installation](#installation)
-    - [Maven](#maven)
-    - [Gradle](#gradle)
-  - [Key differences](#key-differences)
-    - [Manager approach](#manager-approach)
-    - [Immutable design](#immutable-design)
-    - [Consistent method signature](#consistent-method-signature)
-  - [Authentication](#authentication)
-    - [Developer Token](#developer-token)
-    - [JWT Auth](#jwt-auth)
-      - [Using JWT configuration file](#using-jwt-configuration-file)
-      - [Providing JWT configuration manually](#providing-jwt-configuration-manually)
-      - [Authenticate user](#authenticate-user)
-    - [Client Credentials Grant](#client-credentials-grant)
-      - [Obtaining Service Account token](#obtaining-service-account-token)
-      - [Obtaining User token](#obtaining-user-token)
-    - [Switching between Service Account and User](#switching-between-service-account-and-user)
-    - [OAuth 2.0 Auth](#oauth-20-auth)
-      - [Get Authorization URL](#get-authorization-url)
-      - [Authenticate](#authenticate)
-    - [Store token and retrieve token callbacks](#store-token-and-retrieve-token-callbacks)
-    - [Downscope token](#downscope-token)
-    - [Revoke token](#revoke-token)
-  - [Configuration](#configuration)
-    - [As-User header](#as-user-header)
-    - [Custom Base URLs](#custom-base-urls)
+- [Introduction](#introduction)
+- [Installation](#installation)
+  - [Maven](#maven)
+  - [Gradle](#gradle)
+- [Key differences](#key-differences)
+  - [Manager approach](#manager-approach)
+  - [Immutable design](#immutable-design)
+  - [Consistent method signature](#consistent-method-signature)
+- [Authentication](#authentication)
+  - [Developer Token](#developer-token)
+  - [JWT Auth](#jwt-auth)
+    - [Using JWT configuration file](#using-jwt-configuration-file)
+    - [Providing JWT configuration manually](#providing-jwt-configuration-manually)
+    - [Authenticate user](#authenticate-user)
+  - [Client Credentials Grant](#client-credentials-grant)
+    - [Obtaining Service Account token](#obtaining-service-account-token)
+    - [Obtaining User token](#obtaining-user-token)
+  - [Switching between Service Account and User](#switching-between-service-account-and-user)
+  - [OAuth 2.0 Auth](#oauth-20-auth)
+    - [Get Authorization URL](#get-authorization-url)
+    - [Authenticate](#authenticate)
+  - [Store token and retrieve token callbacks](#store-token-and-retrieve-token-callbacks)
+  - [Downscope token](#downscope-token)
+  - [Revoke token](#revoke-token)
+- [Configuration](#configuration)
+  - [As-User header](#as-user-header)
+  - [Custom Base URLs](#custom-base-urls)
+- [Convenience methods](#convenience-methods)
+  - [Chunked upload of big files](#chunked-upload-of-big-files)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -120,7 +121,7 @@ or to create a new user:
 
 ```java
 CreateUserRequestBody requestBody =
-    new CreateUserRequestBody.CreateUserRequestBodyBuilder("John Doe").build();
+    new CreateUserRequestBody.Builder("John Doe").build();
 UserFull user = client.users.createUser(requestBody);
 ```
 
@@ -131,7 +132,7 @@ e.g. to update a user name, call method:
 
 ```java
 UpdateUserByIdRequestBody requestBody =
-    new UpdateUserByIdRequestBody.UpdateUserByIdRequestBodyBuilder().name("Mary").build();
+    new UpdateUserByIdRequestBody.Builder().name("Mary").build();
 UserFull updatedUser = client.users.updateUserById(user.getId(), requestBody);
 ```
 
@@ -250,7 +251,7 @@ BoxUser.Info userInfo = BoxUser.getCurrentUser(api).getInfo();
 
 ```java
 TokenStorage tokenStorage = new InMemoryTokenStorage();
-JWTConfig config = new JWTConfig.JWTConfigBuilder("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET", "JWT_KEY_ID", "PRIVATE_KEY", "PRIVATE_KEY_PASSWORD")
+JWTConfig config = new JWTConfig.Builder("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET", "JWT_KEY_ID", "PRIVATE_KEY", "PRIVATE_KEY_PASSWORD")
     .enterpriseId("123456")
     .tokenStorage(tokenStorage)
     .build();
@@ -303,7 +304,7 @@ BoxCCGAPIConnection api = BoxCCGAPIConnection.applicationServiceAccountConnectio
 **New (`box-java-sdk-gen`)**
 
 ```java
-CCGConfig config = new CCGConfig.CCGConfigBuilder("YOUR_CLIENT", "YOUR_CLIENT_SECRET")
+CCGConfig config = new CCGConfig.Builder("YOUR_CLIENT", "YOUR_CLIENT_SECRET")
     .enterpriseId("ENTERPRISE_ID")
     .build();
 BoxCCGAuth auth = new BoxCCGAuth(config);
@@ -327,7 +328,7 @@ BoxCCGAPIConnection api = BoxCCGAPIConnection.userConnection(
 **New (`box-java-sdk-gen`)**
 
 ```java
-CCGConfig config = new CCGConfig.CCGConfigBuilder("YOUR_CLIENT", "YOUR_CLIENT_SECRET")
+CCGConfig config = new CCGConfig.Builder("YOUR_CLIENT", "YOUR_CLIENT_SECRET")
     .userId("USER_ID")
     .build();
 BoxCCGAuth auth = new BoxCCGAuth(config);
@@ -375,7 +376,7 @@ String authorizationUrl = "https://account.box.com/api/oauth2/authorize?client_i
 **New (`box-java-sdk-gen`)**
 
 ```java
-BoxOAuth auth = new BoxOAuth(new OAuthConfig.OAuthConfigBuilder("CLIENT_ID", "CLIENT_SECRET").build());
+BoxOAuth auth = new BoxOAuth(new OAuthConfig.Builder("CLIENT_ID", "CLIENT_SECRET").build());
 String authorizationUrl = auth.getAuthorizeUrl();
 ```
 
@@ -429,7 +430,7 @@ TokenStorage customTokenStorage = new TokenStorage() {
     }
 };
 
-OAuthConfig config = new OAuthConfig.OAuthConfigBuilder("CLIENT_ID", "CLIENT_SECRET")
+OAuthConfig config = new OAuthConfig.Builder("CLIENT_ID", "CLIENT_SECRET")
     .tokenStorage(customTokenStorage)
     .build();
 BoxOAuth auth = new BoxOAuth(config);
@@ -439,7 +440,7 @@ or reuse one of the provided implementations: `InMemoryTokenStorage`:
 
 ```java
 TokenStorage tokenStorage = new InMemoryTokenStorage();
-OAuthConfig config = new OAuthConfig.OAuthConfigBuilder("CLIENT_ID", "CLIENT_SECRET")
+OAuthConfig config = new OAuthConfig.Builder("CLIENT_ID", "CLIENT_SECRET")
     .tokenStorage(tokenStorage)
     .build();
 BoxOAuth auth = new BoxOAuth(config);
@@ -551,10 +552,45 @@ By calling the `client.withCustomBaseUrls()` method, you can specify the custom 
 calls made by client. Following the immutability pattern, this call creates a new client, leaving the original client unmodified.
 
 ```java
-BaseUrls baseUrls = new BaseUrls.BaseUrlsBuilder()
+BaseUrls baseUrls = new BaseUrls.Builder()
     .baseUrl("https://new-base-url.com")
     .uploadUrl("https://my-company-upload-url.com")
     .oauth2Url("https://my-company.com/oauth2")
     .build();
 BoxClient clientWithCustomBaseUrl = client.withCustomBaseUrls(baseUrls);
+```
+
+## Convenience methods
+
+### Chunked upload of big files
+
+For large files or in cases where the network connection is less reliable, you may want to upload the file in parts.
+This allows a single part to fail without aborting the entire upload, and failed parts are being retried automatically.
+
+**Old (`box-java-sdk`)**
+
+In the old SDK, you could use the `uploadLargeFile` method of the `BoxFolder` class to upload a large file.
+This method accepted a `FileInputStream` as the input stream and the file size as a parameter. The method also required
+
+```java
+File myFile = new File("My Large_File.txt");
+FileInputStream stream = new FileInputStream(myFile);
+
+BoxFolder rootFolder = BoxFolder.getRootFolder(api);
+BoxFile.Info fileInfo = rootFolder.uploadLargeFile(inputStream, "My_Large_File.txt", myFile.length());
+```
+
+**New (`box-java-sdk-gen`)**
+
+In the new SDK, the equivalent method is `chunked_uploads.uploadBigFile()`. It accepts a file-like object
+as the `file` parameter, and the `fileName` and `fileSize` parameters are now passed as arguments.
+The `parentFolderId` parameter is also required to specify the folder where the file will be uploaded.
+
+```java
+InputStream file = new FileInputStream(myFile);
+String fileName = "My_Large_File.txt";
+long fileSize = 1234556L;
+String parentFolderId = "123456789";
+
+File uploadedFile = client.getChunkedUploads().uploadBigFile(file, fileName, fileSize, parentFolderId);
 ```

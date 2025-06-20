@@ -22,8 +22,7 @@ public class CollaborationAcceptanceRequirementsStatusField extends Serializable
     super();
   }
 
-  protected CollaborationAcceptanceRequirementsStatusField(
-      CollaborationAcceptanceRequirementsStatusFieldBuilder builder) {
+  protected CollaborationAcceptanceRequirementsStatusField(Builder builder) {
     super();
     this.termsOfServiceRequirement = builder.termsOfServiceRequirement;
     this.strongPasswordRequirement = builder.strongPasswordRequirement;
@@ -84,7 +83,7 @@ public class CollaborationAcceptanceRequirementsStatusField extends Serializable
         + "}";
   }
 
-  public static class CollaborationAcceptanceRequirementsStatusFieldBuilder {
+  public static class Builder {
 
     protected CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementField
         termsOfServiceRequirement;
@@ -95,21 +94,21 @@ public class CollaborationAcceptanceRequirementsStatusField extends Serializable
     protected CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementField
         twoFactorAuthenticationRequirement;
 
-    public CollaborationAcceptanceRequirementsStatusFieldBuilder termsOfServiceRequirement(
+    public Builder termsOfServiceRequirement(
         CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementField
             termsOfServiceRequirement) {
       this.termsOfServiceRequirement = termsOfServiceRequirement;
       return this;
     }
 
-    public CollaborationAcceptanceRequirementsStatusFieldBuilder strongPasswordRequirement(
+    public Builder strongPasswordRequirement(
         CollaborationAcceptanceRequirementsStatusStrongPasswordRequirementField
             strongPasswordRequirement) {
       this.strongPasswordRequirement = strongPasswordRequirement;
       return this;
     }
 
-    public CollaborationAcceptanceRequirementsStatusFieldBuilder twoFactorAuthenticationRequirement(
+    public Builder twoFactorAuthenticationRequirement(
         CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementField
             twoFactorAuthenticationRequirement) {
       this.twoFactorAuthenticationRequirement = twoFactorAuthenticationRequirement;

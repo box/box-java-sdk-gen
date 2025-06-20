@@ -18,7 +18,7 @@ public class CommentBase extends SerializableObject {
     super();
   }
 
-  protected CommentBase(CommentBaseBuilder builder) {
+  protected CommentBase(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -54,23 +54,23 @@ public class CommentBase extends SerializableObject {
     return "CommentBase{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class CommentBaseBuilder {
+  public static class Builder {
 
     protected String id;
 
     protected EnumWrapper<CommentBaseTypeField> type;
 
-    public CommentBaseBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public CommentBaseBuilder type(CommentBaseTypeField type) {
+    public Builder type(CommentBaseTypeField type) {
       this.type = new EnumWrapper<CommentBaseTypeField>(type);
       return this;
     }
 
-    public CommentBaseBuilder type(EnumWrapper<CommentBaseTypeField> type) {
+    public Builder type(EnumWrapper<CommentBaseTypeField> type) {
       this.type = type;
       return this;
     }

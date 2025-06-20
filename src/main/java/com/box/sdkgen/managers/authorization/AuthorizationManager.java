@@ -28,7 +28,7 @@ public class AuthorizationManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected AuthorizationManager(AuthorizationManagerBuilder builder) {
+  protected AuthorizationManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -51,7 +51,7 @@ public class AuthorizationManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "", this.networkSession.getBaseUrls().getOauth2Url(), "/authorize"),
                         "GET")
@@ -74,7 +74,7 @@ public class AuthorizationManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "", this.networkSession.getBaseUrls().getBaseUrl(), "/oauth2/token"),
                         "POST")
@@ -99,7 +99,7 @@ public class AuthorizationManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -125,7 +125,7 @@ public class AuthorizationManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "", this.networkSession.getBaseUrls().getBaseUrl(), "/oauth2/revoke"),
                         "POST")
@@ -146,22 +146,22 @@ public class AuthorizationManager {
     return networkSession;
   }
 
-  public static class AuthorizationManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public AuthorizationManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public AuthorizationManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public AuthorizationManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

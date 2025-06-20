@@ -20,7 +20,7 @@ public class TrackingCode extends SerializableObject {
     super();
   }
 
-  protected TrackingCode(TrackingCodeBuilder builder) {
+  protected TrackingCode(Builder builder) {
     super();
     this.type = builder.type;
     this.name = builder.name;
@@ -75,7 +75,7 @@ public class TrackingCode extends SerializableObject {
         + "}";
   }
 
-  public static class TrackingCodeBuilder {
+  public static class Builder {
 
     protected EnumWrapper<TrackingCodeTypeField> type;
 
@@ -83,22 +83,22 @@ public class TrackingCode extends SerializableObject {
 
     protected String value;
 
-    public TrackingCodeBuilder type(TrackingCodeTypeField type) {
+    public Builder type(TrackingCodeTypeField type) {
       this.type = new EnumWrapper<TrackingCodeTypeField>(type);
       return this;
     }
 
-    public TrackingCodeBuilder type(EnumWrapper<TrackingCodeTypeField> type) {
+    public Builder type(EnumWrapper<TrackingCodeTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public TrackingCodeBuilder name(String name) {
+    public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    public TrackingCodeBuilder value(String value) {
+    public Builder value(String value) {
       this.value = value;
       return this;
     }

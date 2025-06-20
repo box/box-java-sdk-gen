@@ -34,7 +34,7 @@ public class UserCollaborationsITest {
         client
             .getUsers()
             .createUser(
-                new CreateUserRequestBody.CreateUserRequestBodyBuilder(userName)
+                new CreateUserRequestBody.Builder(userName)
                     .login(userLogin)
                     .isPlatformAccessOnly(true)
                     .build());
@@ -44,13 +44,11 @@ public class UserCollaborationsITest {
             .getUserCollaborations()
             .createCollaboration(
                 new CreateCollaborationRequestBody(
-                    new CreateCollaborationRequestBodyItemField
-                            .CreateCollaborationRequestBodyItemFieldBuilder()
+                    new CreateCollaborationRequestBodyItemField.Builder()
                         .type(CreateCollaborationRequestBodyItemTypeField.FOLDER)
                         .id(folder.getId())
                         .build(),
-                    new CreateCollaborationRequestBodyAccessibleByField
-                            .CreateCollaborationRequestBodyAccessibleByFieldBuilder(
+                    new CreateCollaborationRequestBodyAccessibleByField.Builder(
                             CreateCollaborationRequestBodyAccessibleByTypeField.USER)
                         .id(user.getId())
                         .build(),
@@ -87,7 +85,7 @@ public class UserCollaborationsITest {
         client
             .getUsers()
             .createUser(
-                new CreateUserRequestBody.CreateUserRequestBodyBuilder(userName)
+                new CreateUserRequestBody.Builder(userName)
                     .login(userLogin)
                     .isPlatformAccessOnly(true)
                     .build());
@@ -97,13 +95,11 @@ public class UserCollaborationsITest {
             .getUserCollaborations()
             .createCollaboration(
                 new CreateCollaborationRequestBody(
-                    new CreateCollaborationRequestBodyItemField
-                            .CreateCollaborationRequestBodyItemFieldBuilder()
+                    new CreateCollaborationRequestBodyItemField.Builder()
                         .type(CreateCollaborationRequestBodyItemTypeField.FOLDER)
                         .id(folder.getId())
                         .build(),
-                    new CreateCollaborationRequestBodyAccessibleByField
-                            .CreateCollaborationRequestBodyAccessibleByFieldBuilder(
+                    new CreateCollaborationRequestBodyAccessibleByField.Builder(
                             CreateCollaborationRequestBodyAccessibleByTypeField.USER)
                         .id(user.getId())
                         .build(),
@@ -137,13 +133,11 @@ public class UserCollaborationsITest {
             .getUserCollaborations()
             .createCollaboration(
                 new CreateCollaborationRequestBody(
-                    new CreateCollaborationRequestBodyItemField
-                            .CreateCollaborationRequestBodyItemFieldBuilder()
+                    new CreateCollaborationRequestBodyItemField.Builder()
                         .type(CreateCollaborationRequestBodyItemTypeField.FOLDER)
                         .id(folder.getId())
                         .build(),
-                    new CreateCollaborationRequestBodyAccessibleByField
-                            .CreateCollaborationRequestBodyAccessibleByFieldBuilder(
+                    new CreateCollaborationRequestBodyAccessibleByField.Builder(
                             CreateCollaborationRequestBodyAccessibleByTypeField.USER)
                         .login(userLogin)
                         .build(),

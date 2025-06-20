@@ -25,7 +25,7 @@ public class RecentItemsManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected RecentItemsManager(RecentItemsManagerBuilder builder) {
+  protected RecentItemsManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -55,7 +55,7 @@ public class RecentItemsManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -78,22 +78,22 @@ public class RecentItemsManager {
     return networkSession;
   }
 
-  public static class RecentItemsManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public RecentItemsManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public RecentItemsManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public RecentItemsManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

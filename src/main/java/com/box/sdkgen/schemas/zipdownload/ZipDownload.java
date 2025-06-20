@@ -29,7 +29,7 @@ public class ZipDownload extends SerializableObject {
     super();
   }
 
-  protected ZipDownload(ZipDownloadBuilder builder) {
+  protected ZipDownload(Builder builder) {
     super();
     this.downloadUrl = builder.downloadUrl;
     this.statusUrl = builder.statusUrl;
@@ -94,7 +94,7 @@ public class ZipDownload extends SerializableObject {
         + "}";
   }
 
-  public static class ZipDownloadBuilder {
+  public static class Builder {
 
     protected String downloadUrl;
 
@@ -104,23 +104,22 @@ public class ZipDownload extends SerializableObject {
 
     protected List<List<ZipDownloadNameConflictsField>> nameConflicts;
 
-    public ZipDownloadBuilder downloadUrl(String downloadUrl) {
+    public Builder downloadUrl(String downloadUrl) {
       this.downloadUrl = downloadUrl;
       return this;
     }
 
-    public ZipDownloadBuilder statusUrl(String statusUrl) {
+    public Builder statusUrl(String statusUrl) {
       this.statusUrl = statusUrl;
       return this;
     }
 
-    public ZipDownloadBuilder expiresAt(Date expiresAt) {
+    public Builder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }
 
-    public ZipDownloadBuilder nameConflicts(
-        List<List<ZipDownloadNameConflictsField>> nameConflicts) {
+    public Builder nameConflicts(List<List<ZipDownloadNameConflictsField>> nameConflicts) {
       this.nameConflicts = nameConflicts;
       return this;
     }

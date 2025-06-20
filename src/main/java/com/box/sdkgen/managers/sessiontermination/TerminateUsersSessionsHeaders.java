@@ -12,7 +12,7 @@ public class TerminateUsersSessionsHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected TerminateUsersSessionsHeaders(TerminateUsersSessionsHeadersBuilder builder) {
+  protected TerminateUsersSessionsHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class TerminateUsersSessionsHeaders {
     return extraHeaders;
   }
 
-  public static class TerminateUsersSessionsHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public TerminateUsersSessionsHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public TerminateUsersSessionsHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

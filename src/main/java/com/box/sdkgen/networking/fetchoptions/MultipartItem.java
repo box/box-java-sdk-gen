@@ -19,7 +19,7 @@ public class MultipartItem {
     this.partName = partName;
   }
 
-  protected MultipartItem(MultipartItemBuilder builder) {
+  protected MultipartItem(Builder builder) {
     this.partName = builder.partName;
     this.data = builder.data;
     this.fileStream = builder.fileStream;
@@ -47,7 +47,7 @@ public class MultipartItem {
     return contentType;
   }
 
-  public static class MultipartItemBuilder {
+  public static class Builder {
 
     protected final String partName;
 
@@ -59,26 +59,26 @@ public class MultipartItem {
 
     protected String contentType;
 
-    public MultipartItemBuilder(String partName) {
+    public Builder(String partName) {
       this.partName = partName;
     }
 
-    public MultipartItemBuilder data(JsonNode data) {
+    public Builder data(JsonNode data) {
       this.data = data;
       return this;
     }
 
-    public MultipartItemBuilder fileStream(InputStream fileStream) {
+    public Builder fileStream(InputStream fileStream) {
       this.fileStream = fileStream;
       return this;
     }
 
-    public MultipartItemBuilder fileName(String fileName) {
+    public Builder fileName(String fileName) {
       this.fileName = fileName;
       return this;
     }
 
-    public MultipartItemBuilder contentType(String contentType) {
+    public Builder contentType(String contentType) {
       this.contentType = contentType;
       return this;
     }

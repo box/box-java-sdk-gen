@@ -35,7 +35,7 @@ public class MetadataTemplate extends SerializableObject {
         new EnumWrapper<MetadataTemplateTypeField>(MetadataTemplateTypeField.METADATA_TEMPLATE);
   }
 
-  protected MetadataTemplate(MetadataTemplateBuilder builder) {
+  protected MetadataTemplate(Builder builder) {
     super();
     this.id = builder.id;
     this.type = builder.type;
@@ -141,7 +141,7 @@ public class MetadataTemplate extends SerializableObject {
         + "}";
   }
 
-  public static class MetadataTemplateBuilder {
+  public static class Builder {
 
     protected final String id;
 
@@ -159,48 +159,48 @@ public class MetadataTemplate extends SerializableObject {
 
     protected Boolean copyInstanceOnItemCopy;
 
-    public MetadataTemplateBuilder(String id) {
+    public Builder(String id) {
       this.id = id;
       this.type =
           new EnumWrapper<MetadataTemplateTypeField>(MetadataTemplateTypeField.METADATA_TEMPLATE);
     }
 
-    public MetadataTemplateBuilder type(MetadataTemplateTypeField type) {
+    public Builder type(MetadataTemplateTypeField type) {
       this.type = new EnumWrapper<MetadataTemplateTypeField>(type);
       return this;
     }
 
-    public MetadataTemplateBuilder type(EnumWrapper<MetadataTemplateTypeField> type) {
+    public Builder type(EnumWrapper<MetadataTemplateTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public MetadataTemplateBuilder scope(String scope) {
+    public Builder scope(String scope) {
       this.scope = scope;
       return this;
     }
 
-    public MetadataTemplateBuilder templateKey(String templateKey) {
+    public Builder templateKey(String templateKey) {
       this.templateKey = templateKey;
       return this;
     }
 
-    public MetadataTemplateBuilder displayName(String displayName) {
+    public Builder displayName(String displayName) {
       this.displayName = displayName;
       return this;
     }
 
-    public MetadataTemplateBuilder hidden(Boolean hidden) {
+    public Builder hidden(Boolean hidden) {
       this.hidden = hidden;
       return this;
     }
 
-    public MetadataTemplateBuilder fields(List<MetadataTemplateFieldsField> fields) {
+    public Builder fields(List<MetadataTemplateFieldsField> fields) {
       this.fields = fields;
       return this;
     }
 
-    public MetadataTemplateBuilder copyInstanceOnItemCopy(Boolean copyInstanceOnItemCopy) {
+    public Builder copyInstanceOnItemCopy(Boolean copyInstanceOnItemCopy) {
       this.copyInstanceOnItemCopy = copyInstanceOnItemCopy;
       return this;
     }

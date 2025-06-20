@@ -35,7 +35,7 @@ public class CreateFolderRequestBody extends SerializableObject {
     this.parent = parent;
   }
 
-  protected CreateFolderRequestBody(CreateFolderRequestBodyBuilder builder) {
+  protected CreateFolderRequestBody(Builder builder) {
     super();
     this.name = builder.name;
     this.parent = builder.parent;
@@ -100,7 +100,7 @@ public class CreateFolderRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class CreateFolderRequestBodyBuilder {
+  public static class Builder {
 
     protected final String name;
 
@@ -110,25 +110,23 @@ public class CreateFolderRequestBody extends SerializableObject {
 
     protected EnumWrapper<CreateFolderRequestBodySyncStateField> syncState;
 
-    public CreateFolderRequestBodyBuilder(String name, CreateFolderRequestBodyParentField parent) {
+    public Builder(String name, CreateFolderRequestBodyParentField parent) {
       this.name = name;
       this.parent = parent;
     }
 
-    public CreateFolderRequestBodyBuilder folderUploadEmail(
+    public Builder folderUploadEmail(
         CreateFolderRequestBodyFolderUploadEmailField folderUploadEmail) {
       this.folderUploadEmail = folderUploadEmail;
       return this;
     }
 
-    public CreateFolderRequestBodyBuilder syncState(
-        CreateFolderRequestBodySyncStateField syncState) {
+    public Builder syncState(CreateFolderRequestBodySyncStateField syncState) {
       this.syncState = new EnumWrapper<CreateFolderRequestBodySyncStateField>(syncState);
       return this;
     }
 
-    public CreateFolderRequestBodyBuilder syncState(
-        EnumWrapper<CreateFolderRequestBodySyncStateField> syncState) {
+    public Builder syncState(EnumWrapper<CreateFolderRequestBodySyncStateField> syncState) {
       this.syncState = syncState;
       return this;
     }

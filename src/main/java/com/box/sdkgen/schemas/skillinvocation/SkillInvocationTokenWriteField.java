@@ -33,7 +33,7 @@ public class SkillInvocationTokenWriteField extends SerializableObject {
     super();
   }
 
-  protected SkillInvocationTokenWriteField(SkillInvocationTokenWriteFieldBuilder builder) {
+  protected SkillInvocationTokenWriteField(Builder builder) {
     super();
     this.accessToken = builder.accessToken;
     this.expiresIn = builder.expiresIn;
@@ -98,7 +98,7 @@ public class SkillInvocationTokenWriteField extends SerializableObject {
         + "}";
   }
 
-  public static class SkillInvocationTokenWriteFieldBuilder {
+  public static class Builder {
 
     protected String accessToken;
 
@@ -108,29 +108,27 @@ public class SkillInvocationTokenWriteField extends SerializableObject {
 
     protected String restrictedTo;
 
-    public SkillInvocationTokenWriteFieldBuilder accessToken(String accessToken) {
+    public Builder accessToken(String accessToken) {
       this.accessToken = accessToken;
       return this;
     }
 
-    public SkillInvocationTokenWriteFieldBuilder expiresIn(Long expiresIn) {
+    public Builder expiresIn(Long expiresIn) {
       this.expiresIn = expiresIn;
       return this;
     }
 
-    public SkillInvocationTokenWriteFieldBuilder tokenType(
-        SkillInvocationTokenWriteTokenTypeField tokenType) {
+    public Builder tokenType(SkillInvocationTokenWriteTokenTypeField tokenType) {
       this.tokenType = new EnumWrapper<SkillInvocationTokenWriteTokenTypeField>(tokenType);
       return this;
     }
 
-    public SkillInvocationTokenWriteFieldBuilder tokenType(
-        EnumWrapper<SkillInvocationTokenWriteTokenTypeField> tokenType) {
+    public Builder tokenType(EnumWrapper<SkillInvocationTokenWriteTokenTypeField> tokenType) {
       this.tokenType = tokenType;
       return this;
     }
 
-    public SkillInvocationTokenWriteFieldBuilder restrictedTo(String restrictedTo) {
+    public Builder restrictedTo(String restrictedTo) {
       this.restrictedTo = restrictedTo;
       return this;
     }

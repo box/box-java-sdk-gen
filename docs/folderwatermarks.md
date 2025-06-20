@@ -46,7 +46,7 @@ See the endpoint docs at
 
 <!-- sample put_folders_id_watermark -->
 ```
-client.getFolderWatermarks().updateFolderWatermark(folder.getId(), new UpdateFolderWatermarkRequestBody(new UpdateFolderWatermarkRequestBodyWatermarkField.UpdateFolderWatermarkRequestBodyWatermarkFieldBuilder().imprint(UpdateFolderWatermarkRequestBodyWatermarkImprintField.DEFAULT).build()))
+client.getFolderWatermarks().updateFolderWatermark(folder.getId(), new UpdateFolderWatermarkRequestBody(new UpdateFolderWatermarkRequestBodyWatermarkField.Builder().imprint(UpdateFolderWatermarkRequestBodyWatermarkImprintField.DEFAULT).build()))
 ```
 
 ### Arguments

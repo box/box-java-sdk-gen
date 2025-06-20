@@ -38,7 +38,7 @@ public class AuthITest {
     String userId = getEnvVar("USER_ID");
     String enterpriseId = getEnvVar("ENTERPRISE_ID");
     CCGConfig ccgConfig =
-        new CCGConfig.CCGConfigBuilder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
+        new CCGConfig.Builder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
             .enterpriseId(enterpriseId)
             .userId(userId)
             .build();
@@ -64,9 +64,7 @@ public class AuthITest {
         enterpriseClient
             .getUsers()
             .getUserMe(
-                new GetUserMeQueryParams.GetUserMeQueryParamsBuilder()
-                    .fields(Arrays.asList("enterprise"))
-                    .build());
+                new GetUserMeQueryParams.Builder().fields(Arrays.asList("enterprise")).build());
     assert !(newUser.getEnterprise() == null);
     assert newUser.getEnterprise().getId().equals(enterpriseId);
     assert !(newUser.getId().equals(userId));
@@ -96,10 +94,7 @@ public class AuthITest {
     downscopedClient
         .getFiles()
         .updateFileById(
-            file.getId(),
-            new UpdateFileByIdRequestBody.UpdateFileByIdRequestBodyBuilder()
-                .name(getUuid())
-                .build());
+            file.getId(), new UpdateFileByIdRequestBody.Builder().name(getUuid()).build());
     assertThrows(
         RuntimeException.class, () -> downscopedClient.getFiles().deleteFileById(file.getId()));
     parentClient.getFiles().deleteFileById(file.getId());
@@ -169,7 +164,7 @@ public class AuthITest {
     String userId = getEnvVar("USER_ID");
     String enterpriseId = getEnvVar("ENTERPRISE_ID");
     CCGConfig ccgConfig =
-        new CCGConfig.CCGConfigBuilder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
+        new CCGConfig.Builder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
             .enterpriseId(enterpriseId)
             .userId(userId)
             .build();
@@ -184,9 +179,7 @@ public class AuthITest {
         enterpriseClient
             .getUsers()
             .getUserMe(
-                new GetUserMeQueryParams.GetUserMeQueryParamsBuilder()
-                    .fields(Arrays.asList("enterprise"))
-                    .build());
+                new GetUserMeQueryParams.Builder().fields(Arrays.asList("enterprise")).build());
     assert !(newUser.getEnterprise() == null);
     assert newUser.getEnterprise().getId().equals(enterpriseId);
     assert !(newUser.getId().equals(userId));
@@ -195,7 +188,7 @@ public class AuthITest {
   @Test
   public void testCcgAuthDownscope() {
     CCGConfig ccgConfig =
-        new CCGConfig.CCGConfigBuilder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
+        new CCGConfig.Builder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
             .userId(getEnvVar("USER_ID"))
             .build();
     BoxCCGAuth auth = new BoxCCGAuth(ccgConfig);
@@ -215,10 +208,7 @@ public class AuthITest {
     downscopedClient
         .getFolders()
         .updateFolderById(
-            folder.getId(),
-            new UpdateFolderByIdRequestBody.UpdateFolderByIdRequestBodyBuilder()
-                .name(getUuid())
-                .build());
+            folder.getId(), new UpdateFolderByIdRequestBody.Builder().name(getUuid()).build());
     assertThrows(
         RuntimeException.class,
         () -> downscopedClient.getFolders().deleteFolderById(folder.getId()));
@@ -228,7 +218,7 @@ public class AuthITest {
   @Test
   public void testCcgDownscopeTokenSucceedsIfNoTokenAvailable() {
     CCGConfig ccgConfig =
-        new CCGConfig.CCGConfigBuilder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
+        new CCGConfig.Builder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
             .userId(getEnvVar("USER_ID"))
             .build();
     BoxCCGAuth auth = new BoxCCGAuth(ccgConfig);
@@ -252,7 +242,7 @@ public class AuthITest {
   @Test
   public void testCcgAuthRevoke() {
     CCGConfig ccgConfig =
-        new CCGConfig.CCGConfigBuilder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
+        new CCGConfig.Builder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
             .userId(getEnvVar("USER_ID"))
             .build();
     BoxCCGAuth auth = new BoxCCGAuth(ccgConfig);
@@ -268,14 +258,12 @@ public class AuthITest {
   @Test
   public void testDeveloperDownscopeTokenSucceedsIfNoTokenAvailable() {
     DeveloperTokenConfig developerTokenConfig =
-        new DeveloperTokenConfig.DeveloperTokenConfigBuilder()
+        new DeveloperTokenConfig.Builder()
             .clientId(getEnvVar("CLIENT_ID"))
             .clientSecret(getEnvVar("CLIENT_SECRET"))
             .build();
     BoxDeveloperTokenAuth auth =
-        new BoxDeveloperTokenAuth.BoxDeveloperTokenAuthBuilder("")
-            .config(developerTokenConfig)
-            .build();
+        new BoxDeveloperTokenAuth.Builder("").config(developerTokenConfig).build();
     String resourcePath = String.join("", "https://api.box.com/2.0/folders/12345");
     assertThrows(
         RuntimeException.class,
@@ -287,13 +275,13 @@ public class AuthITest {
   @Test
   public void testDeveloperTokenAuthRevoke() {
     DeveloperTokenConfig developerTokenConfig =
-        new DeveloperTokenConfig.DeveloperTokenConfigBuilder()
+        new DeveloperTokenConfig.Builder()
             .clientId(getEnvVar("CLIENT_ID"))
             .clientSecret(getEnvVar("CLIENT_SECRET"))
             .build();
     AccessToken token = getAccessToken();
     BoxDeveloperTokenAuth auth =
-        new BoxDeveloperTokenAuth.BoxDeveloperTokenAuthBuilder(token.getAccessToken())
+        new BoxDeveloperTokenAuth.Builder(token.getAccessToken())
             .config(developerTokenConfig)
             .build();
     AccessToken tokenFromStorageBeforeRevoke = auth.retrieveToken();
@@ -305,13 +293,13 @@ public class AuthITest {
   @Test
   public void testDeveloperTokenAuthDownscope() {
     DeveloperTokenConfig developerTokenConfig =
-        new DeveloperTokenConfig.DeveloperTokenConfigBuilder()
+        new DeveloperTokenConfig.Builder()
             .clientId(getEnvVar("CLIENT_ID"))
             .clientSecret(getEnvVar("CLIENT_SECRET"))
             .build();
     AccessToken token = getAccessToken();
     BoxDeveloperTokenAuth auth =
-        new BoxDeveloperTokenAuth.BoxDeveloperTokenAuthBuilder(token.getAccessToken())
+        new BoxDeveloperTokenAuth.Builder(token.getAccessToken())
             .config(developerTokenConfig)
             .build();
     BoxClient parentClient = new BoxClient(auth);
@@ -330,10 +318,7 @@ public class AuthITest {
     downscopedClient
         .getFolders()
         .updateFolderById(
-            folder.getId(),
-            new UpdateFolderByIdRequestBody.UpdateFolderByIdRequestBodyBuilder()
-                .name(getUuid())
-                .build());
+            folder.getId(), new UpdateFolderByIdRequestBody.Builder().name(getUuid()).build());
     assertThrows(
         RuntimeException.class,
         () -> downscopedClient.getFolders().deleteFolderById(folder.getId()));
@@ -353,10 +338,9 @@ public class AuthITest {
   @Test
   public void testOauthAuthRevoke() {
     AccessToken token = getAccessToken();
-    InMemoryTokenStorage tokenStorage =
-        new InMemoryTokenStorage.InMemoryTokenStorageBuilder().token(token).build();
+    InMemoryTokenStorage tokenStorage = new InMemoryTokenStorage.Builder().token(token).build();
     OAuthConfig config =
-        new OAuthConfig.OAuthConfigBuilder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
+        new OAuthConfig.Builder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
             .tokenStorage(tokenStorage)
             .build();
     BoxOAuth auth = new BoxOAuth(config);
@@ -369,10 +353,9 @@ public class AuthITest {
   @Test
   public void testOauthAuthDownscope() {
     AccessToken token = getAccessToken();
-    InMemoryTokenStorage tokenStorage =
-        new InMemoryTokenStorage.InMemoryTokenStorageBuilder().token(token).build();
+    InMemoryTokenStorage tokenStorage = new InMemoryTokenStorage.Builder().token(token).build();
     OAuthConfig config =
-        new OAuthConfig.OAuthConfigBuilder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
+        new OAuthConfig.Builder(getEnvVar("CLIENT_ID"), getEnvVar("CLIENT_SECRET"))
             .tokenStorage(tokenStorage)
             .build();
     BoxOAuth auth = new BoxOAuth(config);
@@ -395,10 +378,7 @@ public class AuthITest {
     downscopedClient
         .getFiles()
         .updateFileById(
-            file.getId(),
-            new UpdateFileByIdRequestBody.UpdateFileByIdRequestBodyBuilder()
-                .name(getUuid())
-                .build());
+            file.getId(), new UpdateFileByIdRequestBody.Builder().name(getUuid()).build());
     assertThrows(
         RuntimeException.class, () -> downscopedClient.getFiles().deleteFileById(file.getId()));
     parentClient.getFiles().deleteFileById(file.getId());

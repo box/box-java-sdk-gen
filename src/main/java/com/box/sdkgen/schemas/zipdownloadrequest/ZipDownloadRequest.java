@@ -17,7 +17,7 @@ public class ZipDownloadRequest extends SerializableObject {
     this.items = items;
   }
 
-  protected ZipDownloadRequest(ZipDownloadRequestBuilder builder) {
+  protected ZipDownloadRequest(Builder builder) {
     super();
     this.items = builder.items;
     this.downloadFileName = builder.downloadFileName;
@@ -62,17 +62,17 @@ public class ZipDownloadRequest extends SerializableObject {
         + "}";
   }
 
-  public static class ZipDownloadRequestBuilder {
+  public static class Builder {
 
     protected final List<ZipDownloadRequestItemsField> items;
 
     protected String downloadFileName;
 
-    public ZipDownloadRequestBuilder(List<ZipDownloadRequestItemsField> items) {
+    public Builder(List<ZipDownloadRequestItemsField> items) {
       this.items = items;
     }
 
-    public ZipDownloadRequestBuilder downloadFileName(String downloadFileName) {
+    public Builder downloadFileName(String downloadFileName) {
       this.downloadFileName = downloadFileName;
       return this;
     }

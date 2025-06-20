@@ -42,7 +42,7 @@ public class SkillInvocation extends SerializableObject {
     super();
   }
 
-  protected SkillInvocation(SkillInvocationBuilder builder) {
+  protected SkillInvocation(Builder builder) {
     super();
     this.type = builder.type;
     this.id = builder.id;
@@ -168,7 +168,7 @@ public class SkillInvocation extends SerializableObject {
         + "}";
   }
 
-  public static class SkillInvocationBuilder {
+  public static class Builder {
 
     protected EnumWrapper<SkillInvocationTypeField> type;
 
@@ -190,57 +190,57 @@ public class SkillInvocation extends SerializableObject {
 
     protected Event event;
 
-    public SkillInvocationBuilder type(SkillInvocationTypeField type) {
+    public Builder type(SkillInvocationTypeField type) {
       this.type = new EnumWrapper<SkillInvocationTypeField>(type);
       return this;
     }
 
-    public SkillInvocationBuilder type(EnumWrapper<SkillInvocationTypeField> type) {
+    public Builder type(EnumWrapper<SkillInvocationTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public SkillInvocationBuilder id(String id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public SkillInvocationBuilder skill(SkillInvocationSkillField skill) {
+    public Builder skill(SkillInvocationSkillField skill) {
       this.skill = skill;
       return this;
     }
 
-    public SkillInvocationBuilder token(SkillInvocationTokenField token) {
+    public Builder token(SkillInvocationTokenField token) {
       this.token = token;
       return this;
     }
 
-    public SkillInvocationBuilder status(SkillInvocationStatusField status) {
+    public Builder status(SkillInvocationStatusField status) {
       this.status = status;
       return this;
     }
 
-    public SkillInvocationBuilder createdAt(Date createdAt) {
+    public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public SkillInvocationBuilder trigger(String trigger) {
+    public Builder trigger(String trigger) {
       this.trigger = trigger;
       return this;
     }
 
-    public SkillInvocationBuilder enterprise(SkillInvocationEnterpriseField enterprise) {
+    public Builder enterprise(SkillInvocationEnterpriseField enterprise) {
       this.enterprise = enterprise;
       return this;
     }
 
-    public SkillInvocationBuilder source(FileOrFolder source) {
+    public Builder source(FileOrFolder source) {
       this.source = source;
       return this;
     }
 
-    public SkillInvocationBuilder event(Event event) {
+    public Builder event(Event event) {
       this.event = event;
       return this;
     }

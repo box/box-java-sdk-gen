@@ -42,7 +42,7 @@ public class FetchOptions {
     this.followRedirects = true;
   }
 
-  protected FetchOptions(FetchOptionsBuilder builder) {
+  protected FetchOptions(Builder builder) {
     this.url = builder.url;
     this.method = builder.method;
     this.params = builder.params;
@@ -105,7 +105,7 @@ public class FetchOptions {
     return followRedirects;
   }
 
-  public static class FetchOptionsBuilder {
+  public static class Builder {
 
     protected final String url;
 
@@ -131,7 +131,7 @@ public class FetchOptions {
 
     protected Boolean followRedirects;
 
-    public FetchOptionsBuilder(String url, String method) {
+    public Builder(String url, String method) {
       this.url = url;
       this.method = method;
       this.contentType = "application/json";
@@ -139,57 +139,57 @@ public class FetchOptions {
       this.followRedirects = true;
     }
 
-    public FetchOptionsBuilder params(Map<String, String> params) {
+    public Builder params(Map<String, String> params) {
       this.params = params;
       return this;
     }
 
-    public FetchOptionsBuilder headers(Map<String, String> headers) {
+    public Builder headers(Map<String, String> headers) {
       this.headers = headers;
       return this;
     }
 
-    public FetchOptionsBuilder data(JsonNode data) {
+    public Builder data(JsonNode data) {
       this.data = data;
       return this;
     }
 
-    public FetchOptionsBuilder fileStream(InputStream fileStream) {
+    public Builder fileStream(InputStream fileStream) {
       this.fileStream = fileStream;
       return this;
     }
 
-    public FetchOptionsBuilder multipartData(List<MultipartItem> multipartData) {
+    public Builder multipartData(List<MultipartItem> multipartData) {
       this.multipartData = multipartData;
       return this;
     }
 
-    public FetchOptionsBuilder contentType(String contentType) {
+    public Builder contentType(String contentType) {
       this.contentType = contentType;
       return this;
     }
 
-    public FetchOptionsBuilder responseFormat(ResponseFormat responseFormat) {
+    public Builder responseFormat(ResponseFormat responseFormat) {
       this.responseFormat = new EnumWrapper<ResponseFormat>(responseFormat);
       return this;
     }
 
-    public FetchOptionsBuilder responseFormat(EnumWrapper<ResponseFormat> responseFormat) {
+    public Builder responseFormat(EnumWrapper<ResponseFormat> responseFormat) {
       this.responseFormat = responseFormat;
       return this;
     }
 
-    public FetchOptionsBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public FetchOptionsBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }
 
-    public FetchOptionsBuilder followRedirects(Boolean followRedirects) {
+    public Builder followRedirects(Boolean followRedirects) {
       this.followRedirects = followRedirects;
       return this;
     }

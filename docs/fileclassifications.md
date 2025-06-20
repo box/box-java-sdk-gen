@@ -59,7 +59,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_metadata_enterprise_securityClassification-6VMVochwUWo -->
 ```
-client.getFileClassifications().addClassificationToFile(file.getId(), new AddClassificationToFileRequestBody.AddClassificationToFileRequestBodyBuilder().boxSecurityClassificationKey(classification.getKey()).build())
+client.getFileClassifications().addClassificationToFile(file.getId(), new AddClassificationToFileRequestBody.Builder().boxSecurityClassificationKey(classification.getKey()).build())
 ```
 
 ### Arguments

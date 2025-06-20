@@ -12,7 +12,7 @@ public class CancelSignRequestHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CancelSignRequestHeaders(CancelSignRequestHeadersBuilder builder) {
+  protected CancelSignRequestHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class CancelSignRequestHeaders {
     return extraHeaders;
   }
 
-  public static class CancelSignRequestHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CancelSignRequestHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CancelSignRequestHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

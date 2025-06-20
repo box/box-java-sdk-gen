@@ -29,7 +29,7 @@ public class MembershipsITest {
         client
             .getUsers()
             .createUser(
-                new CreateUserRequestBody.CreateUserRequestBodyBuilder(getUuid())
+                new CreateUserRequestBody.Builder(getUuid())
                     .login(String.join("", getUuid(), "@boxdemo.com"))
                     .build());
     GroupMemberships userMemberships = client.getMemberships().getUserMemberships(user.getId());
@@ -55,8 +55,7 @@ public class MembershipsITest {
             .getMemberships()
             .updateGroupMembershipById(
                 groupMembership.getId(),
-                new UpdateGroupMembershipByIdRequestBody
-                        .UpdateGroupMembershipByIdRequestBodyBuilder()
+                new UpdateGroupMembershipByIdRequestBody.Builder()
                     .role(UpdateGroupMembershipByIdRequestBodyRoleField.ADMIN)
                     .build());
     assert updatedGroupMembership.getId().equals(groupMembership.getId());

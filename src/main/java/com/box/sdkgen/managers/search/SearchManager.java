@@ -27,7 +27,7 @@ public class SearchManager {
     this.networkSession = new NetworkSession();
   }
 
-  protected SearchManager(SearchManagerBuilder builder) {
+  protected SearchManager(Builder builder) {
     this.auth = builder.auth;
     this.networkSession = builder.networkSession;
   }
@@ -43,7 +43,7 @@ public class SearchManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "",
                             this.networkSession.getBaseUrls().getBaseUrl(),
@@ -108,7 +108,7 @@ public class SearchManager {
         this.networkSession
             .getNetworkClient()
             .fetch(
-                new FetchOptions.FetchOptionsBuilder(
+                new FetchOptions.Builder(
                         String.join(
                             "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/search"),
                         "GET")
@@ -130,22 +130,22 @@ public class SearchManager {
     return networkSession;
   }
 
-  public static class SearchManagerBuilder {
+  public static class Builder {
 
     protected Authentication auth;
 
     protected NetworkSession networkSession;
 
-    public SearchManagerBuilder() {
+    public Builder() {
       this.networkSession = new NetworkSession();
     }
 
-    public SearchManagerBuilder auth(Authentication auth) {
+    public Builder auth(Authentication auth) {
       this.auth = auth;
       return this;
     }
 
-    public SearchManagerBuilder networkSession(NetworkSession networkSession) {
+    public Builder networkSession(NetworkSession networkSession) {
       this.networkSession = networkSession;
       return this;
     }

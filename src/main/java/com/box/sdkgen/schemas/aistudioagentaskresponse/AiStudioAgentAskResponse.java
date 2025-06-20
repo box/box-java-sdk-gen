@@ -48,7 +48,7 @@ public class AiStudioAgentAskResponse extends SerializableObject {
             AiStudioAgentAskResponseTypeField.AI_AGENT_ASK);
   }
 
-  protected AiStudioAgentAskResponse(AiStudioAgentAskResponseBuilder builder) {
+  protected AiStudioAgentAskResponse(Builder builder) {
     super();
     this.type = builder.type;
     this.accessState = builder.accessState;
@@ -161,7 +161,7 @@ public class AiStudioAgentAskResponse extends SerializableObject {
         + "}";
   }
 
-  public static class AiStudioAgentAskResponseBuilder {
+  public static class Builder {
 
     protected EnumWrapper<AiStudioAgentAskResponseTypeField> type;
 
@@ -179,7 +179,7 @@ public class AiStudioAgentAskResponse extends SerializableObject {
 
     protected AiStudioAgentBasicTextToolResponse basicTextMulti;
 
-    public AiStudioAgentAskResponseBuilder(String accessState, String description) {
+    public Builder(String accessState, String description) {
       this.accessState = accessState;
       this.description = description;
       this.type =
@@ -187,40 +187,37 @@ public class AiStudioAgentAskResponse extends SerializableObject {
               AiStudioAgentAskResponseTypeField.AI_AGENT_ASK);
     }
 
-    public AiStudioAgentAskResponseBuilder type(AiStudioAgentAskResponseTypeField type) {
+    public Builder type(AiStudioAgentAskResponseTypeField type) {
       this.type = new EnumWrapper<AiStudioAgentAskResponseTypeField>(type);
       return this;
     }
 
-    public AiStudioAgentAskResponseBuilder type(
-        EnumWrapper<AiStudioAgentAskResponseTypeField> type) {
+    public Builder type(EnumWrapper<AiStudioAgentAskResponseTypeField> type) {
       this.type = type;
       return this;
     }
 
-    public AiStudioAgentAskResponseBuilder customInstructions(String customInstructions) {
+    public Builder customInstructions(String customInstructions) {
       this.customInstructions = customInstructions;
       return this;
     }
 
-    public AiStudioAgentAskResponseBuilder longText(AiStudioAgentLongTextToolResponse longText) {
+    public Builder longText(AiStudioAgentLongTextToolResponse longText) {
       this.longText = longText;
       return this;
     }
 
-    public AiStudioAgentAskResponseBuilder basicText(AiStudioAgentBasicTextToolResponse basicText) {
+    public Builder basicText(AiStudioAgentBasicTextToolResponse basicText) {
       this.basicText = basicText;
       return this;
     }
 
-    public AiStudioAgentAskResponseBuilder longTextMulti(
-        AiStudioAgentLongTextToolResponse longTextMulti) {
+    public Builder longTextMulti(AiStudioAgentLongTextToolResponse longTextMulti) {
       this.longTextMulti = longTextMulti;
       return this;
     }
 
-    public AiStudioAgentAskResponseBuilder basicTextMulti(
-        AiStudioAgentBasicTextToolResponse basicTextMulti) {
+    public Builder basicTextMulti(AiStudioAgentBasicTextToolResponse basicTextMulti) {
       this.basicTextMulti = basicTextMulti;
       return this;
     }

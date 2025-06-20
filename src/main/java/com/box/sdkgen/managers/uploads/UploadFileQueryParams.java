@@ -8,7 +8,7 @@ public class UploadFileQueryParams {
 
   public UploadFileQueryParams() {}
 
-  protected UploadFileQueryParams(UploadFileQueryParamsBuilder builder) {
+  protected UploadFileQueryParams(Builder builder) {
     this.fields = builder.fields;
   }
 
@@ -16,11 +16,11 @@ public class UploadFileQueryParams {
     return fields;
   }
 
-  public static class UploadFileQueryParamsBuilder {
+  public static class Builder {
 
     protected List<String> fields;
 
-    public UploadFileQueryParamsBuilder fields(List<String> fields) {
+    public Builder fields(List<String> fields) {
       this.fields = fields;
       return this;
     }

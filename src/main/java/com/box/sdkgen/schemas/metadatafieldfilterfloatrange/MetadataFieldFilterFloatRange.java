@@ -13,7 +13,7 @@ public class MetadataFieldFilterFloatRange extends SerializableObject {
     super();
   }
 
-  protected MetadataFieldFilterFloatRange(MetadataFieldFilterFloatRangeBuilder builder) {
+  protected MetadataFieldFilterFloatRange(Builder builder) {
     super();
     this.lt = builder.lt;
     this.gt = builder.gt;
@@ -49,18 +49,18 @@ public class MetadataFieldFilterFloatRange extends SerializableObject {
     return "MetadataFieldFilterFloatRange{" + "lt='" + lt + '\'' + ", " + "gt='" + gt + '\'' + "}";
   }
 
-  public static class MetadataFieldFilterFloatRangeBuilder {
+  public static class Builder {
 
     protected Double lt;
 
     protected Double gt;
 
-    public MetadataFieldFilterFloatRangeBuilder lt(Double lt) {
+    public Builder lt(Double lt) {
       this.lt = lt;
       return this;
     }
 
-    public MetadataFieldFilterFloatRangeBuilder gt(Double gt) {
+    public Builder gt(Double gt) {
       this.gt = gt;
       return this;
     }

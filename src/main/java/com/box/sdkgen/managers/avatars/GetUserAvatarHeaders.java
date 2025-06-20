@@ -12,7 +12,7 @@ public class GetUserAvatarHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected GetUserAvatarHeaders(GetUserAvatarHeadersBuilder builder) {
+  protected GetUserAvatarHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class GetUserAvatarHeaders {
     return extraHeaders;
   }
 
-  public static class GetUserAvatarHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public GetUserAvatarHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public GetUserAvatarHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }

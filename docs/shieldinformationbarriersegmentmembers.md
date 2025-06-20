@@ -109,7 +109,7 @@ See the endpoint docs at
 
 <!-- sample post_shield_information_barrier_segment_members -->
 ```
-client.getShieldInformationBarrierSegmentMembers().createShieldInformationBarrierSegmentMember(new CreateShieldInformationBarrierSegmentMemberRequestBody(new CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField.CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentFieldBuilder().id(segment.getId()).type(CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField.SHIELD_INFORMATION_BARRIER_SEGMENT).build(), new UserBase(getEnvVar("USER_ID"))))
+client.getShieldInformationBarrierSegmentMembers().createShieldInformationBarrierSegmentMember(new CreateShieldInformationBarrierSegmentMemberRequestBody(new CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField.Builder().id(segment.getId()).type(CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentTypeField.SHIELD_INFORMATION_BARRIER_SEGMENT).build(), new UserBase(getEnvVar("USER_ID"))))
 ```
 
 ### Arguments

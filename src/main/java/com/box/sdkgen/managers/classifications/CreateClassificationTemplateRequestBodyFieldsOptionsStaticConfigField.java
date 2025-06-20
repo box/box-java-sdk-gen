@@ -13,8 +13,7 @@ public class CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigFie
     super();
   }
 
-  protected CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigField(
-      CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigFieldBuilder builder) {
+  protected CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigField(Builder builder) {
     super();
     this.classification = builder.classification;
   }
@@ -51,15 +50,14 @@ public class CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigFie
         + "}";
   }
 
-  public static class CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigFieldBuilder {
+  public static class Builder {
 
     protected CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigClassificationField
         classification;
 
-    public CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigFieldBuilder
-        classification(
-            CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigClassificationField
-                classification) {
+    public Builder classification(
+        CreateClassificationTemplateRequestBodyFieldsOptionsStaticConfigClassificationField
+            classification) {
       this.classification = classification;
       return this;
     }

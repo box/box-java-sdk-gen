@@ -12,7 +12,7 @@ public class CreateTaskAssignmentHeaders {
     this.extraHeaders = mapOf();
   }
 
-  protected CreateTaskAssignmentHeaders(CreateTaskAssignmentHeadersBuilder builder) {
+  protected CreateTaskAssignmentHeaders(Builder builder) {
     this.extraHeaders = builder.extraHeaders;
   }
 
@@ -20,15 +20,15 @@ public class CreateTaskAssignmentHeaders {
     return extraHeaders;
   }
 
-  public static class CreateTaskAssignmentHeadersBuilder {
+  public static class Builder {
 
     protected Map<String, String> extraHeaders;
 
-    public CreateTaskAssignmentHeadersBuilder() {
+    public Builder() {
       this.extraHeaders = mapOf();
     }
 
-    public CreateTaskAssignmentHeadersBuilder extraHeaders(Map<String, String> extraHeaders) {
+    public Builder extraHeaders(Map<String, String> extraHeaders) {
       this.extraHeaders = extraHeaders;
       return this;
     }
