@@ -60,7 +60,7 @@ client.getFileVersionRetentions().getFileVersionRetentionById(fileVersionRetenti
 ### Arguments
 
 - fileVersionRetentionId `String`
-  - The ID of the file version retention Example: "3424234"
+  - The ID of the file version retention. Example: "3424234"
 - headers `GetFileVersionRetentionByIdHeaders`
   - Headers of getFileVersionRetentionById method
 
