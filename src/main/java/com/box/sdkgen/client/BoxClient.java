@@ -34,6 +34,8 @@ import com.box.sdkgen.managers.foldermetadata.FolderMetadataManager;
 import com.box.sdkgen.managers.folders.FoldersManager;
 import com.box.sdkgen.managers.folderwatermarks.FolderWatermarksManager;
 import com.box.sdkgen.managers.groups.GroupsManager;
+import com.box.sdkgen.managers.hubcollaborations.HubCollaborationsManager;
+import com.box.sdkgen.managers.hubs.HubsManager;
 import com.box.sdkgen.managers.integrationmappings.IntegrationMappingsManager;
 import com.box.sdkgen.managers.invites.InvitesManager;
 import com.box.sdkgen.managers.legalholdpolicies.LegalHoldPoliciesManager;
@@ -241,6 +243,10 @@ public class BoxClient {
   public final DocgenTemplateManager docgenTemplate;
 
   public final DocgenManager docgen;
+
+  public final HubsManager hubs;
+
+  public final HubCollaborationsManager hubCollaborations;
 
   public final ShieldListsManager shieldLists;
 
@@ -556,6 +562,13 @@ public class BoxClient {
             .build();
     this.docgen =
         new DocgenManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
+    this.hubs =
+        new HubsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
+    this.hubCollaborations =
+        new HubCollaborationsManager.Builder()
+            .auth(this.auth)
+            .networkSession(this.networkSession)
+            .build();
     this.shieldLists =
         new ShieldListsManager.Builder()
             .auth(this.auth)
@@ -875,6 +888,13 @@ public class BoxClient {
             .build();
     this.docgen =
         new DocgenManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
+    this.hubs =
+        new HubsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
+    this.hubCollaborations =
+        new HubCollaborationsManager.Builder()
+            .auth(this.auth)
+            .networkSession(this.networkSession)
+            .build();
     this.shieldLists =
         new ShieldListsManager.Builder()
             .auth(this.auth)
@@ -1243,6 +1263,14 @@ public class BoxClient {
 
   public DocgenManager getDocgen() {
     return docgen;
+  }
+
+  public HubsManager getHubs() {
+    return hubs;
+  }
+
+  public HubCollaborationsManager getHubCollaborations() {
+    return hubCollaborations;
   }
 
   public ShieldListsManager getShieldLists() {
