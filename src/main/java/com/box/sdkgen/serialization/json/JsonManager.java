@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class JsonManager {
@@ -83,7 +84,7 @@ public class JsonManager {
             entry -> {
               String key = entry.getKey();
               JsonNode value = entry.getValue();
-              if (keysToSanitize.containsKey(key.toLowerCase()) && value.isTextual()) {
+              if (keysToSanitize.containsKey(key.toLowerCase(Locale.ROOT)) && value.isTextual()) {
                 sanitizedDictionary.put(key, new ObjectMapper().valueToTree(sanitizedValue()));
               } else if (value.isObject()) {
                 sanitizedDictionary.put(key, sanitizeSerializedData(value, keysToSanitize));
