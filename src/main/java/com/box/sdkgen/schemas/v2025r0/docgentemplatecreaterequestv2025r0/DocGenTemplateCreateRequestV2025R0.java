@@ -2,9 +2,11 @@ package com.box.sdkgen.schemas.v2025r0.docgentemplatecreaterequestv2025r0;
 
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.v2025r0.filereferencev2025r0.FileReferenceV2025R0;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class DocGenTemplateCreateRequestV2025R0 extends SerializableObject {
 
   protected final FileReferenceV2025R0 file;

@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.aiagentlongtexttooltextgen;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiAgentLongTextToolTextGenEmbeddingsField extends SerializableObject {
 
   protected String model;
@@ -17,6 +20,7 @@ public class AiAgentLongTextToolTextGenEmbeddingsField extends SerializableObjec
     super();
     this.model = builder.model;
     this.strategy = builder.strategy;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getModel() {
@@ -58,7 +62,7 @@ public class AiAgentLongTextToolTextGenEmbeddingsField extends SerializableObjec
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String model;
 

@@ -1,10 +1,13 @@
 package com.box.sdkgen.managers.shieldinformationbarriersegments;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.shieldinformationbarrierbase.ShieldInformationBarrierBase;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateShieldInformationBarrierSegmentRequestBody extends SerializableObject {
 
   @JsonProperty("shield_information_barrier")
@@ -28,6 +31,7 @@ public class CreateShieldInformationBarrierSegmentRequestBody extends Serializab
     this.shieldInformationBarrier = builder.shieldInformationBarrier;
     this.name = builder.name;
     this.description = builder.description;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public ShieldInformationBarrierBase getShieldInformationBarrier() {
@@ -79,7 +83,7 @@ public class CreateShieldInformationBarrierSegmentRequestBody extends Serializab
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final ShieldInformationBarrierBase shieldInformationBarrier;
 
@@ -88,6 +92,7 @@ public class CreateShieldInformationBarrierSegmentRequestBody extends Serializab
     protected String description;
 
     public Builder(ShieldInformationBarrierBase shieldInformationBarrier, String name) {
+      super();
       this.shieldInformationBarrier = shieldInformationBarrier;
       this.name = name;
     }

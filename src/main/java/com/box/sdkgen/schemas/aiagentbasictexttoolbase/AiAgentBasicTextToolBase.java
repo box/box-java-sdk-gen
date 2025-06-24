@@ -1,10 +1,13 @@
 package com.box.sdkgen.schemas.aiagentbasictexttoolbase;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiAgentBasicTextToolBase extends SerializableObject {
 
   protected String model;
@@ -24,6 +27,7 @@ public class AiAgentBasicTextToolBase extends SerializableObject {
     this.model = builder.model;
     this.numTokensForCompletion = builder.numTokensForCompletion;
     this.llmEndpointParams = builder.llmEndpointParams;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getModel() {
@@ -74,7 +78,7 @@ public class AiAgentBasicTextToolBase extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String model;
 

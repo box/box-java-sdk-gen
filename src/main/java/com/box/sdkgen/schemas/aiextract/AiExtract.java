@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.aiextract;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagentextractoraiagentreference.AiAgentExtractOrAiAgentReference;
 import com.box.sdkgen.schemas.aiitembase.AiItemBase;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiExtract extends SerializableObject {
 
   protected final String prompt;
@@ -28,6 +31,7 @@ public class AiExtract extends SerializableObject {
     this.prompt = builder.prompt;
     this.items = builder.items;
     this.aiAgent = builder.aiAgent;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getPrompt() {
@@ -78,7 +82,7 @@ public class AiExtract extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String prompt;
 
@@ -87,6 +91,7 @@ public class AiExtract extends SerializableObject {
     protected AiAgentExtractOrAiAgentReference aiAgent;
 
     public Builder(String prompt, List<AiItemBase> items) {
+      super();
       this.prompt = prompt;
       this.items = items;
     }

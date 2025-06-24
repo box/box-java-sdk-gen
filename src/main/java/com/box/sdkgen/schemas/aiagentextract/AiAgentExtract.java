@@ -1,14 +1,17 @@
 package com.box.sdkgen.schemas.aiagentextract;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagentbasictexttool.AiAgentBasicTextTool;
 import com.box.sdkgen.schemas.aiagentlongtexttool.AiAgentLongTextTool;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiAgentExtract extends SerializableObject {
 
   @JsonDeserialize(using = AiAgentExtractTypeField.AiAgentExtractTypeFieldDeserializer.class)
@@ -35,6 +38,7 @@ public class AiAgentExtract extends SerializableObject {
     this.longText = builder.longText;
     this.basicText = builder.basicText;
     this.basicImage = builder.basicImage;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<AiAgentExtractTypeField> getType() {
@@ -94,7 +98,7 @@ public class AiAgentExtract extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<AiAgentExtractTypeField> type;
 
@@ -105,6 +109,7 @@ public class AiAgentExtract extends SerializableObject {
     protected AiAgentBasicTextTool basicImage;
 
     public Builder() {
+      super();
       this.type =
           new EnumWrapper<AiAgentExtractTypeField>(AiAgentExtractTypeField.AI_AGENT_EXTRACT);
     }

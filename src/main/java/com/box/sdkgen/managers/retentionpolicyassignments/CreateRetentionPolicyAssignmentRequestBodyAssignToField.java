@@ -1,12 +1,16 @@
 package com.box.sdkgen.managers.retentionpolicyassignments;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateRetentionPolicyAssignmentRequestBodyAssignToField extends SerializableObject {
 
   @JsonDeserialize(
@@ -19,7 +23,7 @@ public class CreateRetentionPolicyAssignmentRequestBodyAssignToField extends Ser
               .CreateRetentionPolicyAssignmentRequestBodyAssignToTypeFieldSerializer.class)
   protected final EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField> type;
 
-  protected String id;
+  @Nullable protected String id;
 
   public CreateRetentionPolicyAssignmentRequestBodyAssignToField(
       @JsonProperty("type")
@@ -38,6 +42,7 @@ public class CreateRetentionPolicyAssignmentRequestBodyAssignToField extends Ser
     super();
     this.type = builder.type;
     this.id = builder.id;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField> getType() {
@@ -79,23 +84,26 @@ public class CreateRetentionPolicyAssignmentRequestBodyAssignToField extends Ser
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField> type;
 
     protected String id;
 
     public Builder(EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField> type) {
+      super();
       this.type = type;
     }
 
     public Builder(CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField type) {
+      super();
       this.type =
           new EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField>(type);
     }
 
     public Builder id(String id) {
       this.id = id;
+      this.markNullableFieldAsSet("id");
       return this;
     }
 

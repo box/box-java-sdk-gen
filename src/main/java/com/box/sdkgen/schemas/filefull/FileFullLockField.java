@@ -1,15 +1,19 @@
 package com.box.sdkgen.schemas.filefull;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileFullLockField extends SerializableObject {
 
   protected String id;
@@ -37,6 +41,7 @@ public class FileFullLockField extends SerializableObject {
   @JsonDeserialize(using = FileFullLockAppTypeField.FileFullLockAppTypeFieldDeserializer.class)
   @JsonSerialize(using = FileFullLockAppTypeField.FileFullLockAppTypeFieldSerializer.class)
   @JsonProperty("app_type")
+  @Nullable
   protected EnumWrapper<FileFullLockAppTypeField> appType;
 
   public FileFullLockField() {
@@ -52,6 +57,7 @@ public class FileFullLockField extends SerializableObject {
     this.expiredAt = builder.expiredAt;
     this.isDownloadPrevented = builder.isDownloadPrevented;
     this.appType = builder.appType;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -138,7 +144,7 @@ public class FileFullLockField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String id;
 
@@ -191,11 +197,13 @@ public class FileFullLockField extends SerializableObject {
 
     public Builder appType(FileFullLockAppTypeField appType) {
       this.appType = new EnumWrapper<FileFullLockAppTypeField>(appType);
+      this.markNullableFieldAsSet("app_type");
       return this;
     }
 
     public Builder appType(EnumWrapper<FileFullLockAppTypeField> appType) {
       this.appType = appType;
+      this.markNullableFieldAsSet("app_type");
       return this;
     }
 

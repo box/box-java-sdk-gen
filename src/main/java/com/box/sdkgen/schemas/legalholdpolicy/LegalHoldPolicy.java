@@ -5,12 +5,14 @@ import com.box.sdkgen.schemas.legalholdpolicymini.LegalHoldPolicyMini;
 import com.box.sdkgen.schemas.legalholdpolicymini.LegalHoldPolicyMiniTypeField;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class LegalHoldPolicy extends LegalHoldPolicyMini {
 
   @JsonProperty("policy_name")
@@ -73,6 +75,7 @@ public class LegalHoldPolicy extends LegalHoldPolicyMini {
     this.filterStartedAt = builder.filterStartedAt;
     this.filterEndedAt = builder.filterEndedAt;
     this.releaseNotes = builder.releaseNotes;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getPolicyName() {

@@ -1,15 +1,18 @@
 package com.box.sdkgen.schemas.folderlock;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.userbase.UserBase;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FolderLock extends SerializableObject {
 
   protected FolderMini folder;
@@ -45,6 +48,7 @@ public class FolderLock extends SerializableObject {
     this.createdAt = builder.createdAt;
     this.lockedOperations = builder.lockedOperations;
     this.lockType = builder.lockType;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public FolderMini getFolder() {
@@ -131,7 +135,7 @@ public class FolderLock extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected FolderMini folder;
 

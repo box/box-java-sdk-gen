@@ -1,14 +1,17 @@
 package com.box.sdkgen.managers.workflows;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.outcome.Outcome;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class StartWorkflowRequestBody extends SerializableObject {
 
   @JsonDeserialize(
@@ -42,6 +45,7 @@ public class StartWorkflowRequestBody extends SerializableObject {
     this.files = builder.files;
     this.folder = builder.folder;
     this.outcomes = builder.outcomes;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<StartWorkflowRequestBodyTypeField> getType() {
@@ -110,7 +114,7 @@ public class StartWorkflowRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<StartWorkflowRequestBodyTypeField> type;
 
@@ -126,6 +130,7 @@ public class StartWorkflowRequestBody extends SerializableObject {
         StartWorkflowRequestBodyFlowField flow,
         List<StartWorkflowRequestBodyFilesField> files,
         StartWorkflowRequestBodyFolderField folder) {
+      super();
       this.flow = flow;
       this.files = files;
       this.folder = folder;

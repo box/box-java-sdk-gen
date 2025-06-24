@@ -1,14 +1,17 @@
 package com.box.sdkgen.schemas.filerequestupdaterequest;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileRequestUpdateRequest extends SerializableObject {
 
   protected String title;
@@ -46,6 +49,7 @@ public class FileRequestUpdateRequest extends SerializableObject {
     this.isEmailRequired = builder.isEmailRequired;
     this.isDescriptionRequired = builder.isDescriptionRequired;
     this.expiresAt = builder.expiresAt;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getTitle() {
@@ -124,7 +128,7 @@ public class FileRequestUpdateRequest extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String title;
 

@@ -6,11 +6,13 @@ import com.box.sdkgen.schemas.v2025r0.docgenjobbasev2025r0.DocGenJobBaseV2025R0T
 import com.box.sdkgen.schemas.v2025r0.filereferencev2025r0.FileReferenceV2025R0;
 import com.box.sdkgen.schemas.v2025r0.fileversionbasev2025r0.FileVersionBaseV2025R0;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class DocGenJobV2025R0 extends DocGenJobBaseV2025R0 {
 
   protected final DocGenBatchBaseV2025R0 batch;
@@ -74,6 +76,7 @@ public class DocGenJobV2025R0 extends DocGenJobBaseV2025R0 {
     this.outputFileVersion = builder.outputFileVersion;
     this.status = builder.status;
     this.outputType = builder.outputType;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public DocGenBatchBaseV2025R0 getBatch() {

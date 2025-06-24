@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.aiextractstructured;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagentextractstructuredoraiagentreference.AiAgentExtractStructuredOrAiAgentReference;
 import com.box.sdkgen.schemas.aiitembase.AiItemBase;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiExtractStructured extends SerializableObject {
 
   protected final List<AiItemBase> items;
@@ -30,6 +33,7 @@ public class AiExtractStructured extends SerializableObject {
     this.metadataTemplate = builder.metadataTemplate;
     this.fields = builder.fields;
     this.aiAgent = builder.aiAgent;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<AiItemBase> getItems() {
@@ -89,7 +93,7 @@ public class AiExtractStructured extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final List<AiItemBase> items;
 
@@ -100,6 +104,7 @@ public class AiExtractStructured extends SerializableObject {
     protected AiAgentExtractStructuredOrAiAgentReference aiAgent;
 
     public Builder(List<AiItemBase> items) {
+      super();
       this.items = items;
     }
 

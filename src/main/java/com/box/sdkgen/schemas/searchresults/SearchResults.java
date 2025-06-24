@@ -1,14 +1,17 @@
 package com.box.sdkgen.schemas.searchresults;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filefullorfolderfullorweblink.FileFullOrFolderFullOrWebLink;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SearchResults extends SerializableObject {
 
   @JsonProperty("total_count")
@@ -37,6 +40,7 @@ public class SearchResults extends SerializableObject {
     this.offset = builder.offset;
     this.type = builder.type;
     this.entries = builder.entries;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Long getTotalCount() {
@@ -105,7 +109,7 @@ public class SearchResults extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Long totalCount;
 
@@ -118,6 +122,7 @@ public class SearchResults extends SerializableObject {
     protected List<FileFullOrFolderFullOrWebLink> entries;
 
     public Builder() {
+      super();
       this.type =
           new EnumWrapper<SearchResultsTypeField>(SearchResultsTypeField.SEARCH_RESULTS_ITEMS);
     }

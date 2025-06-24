@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.classification;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class Classification extends SerializableObject {
 
   @JsonProperty("Box__Security__Classification__Key")
@@ -50,6 +53,7 @@ public class Classification extends SerializableObject {
     this.type = builder.type;
     this.typeVersion = builder.typeVersion;
     this.canEdit = builder.canEdit;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getBoxSecurityClassificationKey() {
@@ -146,7 +150,7 @@ public class Classification extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String boxSecurityClassificationKey;
 

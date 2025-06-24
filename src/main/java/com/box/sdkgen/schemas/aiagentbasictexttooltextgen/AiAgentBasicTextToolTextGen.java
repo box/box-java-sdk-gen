@@ -2,9 +2,11 @@ package com.box.sdkgen.schemas.aiagentbasictexttooltextgen;
 
 import com.box.sdkgen.schemas.aiagentbasictexttoolbase.AiAgentBasicTextToolBase;
 import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiAgentBasicTextToolTextGen extends AiAgentBasicTextToolBase {
 
   @JsonProperty("system_message")
@@ -21,6 +23,7 @@ public class AiAgentBasicTextToolTextGen extends AiAgentBasicTextToolBase {
     super(builder);
     this.systemMessage = builder.systemMessage;
     this.promptTemplate = builder.promptTemplate;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getSystemMessage() {

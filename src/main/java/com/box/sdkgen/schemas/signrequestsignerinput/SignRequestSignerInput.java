@@ -2,12 +2,14 @@ package com.box.sdkgen.schemas.signrequestsignerinput;
 
 import com.box.sdkgen.schemas.signrequestprefilltag.SignRequestPrefillTag;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SignRequestSignerInput extends SignRequestPrefillTag {
 
   @JsonDeserialize(
@@ -44,6 +46,7 @@ public class SignRequestSignerInput extends SignRequestPrefillTag {
     this.contentType = builder.contentType;
     this.pageIndex = builder.pageIndex;
     this.readOnly = builder.readOnly;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<SignRequestSignerInputTypeField> getType() {
@@ -167,24 +170,28 @@ public class SignRequestSignerInput extends SignRequestPrefillTag {
     @Override
     public Builder documentTagId(String documentTagId) {
       this.documentTagId = documentTagId;
+      this.markNullableFieldAsSet("document_tag_id");
       return this;
     }
 
     @Override
     public Builder textValue(String textValue) {
       this.textValue = textValue;
+      this.markNullableFieldAsSet("text_value");
       return this;
     }
 
     @Override
     public Builder checkboxValue(Boolean checkboxValue) {
       this.checkboxValue = checkboxValue;
+      this.markNullableFieldAsSet("checkbox_value");
       return this;
     }
 
     @Override
     public Builder dateValue(Date dateValue) {
       this.dateValue = dateValue;
+      this.markNullableFieldAsSet("date_value");
       return this;
     }
 

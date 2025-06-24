@@ -1,12 +1,15 @@
 package com.box.sdkgen.managers.files;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateFileByIdRequestBodyPermissionsField extends SerializableObject {
 
   @JsonDeserialize(
@@ -27,6 +30,7 @@ public class UpdateFileByIdRequestBodyPermissionsField extends SerializableObjec
   protected UpdateFileByIdRequestBodyPermissionsField(Builder builder) {
     super();
     this.canDownload = builder.canDownload;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField> getCanDownload() {
@@ -60,7 +64,7 @@ public class UpdateFileByIdRequestBodyPermissionsField extends SerializableObjec
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<UpdateFileByIdRequestBodyPermissionsCanDownloadField> canDownload;
 

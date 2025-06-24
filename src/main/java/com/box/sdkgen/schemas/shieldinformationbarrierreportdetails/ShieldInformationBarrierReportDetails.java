@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.shieldinformationbarrierreportdetails;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ShieldInformationBarrierReportDetails extends SerializableObject {
 
   protected ShieldInformationBarrierReportDetailsDetailsField details;
@@ -14,6 +17,7 @@ public class ShieldInformationBarrierReportDetails extends SerializableObject {
   protected ShieldInformationBarrierReportDetails(Builder builder) {
     super();
     this.details = builder.details;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public ShieldInformationBarrierReportDetailsDetailsField getDetails() {
@@ -42,7 +46,7 @@ public class ShieldInformationBarrierReportDetails extends SerializableObject {
     return "ShieldInformationBarrierReportDetails{" + "details='" + details + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected ShieldInformationBarrierReportDetailsDetailsField details;
 

@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.v2025r0.hubcollaborationv2025r0;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class HubCollaborationV2025R0AcceptanceRequirementsStatusField extends SerializableObject {
 
   @JsonProperty("terms_of_service_requirement")
@@ -28,6 +31,7 @@ public class HubCollaborationV2025R0AcceptanceRequirementsStatusField extends Se
     this.termsOfServiceRequirement = builder.termsOfServiceRequirement;
     this.strongPasswordRequirement = builder.strongPasswordRequirement;
     this.twoFactorAuthenticationRequirement = builder.twoFactorAuthenticationRequirement;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public HubCollaborationV2025R0AcceptanceRequirementsStatusTermsOfServiceRequirementField
@@ -84,7 +88,7 @@ public class HubCollaborationV2025R0AcceptanceRequirementsStatusField extends Se
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected HubCollaborationV2025R0AcceptanceRequirementsStatusTermsOfServiceRequirementField
         termsOfServiceRequirement;

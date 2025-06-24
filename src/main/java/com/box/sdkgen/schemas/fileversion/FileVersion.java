@@ -1,16 +1,19 @@
 package com.box.sdkgen.schemas.fileversion;
 
+import com.box.sdkgen.internal.Nullable;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.fileversionbase.FileVersionBaseTypeField;
 import com.box.sdkgen.schemas.fileversionmini.FileVersionMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileVersion extends FileVersionMini {
 
   protected String name;
@@ -33,6 +36,7 @@ public class FileVersion extends FileVersionMini {
   @JsonProperty("trashed_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date trashedAt;
 
   @JsonProperty("trashed_by")
@@ -41,6 +45,7 @@ public class FileVersion extends FileVersionMini {
   @JsonProperty("restored_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date restoredAt;
 
   @JsonProperty("restored_by")
@@ -49,6 +54,7 @@ public class FileVersion extends FileVersionMini {
   @JsonProperty("purged_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date purgedAt;
 
   @JsonProperty("uploader_display_name")
@@ -71,6 +77,7 @@ public class FileVersion extends FileVersionMini {
     this.restoredBy = builder.restoredBy;
     this.purgedAt = builder.purgedAt;
     this.uploaderDisplayName = builder.uploaderDisplayName;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {
@@ -277,6 +284,7 @@ public class FileVersion extends FileVersionMini {
 
     public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
+      this.markNullableFieldAsSet("trashed_at");
       return this;
     }
 
@@ -287,6 +295,7 @@ public class FileVersion extends FileVersionMini {
 
     public Builder restoredAt(Date restoredAt) {
       this.restoredAt = restoredAt;
+      this.markNullableFieldAsSet("restored_at");
       return this;
     }
 
@@ -297,6 +306,7 @@ public class FileVersion extends FileVersionMini {
 
     public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
+      this.markNullableFieldAsSet("purged_at");
       return this;
     }
 

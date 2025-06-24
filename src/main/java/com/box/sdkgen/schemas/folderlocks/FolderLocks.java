@@ -1,11 +1,15 @@
 package com.box.sdkgen.schemas.folderlocks;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.folderlock.FolderLock;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FolderLocks extends SerializableObject {
 
   protected List<FolderLock> entries;
@@ -13,6 +17,7 @@ public class FolderLocks extends SerializableObject {
   protected String limit;
 
   @JsonProperty("next_marker")
+  @Nullable
   protected String nextMarker;
 
   public FolderLocks() {
@@ -24,6 +29,7 @@ public class FolderLocks extends SerializableObject {
     this.entries = builder.entries;
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<FolderLock> getEntries() {
@@ -74,7 +80,7 @@ public class FolderLocks extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected List<FolderLock> entries;
 
@@ -94,6 +100,7 @@ public class FolderLocks extends SerializableObject {
 
     public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
+      this.markNullableFieldAsSet("next_marker");
       return this;
     }
 

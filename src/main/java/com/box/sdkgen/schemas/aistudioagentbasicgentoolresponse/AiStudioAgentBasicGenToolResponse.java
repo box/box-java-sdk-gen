@@ -3,9 +3,11 @@ package com.box.sdkgen.schemas.aistudioagentbasicgentoolresponse;
 import com.box.sdkgen.schemas.aiagentlongtexttooltextgen.AiAgentLongTextToolTextGenEmbeddingsField;
 import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
 import com.box.sdkgen.schemas.aistudioagentbasicgentool.AiStudioAgentBasicGenTool;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiStudioAgentBasicGenToolResponse extends AiStudioAgentBasicGenTool {
 
   protected List<String> warnings;
@@ -17,6 +19,7 @@ public class AiStudioAgentBasicGenToolResponse extends AiStudioAgentBasicGenTool
   protected AiStudioAgentBasicGenToolResponse(Builder builder) {
     super(builder);
     this.warnings = builder.warnings;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<String> getWarnings() {

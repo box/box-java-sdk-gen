@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.postoauth2revoke;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class PostOAuth2Revoke extends SerializableObject {
 
   @JsonProperty("client_id")
@@ -23,6 +26,7 @@ public class PostOAuth2Revoke extends SerializableObject {
     this.clientId = builder.clientId;
     this.clientSecret = builder.clientSecret;
     this.token = builder.token;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getClientId() {
@@ -73,7 +77,7 @@ public class PostOAuth2Revoke extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String clientId;
 

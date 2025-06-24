@@ -3,11 +3,13 @@ package com.box.sdkgen.schemas.airesponsefull;
 import com.box.sdkgen.schemas.aiagentinfo.AiAgentInfo;
 import com.box.sdkgen.schemas.aicitation.AiCitation;
 import com.box.sdkgen.schemas.airesponse.AiResponse;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiResponseFull extends AiResponse {
 
   protected List<AiCitation> citations;
@@ -20,6 +22,7 @@ public class AiResponseFull extends AiResponse {
   protected AiResponseFull(Builder builder) {
     super(builder);
     this.citations = builder.citations;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<AiCitation> getCitations() {

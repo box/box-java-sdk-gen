@@ -3,10 +3,12 @@ package com.box.sdkgen.schemas.filerequestcopyrequest;
 import com.box.sdkgen.schemas.filerequestupdaterequest.FileRequestUpdateRequest;
 import com.box.sdkgen.schemas.filerequestupdaterequest.FileRequestUpdateRequestStatusField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileRequestCopyRequest extends FileRequestUpdateRequest {
 
   protected final FileRequestCopyRequestFolderField folder;
@@ -19,6 +21,7 @@ public class FileRequestCopyRequest extends FileRequestUpdateRequest {
   protected FileRequestCopyRequest(Builder builder) {
     super(builder);
     this.folder = builder.folder;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public FileRequestCopyRequestFolderField getFolder() {

@@ -1,14 +1,18 @@
 package com.box.sdkgen.schemas.eventsource;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class EventSource extends SerializableObject {
 
   @JsonDeserialize(using = EventSourceItemTypeField.EventSourceItemTypeFieldDeserializer.class)
@@ -24,7 +28,7 @@ public class EventSource extends SerializableObject {
 
   protected EventSourceClassificationField classification;
 
-  protected FolderMini parent;
+  @Nullable protected FolderMini parent;
 
   @JsonProperty("owned_by")
   protected UserMini ownedBy;
@@ -54,6 +58,7 @@ public class EventSource extends SerializableObject {
     this.classification = builder.classification;
     this.parent = builder.parent;
     this.ownedBy = builder.ownedBy;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<EventSourceItemTypeField> getItemType() {
@@ -131,7 +136,7 @@ public class EventSource extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final EnumWrapper<EventSourceItemTypeField> itemType;
 
@@ -146,12 +151,14 @@ public class EventSource extends SerializableObject {
     protected UserMini ownedBy;
 
     public Builder(EnumWrapper<EventSourceItemTypeField> itemType, String itemId, String itemName) {
+      super();
       this.itemType = itemType;
       this.itemId = itemId;
       this.itemName = itemName;
     }
 
     public Builder(EventSourceItemTypeField itemType, String itemId, String itemName) {
+      super();
       this.itemType = new EnumWrapper<EventSourceItemTypeField>(itemType);
       this.itemId = itemId;
       this.itemName = itemName;
@@ -164,6 +171,7 @@ public class EventSource extends SerializableObject {
 
     public Builder parent(FolderMini parent) {
       this.parent = parent;
+      this.markNullableFieldAsSet("parent");
       return this;
     }
 

@@ -1,10 +1,12 @@
 package com.box.sdkgen.schemas.v2025r0.docgendocumentgenerationdatav2025r0;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Map;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class DocGenDocumentGenerationDataV2025R0 extends SerializableObject {
 
   @JsonProperty("generated_file_name")

@@ -1,12 +1,15 @@
 package com.box.sdkgen.managers.usercollaborations;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateCollaborationRequestBodyAccessibleByField extends SerializableObject {
 
   @JsonDeserialize(
@@ -40,6 +43,7 @@ public class CreateCollaborationRequestBodyAccessibleByField extends Serializabl
     this.type = builder.type;
     this.id = builder.id;
     this.login = builder.login;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField> getType() {
@@ -91,7 +95,7 @@ public class CreateCollaborationRequestBodyAccessibleByField extends Serializabl
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField> type;
 
@@ -100,10 +104,12 @@ public class CreateCollaborationRequestBodyAccessibleByField extends Serializabl
     protected String login;
 
     public Builder(EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField> type) {
+      super();
       this.type = type;
     }
 
     public Builder(CreateCollaborationRequestBodyAccessibleByTypeField type) {
+      super();
       this.type = new EnumWrapper<CreateCollaborationRequestBodyAccessibleByTypeField>(type);
     }
 

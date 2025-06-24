@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.TimeZone;
 import java.util.UUID;
 import java.util.function.BiFunction;
@@ -69,6 +70,10 @@ public class UtilsManager {
             HashMap::new,
             (map, entry) -> map.put(entry.getKey(), entry.getValue()),
             HashMap::putAll);
+  }
+
+  public static <V> Set<V> setOf(V... values) {
+    return Arrays.stream(values).collect(Collectors.toSet());
   }
 
   public static <K, V> Entry<K, V> entryOf(K key, V value) {

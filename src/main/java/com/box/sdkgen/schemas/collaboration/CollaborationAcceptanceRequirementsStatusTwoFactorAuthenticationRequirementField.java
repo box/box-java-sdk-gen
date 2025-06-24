@@ -1,9 +1,13 @@
 package com.box.sdkgen.schemas.collaboration;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementField
     extends SerializableObject {
 
@@ -11,6 +15,7 @@ public class CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationReq
   protected Boolean enterpriseHasTwoFactorAuthEnabled;
 
   @JsonProperty("user_has_two_factor_authentication_enabled")
+  @Nullable
   protected Boolean userHasTwoFactorAuthenticationEnabled;
 
   public CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationRequirementField() {
@@ -22,6 +27,7 @@ public class CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationReq
     super();
     this.enterpriseHasTwoFactorAuthEnabled = builder.enterpriseHasTwoFactorAuthEnabled;
     this.userHasTwoFactorAuthenticationEnabled = builder.userHasTwoFactorAuthenticationEnabled;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Boolean getEnterpriseHasTwoFactorAuthEnabled() {
@@ -66,7 +72,7 @@ public class CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationReq
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Boolean enterpriseHasTwoFactorAuthEnabled;
 
@@ -80,6 +86,7 @@ public class CollaborationAcceptanceRequirementsStatusTwoFactorAuthenticationReq
     public Builder userHasTwoFactorAuthenticationEnabled(
         Boolean userHasTwoFactorAuthenticationEnabled) {
       this.userHasTwoFactorAuthenticationEnabled = userHasTwoFactorAuthenticationEnabled;
+      this.markNullableFieldAsSet("user_has_two_factor_authentication_enabled");
       return this;
     }
 

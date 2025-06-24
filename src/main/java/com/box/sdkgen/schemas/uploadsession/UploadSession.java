@@ -1,14 +1,17 @@
 package com.box.sdkgen.schemas.uploadsession;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UploadSession extends SerializableObject {
 
   protected String id;
@@ -47,6 +50,7 @@ public class UploadSession extends SerializableObject {
     this.totalParts = builder.totalParts;
     this.numPartsProcessed = builder.numPartsProcessed;
     this.sessionEndpoints = builder.sessionEndpoints;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -134,7 +138,7 @@ public class UploadSession extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String id;
 

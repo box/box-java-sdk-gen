@@ -1,14 +1,17 @@
 package com.box.sdkgen.managers.usercollaborations;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateCollaborationRequestBody extends SerializableObject {
 
   protected final CreateCollaborationRequestBodyItemField item;
@@ -65,6 +68,7 @@ public class CreateCollaborationRequestBody extends SerializableObject {
     this.isAccessOnly = builder.isAccessOnly;
     this.canViewPath = builder.canViewPath;
     this.expiresAt = builder.expiresAt;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public CreateCollaborationRequestBodyItemField getItem() {
@@ -142,7 +146,7 @@ public class CreateCollaborationRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final CreateCollaborationRequestBodyItemField item;
 
@@ -160,6 +164,7 @@ public class CreateCollaborationRequestBody extends SerializableObject {
         CreateCollaborationRequestBodyItemField item,
         CreateCollaborationRequestBodyAccessibleByField accessibleBy,
         EnumWrapper<CreateCollaborationRequestBodyRoleField> role) {
+      super();
       this.item = item;
       this.accessibleBy = accessibleBy;
       this.role = role;
@@ -169,6 +174,7 @@ public class CreateCollaborationRequestBody extends SerializableObject {
         CreateCollaborationRequestBodyItemField item,
         CreateCollaborationRequestBodyAccessibleByField accessibleBy,
         CreateCollaborationRequestBodyRoleField role) {
+      super();
       this.item = item;
       this.accessibleBy = accessibleBy;
       this.role = new EnumWrapper<CreateCollaborationRequestBodyRoleField>(role);

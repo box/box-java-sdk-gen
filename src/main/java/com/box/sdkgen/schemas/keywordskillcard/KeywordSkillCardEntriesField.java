@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.keywordskillcard;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class KeywordSkillCardEntriesField extends SerializableObject {
 
   protected String text;
@@ -14,6 +17,7 @@ public class KeywordSkillCardEntriesField extends SerializableObject {
   protected KeywordSkillCardEntriesField(Builder builder) {
     super();
     this.text = builder.text;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getText() {
@@ -42,7 +46,7 @@ public class KeywordSkillCardEntriesField extends SerializableObject {
     return "KeywordSkillCardEntriesField{" + "text='" + text + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String text;
 

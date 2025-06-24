@@ -1,13 +1,16 @@
 package com.box.sdkgen.schemas.workflow;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class WorkflowFlowsTriggerField extends SerializableObject {
 
   @JsonDeserialize(
@@ -37,6 +40,7 @@ public class WorkflowFlowsTriggerField extends SerializableObject {
     this.type = builder.type;
     this.triggerType = builder.triggerType;
     this.scope = builder.scope;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<WorkflowFlowsTriggerTypeField> getType() {
@@ -87,7 +91,7 @@ public class WorkflowFlowsTriggerField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<WorkflowFlowsTriggerTypeField> type;
 

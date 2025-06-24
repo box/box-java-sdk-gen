@@ -1,7 +1,10 @@
 package com.box.sdkgen.managers.files;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -9,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateFileByIdRequestBody extends SerializableObject {
 
   protected String name;
@@ -18,9 +22,10 @@ public class UpdateFileByIdRequestBody extends SerializableObject {
   protected UpdateFileByIdRequestBodyParentField parent;
 
   @JsonProperty("shared_link")
+  @Nullable
   protected UpdateFileByIdRequestBodySharedLinkField sharedLink;
 
-  protected UpdateFileByIdRequestBodyLockField lock;
+  @Nullable protected UpdateFileByIdRequestBodyLockField lock;
 
   @JsonProperty("disposition_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
@@ -29,7 +34,7 @@ public class UpdateFileByIdRequestBody extends SerializableObject {
 
   protected UpdateFileByIdRequestBodyPermissionsField permissions;
 
-  protected List<UpdateFileByIdRequestBodyCollectionsField> collections;
+  @Nullable protected List<UpdateFileByIdRequestBodyCollectionsField> collections;
 
   protected List<String> tags;
 
@@ -48,6 +53,7 @@ public class UpdateFileByIdRequestBody extends SerializableObject {
     this.permissions = builder.permissions;
     this.collections = builder.collections;
     this.tags = builder.tags;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {
@@ -153,7 +159,7 @@ public class UpdateFileByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String name;
 
@@ -190,11 +196,13 @@ public class UpdateFileByIdRequestBody extends SerializableObject {
 
     public Builder sharedLink(UpdateFileByIdRequestBodySharedLinkField sharedLink) {
       this.sharedLink = sharedLink;
+      this.markNullableFieldAsSet("shared_link");
       return this;
     }
 
     public Builder lock(UpdateFileByIdRequestBodyLockField lock) {
       this.lock = lock;
+      this.markNullableFieldAsSet("lock");
       return this;
     }
 
@@ -210,6 +218,7 @@ public class UpdateFileByIdRequestBody extends SerializableObject {
 
     public Builder collections(List<UpdateFileByIdRequestBodyCollectionsField> collections) {
       this.collections = collections;
+      this.markNullableFieldAsSet("collections");
       return this;
     }
 

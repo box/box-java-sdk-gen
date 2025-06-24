@@ -1,12 +1,15 @@
 package com.box.sdkgen.managers.skills;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateAllSkillCardsOnFileRequestBody extends SerializableObject {
 
   @JsonDeserialize(
@@ -55,6 +58,7 @@ public class UpdateAllSkillCardsOnFileRequestBody extends SerializableObject {
     this.file = builder.file;
     this.fileVersion = builder.fileVersion;
     this.usage = builder.usage;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField> getStatus() {
@@ -123,7 +127,7 @@ public class UpdateAllSkillCardsOnFileRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField> status;
 
@@ -139,6 +143,7 @@ public class UpdateAllSkillCardsOnFileRequestBody extends SerializableObject {
         EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField> status,
         UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata,
         UpdateAllSkillCardsOnFileRequestBodyFileField file) {
+      super();
       this.status = status;
       this.metadata = metadata;
       this.file = file;
@@ -148,6 +153,7 @@ public class UpdateAllSkillCardsOnFileRequestBody extends SerializableObject {
         UpdateAllSkillCardsOnFileRequestBodyStatusField status,
         UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata,
         UpdateAllSkillCardsOnFileRequestBodyFileField file) {
+      super();
       this.status = new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField>(status);
       this.metadata = metadata;
       this.file = file;

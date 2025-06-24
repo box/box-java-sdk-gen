@@ -1,9 +1,12 @@
 package com.box.sdkgen.box.jwtauth;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class JwtConfigFile extends SerializableObject {
 
   @JsonProperty("enterpriseID")
@@ -24,6 +27,7 @@ public class JwtConfigFile extends SerializableObject {
     this.enterpriseId = builder.enterpriseId;
     this.userId = builder.userId;
     this.boxAppSettings = builder.boxAppSettings;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getEnterpriseId() {
@@ -74,7 +78,7 @@ public class JwtConfigFile extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String enterpriseId;
 
@@ -83,6 +87,7 @@ public class JwtConfigFile extends SerializableObject {
     protected final JwtConfigAppSettings boxAppSettings;
 
     public Builder(JwtConfigAppSettings boxAppSettings) {
+      super();
       this.boxAppSettings = boxAppSettings;
     }
 

@@ -1,9 +1,11 @@
 package com.box.sdkgen.schemas.folderfull;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FolderFullPermissionsField extends SerializableObject {
 
   @JsonProperty("can_delete")

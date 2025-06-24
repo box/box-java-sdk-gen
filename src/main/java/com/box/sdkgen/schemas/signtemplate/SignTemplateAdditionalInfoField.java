@@ -1,8 +1,10 @@
 package com.box.sdkgen.schemas.signtemplate;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.box.sdkgen.serialization.json.Valuable;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SignTemplateAdditionalInfoField extends SerializableObject {
 
   @JsonDeserialize(using = NonEditableDeserializer.class)
@@ -35,6 +38,7 @@ public class SignTemplateAdditionalInfoField extends SerializableObject {
     super();
     this.nonEditable = builder.nonEditable;
     this.required = builder.required;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<EnumWrapper<SignTemplateAdditionalInfoNonEditableField>> getNonEditable() {
@@ -76,7 +80,7 @@ public class SignTemplateAdditionalInfoField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected List<EnumWrapper<SignTemplateAdditionalInfoNonEditableField>> nonEditable;
 

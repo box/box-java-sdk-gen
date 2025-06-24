@@ -1,9 +1,12 @@
 package com.box.sdkgen.managers.folderclassifications;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AddClassificationToFolderRequestBody extends SerializableObject {
 
   @JsonProperty("Box__Security__Classification__Key")
@@ -16,6 +19,7 @@ public class AddClassificationToFolderRequestBody extends SerializableObject {
   protected AddClassificationToFolderRequestBody(Builder builder) {
     super();
     this.boxSecurityClassificationKey = builder.boxSecurityClassificationKey;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getBoxSecurityClassificationKey() {
@@ -48,7 +52,7 @@ public class AddClassificationToFolderRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String boxSecurityClassificationKey;
 

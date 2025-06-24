@@ -4,9 +4,11 @@ import com.box.sdkgen.schemas.filebase.FileBaseTypeField;
 import com.box.sdkgen.schemas.filemini.FileMini;
 import com.box.sdkgen.schemas.fileversionmini.FileVersionMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileConflict extends FileMini {
 
   public FileConflict(@JsonProperty("id") String id) {
@@ -15,6 +17,7 @@ public class FileConflict extends FileMini {
 
   protected FileConflict(Builder builder) {
     super(builder);
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   @Override
@@ -82,6 +85,7 @@ public class FileConflict extends FileMini {
     @Override
     public Builder etag(String etag) {
       this.etag = etag;
+      this.markNullableFieldAsSet("etag");
       return this;
     }
 

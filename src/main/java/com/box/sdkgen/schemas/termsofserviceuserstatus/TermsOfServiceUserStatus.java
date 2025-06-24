@@ -1,16 +1,19 @@
 package com.box.sdkgen.schemas.termsofserviceuserstatus;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.termsofservicebase.TermsOfServiceBase;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TermsOfServiceUserStatus extends SerializableObject {
 
   protected final String id;
@@ -55,6 +58,7 @@ public class TermsOfServiceUserStatus extends SerializableObject {
     this.isAccepted = builder.isAccepted;
     this.createdAt = builder.createdAt;
     this.modifiedAt = builder.modifiedAt;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -141,7 +145,7 @@ public class TermsOfServiceUserStatus extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -158,6 +162,7 @@ public class TermsOfServiceUserStatus extends SerializableObject {
     protected Date modifiedAt;
 
     public Builder(String id) {
+      super();
       this.id = id;
       this.type =
           new EnumWrapper<TermsOfServiceUserStatusTypeField>(

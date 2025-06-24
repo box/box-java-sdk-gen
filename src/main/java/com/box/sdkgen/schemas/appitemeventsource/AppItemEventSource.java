@@ -1,14 +1,17 @@
 package com.box.sdkgen.schemas.appitemeventsource;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.groupmini.GroupMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AppItemEventSource extends SerializableObject {
 
   protected final String id;
@@ -40,6 +43,7 @@ public class AppItemEventSource extends SerializableObject {
     this.appItemType = builder.appItemType;
     this.user = builder.user;
     this.group = builder.group;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -108,7 +112,7 @@ public class AppItemEventSource extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -121,6 +125,7 @@ public class AppItemEventSource extends SerializableObject {
     protected GroupMini group;
 
     public Builder(String id, String appItemType) {
+      super();
       this.id = id;
       this.appItemType = appItemType;
       this.type =

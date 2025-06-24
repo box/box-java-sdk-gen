@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.signrequest;
 
+import com.box.sdkgen.internal.Nullable;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.filebase.FileBase;
 import com.box.sdkgen.schemas.filemini.FileMini;
@@ -8,6 +9,7 @@ import com.box.sdkgen.schemas.signrequestbase.SignRequestBase;
 import com.box.sdkgen.schemas.signrequestprefilltag.SignRequestPrefillTag;
 import com.box.sdkgen.schemas.signrequestsigner.SignRequestSigner;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -15,6 +17,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SignRequest extends SignRequestBase {
 
   @JsonDeserialize(using = SignRequestTypeField.SignRequestTypeFieldDeserializer.class)
@@ -27,11 +30,13 @@ public class SignRequest extends SignRequestBase {
   protected List<SignRequestSigner> signers;
 
   @JsonProperty("signature_color")
+  @Nullable
   protected String signatureColor;
 
   protected String id;
 
   @JsonProperty("prepare_url")
+  @Nullable
   protected String prepareUrl;
 
   @JsonProperty("signing_log")
@@ -47,18 +52,22 @@ public class SignRequest extends SignRequestBase {
   @JsonProperty("auto_expire_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date autoExpireAt;
 
   @JsonProperty("parent_folder")
   protected FolderMini parentFolder;
 
   @JsonProperty("collaborator_level")
+  @Nullable
   protected String collaboratorLevel;
 
   @JsonProperty("sender_email")
+  @Nullable
   protected String senderEmail;
 
   @JsonProperty("sender_id")
+  @Nullable
   protected Long senderId;
 
   public SignRequest() {
@@ -81,6 +90,7 @@ public class SignRequest extends SignRequestBase {
     this.collaboratorLevel = builder.collaboratorLevel;
     this.senderEmail = builder.senderEmail;
     this.senderId = builder.senderId;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<SignRequestTypeField> getType() {
@@ -374,6 +384,7 @@ public class SignRequest extends SignRequestBase {
 
     public Builder signatureColor(String signatureColor) {
       this.signatureColor = signatureColor;
+      this.markNullableFieldAsSet("signature_color");
       return this;
     }
 
@@ -384,6 +395,7 @@ public class SignRequest extends SignRequestBase {
 
     public Builder prepareUrl(String prepareUrl) {
       this.prepareUrl = prepareUrl;
+      this.markNullableFieldAsSet("prepare_url");
       return this;
     }
 
@@ -409,6 +421,7 @@ public class SignRequest extends SignRequestBase {
 
     public Builder autoExpireAt(Date autoExpireAt) {
       this.autoExpireAt = autoExpireAt;
+      this.markNullableFieldAsSet("auto_expire_at");
       return this;
     }
 
@@ -419,16 +432,19 @@ public class SignRequest extends SignRequestBase {
 
     public Builder collaboratorLevel(String collaboratorLevel) {
       this.collaboratorLevel = collaboratorLevel;
+      this.markNullableFieldAsSet("collaborator_level");
       return this;
     }
 
     public Builder senderEmail(String senderEmail) {
       this.senderEmail = senderEmail;
+      this.markNullableFieldAsSet("sender_email");
       return this;
     }
 
     public Builder senderId(Long senderId) {
       this.senderId = senderId;
+      this.markNullableFieldAsSet("sender_id");
       return this;
     }
 
@@ -441,12 +457,14 @@ public class SignRequest extends SignRequestBase {
     @Override
     public Builder redirectUrl(String redirectUrl) {
       this.redirectUrl = redirectUrl;
+      this.markNullableFieldAsSet("redirect_url");
       return this;
     }
 
     @Override
     public Builder declinedRedirectUrl(String declinedRedirectUrl) {
       this.declinedRedirectUrl = declinedRedirectUrl;
+      this.markNullableFieldAsSet("declined_redirect_url");
       return this;
     }
 
@@ -459,12 +477,14 @@ public class SignRequest extends SignRequestBase {
     @Override
     public Builder emailSubject(String emailSubject) {
       this.emailSubject = emailSubject;
+      this.markNullableFieldAsSet("email_subject");
       return this;
     }
 
     @Override
     public Builder emailMessage(String emailMessage) {
       this.emailMessage = emailMessage;
+      this.markNullableFieldAsSet("email_message");
       return this;
     }
 
@@ -489,24 +509,28 @@ public class SignRequest extends SignRequestBase {
     @Override
     public Builder daysValid(Long daysValid) {
       this.daysValid = daysValid;
+      this.markNullableFieldAsSet("days_valid");
       return this;
     }
 
     @Override
     public Builder externalId(String externalId) {
       this.externalId = externalId;
+      this.markNullableFieldAsSet("external_id");
       return this;
     }
 
     @Override
     public Builder templateId(String templateId) {
       this.templateId = templateId;
+      this.markNullableFieldAsSet("template_id");
       return this;
     }
 
     @Override
     public Builder externalSystemName(String externalSystemName) {
       this.externalSystemName = externalSystemName;
+      this.markNullableFieldAsSet("external_system_name");
       return this;
     }
 

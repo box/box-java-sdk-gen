@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.groupfull;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class GroupFullPermissionsField extends SerializableObject {
 
   @JsonProperty("can_invite_as_collaborator")
@@ -16,6 +19,7 @@ public class GroupFullPermissionsField extends SerializableObject {
   protected GroupFullPermissionsField(Builder builder) {
     super();
     this.canInviteAsCollaborator = builder.canInviteAsCollaborator;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Boolean getCanInviteAsCollaborator() {
@@ -48,7 +52,7 @@ public class GroupFullPermissionsField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Boolean canInviteAsCollaborator;
 

@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.zipdownloadstatus;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ZipDownloadStatus extends SerializableObject {
 
   @JsonProperty("total_file_count")
@@ -37,6 +40,7 @@ public class ZipDownloadStatus extends SerializableObject {
     this.skippedFileCount = builder.skippedFileCount;
     this.skippedFolderCount = builder.skippedFolderCount;
     this.state = builder.state;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Long getTotalFileCount() {
@@ -106,7 +110,7 @@ public class ZipDownloadStatus extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Long totalFileCount;
 

@@ -1,14 +1,18 @@
 package com.box.sdkgen.schemas.signrequestsigner;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SignRequestSignerSignerDecisionField extends SerializableObject {
 
   @JsonDeserialize(
@@ -27,6 +31,7 @@ public class SignRequestSignerSignerDecisionField extends SerializableObject {
   protected Date finalizedAt;
 
   @JsonProperty("additional_info")
+  @Nullable
   protected String additionalInfo;
 
   public SignRequestSignerSignerDecisionField() {
@@ -38,6 +43,7 @@ public class SignRequestSignerSignerDecisionField extends SerializableObject {
     this.type = builder.type;
     this.finalizedAt = builder.finalizedAt;
     this.additionalInfo = builder.additionalInfo;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<SignRequestSignerSignerDecisionTypeField> getType() {
@@ -88,7 +94,7 @@ public class SignRequestSignerSignerDecisionField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<SignRequestSignerSignerDecisionTypeField> type;
 
@@ -113,6 +119,7 @@ public class SignRequestSignerSignerDecisionField extends SerializableObject {
 
     public Builder additionalInfo(String additionalInfo) {
       this.additionalInfo = additionalInfo;
+      this.markNullableFieldAsSet("additional_info");
       return this;
     }
 

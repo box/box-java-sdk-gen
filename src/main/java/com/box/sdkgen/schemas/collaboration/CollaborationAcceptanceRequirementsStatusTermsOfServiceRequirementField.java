@@ -1,14 +1,19 @@
 package com.box.sdkgen.schemas.collaboration;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.termsofservicebase.TermsOfServiceBase;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementField
     extends SerializableObject {
 
   @JsonProperty("is_accepted")
+  @Nullable
   protected Boolean isAccepted;
 
   @JsonProperty("terms_of_service")
@@ -23,6 +28,7 @@ public class CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementF
     super();
     this.isAccepted = builder.isAccepted;
     this.termsOfService = builder.termsOfService;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Boolean getIsAccepted() {
@@ -65,7 +71,7 @@ public class CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementF
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Boolean isAccepted;
 
@@ -73,6 +79,7 @@ public class CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementF
 
     public Builder isAccepted(Boolean isAccepted) {
       this.isAccepted = isAccepted;
+      this.markNullableFieldAsSet("is_accepted");
       return this;
     }
 

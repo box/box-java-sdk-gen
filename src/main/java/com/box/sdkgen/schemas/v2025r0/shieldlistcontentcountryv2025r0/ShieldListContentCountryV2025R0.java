@@ -1,13 +1,16 @@
 package com.box.sdkgen.schemas.v2025r0.shieldlistcontentcountryv2025r0;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ShieldListContentCountryV2025R0 extends SerializableObject {
 
   @JsonDeserialize(
@@ -35,6 +38,7 @@ public class ShieldListContentCountryV2025R0 extends SerializableObject {
     super();
     this.type = builder.type;
     this.countryCodes = builder.countryCodes;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<ShieldListContentCountryV2025R0TypeField> getType() {
@@ -75,13 +79,14 @@ public class ShieldListContentCountryV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<ShieldListContentCountryV2025R0TypeField> type;
 
     protected final List<String> countryCodes;
 
     public Builder(List<String> countryCodes) {
+      super();
       this.countryCodes = countryCodes;
       this.type =
           new EnumWrapper<ShieldListContentCountryV2025R0TypeField>(

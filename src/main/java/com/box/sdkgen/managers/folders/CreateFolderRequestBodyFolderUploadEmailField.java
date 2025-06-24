@@ -1,11 +1,14 @@
 package com.box.sdkgen.managers.folders;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateFolderRequestBodyFolderUploadEmailField extends SerializableObject {
 
   @JsonDeserialize(
@@ -25,6 +28,7 @@ public class CreateFolderRequestBodyFolderUploadEmailField extends SerializableO
   protected CreateFolderRequestBodyFolderUploadEmailField(Builder builder) {
     super();
     this.access = builder.access;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField> getAccess() {
@@ -54,7 +58,7 @@ public class CreateFolderRequestBodyFolderUploadEmailField extends SerializableO
     return "CreateFolderRequestBodyFolderUploadEmailField{" + "access='" + access + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<CreateFolderRequestBodyFolderUploadEmailAccessField> access;
 

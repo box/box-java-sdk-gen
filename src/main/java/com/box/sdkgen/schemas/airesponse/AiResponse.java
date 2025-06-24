@@ -1,14 +1,17 @@
 package com.box.sdkgen.schemas.airesponse;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.aiagentinfo.AiAgentInfo;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiResponse extends SerializableObject {
 
   protected final String answer;
@@ -37,6 +40,7 @@ public class AiResponse extends SerializableObject {
     this.createdAt = builder.createdAt;
     this.completionReason = builder.completionReason;
     this.aiAgentInfo = builder.aiAgentInfo;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getAnswer() {
@@ -96,7 +100,7 @@ public class AiResponse extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String answer;
 
@@ -107,6 +111,7 @@ public class AiResponse extends SerializableObject {
     protected AiAgentInfo aiAgentInfo;
 
     public Builder(String answer, Date createdAt) {
+      super();
       this.answer = answer;
       this.createdAt = createdAt;
     }

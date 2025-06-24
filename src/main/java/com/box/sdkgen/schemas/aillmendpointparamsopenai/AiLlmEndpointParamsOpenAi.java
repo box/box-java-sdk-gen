@@ -1,12 +1,16 @@
 package com.box.sdkgen.schemas.aillmendpointparamsopenai;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiLlmEndpointParamsOpenAi extends SerializableObject {
 
   @JsonDeserialize(
@@ -16,18 +20,21 @@ public class AiLlmEndpointParamsOpenAi extends SerializableObject {
       using = AiLlmEndpointParamsOpenAiTypeField.AiLlmEndpointParamsOpenAiTypeFieldSerializer.class)
   protected EnumWrapper<AiLlmEndpointParamsOpenAiTypeField> type;
 
-  protected Double temperature;
+  @Nullable protected Double temperature;
 
   @JsonProperty("top_p")
+  @Nullable
   protected Double topP;
 
   @JsonProperty("frequency_penalty")
+  @Nullable
   protected Double frequencyPenalty;
 
   @JsonProperty("presence_penalty")
+  @Nullable
   protected Double presencePenalty;
 
-  protected String stop;
+  @Nullable protected String stop;
 
   public AiLlmEndpointParamsOpenAi() {
     super();
@@ -44,6 +51,7 @@ public class AiLlmEndpointParamsOpenAi extends SerializableObject {
     this.frequencyPenalty = builder.frequencyPenalty;
     this.presencePenalty = builder.presencePenalty;
     this.stop = builder.stop;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<AiLlmEndpointParamsOpenAiTypeField> getType() {
@@ -121,7 +129,7 @@ public class AiLlmEndpointParamsOpenAi extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<AiLlmEndpointParamsOpenAiTypeField> type;
 
@@ -136,6 +144,7 @@ public class AiLlmEndpointParamsOpenAi extends SerializableObject {
     protected String stop;
 
     public Builder() {
+      super();
       this.type =
           new EnumWrapper<AiLlmEndpointParamsOpenAiTypeField>(
               AiLlmEndpointParamsOpenAiTypeField.OPENAI_PARAMS);
@@ -153,26 +162,31 @@ public class AiLlmEndpointParamsOpenAi extends SerializableObject {
 
     public Builder temperature(Double temperature) {
       this.temperature = temperature;
+      this.markNullableFieldAsSet("temperature");
       return this;
     }
 
     public Builder topP(Double topP) {
       this.topP = topP;
+      this.markNullableFieldAsSet("top_p");
       return this;
     }
 
     public Builder frequencyPenalty(Double frequencyPenalty) {
       this.frequencyPenalty = frequencyPenalty;
+      this.markNullableFieldAsSet("frequency_penalty");
       return this;
     }
 
     public Builder presencePenalty(Double presencePenalty) {
       this.presencePenalty = presencePenalty;
+      this.markNullableFieldAsSet("presence_penalty");
       return this;
     }
 
     public Builder stop(String stop) {
       this.stop = stop;
+      this.markNullableFieldAsSet("stop");
       return this;
     }
 

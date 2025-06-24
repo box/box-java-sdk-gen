@@ -3,9 +3,11 @@ package com.box.sdkgen.schemas.v2025r0.hubcollaborationuserv2025r0;
 import com.box.sdkgen.schemas.v2025r0.userbasev2025r0.UserBaseV2025R0;
 import com.box.sdkgen.schemas.v2025r0.userbasev2025r0.UserBaseV2025R0TypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class HubCollaborationUserV2025R0 extends UserBaseV2025R0 {
 
   protected String name;
@@ -20,6 +22,7 @@ public class HubCollaborationUserV2025R0 extends UserBaseV2025R0 {
     super(builder);
     this.name = builder.name;
     this.login = builder.login;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {

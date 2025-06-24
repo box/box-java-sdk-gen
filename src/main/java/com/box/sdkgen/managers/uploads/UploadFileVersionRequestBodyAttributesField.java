@@ -1,13 +1,16 @@
 package com.box.sdkgen.managers.uploads;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UploadFileVersionRequestBodyAttributesField extends SerializableObject {
 
   protected final String name;
@@ -26,6 +29,7 @@ public class UploadFileVersionRequestBodyAttributesField extends SerializableObj
     super();
     this.name = builder.name;
     this.contentModifiedAt = builder.contentModifiedAt;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {
@@ -68,13 +72,14 @@ public class UploadFileVersionRequestBodyAttributesField extends SerializableObj
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String name;
 
     protected Date contentModifiedAt;
 
     public Builder(String name) {
+      super();
       this.name = name;
     }
 

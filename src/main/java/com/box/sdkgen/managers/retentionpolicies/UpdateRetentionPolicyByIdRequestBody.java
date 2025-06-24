@@ -1,36 +1,45 @@
 package com.box.sdkgen.managers.retentionpolicies;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.userbase.UserBase;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateRetentionPolicyByIdRequestBody extends SerializableObject {
 
   @JsonProperty("policy_name")
+  @Nullable
   protected String policyName;
 
-  protected String description;
+  @Nullable protected String description;
 
   @JsonProperty("disposition_action")
   protected String dispositionAction;
 
   @JsonProperty("retention_type")
+  @Nullable
   protected String retentionType;
 
   @JsonProperty("retention_length")
   protected String retentionLength;
 
-  protected String status;
+  @Nullable protected String status;
 
   @JsonProperty("can_owner_extend_retention")
+  @Nullable
   protected Boolean canOwnerExtendRetention;
 
   @JsonProperty("are_owners_notified")
+  @Nullable
   protected Boolean areOwnersNotified;
 
   @JsonProperty("custom_notification_recipients")
+  @Nullable
   protected List<UserBase> customNotificationRecipients;
 
   public UpdateRetentionPolicyByIdRequestBody() {
@@ -48,6 +57,7 @@ public class UpdateRetentionPolicyByIdRequestBody extends SerializableObject {
     this.canOwnerExtendRetention = builder.canOwnerExtendRetention;
     this.areOwnersNotified = builder.areOwnersNotified;
     this.customNotificationRecipients = builder.customNotificationRecipients;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getPolicyName() {
@@ -161,7 +171,7 @@ public class UpdateRetentionPolicyByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String policyName;
 
@@ -183,11 +193,13 @@ public class UpdateRetentionPolicyByIdRequestBody extends SerializableObject {
 
     public Builder policyName(String policyName) {
       this.policyName = policyName;
+      this.markNullableFieldAsSet("policy_name");
       return this;
     }
 
     public Builder description(String description) {
       this.description = description;
+      this.markNullableFieldAsSet("description");
       return this;
     }
 
@@ -198,6 +210,7 @@ public class UpdateRetentionPolicyByIdRequestBody extends SerializableObject {
 
     public Builder retentionType(String retentionType) {
       this.retentionType = retentionType;
+      this.markNullableFieldAsSet("retention_type");
       return this;
     }
 
@@ -208,21 +221,25 @@ public class UpdateRetentionPolicyByIdRequestBody extends SerializableObject {
 
     public Builder status(String status) {
       this.status = status;
+      this.markNullableFieldAsSet("status");
       return this;
     }
 
     public Builder canOwnerExtendRetention(Boolean canOwnerExtendRetention) {
       this.canOwnerExtendRetention = canOwnerExtendRetention;
+      this.markNullableFieldAsSet("can_owner_extend_retention");
       return this;
     }
 
     public Builder areOwnersNotified(Boolean areOwnersNotified) {
       this.areOwnersNotified = areOwnersNotified;
+      this.markNullableFieldAsSet("are_owners_notified");
       return this;
     }
 
     public Builder customNotificationRecipients(List<UserBase> customNotificationRecipients) {
       this.customNotificationRecipients = customNotificationRecipients;
+      this.markNullableFieldAsSet("custom_notification_recipients");
       return this;
     }
 

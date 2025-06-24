@@ -4,12 +4,14 @@ import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.termsofservicebase.TermsOfServiceBase;
 import com.box.sdkgen.schemas.termsofservicebase.TermsOfServiceBaseTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TermsOfService extends TermsOfServiceBase {
 
   @JsonDeserialize(using = TermsOfServiceStatusField.TermsOfServiceStatusFieldDeserializer.class)
@@ -47,6 +49,7 @@ public class TermsOfService extends TermsOfServiceBase {
     this.text = builder.text;
     this.createdAt = builder.createdAt;
     this.modifiedAt = builder.modifiedAt;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<TermsOfServiceStatusField> getStatus() {

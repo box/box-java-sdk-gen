@@ -3,9 +3,11 @@ package com.box.sdkgen.schemas.aistudioagentlongtexttool;
 import com.box.sdkgen.schemas.aiagentlongtexttool.AiAgentLongTextTool;
 import com.box.sdkgen.schemas.aiagentlongtexttool.AiAgentLongTextToolEmbeddingsField;
 import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiStudioAgentLongTextTool extends AiAgentLongTextTool {
 
   @JsonProperty("is_custom_instructions_included")
@@ -18,6 +20,7 @@ public class AiStudioAgentLongTextTool extends AiAgentLongTextTool {
   protected AiStudioAgentLongTextTool(Builder builder) {
     super(builder);
     this.isCustomInstructionsIncluded = builder.isCustomInstructionsIncluded;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Boolean getIsCustomInstructionsIncluded() {

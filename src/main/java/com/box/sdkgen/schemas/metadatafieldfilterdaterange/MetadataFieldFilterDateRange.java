@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.metadatafieldfilterdaterange;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class MetadataFieldFilterDateRange extends SerializableObject {
 
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
@@ -25,6 +28,7 @@ public class MetadataFieldFilterDateRange extends SerializableObject {
     super();
     this.lt = builder.lt;
     this.gt = builder.gt;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Date getLt() {
@@ -57,7 +61,7 @@ public class MetadataFieldFilterDateRange extends SerializableObject {
     return "MetadataFieldFilterDateRange{" + "lt='" + lt + '\'' + ", " + "gt='" + gt + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Date lt;
 

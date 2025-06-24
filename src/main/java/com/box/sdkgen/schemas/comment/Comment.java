@@ -5,12 +5,14 @@ import com.box.sdkgen.schemas.commentbase.CommentBase;
 import com.box.sdkgen.schemas.commentbase.CommentBaseTypeField;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class Comment extends CommentBase {
 
   @JsonProperty("is_reply_comment")
@@ -45,6 +47,7 @@ public class Comment extends CommentBase {
     this.createdAt = builder.createdAt;
     this.modifiedAt = builder.modifiedAt;
     this.item = builder.item;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Boolean getIsReplyComment() {

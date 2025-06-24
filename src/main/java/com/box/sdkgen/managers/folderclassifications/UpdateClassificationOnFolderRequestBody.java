@@ -1,12 +1,15 @@
 package com.box.sdkgen.managers.folderclassifications;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateClassificationOnFolderRequestBody extends SerializableObject {
 
   @JsonDeserialize(
@@ -47,6 +50,7 @@ public class UpdateClassificationOnFolderRequestBody extends SerializableObject 
     this.op = builder.op;
     this.path = builder.path;
     this.value = builder.value;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<UpdateClassificationOnFolderRequestBodyOpField> getOp() {
@@ -97,7 +101,7 @@ public class UpdateClassificationOnFolderRequestBody extends SerializableObject 
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<UpdateClassificationOnFolderRequestBodyOpField> op;
 
@@ -106,6 +110,7 @@ public class UpdateClassificationOnFolderRequestBody extends SerializableObject 
     protected final String value;
 
     public Builder(String value) {
+      super();
       this.value = value;
       this.op =
           new EnumWrapper<UpdateClassificationOnFolderRequestBodyOpField>(

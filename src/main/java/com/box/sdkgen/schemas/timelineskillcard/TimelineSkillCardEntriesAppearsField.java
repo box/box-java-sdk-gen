@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.timelineskillcard;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TimelineSkillCardEntriesAppearsField extends SerializableObject {
 
   protected Long start;
@@ -17,6 +20,7 @@ public class TimelineSkillCardEntriesAppearsField extends SerializableObject {
     super();
     this.start = builder.start;
     this.end = builder.end;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Long getStart() {
@@ -57,7 +61,7 @@ public class TimelineSkillCardEntriesAppearsField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Long start;
 

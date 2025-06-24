@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.integrationmappingslackcreaterequest;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.integrationmappingboxitemslack.IntegrationMappingBoxItemSlack;
 import com.box.sdkgen.schemas.integrationmappingpartneritemslack.IntegrationMappingPartnerItemSlack;
 import com.box.sdkgen.schemas.integrationmappingslackoptions.IntegrationMappingSlackOptions;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class IntegrationMappingSlackCreateRequest extends SerializableObject {
 
   @JsonProperty("partner_item")
@@ -30,6 +33,7 @@ public class IntegrationMappingSlackCreateRequest extends SerializableObject {
     this.partnerItem = builder.partnerItem;
     this.boxItem = builder.boxItem;
     this.options = builder.options;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public IntegrationMappingPartnerItemSlack getPartnerItem() {
@@ -80,7 +84,7 @@ public class IntegrationMappingSlackCreateRequest extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final IntegrationMappingPartnerItemSlack partnerItem;
 
@@ -90,6 +94,7 @@ public class IntegrationMappingSlackCreateRequest extends SerializableObject {
 
     public Builder(
         IntegrationMappingPartnerItemSlack partnerItem, IntegrationMappingBoxItemSlack boxItem) {
+      super();
       this.partnerItem = partnerItem;
       this.boxItem = boxItem;
     }

@@ -1,10 +1,13 @@
 package com.box.sdkgen.schemas.retentionpolicyassignment;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.retentionpolicymini.RetentionPolicyMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -12,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class RetentionPolicyAssignment extends SerializableObject {
 
   protected final String id;
@@ -30,6 +34,7 @@ public class RetentionPolicyAssignment extends SerializableObject {
   protected RetentionPolicyAssignmentAssignedToField assignedTo;
 
   @JsonProperty("filter_fields")
+  @Nullable
   protected List<RetentionPolicyAssignmentFilterFieldsField> filterFields;
 
   @JsonProperty("assigned_by")
@@ -61,6 +66,7 @@ public class RetentionPolicyAssignment extends SerializableObject {
     this.assignedBy = builder.assignedBy;
     this.assignedAt = builder.assignedAt;
     this.startDateField = builder.startDateField;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -164,7 +170,7 @@ public class RetentionPolicyAssignment extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -183,6 +189,7 @@ public class RetentionPolicyAssignment extends SerializableObject {
     protected String startDateField;
 
     public Builder(String id) {
+      super();
       this.id = id;
       this.type =
           new EnumWrapper<RetentionPolicyAssignmentTypeField>(
@@ -211,6 +218,7 @@ public class RetentionPolicyAssignment extends SerializableObject {
 
     public Builder filterFields(List<RetentionPolicyAssignmentFilterFieldsField> filterFields) {
       this.filterFields = filterFields;
+      this.markNullableFieldAsSet("filter_fields");
       return this;
     }
 

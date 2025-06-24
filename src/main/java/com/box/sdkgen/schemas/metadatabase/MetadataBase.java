@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.metadatabase;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class MetadataBase extends SerializableObject {
 
   @JsonProperty("$parent")
@@ -28,6 +31,7 @@ public class MetadataBase extends SerializableObject {
     this.template = builder.template;
     this.scope = builder.scope;
     this.version = builder.version;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getParent() {
@@ -87,7 +91,7 @@ public class MetadataBase extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String parent;
 

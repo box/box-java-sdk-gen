@@ -1,27 +1,35 @@
 package com.box.sdkgen.schemas.signrequestprefilltag;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateUtils;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SignRequestPrefillTag extends SerializableObject {
 
   @JsonProperty("document_tag_id")
+  @Nullable
   protected String documentTagId;
 
   @JsonProperty("text_value")
+  @Nullable
   protected String textValue;
 
   @JsonProperty("checkbox_value")
+  @Nullable
   protected Boolean checkboxValue;
 
   @JsonProperty("date_value")
   @JsonSerialize(using = DateUtils.DateSerializer.class)
   @JsonDeserialize(using = DateUtils.DateDeserializer.class)
+  @Nullable
   protected Date dateValue;
 
   public SignRequestPrefillTag() {
@@ -34,6 +42,7 @@ public class SignRequestPrefillTag extends SerializableObject {
     this.textValue = builder.textValue;
     this.checkboxValue = builder.checkboxValue;
     this.dateValue = builder.dateValue;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getDocumentTagId() {
@@ -93,7 +102,7 @@ public class SignRequestPrefillTag extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String documentTagId;
 
@@ -105,21 +114,25 @@ public class SignRequestPrefillTag extends SerializableObject {
 
     public Builder documentTagId(String documentTagId) {
       this.documentTagId = documentTagId;
+      this.markNullableFieldAsSet("document_tag_id");
       return this;
     }
 
     public Builder textValue(String textValue) {
       this.textValue = textValue;
+      this.markNullableFieldAsSet("text_value");
       return this;
     }
 
     public Builder checkboxValue(Boolean checkboxValue) {
       this.checkboxValue = checkboxValue;
+      this.markNullableFieldAsSet("checkbox_value");
       return this;
     }
 
     public Builder dateValue(Date dateValue) {
       this.dateValue = dateValue;
+      this.markNullableFieldAsSet("date_value");
       return this;
     }
 

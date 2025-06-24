@@ -15,6 +15,8 @@ import com.box.sdkgen.managers.sharedlinksweblinks.AddShareLinkToWebLinkRequestB
 import com.box.sdkgen.managers.sharedlinksweblinks.FindWebLinkForSharedLinkHeaders;
 import com.box.sdkgen.managers.sharedlinksweblinks.FindWebLinkForSharedLinkQueryParams;
 import com.box.sdkgen.managers.sharedlinksweblinks.GetSharedLinkForWebLinkQueryParams;
+import com.box.sdkgen.managers.sharedlinksweblinks.RemoveSharedLinkFromWebLinkQueryParams;
+import com.box.sdkgen.managers.sharedlinksweblinks.RemoveSharedLinkFromWebLinkRequestBody;
 import com.box.sdkgen.managers.sharedlinksweblinks.UpdateSharedLinkOnWebLinkQueryParams;
 import com.box.sdkgen.managers.sharedlinksweblinks.UpdateSharedLinkOnWebLinkRequestBody;
 import com.box.sdkgen.managers.sharedlinksweblinks.UpdateSharedLinkOnWebLinkRequestBodySharedLinkAccessField;
@@ -103,6 +105,18 @@ public class SharedLinksWebLinksITest {
                     .build(),
                 new UpdateSharedLinkOnWebLinkQueryParams("shared_link"));
     assert convertToString(updatedWebLink.getSharedLink().getAccess()).equals("collaborators");
+    client
+        .getSharedLinksWebLinks()
+        .removeSharedLinkFromWebLink(
+            webLinkId,
+            new RemoveSharedLinkFromWebLinkRequestBody.Builder().sharedLink(null).build(),
+            new RemoveSharedLinkFromWebLinkQueryParams("shared_link"));
+    WebLink webLinkFromApiAfterRemove =
+        client
+            .getSharedLinksWebLinks()
+            .getSharedLinkForWebLink(
+                webLinkId, new GetSharedLinkForWebLinkQueryParams("shared_link"));
+    assert webLinkFromApiAfterRemove.getSharedLink() == null;
     client.getWebLinks().deleteWebLinkById(webLinkId);
   }
 }

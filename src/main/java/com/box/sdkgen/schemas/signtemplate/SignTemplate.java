@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.signtemplate;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filemini.FileMini;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.templatesigner.TemplateSigner;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SignTemplate extends SerializableObject {
 
   @JsonDeserialize(using = SignTemplateTypeField.SignTemplateTypeFieldDeserializer.class)
@@ -19,15 +23,18 @@ public class SignTemplate extends SerializableObject {
 
   protected String id;
 
-  protected String name;
+  @Nullable protected String name;
 
   @JsonProperty("email_subject")
+  @Nullable
   protected String emailSubject;
 
   @JsonProperty("email_message")
+  @Nullable
   protected String emailMessage;
 
   @JsonProperty("days_valid")
+  @Nullable
   protected Long daysValid;
 
   @JsonProperty("parent_folder")
@@ -57,9 +64,11 @@ public class SignTemplate extends SerializableObject {
   protected SignTemplateAdditionalInfoField additionalInfo;
 
   @JsonProperty("ready_sign_link")
+  @Nullable
   protected SignTemplateReadySignLinkField readySignLink;
 
   @JsonProperty("custom_branding")
+  @Nullable
   protected SignTemplateCustomBrandingField customBranding;
 
   public SignTemplate() {
@@ -85,6 +94,7 @@ public class SignTemplate extends SerializableObject {
     this.additionalInfo = builder.additionalInfo;
     this.readySignLink = builder.readySignLink;
     this.customBranding = builder.customBranding;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<SignTemplateTypeField> getType() {
@@ -278,7 +288,7 @@ public class SignTemplate extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<SignTemplateTypeField> type;
 
@@ -331,21 +341,25 @@ public class SignTemplate extends SerializableObject {
 
     public Builder name(String name) {
       this.name = name;
+      this.markNullableFieldAsSet("name");
       return this;
     }
 
     public Builder emailSubject(String emailSubject) {
       this.emailSubject = emailSubject;
+      this.markNullableFieldAsSet("email_subject");
       return this;
     }
 
     public Builder emailMessage(String emailMessage) {
       this.emailMessage = emailMessage;
+      this.markNullableFieldAsSet("email_message");
       return this;
     }
 
     public Builder daysValid(Long daysValid) {
       this.daysValid = daysValid;
+      this.markNullableFieldAsSet("days_valid");
       return this;
     }
 
@@ -396,11 +410,13 @@ public class SignTemplate extends SerializableObject {
 
     public Builder readySignLink(SignTemplateReadySignLinkField readySignLink) {
       this.readySignLink = readySignLink;
+      this.markNullableFieldAsSet("ready_sign_link");
       return this;
     }
 
     public Builder customBranding(SignTemplateCustomBrandingField customBranding) {
       this.customBranding = customBranding;
+      this.markNullableFieldAsSet("custom_branding");
       return this;
     }
 

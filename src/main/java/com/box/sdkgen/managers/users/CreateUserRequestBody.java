@@ -1,14 +1,17 @@
 package com.box.sdkgen.managers.users;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.trackingcode.TrackingCode;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateUserRequestBody extends SerializableObject {
 
   protected final String name;
@@ -90,6 +93,7 @@ public class CreateUserRequestBody extends SerializableObject {
     this.isExemptFromLoginVerification = builder.isExemptFromLoginVerification;
     this.status = builder.status;
     this.externalAppUserId = builder.externalAppUserId;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {
@@ -293,7 +297,7 @@ public class CreateUserRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String name;
 
@@ -332,6 +336,7 @@ public class CreateUserRequestBody extends SerializableObject {
     protected String externalAppUserId;
 
     public Builder(String name) {
+      super();
       this.name = name;
     }
 

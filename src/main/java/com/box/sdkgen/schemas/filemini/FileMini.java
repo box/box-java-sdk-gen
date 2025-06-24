@@ -4,9 +4,11 @@ import com.box.sdkgen.schemas.filebase.FileBase;
 import com.box.sdkgen.schemas.filebase.FileBaseTypeField;
 import com.box.sdkgen.schemas.fileversionmini.FileVersionMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileMini extends FileBase {
 
   @JsonProperty("sequence_id")
@@ -29,6 +31,7 @@ public class FileMini extends FileBase {
     this.name = builder.name;
     this.sha1 = builder.sha1;
     this.fileVersion = builder.fileVersion;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getSequenceId() {
@@ -140,6 +143,7 @@ public class FileMini extends FileBase {
     @Override
     public Builder etag(String etag) {
       this.etag = etag;
+      this.markNullableFieldAsSet("etag");
       return this;
     }
 

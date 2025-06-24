@@ -1,14 +1,17 @@
 package com.box.sdkgen.schemas.aiagentask;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagentbasictexttool.AiAgentBasicTextTool;
 import com.box.sdkgen.schemas.aiagentlongtexttool.AiAgentLongTextTool;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiAgentAsk extends SerializableObject {
 
   @JsonDeserialize(using = AiAgentAskTypeField.AiAgentAskTypeFieldDeserializer.class)
@@ -47,6 +50,7 @@ public class AiAgentAsk extends SerializableObject {
     this.basicTextMulti = builder.basicTextMulti;
     this.basicImage = builder.basicImage;
     this.basicImageMulti = builder.basicImageMulti;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<AiAgentAskTypeField> getType() {
@@ -134,7 +138,7 @@ public class AiAgentAsk extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<AiAgentAskTypeField> type;
 
@@ -151,6 +155,7 @@ public class AiAgentAsk extends SerializableObject {
     protected AiAgentBasicTextTool basicImageMulti;
 
     public Builder() {
+      super();
       this.type = new EnumWrapper<AiAgentAskTypeField>(AiAgentAskTypeField.AI_AGENT_ASK);
     }
 

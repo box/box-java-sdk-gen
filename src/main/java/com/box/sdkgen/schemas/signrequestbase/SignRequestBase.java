@@ -1,29 +1,37 @@
 package com.box.sdkgen.schemas.signrequestbase;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.signrequestprefilltag.SignRequestPrefillTag;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SignRequestBase extends SerializableObject {
 
   @JsonProperty("is_document_preparation_needed")
   protected Boolean isDocumentPreparationNeeded;
 
   @JsonProperty("redirect_url")
+  @Nullable
   protected String redirectUrl;
 
   @JsonProperty("declined_redirect_url")
+  @Nullable
   protected String declinedRedirectUrl;
 
   @JsonProperty("are_text_signatures_enabled")
   protected Boolean areTextSignaturesEnabled;
 
   @JsonProperty("email_subject")
+  @Nullable
   protected String emailSubject;
 
   @JsonProperty("email_message")
+  @Nullable
   protected String emailMessage;
 
   @JsonProperty("are_reminders_enabled")
@@ -35,15 +43,19 @@ public class SignRequestBase extends SerializableObject {
   protected List<SignRequestPrefillTag> prefillTags;
 
   @JsonProperty("days_valid")
+  @Nullable
   protected Long daysValid;
 
   @JsonProperty("external_id")
+  @Nullable
   protected String externalId;
 
   @JsonProperty("template_id")
+  @Nullable
   protected String templateId;
 
   @JsonProperty("external_system_name")
+  @Nullable
   protected String externalSystemName;
 
   public SignRequestBase() {
@@ -65,6 +77,7 @@ public class SignRequestBase extends SerializableObject {
     this.externalId = builder.externalId;
     this.templateId = builder.templateId;
     this.externalSystemName = builder.externalSystemName;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Boolean getIsDocumentPreparationNeeded() {
@@ -218,7 +231,7 @@ public class SignRequestBase extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Boolean isDocumentPreparationNeeded;
 
@@ -253,11 +266,13 @@ public class SignRequestBase extends SerializableObject {
 
     public Builder redirectUrl(String redirectUrl) {
       this.redirectUrl = redirectUrl;
+      this.markNullableFieldAsSet("redirect_url");
       return this;
     }
 
     public Builder declinedRedirectUrl(String declinedRedirectUrl) {
       this.declinedRedirectUrl = declinedRedirectUrl;
+      this.markNullableFieldAsSet("declined_redirect_url");
       return this;
     }
 
@@ -268,11 +283,13 @@ public class SignRequestBase extends SerializableObject {
 
     public Builder emailSubject(String emailSubject) {
       this.emailSubject = emailSubject;
+      this.markNullableFieldAsSet("email_subject");
       return this;
     }
 
     public Builder emailMessage(String emailMessage) {
       this.emailMessage = emailMessage;
+      this.markNullableFieldAsSet("email_message");
       return this;
     }
 
@@ -293,21 +310,25 @@ public class SignRequestBase extends SerializableObject {
 
     public Builder daysValid(Long daysValid) {
       this.daysValid = daysValid;
+      this.markNullableFieldAsSet("days_valid");
       return this;
     }
 
     public Builder externalId(String externalId) {
       this.externalId = externalId;
+      this.markNullableFieldAsSet("external_id");
       return this;
     }
 
     public Builder templateId(String templateId) {
       this.templateId = templateId;
+      this.markNullableFieldAsSet("template_id");
       return this;
     }
 
     public Builder externalSystemName(String externalSystemName) {
       this.externalSystemName = externalSystemName;
+      this.markNullableFieldAsSet("external_system_name");
       return this;
     }
 

@@ -3,11 +3,13 @@ package com.box.sdkgen.schemas.groupmini;
 import com.box.sdkgen.schemas.groupbase.GroupBase;
 import com.box.sdkgen.schemas.groupbase.GroupBaseTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class GroupMini extends GroupBase {
 
   protected String name;
@@ -25,6 +27,7 @@ public class GroupMini extends GroupBase {
     super(builder);
     this.name = builder.name;
     this.groupType = builder.groupType;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {

@@ -2,9 +2,11 @@ package com.box.sdkgen.schemas.aistudioagentbasictexttool;
 
 import com.box.sdkgen.schemas.aiagentbasictexttool.AiAgentBasicTextTool;
 import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiStudioAgentBasicTextTool extends AiAgentBasicTextTool {
 
   @JsonProperty("is_custom_instructions_included")
@@ -17,6 +19,7 @@ public class AiStudioAgentBasicTextTool extends AiAgentBasicTextTool {
   protected AiStudioAgentBasicTextTool(Builder builder) {
     super(builder);
     this.isCustomInstructionsIncluded = builder.isCustomInstructionsIncluded;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Boolean getIsCustomInstructionsIncluded() {

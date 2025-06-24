@@ -1,13 +1,17 @@
 package com.box.sdkgen.schemas.v2025r0.docgentemplatev2025r0;
 
+import com.box.sdkgen.internal.Nullable;
 import com.box.sdkgen.schemas.v2025r0.docgentemplatebasev2025r0.DocGenTemplateBaseV2025R0;
 import com.box.sdkgen.schemas.v2025r0.filereferencev2025r0.FileReferenceV2025R0;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class DocGenTemplateV2025R0 extends DocGenTemplateBaseV2025R0 {
 
   @JsonProperty("file_name")
+  @Nullable
   protected String fileName;
 
   public DocGenTemplateV2025R0() {
@@ -17,6 +21,7 @@ public class DocGenTemplateV2025R0 extends DocGenTemplateBaseV2025R0 {
   protected DocGenTemplateV2025R0(Builder builder) {
     super(builder);
     this.fileName = builder.fileName;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getFileName() {
@@ -59,6 +64,7 @@ public class DocGenTemplateV2025R0 extends DocGenTemplateBaseV2025R0 {
 
     public Builder fileName(String fileName) {
       this.fileName = fileName;
+      this.markNullableFieldAsSet("file_name");
       return this;
     }
 

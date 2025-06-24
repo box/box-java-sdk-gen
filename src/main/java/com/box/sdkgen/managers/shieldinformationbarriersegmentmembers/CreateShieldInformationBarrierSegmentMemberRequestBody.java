@@ -1,14 +1,17 @@
 package com.box.sdkgen.managers.shieldinformationbarriersegmentmembers;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.shieldinformationbarrierbase.ShieldInformationBarrierBase;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateShieldInformationBarrierSegmentMemberRequestBody extends SerializableObject {
 
   @JsonDeserialize(
@@ -47,6 +50,7 @@ public class CreateShieldInformationBarrierSegmentMemberRequestBody extends Seri
     this.shieldInformationBarrier = builder.shieldInformationBarrier;
     this.shieldInformationBarrierSegment = builder.shieldInformationBarrierSegment;
     this.user = builder.user;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField> getType() {
@@ -108,7 +112,7 @@ public class CreateShieldInformationBarrierSegmentMemberRequestBody extends Seri
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<CreateShieldInformationBarrierSegmentMemberRequestBodyTypeField> type;
 
@@ -124,6 +128,7 @@ public class CreateShieldInformationBarrierSegmentMemberRequestBody extends Seri
         CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField
             shieldInformationBarrierSegment,
         UserBase user) {
+      super();
       this.shieldInformationBarrierSegment = shieldInformationBarrierSegment;
       this.user = user;
     }

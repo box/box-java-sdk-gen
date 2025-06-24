@@ -1,10 +1,13 @@
 package com.box.sdkgen.schemas.integrationmappingsteams;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.integrationmappingteams.IntegrationMappingTeams;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class IntegrationMappingsTeams extends SerializableObject {
 
   protected List<IntegrationMappingTeams> entries;
@@ -16,6 +19,7 @@ public class IntegrationMappingsTeams extends SerializableObject {
   protected IntegrationMappingsTeams(Builder builder) {
     super();
     this.entries = builder.entries;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<IntegrationMappingTeams> getEntries() {
@@ -44,7 +48,7 @@ public class IntegrationMappingsTeams extends SerializableObject {
     return "IntegrationMappingsTeams{" + "entries='" + entries + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected List<IntegrationMappingTeams> entries;
 

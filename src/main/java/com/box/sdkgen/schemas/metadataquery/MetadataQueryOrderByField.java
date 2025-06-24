@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.metadataquery;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class MetadataQueryOrderByField extends SerializableObject {
 
   @JsonProperty("field_key")
@@ -27,6 +30,7 @@ public class MetadataQueryOrderByField extends SerializableObject {
     super();
     this.fieldKey = builder.fieldKey;
     this.direction = builder.direction;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getFieldKey() {
@@ -67,7 +71,7 @@ public class MetadataQueryOrderByField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String fieldKey;
 

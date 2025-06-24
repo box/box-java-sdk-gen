@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.filefull;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileFullRepresentationsEntriesPropertiesField extends SerializableObject {
 
   protected String dimensions;
@@ -20,6 +23,7 @@ public class FileFullRepresentationsEntriesPropertiesField extends SerializableO
     this.dimensions = builder.dimensions;
     this.paged = builder.paged;
     this.thumb = builder.thumb;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getDimensions() {
@@ -71,7 +75,7 @@ public class FileFullRepresentationsEntriesPropertiesField extends SerializableO
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String dimensions;
 

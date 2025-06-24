@@ -1,13 +1,16 @@
 package com.box.sdkgen.serialization.json;
 
+import com.box.sdkgen.internal.NullablePropertyFilter;
 import com.box.sdkgen.internal.SerializableObject;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+import com.fasterxml.jackson.databind.util.TokenBuffer;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -17,12 +20,27 @@ import java.util.Map;
 public class JsonManager {
 
   public static final ObjectMapper OBJECT_MAPPER =
-      new ObjectMapper()
-          .setSerializationInclusion(JsonInclude.Include.NON_NULL)
-          .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+      new ObjectMapper().disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+
+  public static final SimpleFilterProvider EXPLICITLY_SET_FILTERS =
+      new SimpleFilterProvider()
+          .addFilter("nullablePropertyFilter", new NullablePropertyFilter())
+          .setFailOnUnknownId(false);
+
+  public static final ObjectWriter WRITER = OBJECT_MAPPER.writer(EXPLICITLY_SET_FILTERS);
 
   public static JsonNode serialize(Object value) {
-    return OBJECT_MAPPER.valueToTree(value);
+    try {
+      TokenBuffer tokenBuffer = new TokenBuffer(OBJECT_MAPPER, false);
+      WRITER.writeValue(tokenBuffer, value);
+
+      JsonNode node = tokenBuffer.asParser().readValueAsTree();
+      tokenBuffer.close();
+
+      return node;
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
   }
 
   public static <T extends SerializableObject> T deserialize(JsonNode content, Class<T> valueType) {

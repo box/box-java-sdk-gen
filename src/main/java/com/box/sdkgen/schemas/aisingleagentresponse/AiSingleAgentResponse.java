@@ -1,10 +1,12 @@
 package com.box.sdkgen.schemas.aisingleagentresponse;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.aiagentallowedentity.AiAgentAllowedEntity;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -12,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiSingleAgentResponse extends SerializableObject {
 
   protected final String id;
@@ -76,6 +79,7 @@ public class AiSingleAgentResponse extends SerializableObject {
     this.modifiedAt = builder.modifiedAt;
     this.iconReference = builder.iconReference;
     this.allowedEntities = builder.allowedEntities;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -209,7 +213,7 @@ public class AiSingleAgentResponse extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -234,6 +238,7 @@ public class AiSingleAgentResponse extends SerializableObject {
     protected List<AiAgentAllowedEntity> allowedEntities;
 
     public Builder(String id, String origin, String name, String accessState) {
+      super();
       this.id = id;
       this.origin = origin;
       this.name = name;

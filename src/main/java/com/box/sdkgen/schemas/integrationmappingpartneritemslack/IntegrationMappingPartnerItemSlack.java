@@ -1,12 +1,16 @@
 package com.box.sdkgen.schemas.integrationmappingpartneritemslack;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class IntegrationMappingPartnerItemSlack extends SerializableObject {
 
   @JsonDeserialize(
@@ -22,9 +26,11 @@ public class IntegrationMappingPartnerItemSlack extends SerializableObject {
   protected final String id;
 
   @JsonProperty("slack_workspace_id")
+  @Nullable
   protected String slackWorkspaceId;
 
   @JsonProperty("slack_org_id")
+  @Nullable
   protected String slackOrgId;
 
   public IntegrationMappingPartnerItemSlack(@JsonProperty("id") String id) {
@@ -41,6 +47,7 @@ public class IntegrationMappingPartnerItemSlack extends SerializableObject {
     this.id = builder.id;
     this.slackWorkspaceId = builder.slackWorkspaceId;
     this.slackOrgId = builder.slackOrgId;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<IntegrationMappingPartnerItemSlackTypeField> getType() {
@@ -100,7 +107,7 @@ public class IntegrationMappingPartnerItemSlack extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<IntegrationMappingPartnerItemSlackTypeField> type;
 
@@ -111,6 +118,7 @@ public class IntegrationMappingPartnerItemSlack extends SerializableObject {
     protected String slackOrgId;
 
     public Builder(String id) {
+      super();
       this.id = id;
       this.type =
           new EnumWrapper<IntegrationMappingPartnerItemSlackTypeField>(
@@ -129,11 +137,13 @@ public class IntegrationMappingPartnerItemSlack extends SerializableObject {
 
     public Builder slackWorkspaceId(String slackWorkspaceId) {
       this.slackWorkspaceId = slackWorkspaceId;
+      this.markNullableFieldAsSet("slack_workspace_id");
       return this;
     }
 
     public Builder slackOrgId(String slackOrgId) {
       this.slackOrgId = slackOrgId;
+      this.markNullableFieldAsSet("slack_org_id");
       return this;
     }
 

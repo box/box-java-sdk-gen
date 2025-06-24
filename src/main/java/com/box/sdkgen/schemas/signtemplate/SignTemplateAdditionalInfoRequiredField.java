@@ -1,8 +1,10 @@
 package com.box.sdkgen.schemas.signtemplate;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.box.sdkgen.serialization.json.Valuable;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -17,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SignTemplateAdditionalInfoRequiredField extends SerializableObject {
 
   @JsonDeserialize(using = SignersDeserializer.class)
@@ -30,6 +33,7 @@ public class SignTemplateAdditionalInfoRequiredField extends SerializableObject 
   protected SignTemplateAdditionalInfoRequiredField(Builder builder) {
     super();
     this.signers = builder.signers;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<List<EnumWrapper<SignTemplateAdditionalInfoRequiredSignersField>>> getSigners() {
@@ -58,7 +62,7 @@ public class SignTemplateAdditionalInfoRequiredField extends SerializableObject 
     return "SignTemplateAdditionalInfoRequiredField{" + "signers='" + signers + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected List<List<EnumWrapper<SignTemplateAdditionalInfoRequiredSignersField>>> signers;
 

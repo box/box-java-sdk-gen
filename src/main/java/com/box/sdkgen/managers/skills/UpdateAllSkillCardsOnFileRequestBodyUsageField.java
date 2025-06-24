@@ -1,8 +1,11 @@
 package com.box.sdkgen.managers.skills;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateAllSkillCardsOnFileRequestBodyUsageField extends SerializableObject {
 
   protected String unit;
@@ -17,6 +20,7 @@ public class UpdateAllSkillCardsOnFileRequestBodyUsageField extends Serializable
     super();
     this.unit = builder.unit;
     this.value = builder.value;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getUnit() {
@@ -58,7 +62,7 @@ public class UpdateAllSkillCardsOnFileRequestBodyUsageField extends Serializable
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String unit;
 

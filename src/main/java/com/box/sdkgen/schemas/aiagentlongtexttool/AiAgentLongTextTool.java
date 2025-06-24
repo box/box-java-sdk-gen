@@ -2,8 +2,10 @@ package com.box.sdkgen.schemas.aiagentlongtexttool;
 
 import com.box.sdkgen.schemas.aiagentbasictexttool.AiAgentBasicTextTool;
 import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiAgentLongTextTool extends AiAgentBasicTextTool {
 
   protected AiAgentLongTextToolEmbeddingsField embeddings;
@@ -15,6 +17,7 @@ public class AiAgentLongTextTool extends AiAgentBasicTextTool {
   protected AiAgentLongTextTool(Builder builder) {
     super(builder);
     this.embeddings = builder.embeddings;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public AiAgentLongTextToolEmbeddingsField getEmbeddings() {

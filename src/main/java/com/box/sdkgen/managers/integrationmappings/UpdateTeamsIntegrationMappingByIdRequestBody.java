@@ -1,10 +1,13 @@
 package com.box.sdkgen.managers.integrationmappings;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.folderreference.FolderReference;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateTeamsIntegrationMappingByIdRequestBody extends SerializableObject {
 
   @JsonProperty("box_item")
@@ -17,6 +20,7 @@ public class UpdateTeamsIntegrationMappingByIdRequestBody extends SerializableOb
   protected UpdateTeamsIntegrationMappingByIdRequestBody(Builder builder) {
     super();
     this.boxItem = builder.boxItem;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public FolderReference getBoxItem() {
@@ -46,7 +50,7 @@ public class UpdateTeamsIntegrationMappingByIdRequestBody extends SerializableOb
     return "UpdateTeamsIntegrationMappingByIdRequestBody{" + "boxItem='" + boxItem + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected FolderReference boxItem;
 

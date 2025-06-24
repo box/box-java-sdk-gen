@@ -1,10 +1,13 @@
 package com.box.sdkgen.schemas.timelineskillcard;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TimelineSkillCardEntriesField extends SerializableObject {
 
   protected String text;
@@ -23,6 +26,7 @@ public class TimelineSkillCardEntriesField extends SerializableObject {
     this.text = builder.text;
     this.appears = builder.appears;
     this.imageUrl = builder.imageUrl;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getText() {
@@ -73,7 +77,7 @@ public class TimelineSkillCardEntriesField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String text;
 

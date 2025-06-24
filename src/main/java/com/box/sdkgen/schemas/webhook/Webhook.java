@@ -7,6 +7,7 @@ import com.box.sdkgen.schemas.webhookmini.WebhookMiniTargetField;
 import com.box.sdkgen.schemas.webhookmini.WebhookMiniTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.box.sdkgen.serialization.json.Valuable;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -23,6 +24,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class Webhook extends WebhookMini {
 
   @JsonProperty("created_by")
@@ -49,6 +51,7 @@ public class Webhook extends WebhookMini {
     this.createdAt = builder.createdAt;
     this.address = builder.address;
     this.triggers = builder.triggers;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public UserMini getCreatedBy() {

@@ -1,17 +1,21 @@
 package com.box.sdkgen.managers.users;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.trackingcode.TrackingCode;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateUserByIdRequestBody extends SerializableObject {
 
-  protected String enterprise;
+  @Nullable protected String enterprise;
 
   protected Boolean notify;
 
@@ -71,6 +75,7 @@ public class UpdateUserByIdRequestBody extends SerializableObject {
   protected Long spaceAmount;
 
   @JsonProperty("notification_email")
+  @Nullable
   protected UpdateUserByIdRequestBodyNotificationEmailField notificationEmail;
 
   @JsonProperty("external_app_user_id")
@@ -103,6 +108,7 @@ public class UpdateUserByIdRequestBody extends SerializableObject {
     this.spaceAmount = builder.spaceAmount;
     this.notificationEmail = builder.notificationEmail;
     this.externalAppUserId = builder.externalAppUserId;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getEnterprise() {
@@ -336,7 +342,7 @@ public class UpdateUserByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String enterprise;
 
@@ -382,6 +388,7 @@ public class UpdateUserByIdRequestBody extends SerializableObject {
 
     public Builder enterprise(String enterprise) {
       this.enterprise = enterprise;
+      this.markNullableFieldAsSet("enterprise");
       return this;
     }
 
@@ -488,6 +495,7 @@ public class UpdateUserByIdRequestBody extends SerializableObject {
     public Builder notificationEmail(
         UpdateUserByIdRequestBodyNotificationEmailField notificationEmail) {
       this.notificationEmail = notificationEmail;
+      this.markNullableFieldAsSet("notification_email");
       return this;
     }
 

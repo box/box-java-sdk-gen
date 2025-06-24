@@ -1,11 +1,14 @@
 package com.box.sdkgen.schemas.filefull;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileFullRepresentationsEntriesStatusField extends SerializableObject {
 
   @JsonDeserialize(
@@ -25,6 +28,7 @@ public class FileFullRepresentationsEntriesStatusField extends SerializableObjec
   protected FileFullRepresentationsEntriesStatusField(Builder builder) {
     super();
     this.state = builder.state;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<FileFullRepresentationsEntriesStatusStateField> getState() {
@@ -54,7 +58,7 @@ public class FileFullRepresentationsEntriesStatusField extends SerializableObjec
     return "FileFullRepresentationsEntriesStatusField{" + "state='" + state + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<FileFullRepresentationsEntriesStatusStateField> state;
 

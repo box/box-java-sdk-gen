@@ -1,13 +1,17 @@
 package com.box.sdkgen.schemas.aistudioagenttextgenresponse;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aistudioagentbasicgentoolresponse.AiStudioAgentBasicGenToolResponse;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiStudioAgentTextGenResponse extends SerializableObject {
 
   @JsonDeserialize(
@@ -26,6 +30,7 @@ public class AiStudioAgentTextGenResponse extends SerializableObject {
   protected final String description;
 
   @JsonProperty("custom_instructions")
+  @Nullable
   protected String customInstructions;
 
   @JsonProperty("basic_gen")
@@ -49,6 +54,7 @@ public class AiStudioAgentTextGenResponse extends SerializableObject {
     this.description = builder.description;
     this.customInstructions = builder.customInstructions;
     this.basicGen = builder.basicGen;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<AiStudioAgentTextGenResponseTypeField> getType() {
@@ -117,7 +123,7 @@ public class AiStudioAgentTextGenResponse extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<AiStudioAgentTextGenResponseTypeField> type;
 
@@ -130,6 +136,7 @@ public class AiStudioAgentTextGenResponse extends SerializableObject {
     protected AiStudioAgentBasicGenToolResponse basicGen;
 
     public Builder(String accessState, String description) {
+      super();
       this.accessState = accessState;
       this.description = description;
       this.type =
@@ -149,6 +156,7 @@ public class AiStudioAgentTextGenResponse extends SerializableObject {
 
     public Builder customInstructions(String customInstructions) {
       this.customInstructions = customInstructions;
+      this.markNullableFieldAsSet("custom_instructions");
       return this;
     }
 

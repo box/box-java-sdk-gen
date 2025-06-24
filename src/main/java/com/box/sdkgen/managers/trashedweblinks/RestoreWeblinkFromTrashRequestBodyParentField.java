@@ -1,8 +1,11 @@
 package com.box.sdkgen.managers.trashedweblinks;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class RestoreWeblinkFromTrashRequestBodyParentField extends SerializableObject {
 
   protected String id;
@@ -14,6 +17,7 @@ public class RestoreWeblinkFromTrashRequestBodyParentField extends SerializableO
   protected RestoreWeblinkFromTrashRequestBodyParentField(Builder builder) {
     super();
     this.id = builder.id;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -43,7 +47,7 @@ public class RestoreWeblinkFromTrashRequestBodyParentField extends SerializableO
     return "RestoreWeblinkFromTrashRequestBodyParentField{" + "id='" + id + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String id;
 

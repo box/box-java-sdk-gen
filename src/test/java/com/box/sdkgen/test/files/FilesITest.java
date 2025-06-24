@@ -152,6 +152,14 @@ public class FilesITest {
                     .build(),
                 new UpdateFileByIdQueryParams.Builder().fields(Arrays.asList("lock")).build());
     assert !(fileWithLock.getLock() == null);
+    FileFull fileWithoutLock =
+        client
+            .getFiles()
+            .updateFileById(
+                file.getId(),
+                new UpdateFileByIdRequestBody.Builder().lock(null).build(),
+                new UpdateFileByIdQueryParams.Builder().fields(Arrays.asList("lock")).build());
+    assert fileWithoutLock.getLock() == null;
     client.getFiles().deleteFileById(file.getId());
   }
 

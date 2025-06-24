@@ -1,12 +1,15 @@
 package com.box.sdkgen.managers.termsofservices;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateTermsOfServiceRequestBody extends SerializableObject {
 
   @JsonDeserialize(
@@ -52,6 +55,7 @@ public class CreateTermsOfServiceRequestBody extends SerializableObject {
     this.status = builder.status;
     this.tosType = builder.tosType;
     this.text = builder.text;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<CreateTermsOfServiceRequestBodyStatusField> getStatus() {
@@ -102,7 +106,7 @@ public class CreateTermsOfServiceRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final EnumWrapper<CreateTermsOfServiceRequestBodyStatusField> status;
 
@@ -111,11 +115,13 @@ public class CreateTermsOfServiceRequestBody extends SerializableObject {
     protected final String text;
 
     public Builder(EnumWrapper<CreateTermsOfServiceRequestBodyStatusField> status, String text) {
+      super();
       this.status = status;
       this.text = text;
     }
 
     public Builder(CreateTermsOfServiceRequestBodyStatusField status, String text) {
+      super();
       this.status = new EnumWrapper<CreateTermsOfServiceRequestBodyStatusField>(status);
       this.text = text;
     }

@@ -1,13 +1,17 @@
 package com.box.sdkgen.managers.shieldinformationbarriersegments;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateShieldInformationBarrierSegmentByIdRequestBody extends SerializableObject {
 
   protected String name;
 
-  protected String description;
+  @Nullable protected String description;
 
   public UpdateShieldInformationBarrierSegmentByIdRequestBody() {
     super();
@@ -17,6 +21,7 @@ public class UpdateShieldInformationBarrierSegmentByIdRequestBody extends Serial
     super();
     this.name = builder.name;
     this.description = builder.description;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {
@@ -58,7 +63,7 @@ public class UpdateShieldInformationBarrierSegmentByIdRequestBody extends Serial
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String name;
 
@@ -71,6 +76,7 @@ public class UpdateShieldInformationBarrierSegmentByIdRequestBody extends Serial
 
     public Builder description(String description) {
       this.description = description;
+      this.markNullableFieldAsSet("description");
       return this;
     }
 

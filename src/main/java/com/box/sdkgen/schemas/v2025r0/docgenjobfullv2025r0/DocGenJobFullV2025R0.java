@@ -9,9 +9,11 @@ import com.box.sdkgen.schemas.v2025r0.filereferencev2025r0.FileReferenceV2025R0;
 import com.box.sdkgen.schemas.v2025r0.fileversionbasev2025r0.FileVersionBaseV2025R0;
 import com.box.sdkgen.schemas.v2025r0.userbasev2025r0.UserBaseV2025R0;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class DocGenJobFullV2025R0 extends DocGenJobV2025R0 {
 
   @JsonProperty("created_at")
@@ -62,6 +64,7 @@ public class DocGenJobFullV2025R0 extends DocGenJobV2025R0 {
     this.createdBy = builder.createdBy;
     this.enterprise = builder.enterprise;
     this.source = builder.source;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getCreatedAt() {

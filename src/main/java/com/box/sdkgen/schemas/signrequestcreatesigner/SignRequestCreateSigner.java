@@ -1,15 +1,19 @@
 package com.box.sdkgen.schemas.signrequestcreatesigner;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SignRequestCreateSigner extends SerializableObject {
 
-  protected String email;
+  @Nullable protected String email;
 
   @JsonDeserialize(
       using = SignRequestCreateSignerRoleField.SignRequestCreateSignerRoleFieldDeserializer.class)
@@ -23,26 +27,33 @@ public class SignRequestCreateSigner extends SerializableObject {
   protected Long order;
 
   @JsonProperty("embed_url_external_user_id")
+  @Nullable
   protected String embedUrlExternalUserId;
 
   @JsonProperty("redirect_url")
+  @Nullable
   protected String redirectUrl;
 
   @JsonProperty("declined_redirect_url")
+  @Nullable
   protected String declinedRedirectUrl;
 
   @JsonProperty("login_required")
+  @Nullable
   protected Boolean loginRequired;
 
   @JsonProperty("verification_phone_number")
+  @Nullable
   protected String verificationPhoneNumber;
 
-  protected String password;
+  @Nullable protected String password;
 
   @JsonProperty("signer_group_id")
+  @Nullable
   protected String signerGroupId;
 
   @JsonProperty("suppress_notifications")
+  @Nullable
   protected Boolean suppressNotifications;
 
   public SignRequestCreateSigner() {
@@ -63,6 +74,7 @@ public class SignRequestCreateSigner extends SerializableObject {
     this.password = builder.password;
     this.signerGroupId = builder.signerGroupId;
     this.suppressNotifications = builder.suppressNotifications;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getEmail() {
@@ -206,7 +218,7 @@ public class SignRequestCreateSigner extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String email;
 
@@ -234,6 +246,7 @@ public class SignRequestCreateSigner extends SerializableObject {
 
     public Builder email(String email) {
       this.email = email;
+      this.markNullableFieldAsSet("email");
       return this;
     }
 
@@ -259,41 +272,49 @@ public class SignRequestCreateSigner extends SerializableObject {
 
     public Builder embedUrlExternalUserId(String embedUrlExternalUserId) {
       this.embedUrlExternalUserId = embedUrlExternalUserId;
+      this.markNullableFieldAsSet("embed_url_external_user_id");
       return this;
     }
 
     public Builder redirectUrl(String redirectUrl) {
       this.redirectUrl = redirectUrl;
+      this.markNullableFieldAsSet("redirect_url");
       return this;
     }
 
     public Builder declinedRedirectUrl(String declinedRedirectUrl) {
       this.declinedRedirectUrl = declinedRedirectUrl;
+      this.markNullableFieldAsSet("declined_redirect_url");
       return this;
     }
 
     public Builder loginRequired(Boolean loginRequired) {
       this.loginRequired = loginRequired;
+      this.markNullableFieldAsSet("login_required");
       return this;
     }
 
     public Builder verificationPhoneNumber(String verificationPhoneNumber) {
       this.verificationPhoneNumber = verificationPhoneNumber;
+      this.markNullableFieldAsSet("verification_phone_number");
       return this;
     }
 
     public Builder password(String password) {
       this.password = password;
+      this.markNullableFieldAsSet("password");
       return this;
     }
 
     public Builder signerGroupId(String signerGroupId) {
       this.signerGroupId = signerGroupId;
+      this.markNullableFieldAsSet("signer_group_id");
       return this;
     }
 
     public Builder suppressNotifications(Boolean suppressNotifications) {
       this.suppressNotifications = suppressNotifications;
+      this.markNullableFieldAsSet("suppress_notifications");
       return this;
     }
 

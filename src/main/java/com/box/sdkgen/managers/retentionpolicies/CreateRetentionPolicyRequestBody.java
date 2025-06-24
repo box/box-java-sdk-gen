@@ -1,14 +1,17 @@
 package com.box.sdkgen.managers.retentionpolicies;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateRetentionPolicyRequestBody extends SerializableObject {
 
   @JsonProperty("policy_name")
@@ -96,6 +99,7 @@ public class CreateRetentionPolicyRequestBody extends SerializableObject {
     this.canOwnerExtendRetention = builder.canOwnerExtendRetention;
     this.areOwnersNotified = builder.areOwnersNotified;
     this.customNotificationRecipients = builder.customNotificationRecipients;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getPolicyName() {
@@ -210,7 +214,7 @@ public class CreateRetentionPolicyRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String policyName;
 
@@ -235,6 +239,7 @@ public class CreateRetentionPolicyRequestBody extends SerializableObject {
         String policyName,
         EnumWrapper<CreateRetentionPolicyRequestBodyPolicyTypeField> policyType,
         EnumWrapper<CreateRetentionPolicyRequestBodyDispositionActionField> dispositionAction) {
+      super();
       this.policyName = policyName;
       this.policyType = policyType;
       this.dispositionAction = dispositionAction;
@@ -244,6 +249,7 @@ public class CreateRetentionPolicyRequestBody extends SerializableObject {
         String policyName,
         CreateRetentionPolicyRequestBodyPolicyTypeField policyType,
         CreateRetentionPolicyRequestBodyDispositionActionField dispositionAction) {
+      super();
       this.policyName = policyName;
       this.policyType =
           new EnumWrapper<CreateRetentionPolicyRequestBodyPolicyTypeField>(policyType);

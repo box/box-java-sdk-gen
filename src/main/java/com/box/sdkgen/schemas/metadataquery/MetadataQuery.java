@@ -1,11 +1,14 @@
 package com.box.sdkgen.schemas.metadataquery;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class MetadataQuery extends SerializableObject {
 
   protected final String from;
@@ -45,6 +48,7 @@ public class MetadataQuery extends SerializableObject {
     this.limit = builder.limit;
     this.marker = builder.marker;
     this.fields = builder.fields;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getFrom() {
@@ -140,7 +144,7 @@ public class MetadataQuery extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String from;
 
@@ -159,6 +163,7 @@ public class MetadataQuery extends SerializableObject {
     protected List<String> fields;
 
     public Builder(String from, String ancestorFolderId) {
+      super();
       this.from = from;
       this.ancestorFolderId = ancestorFolderId;
     }

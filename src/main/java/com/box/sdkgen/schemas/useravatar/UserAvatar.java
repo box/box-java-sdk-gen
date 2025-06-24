@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.useravatar;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UserAvatar extends SerializableObject {
 
   @JsonProperty("pic_urls")
@@ -16,6 +19,7 @@ public class UserAvatar extends SerializableObject {
   protected UserAvatar(Builder builder) {
     super();
     this.picUrls = builder.picUrls;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public UserAvatarPicUrlsField getPicUrls() {
@@ -44,7 +48,7 @@ public class UserAvatar extends SerializableObject {
     return "UserAvatar{" + "picUrls='" + picUrls + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected UserAvatarPicUrlsField picUrls;
 

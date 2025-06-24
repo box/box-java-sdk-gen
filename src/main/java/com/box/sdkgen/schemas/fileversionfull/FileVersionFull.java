@@ -4,10 +4,12 @@ import com.box.sdkgen.schemas.fileversion.FileVersion;
 import com.box.sdkgen.schemas.fileversionbase.FileVersionBaseTypeField;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileVersionFull extends FileVersion {
 
   @JsonProperty("version_number")
@@ -20,6 +22,7 @@ public class FileVersionFull extends FileVersion {
   protected FileVersionFull(Builder builder) {
     super(builder);
     this.versionNumber = builder.versionNumber;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getVersionNumber() {
@@ -201,6 +204,7 @@ public class FileVersionFull extends FileVersion {
     @Override
     public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
+      this.markNullableFieldAsSet("trashed_at");
       return this;
     }
 
@@ -213,6 +217,7 @@ public class FileVersionFull extends FileVersion {
     @Override
     public Builder restoredAt(Date restoredAt) {
       this.restoredAt = restoredAt;
+      this.markNullableFieldAsSet("restored_at");
       return this;
     }
 
@@ -225,6 +230,7 @@ public class FileVersionFull extends FileVersion {
     @Override
     public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
+      this.markNullableFieldAsSet("purged_at");
       return this;
     }
 

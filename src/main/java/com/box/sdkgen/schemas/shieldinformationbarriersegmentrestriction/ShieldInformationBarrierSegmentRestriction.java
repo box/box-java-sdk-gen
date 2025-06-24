@@ -8,12 +8,14 @@ import com.box.sdkgen.schemas.shieldinformationbarriersegmentrestrictionmini.Shi
 import com.box.sdkgen.schemas.shieldinformationbarriersegmentrestrictionmini.ShieldInformationBarrierSegmentRestrictionMiniShieldInformationBarrierSegmentField;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ShieldInformationBarrierSegmentRestriction
     extends ShieldInformationBarrierSegmentRestrictionMini {
 
@@ -52,6 +54,7 @@ public class ShieldInformationBarrierSegmentRestriction
     this.createdBy = builder.createdBy;
     this.updatedAt = builder.updatedAt;
     this.updatedBy = builder.updatedBy;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public ShieldInformationBarrierBase getShieldInformationBarrier() {

@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.collaboration;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CollaborationAcceptanceRequirementsStatusField extends SerializableObject {
 
   @JsonProperty("terms_of_service_requirement")
@@ -27,6 +30,7 @@ public class CollaborationAcceptanceRequirementsStatusField extends Serializable
     this.termsOfServiceRequirement = builder.termsOfServiceRequirement;
     this.strongPasswordRequirement = builder.strongPasswordRequirement;
     this.twoFactorAuthenticationRequirement = builder.twoFactorAuthenticationRequirement;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementField
@@ -83,7 +87,7 @@ public class CollaborationAcceptanceRequirementsStatusField extends Serializable
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected CollaborationAcceptanceRequirementsStatusTermsOfServiceRequirementField
         termsOfServiceRequirement;

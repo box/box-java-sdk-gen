@@ -2,10 +2,12 @@ package com.box.sdkgen.schemas.trashweblinkrestored;
 
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TrashWebLinkRestoredPathCollectionField extends SerializableObject {
 
   @JsonProperty("total_count")

@@ -1,15 +1,18 @@
 package com.box.sdkgen.schemas.v2025r0.shieldlistv2025r0;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.v2025r0.enterprisereferencev2025r0.EnterpriseReferenceV2025R0;
 import com.box.sdkgen.schemas.v2025r0.shieldlistcontentv2025r0.ShieldListContentV2025R0;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ShieldListV2025R0 extends SerializableObject {
 
   protected final String id;
@@ -62,6 +65,7 @@ public class ShieldListV2025R0 extends SerializableObject {
     this.createdAt = builder.createdAt;
     this.updatedAt = builder.updatedAt;
     this.content = builder.content;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -157,7 +161,7 @@ public class ShieldListV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -183,6 +187,7 @@ public class ShieldListV2025R0 extends SerializableObject {
         Date createdAt,
         Date updatedAt,
         ShieldListContentV2025R0 content) {
+      super();
       this.id = id;
       this.type = type;
       this.name = name;

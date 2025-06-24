@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.aiitemask;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiItemAsk extends SerializableObject {
 
   protected final String id;
@@ -35,6 +38,7 @@ public class AiItemAsk extends SerializableObject {
     this.id = builder.id;
     this.type = builder.type;
     this.content = builder.content;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -85,7 +89,7 @@ public class AiItemAsk extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -94,11 +98,13 @@ public class AiItemAsk extends SerializableObject {
     protected String content;
 
     public Builder(String id, EnumWrapper<AiItemAskTypeField> type) {
+      super();
       this.id = id;
       this.type = type;
     }
 
     public Builder(String id, AiItemAskTypeField type) {
+      super();
       this.id = id;
       this.type = new EnumWrapper<AiItemAskTypeField>(type);
     }

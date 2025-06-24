@@ -1,13 +1,16 @@
 package com.box.sdkgen.schemas.v2025r0.shieldlistcontentipv2025r0;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ShieldListContentIpV2025R0 extends SerializableObject {
 
   @JsonDeserialize(
@@ -33,6 +36,7 @@ public class ShieldListContentIpV2025R0 extends SerializableObject {
     super();
     this.type = builder.type;
     this.ipAddresses = builder.ipAddresses;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<ShieldListContentIpV2025R0TypeField> getType() {
@@ -73,13 +77,14 @@ public class ShieldListContentIpV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<ShieldListContentIpV2025R0TypeField> type;
 
     protected final List<String> ipAddresses;
 
     public Builder(List<String> ipAddresses) {
+      super();
       this.ipAddresses = ipAddresses;
       this.type =
           new EnumWrapper<ShieldListContentIpV2025R0TypeField>(

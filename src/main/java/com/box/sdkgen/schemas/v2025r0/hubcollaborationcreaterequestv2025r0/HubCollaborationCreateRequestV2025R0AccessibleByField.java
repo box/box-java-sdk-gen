@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.v2025r0.hubcollaborationcreaterequestv2025r0;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class HubCollaborationCreateRequestV2025R0AccessibleByField extends SerializableObject {
 
   protected final String type;
@@ -22,6 +25,7 @@ public class HubCollaborationCreateRequestV2025R0AccessibleByField extends Seria
     this.type = builder.type;
     this.id = builder.id;
     this.login = builder.login;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getType() {
@@ -73,7 +77,7 @@ public class HubCollaborationCreateRequestV2025R0AccessibleByField extends Seria
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String type;
 
@@ -82,6 +86,7 @@ public class HubCollaborationCreateRequestV2025R0AccessibleByField extends Seria
     protected String login;
 
     public Builder(String type) {
+      super();
       this.type = type;
     }
 

@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.v2025r0.hubcollaborationupdaterequestv2025r0;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class HubCollaborationUpdateRequestV2025R0 extends SerializableObject {
 
   protected String role;
@@ -14,6 +17,7 @@ public class HubCollaborationUpdateRequestV2025R0 extends SerializableObject {
   protected HubCollaborationUpdateRequestV2025R0(Builder builder) {
     super();
     this.role = builder.role;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getRole() {
@@ -42,7 +46,7 @@ public class HubCollaborationUpdateRequestV2025R0 extends SerializableObject {
     return "HubCollaborationUpdateRequestV2025R0{" + "role='" + role + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String role;
 

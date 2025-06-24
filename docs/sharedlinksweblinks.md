@@ -152,7 +152,10 @@ This operation is performed by calling function `removeSharedLinkFromWebLink`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-web-links-id--remove-shared-link/).
 
-*Currently we don't have an example for calling `removeSharedLinkFromWebLink` in integration tests*
+<!-- sample put_web_links_id#remove_shared_link -->
+```
+client.getSharedLinksWebLinks().removeSharedLinkFromWebLink(webLinkId, new RemoveSharedLinkFromWebLinkRequestBody.Builder().sharedLink(null).build(), new RemoveSharedLinkFromWebLinkQueryParams("shared_link"))
+```
 
 ### Arguments
 

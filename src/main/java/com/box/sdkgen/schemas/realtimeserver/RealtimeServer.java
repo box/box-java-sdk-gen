@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.realtimeserver;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class RealtimeServer extends SerializableObject {
 
   protected String type;
@@ -29,6 +32,7 @@ public class RealtimeServer extends SerializableObject {
     this.ttl = builder.ttl;
     this.maxRetries = builder.maxRetries;
     this.retryTimeout = builder.retryTimeout;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getType() {
@@ -97,7 +101,7 @@ public class RealtimeServer extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String type;
 

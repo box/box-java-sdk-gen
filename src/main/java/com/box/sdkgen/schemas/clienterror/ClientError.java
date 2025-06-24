@@ -1,13 +1,17 @@
 package com.box.sdkgen.schemas.clienterror;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Map;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ClientError extends SerializableObject {
 
   @JsonDeserialize(using = ClientErrorTypeField.ClientErrorTypeFieldDeserializer.class)
@@ -23,6 +27,7 @@ public class ClientError extends SerializableObject {
   protected String message;
 
   @JsonProperty("context_info")
+  @Nullable
   protected Map<String, Object> contextInfo;
 
   @JsonProperty("help_url")
@@ -44,6 +49,7 @@ public class ClientError extends SerializableObject {
     this.contextInfo = builder.contextInfo;
     this.helpUrl = builder.helpUrl;
     this.requestId = builder.requestId;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<ClientErrorTypeField> getType() {
@@ -130,7 +136,7 @@ public class ClientError extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<ClientErrorTypeField> type;
 
@@ -178,6 +184,7 @@ public class ClientError extends SerializableObject {
 
     public Builder contextInfo(Map<String, Object> contextInfo) {
       this.contextInfo = contextInfo;
+      this.markNullableFieldAsSet("context_info");
       return this;
     }
 

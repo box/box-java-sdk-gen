@@ -1,11 +1,14 @@
 package com.box.sdkgen.schemas.aiagentreference;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiAgentReference extends SerializableObject {
 
   @JsonDeserialize(using = AiAgentReferenceTypeField.AiAgentReferenceTypeFieldDeserializer.class)
@@ -23,6 +26,7 @@ public class AiAgentReference extends SerializableObject {
     super();
     this.type = builder.type;
     this.id = builder.id;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<AiAgentReferenceTypeField> getType() {
@@ -55,13 +59,14 @@ public class AiAgentReference extends SerializableObject {
     return "AiAgentReference{" + "type='" + type + '\'' + ", " + "id='" + id + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<AiAgentReferenceTypeField> type;
 
     protected String id;
 
     public Builder() {
+      super();
       this.type = new EnumWrapper<AiAgentReferenceTypeField>(AiAgentReferenceTypeField.AI_AGENT_ID);
     }
 

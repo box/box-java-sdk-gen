@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.aitextgen;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagentreferenceoraiagenttextgen.AiAgentReferenceOrAiAgentTextGen;
 import com.box.sdkgen.schemas.aidialoguehistory.AiDialogueHistory;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiTextGen extends SerializableObject {
 
   protected final String prompt;
@@ -33,6 +36,7 @@ public class AiTextGen extends SerializableObject {
     this.items = builder.items;
     this.dialogueHistory = builder.dialogueHistory;
     this.aiAgent = builder.aiAgent;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getPrompt() {
@@ -92,7 +96,7 @@ public class AiTextGen extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String prompt;
 
@@ -103,6 +107,7 @@ public class AiTextGen extends SerializableObject {
     protected AiAgentReferenceOrAiAgentTextGen aiAgent;
 
     public Builder(String prompt, List<AiTextGenItemsField> items) {
+      super();
       this.prompt = prompt;
       this.items = items;
     }

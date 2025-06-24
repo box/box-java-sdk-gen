@@ -1,14 +1,18 @@
 package com.box.sdkgen.managers.folders;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateFolderByIdRequestBodySharedLinkField extends SerializableObject {
 
   @JsonDeserialize(
@@ -21,7 +25,7 @@ public class UpdateFolderByIdRequestBodySharedLinkField extends SerializableObje
               .UpdateFolderByIdRequestBodySharedLinkAccessFieldSerializer.class)
   protected EnumWrapper<UpdateFolderByIdRequestBodySharedLinkAccessField> access;
 
-  protected String password;
+  @Nullable protected String password;
 
   @JsonProperty("vanity_name")
   protected String vanityName;
@@ -44,6 +48,7 @@ public class UpdateFolderByIdRequestBodySharedLinkField extends SerializableObje
     this.vanityName = builder.vanityName;
     this.unsharedAt = builder.unsharedAt;
     this.permissions = builder.permissions;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<UpdateFolderByIdRequestBodySharedLinkAccessField> getAccess() {
@@ -113,7 +118,7 @@ public class UpdateFolderByIdRequestBodySharedLinkField extends SerializableObje
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<UpdateFolderByIdRequestBodySharedLinkAccessField> access;
 
@@ -137,6 +142,7 @@ public class UpdateFolderByIdRequestBodySharedLinkField extends SerializableObje
 
     public Builder password(String password) {
       this.password = password;
+      this.markNullableFieldAsSet("password");
       return this;
     }
 

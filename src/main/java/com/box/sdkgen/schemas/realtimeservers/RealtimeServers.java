@@ -1,11 +1,14 @@
 package com.box.sdkgen.schemas.realtimeservers;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.realtimeserver.RealtimeServer;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class RealtimeServers extends SerializableObject {
 
   @JsonProperty("chunk_size")
@@ -21,6 +24,7 @@ public class RealtimeServers extends SerializableObject {
     super();
     this.chunkSize = builder.chunkSize;
     this.entries = builder.entries;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Long getChunkSize() {
@@ -61,7 +65,7 @@ public class RealtimeServers extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Long chunkSize;
 

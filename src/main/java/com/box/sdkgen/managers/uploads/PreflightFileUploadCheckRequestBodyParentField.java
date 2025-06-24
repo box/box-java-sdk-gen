@@ -1,8 +1,11 @@
 package com.box.sdkgen.managers.uploads;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class PreflightFileUploadCheckRequestBodyParentField extends SerializableObject {
 
   protected String id;
@@ -14,6 +17,7 @@ public class PreflightFileUploadCheckRequestBodyParentField extends Serializable
   protected PreflightFileUploadCheckRequestBodyParentField(Builder builder) {
     super();
     this.id = builder.id;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -43,7 +47,7 @@ public class PreflightFileUploadCheckRequestBodyParentField extends Serializable
     return "PreflightFileUploadCheckRequestBodyParentField{" + "id='" + id + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String id;
 

@@ -1,16 +1,19 @@
 package com.box.sdkgen.schemas.skillinvocation;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.event.Event;
 import com.box.sdkgen.schemas.fileorfolder.FileOrFolder;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SkillInvocation extends SerializableObject {
 
   @JsonDeserialize(using = SkillInvocationTypeField.SkillInvocationTypeFieldDeserializer.class)
@@ -54,6 +57,7 @@ public class SkillInvocation extends SerializableObject {
     this.enterprise = builder.enterprise;
     this.source = builder.source;
     this.event = builder.event;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<SkillInvocationTypeField> getType() {
@@ -168,7 +172,7 @@ public class SkillInvocation extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<SkillInvocationTypeField> type;
 

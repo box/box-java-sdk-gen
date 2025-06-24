@@ -1,17 +1,20 @@
 package com.box.sdkgen.schemas.weblink;
 
+import com.box.sdkgen.internal.Nullable;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.schemas.weblinkbase.WebLinkBaseTypeField;
 import com.box.sdkgen.schemas.weblinkmini.WebLinkMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class WebLink extends WebLinkMini {
 
   protected FolderMini parent;
@@ -34,11 +37,13 @@ public class WebLink extends WebLinkMini {
   @JsonProperty("trashed_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date trashedAt;
 
   @JsonProperty("purged_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date purgedAt;
 
   @JsonProperty("created_by")
@@ -76,6 +81,7 @@ public class WebLink extends WebLinkMini {
     this.ownedBy = builder.ownedBy;
     this.sharedLink = builder.sharedLink;
     this.itemStatus = builder.itemStatus;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public FolderMini getParent() {
@@ -312,11 +318,13 @@ public class WebLink extends WebLinkMini {
 
     public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
+      this.markNullableFieldAsSet("trashed_at");
       return this;
     }
 
     public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
+      this.markNullableFieldAsSet("purged_at");
       return this;
     }
 

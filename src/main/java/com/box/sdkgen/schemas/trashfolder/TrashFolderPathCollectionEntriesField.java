@@ -1,12 +1,16 @@
 package com.box.sdkgen.schemas.trashfolder;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TrashFolderPathCollectionEntriesField extends SerializableObject {
 
   @JsonDeserialize(
@@ -22,9 +26,10 @@ public class TrashFolderPathCollectionEntriesField extends SerializableObject {
   protected String id;
 
   @JsonProperty("sequence_id")
+  @Nullable
   protected String sequenceId;
 
-  protected String etag;
+  @Nullable protected String etag;
 
   protected String name;
 
@@ -39,6 +44,7 @@ public class TrashFolderPathCollectionEntriesField extends SerializableObject {
     this.sequenceId = builder.sequenceId;
     this.etag = builder.etag;
     this.name = builder.name;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<TrashFolderPathCollectionEntriesTypeField> getType() {
@@ -107,7 +113,7 @@ public class TrashFolderPathCollectionEntriesField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<TrashFolderPathCollectionEntriesTypeField> type;
 
@@ -136,11 +142,13 @@ public class TrashFolderPathCollectionEntriesField extends SerializableObject {
 
     public Builder sequenceId(String sequenceId) {
       this.sequenceId = sequenceId;
+      this.markNullableFieldAsSet("sequence_id");
       return this;
     }
 
     public Builder etag(String etag) {
       this.etag = etag;
+      this.markNullableFieldAsSet("etag");
       return this;
     }
 

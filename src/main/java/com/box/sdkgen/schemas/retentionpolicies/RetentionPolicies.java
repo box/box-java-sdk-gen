@@ -1,11 +1,15 @@
 package com.box.sdkgen.schemas.retentionpolicies;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.retentionpolicy.RetentionPolicy;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class RetentionPolicies extends SerializableObject {
 
   protected List<RetentionPolicy> entries;
@@ -13,6 +17,7 @@ public class RetentionPolicies extends SerializableObject {
   protected Long limit;
 
   @JsonProperty("next_marker")
+  @Nullable
   protected String nextMarker;
 
   public RetentionPolicies() {
@@ -24,6 +29,7 @@ public class RetentionPolicies extends SerializableObject {
     this.entries = builder.entries;
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<RetentionPolicy> getEntries() {
@@ -74,7 +80,7 @@ public class RetentionPolicies extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected List<RetentionPolicy> entries;
 
@@ -94,6 +100,7 @@ public class RetentionPolicies extends SerializableObject {
 
     public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
+      this.markNullableFieldAsSet("next_marker");
       return this;
     }
 

@@ -5,10 +5,12 @@ import com.box.sdkgen.schemas.comment.CommentItemField;
 import com.box.sdkgen.schemas.commentbase.CommentBaseTypeField;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CommentFull extends Comment {
 
   @JsonProperty("tagged_message")
@@ -21,6 +23,7 @@ public class CommentFull extends Comment {
   protected CommentFull(Builder builder) {
     super(builder);
     this.taggedMessage = builder.taggedMessage;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getTaggedMessage() {

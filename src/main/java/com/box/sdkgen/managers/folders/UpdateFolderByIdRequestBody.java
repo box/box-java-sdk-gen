@@ -1,13 +1,17 @@
 package com.box.sdkgen.managers.folders;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateFolderByIdRequestBody extends SerializableObject {
 
   protected String name;
@@ -34,6 +38,7 @@ public class UpdateFolderByIdRequestBody extends SerializableObject {
   protected UpdateFolderByIdRequestBodySharedLinkField sharedLink;
 
   @JsonProperty("folder_upload_email")
+  @Nullable
   protected UpdateFolderByIdRequestBodyFolderUploadEmailField folderUploadEmail;
 
   protected List<String> tags;
@@ -41,7 +46,7 @@ public class UpdateFolderByIdRequestBody extends SerializableObject {
   @JsonProperty("is_collaboration_restricted_to_enterprise")
   protected Boolean isCollaborationRestrictedToEnterprise;
 
-  protected List<UpdateFolderByIdRequestBodyCollectionsField> collections;
+  @Nullable protected List<UpdateFolderByIdRequestBodyCollectionsField> collections;
 
   @JsonProperty("can_non_owners_view_collaborators")
   protected Boolean canNonOwnersViewCollaborators;
@@ -63,6 +68,7 @@ public class UpdateFolderByIdRequestBody extends SerializableObject {
     this.isCollaborationRestrictedToEnterprise = builder.isCollaborationRestrictedToEnterprise;
     this.collections = builder.collections;
     this.canNonOwnersViewCollaborators = builder.canNonOwnersViewCollaborators;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {
@@ -197,7 +203,7 @@ public class UpdateFolderByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String name;
 
@@ -259,6 +265,7 @@ public class UpdateFolderByIdRequestBody extends SerializableObject {
     public Builder folderUploadEmail(
         UpdateFolderByIdRequestBodyFolderUploadEmailField folderUploadEmail) {
       this.folderUploadEmail = folderUploadEmail;
+      this.markNullableFieldAsSet("folder_upload_email");
       return this;
     }
 
@@ -275,6 +282,7 @@ public class UpdateFolderByIdRequestBody extends SerializableObject {
 
     public Builder collections(List<UpdateFolderByIdRequestBodyCollectionsField> collections) {
       this.collections = collections;
+      this.markNullableFieldAsSet("collections");
       return this;
     }
 

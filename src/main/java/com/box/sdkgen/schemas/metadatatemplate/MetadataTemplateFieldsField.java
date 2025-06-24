@@ -1,13 +1,16 @@
 package com.box.sdkgen.schemas.metadatatemplate;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class MetadataTemplateFieldsField extends SerializableObject {
 
   @JsonDeserialize(
@@ -55,6 +58,7 @@ public class MetadataTemplateFieldsField extends SerializableObject {
     this.hidden = builder.hidden;
     this.options = builder.options;
     this.id = builder.id;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<MetadataTemplateFieldsTypeField> getType() {
@@ -141,7 +145,7 @@ public class MetadataTemplateFieldsField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final EnumWrapper<MetadataTemplateFieldsTypeField> type;
 
@@ -159,12 +163,14 @@ public class MetadataTemplateFieldsField extends SerializableObject {
 
     public Builder(
         EnumWrapper<MetadataTemplateFieldsTypeField> type, String key, String displayName) {
+      super();
       this.type = type;
       this.key = key;
       this.displayName = displayName;
     }
 
     public Builder(MetadataTemplateFieldsTypeField type, String key, String displayName) {
+      super();
       this.type = new EnumWrapper<MetadataTemplateFieldsTypeField>(type);
       this.key = key;
       this.displayName = displayName;

@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.aiagentlongtexttooltextgen;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiAgentLongTextToolTextGenEmbeddingsStrategyField extends SerializableObject {
 
   protected String id;
@@ -19,6 +22,7 @@ public class AiAgentLongTextToolTextGenEmbeddingsStrategyField extends Serializa
     super();
     this.id = builder.id;
     this.numTokensPerChunk = builder.numTokensPerChunk;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -61,7 +65,7 @@ public class AiAgentLongTextToolTextGenEmbeddingsStrategyField extends Serializa
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String id;
 

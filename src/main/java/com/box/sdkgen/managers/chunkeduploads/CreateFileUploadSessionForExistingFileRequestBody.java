@@ -1,9 +1,12 @@
 package com.box.sdkgen.managers.chunkeduploads;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateFileUploadSessionForExistingFileRequestBody extends SerializableObject {
 
   @JsonProperty("file_size")
@@ -22,6 +25,7 @@ public class CreateFileUploadSessionForExistingFileRequestBody extends Serializa
     super();
     this.fileSize = builder.fileSize;
     this.fileName = builder.fileName;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public long getFileSize() {
@@ -63,13 +67,14 @@ public class CreateFileUploadSessionForExistingFileRequestBody extends Serializa
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final long fileSize;
 
     protected String fileName;
 
     public Builder(long fileSize) {
+      super();
       this.fileSize = fileSize;
     }
 

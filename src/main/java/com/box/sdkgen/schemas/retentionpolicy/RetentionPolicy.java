@@ -6,6 +6,7 @@ import com.box.sdkgen.schemas.retentionpolicymini.RetentionPolicyMini;
 import com.box.sdkgen.schemas.retentionpolicymini.RetentionPolicyMiniDispositionActionField;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -13,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class RetentionPolicy extends RetentionPolicyMini {
 
   protected String description;
@@ -77,6 +79,7 @@ public class RetentionPolicy extends RetentionPolicyMini {
     this.areOwnersNotified = builder.areOwnersNotified;
     this.customNotificationRecipients = builder.customNotificationRecipients;
     this.assignmentCounts = builder.assignmentCounts;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getDescription() {

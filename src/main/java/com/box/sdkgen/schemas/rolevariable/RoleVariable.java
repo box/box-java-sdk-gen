@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.rolevariable;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class RoleVariable extends SerializableObject {
 
   @JsonDeserialize(using = RoleVariableTypeField.RoleVariableTypeFieldDeserializer.class)
@@ -51,6 +54,7 @@ public class RoleVariable extends SerializableObject {
     this.type = builder.type;
     this.variableType = builder.variableType;
     this.variableValue = builder.variableValue;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<RoleVariableTypeField> getType() {
@@ -101,7 +105,7 @@ public class RoleVariable extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<RoleVariableTypeField> type;
 
@@ -110,6 +114,7 @@ public class RoleVariable extends SerializableObject {
     protected final EnumWrapper<RoleVariableVariableValueField> variableValue;
 
     public Builder(EnumWrapper<RoleVariableVariableValueField> variableValue) {
+      super();
       this.variableValue = variableValue;
       this.type = new EnumWrapper<RoleVariableTypeField>(RoleVariableTypeField.VARIABLE);
       this.variableType =
@@ -118,6 +123,7 @@ public class RoleVariable extends SerializableObject {
     }
 
     public Builder(RoleVariableVariableValueField variableValue) {
+      super();
       this.variableValue = new EnumWrapper<RoleVariableVariableValueField>(variableValue);
       this.type = new EnumWrapper<RoleVariableTypeField>(RoleVariableTypeField.VARIABLE);
       this.variableType =

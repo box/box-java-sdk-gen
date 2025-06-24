@@ -1,11 +1,14 @@
 package com.box.sdkgen.managers.folderwatermarks;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateFolderWatermarkRequestBodyWatermarkField extends SerializableObject {
 
   @JsonDeserialize(
@@ -28,6 +31,7 @@ public class UpdateFolderWatermarkRequestBodyWatermarkField extends Serializable
   protected UpdateFolderWatermarkRequestBodyWatermarkField(Builder builder) {
     super();
     this.imprint = builder.imprint;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<UpdateFolderWatermarkRequestBodyWatermarkImprintField> getImprint() {
@@ -57,11 +61,12 @@ public class UpdateFolderWatermarkRequestBodyWatermarkField extends Serializable
     return "UpdateFolderWatermarkRequestBodyWatermarkField{" + "imprint='" + imprint + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<UpdateFolderWatermarkRequestBodyWatermarkImprintField> imprint;
 
     public Builder() {
+      super();
       this.imprint =
           new EnumWrapper<UpdateFolderWatermarkRequestBodyWatermarkImprintField>(
               UpdateFolderWatermarkRequestBodyWatermarkImprintField.DEFAULT);

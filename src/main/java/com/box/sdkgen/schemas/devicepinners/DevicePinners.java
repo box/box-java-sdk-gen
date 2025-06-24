@@ -1,11 +1,14 @@
 package com.box.sdkgen.schemas.devicepinners;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.devicepinner.DevicePinner;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class DevicePinners extends SerializableObject {
 
   protected List<DevicePinner> entries;
@@ -27,6 +30,7 @@ public class DevicePinners extends SerializableObject {
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.order = builder.order;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<DevicePinner> getEntries() {
@@ -86,7 +90,7 @@ public class DevicePinners extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected List<DevicePinner> entries;
 

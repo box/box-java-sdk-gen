@@ -1,12 +1,16 @@
 package com.box.sdkgen.schemas.aillmendpointparamsaws;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiLlmEndpointParamsAws extends SerializableObject {
 
   @JsonDeserialize(
@@ -15,9 +19,10 @@ public class AiLlmEndpointParamsAws extends SerializableObject {
       using = AiLlmEndpointParamsAwsTypeField.AiLlmEndpointParamsAwsTypeFieldSerializer.class)
   protected EnumWrapper<AiLlmEndpointParamsAwsTypeField> type;
 
-  protected Double temperature;
+  @Nullable protected Double temperature;
 
   @JsonProperty("top_p")
+  @Nullable
   protected Double topP;
 
   public AiLlmEndpointParamsAws() {
@@ -32,6 +37,7 @@ public class AiLlmEndpointParamsAws extends SerializableObject {
     this.type = builder.type;
     this.temperature = builder.temperature;
     this.topP = builder.topP;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<AiLlmEndpointParamsAwsTypeField> getType() {
@@ -82,7 +88,7 @@ public class AiLlmEndpointParamsAws extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<AiLlmEndpointParamsAwsTypeField> type;
 
@@ -91,6 +97,7 @@ public class AiLlmEndpointParamsAws extends SerializableObject {
     protected Double topP;
 
     public Builder() {
+      super();
       this.type =
           new EnumWrapper<AiLlmEndpointParamsAwsTypeField>(
               AiLlmEndpointParamsAwsTypeField.AWS_PARAMS);
@@ -108,11 +115,13 @@ public class AiLlmEndpointParamsAws extends SerializableObject {
 
     public Builder temperature(Double temperature) {
       this.temperature = temperature;
+      this.markNullableFieldAsSet("temperature");
       return this;
     }
 
     public Builder topP(Double topP) {
       this.topP = topP;
+      this.markNullableFieldAsSet("top_p");
       return this;
     }
 

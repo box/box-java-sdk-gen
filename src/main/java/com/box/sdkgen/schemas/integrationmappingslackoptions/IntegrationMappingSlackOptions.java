@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.integrationmappingslackoptions;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class IntegrationMappingSlackOptions extends SerializableObject {
 
   @JsonProperty("is_access_management_disabled")
@@ -16,6 +19,7 @@ public class IntegrationMappingSlackOptions extends SerializableObject {
   protected IntegrationMappingSlackOptions(Builder builder) {
     super();
     this.isAccessManagementDisabled = builder.isAccessManagementDisabled;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Boolean getIsAccessManagementDisabled() {
@@ -48,7 +52,7 @@ public class IntegrationMappingSlackOptions extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Boolean isAccessManagementDisabled;
 

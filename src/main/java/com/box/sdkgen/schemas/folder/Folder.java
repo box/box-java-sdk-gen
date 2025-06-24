@@ -1,27 +1,32 @@
 package com.box.sdkgen.schemas.folder;
 
+import com.box.sdkgen.internal.Nullable;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.folderbase.FolderBaseTypeField;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.items.Items;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class Folder extends FolderMini {
 
   @JsonProperty("created_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date createdAt;
 
   @JsonProperty("modified_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date modifiedAt;
 
   protected String description;
@@ -40,33 +45,39 @@ public class Folder extends FolderMini {
   @JsonProperty("trashed_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date trashedAt;
 
   @JsonProperty("purged_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date purgedAt;
 
   @JsonProperty("content_created_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date contentCreatedAt;
 
   @JsonProperty("content_modified_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date contentModifiedAt;
 
   @JsonProperty("owned_by")
   protected UserMini ownedBy;
 
   @JsonProperty("shared_link")
+  @Nullable
   protected FolderSharedLinkField sharedLink;
 
   @JsonProperty("folder_upload_email")
+  @Nullable
   protected FolderFolderUploadEmailField folderUploadEmail;
 
-  protected FolderMini parent;
+  @Nullable protected FolderMini parent;
 
   @JsonDeserialize(using = FolderItemStatusField.FolderItemStatusFieldDeserializer.class)
   @JsonSerialize(using = FolderItemStatusField.FolderItemStatusFieldSerializer.class)
@@ -99,6 +110,7 @@ public class Folder extends FolderMini {
     this.parent = builder.parent;
     this.itemStatus = builder.itemStatus;
     this.itemCollection = builder.itemCollection;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Date getCreatedAt() {
@@ -364,11 +376,13 @@ public class Folder extends FolderMini {
 
     public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
+      this.markNullableFieldAsSet("created_at");
       return this;
     }
 
     public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
+      this.markNullableFieldAsSet("modified_at");
       return this;
     }
 
@@ -399,21 +413,25 @@ public class Folder extends FolderMini {
 
     public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
+      this.markNullableFieldAsSet("trashed_at");
       return this;
     }
 
     public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
+      this.markNullableFieldAsSet("purged_at");
       return this;
     }
 
     public Builder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
+      this.markNullableFieldAsSet("content_created_at");
       return this;
     }
 
     public Builder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
+      this.markNullableFieldAsSet("content_modified_at");
       return this;
     }
 
@@ -424,16 +442,19 @@ public class Folder extends FolderMini {
 
     public Builder sharedLink(FolderSharedLinkField sharedLink) {
       this.sharedLink = sharedLink;
+      this.markNullableFieldAsSet("shared_link");
       return this;
     }
 
     public Builder folderUploadEmail(FolderFolderUploadEmailField folderUploadEmail) {
       this.folderUploadEmail = folderUploadEmail;
+      this.markNullableFieldAsSet("folder_upload_email");
       return this;
     }
 
     public Builder parent(FolderMini parent) {
       this.parent = parent;
+      this.markNullableFieldAsSet("parent");
       return this;
     }
 
@@ -455,6 +476,7 @@ public class Folder extends FolderMini {
     @Override
     public Builder etag(String etag) {
       this.etag = etag;
+      this.markNullableFieldAsSet("etag");
       return this;
     }
 

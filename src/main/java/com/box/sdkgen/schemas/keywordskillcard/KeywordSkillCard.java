@@ -1,8 +1,10 @@
 package com.box.sdkgen.schemas.keywordskillcard;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -10,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class KeywordSkillCard extends SerializableObject {
 
   @JsonProperty("created_at")
@@ -61,6 +64,7 @@ public class KeywordSkillCard extends SerializableObject {
     this.skill = builder.skill;
     this.invocation = builder.invocation;
     this.entries = builder.entries;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Date getCreatedAt() {
@@ -147,7 +151,7 @@ public class KeywordSkillCard extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Date createdAt;
 
@@ -167,6 +171,7 @@ public class KeywordSkillCard extends SerializableObject {
         KeywordSkillCardSkillField skill,
         KeywordSkillCardInvocationField invocation,
         List<KeywordSkillCardEntriesField> entries) {
+      super();
       this.skill = skill;
       this.invocation = invocation;
       this.entries = entries;

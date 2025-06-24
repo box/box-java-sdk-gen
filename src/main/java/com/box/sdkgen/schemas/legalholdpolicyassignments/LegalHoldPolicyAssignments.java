@@ -1,19 +1,25 @@
 package com.box.sdkgen.schemas.legalholdpolicyassignments;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.legalholdpolicyassignment.LegalHoldPolicyAssignment;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class LegalHoldPolicyAssignments extends SerializableObject {
 
   protected Long limit;
 
   @JsonProperty("next_marker")
+  @Nullable
   protected String nextMarker;
 
   @JsonProperty("prev_marker")
+  @Nullable
   protected String prevMarker;
 
   protected List<LegalHoldPolicyAssignment> entries;
@@ -28,6 +34,7 @@ public class LegalHoldPolicyAssignments extends SerializableObject {
     this.nextMarker = builder.nextMarker;
     this.prevMarker = builder.prevMarker;
     this.entries = builder.entries;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Long getLimit() {
@@ -87,7 +94,7 @@ public class LegalHoldPolicyAssignments extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Long limit;
 
@@ -104,11 +111,13 @@ public class LegalHoldPolicyAssignments extends SerializableObject {
 
     public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
+      this.markNullableFieldAsSet("next_marker");
       return this;
     }
 
     public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
+      this.markNullableFieldAsSet("prev_marker");
       return this;
     }
 

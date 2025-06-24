@@ -1,14 +1,17 @@
 package com.box.sdkgen.schemas.searchresultswithsharedlinks;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.searchresultwithsharedlink.SearchResultWithSharedLink;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SearchResultsWithSharedLinks extends SerializableObject {
 
   @JsonProperty("total_count")
@@ -44,6 +47,7 @@ public class SearchResultsWithSharedLinks extends SerializableObject {
     this.offset = builder.offset;
     this.type = builder.type;
     this.entries = builder.entries;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Long getTotalCount() {
@@ -112,7 +116,7 @@ public class SearchResultsWithSharedLinks extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Long totalCount;
 
@@ -125,6 +129,7 @@ public class SearchResultsWithSharedLinks extends SerializableObject {
     protected List<SearchResultWithSharedLink> entries;
 
     public Builder() {
+      super();
       this.type =
           new EnumWrapper<SearchResultsWithSharedLinksTypeField>(
               SearchResultsWithSharedLinksTypeField.SEARCH_RESULTS_WITH_SHARED_LINKS);

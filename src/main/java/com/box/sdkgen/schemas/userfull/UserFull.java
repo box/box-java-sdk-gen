@@ -6,6 +6,7 @@ import com.box.sdkgen.schemas.user.UserNotificationEmailField;
 import com.box.sdkgen.schemas.user.UserStatusField;
 import com.box.sdkgen.schemas.userbase.UserBaseTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -13,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UserFull extends User {
 
   @JsonDeserialize(using = UserFullRoleField.UserFullRoleFieldDeserializer.class)
@@ -68,6 +70,7 @@ public class UserFull extends User {
     this.hostname = builder.hostname;
     this.isPlatformAccessOnly = builder.isPlatformAccessOnly;
     this.externalAppUserId = builder.externalAppUserId;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<UserFullRoleField> getRole() {
@@ -513,6 +516,7 @@ public class UserFull extends User {
     @Override
     public Builder notificationEmail(UserNotificationEmailField notificationEmail) {
       this.notificationEmail = notificationEmail;
+      this.markNullableFieldAsSet("notification_email");
       return this;
     }
 

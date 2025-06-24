@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.trashweblink;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TrashWebLink extends SerializableObject {
 
   @JsonDeserialize(using = TrashWebLinkTypeField.TrashWebLinkTypeFieldDeserializer.class)
@@ -48,11 +52,13 @@ public class TrashWebLink extends SerializableObject {
   @JsonProperty("trashed_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date trashedAt;
 
   @JsonProperty("purged_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date purgedAt;
 
   @JsonProperty("created_by")
@@ -65,6 +71,7 @@ public class TrashWebLink extends SerializableObject {
   protected UserMini ownedBy;
 
   @JsonProperty("shared_link")
+  @Nullable
   protected String sharedLink;
 
   @JsonDeserialize(
@@ -97,6 +104,7 @@ public class TrashWebLink extends SerializableObject {
     this.ownedBy = builder.ownedBy;
     this.sharedLink = builder.sharedLink;
     this.itemStatus = builder.itemStatus;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<TrashWebLinkTypeField> getType() {
@@ -300,7 +308,7 @@ public class TrashWebLink extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<TrashWebLinkTypeField> type;
 
@@ -400,11 +408,13 @@ public class TrashWebLink extends SerializableObject {
 
     public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
+      this.markNullableFieldAsSet("trashed_at");
       return this;
     }
 
     public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
+      this.markNullableFieldAsSet("purged_at");
       return this;
     }
 
@@ -425,6 +435,7 @@ public class TrashWebLink extends SerializableObject {
 
     public Builder sharedLink(String sharedLink) {
       this.sharedLink = sharedLink;
+      this.markNullableFieldAsSet("shared_link");
       return this;
     }
 

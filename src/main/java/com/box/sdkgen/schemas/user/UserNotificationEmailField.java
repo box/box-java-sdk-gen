@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.user;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UserNotificationEmailField extends SerializableObject {
 
   protected String email;
@@ -19,6 +22,7 @@ public class UserNotificationEmailField extends SerializableObject {
     super();
     this.email = builder.email;
     this.isConfirmed = builder.isConfirmed;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getEmail() {
@@ -59,7 +63,7 @@ public class UserNotificationEmailField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String email;
 

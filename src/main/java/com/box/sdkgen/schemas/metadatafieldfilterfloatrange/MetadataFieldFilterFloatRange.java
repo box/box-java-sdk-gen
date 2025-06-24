@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.metadatafieldfilterfloatrange;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class MetadataFieldFilterFloatRange extends SerializableObject {
 
   protected Double lt;
@@ -17,6 +20,7 @@ public class MetadataFieldFilterFloatRange extends SerializableObject {
     super();
     this.lt = builder.lt;
     this.gt = builder.gt;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Double getLt() {
@@ -49,7 +53,7 @@ public class MetadataFieldFilterFloatRange extends SerializableObject {
     return "MetadataFieldFilterFloatRange{" + "lt='" + lt + '\'' + ", " + "gt='" + gt + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Double lt;
 

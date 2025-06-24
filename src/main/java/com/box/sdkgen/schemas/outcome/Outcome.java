@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.outcome;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.collaboratorvariable.CollaboratorVariable;
 import com.box.sdkgen.schemas.completionrulevariable.CompletionRuleVariable;
 import com.box.sdkgen.schemas.rolevariable.RoleVariable;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class Outcome extends SerializableObject {
 
   protected final String id;
@@ -37,6 +40,7 @@ public class Outcome extends SerializableObject {
     this.fileCollaboratorRole = builder.fileCollaboratorRole;
     this.taskCollaborators = builder.taskCollaborators;
     this.role = builder.role;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -115,7 +119,7 @@ public class Outcome extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -130,6 +134,7 @@ public class Outcome extends SerializableObject {
     protected RoleVariable role;
 
     public Builder(String id) {
+      super();
       this.id = id;
     }
 

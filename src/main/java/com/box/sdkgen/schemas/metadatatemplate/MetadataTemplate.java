@@ -1,13 +1,16 @@
 package com.box.sdkgen.schemas.metadatatemplate;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class MetadataTemplate extends SerializableObject {
 
   protected final String id;
@@ -45,6 +48,7 @@ public class MetadataTemplate extends SerializableObject {
     this.hidden = builder.hidden;
     this.fields = builder.fields;
     this.copyInstanceOnItemCopy = builder.copyInstanceOnItemCopy;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -141,7 +145,7 @@ public class MetadataTemplate extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -160,6 +164,7 @@ public class MetadataTemplate extends SerializableObject {
     protected Boolean copyInstanceOnItemCopy;
 
     public Builder(String id) {
+      super();
       this.id = id;
       this.type =
           new EnumWrapper<MetadataTemplateTypeField>(MetadataTemplateTypeField.METADATA_TEMPLATE);

@@ -1,12 +1,15 @@
 package com.box.sdkgen.managers.classifications;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateClassificationRequestBody extends SerializableObject {
 
   @JsonDeserialize(
@@ -53,6 +56,7 @@ public class UpdateClassificationRequestBody extends SerializableObject {
     this.fieldKey = builder.fieldKey;
     this.enumOptionKey = builder.enumOptionKey;
     this.data = builder.data;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<UpdateClassificationRequestBodyOpField> getOp() {
@@ -112,7 +116,7 @@ public class UpdateClassificationRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<UpdateClassificationRequestBodyOpField> op;
 
@@ -123,6 +127,7 @@ public class UpdateClassificationRequestBody extends SerializableObject {
     protected final UpdateClassificationRequestBodyDataField data;
 
     public Builder(String enumOptionKey, UpdateClassificationRequestBodyDataField data) {
+      super();
       this.enumOptionKey = enumOptionKey;
       this.data = data;
       this.op =
