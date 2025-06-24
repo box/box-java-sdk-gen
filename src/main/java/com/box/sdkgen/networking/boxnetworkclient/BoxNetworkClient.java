@@ -21,6 +21,7 @@ import com.box.sdkgen.networking.networkclient.NetworkClient;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.net.URI;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
@@ -198,7 +199,7 @@ public class BoxNetworkClient implements NetworkClient {
 
     requestBuilder.headers(headers);
     requestBuilder.url(url);
-    requestBuilder.method(options.getMethod().toUpperCase(), body);
+    requestBuilder.method(options.getMethod().toUpperCase(Locale.ROOT), body);
     return requestBuilder.build();
   }
 

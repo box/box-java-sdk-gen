@@ -28,6 +28,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TimeZone;
@@ -416,7 +417,7 @@ public class UtilsManager {
             Collectors.toMap(
                 Map.Entry::getKey,
                 entry ->
-                    keysToSanitize.containsKey(entry.getKey().toLowerCase())
+                    keysToSanitize.containsKey(entry.getKey().toLowerCase(Locale.ROOT))
                         ? JsonManager.sanitizedValue()
                         : entry.getValue()));
   }

@@ -14,6 +14,7 @@ import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.networking.networkclient.NetworkClient;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
@@ -168,7 +169,7 @@ public class DefaultNetworkClient implements NetworkClient {
 
     requestBuilder.headers(headers);
     requestBuilder.url(url);
-    requestBuilder.method(options.getMethod().toUpperCase(), body);
+    requestBuilder.method(options.getMethod().toUpperCase(Locale.ROOT), body);
     return requestBuilder.build();
   }
 
