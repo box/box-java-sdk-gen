@@ -1,7 +1,12 @@
 package com.box.sdkgen.managers.webhooks;
 
+import static com.box.sdkgen.internal.utils.UtilsManager.compareSignatures;
+import static com.box.sdkgen.internal.utils.UtilsManager.computeWebhookSignature;
 import static com.box.sdkgen.internal.utils.UtilsManager.convertToString;
+import static com.box.sdkgen.internal.utils.UtilsManager.dateTimeFromString;
+import static com.box.sdkgen.internal.utils.UtilsManager.dateTimeToEpochSeconds;
 import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
+import static com.box.sdkgen.internal.utils.UtilsManager.getEpochTimeInSeconds;
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.mergeMaps;
 import static com.box.sdkgen.internal.utils.UtilsManager.prepareParams;
@@ -14,6 +19,7 @@ import com.box.sdkgen.networking.network.NetworkSession;
 import com.box.sdkgen.schemas.webhook.Webhook;
 import com.box.sdkgen.schemas.webhooks.Webhooks;
 import com.box.sdkgen.serialization.json.JsonManager;
+import java.util.Date;
 import java.util.Map;
 
 public class WebhooksManager {
@@ -177,6 +183,64 @@ public class WebhooksManager {
                     .auth(this.auth)
                     .networkSession(this.networkSession)
                     .build());
+  }
+
+  public static boolean validateMessage(
+      String body, Map<String, String> headers, String primaryKey) {
+    return validateMessage(body, headers, primaryKey, null, 600);
+  }
+
+  public static boolean validateMessage(
+      String body, Map<String, String> headers, String primaryKey, String secondaryKey) {
+    return validateMessage(body, headers, primaryKey, secondaryKey, 600);
+  }
+
+  public static boolean validateMessage(
+      String body, Map<String, String> headers, String primaryKey, Integer maxAge) {
+    return validateMessage(body, headers, primaryKey, null, maxAge);
+  }
+
+  public static boolean validateMessage(
+      String body,
+      Map<String, String> headers,
+      String primaryKey,
+      String secondaryKey,
+      Integer maxAge) {
+    Date deliveryTimestamp = dateTimeFromString(headers.get("box-delivery-timestamp"));
+    long currentEpoch = getEpochTimeInSeconds();
+    if (currentEpoch - maxAge > dateTimeToEpochSeconds(deliveryTimestamp)
+        || dateTimeToEpochSeconds(deliveryTimestamp) > currentEpoch) {
+      return false;
+    }
+    if (!(primaryKey == null)
+        && !(headers.get("box-signature-primary") == null)
+        && compareSignatures(
+            computeWebhookSignature(body, headers, primaryKey, false),
+            headers.get("box-signature-primary"))) {
+      return true;
+    }
+    if (!(primaryKey == null)
+        && !(headers.get("box-signature-primary") == null)
+        && compareSignatures(
+            computeWebhookSignature(body, headers, primaryKey, true),
+            headers.get("box-signature-primary"))) {
+      return true;
+    }
+    if (!(secondaryKey == null)
+        && !(headers.get("box-signature-secondary") == null)
+        && compareSignatures(
+            computeWebhookSignature(body, headers, secondaryKey, false),
+            headers.get("box-signature-secondary"))) {
+      return true;
+    }
+    if (!(secondaryKey == null)
+        && !(headers.get("box-signature-secondary") == null)
+        && compareSignatures(
+            computeWebhookSignature(body, headers, secondaryKey, true),
+            headers.get("box-signature-secondary"))) {
+      return true;
+    }
+    return false;
   }
 
   public Authentication getAuth() {

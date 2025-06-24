@@ -17,8 +17,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.StringReader;
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.security.MessageDigest;
 import java.security.PrivateKey;
 import java.security.Security;
 import java.text.SimpleDateFormat;
@@ -36,6 +38,8 @@ import java.util.TimeZone;
 import java.util.UUID;
 import java.util.function.BiFunction;
 import java.util.stream.Collectors;
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.openssl.PEMDecryptorProvider;
@@ -460,11 +464,84 @@ public class UtilsManager {
     return DATE_FORMAT.format(date);
   }
 
-  public static long dateTimeToEpochSeconds(Date dateTime) {
-    return dateTime.getTime() / 1000;
+  public static String escapeUnicode(String value) {
+    if (value == null) {
+      return null;
+    }
+
+    StringBuilder result = new StringBuilder();
+    for (int i = 0; i < value.length(); i++) {
+      char ch = value.charAt(i);
+      if (ch >= 0x007F) {
+        result.append(String.format("\\u%04x", (int) ch));
+      } else if (ch == '\\') {
+        result.append("\\\\");
+      } else if (ch == '\n') {
+        result.append("\\n");
+      } else if (ch == '\r') {
+        result.append("\\r");
+      } else if (ch == '\t') {
+        result.append("\\t");
+      } else if (ch == '/') {
+        if (i == 0 || value.charAt(i - 1) != '\\') {
+          result.append("\\/");
+        } else {
+          result.append(ch);
+        }
+      } else {
+        result.append(ch);
+      }
+    }
+    return result.toString();
   }
 
   public static Date epochSecondsToDateTime(long seconds) {
     return new Date(seconds * 1000);
+  }
+
+  public static long dateTimeToEpochSeconds(Date dateTime) {
+    return dateTime.getTime() / 1000;
+  }
+
+  public static boolean compareSignatures(String expectedSignature, String receivedSignature) {
+    if (expectedSignature == null || receivedSignature == null) {
+      return false;
+    }
+    byte[] expectedBytes = expectedSignature.getBytes(StandardCharsets.UTF_8);
+    byte[] receivedBytes = receivedSignature.getBytes(StandardCharsets.UTF_8);
+    return MessageDigest.isEqual(expectedBytes, receivedBytes);
+  }
+
+  public static String computeWebhookSignature(
+      String body, Map<String, String> headers, String signatureKey, boolean escapeBody) {
+    if (signatureKey == null) {
+      return null;
+    }
+    if (!"1".equals(headers.get("box-signature-version"))) {
+      return null;
+    }
+    if (!"HmacSHA256".equals(headers.get("box-signature-algorithm"))) {
+      return null;
+    }
+    if (!headers.containsKey("box-delivery-timestamp")) {
+      return null;
+    }
+
+    try {
+      String escapedBody = escapeBody ? escapeUnicode(body) : body;
+      byte[] encodedSignatureKey = signatureKey.getBytes("UTF-8");
+      byte[] encodedBody = escapedBody.getBytes("UTF-8");
+      byte[] encodedTimestamp = headers.get("box-delivery-timestamp").getBytes("UTF-8");
+      Mac mac = Mac.getInstance("HmacSHA256");
+      SecretKeySpec secretKeySpec = new SecretKeySpec(encodedSignatureKey, "HmacSHA256");
+      mac.init(secretKeySpec);
+      mac.update(encodedBody);
+      mac.update(encodedTimestamp);
+      byte[] hmacDigest = mac.doFinal();
+      return Base64.getEncoder().encodeToString(hmacDigest);
+    } catch (Exception e) {
+      System.err.println("Error computing webhook signature: " + e.getMessage());
+      return null;
+    }
   }
 }
