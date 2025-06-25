@@ -1,7 +1,9 @@
 package com.box.sdkgen.managers.metadatatemplates;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -9,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateMetadataTemplateRequestBody extends SerializableObject {
 
   @JsonDeserialize(
@@ -56,6 +59,7 @@ public class UpdateMetadataTemplateRequestBody extends SerializableObject {
     this.enumOptionKeys = builder.enumOptionKeys;
     this.multiSelectOptionKey = builder.multiSelectOptionKey;
     this.multiSelectOptionKeys = builder.multiSelectOptionKeys;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<UpdateMetadataTemplateRequestBodyOpField> getOp() {
@@ -159,7 +163,7 @@ public class UpdateMetadataTemplateRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final EnumWrapper<UpdateMetadataTemplateRequestBodyOpField> op;
 
@@ -178,10 +182,12 @@ public class UpdateMetadataTemplateRequestBody extends SerializableObject {
     protected List<String> multiSelectOptionKeys;
 
     public Builder(EnumWrapper<UpdateMetadataTemplateRequestBodyOpField> op) {
+      super();
       this.op = op;
     }
 
     public Builder(UpdateMetadataTemplateRequestBodyOpField op) {
+      super();
       this.op = new EnumWrapper<UpdateMetadataTemplateRequestBodyOpField>(op);
     }
 

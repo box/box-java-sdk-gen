@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.retentionpolicy;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class RetentionPolicyAssignmentCountsField extends SerializableObject {
 
   protected Long enterprise;
@@ -22,6 +25,7 @@ public class RetentionPolicyAssignmentCountsField extends SerializableObject {
     this.enterprise = builder.enterprise;
     this.folder = builder.folder;
     this.metadataTemplate = builder.metadataTemplate;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Long getEnterprise() {
@@ -72,7 +76,7 @@ public class RetentionPolicyAssignmentCountsField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Long enterprise;
 

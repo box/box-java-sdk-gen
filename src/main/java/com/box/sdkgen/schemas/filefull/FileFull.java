@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.filefull;
 
+import com.box.sdkgen.internal.Nullable;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.file.File;
 import com.box.sdkgen.schemas.file.FileItemStatusField;
@@ -11,6 +12,7 @@ import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.box.sdkgen.serialization.json.Valuable;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -27,6 +29,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileFull extends File {
 
   @JsonProperty("version_number")
@@ -39,7 +42,7 @@ public class FileFull extends File {
 
   protected List<String> tags;
 
-  protected FileFullLockField lock;
+  @Nullable protected FileFullLockField lock;
 
   protected String extension;
 
@@ -71,6 +74,7 @@ public class FileFull extends File {
   @JsonProperty("expires_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date expiresAt;
 
   protected FileFullRepresentationsField representations;
@@ -83,11 +87,13 @@ public class FileFull extends File {
   @JsonProperty("disposition_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date dispositionAt;
 
   @JsonDeserialize(using = SharedLinkPermissionOptionsDeserializer.class)
   @JsonSerialize(using = SharedLinkPermissionOptionsSerializer.class)
   @JsonProperty("shared_link_permission_options")
+  @Nullable
   protected List<EnumWrapper<FileFullSharedLinkPermissionOptionsField>> sharedLinkPermissionOptions;
 
   @JsonProperty("is_associated_with_app_item")
@@ -120,6 +126,7 @@ public class FileFull extends File {
     this.dispositionAt = builder.dispositionAt;
     this.sharedLinkPermissionOptions = builder.sharedLinkPermissionOptions;
     this.isAssociatedWithAppItem = builder.isAssociatedWithAppItem;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getVersionNumber() {
@@ -557,6 +564,7 @@ public class FileFull extends File {
 
     public Builder lock(FileFullLockField lock) {
       this.lock = lock;
+      this.markNullableFieldAsSet("lock");
       return this;
     }
 
@@ -609,6 +617,7 @@ public class FileFull extends File {
 
     public Builder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
+      this.markNullableFieldAsSet("expires_at");
       return this;
     }
 
@@ -629,6 +638,7 @@ public class FileFull extends File {
 
     public Builder dispositionAt(Date dispositionAt) {
       this.dispositionAt = dispositionAt;
+      this.markNullableFieldAsSet("disposition_at");
       return this;
     }
 
@@ -637,6 +647,7 @@ public class FileFull extends File {
       this.sharedLinkPermissionOptions =
           EnumWrapper.wrapValuableEnumList(
               sharedLinkPermissionOptions, FileFullSharedLinkPermissionOptionsField.class);
+      this.markNullableFieldAsSet("shared_link_permission_options");
       return this;
     }
 
@@ -648,6 +659,7 @@ public class FileFull extends File {
     @Override
     public Builder etag(String etag) {
       this.etag = etag;
+      this.markNullableFieldAsSet("etag");
       return this;
     }
 
@@ -720,24 +732,28 @@ public class FileFull extends File {
     @Override
     public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
+      this.markNullableFieldAsSet("trashed_at");
       return this;
     }
 
     @Override
     public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
+      this.markNullableFieldAsSet("purged_at");
       return this;
     }
 
     @Override
     public Builder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
+      this.markNullableFieldAsSet("content_created_at");
       return this;
     }
 
     @Override
     public Builder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
+      this.markNullableFieldAsSet("content_modified_at");
       return this;
     }
 
@@ -768,6 +784,7 @@ public class FileFull extends File {
     @Override
     public Builder parent(FolderMini parent) {
       this.parent = parent;
+      this.markNullableFieldAsSet("parent");
       return this;
     }
 

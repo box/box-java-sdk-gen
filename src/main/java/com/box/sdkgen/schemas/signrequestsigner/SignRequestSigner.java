@@ -1,27 +1,33 @@
 package com.box.sdkgen.schemas.signrequestsigner;
 
+import com.box.sdkgen.internal.Nullable;
 import com.box.sdkgen.schemas.signrequestcreatesigner.SignRequestCreateSigner;
 import com.box.sdkgen.schemas.signrequestcreatesigner.SignRequestCreateSignerRoleField;
 import com.box.sdkgen.schemas.signrequestsignerinput.SignRequestSignerInput;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SignRequestSigner extends SignRequestCreateSigner {
 
   @JsonProperty("has_viewed_document")
   protected Boolean hasViewedDocument;
 
   @JsonProperty("signer_decision")
+  @Nullable
   protected SignRequestSignerSignerDecisionField signerDecision;
 
   protected List<SignRequestSignerInput> inputs;
 
   @JsonProperty("embed_url")
+  @Nullable
   protected String embedUrl;
 
   @JsonProperty("iframeable_embed_url")
+  @Nullable
   protected String iframeableEmbedUrl;
 
   public SignRequestSigner() {
@@ -35,6 +41,7 @@ public class SignRequestSigner extends SignRequestCreateSigner {
     this.inputs = builder.inputs;
     this.embedUrl = builder.embedUrl;
     this.iframeableEmbedUrl = builder.iframeableEmbedUrl;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Boolean getHasViewedDocument() {
@@ -199,6 +206,7 @@ public class SignRequestSigner extends SignRequestCreateSigner {
 
     public Builder signerDecision(SignRequestSignerSignerDecisionField signerDecision) {
       this.signerDecision = signerDecision;
+      this.markNullableFieldAsSet("signer_decision");
       return this;
     }
 
@@ -209,17 +217,20 @@ public class SignRequestSigner extends SignRequestCreateSigner {
 
     public Builder embedUrl(String embedUrl) {
       this.embedUrl = embedUrl;
+      this.markNullableFieldAsSet("embed_url");
       return this;
     }
 
     public Builder iframeableEmbedUrl(String iframeableEmbedUrl) {
       this.iframeableEmbedUrl = iframeableEmbedUrl;
+      this.markNullableFieldAsSet("iframeable_embed_url");
       return this;
     }
 
     @Override
     public Builder email(String email) {
       this.email = email;
+      this.markNullableFieldAsSet("email");
       return this;
     }
 
@@ -250,48 +261,56 @@ public class SignRequestSigner extends SignRequestCreateSigner {
     @Override
     public Builder embedUrlExternalUserId(String embedUrlExternalUserId) {
       this.embedUrlExternalUserId = embedUrlExternalUserId;
+      this.markNullableFieldAsSet("embed_url_external_user_id");
       return this;
     }
 
     @Override
     public Builder redirectUrl(String redirectUrl) {
       this.redirectUrl = redirectUrl;
+      this.markNullableFieldAsSet("redirect_url");
       return this;
     }
 
     @Override
     public Builder declinedRedirectUrl(String declinedRedirectUrl) {
       this.declinedRedirectUrl = declinedRedirectUrl;
+      this.markNullableFieldAsSet("declined_redirect_url");
       return this;
     }
 
     @Override
     public Builder loginRequired(Boolean loginRequired) {
       this.loginRequired = loginRequired;
+      this.markNullableFieldAsSet("login_required");
       return this;
     }
 
     @Override
     public Builder verificationPhoneNumber(String verificationPhoneNumber) {
       this.verificationPhoneNumber = verificationPhoneNumber;
+      this.markNullableFieldAsSet("verification_phone_number");
       return this;
     }
 
     @Override
     public Builder password(String password) {
       this.password = password;
+      this.markNullableFieldAsSet("password");
       return this;
     }
 
     @Override
     public Builder signerGroupId(String signerGroupId) {
       this.signerGroupId = signerGroupId;
+      this.markNullableFieldAsSet("signer_group_id");
       return this;
     }
 
     @Override
     public Builder suppressNotifications(Boolean suppressNotifications) {
       this.suppressNotifications = suppressNotifications;
+      this.markNullableFieldAsSet("suppress_notifications");
       return this;
     }
 

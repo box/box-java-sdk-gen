@@ -2,9 +2,11 @@ package com.box.sdkgen.schemas.aistudioagentbasictexttoolresponse;
 
 import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
 import com.box.sdkgen.schemas.aistudioagentbasictexttool.AiStudioAgentBasicTextTool;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiStudioAgentBasicTextToolResponse extends AiStudioAgentBasicTextTool {
 
   protected List<String> warnings;
@@ -16,6 +18,7 @@ public class AiStudioAgentBasicTextToolResponse extends AiStudioAgentBasicTextTo
   protected AiStudioAgentBasicTextToolResponse(Builder builder) {
     super(builder);
     this.warnings = builder.warnings;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<String> getWarnings() {

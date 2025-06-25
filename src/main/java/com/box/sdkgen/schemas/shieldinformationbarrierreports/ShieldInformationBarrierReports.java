@@ -1,16 +1,21 @@
 package com.box.sdkgen.schemas.shieldinformationbarrierreports;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.shieldinformationbarrierreport.ShieldInformationBarrierReport;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ShieldInformationBarrierReports extends SerializableObject {
 
   protected Long limit;
 
   @JsonProperty("next_marker")
+  @Nullable
   protected String nextMarker;
 
   protected List<ShieldInformationBarrierReport> entries;
@@ -24,6 +29,7 @@ public class ShieldInformationBarrierReports extends SerializableObject {
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
     this.entries = builder.entries;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Long getLimit() {
@@ -74,7 +80,7 @@ public class ShieldInformationBarrierReports extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Long limit;
 
@@ -89,6 +95,7 @@ public class ShieldInformationBarrierReports extends SerializableObject {
 
     public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
+      this.markNullableFieldAsSet("next_marker");
       return this;
     }
 

@@ -1,11 +1,14 @@
 package com.box.sdkgen.schemas.skillcardsmetadata;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.keywordskillcardorstatusskillcardortimelineskillcardortranscriptskillcard.KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SkillCardsMetadata extends SerializableObject {
 
   @JsonProperty("$canEdit")
@@ -49,6 +52,7 @@ public class SkillCardsMetadata extends SerializableObject {
     this.typeVersion = builder.typeVersion;
     this.version = builder.version;
     this.cards = builder.cards;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Boolean getCanEdit() {
@@ -154,7 +158,7 @@ public class SkillCardsMetadata extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Boolean canEdit;
 

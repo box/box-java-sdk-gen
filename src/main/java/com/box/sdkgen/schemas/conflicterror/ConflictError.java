@@ -4,9 +4,11 @@ import com.box.sdkgen.schemas.clienterror.ClientError;
 import com.box.sdkgen.schemas.clienterror.ClientErrorCodeField;
 import com.box.sdkgen.schemas.clienterror.ClientErrorTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Map;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ConflictError extends ClientError {
 
   public ConflictError() {
@@ -15,6 +17,7 @@ public class ConflictError extends ClientError {
 
   protected ConflictError(Builder builder) {
     super(builder);
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   @Override
@@ -114,6 +117,7 @@ public class ConflictError extends ClientError {
     @Override
     public Builder contextInfo(Map<String, Object> contextInfo) {
       this.contextInfo = contextInfo;
+      this.markNullableFieldAsSet("context_info");
       return this;
     }
 

@@ -2,11 +2,13 @@ package com.box.sdkgen.schemas.integrationmappingpartneritemteamscreaterequest;
 
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class IntegrationMappingPartnerItemTeamsCreateRequest extends SerializableObject {
 
   @JsonDeserialize(

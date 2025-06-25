@@ -1,15 +1,18 @@
 package com.box.sdkgen.schemas.user;
 
+import com.box.sdkgen.internal.Nullable;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.userbase.UserBaseTypeField;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class User extends UserMini {
 
   @JsonProperty("created_at")
@@ -50,6 +53,7 @@ public class User extends UserMini {
   protected String avatarUrl;
 
   @JsonProperty("notification_email")
+  @Nullable
   protected UserNotificationEmailField notificationEmail;
 
   public User(@JsonProperty("id") String id) {
@@ -71,6 +75,7 @@ public class User extends UserMini {
     this.address = builder.address;
     this.avatarUrl = builder.avatarUrl;
     this.notificationEmail = builder.notificationEmail;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Date getCreatedAt() {
@@ -347,6 +352,7 @@ public class User extends UserMini {
 
     public Builder notificationEmail(UserNotificationEmailField notificationEmail) {
       this.notificationEmail = notificationEmail;
+      this.markNullableFieldAsSet("notification_email");
       return this;
     }
 

@@ -1,16 +1,19 @@
 package com.box.sdkgen.schemas.aiask;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagentaskoraiagentreference.AiAgentAskOrAiAgentReference;
 import com.box.sdkgen.schemas.aidialoguehistory.AiDialogueHistory;
 import com.box.sdkgen.schemas.aiitemask.AiItemAsk;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiAsk extends SerializableObject {
 
   @JsonDeserialize(using = AiAskModeField.AiAskModeFieldDeserializer.class)
@@ -55,6 +58,7 @@ public class AiAsk extends SerializableObject {
     this.dialogueHistory = builder.dialogueHistory;
     this.includeCitations = builder.includeCitations;
     this.aiAgent = builder.aiAgent;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<AiAskModeField> getMode() {
@@ -132,7 +136,7 @@ public class AiAsk extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final EnumWrapper<AiAskModeField> mode;
 
@@ -147,12 +151,14 @@ public class AiAsk extends SerializableObject {
     protected AiAgentAskOrAiAgentReference aiAgent;
 
     public Builder(EnumWrapper<AiAskModeField> mode, String prompt, List<AiItemAsk> items) {
+      super();
       this.mode = mode;
       this.prompt = prompt;
       this.items = items;
     }
 
     public Builder(AiAskModeField mode, String prompt, List<AiItemAsk> items) {
+      super();
       this.mode = new EnumWrapper<AiAskModeField>(mode);
       this.prompt = prompt;
       this.items = items;

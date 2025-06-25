@@ -1,14 +1,17 @@
 package com.box.sdkgen.schemas.accesstoken;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.fileorfolderscope.FileOrFolderScope;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AccessToken extends SerializableObject {
 
   @JsonProperty("access_token")
@@ -47,6 +50,7 @@ public class AccessToken extends SerializableObject {
     this.restrictedTo = builder.restrictedTo;
     this.refreshToken = builder.refreshToken;
     this.issuedTokenType = builder.issuedTokenType;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getAccessToken() {
@@ -125,7 +129,7 @@ public class AccessToken extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String accessToken;
 

@@ -1,13 +1,16 @@
 package com.box.sdkgen.schemas.collaboratorvariable;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CollaboratorVariable extends SerializableObject {
 
   @JsonDeserialize(
@@ -46,6 +49,7 @@ public class CollaboratorVariable extends SerializableObject {
     this.type = builder.type;
     this.variableType = builder.variableType;
     this.variableValue = builder.variableValue;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<CollaboratorVariableTypeField> getType() {
@@ -96,7 +100,7 @@ public class CollaboratorVariable extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<CollaboratorVariableTypeField> type;
 
@@ -105,6 +109,7 @@ public class CollaboratorVariable extends SerializableObject {
     protected final List<CollaboratorVariableVariableValueField> variableValue;
 
     public Builder(List<CollaboratorVariableVariableValueField> variableValue) {
+      super();
       this.variableValue = variableValue;
       this.type =
           new EnumWrapper<CollaboratorVariableTypeField>(CollaboratorVariableTypeField.VARIABLE);

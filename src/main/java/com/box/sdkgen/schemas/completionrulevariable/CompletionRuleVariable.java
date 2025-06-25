@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.completionrulevariable;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CompletionRuleVariable extends SerializableObject {
 
   @JsonDeserialize(
@@ -64,6 +67,7 @@ public class CompletionRuleVariable extends SerializableObject {
     this.type = builder.type;
     this.variableType = builder.variableType;
     this.variableValue = builder.variableValue;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<CompletionRuleVariableTypeField> getType() {
@@ -114,7 +118,7 @@ public class CompletionRuleVariable extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<CompletionRuleVariableTypeField> type;
 
@@ -123,6 +127,7 @@ public class CompletionRuleVariable extends SerializableObject {
     protected final EnumWrapper<CompletionRuleVariableVariableValueField> variableValue;
 
     public Builder(EnumWrapper<CompletionRuleVariableVariableValueField> variableValue) {
+      super();
       this.variableValue = variableValue;
       this.type =
           new EnumWrapper<CompletionRuleVariableTypeField>(
@@ -133,6 +138,7 @@ public class CompletionRuleVariable extends SerializableObject {
     }
 
     public Builder(CompletionRuleVariableVariableValueField variableValue) {
+      super();
       this.variableValue = new EnumWrapper<CompletionRuleVariableVariableValueField>(variableValue);
       this.type =
           new EnumWrapper<CompletionRuleVariableTypeField>(

@@ -1,8 +1,11 @@
 package com.box.sdkgen.managers.workflows;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class StartWorkflowRequestBodyFlowField extends SerializableObject {
 
   protected String type;
@@ -17,6 +20,7 @@ public class StartWorkflowRequestBodyFlowField extends SerializableObject {
     super();
     this.type = builder.type;
     this.id = builder.id;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getType() {
@@ -57,7 +61,7 @@ public class StartWorkflowRequestBodyFlowField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String type;
 

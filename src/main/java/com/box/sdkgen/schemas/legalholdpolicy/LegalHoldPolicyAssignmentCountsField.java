@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.legalholdpolicy;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class LegalHoldPolicyAssignmentCountsField extends SerializableObject {
 
   protected Long user;
@@ -25,6 +28,7 @@ public class LegalHoldPolicyAssignmentCountsField extends SerializableObject {
     this.folder = builder.folder;
     this.file = builder.file;
     this.fileVersion = builder.fileVersion;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Long getUser() {
@@ -84,7 +88,7 @@ public class LegalHoldPolicyAssignmentCountsField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Long user;
 

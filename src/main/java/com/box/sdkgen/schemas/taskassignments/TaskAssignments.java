@@ -1,11 +1,14 @@
 package com.box.sdkgen.schemas.taskassignments;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.taskassignment.TaskAssignment;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TaskAssignments extends SerializableObject {
 
   @JsonProperty("total_count")
@@ -21,6 +24,7 @@ public class TaskAssignments extends SerializableObject {
     super();
     this.totalCount = builder.totalCount;
     this.entries = builder.entries;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Long getTotalCount() {
@@ -61,7 +65,7 @@ public class TaskAssignments extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Long totalCount;
 

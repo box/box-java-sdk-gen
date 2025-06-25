@@ -1,10 +1,13 @@
 package com.box.sdkgen.schemas.metadatas;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.metadata.Metadata;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class Metadatas extends SerializableObject {
 
   protected List<Metadata> entries;
@@ -19,6 +22,7 @@ public class Metadatas extends SerializableObject {
     super();
     this.entries = builder.entries;
     this.limit = builder.limit;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<Metadata> getEntries() {
@@ -51,7 +55,7 @@ public class Metadatas extends SerializableObject {
     return "Metadatas{" + "entries='" + entries + '\'' + ", " + "limit='" + limit + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected List<Metadata> entries;
 

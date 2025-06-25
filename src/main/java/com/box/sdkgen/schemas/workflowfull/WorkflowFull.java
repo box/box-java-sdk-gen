@@ -6,6 +6,7 @@ import com.box.sdkgen.schemas.workflow.Workflow;
 import com.box.sdkgen.schemas.workflow.WorkflowFlowsField;
 import com.box.sdkgen.schemas.workflowmini.WorkflowMiniTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -13,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class WorkflowFull extends Workflow {
 
   @JsonProperty("created_at")
@@ -41,6 +43,7 @@ public class WorkflowFull extends Workflow {
     this.modifiedAt = builder.modifiedAt;
     this.createdBy = builder.createdBy;
     this.modifiedBy = builder.modifiedBy;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Date getCreatedAt() {

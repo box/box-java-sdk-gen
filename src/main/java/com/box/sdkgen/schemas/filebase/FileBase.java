@@ -1,17 +1,21 @@
 package com.box.sdkgen.schemas.filebase;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileBase extends SerializableObject {
 
   protected final String id;
 
-  protected String etag;
+  @Nullable protected String etag;
 
   @JsonDeserialize(using = FileBaseTypeField.FileBaseTypeFieldDeserializer.class)
   @JsonSerialize(using = FileBaseTypeField.FileBaseTypeFieldSerializer.class)
@@ -28,6 +32,7 @@ public class FileBase extends SerializableObject {
     this.id = builder.id;
     this.etag = builder.etag;
     this.type = builder.type;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -78,7 +83,7 @@ public class FileBase extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -87,12 +92,14 @@ public class FileBase extends SerializableObject {
     protected EnumWrapper<FileBaseTypeField> type;
 
     public Builder(String id) {
+      super();
       this.id = id;
       this.type = new EnumWrapper<FileBaseTypeField>(FileBaseTypeField.FILE);
     }
 
     public Builder etag(String etag) {
       this.etag = etag;
+      this.markNullableFieldAsSet("etag");
       return this;
     }
 

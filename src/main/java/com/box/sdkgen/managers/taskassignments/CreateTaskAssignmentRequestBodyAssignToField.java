@@ -1,8 +1,11 @@
 package com.box.sdkgen.managers.taskassignments;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateTaskAssignmentRequestBodyAssignToField extends SerializableObject {
 
   protected String id;
@@ -17,6 +20,7 @@ public class CreateTaskAssignmentRequestBodyAssignToField extends SerializableOb
     super();
     this.id = builder.id;
     this.login = builder.login;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -58,7 +62,7 @@ public class CreateTaskAssignmentRequestBodyAssignToField extends SerializableOb
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String id;
 

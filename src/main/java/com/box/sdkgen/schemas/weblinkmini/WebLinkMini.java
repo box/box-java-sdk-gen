@@ -3,9 +3,11 @@ package com.box.sdkgen.schemas.weblinkmini;
 import com.box.sdkgen.schemas.weblinkbase.WebLinkBase;
 import com.box.sdkgen.schemas.weblinkbase.WebLinkBaseTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class WebLinkMini extends WebLinkBase {
 
   protected String url;
@@ -24,6 +26,7 @@ public class WebLinkMini extends WebLinkBase {
     this.url = builder.url;
     this.sequenceId = builder.sequenceId;
     this.name = builder.name;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getUrl() {

@@ -1,9 +1,12 @@
 package com.box.sdkgen.managers.legalholdpolicies;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateLegalHoldPolicyByIdRequestBody extends SerializableObject {
 
   @JsonProperty("policy_name")
@@ -23,6 +26,7 @@ public class UpdateLegalHoldPolicyByIdRequestBody extends SerializableObject {
     this.policyName = builder.policyName;
     this.description = builder.description;
     this.releaseNotes = builder.releaseNotes;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getPolicyName() {
@@ -73,7 +77,7 @@ public class UpdateLegalHoldPolicyByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String policyName;
 

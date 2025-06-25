@@ -1,12 +1,17 @@
 package com.box.sdkgen.managers.sharedlinksweblinks;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class RemoveSharedLinkFromWebLinkRequestBody extends SerializableObject {
 
   @JsonProperty("shared_link")
+  @Nullable
   protected RemoveSharedLinkFromWebLinkRequestBodySharedLinkField sharedLink;
 
   public RemoveSharedLinkFromWebLinkRequestBody() {
@@ -16,6 +21,7 @@ public class RemoveSharedLinkFromWebLinkRequestBody extends SerializableObject {
   protected RemoveSharedLinkFromWebLinkRequestBody(Builder builder) {
     super();
     this.sharedLink = builder.sharedLink;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public RemoveSharedLinkFromWebLinkRequestBodySharedLinkField getSharedLink() {
@@ -44,12 +50,13 @@ public class RemoveSharedLinkFromWebLinkRequestBody extends SerializableObject {
     return "RemoveSharedLinkFromWebLinkRequestBody{" + "sharedLink='" + sharedLink + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected RemoveSharedLinkFromWebLinkRequestBodySharedLinkField sharedLink;
 
     public Builder sharedLink(RemoveSharedLinkFromWebLinkRequestBodySharedLinkField sharedLink) {
       this.sharedLink = sharedLink;
+      this.markNullableFieldAsSet("shared_link");
       return this;
     }
 

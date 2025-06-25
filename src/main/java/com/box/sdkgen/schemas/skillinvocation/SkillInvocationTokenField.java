@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.skillinvocation;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SkillInvocationTokenField extends SerializableObject {
 
   protected SkillInvocationTokenReadField read;
@@ -17,6 +20,7 @@ public class SkillInvocationTokenField extends SerializableObject {
     super();
     this.read = builder.read;
     this.write = builder.write;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public SkillInvocationTokenReadField getRead() {
@@ -57,7 +61,7 @@ public class SkillInvocationTokenField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected SkillInvocationTokenReadField read;
 

@@ -1,14 +1,17 @@
 package com.box.sdkgen.schemas.appitemassociation;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.appitem.AppItem;
 import com.box.sdkgen.schemas.filebaseorfolderbaseorweblinkbase.FileBaseOrFolderBaseOrWebLinkBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AppItemAssociation extends SerializableObject {
 
   protected final String id;
@@ -42,6 +45,7 @@ public class AppItemAssociation extends SerializableObject {
     this.type = builder.type;
     this.appItem = builder.appItem;
     this.item = builder.item;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -101,7 +105,7 @@ public class AppItemAssociation extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -112,6 +116,7 @@ public class AppItemAssociation extends SerializableObject {
     protected final FileBaseOrFolderBaseOrWebLinkBase item;
 
     public Builder(String id, AppItem appItem, FileBaseOrFolderBaseOrWebLinkBase item) {
+      super();
       this.id = id;
       this.appItem = appItem;
       this.item = item;

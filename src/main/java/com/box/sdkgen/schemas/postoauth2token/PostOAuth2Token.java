@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.postoauth2token;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class PostOAuth2Token extends SerializableObject {
 
   @JsonDeserialize(
@@ -99,6 +102,7 @@ public class PostOAuth2Token extends SerializableObject {
     this.boxSubjectType = builder.boxSubjectType;
     this.boxSubjectId = builder.boxSubjectId;
     this.boxSharedLink = builder.boxSharedLink;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<PostOAuth2TokenGrantTypeField> getGrantType() {
@@ -272,7 +276,7 @@ public class PostOAuth2Token extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final EnumWrapper<PostOAuth2TokenGrantTypeField> grantType;
 
@@ -305,10 +309,12 @@ public class PostOAuth2Token extends SerializableObject {
     protected String boxSharedLink;
 
     public Builder(EnumWrapper<PostOAuth2TokenGrantTypeField> grantType) {
+      super();
       this.grantType = grantType;
     }
 
     public Builder(PostOAuth2TokenGrantTypeField grantType) {
+      super();
       this.grantType = new EnumWrapper<PostOAuth2TokenGrantTypeField>(grantType);
     }
 

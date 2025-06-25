@@ -1,9 +1,11 @@
 package com.box.sdkgen.schemas.file;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileSharedLinkPermissionsField extends SerializableObject {
 
   @JsonProperty("can_download")

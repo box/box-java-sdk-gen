@@ -1,10 +1,13 @@
 package com.box.sdkgen.schemas.shieldinformationbarrierreference;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.shieldinformationbarrierbase.ShieldInformationBarrierBase;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ShieldInformationBarrierReference extends SerializableObject {
 
   @JsonProperty("shield_information_barrier")
@@ -17,6 +20,7 @@ public class ShieldInformationBarrierReference extends SerializableObject {
   protected ShieldInformationBarrierReference(Builder builder) {
     super();
     this.shieldInformationBarrier = builder.shieldInformationBarrier;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public ShieldInformationBarrierBase getShieldInformationBarrier() {
@@ -49,7 +53,7 @@ public class ShieldInformationBarrierReference extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected ShieldInformationBarrierBase shieldInformationBarrier;
 

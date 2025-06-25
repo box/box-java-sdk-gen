@@ -3,9 +3,11 @@ package com.box.sdkgen.schemas.aistudioagentlongtexttoolresponse;
 import com.box.sdkgen.schemas.aiagentlongtexttool.AiAgentLongTextToolEmbeddingsField;
 import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
 import com.box.sdkgen.schemas.aistudioagentlongtexttool.AiStudioAgentLongTextTool;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiStudioAgentLongTextToolResponse extends AiStudioAgentLongTextTool {
 
   protected List<String> warnings;
@@ -17,6 +19,7 @@ public class AiStudioAgentLongTextToolResponse extends AiStudioAgentLongTextTool
   protected AiStudioAgentLongTextToolResponse(Builder builder) {
     super(builder);
     this.warnings = builder.warnings;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<String> getWarnings() {

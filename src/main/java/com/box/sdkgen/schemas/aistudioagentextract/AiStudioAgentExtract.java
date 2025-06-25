@@ -1,14 +1,18 @@
 package com.box.sdkgen.schemas.aistudioagentextract;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aistudioagentbasictexttool.AiStudioAgentBasicTextTool;
 import com.box.sdkgen.schemas.aistudioagentlongtexttool.AiStudioAgentLongTextTool;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiStudioAgentExtract extends SerializableObject {
 
   @JsonDeserialize(
@@ -23,6 +27,7 @@ public class AiStudioAgentExtract extends SerializableObject {
   protected final String description;
 
   @JsonProperty("custom_instructions")
+  @Nullable
   protected String customInstructions;
 
   @JsonProperty("long_text")
@@ -50,6 +55,7 @@ public class AiStudioAgentExtract extends SerializableObject {
     this.customInstructions = builder.customInstructions;
     this.longText = builder.longText;
     this.basicText = builder.basicText;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<AiStudioAgentExtractTypeField> getType() {
@@ -127,7 +133,7 @@ public class AiStudioAgentExtract extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<AiStudioAgentExtractTypeField> type;
 
@@ -142,6 +148,7 @@ public class AiStudioAgentExtract extends SerializableObject {
     protected AiStudioAgentBasicTextTool basicText;
 
     public Builder(String accessState, String description) {
+      super();
       this.accessState = accessState;
       this.description = description;
       this.type =
@@ -161,6 +168,7 @@ public class AiStudioAgentExtract extends SerializableObject {
 
     public Builder customInstructions(String customInstructions) {
       this.customInstructions = customInstructions;
+      this.markNullableFieldAsSet("custom_instructions");
       return this;
     }
 

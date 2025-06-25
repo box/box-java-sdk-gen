@@ -1,9 +1,12 @@
 package com.box.sdkgen.managers.folders;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CopyFolderRequestBody extends SerializableObject {
 
   protected String name;
@@ -19,6 +22,7 @@ public class CopyFolderRequestBody extends SerializableObject {
     super();
     this.name = builder.name;
     this.parent = builder.parent;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {
@@ -59,13 +63,14 @@ public class CopyFolderRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String name;
 
     protected final CopyFolderRequestBodyParentField parent;
 
     public Builder(CopyFolderRequestBodyParentField parent) {
+      super();
       this.parent = parent;
     }
 

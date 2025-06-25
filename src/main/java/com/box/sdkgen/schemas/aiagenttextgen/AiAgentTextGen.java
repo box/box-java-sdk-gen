@@ -1,13 +1,16 @@
 package com.box.sdkgen.schemas.aiagenttextgen;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagentbasicgentool.AiAgentBasicGenTool;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiAgentTextGen extends SerializableObject {
 
   @JsonDeserialize(using = AiAgentTextGenTypeField.AiAgentTextGenTypeFieldDeserializer.class)
@@ -26,6 +29,7 @@ public class AiAgentTextGen extends SerializableObject {
     super();
     this.type = builder.type;
     this.basicGen = builder.basicGen;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<AiAgentTextGenTypeField> getType() {
@@ -58,13 +62,14 @@ public class AiAgentTextGen extends SerializableObject {
     return "AiAgentTextGen{" + "type='" + type + '\'' + ", " + "basicGen='" + basicGen + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<AiAgentTextGenTypeField> type;
 
     protected AiAgentBasicGenTool basicGen;
 
     public Builder() {
+      super();
       this.type =
           new EnumWrapper<AiAgentTextGenTypeField>(AiAgentTextGenTypeField.AI_AGENT_TEXT_GEN);
     }

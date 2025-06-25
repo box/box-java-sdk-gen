@@ -1,5 +1,7 @@
 package com.box.sdkgen.schemas.collaboration;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.appitem.AppItem;
@@ -7,12 +9,14 @@ import com.box.sdkgen.schemas.fileorfolderorweblink.FileOrFolderOrWebLink;
 import com.box.sdkgen.schemas.groupminiorusercollaborations.GroupMiniOrUserCollaborations;
 import com.box.sdkgen.schemas.usercollaborations.UserCollaborations;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class Collaboration extends SerializableObject {
 
   protected final String id;
@@ -21,15 +25,17 @@ public class Collaboration extends SerializableObject {
   @JsonSerialize(using = CollaborationTypeField.CollaborationTypeFieldSerializer.class)
   protected EnumWrapper<CollaborationTypeField> type;
 
-  protected FileOrFolderOrWebLink item;
+  @Nullable protected FileOrFolderOrWebLink item;
 
   @JsonProperty("app_item")
+  @Nullable
   protected AppItem appItem;
 
   @JsonProperty("accessible_by")
   protected GroupMiniOrUserCollaborations accessibleBy;
 
   @JsonProperty("invite_email")
+  @Nullable
   protected String inviteEmail;
 
   @JsonDeserialize(using = CollaborationRoleField.CollaborationRoleFieldDeserializer.class)
@@ -39,6 +45,7 @@ public class Collaboration extends SerializableObject {
   @JsonProperty("expires_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date expiresAt;
 
   @JsonProperty("is_access_only")
@@ -92,6 +99,7 @@ public class Collaboration extends SerializableObject {
     this.createdAt = builder.createdAt;
     this.modifiedAt = builder.modifiedAt;
     this.acceptanceRequirementsStatus = builder.acceptanceRequirementsStatus;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -265,7 +273,7 @@ public class Collaboration extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -298,6 +306,7 @@ public class Collaboration extends SerializableObject {
     protected CollaborationAcceptanceRequirementsStatusField acceptanceRequirementsStatus;
 
     public Builder(String id) {
+      super();
       this.id = id;
       this.type = new EnumWrapper<CollaborationTypeField>(CollaborationTypeField.COLLABORATION);
     }
@@ -314,11 +323,13 @@ public class Collaboration extends SerializableObject {
 
     public Builder item(FileOrFolderOrWebLink item) {
       this.item = item;
+      this.markNullableFieldAsSet("item");
       return this;
     }
 
     public Builder appItem(AppItem appItem) {
       this.appItem = appItem;
+      this.markNullableFieldAsSet("app_item");
       return this;
     }
 
@@ -329,6 +340,7 @@ public class Collaboration extends SerializableObject {
 
     public Builder inviteEmail(String inviteEmail) {
       this.inviteEmail = inviteEmail;
+      this.markNullableFieldAsSet("invite_email");
       return this;
     }
 
@@ -344,6 +356,7 @@ public class Collaboration extends SerializableObject {
 
     public Builder expiresAt(Date expiresAt) {
       this.expiresAt = expiresAt;
+      this.markNullableFieldAsSet("expires_at");
       return this;
     }
 

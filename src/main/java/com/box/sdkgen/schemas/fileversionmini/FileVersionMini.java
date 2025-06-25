@@ -3,9 +3,11 @@ package com.box.sdkgen.schemas.fileversionmini;
 import com.box.sdkgen.schemas.fileversionbase.FileVersionBase;
 import com.box.sdkgen.schemas.fileversionbase.FileVersionBaseTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileVersionMini extends FileVersionBase {
 
   protected String sha1;
@@ -17,6 +19,7 @@ public class FileVersionMini extends FileVersionBase {
   protected FileVersionMini(Builder builder) {
     super(builder);
     this.sha1 = builder.sha1;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getSha1() {

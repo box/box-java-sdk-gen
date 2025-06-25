@@ -3,9 +3,11 @@ package com.box.sdkgen.schemas.aistudioagentbasicgentool;
 import com.box.sdkgen.schemas.aiagentbasicgentool.AiAgentBasicGenTool;
 import com.box.sdkgen.schemas.aiagentlongtexttooltextgen.AiAgentLongTextToolTextGenEmbeddingsField;
 import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiStudioAgentBasicGenTool extends AiAgentBasicGenTool {
 
   @JsonProperty("is_custom_instructions_included")
@@ -18,6 +20,7 @@ public class AiStudioAgentBasicGenTool extends AiAgentBasicGenTool {
   protected AiStudioAgentBasicGenTool(Builder builder) {
     super(builder);
     this.isCustomInstructionsIncluded = builder.isCustomInstructionsIncluded;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Boolean getIsCustomInstructionsIncluded() {

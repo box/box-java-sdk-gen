@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.comment;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CommentItemField extends SerializableObject {
 
   protected String id;
@@ -17,6 +20,7 @@ public class CommentItemField extends SerializableObject {
     super();
     this.id = builder.id;
     this.type = builder.type;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -49,7 +53,7 @@ public class CommentItemField extends SerializableObject {
     return "CommentItemField{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String id;
 

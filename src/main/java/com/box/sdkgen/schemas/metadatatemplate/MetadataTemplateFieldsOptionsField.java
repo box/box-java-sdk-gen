@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.metadatatemplate;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class MetadataTemplateFieldsOptionsField extends SerializableObject {
 
   protected final String key;
@@ -19,6 +22,7 @@ public class MetadataTemplateFieldsOptionsField extends SerializableObject {
     super();
     this.key = builder.key;
     this.id = builder.id;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getKey() {
@@ -59,13 +63,14 @@ public class MetadataTemplateFieldsOptionsField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String key;
 
     protected String id;
 
     public Builder(String key) {
+      super();
       this.key = key;
     }
 

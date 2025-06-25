@@ -1,11 +1,14 @@
 package com.box.sdkgen.schemas.aicitation;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiCitation extends SerializableObject {
 
   protected String content;
@@ -28,6 +31,7 @@ public class AiCitation extends SerializableObject {
     this.id = builder.id;
     this.type = builder.type;
     this.name = builder.name;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getContent() {
@@ -87,7 +91,7 @@ public class AiCitation extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String content;
 

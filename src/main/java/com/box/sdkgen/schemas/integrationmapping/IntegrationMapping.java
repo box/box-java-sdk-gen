@@ -8,12 +8,14 @@ import com.box.sdkgen.schemas.integrationmappingpartneritemslackunion.Integratio
 import com.box.sdkgen.schemas.integrationmappingslackoptions.IntegrationMappingSlackOptions;
 import com.box.sdkgen.schemas.userintegrationmappings.UserIntegrationMappings;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class IntegrationMapping extends IntegrationMappingBase {
 
   @JsonDeserialize(
@@ -74,6 +76,7 @@ public class IntegrationMapping extends IntegrationMappingBase {
     this.boxItem = builder.boxItem;
     this.createdAt = builder.createdAt;
     this.modifiedAt = builder.modifiedAt;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<IntegrationMappingIntegrationTypeField> getIntegrationType() {

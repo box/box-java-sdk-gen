@@ -1,11 +1,14 @@
 package com.box.sdkgen.schemas.metadatacascadepolicy;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class MetadataCascadePolicyOwnerEnterpriseField extends SerializableObject {
 
   @JsonDeserialize(
@@ -28,6 +31,7 @@ public class MetadataCascadePolicyOwnerEnterpriseField extends SerializableObjec
     super();
     this.type = builder.type;
     this.id = builder.id;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<MetadataCascadePolicyOwnerEnterpriseTypeField> getType() {
@@ -69,7 +73,7 @@ public class MetadataCascadePolicyOwnerEnterpriseField extends SerializableObjec
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<MetadataCascadePolicyOwnerEnterpriseTypeField> type;
 

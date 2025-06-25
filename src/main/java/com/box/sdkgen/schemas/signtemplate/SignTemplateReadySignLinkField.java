@@ -1,18 +1,23 @@
 package com.box.sdkgen.schemas.signtemplate;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class SignTemplateReadySignLinkField extends SerializableObject {
 
   protected String url;
 
-  protected String name;
+  @Nullable protected String name;
 
-  protected String instructions;
+  @Nullable protected String instructions;
 
   @JsonProperty("folder_id")
+  @Nullable
   protected String folderId;
 
   @JsonProperty("is_notification_disabled")
@@ -33,6 +38,7 @@ public class SignTemplateReadySignLinkField extends SerializableObject {
     this.folderId = builder.folderId;
     this.isNotificationDisabled = builder.isNotificationDisabled;
     this.isActive = builder.isActive;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getUrl() {
@@ -110,7 +116,7 @@ public class SignTemplateReadySignLinkField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String url;
 
@@ -131,16 +137,19 @@ public class SignTemplateReadySignLinkField extends SerializableObject {
 
     public Builder name(String name) {
       this.name = name;
+      this.markNullableFieldAsSet("name");
       return this;
     }
 
     public Builder instructions(String instructions) {
       this.instructions = instructions;
+      this.markNullableFieldAsSet("instructions");
       return this;
     }
 
     public Builder folderId(String folderId) {
       this.folderId = folderId;
+      this.markNullableFieldAsSet("folder_id");
       return this;
     }
 

@@ -3,9 +3,11 @@ package com.box.sdkgen.schemas.usercollaborations;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.schemas.userbase.UserBaseTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UserCollaborations extends UserBase {
 
   protected String name;
@@ -24,6 +26,7 @@ public class UserCollaborations extends UserBase {
     this.name = builder.name;
     this.login = builder.login;
     this.isActive = builder.isActive;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {

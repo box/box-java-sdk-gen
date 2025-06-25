@@ -3,10 +3,12 @@ package com.box.sdkgen.schemas.metadatafull;
 import com.box.sdkgen.schemas.metadata.Metadata;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Map;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class MetadataFull extends Metadata {
 
   @JsonProperty("$canEdit")
@@ -34,6 +36,7 @@ public class MetadataFull extends Metadata {
     this.type = builder.type;
     this.typeVersion = builder.typeVersion;
     this.extraData = builder.extraData;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Boolean getCanEdit() {

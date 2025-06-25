@@ -1,11 +1,15 @@
 package com.box.sdkgen.schemas.v2025r0.hubcollaborationsv2025r0;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.v2025r0.hubcollaborationv2025r0.HubCollaborationV2025R0;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class HubCollaborationsV2025R0 extends SerializableObject {
 
   protected List<HubCollaborationV2025R0> entries;
@@ -13,6 +17,7 @@ public class HubCollaborationsV2025R0 extends SerializableObject {
   protected Long limit;
 
   @JsonProperty("next_marker")
+  @Nullable
   protected String nextMarker;
 
   public HubCollaborationsV2025R0() {
@@ -24,6 +29,7 @@ public class HubCollaborationsV2025R0 extends SerializableObject {
     this.entries = builder.entries;
     this.limit = builder.limit;
     this.nextMarker = builder.nextMarker;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<HubCollaborationV2025R0> getEntries() {
@@ -74,7 +80,7 @@ public class HubCollaborationsV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected List<HubCollaborationV2025R0> entries;
 
@@ -94,6 +100,7 @@ public class HubCollaborationsV2025R0 extends SerializableObject {
 
     public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
+      this.markNullableFieldAsSet("next_marker");
       return this;
     }
 

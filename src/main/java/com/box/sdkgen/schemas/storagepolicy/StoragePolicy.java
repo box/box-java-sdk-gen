@@ -3,9 +3,11 @@ package com.box.sdkgen.schemas.storagepolicy;
 import com.box.sdkgen.schemas.storagepolicymini.StoragePolicyMini;
 import com.box.sdkgen.schemas.storagepolicymini.StoragePolicyMiniTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class StoragePolicy extends StoragePolicyMini {
 
   protected String name;
@@ -17,6 +19,7 @@ public class StoragePolicy extends StoragePolicyMini {
   protected StoragePolicy(Builder builder) {
     super(builder);
     this.name = builder.name;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {

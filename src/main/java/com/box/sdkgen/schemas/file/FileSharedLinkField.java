@@ -1,25 +1,32 @@
 package com.box.sdkgen.schemas.file;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileSharedLinkField extends SerializableObject {
 
   protected final String url;
 
   @JsonProperty("download_url")
+  @Nullable
   protected String downloadUrl;
 
   @JsonProperty("vanity_url")
+  @Nullable
   protected String vanityUrl;
 
   @JsonProperty("vanity_name")
+  @Nullable
   protected String vanityName;
 
   @JsonDeserialize(using = FileSharedLinkAccessField.FileSharedLinkAccessFieldDeserializer.class)
@@ -48,6 +55,7 @@ public class FileSharedLinkField extends SerializableObject {
   @JsonProperty("unshared_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date unsharedAt;
 
   @JsonProperty("is_password_enabled")
@@ -110,6 +118,7 @@ public class FileSharedLinkField extends SerializableObject {
     this.permissions = builder.permissions;
     this.downloadCount = builder.downloadCount;
     this.previewCount = builder.previewCount;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getUrl() {
@@ -253,7 +262,7 @@ public class FileSharedLinkField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String url;
 
@@ -286,6 +295,7 @@ public class FileSharedLinkField extends SerializableObject {
         boolean isPasswordEnabled,
         long downloadCount,
         long previewCount) {
+      super();
       this.url = url;
       this.effectiveAccess = effectiveAccess;
       this.effectivePermission = effectivePermission;
@@ -301,6 +311,7 @@ public class FileSharedLinkField extends SerializableObject {
         boolean isPasswordEnabled,
         long downloadCount,
         long previewCount) {
+      super();
       this.url = url;
       this.effectiveAccess = new EnumWrapper<FileSharedLinkEffectiveAccessField>(effectiveAccess);
       this.effectivePermission =
@@ -312,16 +323,19 @@ public class FileSharedLinkField extends SerializableObject {
 
     public Builder downloadUrl(String downloadUrl) {
       this.downloadUrl = downloadUrl;
+      this.markNullableFieldAsSet("download_url");
       return this;
     }
 
     public Builder vanityUrl(String vanityUrl) {
       this.vanityUrl = vanityUrl;
+      this.markNullableFieldAsSet("vanity_url");
       return this;
     }
 
     public Builder vanityName(String vanityName) {
       this.vanityName = vanityName;
+      this.markNullableFieldAsSet("vanity_name");
       return this;
     }
 
@@ -337,6 +351,7 @@ public class FileSharedLinkField extends SerializableObject {
 
     public Builder unsharedAt(Date unsharedAt) {
       this.unsharedAt = unsharedAt;
+      this.markNullableFieldAsSet("unshared_at");
       return this;
     }
 

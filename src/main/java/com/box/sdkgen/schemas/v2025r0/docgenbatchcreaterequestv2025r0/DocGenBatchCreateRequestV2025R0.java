@@ -1,13 +1,16 @@
 package com.box.sdkgen.schemas.v2025r0.docgenbatchcreaterequestv2025r0;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.v2025r0.docgendocumentgenerationdatav2025r0.DocGenDocumentGenerationDataV2025R0;
 import com.box.sdkgen.schemas.v2025r0.filereferencev2025r0.FileReferenceV2025R0;
 import com.box.sdkgen.schemas.v2025r0.fileversionbasev2025r0.FileVersionBaseV2025R0;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class DocGenBatchCreateRequestV2025R0 extends SerializableObject {
 
   protected final FileReferenceV2025R0 file;
@@ -51,6 +54,7 @@ public class DocGenBatchCreateRequestV2025R0 extends SerializableObject {
     this.destinationFolder = builder.destinationFolder;
     this.outputType = builder.outputType;
     this.documentGenerationData = builder.documentGenerationData;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public FileReferenceV2025R0 getFile() {
@@ -129,7 +133,7 @@ public class DocGenBatchCreateRequestV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final FileReferenceV2025R0 file;
 
@@ -149,6 +153,7 @@ public class DocGenBatchCreateRequestV2025R0 extends SerializableObject {
         DocGenBatchCreateRequestV2025R0DestinationFolderField destinationFolder,
         String outputType,
         List<DocGenDocumentGenerationDataV2025R0> documentGenerationData) {
+      super();
       this.file = file;
       this.inputSource = inputSource;
       this.destinationFolder = destinationFolder;

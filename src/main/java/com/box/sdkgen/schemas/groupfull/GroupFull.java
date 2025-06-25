@@ -4,12 +4,14 @@ import com.box.sdkgen.schemas.group.Group;
 import com.box.sdkgen.schemas.groupbase.GroupBaseTypeField;
 import com.box.sdkgen.schemas.groupmini.GroupMiniGroupTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class GroupFull extends Group {
 
   protected String provenance;
@@ -50,6 +52,7 @@ public class GroupFull extends Group {
     this.invitabilityLevel = builder.invitabilityLevel;
     this.memberViewabilityLevel = builder.memberViewabilityLevel;
     this.permissions = builder.permissions;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getProvenance() {

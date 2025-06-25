@@ -1,13 +1,16 @@
 package com.box.sdkgen.schemas.storagepolicyassignment;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.storagepolicymini.StoragePolicyMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class StoragePolicyAssignment extends SerializableObject {
 
   protected final String id;
@@ -38,6 +41,7 @@ public class StoragePolicyAssignment extends SerializableObject {
     this.type = builder.type;
     this.storagePolicy = builder.storagePolicy;
     this.assignedTo = builder.assignedTo;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -97,7 +101,7 @@ public class StoragePolicyAssignment extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -108,6 +112,7 @@ public class StoragePolicyAssignment extends SerializableObject {
     protected StoragePolicyAssignmentAssignedToField assignedTo;
 
     public Builder(String id) {
+      super();
       this.id = id;
       this.type =
           new EnumWrapper<StoragePolicyAssignmentTypeField>(

@@ -1,9 +1,12 @@
 package com.box.sdkgen.managers.sharedlinksweblinks;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AddShareLinkToWebLinkRequestBody extends SerializableObject {
 
   @JsonProperty("shared_link")
@@ -16,6 +19,7 @@ public class AddShareLinkToWebLinkRequestBody extends SerializableObject {
   protected AddShareLinkToWebLinkRequestBody(Builder builder) {
     super();
     this.sharedLink = builder.sharedLink;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public AddShareLinkToWebLinkRequestBodySharedLinkField getSharedLink() {
@@ -44,7 +48,7 @@ public class AddShareLinkToWebLinkRequestBody extends SerializableObject {
     return "AddShareLinkToWebLinkRequestBody{" + "sharedLink='" + sharedLink + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected AddShareLinkToWebLinkRequestBodySharedLinkField sharedLink;
 

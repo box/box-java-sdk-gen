@@ -1,12 +1,15 @@
 package com.box.sdkgen.managers.groups;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateGroupRequestBody extends SerializableObject {
 
   protected final String name;
@@ -53,6 +56,7 @@ public class CreateGroupRequestBody extends SerializableObject {
     this.description = builder.description;
     this.invitabilityLevel = builder.invitabilityLevel;
     this.memberViewabilityLevel = builder.memberViewabilityLevel;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {
@@ -137,7 +141,7 @@ public class CreateGroupRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String name;
 
@@ -152,6 +156,7 @@ public class CreateGroupRequestBody extends SerializableObject {
     protected EnumWrapper<CreateGroupRequestBodyMemberViewabilityLevelField> memberViewabilityLevel;
 
     public Builder(String name) {
+      super();
       this.name = name;
     }
 

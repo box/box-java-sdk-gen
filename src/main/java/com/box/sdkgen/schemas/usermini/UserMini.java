@@ -3,9 +3,11 @@ package com.box.sdkgen.schemas.usermini;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.schemas.userbase.UserBaseTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UserMini extends UserBase {
 
   protected String name;
@@ -20,6 +22,7 @@ public class UserMini extends UserBase {
     super(builder);
     this.name = builder.name;
     this.login = builder.login;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {

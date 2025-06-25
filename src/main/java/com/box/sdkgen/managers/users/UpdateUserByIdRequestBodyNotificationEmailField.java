@@ -1,8 +1,11 @@
 package com.box.sdkgen.managers.users;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateUserByIdRequestBodyNotificationEmailField extends SerializableObject {
 
   protected String email;
@@ -14,6 +17,7 @@ public class UpdateUserByIdRequestBodyNotificationEmailField extends Serializabl
   protected UpdateUserByIdRequestBodyNotificationEmailField(Builder builder) {
     super();
     this.email = builder.email;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getEmail() {
@@ -43,7 +47,7 @@ public class UpdateUserByIdRequestBodyNotificationEmailField extends Serializabl
     return "UpdateUserByIdRequestBodyNotificationEmailField{" + "email='" + email + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String email;
 

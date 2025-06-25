@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.v2025r0.shieldlistcontentintegrationv2025r0;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ShieldListContentIntegrationV2025R0IntegrationsField extends SerializableObject {
 
   protected String id;
@@ -14,6 +17,7 @@ public class ShieldListContentIntegrationV2025R0IntegrationsField extends Serial
   protected ShieldListContentIntegrationV2025R0IntegrationsField(Builder builder) {
     super();
     this.id = builder.id;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -43,7 +47,7 @@ public class ShieldListContentIntegrationV2025R0IntegrationsField extends Serial
     return "ShieldListContentIntegrationV2025R0IntegrationsField{" + "id='" + id + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String id;
 

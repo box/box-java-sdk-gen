@@ -1,13 +1,16 @@
 package com.box.sdkgen.managers.metadatatemplates;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateMetadataTemplateRequestBodyFieldsField extends SerializableObject {
 
   @JsonDeserialize(
@@ -56,6 +59,7 @@ public class CreateMetadataTemplateRequestBodyFieldsField extends SerializableOb
     this.description = builder.description;
     this.hidden = builder.hidden;
     this.options = builder.options;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField> getType() {
@@ -134,7 +138,7 @@ public class CreateMetadataTemplateRequestBodyFieldsField extends SerializableOb
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField> type;
 
@@ -152,6 +156,7 @@ public class CreateMetadataTemplateRequestBodyFieldsField extends SerializableOb
         EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField> type,
         String key,
         String displayName) {
+      super();
       this.type = type;
       this.key = key;
       this.displayName = displayName;
@@ -159,6 +164,7 @@ public class CreateMetadataTemplateRequestBodyFieldsField extends SerializableOb
 
     public Builder(
         CreateMetadataTemplateRequestBodyFieldsTypeField type, String key, String displayName) {
+      super();
       this.type = new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(type);
       this.key = key;
       this.displayName = displayName;

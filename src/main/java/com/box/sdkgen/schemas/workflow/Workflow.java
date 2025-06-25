@@ -3,9 +3,11 @@ package com.box.sdkgen.schemas.workflow;
 import com.box.sdkgen.schemas.workflowmini.WorkflowMini;
 import com.box.sdkgen.schemas.workflowmini.WorkflowMiniTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class Workflow extends WorkflowMini {
 
   protected List<WorkflowFlowsField> flows;
@@ -17,6 +19,7 @@ public class Workflow extends WorkflowMini {
   protected Workflow(Builder builder) {
     super(builder);
     this.flows = builder.flows;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<WorkflowFlowsField> getFlows() {

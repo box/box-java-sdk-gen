@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.uploadedpart;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.uploadpart.UploadPart;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UploadedPart extends SerializableObject {
 
   protected UploadPart part;
@@ -15,6 +18,7 @@ public class UploadedPart extends SerializableObject {
   protected UploadedPart(Builder builder) {
     super();
     this.part = builder.part;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public UploadPart getPart() {
@@ -43,7 +47,7 @@ public class UploadedPart extends SerializableObject {
     return "UploadedPart{" + "part='" + part + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected UploadPart part;
 

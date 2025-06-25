@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.groupbase;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class GroupBase extends SerializableObject {
 
   protected final String id;
@@ -25,6 +28,7 @@ public class GroupBase extends SerializableObject {
     super();
     this.id = builder.id;
     this.type = builder.type;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -57,13 +61,14 @@ public class GroupBase extends SerializableObject {
     return "GroupBase{" + "id='" + id + '\'' + ", " + "type='" + type + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
     protected EnumWrapper<GroupBaseTypeField> type;
 
     public Builder(String id) {
+      super();
       this.id = id;
       this.type = new EnumWrapper<GroupBaseTypeField>(GroupBaseTypeField.GROUP);
     }

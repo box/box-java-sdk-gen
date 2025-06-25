@@ -1,9 +1,12 @@
 package com.box.sdkgen.managers.weblinks;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateWebLinkByIdRequestBody extends SerializableObject {
 
   protected String url;
@@ -28,6 +31,7 @@ public class UpdateWebLinkByIdRequestBody extends SerializableObject {
     this.name = builder.name;
     this.description = builder.description;
     this.sharedLink = builder.sharedLink;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getUrl() {
@@ -96,7 +100,7 @@ public class UpdateWebLinkByIdRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String url;
 

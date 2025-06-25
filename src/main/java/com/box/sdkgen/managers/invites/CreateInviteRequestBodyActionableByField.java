@@ -1,8 +1,11 @@
 package com.box.sdkgen.managers.invites;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateInviteRequestBodyActionableByField extends SerializableObject {
 
   protected String login;
@@ -14,6 +17,7 @@ public class CreateInviteRequestBodyActionableByField extends SerializableObject
   protected CreateInviteRequestBodyActionableByField(Builder builder) {
     super();
     this.login = builder.login;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getLogin() {
@@ -42,7 +46,7 @@ public class CreateInviteRequestBodyActionableByField extends SerializableObject
     return "CreateInviteRequestBodyActionableByField{" + "login='" + login + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String login;
 

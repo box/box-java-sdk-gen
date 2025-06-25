@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.uploadurl;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UploadUrl extends SerializableObject {
 
   @JsonProperty("upload_url")
@@ -20,6 +23,7 @@ public class UploadUrl extends SerializableObject {
     super();
     this.uploadUrl = builder.uploadUrl;
     this.uploadToken = builder.uploadToken;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getUploadUrl() {
@@ -61,7 +65,7 @@ public class UploadUrl extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String uploadUrl;
 

@@ -1,9 +1,12 @@
 package com.box.sdkgen.managers.folderlocks;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateFolderLockRequestBody extends SerializableObject {
 
   @JsonProperty("locked_operations")
@@ -21,6 +24,7 @@ public class CreateFolderLockRequestBody extends SerializableObject {
     super();
     this.lockedOperations = builder.lockedOperations;
     this.folder = builder.folder;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public CreateFolderLockRequestBodyLockedOperationsField getLockedOperations() {
@@ -62,13 +66,14 @@ public class CreateFolderLockRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected CreateFolderLockRequestBodyLockedOperationsField lockedOperations;
 
     protected final CreateFolderLockRequestBodyFolderField folder;
 
     public Builder(CreateFolderLockRequestBodyFolderField folder) {
+      super();
       this.folder = folder;
     }
 

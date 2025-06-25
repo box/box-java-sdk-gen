@@ -4,8 +4,10 @@ import com.box.sdkgen.schemas.shieldinformationbarriersegmentmemberbase.ShieldIn
 import com.box.sdkgen.schemas.shieldinformationbarriersegmentmemberbase.ShieldInformationBarrierSegmentMemberBaseTypeField;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ShieldInformationBarrierSegmentMemberMini
     extends ShieldInformationBarrierSegmentMemberBase {
 
@@ -18,6 +20,7 @@ public class ShieldInformationBarrierSegmentMemberMini
   protected ShieldInformationBarrierSegmentMemberMini(Builder builder) {
     super(builder);
     this.user = builder.user;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public UserBase getUser() {

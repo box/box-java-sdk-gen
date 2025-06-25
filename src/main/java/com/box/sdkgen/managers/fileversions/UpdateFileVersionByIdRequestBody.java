@@ -1,12 +1,17 @@
 package com.box.sdkgen.managers.fileversions;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateFileVersionByIdRequestBody extends SerializableObject {
 
   @JsonProperty("trashed_at")
+  @Nullable
   protected String trashedAt;
 
   public UpdateFileVersionByIdRequestBody() {
@@ -16,6 +21,7 @@ public class UpdateFileVersionByIdRequestBody extends SerializableObject {
   protected UpdateFileVersionByIdRequestBody(Builder builder) {
     super();
     this.trashedAt = builder.trashedAt;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getTrashedAt() {
@@ -44,12 +50,13 @@ public class UpdateFileVersionByIdRequestBody extends SerializableObject {
     return "UpdateFileVersionByIdRequestBody{" + "trashedAt='" + trashedAt + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String trashedAt;
 
     public Builder trashedAt(String trashedAt) {
       this.trashedAt = trashedAt;
+      this.markNullableFieldAsSet("trashed_at");
       return this;
     }
 

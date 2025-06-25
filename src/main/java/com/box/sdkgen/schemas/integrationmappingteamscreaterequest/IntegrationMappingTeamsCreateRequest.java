@@ -3,9 +3,11 @@ package com.box.sdkgen.schemas.integrationmappingteamscreaterequest;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.folderreference.FolderReference;
 import com.box.sdkgen.schemas.integrationmappingpartneritemteamscreaterequest.IntegrationMappingPartnerItemTeamsCreateRequest;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class IntegrationMappingTeamsCreateRequest extends SerializableObject {
 
   @JsonProperty("partner_item")

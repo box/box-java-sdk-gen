@@ -1,16 +1,20 @@
 package com.box.sdkgen.schemas.trashweblinkrestored;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TrashWebLinkRestored extends SerializableObject {
 
   @JsonDeserialize(
@@ -48,9 +52,11 @@ public class TrashWebLinkRestored extends SerializableObject {
   protected Date modifiedAt;
 
   @JsonProperty("trashed_at")
+  @Nullable
   protected String trashedAt;
 
   @JsonProperty("purged_at")
+  @Nullable
   protected String purgedAt;
 
   @JsonProperty("created_by")
@@ -63,6 +69,7 @@ public class TrashWebLinkRestored extends SerializableObject {
   protected UserMini ownedBy;
 
   @JsonProperty("shared_link")
+  @Nullable
   protected String sharedLink;
 
   @JsonDeserialize(
@@ -102,6 +109,7 @@ public class TrashWebLinkRestored extends SerializableObject {
     this.ownedBy = builder.ownedBy;
     this.sharedLink = builder.sharedLink;
     this.itemStatus = builder.itemStatus;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<TrashWebLinkRestoredTypeField> getType() {
@@ -305,7 +313,7 @@ public class TrashWebLinkRestored extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<TrashWebLinkRestoredTypeField> type;
 
@@ -344,6 +352,7 @@ public class TrashWebLinkRestored extends SerializableObject {
     protected EnumWrapper<TrashWebLinkRestoredItemStatusField> itemStatus;
 
     public Builder(String sequenceId, TrashWebLinkRestoredPathCollectionField pathCollection) {
+      super();
       this.sequenceId = sequenceId;
       this.pathCollection = pathCollection;
     }
@@ -400,11 +409,13 @@ public class TrashWebLinkRestored extends SerializableObject {
 
     public Builder trashedAt(String trashedAt) {
       this.trashedAt = trashedAt;
+      this.markNullableFieldAsSet("trashed_at");
       return this;
     }
 
     public Builder purgedAt(String purgedAt) {
       this.purgedAt = purgedAt;
+      this.markNullableFieldAsSet("purged_at");
       return this;
     }
 
@@ -425,6 +436,7 @@ public class TrashWebLinkRestored extends SerializableObject {
 
     public Builder sharedLink(String sharedLink) {
       this.sharedLink = sharedLink;
+      this.markNullableFieldAsSet("shared_link");
       return this;
     }
 

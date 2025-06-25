@@ -1,13 +1,16 @@
 package com.box.sdkgen.schemas.aidialoguehistory;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiDialogueHistory extends SerializableObject {
 
   protected String prompt;
@@ -28,6 +31,7 @@ public class AiDialogueHistory extends SerializableObject {
     this.prompt = builder.prompt;
     this.answer = builder.answer;
     this.createdAt = builder.createdAt;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getPrompt() {
@@ -78,7 +82,7 @@ public class AiDialogueHistory extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String prompt;
 

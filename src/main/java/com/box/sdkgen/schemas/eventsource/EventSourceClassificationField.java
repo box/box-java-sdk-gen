@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.eventsource;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class EventSourceClassificationField extends SerializableObject {
 
   protected String name;
@@ -14,6 +17,7 @@ public class EventSourceClassificationField extends SerializableObject {
   protected EventSourceClassificationField(Builder builder) {
     super();
     this.name = builder.name;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {
@@ -42,7 +46,7 @@ public class EventSourceClassificationField extends SerializableObject {
     return "EventSourceClassificationField{" + "name='" + name + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String name;
 

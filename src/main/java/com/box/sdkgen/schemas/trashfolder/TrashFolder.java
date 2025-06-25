@@ -1,21 +1,25 @@
 package com.box.sdkgen.schemas.trashfolder;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TrashFolder extends SerializableObject {
 
   protected final String id;
 
-  protected String etag;
+  @Nullable protected String etag;
 
   @JsonDeserialize(using = TrashFolderTypeField.TrashFolderTypeFieldDeserializer.class)
   @JsonSerialize(using = TrashFolderTypeField.TrashFolderTypeFieldSerializer.class)
@@ -29,11 +33,13 @@ public class TrashFolder extends SerializableObject {
   @JsonProperty("created_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date createdAt;
 
   @JsonProperty("modified_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date modifiedAt;
 
   protected final String description;
@@ -52,30 +58,36 @@ public class TrashFolder extends SerializableObject {
   @JsonProperty("trashed_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date trashedAt;
 
   @JsonProperty("purged_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date purgedAt;
 
   @JsonProperty("content_created_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date contentCreatedAt;
 
   @JsonProperty("content_modified_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date contentModifiedAt;
 
   @JsonProperty("owned_by")
   protected final UserMini ownedBy;
 
   @JsonProperty("shared_link")
+  @Nullable
   protected String sharedLink;
 
   @JsonProperty("folder_upload_email")
+  @Nullable
   protected String folderUploadEmail;
 
   protected FolderMini parent;
@@ -154,6 +166,7 @@ public class TrashFolder extends SerializableObject {
     this.folderUploadEmail = builder.folderUploadEmail;
     this.parent = builder.parent;
     this.itemStatus = builder.itemStatus;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -387,7 +400,7 @@ public class TrashFolder extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -441,6 +454,7 @@ public class TrashFolder extends SerializableObject {
         UserMini modifiedBy,
         UserMini ownedBy,
         EnumWrapper<TrashFolderItemStatusField> itemStatus) {
+      super();
       this.id = id;
       this.name = name;
       this.description = description;
@@ -463,6 +477,7 @@ public class TrashFolder extends SerializableObject {
         UserMini modifiedBy,
         UserMini ownedBy,
         TrashFolderItemStatusField itemStatus) {
+      super();
       this.id = id;
       this.name = name;
       this.description = description;
@@ -477,6 +492,7 @@ public class TrashFolder extends SerializableObject {
 
     public Builder etag(String etag) {
       this.etag = etag;
+      this.markNullableFieldAsSet("etag");
       return this;
     }
 
@@ -497,41 +513,49 @@ public class TrashFolder extends SerializableObject {
 
     public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
+      this.markNullableFieldAsSet("created_at");
       return this;
     }
 
     public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
+      this.markNullableFieldAsSet("modified_at");
       return this;
     }
 
     public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
+      this.markNullableFieldAsSet("trashed_at");
       return this;
     }
 
     public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
+      this.markNullableFieldAsSet("purged_at");
       return this;
     }
 
     public Builder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
+      this.markNullableFieldAsSet("content_created_at");
       return this;
     }
 
     public Builder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
+      this.markNullableFieldAsSet("content_modified_at");
       return this;
     }
 
     public Builder sharedLink(String sharedLink) {
       this.sharedLink = sharedLink;
+      this.markNullableFieldAsSet("shared_link");
       return this;
     }
 
     public Builder folderUploadEmail(String folderUploadEmail) {
       this.folderUploadEmail = folderUploadEmail;
+      this.markNullableFieldAsSet("folder_upload_email");
       return this;
     }
 

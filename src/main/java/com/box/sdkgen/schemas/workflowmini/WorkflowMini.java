@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.workflowmini;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class WorkflowMini extends SerializableObject {
 
   protected String id;
@@ -33,6 +36,7 @@ public class WorkflowMini extends SerializableObject {
     this.name = builder.name;
     this.description = builder.description;
     this.isEnabled = builder.isEnabled;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -101,7 +105,7 @@ public class WorkflowMini extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String id;
 

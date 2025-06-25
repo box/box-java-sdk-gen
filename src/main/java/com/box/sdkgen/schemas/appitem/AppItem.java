@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.appitem;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AppItem extends SerializableObject {
 
   protected final String id;
@@ -31,6 +34,7 @@ public class AppItem extends SerializableObject {
     this.id = builder.id;
     this.type = builder.type;
     this.applicationType = builder.applicationType;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -81,7 +85,7 @@ public class AppItem extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -90,6 +94,7 @@ public class AppItem extends SerializableObject {
     protected final String applicationType;
 
     public Builder(String id, String applicationType) {
+      super();
       this.id = id;
       this.applicationType = applicationType;
       this.type = new EnumWrapper<AppItemTypeField>(AppItemTypeField.APP_ITEM);

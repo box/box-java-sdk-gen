@@ -11,6 +11,7 @@ import com.box.sdkgen.schemas.items.Items;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.box.sdkgen.serialization.json.Valuable;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -27,6 +28,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FolderFull extends Folder {
 
   @JsonDeserialize(using = FolderFullSyncStateField.FolderFullSyncStateFieldDeserializer.class)
@@ -98,6 +100,7 @@ public class FolderFull extends Folder {
     this.canNonOwnersViewCollaborators = builder.canNonOwnersViewCollaborators;
     this.classification = builder.classification;
     this.isAssociatedWithAppItem = builder.isAssociatedWithAppItem;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<FolderFullSyncStateField> getSyncState() {
@@ -531,6 +534,7 @@ public class FolderFull extends Folder {
     @Override
     public Builder etag(String etag) {
       this.etag = etag;
+      this.markNullableFieldAsSet("etag");
       return this;
     }
 
@@ -561,12 +565,14 @@ public class FolderFull extends Folder {
     @Override
     public Builder createdAt(Date createdAt) {
       this.createdAt = createdAt;
+      this.markNullableFieldAsSet("created_at");
       return this;
     }
 
     @Override
     public Builder modifiedAt(Date modifiedAt) {
       this.modifiedAt = modifiedAt;
+      this.markNullableFieldAsSet("modified_at");
       return this;
     }
 
@@ -603,24 +609,28 @@ public class FolderFull extends Folder {
     @Override
     public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
+      this.markNullableFieldAsSet("trashed_at");
       return this;
     }
 
     @Override
     public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
+      this.markNullableFieldAsSet("purged_at");
       return this;
     }
 
     @Override
     public Builder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
+      this.markNullableFieldAsSet("content_created_at");
       return this;
     }
 
     @Override
     public Builder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
+      this.markNullableFieldAsSet("content_modified_at");
       return this;
     }
 
@@ -633,18 +643,21 @@ public class FolderFull extends Folder {
     @Override
     public Builder sharedLink(FolderSharedLinkField sharedLink) {
       this.sharedLink = sharedLink;
+      this.markNullableFieldAsSet("shared_link");
       return this;
     }
 
     @Override
     public Builder folderUploadEmail(FolderFolderUploadEmailField folderUploadEmail) {
       this.folderUploadEmail = folderUploadEmail;
+      this.markNullableFieldAsSet("folder_upload_email");
       return this;
     }
 
     @Override
     public Builder parent(FolderMini parent) {
       this.parent = parent;
+      this.markNullableFieldAsSet("parent");
       return this;
     }
 

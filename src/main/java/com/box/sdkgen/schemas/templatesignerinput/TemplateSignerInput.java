@@ -1,7 +1,9 @@
 package com.box.sdkgen.schemas.templatesignerinput;
 
+import com.box.sdkgen.internal.Nullable;
 import com.box.sdkgen.schemas.signrequestprefilltag.SignRequestPrefillTag;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -9,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TemplateSignerInput extends SignRequestPrefillTag {
 
   @JsonDeserialize(
@@ -32,19 +35,22 @@ public class TemplateSignerInput extends SignRequestPrefillTag {
   protected final long pageIndex;
 
   @JsonProperty("document_id")
+  @Nullable
   protected String documentId;
 
   @JsonProperty("dropdown_choices")
+  @Nullable
   protected List<String> dropdownChoices;
 
   @JsonProperty("group_id")
+  @Nullable
   protected String groupId;
 
   protected TemplateSignerInputCoordinatesField coordinates;
 
   protected TemplateSignerInputDimensionsField dimensions;
 
-  protected String label;
+  @Nullable protected String label;
 
   @JsonProperty("read_only")
   protected Boolean readOnly;
@@ -67,6 +73,7 @@ public class TemplateSignerInput extends SignRequestPrefillTag {
     this.dimensions = builder.dimensions;
     this.label = builder.label;
     this.readOnly = builder.readOnly;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<TemplateSignerInputTypeField> getType() {
@@ -280,16 +287,19 @@ public class TemplateSignerInput extends SignRequestPrefillTag {
 
     public Builder documentId(String documentId) {
       this.documentId = documentId;
+      this.markNullableFieldAsSet("document_id");
       return this;
     }
 
     public Builder dropdownChoices(List<String> dropdownChoices) {
       this.dropdownChoices = dropdownChoices;
+      this.markNullableFieldAsSet("dropdown_choices");
       return this;
     }
 
     public Builder groupId(String groupId) {
       this.groupId = groupId;
+      this.markNullableFieldAsSet("group_id");
       return this;
     }
 
@@ -305,6 +315,7 @@ public class TemplateSignerInput extends SignRequestPrefillTag {
 
     public Builder label(String label) {
       this.label = label;
+      this.markNullableFieldAsSet("label");
       return this;
     }
 
@@ -316,24 +327,28 @@ public class TemplateSignerInput extends SignRequestPrefillTag {
     @Override
     public Builder documentTagId(String documentTagId) {
       this.documentTagId = documentTagId;
+      this.markNullableFieldAsSet("document_tag_id");
       return this;
     }
 
     @Override
     public Builder textValue(String textValue) {
       this.textValue = textValue;
+      this.markNullableFieldAsSet("text_value");
       return this;
     }
 
     @Override
     public Builder checkboxValue(Boolean checkboxValue) {
       this.checkboxValue = checkboxValue;
+      this.markNullableFieldAsSet("checkbox_value");
       return this;
     }
 
     @Override
     public Builder dateValue(Date dateValue) {
       this.dateValue = dateValue;
+      this.markNullableFieldAsSet("date_value");
       return this;
     }
 

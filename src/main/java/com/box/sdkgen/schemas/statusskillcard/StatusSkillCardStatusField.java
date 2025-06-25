@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.statusskillcard;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class StatusSkillCardStatusField extends SerializableObject {
 
   @JsonDeserialize(
@@ -32,6 +35,7 @@ public class StatusSkillCardStatusField extends SerializableObject {
     super();
     this.code = builder.code;
     this.message = builder.message;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<StatusSkillCardStatusCodeField> getCode() {
@@ -72,17 +76,19 @@ public class StatusSkillCardStatusField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final EnumWrapper<StatusSkillCardStatusCodeField> code;
 
     protected String message;
 
     public Builder(EnumWrapper<StatusSkillCardStatusCodeField> code) {
+      super();
       this.code = code;
     }
 
     public Builder(StatusSkillCardStatusCodeField code) {
+      super();
       this.code = new EnumWrapper<StatusSkillCardStatusCodeField>(code);
     }
 

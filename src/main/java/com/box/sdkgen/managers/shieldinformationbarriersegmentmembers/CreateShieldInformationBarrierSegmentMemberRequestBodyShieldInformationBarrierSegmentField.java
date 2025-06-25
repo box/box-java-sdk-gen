@@ -1,11 +1,14 @@
 package com.box.sdkgen.managers.shieldinformationbarriersegmentmembers;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public
 class CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBarrierSegmentField
     extends SerializableObject {
@@ -37,6 +40,7 @@ class CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBar
     super();
     this.id = builder.id;
     this.type = builder.type;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -82,7 +86,7 @@ class CreateShieldInformationBarrierSegmentMemberRequestBodyShieldInformationBar
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String id;
 

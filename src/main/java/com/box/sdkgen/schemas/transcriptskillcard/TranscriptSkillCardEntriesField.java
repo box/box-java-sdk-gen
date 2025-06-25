@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.transcriptskillcard;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TranscriptSkillCardEntriesField extends SerializableObject {
 
   protected String text;
@@ -18,6 +21,7 @@ public class TranscriptSkillCardEntriesField extends SerializableObject {
     super();
     this.text = builder.text;
     this.appears = builder.appears;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getText() {
@@ -58,7 +62,7 @@ public class TranscriptSkillCardEntriesField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String text;
 

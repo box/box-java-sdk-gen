@@ -1,12 +1,16 @@
 package com.box.sdkgen.schemas.aillmendpointparamsgoogle;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiLlmEndpointParamsGoogle extends SerializableObject {
 
   @JsonDeserialize(
@@ -16,12 +20,14 @@ public class AiLlmEndpointParamsGoogle extends SerializableObject {
       using = AiLlmEndpointParamsGoogleTypeField.AiLlmEndpointParamsGoogleTypeFieldSerializer.class)
   protected EnumWrapper<AiLlmEndpointParamsGoogleTypeField> type;
 
-  protected Double temperature;
+  @Nullable protected Double temperature;
 
   @JsonProperty("top_p")
+  @Nullable
   protected Double topP;
 
   @JsonProperty("top_k")
+  @Nullable
   protected Double topK;
 
   public AiLlmEndpointParamsGoogle() {
@@ -37,6 +43,7 @@ public class AiLlmEndpointParamsGoogle extends SerializableObject {
     this.temperature = builder.temperature;
     this.topP = builder.topP;
     this.topK = builder.topK;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<AiLlmEndpointParamsGoogleTypeField> getType() {
@@ -96,7 +103,7 @@ public class AiLlmEndpointParamsGoogle extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<AiLlmEndpointParamsGoogleTypeField> type;
 
@@ -107,6 +114,7 @@ public class AiLlmEndpointParamsGoogle extends SerializableObject {
     protected Double topK;
 
     public Builder() {
+      super();
       this.type =
           new EnumWrapper<AiLlmEndpointParamsGoogleTypeField>(
               AiLlmEndpointParamsGoogleTypeField.GOOGLE_PARAMS);
@@ -124,16 +132,19 @@ public class AiLlmEndpointParamsGoogle extends SerializableObject {
 
     public Builder temperature(Double temperature) {
       this.temperature = temperature;
+      this.markNullableFieldAsSet("temperature");
       return this;
     }
 
     public Builder topP(Double topP) {
       this.topP = topP;
+      this.markNullableFieldAsSet("top_p");
       return this;
     }
 
     public Builder topK(Double topK) {
       this.topK = topK;
+      this.markNullableFieldAsSet("top_k");
       return this;
     }
 

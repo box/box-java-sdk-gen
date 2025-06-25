@@ -1,14 +1,18 @@
 package com.box.sdkgen.schemas.aistudioagentaskresponse;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aistudioagentbasictexttoolresponse.AiStudioAgentBasicTextToolResponse;
 import com.box.sdkgen.schemas.aistudioagentlongtexttoolresponse.AiStudioAgentLongTextToolResponse;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiStudioAgentAskResponse extends SerializableObject {
 
   @JsonDeserialize(
@@ -23,6 +27,7 @@ public class AiStudioAgentAskResponse extends SerializableObject {
   protected final String description;
 
   @JsonProperty("custom_instructions")
+  @Nullable
   protected String customInstructions;
 
   @JsonProperty("long_text")
@@ -58,6 +63,7 @@ public class AiStudioAgentAskResponse extends SerializableObject {
     this.basicText = builder.basicText;
     this.longTextMulti = builder.longTextMulti;
     this.basicTextMulti = builder.basicTextMulti;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<AiStudioAgentAskResponseTypeField> getType() {
@@ -161,7 +167,7 @@ public class AiStudioAgentAskResponse extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<AiStudioAgentAskResponseTypeField> type;
 
@@ -180,6 +186,7 @@ public class AiStudioAgentAskResponse extends SerializableObject {
     protected AiStudioAgentBasicTextToolResponse basicTextMulti;
 
     public Builder(String accessState, String description) {
+      super();
       this.accessState = accessState;
       this.description = description;
       this.type =
@@ -199,6 +206,7 @@ public class AiStudioAgentAskResponse extends SerializableObject {
 
     public Builder customInstructions(String customInstructions) {
       this.customInstructions = customInstructions;
+      this.markNullableFieldAsSet("custom_instructions");
       return this;
     }
 

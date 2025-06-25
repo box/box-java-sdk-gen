@@ -1,10 +1,13 @@
 package com.box.sdkgen.managers.metadatatemplates;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateMetadataTemplateRequestBody extends SerializableObject {
 
   protected final String scope;
@@ -34,6 +37,7 @@ public class CreateMetadataTemplateRequestBody extends SerializableObject {
     this.hidden = builder.hidden;
     this.fields = builder.fields;
     this.copyInstanceOnItemCopy = builder.copyInstanceOnItemCopy;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getScope() {
@@ -111,7 +115,7 @@ public class CreateMetadataTemplateRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String scope;
 
@@ -126,6 +130,7 @@ public class CreateMetadataTemplateRequestBody extends SerializableObject {
     protected Boolean copyInstanceOnItemCopy;
 
     public Builder(String scope, String displayName) {
+      super();
       this.scope = scope;
       this.displayName = displayName;
     }

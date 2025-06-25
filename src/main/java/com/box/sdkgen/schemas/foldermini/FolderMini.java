@@ -3,9 +3,11 @@ package com.box.sdkgen.schemas.foldermini;
 import com.box.sdkgen.schemas.folderbase.FolderBase;
 import com.box.sdkgen.schemas.folderbase.FolderBaseTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FolderMini extends FolderBase {
 
   @JsonProperty("sequence_id")
@@ -21,6 +23,7 @@ public class FolderMini extends FolderBase {
     super(builder);
     this.sequenceId = builder.sequenceId;
     this.name = builder.name;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getSequenceId() {
@@ -100,6 +103,7 @@ public class FolderMini extends FolderBase {
     @Override
     public Builder etag(String etag) {
       this.etag = etag;
+      this.markNullableFieldAsSet("etag");
       return this;
     }
 

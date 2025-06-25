@@ -3,11 +3,13 @@ package com.box.sdkgen.schemas.retentionpolicymini;
 import com.box.sdkgen.schemas.retentionpolicybase.RetentionPolicyBase;
 import com.box.sdkgen.schemas.retentionpolicybase.RetentionPolicyBaseTypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class RetentionPolicyMini extends RetentionPolicyBase {
 
   @JsonProperty("policy_name")
@@ -36,6 +38,7 @@ public class RetentionPolicyMini extends RetentionPolicyBase {
     this.policyName = builder.policyName;
     this.retentionLength = builder.retentionLength;
     this.dispositionAction = builder.dispositionAction;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getPolicyName() {

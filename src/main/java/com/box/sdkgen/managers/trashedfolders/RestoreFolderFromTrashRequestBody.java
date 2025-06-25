@@ -1,8 +1,11 @@
 package com.box.sdkgen.managers.trashedfolders;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class RestoreFolderFromTrashRequestBody extends SerializableObject {
 
   protected String name;
@@ -17,6 +20,7 @@ public class RestoreFolderFromTrashRequestBody extends SerializableObject {
     super();
     this.name = builder.name;
     this.parent = builder.parent;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {
@@ -57,7 +61,7 @@ public class RestoreFolderFromTrashRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String name;
 

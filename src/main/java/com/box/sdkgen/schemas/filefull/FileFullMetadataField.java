@@ -1,12 +1,15 @@
 package com.box.sdkgen.schemas.filefull;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.metadatafull.MetadataFull;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Map;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileFullMetadataField extends SerializableObject {
 
   @JsonAnyGetter @JsonAnySetter protected Map<String, Map<String, MetadataFull>> extraData;
@@ -18,6 +21,7 @@ public class FileFullMetadataField extends SerializableObject {
   protected FileFullMetadataField(Builder builder) {
     super();
     this.extraData = builder.extraData;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Map<String, Map<String, MetadataFull>> getExtraData() {
@@ -46,7 +50,7 @@ public class FileFullMetadataField extends SerializableObject {
     return "FileFullMetadataField{" + "extraData='" + extraData + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Map<String, Map<String, MetadataFull>> extraData;
 

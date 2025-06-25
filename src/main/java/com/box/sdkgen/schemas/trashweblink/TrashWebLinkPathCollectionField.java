@@ -1,10 +1,12 @@
 package com.box.sdkgen.schemas.trashweblink;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TrashWebLinkPathCollectionField extends SerializableObject {
 
   @JsonProperty("total_count")

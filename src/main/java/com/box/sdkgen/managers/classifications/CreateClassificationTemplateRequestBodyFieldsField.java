@@ -1,13 +1,16 @@
 package com.box.sdkgen.managers.classifications;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateClassificationTemplateRequestBodyFieldsField extends SerializableObject {
 
   @JsonDeserialize(
@@ -68,6 +71,7 @@ public class CreateClassificationTemplateRequestBodyFieldsField extends Serializ
     this.displayName = builder.displayName;
     this.hidden = builder.hidden;
     this.options = builder.options;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<CreateClassificationTemplateRequestBodyFieldsTypeField> getType() {
@@ -138,7 +142,7 @@ public class CreateClassificationTemplateRequestBodyFieldsField extends Serializ
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<CreateClassificationTemplateRequestBodyFieldsTypeField> type;
 
@@ -152,6 +156,7 @@ public class CreateClassificationTemplateRequestBodyFieldsField extends Serializ
     protected final List<CreateClassificationTemplateRequestBodyFieldsOptionsField> options;
 
     public Builder(List<CreateClassificationTemplateRequestBodyFieldsOptionsField> options) {
+      super();
       this.options = options;
       this.type =
           new EnumWrapper<CreateClassificationTemplateRequestBodyFieldsTypeField>(

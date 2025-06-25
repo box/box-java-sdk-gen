@@ -1,10 +1,13 @@
 package com.box.sdkgen.managers.retentionpolicyassignments;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateRetentionPolicyAssignmentRequestBody extends SerializableObject {
 
   @JsonProperty("policy_id")
@@ -33,6 +36,7 @@ public class CreateRetentionPolicyAssignmentRequestBody extends SerializableObje
     this.assignTo = builder.assignTo;
     this.filterFields = builder.filterFields;
     this.startDateField = builder.startDateField;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getPolicyId() {
@@ -93,7 +97,7 @@ public class CreateRetentionPolicyAssignmentRequestBody extends SerializableObje
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String policyId;
 
@@ -105,6 +109,7 @@ public class CreateRetentionPolicyAssignmentRequestBody extends SerializableObje
 
     public Builder(
         String policyId, CreateRetentionPolicyAssignmentRequestBodyAssignToField assignTo) {
+      super();
       this.policyId = policyId;
       this.assignTo = assignTo;
     }

@@ -1,16 +1,19 @@
 package com.box.sdkgen.schemas.event;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.appitemeventsourceoreventsourceorfileorfolderorgenericsourceoruser.AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class Event extends SerializableObject {
 
   protected String type;
@@ -59,6 +62,7 @@ public class Event extends SerializableObject {
     this.sessionId = builder.sessionId;
     this.source = builder.source;
     this.additionalDetails = builder.additionalDetails;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getType() {
@@ -172,7 +176,7 @@ public class Event extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String type;
 

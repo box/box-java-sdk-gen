@@ -1,10 +1,13 @@
 package com.box.sdkgen.schemas.aiextractstructured;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiExtractStructuredFieldsField extends SerializableObject {
 
   protected final String key;
@@ -32,6 +35,7 @@ public class AiExtractStructuredFieldsField extends SerializableObject {
     this.prompt = builder.prompt;
     this.type = builder.type;
     this.options = builder.options;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getKey() {
@@ -109,7 +113,7 @@ public class AiExtractStructuredFieldsField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String key;
 
@@ -124,6 +128,7 @@ public class AiExtractStructuredFieldsField extends SerializableObject {
     protected List<AiExtractStructuredFieldsOptionsField> options;
 
     public Builder(String key) {
+      super();
       this.key = key;
     }
 

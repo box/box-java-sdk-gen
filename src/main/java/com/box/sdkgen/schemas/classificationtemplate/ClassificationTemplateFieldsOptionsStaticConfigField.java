@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.classificationtemplate;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ClassificationTemplateFieldsOptionsStaticConfigField extends SerializableObject {
 
   protected ClassificationTemplateFieldsOptionsStaticConfigClassificationField classification;
@@ -14,6 +17,7 @@ public class ClassificationTemplateFieldsOptionsStaticConfigField extends Serial
   protected ClassificationTemplateFieldsOptionsStaticConfigField(Builder builder) {
     super();
     this.classification = builder.classification;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public ClassificationTemplateFieldsOptionsStaticConfigClassificationField getClassification() {
@@ -47,7 +51,7 @@ public class ClassificationTemplateFieldsOptionsStaticConfigField extends Serial
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected ClassificationTemplateFieldsOptionsStaticConfigClassificationField classification;
 

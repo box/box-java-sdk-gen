@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.classificationtemplate;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ClassificationTemplateFieldsOptionsField extends SerializableObject {
 
   protected final String id;
@@ -24,6 +27,7 @@ public class ClassificationTemplateFieldsOptionsField extends SerializableObject
     this.id = builder.id;
     this.key = builder.key;
     this.staticConfig = builder.staticConfig;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -74,7 +78,7 @@ public class ClassificationTemplateFieldsOptionsField extends SerializableObject
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -83,6 +87,7 @@ public class ClassificationTemplateFieldsOptionsField extends SerializableObject
     protected ClassificationTemplateFieldsOptionsStaticConfigField staticConfig;
 
     public Builder(String id, String key) {
+      super();
       this.id = id;
       this.key = key;
     }

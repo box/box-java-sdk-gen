@@ -1,9 +1,11 @@
 package com.box.sdkgen.box.jwtauth;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class JwtConfigAppSettingsAppAuth extends SerializableObject {
 
   @JsonProperty("publicKeyID")

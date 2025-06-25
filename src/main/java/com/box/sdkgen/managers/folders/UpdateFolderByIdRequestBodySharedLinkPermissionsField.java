@@ -1,9 +1,12 @@
 package com.box.sdkgen.managers.folders;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateFolderByIdRequestBodySharedLinkPermissionsField extends SerializableObject {
 
   @JsonProperty("can_download")
@@ -16,6 +19,7 @@ public class UpdateFolderByIdRequestBodySharedLinkPermissionsField extends Seria
   protected UpdateFolderByIdRequestBodySharedLinkPermissionsField(Builder builder) {
     super();
     this.canDownload = builder.canDownload;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Boolean getCanDownload() {
@@ -49,7 +53,7 @@ public class UpdateFolderByIdRequestBodySharedLinkPermissionsField extends Seria
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Boolean canDownload;
 

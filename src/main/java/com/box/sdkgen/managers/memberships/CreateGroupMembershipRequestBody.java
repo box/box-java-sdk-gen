@@ -1,13 +1,17 @@
 package com.box.sdkgen.managers.memberships;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Map;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateGroupMembershipRequestBody extends SerializableObject {
 
   protected final CreateGroupMembershipRequestBodyUserField user;
@@ -25,6 +29,7 @@ public class CreateGroupMembershipRequestBody extends SerializableObject {
   protected EnumWrapper<CreateGroupMembershipRequestBodyRoleField> role;
 
   @JsonProperty("configurable_permissions")
+  @Nullable
   protected Map<String, Boolean> configurablePermissions;
 
   public CreateGroupMembershipRequestBody(
@@ -41,6 +46,7 @@ public class CreateGroupMembershipRequestBody extends SerializableObject {
     this.group = builder.group;
     this.role = builder.role;
     this.configurablePermissions = builder.configurablePermissions;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public CreateGroupMembershipRequestBodyUserField getUser() {
@@ -100,7 +106,7 @@ public class CreateGroupMembershipRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final CreateGroupMembershipRequestBodyUserField user;
 
@@ -113,6 +119,7 @@ public class CreateGroupMembershipRequestBody extends SerializableObject {
     public Builder(
         CreateGroupMembershipRequestBodyUserField user,
         CreateGroupMembershipRequestBodyGroupField group) {
+      super();
       this.user = user;
       this.group = group;
     }
@@ -129,6 +136,7 @@ public class CreateGroupMembershipRequestBody extends SerializableObject {
 
     public Builder configurablePermissions(Map<String, Boolean> configurablePermissions) {
       this.configurablePermissions = configurablePermissions;
+      this.markNullableFieldAsSet("configurable_permissions");
       return this;
     }
 

@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.filefull;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class FileFullRepresentationsField extends SerializableObject {
 
   protected List<FileFullRepresentationsEntriesField> entries;
@@ -15,6 +18,7 @@ public class FileFullRepresentationsField extends SerializableObject {
   protected FileFullRepresentationsField(Builder builder) {
     super();
     this.entries = builder.entries;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<FileFullRepresentationsEntriesField> getEntries() {
@@ -43,7 +47,7 @@ public class FileFullRepresentationsField extends SerializableObject {
     return "FileFullRepresentationsField{" + "entries='" + entries + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected List<FileFullRepresentationsEntriesField> entries;
 

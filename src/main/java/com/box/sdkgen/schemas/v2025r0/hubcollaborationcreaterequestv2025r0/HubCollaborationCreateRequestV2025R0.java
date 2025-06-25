@@ -1,9 +1,11 @@
 package com.box.sdkgen.schemas.v2025r0.hubcollaborationcreaterequestv2025r0;
 
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class HubCollaborationCreateRequestV2025R0 extends SerializableObject {
 
   protected final HubCollaborationCreateRequestV2025R0HubField hub;

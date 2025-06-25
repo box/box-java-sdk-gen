@@ -1,8 +1,11 @@
 package com.box.sdkgen.managers.retentionpolicyassignments;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateRetentionPolicyAssignmentRequestBodyFilterFieldsField
     extends SerializableObject {
 
@@ -18,6 +21,7 @@ public class CreateRetentionPolicyAssignmentRequestBodyFilterFieldsField
     super();
     this.field = builder.field;
     this.value = builder.value;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getField() {
@@ -59,7 +63,7 @@ public class CreateRetentionPolicyAssignmentRequestBodyFilterFieldsField
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String field;
 

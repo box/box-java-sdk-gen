@@ -1,11 +1,14 @@
 package com.box.sdkgen.schemas.collaborationallowlistentry;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CollaborationAllowlistEntryEnterpriseField extends SerializableObject {
 
   protected String id;
@@ -31,6 +34,7 @@ public class CollaborationAllowlistEntryEnterpriseField extends SerializableObje
     this.id = builder.id;
     this.type = builder.type;
     this.name = builder.name;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -82,7 +86,7 @@ public class CollaborationAllowlistEntryEnterpriseField extends SerializableObje
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String id;
 

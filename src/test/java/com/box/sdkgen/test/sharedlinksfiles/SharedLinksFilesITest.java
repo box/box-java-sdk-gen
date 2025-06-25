@@ -16,6 +16,8 @@ import com.box.sdkgen.managers.sharedlinksfiles.AddShareLinkToFileRequestBodySha
 import com.box.sdkgen.managers.sharedlinksfiles.FindFileForSharedLinkHeaders;
 import com.box.sdkgen.managers.sharedlinksfiles.FindFileForSharedLinkQueryParams;
 import com.box.sdkgen.managers.sharedlinksfiles.GetSharedLinkForFileQueryParams;
+import com.box.sdkgen.managers.sharedlinksfiles.RemoveSharedLinkFromFileQueryParams;
+import com.box.sdkgen.managers.sharedlinksfiles.RemoveSharedLinkFromFileRequestBody;
 import com.box.sdkgen.managers.sharedlinksfiles.UpdateSharedLinkOnFileQueryParams;
 import com.box.sdkgen.managers.sharedlinksfiles.UpdateSharedLinkOnFileRequestBody;
 import com.box.sdkgen.managers.sharedlinksfiles.UpdateSharedLinkOnFileRequestBodySharedLinkAccessField;
@@ -101,6 +103,17 @@ public class SharedLinksFilesITest {
                     .build(),
                 new UpdateSharedLinkOnFileQueryParams("shared_link"));
     assert convertToString(updatedFile.getSharedLink().getAccess()).equals("collaborators");
+    client
+        .getSharedLinksFiles()
+        .removeSharedLinkFromFile(
+            fileId,
+            new RemoveSharedLinkFromFileRequestBody.Builder().sharedLink(null).build(),
+            new RemoveSharedLinkFromFileQueryParams("shared_link"));
+    FileFull fileFromApiAfterRemove =
+        client
+            .getSharedLinksFiles()
+            .getSharedLinkForFile(fileId, new GetSharedLinkForFileQueryParams("shared_link"));
+    assert fileFromApiAfterRemove.getSharedLink() == null;
     client.getFiles().deleteFileById(fileId);
   }
 }

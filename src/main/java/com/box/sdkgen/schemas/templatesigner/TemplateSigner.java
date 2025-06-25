@@ -1,19 +1,23 @@
 package com.box.sdkgen.schemas.templatesigner;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.templatesignerinput.TemplateSignerInput;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TemplateSigner extends SerializableObject {
 
   protected List<TemplateSignerInput> inputs;
 
-  protected String email;
+  @Nullable protected String email;
 
   @JsonDeserialize(using = TemplateSignerRoleField.TemplateSignerRoleFieldDeserializer.class)
   @JsonSerialize(using = TemplateSignerRoleField.TemplateSignerRoleFieldSerializer.class)
@@ -25,20 +29,24 @@ public class TemplateSigner extends SerializableObject {
   protected Long order;
 
   @JsonProperty("signer_group_id")
+  @Nullable
   protected String signerGroupId;
 
-  protected String label;
+  @Nullable protected String label;
 
   @JsonProperty("public_id")
   protected String publicId;
 
   @JsonProperty("is_password_required")
+  @Nullable
   protected Boolean isPasswordRequired;
 
   @JsonProperty("is_phone_number_required")
+  @Nullable
   protected Boolean isPhoneNumberRequired;
 
   @JsonProperty("login_required")
+  @Nullable
   protected Boolean loginRequired;
 
   public TemplateSigner() {
@@ -58,6 +66,7 @@ public class TemplateSigner extends SerializableObject {
     this.isPasswordRequired = builder.isPasswordRequired;
     this.isPhoneNumberRequired = builder.isPhoneNumberRequired;
     this.loginRequired = builder.loginRequired;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public List<TemplateSignerInput> getInputs() {
@@ -191,7 +200,7 @@ public class TemplateSigner extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected List<TemplateSignerInput> inputs;
 
@@ -222,6 +231,7 @@ public class TemplateSigner extends SerializableObject {
 
     public Builder email(String email) {
       this.email = email;
+      this.markNullableFieldAsSet("email");
       return this;
     }
 
@@ -247,11 +257,13 @@ public class TemplateSigner extends SerializableObject {
 
     public Builder signerGroupId(String signerGroupId) {
       this.signerGroupId = signerGroupId;
+      this.markNullableFieldAsSet("signer_group_id");
       return this;
     }
 
     public Builder label(String label) {
       this.label = label;
+      this.markNullableFieldAsSet("label");
       return this;
     }
 
@@ -262,16 +274,19 @@ public class TemplateSigner extends SerializableObject {
 
     public Builder isPasswordRequired(Boolean isPasswordRequired) {
       this.isPasswordRequired = isPasswordRequired;
+      this.markNullableFieldAsSet("is_password_required");
       return this;
     }
 
     public Builder isPhoneNumberRequired(Boolean isPhoneNumberRequired) {
       this.isPhoneNumberRequired = isPhoneNumberRequired;
+      this.markNullableFieldAsSet("is_phone_number_required");
       return this;
     }
 
     public Builder loginRequired(Boolean loginRequired) {
       this.loginRequired = loginRequired;
+      this.markNullableFieldAsSet("login_required");
       return this;
     }
 

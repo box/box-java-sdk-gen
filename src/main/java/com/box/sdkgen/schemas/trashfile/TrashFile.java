@@ -1,22 +1,26 @@
 package com.box.sdkgen.schemas.trashfile;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.fileversionmini.FileVersionMini;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TrashFile extends SerializableObject {
 
   protected final String id;
 
-  protected String etag;
+  @Nullable protected String etag;
 
   @JsonDeserialize(using = TrashFileTypeField.TrashFileTypeFieldDeserializer.class)
   @JsonSerialize(using = TrashFileTypeField.TrashFileTypeFieldSerializer.class)
@@ -52,21 +56,25 @@ public class TrashFile extends SerializableObject {
   @JsonProperty("trashed_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date trashedAt;
 
   @JsonProperty("purged_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date purgedAt;
 
   @JsonProperty("content_created_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date contentCreatedAt;
 
   @JsonProperty("content_modified_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
+  @Nullable
   protected Date contentModifiedAt;
 
   @JsonProperty("created_by")
@@ -79,6 +87,7 @@ public class TrashFile extends SerializableObject {
   protected final UserMini ownedBy;
 
   @JsonProperty("shared_link")
+  @Nullable
   protected String sharedLink;
 
   protected FolderMini parent;
@@ -166,6 +175,7 @@ public class TrashFile extends SerializableObject {
     this.sharedLink = builder.sharedLink;
     this.parent = builder.parent;
     this.itemStatus = builder.itemStatus;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -409,7 +419,7 @@ public class TrashFile extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String id;
 
@@ -467,6 +477,7 @@ public class TrashFile extends SerializableObject {
         UserMini modifiedBy,
         UserMini ownedBy,
         EnumWrapper<TrashFileItemStatusField> itemStatus) {
+      super();
       this.id = id;
       this.sequenceId = sequenceId;
       this.sha1 = sha1;
@@ -493,6 +504,7 @@ public class TrashFile extends SerializableObject {
         UserMini modifiedBy,
         UserMini ownedBy,
         TrashFileItemStatusField itemStatus) {
+      super();
       this.id = id;
       this.sequenceId = sequenceId;
       this.sha1 = sha1;
@@ -509,6 +521,7 @@ public class TrashFile extends SerializableObject {
 
     public Builder etag(String etag) {
       this.etag = etag;
+      this.markNullableFieldAsSet("etag");
       return this;
     }
 
@@ -534,21 +547,25 @@ public class TrashFile extends SerializableObject {
 
     public Builder trashedAt(Date trashedAt) {
       this.trashedAt = trashedAt;
+      this.markNullableFieldAsSet("trashed_at");
       return this;
     }
 
     public Builder purgedAt(Date purgedAt) {
       this.purgedAt = purgedAt;
+      this.markNullableFieldAsSet("purged_at");
       return this;
     }
 
     public Builder contentCreatedAt(Date contentCreatedAt) {
       this.contentCreatedAt = contentCreatedAt;
+      this.markNullableFieldAsSet("content_created_at");
       return this;
     }
 
     public Builder contentModifiedAt(Date contentModifiedAt) {
       this.contentModifiedAt = contentModifiedAt;
+      this.markNullableFieldAsSet("content_modified_at");
       return this;
     }
 
@@ -559,6 +576,7 @@ public class TrashFile extends SerializableObject {
 
     public Builder sharedLink(String sharedLink) {
       this.sharedLink = sharedLink;
+      this.markNullableFieldAsSet("shared_link");
       return this;
     }
 

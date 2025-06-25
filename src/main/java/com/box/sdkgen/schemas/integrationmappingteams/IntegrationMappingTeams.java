@@ -6,12 +6,14 @@ import com.box.sdkgen.schemas.integrationmappingbase.IntegrationMappingBase;
 import com.box.sdkgen.schemas.integrationmappingbase.IntegrationMappingBaseTypeField;
 import com.box.sdkgen.schemas.integrationmappingpartneritemteamsunion.IntegrationMappingPartnerItemTeamsUnion;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class IntegrationMappingTeams extends IntegrationMappingBase {
 
   @JsonDeserialize(
@@ -61,6 +63,7 @@ public class IntegrationMappingTeams extends IntegrationMappingBase {
     this.boxItem = builder.boxItem;
     this.createdAt = builder.createdAt;
     this.modifiedAt = builder.modifiedAt;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<IntegrationMappingTeamsIntegrationTypeField> getIntegrationType() {

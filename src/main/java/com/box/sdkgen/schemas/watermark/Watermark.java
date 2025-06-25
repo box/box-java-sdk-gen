@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.watermark;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class Watermark extends SerializableObject {
 
   protected WatermarkWatermarkField watermark;
@@ -14,6 +17,7 @@ public class Watermark extends SerializableObject {
   protected Watermark(Builder builder) {
     super();
     this.watermark = builder.watermark;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public WatermarkWatermarkField getWatermark() {
@@ -42,7 +46,7 @@ public class Watermark extends SerializableObject {
     return "Watermark{" + "watermark='" + watermark + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected WatermarkWatermarkField watermark;
 

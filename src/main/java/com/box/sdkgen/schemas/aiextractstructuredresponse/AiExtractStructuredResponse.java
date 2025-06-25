@@ -1,15 +1,18 @@
 package com.box.sdkgen.schemas.aiextractstructuredresponse;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.aiagentinfo.AiAgentInfo;
 import com.box.sdkgen.schemas.aiextractresponse.AiExtractResponse;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiExtractStructuredResponse extends SerializableObject {
 
   protected final AiExtractResponse answer;
@@ -39,6 +42,7 @@ public class AiExtractStructuredResponse extends SerializableObject {
     this.createdAt = builder.createdAt;
     this.completionReason = builder.completionReason;
     this.aiAgentInfo = builder.aiAgentInfo;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public AiExtractResponse getAnswer() {
@@ -98,7 +102,7 @@ public class AiExtractStructuredResponse extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final AiExtractResponse answer;
 
@@ -109,6 +113,7 @@ public class AiExtractStructuredResponse extends SerializableObject {
     protected AiAgentInfo aiAgentInfo;
 
     public Builder(AiExtractResponse answer, Date createdAt) {
+      super();
       this.answer = answer;
       this.createdAt = createdAt;
     }

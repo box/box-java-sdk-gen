@@ -1,9 +1,12 @@
 package com.box.sdkgen.managers.folders;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateFolderByIdRequestBodyParentField extends SerializableObject {
 
   protected String id;
@@ -19,6 +22,7 @@ public class UpdateFolderByIdRequestBodyParentField extends SerializableObject {
     super();
     this.id = builder.id;
     this.userId = builder.userId;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getId() {
@@ -59,7 +63,7 @@ public class UpdateFolderByIdRequestBodyParentField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String id;
 

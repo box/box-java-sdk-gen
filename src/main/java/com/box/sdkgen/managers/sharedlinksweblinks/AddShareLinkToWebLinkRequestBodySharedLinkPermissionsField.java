@@ -1,9 +1,12 @@
 package com.box.sdkgen.managers.sharedlinksweblinks;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AddShareLinkToWebLinkRequestBodySharedLinkPermissionsField extends SerializableObject {
 
   @JsonProperty("can_download")
@@ -24,6 +27,7 @@ public class AddShareLinkToWebLinkRequestBodySharedLinkPermissionsField extends 
     this.canDownload = builder.canDownload;
     this.canPreview = builder.canPreview;
     this.canEdit = builder.canEdit;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Boolean getCanDownload() {
@@ -75,7 +79,7 @@ public class AddShareLinkToWebLinkRequestBodySharedLinkPermissionsField extends 
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Boolean canDownload;
 

@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.v2025r0.shieldlistminiv2025r0;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ShieldListMiniV2025R0ContentField extends SerializableObject {
 
   protected String type;
@@ -14,6 +17,7 @@ public class ShieldListMiniV2025R0ContentField extends SerializableObject {
   protected ShieldListMiniV2025R0ContentField(Builder builder) {
     super();
     this.type = builder.type;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getType() {
@@ -42,7 +46,7 @@ public class ShieldListMiniV2025R0ContentField extends SerializableObject {
     return "ShieldListMiniV2025R0ContentField{" + "type='" + type + '\'' + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String type;
 

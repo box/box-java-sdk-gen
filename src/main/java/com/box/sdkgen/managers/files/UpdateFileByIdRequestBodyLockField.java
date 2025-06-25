@@ -1,14 +1,17 @@
 package com.box.sdkgen.managers.files;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UpdateFileByIdRequestBodyLockField extends SerializableObject {
 
   @JsonDeserialize(
@@ -38,6 +41,7 @@ public class UpdateFileByIdRequestBodyLockField extends SerializableObject {
     this.access = builder.access;
     this.expiresAt = builder.expiresAt;
     this.isDownloadPrevented = builder.isDownloadPrevented;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<UpdateFileByIdRequestBodyLockAccessField> getAccess() {
@@ -88,7 +92,7 @@ public class UpdateFileByIdRequestBodyLockField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<UpdateFileByIdRequestBodyLockAccessField> access;
 

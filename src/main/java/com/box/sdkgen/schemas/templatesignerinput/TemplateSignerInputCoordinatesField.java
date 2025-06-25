@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.templatesignerinput;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TemplateSignerInputCoordinatesField extends SerializableObject {
 
   protected Double x;
@@ -17,6 +20,7 @@ public class TemplateSignerInputCoordinatesField extends SerializableObject {
     super();
     this.x = builder.x;
     this.y = builder.y;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Double getX() {
@@ -57,7 +61,7 @@ public class TemplateSignerInputCoordinatesField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Double x;
 

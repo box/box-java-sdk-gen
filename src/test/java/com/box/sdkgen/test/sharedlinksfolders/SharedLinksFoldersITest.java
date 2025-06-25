@@ -17,6 +17,8 @@ import com.box.sdkgen.managers.sharedlinksfolders.AddShareLinkToFolderRequestBod
 import com.box.sdkgen.managers.sharedlinksfolders.FindFolderForSharedLinkHeaders;
 import com.box.sdkgen.managers.sharedlinksfolders.FindFolderForSharedLinkQueryParams;
 import com.box.sdkgen.managers.sharedlinksfolders.GetSharedLinkForFolderQueryParams;
+import com.box.sdkgen.managers.sharedlinksfolders.RemoveSharedLinkFromFolderQueryParams;
+import com.box.sdkgen.managers.sharedlinksfolders.RemoveSharedLinkFromFolderRequestBody;
 import com.box.sdkgen.managers.sharedlinksfolders.UpdateSharedLinkOnFolderQueryParams;
 import com.box.sdkgen.managers.sharedlinksfolders.UpdateSharedLinkOnFolderRequestBody;
 import com.box.sdkgen.managers.sharedlinksfolders.UpdateSharedLinkOnFolderRequestBodySharedLinkAccessField;
@@ -96,6 +98,18 @@ public class SharedLinksFoldersITest {
                     .build(),
                 new UpdateSharedLinkOnFolderQueryParams("shared_link"));
     assert convertToString(updatedFolder.getSharedLink().getAccess()).equals("collaborators");
+    client
+        .getSharedLinksFolders()
+        .removeSharedLinkFromFolder(
+            folder.getId(),
+            new RemoveSharedLinkFromFolderRequestBody.Builder().sharedLink(null).build(),
+            new RemoveSharedLinkFromFolderQueryParams("shared_link"));
+    FolderFull folderFromApiAfterRemove =
+        client
+            .getSharedLinksFolders()
+            .getSharedLinkForFolder(
+                folder.getId(), new GetSharedLinkForFolderQueryParams("shared_link"));
+    assert folderFromApiAfterRemove.getSharedLink() == null;
     client.getFolders().deleteFolderById(folder.getId());
   }
 }

@@ -1,13 +1,17 @@
 package com.box.sdkgen.schemas.v2025r0.clienterrorv2025r0;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Map;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ClientErrorV2025R0 extends SerializableObject {
 
   @JsonDeserialize(
@@ -25,6 +29,7 @@ public class ClientErrorV2025R0 extends SerializableObject {
   protected String message;
 
   @JsonProperty("context_info")
+  @Nullable
   protected Map<String, Object> contextInfo;
 
   @JsonProperty("help_url")
@@ -46,6 +51,7 @@ public class ClientErrorV2025R0 extends SerializableObject {
     this.contextInfo = builder.contextInfo;
     this.helpUrl = builder.helpUrl;
     this.requestId = builder.requestId;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<ClientErrorV2025R0TypeField> getType() {
@@ -132,7 +138,7 @@ public class ClientErrorV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<ClientErrorV2025R0TypeField> type;
 
@@ -180,6 +186,7 @@ public class ClientErrorV2025R0 extends SerializableObject {
 
     public Builder contextInfo(Map<String, Object> contextInfo) {
       this.contextInfo = contextInfo;
+      this.markNullableFieldAsSet("context_info");
       return this;
     }
 

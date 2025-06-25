@@ -126,7 +126,10 @@ This operation is performed by calling function `updateFileVersionById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-versions-id/).
 
-*Currently we don't have an example for calling `updateFileVersionById` in integration tests*
+<!-- sample put_files_id_versions_id -->
+```
+client.getFileVersions().updateFileVersionById(file.getId(), fileVersion.getId(), new UpdateFileVersionByIdRequestBody.Builder().trashedAt(null).build())
+```
 
 ### Arguments
 

@@ -1,11 +1,14 @@
 package com.box.sdkgen.schemas.trackingcode;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TrackingCode extends SerializableObject {
 
   @JsonDeserialize(using = TrackingCodeTypeField.TrackingCodeTypeFieldDeserializer.class)
@@ -25,6 +28,7 @@ public class TrackingCode extends SerializableObject {
     this.type = builder.type;
     this.name = builder.name;
     this.value = builder.value;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<TrackingCodeTypeField> getType() {
@@ -75,7 +79,7 @@ public class TrackingCode extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<TrackingCodeTypeField> type;
 

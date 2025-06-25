@@ -1,9 +1,13 @@
 package com.box.sdkgen.schemas.v2025r0.hubcollaborationv2025r0;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class HubCollaborationV2025R0AcceptanceRequirementsStatusStrongPasswordRequirementField
     extends SerializableObject {
 
@@ -11,6 +15,7 @@ public class HubCollaborationV2025R0AcceptanceRequirementsStatusStrongPasswordRe
   protected Boolean enterpriseHasStrongPasswordRequiredForExternalUsers;
 
   @JsonProperty("user_has_strong_password")
+  @Nullable
   protected Boolean userHasStrongPassword;
 
   public HubCollaborationV2025R0AcceptanceRequirementsStatusStrongPasswordRequirementField() {
@@ -23,6 +28,7 @@ public class HubCollaborationV2025R0AcceptanceRequirementsStatusStrongPasswordRe
     this.enterpriseHasStrongPasswordRequiredForExternalUsers =
         builder.enterpriseHasStrongPasswordRequiredForExternalUsers;
     this.userHasStrongPassword = builder.userHasStrongPassword;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Boolean getEnterpriseHasStrongPasswordRequiredForExternalUsers() {
@@ -67,7 +73,7 @@ public class HubCollaborationV2025R0AcceptanceRequirementsStatusStrongPasswordRe
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Boolean enterpriseHasStrongPasswordRequiredForExternalUsers;
 
@@ -82,6 +88,7 @@ public class HubCollaborationV2025R0AcceptanceRequirementsStatusStrongPasswordRe
 
     public Builder userHasStrongPassword(Boolean userHasStrongPassword) {
       this.userHasStrongPassword = userHasStrongPassword;
+      this.markNullableFieldAsSet("user_has_strong_password");
       return this;
     }
 

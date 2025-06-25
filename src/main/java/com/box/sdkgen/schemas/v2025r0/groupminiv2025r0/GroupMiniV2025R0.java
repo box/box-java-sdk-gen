@@ -3,11 +3,13 @@ package com.box.sdkgen.schemas.v2025r0.groupminiv2025r0;
 import com.box.sdkgen.schemas.v2025r0.groupbasev2025r0.GroupBaseV2025R0;
 import com.box.sdkgen.schemas.v2025r0.groupbasev2025r0.GroupBaseV2025R0TypeField;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class GroupMiniV2025R0 extends GroupBaseV2025R0 {
 
   protected String name;
@@ -27,6 +29,7 @@ public class GroupMiniV2025R0 extends GroupBaseV2025R0 {
     super(builder);
     this.name = builder.name;
     this.groupType = builder.groupType;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {

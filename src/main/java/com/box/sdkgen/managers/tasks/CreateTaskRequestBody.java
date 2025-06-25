@@ -1,14 +1,17 @@
 package com.box.sdkgen.managers.tasks;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateTaskRequestBody extends SerializableObject {
 
   protected final CreateTaskRequestBodyItemField item;
@@ -49,6 +52,7 @@ public class CreateTaskRequestBody extends SerializableObject {
     this.message = builder.message;
     this.dueAt = builder.dueAt;
     this.completionRule = builder.completionRule;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public CreateTaskRequestBodyItemField getItem() {
@@ -117,7 +121,7 @@ public class CreateTaskRequestBody extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final CreateTaskRequestBodyItemField item;
 
@@ -130,6 +134,7 @@ public class CreateTaskRequestBody extends SerializableObject {
     protected EnumWrapper<CreateTaskRequestBodyCompletionRuleField> completionRule;
 
     public Builder(CreateTaskRequestBodyItemField item) {
+      super();
       this.item = item;
     }
 

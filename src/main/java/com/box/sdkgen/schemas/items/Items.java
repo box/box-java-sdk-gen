@@ -1,19 +1,25 @@
 package com.box.sdkgen.schemas.items;
 
+import com.box.sdkgen.internal.Nullable;
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.filefullorfolderfullorweblink.FileFullOrFolderFullOrWebLink;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class Items extends SerializableObject {
 
   protected Long limit;
 
   @JsonProperty("next_marker")
+  @Nullable
   protected String nextMarker;
 
   @JsonProperty("prev_marker")
+  @Nullable
   protected String prevMarker;
 
   @JsonProperty("total_count")
@@ -38,6 +44,7 @@ public class Items extends SerializableObject {
     this.offset = builder.offset;
     this.order = builder.order;
     this.entries = builder.entries;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Long getLimit() {
@@ -124,7 +131,7 @@ public class Items extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Long limit;
 
@@ -147,11 +154,13 @@ public class Items extends SerializableObject {
 
     public Builder nextMarker(String nextMarker) {
       this.nextMarker = nextMarker;
+      this.markNullableFieldAsSet("next_marker");
       return this;
     }
 
     public Builder prevMarker(String prevMarker) {
       this.prevMarker = prevMarker;
+      this.markNullableFieldAsSet("prev_marker");
       return this;
     }
 

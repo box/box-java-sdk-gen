@@ -1,10 +1,13 @@
 package com.box.sdkgen.schemas.v2025r0.shieldlistscreatev2025r0;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.v2025r0.shieldlistcontentrequestv2025r0.ShieldListContentRequestV2025R0;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class ShieldListsCreateV2025R0 extends SerializableObject {
 
   protected final String name;
@@ -26,6 +29,7 @@ public class ShieldListsCreateV2025R0 extends SerializableObject {
     this.name = builder.name;
     this.description = builder.description;
     this.content = builder.content;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {
@@ -76,7 +80,7 @@ public class ShieldListsCreateV2025R0 extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected final String name;
 
@@ -85,6 +89,7 @@ public class ShieldListsCreateV2025R0 extends SerializableObject {
     protected final ShieldListContentRequestV2025R0 content;
 
     public Builder(String name, ShieldListContentRequestV2025R0 content) {
+      super();
       this.name = name;
       this.content = content;
     }

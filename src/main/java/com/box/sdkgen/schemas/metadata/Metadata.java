@@ -1,8 +1,10 @@
 package com.box.sdkgen.schemas.metadata;
 
 import com.box.sdkgen.schemas.metadatabase.MetadataBase;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class Metadata extends MetadataBase {
 
   public Metadata() {
@@ -11,6 +13,7 @@ public class Metadata extends MetadataBase {
 
   protected Metadata(Builder builder) {
     super(builder);
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   @Override

@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.templatesignerinput;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class TemplateSignerInputDimensionsField extends SerializableObject {
 
   protected Double width;
@@ -17,6 +20,7 @@ public class TemplateSignerInputDimensionsField extends SerializableObject {
     super();
     this.width = builder.width;
     this.height = builder.height;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public Double getWidth() {
@@ -57,7 +61,7 @@ public class TemplateSignerInputDimensionsField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected Double width;
 

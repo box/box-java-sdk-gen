@@ -1,8 +1,11 @@
 package com.box.sdkgen.schemas.useravatar;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UserAvatarPicUrlsField extends SerializableObject {
 
   protected String small;
@@ -20,6 +23,7 @@ public class UserAvatarPicUrlsField extends SerializableObject {
     this.small = builder.small;
     this.large = builder.large;
     this.preview = builder.preview;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getSmall() {
@@ -70,7 +74,7 @@ public class UserAvatarPicUrlsField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String small;
 

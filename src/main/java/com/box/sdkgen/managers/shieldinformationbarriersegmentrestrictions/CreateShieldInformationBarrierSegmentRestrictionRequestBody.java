@@ -1,13 +1,16 @@
 package com.box.sdkgen.managers.shieldinformationbarriersegmentrestrictions;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.shieldinformationbarrierbase.ShieldInformationBarrierBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class CreateShieldInformationBarrierSegmentRestrictionRequestBody
     extends SerializableObject {
 
@@ -56,6 +59,7 @@ public class CreateShieldInformationBarrierSegmentRestrictionRequestBody
     this.shieldInformationBarrier = builder.shieldInformationBarrier;
     this.shieldInformationBarrierSegment = builder.shieldInformationBarrierSegment;
     this.restrictedSegment = builder.restrictedSegment;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public EnumWrapper<CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField>
@@ -121,7 +125,7 @@ public class CreateShieldInformationBarrierSegmentRestrictionRequestBody
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected EnumWrapper<CreateShieldInformationBarrierSegmentRestrictionRequestBodyTypeField>
         type;
@@ -141,6 +145,7 @@ public class CreateShieldInformationBarrierSegmentRestrictionRequestBody
             shieldInformationBarrierSegment,
         CreateShieldInformationBarrierSegmentRestrictionRequestBodyRestrictedSegmentField
             restrictedSegment) {
+      super();
       this.shieldInformationBarrierSegment = shieldInformationBarrierSegment;
       this.restrictedSegment = restrictedSegment;
       this.type =

@@ -1,8 +1,10 @@
 package com.box.sdkgen.schemas.uploadpart;
 
 import com.box.sdkgen.schemas.uploadpartmini.UploadPartMini;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UploadPart extends UploadPartMini {
 
   protected String sha1;
@@ -14,6 +16,7 @@ public class UploadPart extends UploadPartMini {
   protected UploadPart(Builder builder) {
     super(builder);
     this.sha1 = builder.sha1;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getSha1() {

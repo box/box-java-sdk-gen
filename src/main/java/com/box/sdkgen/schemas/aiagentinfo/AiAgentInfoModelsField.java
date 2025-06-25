@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.aiagentinfo;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiAgentInfoModelsField extends SerializableObject {
 
   protected String name;
@@ -22,6 +25,7 @@ public class AiAgentInfoModelsField extends SerializableObject {
     this.name = builder.name;
     this.provider = builder.provider;
     this.supportedPurpose = builder.supportedPurpose;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getName() {
@@ -72,7 +76,7 @@ public class AiAgentInfoModelsField extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String name;
 

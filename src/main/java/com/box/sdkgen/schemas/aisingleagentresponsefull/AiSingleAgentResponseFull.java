@@ -8,11 +8,13 @@ import com.box.sdkgen.schemas.aistudioagentextractresponse.AiStudioAgentExtractR
 import com.box.sdkgen.schemas.aistudioagenttextgenresponse.AiStudioAgentTextGenResponse;
 import com.box.sdkgen.schemas.userbase.UserBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiSingleAgentResponseFull extends AiSingleAgentResponse {
 
   protected AiStudioAgentAskResponse ask;
@@ -35,6 +37,7 @@ public class AiSingleAgentResponseFull extends AiSingleAgentResponse {
     this.ask = builder.ask;
     this.textGen = builder.textGen;
     this.extract = builder.extract;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public AiStudioAgentAskResponse getAsk() {

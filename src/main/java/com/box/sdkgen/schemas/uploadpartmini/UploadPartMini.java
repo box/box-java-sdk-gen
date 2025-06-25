@@ -1,9 +1,12 @@
 package com.box.sdkgen.schemas.uploadpartmini;
 
+import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class UploadPartMini extends SerializableObject {
 
   @JsonProperty("part_id")
@@ -22,6 +25,7 @@ public class UploadPartMini extends SerializableObject {
     this.partId = builder.partId;
     this.offset = builder.offset;
     this.size = builder.size;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getPartId() {
@@ -72,7 +76,7 @@ public class UploadPartMini extends SerializableObject {
         + "}";
   }
 
-  public static class Builder {
+  public static class Builder extends NullableFieldTracker {
 
     protected String partId;
 

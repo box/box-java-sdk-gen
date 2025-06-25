@@ -3,9 +3,11 @@ package com.box.sdkgen.schemas.aiagentbasicgentool;
 import com.box.sdkgen.schemas.aiagentlongtexttooltextgen.AiAgentLongTextToolTextGen;
 import com.box.sdkgen.schemas.aiagentlongtexttooltextgen.AiAgentLongTextToolTextGenEmbeddingsField;
 import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
+@JsonFilter("nullablePropertyFilter")
 public class AiAgentBasicGenTool extends AiAgentLongTextToolTextGen {
 
   @JsonProperty("content_template")
@@ -18,6 +20,7 @@ public class AiAgentBasicGenTool extends AiAgentLongTextToolTextGen {
   protected AiAgentBasicGenTool(Builder builder) {
     super(builder);
     this.contentTemplate = builder.contentTemplate;
+    markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
   public String getContentTemplate() {
