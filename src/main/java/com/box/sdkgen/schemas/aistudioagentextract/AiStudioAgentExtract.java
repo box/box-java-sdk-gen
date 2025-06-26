@@ -36,6 +36,9 @@ public class AiStudioAgentExtract extends SerializableObject {
   @JsonProperty("basic_text")
   protected AiStudioAgentBasicTextTool basicText;
 
+  @JsonProperty("basic_image")
+  protected AiStudioAgentBasicTextTool basicImage;
+
   public AiStudioAgentExtract(
       @JsonProperty("access_state") String accessState,
       @JsonProperty("description") String description) {
@@ -55,6 +58,7 @@ public class AiStudioAgentExtract extends SerializableObject {
     this.customInstructions = builder.customInstructions;
     this.longText = builder.longText;
     this.basicText = builder.basicText;
+    this.basicImage = builder.basicImage;
     markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
@@ -82,6 +86,10 @@ public class AiStudioAgentExtract extends SerializableObject {
     return basicText;
   }
 
+  public AiStudioAgentBasicTextTool getBasicImage() {
+    return basicImage;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -96,12 +104,14 @@ public class AiStudioAgentExtract extends SerializableObject {
         && Objects.equals(description, casted.description)
         && Objects.equals(customInstructions, casted.customInstructions)
         && Objects.equals(longText, casted.longText)
-        && Objects.equals(basicText, casted.basicText);
+        && Objects.equals(basicText, casted.basicText)
+        && Objects.equals(basicImage, casted.basicImage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, accessState, description, customInstructions, longText, basicText);
+    return Objects.hash(
+        type, accessState, description, customInstructions, longText, basicText, basicImage);
   }
 
   @Override
@@ -130,6 +140,10 @@ public class AiStudioAgentExtract extends SerializableObject {
         + "basicText='"
         + basicText
         + '\''
+        + ", "
+        + "basicImage='"
+        + basicImage
+        + '\''
         + "}";
   }
 
@@ -146,6 +160,8 @@ public class AiStudioAgentExtract extends SerializableObject {
     protected AiStudioAgentLongTextTool longText;
 
     protected AiStudioAgentBasicTextTool basicText;
+
+    protected AiStudioAgentBasicTextTool basicImage;
 
     public Builder(String accessState, String description) {
       super();
@@ -179,6 +195,11 @@ public class AiStudioAgentExtract extends SerializableObject {
 
     public Builder basicText(AiStudioAgentBasicTextTool basicText) {
       this.basicText = basicText;
+      return this;
+    }
+
+    public Builder basicImage(AiStudioAgentBasicTextTool basicImage) {
+      this.basicImage = basicImage;
       return this;
     }
 
