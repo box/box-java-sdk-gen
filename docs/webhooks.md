@@ -6,6 +6,7 @@
 - [Get webhook](#get-webhook)
 - [Update webhook](#update-webhook)
 - [Remove webhook](#remove-webhook)
+- [Validate a webhook message](#validate-a-webhook-message)
 
 ## List all webhooks
 
@@ -158,5 +159,38 @@ This function returns a value of type `void`.
 
 An empty response will be returned when the webhook
 was successfully deleted.
+
+
+## Validate a webhook message
+
+Validate a webhook message by verifying the signature and the delivery timestamp
+
+This operation is performed by calling function `validateMessage`.
+
+
+
+```
+WebhooksManager.validateMessage(body, headersWithCorrectDatetime, primaryKey, secondaryKey)
+```
+
+### Arguments
+
+- body `String`
+  - The request body of the webhook message
+- headers `Map<String, String>`
+  - The headers of the webhook message
+- primaryKey `String`
+  - The primary signature to verify the message with
+- secondaryKey `String`
+  - The secondary signature to verify the message with
+- maxAge `Integer`
+  - The maximum age of the message in seconds, defaults to 10 minutes
+
+
+### Returns
+
+This function returns a value of type `boolean`.
+
+
 
 
