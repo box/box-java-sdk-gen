@@ -4,6 +4,7 @@ import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aiagentbasictexttool.AiAgentBasicTextTool;
 import com.box.sdkgen.schemas.aiagentlongtexttool.AiAgentLongTextTool;
+import com.box.sdkgen.schemas.aiagentspreadsheettool.AiAgentSpreadsheetTool;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +24,8 @@ public class AiAgentAsk extends SerializableObject {
 
   @JsonProperty("basic_text")
   protected AiAgentBasicTextTool basicText;
+
+  protected AiAgentSpreadsheetTool spreadsheet;
 
   @JsonProperty("long_text_multi")
   protected AiAgentLongTextTool longTextMulti;
@@ -46,6 +49,7 @@ public class AiAgentAsk extends SerializableObject {
     this.type = builder.type;
     this.longText = builder.longText;
     this.basicText = builder.basicText;
+    this.spreadsheet = builder.spreadsheet;
     this.longTextMulti = builder.longTextMulti;
     this.basicTextMulti = builder.basicTextMulti;
     this.basicImage = builder.basicImage;
@@ -63,6 +67,10 @@ public class AiAgentAsk extends SerializableObject {
 
   public AiAgentBasicTextTool getBasicText() {
     return basicText;
+  }
+
+  public AiAgentSpreadsheetTool getSpreadsheet() {
+    return spreadsheet;
   }
 
   public AiAgentLongTextTool getLongTextMulti() {
@@ -93,6 +101,7 @@ public class AiAgentAsk extends SerializableObject {
     return Objects.equals(type, casted.type)
         && Objects.equals(longText, casted.longText)
         && Objects.equals(basicText, casted.basicText)
+        && Objects.equals(spreadsheet, casted.spreadsheet)
         && Objects.equals(longTextMulti, casted.longTextMulti)
         && Objects.equals(basicTextMulti, casted.basicTextMulti)
         && Objects.equals(basicImage, casted.basicImage)
@@ -102,7 +111,14 @@ public class AiAgentAsk extends SerializableObject {
   @Override
   public int hashCode() {
     return Objects.hash(
-        type, longText, basicText, longTextMulti, basicTextMulti, basicImage, basicImageMulti);
+        type,
+        longText,
+        basicText,
+        spreadsheet,
+        longTextMulti,
+        basicTextMulti,
+        basicImage,
+        basicImageMulti);
   }
 
   @Override
@@ -118,6 +134,10 @@ public class AiAgentAsk extends SerializableObject {
         + ", "
         + "basicText='"
         + basicText
+        + '\''
+        + ", "
+        + "spreadsheet='"
+        + spreadsheet
         + '\''
         + ", "
         + "longTextMulti='"
@@ -145,6 +165,8 @@ public class AiAgentAsk extends SerializableObject {
     protected AiAgentLongTextTool longText;
 
     protected AiAgentBasicTextTool basicText;
+
+    protected AiAgentSpreadsheetTool spreadsheet;
 
     protected AiAgentLongTextTool longTextMulti;
 
@@ -176,6 +198,11 @@ public class AiAgentAsk extends SerializableObject {
 
     public Builder basicText(AiAgentBasicTextTool basicText) {
       this.basicText = basicText;
+      return this;
+    }
+
+    public Builder spreadsheet(AiAgentSpreadsheetTool spreadsheet) {
+      this.spreadsheet = spreadsheet;
       return this;
     }
 
