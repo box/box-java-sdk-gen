@@ -6,11 +6,19 @@ import java.util.List;
 
 public interface Authentication {
 
+  AccessToken retrieveToken();
+
   AccessToken retrieveToken(NetworkSession networkSession);
+
+  AccessToken refreshToken();
 
   AccessToken refreshToken(NetworkSession networkSession);
 
+  String retrieveAuthorizationHeader();
+
   String retrieveAuthorizationHeader(NetworkSession networkSession);
+
+  void revokeToken();
 
   void revokeToken(NetworkSession networkSession);
 

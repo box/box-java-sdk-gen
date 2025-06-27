@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.List;
 import java.util.Objects;
 
 @JsonFilter("nullablePropertyFilter")
@@ -28,6 +29,9 @@ public class AiStudioAgentTextGen extends SerializableObject {
   @JsonProperty("custom_instructions")
   @Nullable
   protected String customInstructions;
+
+  @JsonProperty("suggested_questions")
+  protected List<String> suggestedQuestions;
 
   @JsonProperty("basic_gen")
   protected AiStudioAgentBasicGenTool basicGen;
@@ -49,6 +53,7 @@ public class AiStudioAgentTextGen extends SerializableObject {
     this.accessState = builder.accessState;
     this.description = builder.description;
     this.customInstructions = builder.customInstructions;
+    this.suggestedQuestions = builder.suggestedQuestions;
     this.basicGen = builder.basicGen;
     markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
@@ -69,6 +74,10 @@ public class AiStudioAgentTextGen extends SerializableObject {
     return customInstructions;
   }
 
+  public List<String> getSuggestedQuestions() {
+    return suggestedQuestions;
+  }
+
   public AiStudioAgentBasicGenTool getBasicGen() {
     return basicGen;
   }
@@ -86,12 +95,14 @@ public class AiStudioAgentTextGen extends SerializableObject {
         && Objects.equals(accessState, casted.accessState)
         && Objects.equals(description, casted.description)
         && Objects.equals(customInstructions, casted.customInstructions)
+        && Objects.equals(suggestedQuestions, casted.suggestedQuestions)
         && Objects.equals(basicGen, casted.basicGen);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, accessState, description, customInstructions, basicGen);
+    return Objects.hash(
+        type, accessState, description, customInstructions, suggestedQuestions, basicGen);
   }
 
   @Override
@@ -113,6 +124,10 @@ public class AiStudioAgentTextGen extends SerializableObject {
         + customInstructions
         + '\''
         + ", "
+        + "suggestedQuestions='"
+        + suggestedQuestions
+        + '\''
+        + ", "
         + "basicGen='"
         + basicGen
         + '\''
@@ -128,6 +143,8 @@ public class AiStudioAgentTextGen extends SerializableObject {
     protected final String description;
 
     protected String customInstructions;
+
+    protected List<String> suggestedQuestions;
 
     protected AiStudioAgentBasicGenTool basicGen;
 
@@ -153,6 +170,11 @@ public class AiStudioAgentTextGen extends SerializableObject {
     public Builder customInstructions(String customInstructions) {
       this.customInstructions = customInstructions;
       this.markNullableFieldAsSet("custom_instructions");
+      return this;
+    }
+
+    public Builder suggestedQuestions(List<String> suggestedQuestions) {
+      this.suggestedQuestions = suggestedQuestions;
       return this;
     }
 

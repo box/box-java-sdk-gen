@@ -5,11 +5,13 @@ import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aistudioagentbasictexttool.AiStudioAgentBasicTextTool;
 import com.box.sdkgen.schemas.aistudioagentlongtexttool.AiStudioAgentLongTextTool;
+import com.box.sdkgen.schemas.aistudioagentspreadsheettool.AiStudioAgentSpreadsheetTool;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.List;
 import java.util.Objects;
 
 @JsonFilter("nullablePropertyFilter")
@@ -28,17 +30,28 @@ public class AiStudioAgentAsk extends SerializableObject {
   @Nullable
   protected String customInstructions;
 
+  @JsonProperty("suggested_questions")
+  protected List<String> suggestedQuestions;
+
   @JsonProperty("long_text")
   protected AiStudioAgentLongTextTool longText;
 
   @JsonProperty("basic_text")
   protected AiStudioAgentBasicTextTool basicText;
 
+  @JsonProperty("basic_image")
+  protected AiStudioAgentBasicTextTool basicImage;
+
+  protected AiStudioAgentSpreadsheetTool spreadsheet;
+
   @JsonProperty("long_text_multi")
   protected AiStudioAgentLongTextTool longTextMulti;
 
   @JsonProperty("basic_text_multi")
   protected AiStudioAgentBasicTextTool basicTextMulti;
+
+  @JsonProperty("basic_image_multi")
+  protected AiStudioAgentBasicTextTool basicImageMulti;
 
   public AiStudioAgentAsk(
       @JsonProperty("access_state") String accessState,
@@ -55,10 +68,14 @@ public class AiStudioAgentAsk extends SerializableObject {
     this.accessState = builder.accessState;
     this.description = builder.description;
     this.customInstructions = builder.customInstructions;
+    this.suggestedQuestions = builder.suggestedQuestions;
     this.longText = builder.longText;
     this.basicText = builder.basicText;
+    this.basicImage = builder.basicImage;
+    this.spreadsheet = builder.spreadsheet;
     this.longTextMulti = builder.longTextMulti;
     this.basicTextMulti = builder.basicTextMulti;
+    this.basicImageMulti = builder.basicImageMulti;
     markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
@@ -78,6 +95,10 @@ public class AiStudioAgentAsk extends SerializableObject {
     return customInstructions;
   }
 
+  public List<String> getSuggestedQuestions() {
+    return suggestedQuestions;
+  }
+
   public AiStudioAgentLongTextTool getLongText() {
     return longText;
   }
@@ -86,12 +107,24 @@ public class AiStudioAgentAsk extends SerializableObject {
     return basicText;
   }
 
+  public AiStudioAgentBasicTextTool getBasicImage() {
+    return basicImage;
+  }
+
+  public AiStudioAgentSpreadsheetTool getSpreadsheet() {
+    return spreadsheet;
+  }
+
   public AiStudioAgentLongTextTool getLongTextMulti() {
     return longTextMulti;
   }
 
   public AiStudioAgentBasicTextTool getBasicTextMulti() {
     return basicTextMulti;
+  }
+
+  public AiStudioAgentBasicTextTool getBasicImageMulti() {
+    return basicImageMulti;
   }
 
   @Override
@@ -107,10 +140,14 @@ public class AiStudioAgentAsk extends SerializableObject {
         && Objects.equals(accessState, casted.accessState)
         && Objects.equals(description, casted.description)
         && Objects.equals(customInstructions, casted.customInstructions)
+        && Objects.equals(suggestedQuestions, casted.suggestedQuestions)
         && Objects.equals(longText, casted.longText)
         && Objects.equals(basicText, casted.basicText)
+        && Objects.equals(basicImage, casted.basicImage)
+        && Objects.equals(spreadsheet, casted.spreadsheet)
         && Objects.equals(longTextMulti, casted.longTextMulti)
-        && Objects.equals(basicTextMulti, casted.basicTextMulti);
+        && Objects.equals(basicTextMulti, casted.basicTextMulti)
+        && Objects.equals(basicImageMulti, casted.basicImageMulti);
   }
 
   @Override
@@ -120,10 +157,14 @@ public class AiStudioAgentAsk extends SerializableObject {
         accessState,
         description,
         customInstructions,
+        suggestedQuestions,
         longText,
         basicText,
+        basicImage,
+        spreadsheet,
         longTextMulti,
-        basicTextMulti);
+        basicTextMulti,
+        basicImageMulti);
   }
 
   @Override
@@ -145,6 +186,10 @@ public class AiStudioAgentAsk extends SerializableObject {
         + customInstructions
         + '\''
         + ", "
+        + "suggestedQuestions='"
+        + suggestedQuestions
+        + '\''
+        + ", "
         + "longText='"
         + longText
         + '\''
@@ -153,12 +198,24 @@ public class AiStudioAgentAsk extends SerializableObject {
         + basicText
         + '\''
         + ", "
+        + "basicImage='"
+        + basicImage
+        + '\''
+        + ", "
+        + "spreadsheet='"
+        + spreadsheet
+        + '\''
+        + ", "
         + "longTextMulti='"
         + longTextMulti
         + '\''
         + ", "
         + "basicTextMulti='"
         + basicTextMulti
+        + '\''
+        + ", "
+        + "basicImageMulti='"
+        + basicImageMulti
         + '\''
         + "}";
   }
@@ -173,13 +230,21 @@ public class AiStudioAgentAsk extends SerializableObject {
 
     protected String customInstructions;
 
+    protected List<String> suggestedQuestions;
+
     protected AiStudioAgentLongTextTool longText;
 
     protected AiStudioAgentBasicTextTool basicText;
 
+    protected AiStudioAgentBasicTextTool basicImage;
+
+    protected AiStudioAgentSpreadsheetTool spreadsheet;
+
     protected AiStudioAgentLongTextTool longTextMulti;
 
     protected AiStudioAgentBasicTextTool basicTextMulti;
+
+    protected AiStudioAgentBasicTextTool basicImageMulti;
 
     public Builder(String accessState, String description) {
       super();
@@ -205,6 +270,11 @@ public class AiStudioAgentAsk extends SerializableObject {
       return this;
     }
 
+    public Builder suggestedQuestions(List<String> suggestedQuestions) {
+      this.suggestedQuestions = suggestedQuestions;
+      return this;
+    }
+
     public Builder longText(AiStudioAgentLongTextTool longText) {
       this.longText = longText;
       return this;
@@ -215,6 +285,16 @@ public class AiStudioAgentAsk extends SerializableObject {
       return this;
     }
 
+    public Builder basicImage(AiStudioAgentBasicTextTool basicImage) {
+      this.basicImage = basicImage;
+      return this;
+    }
+
+    public Builder spreadsheet(AiStudioAgentSpreadsheetTool spreadsheet) {
+      this.spreadsheet = spreadsheet;
+      return this;
+    }
+
     public Builder longTextMulti(AiStudioAgentLongTextTool longTextMulti) {
       this.longTextMulti = longTextMulti;
       return this;
@@ -222,6 +302,11 @@ public class AiStudioAgentAsk extends SerializableObject {
 
     public Builder basicTextMulti(AiStudioAgentBasicTextTool basicTextMulti) {
       this.basicTextMulti = basicTextMulti;
+      return this;
+    }
+
+    public Builder basicImageMulti(AiStudioAgentBasicTextTool basicImageMulti) {
+      this.basicImageMulti = basicImageMulti;
       return this;
     }
 

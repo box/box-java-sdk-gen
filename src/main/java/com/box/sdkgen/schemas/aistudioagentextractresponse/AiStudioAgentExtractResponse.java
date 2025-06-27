@@ -40,6 +40,9 @@ public class AiStudioAgentExtractResponse extends SerializableObject {
   @JsonProperty("basic_text")
   protected AiStudioAgentBasicTextToolResponse basicText;
 
+  @JsonProperty("basic_image")
+  protected AiStudioAgentBasicTextToolResponse basicImage;
+
   public AiStudioAgentExtractResponse(
       @JsonProperty("access_state") String accessState,
       @JsonProperty("description") String description) {
@@ -59,6 +62,7 @@ public class AiStudioAgentExtractResponse extends SerializableObject {
     this.customInstructions = builder.customInstructions;
     this.longText = builder.longText;
     this.basicText = builder.basicText;
+    this.basicImage = builder.basicImage;
     markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
@@ -86,6 +90,10 @@ public class AiStudioAgentExtractResponse extends SerializableObject {
     return basicText;
   }
 
+  public AiStudioAgentBasicTextToolResponse getBasicImage() {
+    return basicImage;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -100,12 +108,14 @@ public class AiStudioAgentExtractResponse extends SerializableObject {
         && Objects.equals(description, casted.description)
         && Objects.equals(customInstructions, casted.customInstructions)
         && Objects.equals(longText, casted.longText)
-        && Objects.equals(basicText, casted.basicText);
+        && Objects.equals(basicText, casted.basicText)
+        && Objects.equals(basicImage, casted.basicImage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, accessState, description, customInstructions, longText, basicText);
+    return Objects.hash(
+        type, accessState, description, customInstructions, longText, basicText, basicImage);
   }
 
   @Override
@@ -134,6 +144,10 @@ public class AiStudioAgentExtractResponse extends SerializableObject {
         + "basicText='"
         + basicText
         + '\''
+        + ", "
+        + "basicImage='"
+        + basicImage
+        + '\''
         + "}";
   }
 
@@ -150,6 +164,8 @@ public class AiStudioAgentExtractResponse extends SerializableObject {
     protected AiStudioAgentLongTextToolResponse longText;
 
     protected AiStudioAgentBasicTextToolResponse basicText;
+
+    protected AiStudioAgentBasicTextToolResponse basicImage;
 
     public Builder(String accessState, String description) {
       super();
@@ -183,6 +199,11 @@ public class AiStudioAgentExtractResponse extends SerializableObject {
 
     public Builder basicText(AiStudioAgentBasicTextToolResponse basicText) {
       this.basicText = basicText;
+      return this;
+    }
+
+    public Builder basicImage(AiStudioAgentBasicTextToolResponse basicImage) {
+      this.basicImage = basicImage;
       return this;
     }
 
