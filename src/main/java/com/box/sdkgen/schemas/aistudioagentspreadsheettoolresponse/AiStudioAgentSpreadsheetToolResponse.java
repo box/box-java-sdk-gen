@@ -1,5 +1,6 @@
 package com.box.sdkgen.schemas.aistudioagentspreadsheettoolresponse;
 
+import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
 import com.box.sdkgen.schemas.aistudioagentspreadsheettool.AiStudioAgentSpreadsheetTool;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import java.util.List;
