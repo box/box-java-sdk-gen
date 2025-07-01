@@ -9,6 +9,7 @@ public class JwtSignOptions {
   protected String subject;
   protected String jwtid;
   protected String keyid;
+  protected PrivateKeyDecryptor privateKeyDecryptor;
 
   public JwtSignOptions(
       JwtAlgorithm algorithm,
@@ -17,12 +18,7 @@ public class JwtSignOptions {
       String subject,
       String jwtid,
       String keyid) {
-    this.algorithm = algorithm;
-    this.audience = audience;
-    this.issuer = issuer;
-    this.subject = subject;
-    this.jwtid = jwtid;
-    this.keyid = keyid;
+    this(algorithm, audience, issuer, subject, jwtid, keyid, new DefaultPrivateKeyDecryptor());
   }
 
   public JwtSignOptions(
@@ -32,12 +28,41 @@ public class JwtSignOptions {
       String subject,
       String jwtid,
       String keyid) {
+    this(algorithm, audience, issuer, subject, jwtid, keyid, new DefaultPrivateKeyDecryptor());
+  }
+
+  public JwtSignOptions(
+      JwtAlgorithm algorithm,
+      String audience,
+      String issuer,
+      String subject,
+      String jwtid,
+      String keyid,
+      PrivateKeyDecryptor privateKeyDecryptor) {
+    this.algorithm = algorithm;
+    this.audience = audience;
+    this.issuer = issuer;
+    this.subject = subject;
+    this.jwtid = jwtid;
+    this.keyid = keyid;
+    this.privateKeyDecryptor = privateKeyDecryptor;
+  }
+
+  public JwtSignOptions(
+      EnumWrapper<JwtAlgorithm> algorithm,
+      String audience,
+      String issuer,
+      String subject,
+      String jwtid,
+      String keyid,
+      PrivateKeyDecryptor privateKeyDecryptor) {
     this.algorithm = algorithm.getEnumValue();
     this.audience = audience;
     this.issuer = issuer;
     this.subject = subject;
     this.jwtid = jwtid;
     this.keyid = keyid;
+    this.privateKeyDecryptor = privateKeyDecryptor;
   }
 
   public JwtAlgorithm getAlgorithm() {
@@ -62,5 +87,9 @@ public class JwtSignOptions {
 
   public String getKeyid() {
     return keyid;
+  }
+
+  public PrivateKeyDecryptor getPrivateKeyDecryptor() {
+    return privateKeyDecryptor;
   }
 }

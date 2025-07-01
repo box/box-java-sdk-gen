@@ -5,7 +5,9 @@ import static com.box.sdkgen.serialization.json.JsonManager.jsonToSerializedData
 
 import com.box.sdkgen.box.tokenstorage.InMemoryTokenStorage;
 import com.box.sdkgen.box.tokenstorage.TokenStorage;
+import com.box.sdkgen.internal.utils.DefaultPrivateKeyDecryptor;
 import com.box.sdkgen.internal.utils.JwtAlgorithm;
+import com.box.sdkgen.internal.utils.PrivateKeyDecryptor;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.box.sdkgen.serialization.json.JsonManager;
 
@@ -29,6 +31,8 @@ public class JWTConfig {
 
   public TokenStorage tokenStorage;
 
+  public PrivateKeyDecryptor privateKeyDecryptor;
+
   public JWTConfig(
       String clientId,
       String clientSecret,
@@ -42,6 +46,7 @@ public class JWTConfig {
     this.privateKeyPassphrase = privateKeyPassphrase;
     this.algorithm = new EnumWrapper<JwtAlgorithm>(JwtAlgorithm.RS256);
     this.tokenStorage = new InMemoryTokenStorage();
+    this.privateKeyDecryptor = new DefaultPrivateKeyDecryptor();
   }
 
   protected JWTConfig(Builder builder) {
@@ -54,46 +59,62 @@ public class JWTConfig {
     this.userId = builder.userId;
     this.algorithm = builder.algorithm;
     this.tokenStorage = builder.tokenStorage;
+    this.privateKeyDecryptor = builder.privateKeyDecryptor;
   }
 
   public static JWTConfig fromConfigJsonString(String configJsonString) {
-    return fromConfigJsonString(configJsonString, null);
+    return fromConfigJsonString(configJsonString, null, null);
   }
 
   public static JWTConfig fromConfigJsonString(String configJsonString, TokenStorage tokenStorage) {
+    return fromConfigJsonString(configJsonString, tokenStorage, null);
+  }
+
+  public static JWTConfig fromConfigJsonString(
+      String configJsonString, PrivateKeyDecryptor privateKeyDecryptor) {
+    return fromConfigJsonString(configJsonString, null, privateKeyDecryptor);
+  }
+
+  public static JWTConfig fromConfigJsonString(
+      String configJsonString, TokenStorage tokenStorage, PrivateKeyDecryptor privateKeyDecryptor) {
     JwtConfigFile configJson =
         JsonManager.deserialize(jsonToSerializedData(configJsonString), JwtConfigFile.class);
+    TokenStorage tokenStorageToUse =
+        (tokenStorage == null ? new InMemoryTokenStorage() : tokenStorage);
+    PrivateKeyDecryptor privateKeyDecryptorToUse =
+        (privateKeyDecryptor == null ? new DefaultPrivateKeyDecryptor() : privateKeyDecryptor);
     JWTConfig newConfig =
-        (!(tokenStorage == null)
-            ? new JWTConfig.Builder(
-                    configJson.getBoxAppSettings().getClientId(),
-                    configJson.getBoxAppSettings().getClientSecret(),
-                    configJson.getBoxAppSettings().getAppAuth().getPublicKeyId(),
-                    configJson.getBoxAppSettings().getAppAuth().getPrivateKey(),
-                    configJson.getBoxAppSettings().getAppAuth().getPassphrase())
-                .enterpriseId(configJson.getEnterpriseId())
-                .userId(configJson.getUserId())
-                .tokenStorage(tokenStorage)
-                .build()
-            : new JWTConfig.Builder(
-                    configJson.getBoxAppSettings().getClientId(),
-                    configJson.getBoxAppSettings().getClientSecret(),
-                    configJson.getBoxAppSettings().getAppAuth().getPublicKeyId(),
-                    configJson.getBoxAppSettings().getAppAuth().getPrivateKey(),
-                    configJson.getBoxAppSettings().getAppAuth().getPassphrase())
-                .enterpriseId(configJson.getEnterpriseId())
-                .userId(configJson.getUserId())
-                .build());
+        new JWTConfig.Builder(
+                configJson.getBoxAppSettings().getClientId(),
+                configJson.getBoxAppSettings().getClientSecret(),
+                configJson.getBoxAppSettings().getAppAuth().getPublicKeyId(),
+                configJson.getBoxAppSettings().getAppAuth().getPrivateKey(),
+                configJson.getBoxAppSettings().getAppAuth().getPassphrase())
+            .enterpriseId(configJson.getEnterpriseId())
+            .userId(configJson.getUserId())
+            .tokenStorage(tokenStorageToUse)
+            .privateKeyDecryptor(privateKeyDecryptorToUse)
+            .build();
     return newConfig;
   }
 
   public static JWTConfig fromConfigFile(String configFilePath) {
-    return fromConfigFile(configFilePath, null);
+    return fromConfigFile(configFilePath, null, null);
   }
 
   public static JWTConfig fromConfigFile(String configFilePath, TokenStorage tokenStorage) {
+    return fromConfigFile(configFilePath, tokenStorage, null);
+  }
+
+  public static JWTConfig fromConfigFile(
+      String configFilePath, PrivateKeyDecryptor privateKeyDecryptor) {
+    return fromConfigFile(configFilePath, null, privateKeyDecryptor);
+  }
+
+  public static JWTConfig fromConfigFile(
+      String configFilePath, TokenStorage tokenStorage, PrivateKeyDecryptor privateKeyDecryptor) {
     String configJsonString = readTextFromFile(configFilePath);
-    return JWTConfig.fromConfigJsonString(configJsonString, tokenStorage);
+    return JWTConfig.fromConfigJsonString(configJsonString, tokenStorage, privateKeyDecryptor);
   }
 
   public String getClientId() {
@@ -132,6 +153,10 @@ public class JWTConfig {
     return tokenStorage;
   }
 
+  public PrivateKeyDecryptor getPrivateKeyDecryptor() {
+    return privateKeyDecryptor;
+  }
+
   public static class Builder {
 
     protected final String clientId;
@@ -152,6 +177,8 @@ public class JWTConfig {
 
     protected TokenStorage tokenStorage;
 
+    protected PrivateKeyDecryptor privateKeyDecryptor;
+
     public Builder(
         String clientId,
         String clientSecret,
@@ -165,6 +192,7 @@ public class JWTConfig {
       this.privateKeyPassphrase = privateKeyPassphrase;
       this.algorithm = new EnumWrapper<JwtAlgorithm>(JwtAlgorithm.RS256);
       this.tokenStorage = new InMemoryTokenStorage();
+      this.privateKeyDecryptor = new DefaultPrivateKeyDecryptor();
     }
 
     public Builder enterpriseId(String enterpriseId) {
@@ -189,6 +217,11 @@ public class JWTConfig {
 
     public Builder tokenStorage(TokenStorage tokenStorage) {
       this.tokenStorage = tokenStorage;
+      return this;
+    }
+
+    public Builder privateKeyDecryptor(PrivateKeyDecryptor privateKeyDecryptor) {
+      this.privateKeyDecryptor = privateKeyDecryptor;
       return this;
     }
 

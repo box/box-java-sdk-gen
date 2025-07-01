@@ -15,14 +15,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.StringReader;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
-import java.security.PrivateKey;
-import java.security.Security;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Base64;
@@ -40,19 +37,6 @@ import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.bouncycastle.openssl.PEMDecryptorProvider;
-import org.bouncycastle.openssl.PEMEncryptedKeyPair;
-import org.bouncycastle.openssl.PEMKeyPair;
-import org.bouncycastle.openssl.PEMParser;
-import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter;
-import org.bouncycastle.openssl.jcajce.JceOpenSSLPKCS8DecryptorProviderBuilder;
-import org.bouncycastle.openssl.jcajce.JcePEMDecryptorProviderBuilder;
-import org.bouncycastle.operator.InputDecryptorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo;
-import org.bouncycastle.pkcs.PKCSException;
 import org.jose4j.jws.JsonWebSignature;
 import org.jose4j.jwt.JwtClaims;
 import org.jose4j.jwt.NumericDate;
@@ -264,45 +248,6 @@ public class UtilsManager {
     return System.currentTimeMillis() / 1000;
   }
 
-  public static PrivateKey decryptPrivateKey(String encryptedPrivateKey, String passphrase) {
-    Security.addProvider(new BouncyCastleProvider());
-    PrivateKey decryptedPrivateKey;
-    try {
-      PEMParser keyReader = new PEMParser(new StringReader(encryptedPrivateKey));
-      Object keyPair = keyReader.readObject();
-      keyReader.close();
-
-      if (keyPair instanceof PrivateKeyInfo) {
-        PrivateKeyInfo keyInfo = (PrivateKeyInfo) keyPair;
-        decryptedPrivateKey = (new JcaPEMKeyConverter()).getPrivateKey(keyInfo);
-      } else if (keyPair instanceof PEMEncryptedKeyPair) {
-        JcePEMDecryptorProviderBuilder builder = new JcePEMDecryptorProviderBuilder();
-        PEMDecryptorProvider decryptionProvider = builder.build(passphrase.toCharArray());
-        keyPair = ((PEMEncryptedKeyPair) keyPair).decryptKeyPair(decryptionProvider);
-        PrivateKeyInfo keyInfo = ((PEMKeyPair) keyPair).getPrivateKeyInfo();
-        decryptedPrivateKey = (new JcaPEMKeyConverter()).getPrivateKey(keyInfo);
-      } else if (keyPair instanceof PKCS8EncryptedPrivateKeyInfo) {
-        InputDecryptorProvider pkcs8Prov =
-            new JceOpenSSLPKCS8DecryptorProviderBuilder()
-                .setProvider("BC")
-                .build(passphrase.toCharArray());
-        PrivateKeyInfo keyInfo =
-            ((PKCS8EncryptedPrivateKeyInfo) keyPair).decryptPrivateKeyInfo(pkcs8Prov);
-        decryptedPrivateKey = (new JcaPEMKeyConverter()).getPrivateKey(keyInfo);
-      } else {
-        PrivateKeyInfo keyInfo = ((PEMKeyPair) keyPair).getPrivateKeyInfo();
-        decryptedPrivateKey = (new JcaPEMKeyConverter()).getPrivateKey(keyInfo);
-      }
-    } catch (IOException e) {
-      throw new BoxSDKError("Error parsing private key for Box Developer Edition.", e);
-    } catch (OperatorCreationException e) {
-      throw new BoxSDKError("Error parsing PKCS#8 private key for Box Developer Edition.", e);
-    } catch (PKCSException e) {
-      throw new BoxSDKError("Error parsing PKCS private key for Box Developer Edition.", e);
-    }
-    return decryptedPrivateKey;
-  }
-
   public static String createJwtAssertion(
       Map<String, Object> claims, JwtKey jwtKey, JwtSignOptions jwtOptions) {
     JwtClaims jwtClaims = new JwtClaims();
@@ -316,7 +261,8 @@ public class UtilsManager {
 
     JsonWebSignature jws = new JsonWebSignature();
     jws.setPayload(jwtClaims.toJson());
-    jws.setKey(decryptPrivateKey(jwtKey.getKey(), jwtKey.getPassphrase()));
+    jws.setKey(
+        jwtOptions.privateKeyDecryptor.decryptPrivateKey(jwtKey.getKey(), jwtKey.getPassphrase()));
     jws.setAlgorithmHeaderValue(jwtOptions.getAlgorithm().getValue());
     jws.setHeader("typ", "JWT");
     if ((jwtOptions.getKeyid() != null) && !jwtOptions.getKeyid().isEmpty()) {
