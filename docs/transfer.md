@@ -47,7 +47,7 @@ See the endpoint docs at
 
 <!-- sample put_users_id_folders_0 -->
 ```
-client.getTransfer().transferOwnedFolder(newUser.getId(), new TransferOwnedFolderRequestBody(new TransferOwnedFolderRequestBodyOwnedByField(currentUser.getId())), new TransferOwnedFolderQueryParams.Builder().notify(false).build())
+client.getTransfer().transferOwnedFolder(sourceUser.getId(), new TransferOwnedFolderRequestBody(new TransferOwnedFolderRequestBodyOwnedByField(targetUser.getId())), new TransferOwnedFolderQueryParams.Builder().notify(false).build())
 ```
 
 ### Arguments
