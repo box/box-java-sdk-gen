@@ -2,8 +2,10 @@ package com.box.sdkgen.schemas.v2025r0.hubcollaborationv2025r0;
 
 import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.schemas.v2025r0.groupminiv2025r0.GroupMiniV2025R0;
 import com.box.sdkgen.schemas.v2025r0.hubaccessgranteev2025r0.HubAccessGranteeV2025R0;
 import com.box.sdkgen.schemas.v2025r0.hubbasev2025r0.HubBaseV2025R0;
+import com.box.sdkgen.schemas.v2025r0.hubcollaborationuserv2025r0.HubCollaborationUserV2025R0;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -180,6 +182,16 @@ public class HubCollaborationV2025R0 extends SerializableObject {
 
     public Builder hub(HubBaseV2025R0 hub) {
       this.hub = hub;
+      return this;
+    }
+
+    public Builder accessibleBy(HubCollaborationUserV2025R0 accessibleBy) {
+      this.accessibleBy = new HubAccessGranteeV2025R0(accessibleBy);
+      return this;
+    }
+
+    public Builder accessibleBy(GroupMiniV2025R0 accessibleBy) {
+      this.accessibleBy = new HubAccessGranteeV2025R0(accessibleBy);
       return this;
     }
 

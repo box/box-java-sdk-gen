@@ -3,7 +3,10 @@ package com.box.sdkgen.schemas.recentitem;
 import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
+import com.box.sdkgen.schemas.filefull.FileFull;
 import com.box.sdkgen.schemas.filefullorfolderfullorweblink.FileFullOrFolderFullOrWebLink;
+import com.box.sdkgen.schemas.folderfull.FolderFull;
+import com.box.sdkgen.schemas.weblink.WebLink;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -128,6 +131,21 @@ public class RecentItem extends SerializableObject {
 
     public Builder type(String type) {
       this.type = type;
+      return this;
+    }
+
+    public Builder item(FileFull item) {
+      this.item = new FileFullOrFolderFullOrWebLink(item);
+      return this;
+    }
+
+    public Builder item(FolderFull item) {
+      this.item = new FileFullOrFolderFullOrWebLink(item);
+      return this;
+    }
+
+    public Builder item(WebLink item) {
+      this.item = new FileFullOrFolderFullOrWebLink(item);
       return this;
     }
 

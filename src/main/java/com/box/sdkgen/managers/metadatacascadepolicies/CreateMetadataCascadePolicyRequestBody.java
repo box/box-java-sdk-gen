@@ -27,20 +27,20 @@ public class CreateMetadataCascadePolicyRequestBody extends SerializableObject {
   protected final String templateKey;
 
   public CreateMetadataCascadePolicyRequestBody(
+      String folderId, CreateMetadataCascadePolicyRequestBodyScopeField scope, String templateKey) {
+    super();
+    this.folderId = folderId;
+    this.scope = new EnumWrapper<CreateMetadataCascadePolicyRequestBodyScopeField>(scope);
+    this.templateKey = templateKey;
+  }
+
+  public CreateMetadataCascadePolicyRequestBody(
       @JsonProperty("folder_id") String folderId,
       @JsonProperty("scope") EnumWrapper<CreateMetadataCascadePolicyRequestBodyScopeField> scope,
       @JsonProperty("templateKey") String templateKey) {
     super();
     this.folderId = folderId;
     this.scope = scope;
-    this.templateKey = templateKey;
-  }
-
-  public CreateMetadataCascadePolicyRequestBody(
-      String folderId, CreateMetadataCascadePolicyRequestBodyScopeField scope, String templateKey) {
-    super();
-    this.folderId = folderId;
-    this.scope = new EnumWrapper<CreateMetadataCascadePolicyRequestBodyScopeField>(scope);
     this.templateKey = templateKey;
   }
 

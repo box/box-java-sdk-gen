@@ -50,20 +50,40 @@ class MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfString
     super(null, null, null, null, string);
   }
 
+  public boolean isMetadataFieldFilterDateRange() {
+    return value0 != null;
+  }
+
   public MetadataFieldFilterDateRange getMetadataFieldFilterDateRange() {
     return value0;
+  }
+
+  public boolean isMetadataFieldFilterFloatRange() {
+    return value1 != null;
   }
 
   public MetadataFieldFilterFloatRange getMetadataFieldFilterFloatRange() {
     return value1;
   }
 
+  public boolean isListOfString() {
+    return value2 != null;
+  }
+
   public List<String> getListOfString() {
     return value2;
   }
 
+  public boolean isDoubleNumber() {
+    return value3 != null;
+  }
+
   public Double getDoubleNumber() {
     return value3;
+  }
+
+  public boolean isString() {
+    return value4 != null;
   }
 
   public String getString() {

@@ -34,19 +34,19 @@ public class CreateMetadataTemplateRequestBodyFieldsField extends SerializableOb
   protected List<CreateMetadataTemplateRequestBodyFieldsOptionsField> options;
 
   public CreateMetadataTemplateRequestBodyFieldsField(
-      @JsonProperty("type") EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField> type,
-      @JsonProperty("key") String key,
-      @JsonProperty("displayName") String displayName) {
+      CreateMetadataTemplateRequestBodyFieldsTypeField type, String key, String displayName) {
     super();
-    this.type = type;
+    this.type = new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(type);
     this.key = key;
     this.displayName = displayName;
   }
 
   public CreateMetadataTemplateRequestBodyFieldsField(
-      CreateMetadataTemplateRequestBodyFieldsTypeField type, String key, String displayName) {
+      @JsonProperty("type") EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField> type,
+      @JsonProperty("key") String key,
+      @JsonProperty("displayName") String displayName) {
     super();
-    this.type = new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(type);
+    this.type = type;
     this.key = key;
     this.displayName = displayName;
   }
@@ -153,19 +153,19 @@ public class CreateMetadataTemplateRequestBodyFieldsField extends SerializableOb
     protected List<CreateMetadataTemplateRequestBodyFieldsOptionsField> options;
 
     public Builder(
-        EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField> type,
-        String key,
-        String displayName) {
+        CreateMetadataTemplateRequestBodyFieldsTypeField type, String key, String displayName) {
       super();
-      this.type = type;
+      this.type = new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(type);
       this.key = key;
       this.displayName = displayName;
     }
 
     public Builder(
-        CreateMetadataTemplateRequestBodyFieldsTypeField type, String key, String displayName) {
+        EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField> type,
+        String key,
+        String displayName) {
       super();
-      this.type = new EnumWrapper<CreateMetadataTemplateRequestBodyFieldsTypeField>(type);
+      this.type = type;
       this.key = key;
       this.displayName = displayName;
     }

@@ -27,22 +27,6 @@ public class DocGenJobFullV2025R0 extends DocGenJobV2025R0 {
   protected final String source;
 
   public DocGenJobFullV2025R0(
-      @JsonProperty("id") String id,
-      @JsonProperty("batch") DocGenBatchBaseV2025R0 batch,
-      @JsonProperty("template_file") FileReferenceV2025R0 templateFile,
-      @JsonProperty("template_file_version") FileVersionBaseV2025R0 templateFileVersion,
-      @JsonProperty("status") EnumWrapper<DocGenJobV2025R0StatusField> status,
-      @JsonProperty("output_type") String outputType,
-      @JsonProperty("created_by") UserBaseV2025R0 createdBy,
-      @JsonProperty("enterprise") EnterpriseReferenceV2025R0 enterprise,
-      @JsonProperty("source") String source) {
-    super(id, batch, templateFile, templateFileVersion, status, outputType);
-    this.createdBy = createdBy;
-    this.enterprise = enterprise;
-    this.source = source;
-  }
-
-  public DocGenJobFullV2025R0(
       String id,
       DocGenBatchBaseV2025R0 batch,
       FileReferenceV2025R0 templateFile,
@@ -52,6 +36,22 @@ public class DocGenJobFullV2025R0 extends DocGenJobV2025R0 {
       UserBaseV2025R0 createdBy,
       EnterpriseReferenceV2025R0 enterprise,
       String source) {
+    super(id, batch, templateFile, templateFileVersion, status, outputType);
+    this.createdBy = createdBy;
+    this.enterprise = enterprise;
+    this.source = source;
+  }
+
+  public DocGenJobFullV2025R0(
+      @JsonProperty("id") String id,
+      @JsonProperty("batch") DocGenBatchBaseV2025R0 batch,
+      @JsonProperty("template_file") FileReferenceV2025R0 templateFile,
+      @JsonProperty("template_file_version") FileVersionBaseV2025R0 templateFileVersion,
+      @JsonProperty("status") EnumWrapper<DocGenJobV2025R0StatusField> status,
+      @JsonProperty("output_type") String outputType,
+      @JsonProperty("created_by") UserBaseV2025R0 createdBy,
+      @JsonProperty("enterprise") EnterpriseReferenceV2025R0 enterprise,
+      @JsonProperty("source") String source) {
     super(id, batch, templateFile, templateFileVersion, status, outputType);
     this.createdBy = createdBy;
     this.enterprise = enterprise;
@@ -197,7 +197,7 @@ public class DocGenJobFullV2025R0 extends DocGenJobV2025R0 {
         DocGenBatchBaseV2025R0 batch,
         FileReferenceV2025R0 templateFile,
         FileVersionBaseV2025R0 templateFileVersion,
-        EnumWrapper<DocGenJobV2025R0StatusField> status,
+        DocGenJobV2025R0StatusField status,
         String outputType,
         UserBaseV2025R0 createdBy,
         EnterpriseReferenceV2025R0 enterprise,
@@ -213,7 +213,7 @@ public class DocGenJobFullV2025R0 extends DocGenJobV2025R0 {
         DocGenBatchBaseV2025R0 batch,
         FileReferenceV2025R0 templateFile,
         FileVersionBaseV2025R0 templateFileVersion,
-        DocGenJobV2025R0StatusField status,
+        EnumWrapper<DocGenJobV2025R0StatusField> status,
         String outputType,
         UserBaseV2025R0 createdBy,
         EnterpriseReferenceV2025R0 enterprise,

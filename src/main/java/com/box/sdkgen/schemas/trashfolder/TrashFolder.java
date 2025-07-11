@@ -98,29 +98,6 @@ public class TrashFolder extends SerializableObject {
   protected final EnumWrapper<TrashFolderItemStatusField> itemStatus;
 
   public TrashFolder(
-      @JsonProperty("id") String id,
-      @JsonProperty("name") String name,
-      @JsonProperty("description") String description,
-      @JsonProperty("size") long size,
-      @JsonProperty("path_collection") TrashFolderPathCollectionField pathCollection,
-      @JsonProperty("created_by") UserMini createdBy,
-      @JsonProperty("modified_by") UserMini modifiedBy,
-      @JsonProperty("owned_by") UserMini ownedBy,
-      @JsonProperty("item_status") EnumWrapper<TrashFolderItemStatusField> itemStatus) {
-    super();
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.size = size;
-    this.pathCollection = pathCollection;
-    this.createdBy = createdBy;
-    this.modifiedBy = modifiedBy;
-    this.ownedBy = ownedBy;
-    this.itemStatus = itemStatus;
-    this.type = new EnumWrapper<TrashFolderTypeField>(TrashFolderTypeField.FOLDER);
-  }
-
-  public TrashFolder(
       String id,
       String name,
       String description,
@@ -140,6 +117,29 @@ public class TrashFolder extends SerializableObject {
     this.modifiedBy = modifiedBy;
     this.ownedBy = ownedBy;
     this.itemStatus = new EnumWrapper<TrashFolderItemStatusField>(itemStatus);
+    this.type = new EnumWrapper<TrashFolderTypeField>(TrashFolderTypeField.FOLDER);
+  }
+
+  public TrashFolder(
+      @JsonProperty("id") String id,
+      @JsonProperty("name") String name,
+      @JsonProperty("description") String description,
+      @JsonProperty("size") long size,
+      @JsonProperty("path_collection") TrashFolderPathCollectionField pathCollection,
+      @JsonProperty("created_by") UserMini createdBy,
+      @JsonProperty("modified_by") UserMini modifiedBy,
+      @JsonProperty("owned_by") UserMini ownedBy,
+      @JsonProperty("item_status") EnumWrapper<TrashFolderItemStatusField> itemStatus) {
+    super();
+    this.id = id;
+    this.name = name;
+    this.description = description;
+    this.size = size;
+    this.pathCollection = pathCollection;
+    this.createdBy = createdBy;
+    this.modifiedBy = modifiedBy;
+    this.ownedBy = ownedBy;
+    this.itemStatus = itemStatus;
     this.type = new EnumWrapper<TrashFolderTypeField>(TrashFolderTypeField.FOLDER);
   }
 
@@ -453,7 +453,7 @@ public class TrashFolder extends SerializableObject {
         UserMini createdBy,
         UserMini modifiedBy,
         UserMini ownedBy,
-        EnumWrapper<TrashFolderItemStatusField> itemStatus) {
+        TrashFolderItemStatusField itemStatus) {
       super();
       this.id = id;
       this.name = name;
@@ -463,7 +463,7 @@ public class TrashFolder extends SerializableObject {
       this.createdBy = createdBy;
       this.modifiedBy = modifiedBy;
       this.ownedBy = ownedBy;
-      this.itemStatus = itemStatus;
+      this.itemStatus = new EnumWrapper<TrashFolderItemStatusField>(itemStatus);
       this.type = new EnumWrapper<TrashFolderTypeField>(TrashFolderTypeField.FOLDER);
     }
 
@@ -476,7 +476,7 @@ public class TrashFolder extends SerializableObject {
         UserMini createdBy,
         UserMini modifiedBy,
         UserMini ownedBy,
-        TrashFolderItemStatusField itemStatus) {
+        EnumWrapper<TrashFolderItemStatusField> itemStatus) {
       super();
       this.id = id;
       this.name = name;
@@ -486,7 +486,7 @@ public class TrashFolder extends SerializableObject {
       this.createdBy = createdBy;
       this.modifiedBy = modifiedBy;
       this.ownedBy = ownedBy;
-      this.itemStatus = new EnumWrapper<TrashFolderItemStatusField>(itemStatus);
+      this.itemStatus = itemStatus;
       this.type = new EnumWrapper<TrashFolderTypeField>(TrashFolderTypeField.FOLDER);
     }
 

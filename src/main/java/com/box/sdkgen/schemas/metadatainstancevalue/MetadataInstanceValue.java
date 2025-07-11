@@ -32,16 +32,32 @@ public class MetadataInstanceValue extends OneOfFour<String, Long, Double, List<
     super(null, null, null, listOfString);
   }
 
+  public boolean isString() {
+    return value0 != null;
+  }
+
   public String getString() {
     return value0;
+  }
+
+  public boolean isLongNumber() {
+    return value1 != null;
   }
 
   public Long getLongNumber() {
     return value1;
   }
 
+  public boolean isDoubleNumber() {
+    return value2 != null;
+  }
+
   public Double getDoubleNumber() {
     return value2;
+  }
+
+  public boolean isListOfString() {
+    return value3 != null;
   }
 
   public List<String> getListOfString() {

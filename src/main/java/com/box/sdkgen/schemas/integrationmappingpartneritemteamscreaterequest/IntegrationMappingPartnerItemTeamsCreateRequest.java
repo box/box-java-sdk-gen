@@ -30,6 +30,18 @@ public class IntegrationMappingPartnerItemTeamsCreateRequest extends Serializabl
   protected final String teamId;
 
   public IntegrationMappingPartnerItemTeamsCreateRequest(
+      IntegrationMappingPartnerItemTeamsCreateRequestTypeField type,
+      String id,
+      String tenantId,
+      String teamId) {
+    super();
+    this.type = new EnumWrapper<IntegrationMappingPartnerItemTeamsCreateRequestTypeField>(type);
+    this.id = id;
+    this.tenantId = tenantId;
+    this.teamId = teamId;
+  }
+
+  public IntegrationMappingPartnerItemTeamsCreateRequest(
       @JsonProperty("type")
           EnumWrapper<IntegrationMappingPartnerItemTeamsCreateRequestTypeField> type,
       @JsonProperty("id") String id,
@@ -37,18 +49,6 @@ public class IntegrationMappingPartnerItemTeamsCreateRequest extends Serializabl
       @JsonProperty("team_id") String teamId) {
     super();
     this.type = type;
-    this.id = id;
-    this.tenantId = tenantId;
-    this.teamId = teamId;
-  }
-
-  public IntegrationMappingPartnerItemTeamsCreateRequest(
-      IntegrationMappingPartnerItemTeamsCreateRequestTypeField type,
-      String id,
-      String tenantId,
-      String teamId) {
-    super();
-    this.type = new EnumWrapper<IntegrationMappingPartnerItemTeamsCreateRequestTypeField>(type);
     this.id = id;
     this.tenantId = tenantId;
     this.teamId = teamId;

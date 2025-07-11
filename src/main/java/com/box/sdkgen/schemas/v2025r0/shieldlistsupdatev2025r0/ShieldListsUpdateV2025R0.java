@@ -2,6 +2,10 @@ package com.box.sdkgen.schemas.v2025r0.shieldlistsupdatev2025r0;
 
 import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.schemas.v2025r0.shieldlistcontentcountryv2025r0.ShieldListContentCountryV2025R0;
+import com.box.sdkgen.schemas.v2025r0.shieldlistcontentdomainv2025r0.ShieldListContentDomainV2025R0;
+import com.box.sdkgen.schemas.v2025r0.shieldlistcontentemailv2025r0.ShieldListContentEmailV2025R0;
+import com.box.sdkgen.schemas.v2025r0.shieldlistcontentipv2025r0.ShieldListContentIpV2025R0;
 import com.box.sdkgen.schemas.v2025r0.shieldlistcontentrequestv2025r0.ShieldListContentRequestV2025R0;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,6 +19,30 @@ public class ShieldListsUpdateV2025R0 extends SerializableObject {
   protected String description;
 
   protected final ShieldListContentRequestV2025R0 content;
+
+  public ShieldListsUpdateV2025R0(String name, ShieldListContentCountryV2025R0 content) {
+    super();
+    this.name = name;
+    this.content = new ShieldListContentRequestV2025R0(content);
+  }
+
+  public ShieldListsUpdateV2025R0(String name, ShieldListContentDomainV2025R0 content) {
+    super();
+    this.name = name;
+    this.content = new ShieldListContentRequestV2025R0(content);
+  }
+
+  public ShieldListsUpdateV2025R0(String name, ShieldListContentEmailV2025R0 content) {
+    super();
+    this.name = name;
+    this.content = new ShieldListContentRequestV2025R0(content);
+  }
+
+  public ShieldListsUpdateV2025R0(String name, ShieldListContentIpV2025R0 content) {
+    super();
+    this.name = name;
+    this.content = new ShieldListContentRequestV2025R0(content);
+  }
 
   public ShieldListsUpdateV2025R0(
       @JsonProperty("name") String name,
@@ -87,6 +115,30 @@ public class ShieldListsUpdateV2025R0 extends SerializableObject {
     protected String description;
 
     protected final ShieldListContentRequestV2025R0 content;
+
+    public Builder(String name, ShieldListContentCountryV2025R0 content) {
+      super();
+      this.name = name;
+      this.content = new ShieldListContentRequestV2025R0(content);
+    }
+
+    public Builder(String name, ShieldListContentDomainV2025R0 content) {
+      super();
+      this.name = name;
+      this.content = new ShieldListContentRequestV2025R0(content);
+    }
+
+    public Builder(String name, ShieldListContentEmailV2025R0 content) {
+      super();
+      this.name = name;
+      this.content = new ShieldListContentRequestV2025R0(content);
+    }
+
+    public Builder(String name, ShieldListContentIpV2025R0 content) {
+      super();
+      this.name = name;
+      this.content = new ShieldListContentRequestV2025R0(content);
+    }
 
     public Builder(String name, ShieldListContentRequestV2025R0 content) {
       super();

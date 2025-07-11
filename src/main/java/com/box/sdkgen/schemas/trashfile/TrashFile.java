@@ -98,33 +98,6 @@ public class TrashFile extends SerializableObject {
   protected final EnumWrapper<TrashFileItemStatusField> itemStatus;
 
   public TrashFile(
-      @JsonProperty("id") String id,
-      @JsonProperty("sequence_id") String sequenceId,
-      @JsonProperty("sha1") String sha1,
-      @JsonProperty("description") String description,
-      @JsonProperty("size") long size,
-      @JsonProperty("path_collection") TrashFilePathCollectionField pathCollection,
-      @JsonProperty("created_at") Date createdAt,
-      @JsonProperty("modified_at") Date modifiedAt,
-      @JsonProperty("modified_by") UserMini modifiedBy,
-      @JsonProperty("owned_by") UserMini ownedBy,
-      @JsonProperty("item_status") EnumWrapper<TrashFileItemStatusField> itemStatus) {
-    super();
-    this.id = id;
-    this.sequenceId = sequenceId;
-    this.sha1 = sha1;
-    this.description = description;
-    this.size = size;
-    this.pathCollection = pathCollection;
-    this.createdAt = createdAt;
-    this.modifiedAt = modifiedAt;
-    this.modifiedBy = modifiedBy;
-    this.ownedBy = ownedBy;
-    this.itemStatus = itemStatus;
-    this.type = new EnumWrapper<TrashFileTypeField>(TrashFileTypeField.FILE);
-  }
-
-  public TrashFile(
       String id,
       String sequenceId,
       String sha1,
@@ -148,6 +121,33 @@ public class TrashFile extends SerializableObject {
     this.modifiedBy = modifiedBy;
     this.ownedBy = ownedBy;
     this.itemStatus = new EnumWrapper<TrashFileItemStatusField>(itemStatus);
+    this.type = new EnumWrapper<TrashFileTypeField>(TrashFileTypeField.FILE);
+  }
+
+  public TrashFile(
+      @JsonProperty("id") String id,
+      @JsonProperty("sequence_id") String sequenceId,
+      @JsonProperty("sha1") String sha1,
+      @JsonProperty("description") String description,
+      @JsonProperty("size") long size,
+      @JsonProperty("path_collection") TrashFilePathCollectionField pathCollection,
+      @JsonProperty("created_at") Date createdAt,
+      @JsonProperty("modified_at") Date modifiedAt,
+      @JsonProperty("modified_by") UserMini modifiedBy,
+      @JsonProperty("owned_by") UserMini ownedBy,
+      @JsonProperty("item_status") EnumWrapper<TrashFileItemStatusField> itemStatus) {
+    super();
+    this.id = id;
+    this.sequenceId = sequenceId;
+    this.sha1 = sha1;
+    this.description = description;
+    this.size = size;
+    this.pathCollection = pathCollection;
+    this.createdAt = createdAt;
+    this.modifiedAt = modifiedAt;
+    this.modifiedBy = modifiedBy;
+    this.ownedBy = ownedBy;
+    this.itemStatus = itemStatus;
     this.type = new EnumWrapper<TrashFileTypeField>(TrashFileTypeField.FILE);
   }
 
@@ -476,7 +476,7 @@ public class TrashFile extends SerializableObject {
         Date modifiedAt,
         UserMini modifiedBy,
         UserMini ownedBy,
-        EnumWrapper<TrashFileItemStatusField> itemStatus) {
+        TrashFileItemStatusField itemStatus) {
       super();
       this.id = id;
       this.sequenceId = sequenceId;
@@ -488,7 +488,7 @@ public class TrashFile extends SerializableObject {
       this.modifiedAt = modifiedAt;
       this.modifiedBy = modifiedBy;
       this.ownedBy = ownedBy;
-      this.itemStatus = itemStatus;
+      this.itemStatus = new EnumWrapper<TrashFileItemStatusField>(itemStatus);
       this.type = new EnumWrapper<TrashFileTypeField>(TrashFileTypeField.FILE);
     }
 
@@ -503,7 +503,7 @@ public class TrashFile extends SerializableObject {
         Date modifiedAt,
         UserMini modifiedBy,
         UserMini ownedBy,
-        TrashFileItemStatusField itemStatus) {
+        EnumWrapper<TrashFileItemStatusField> itemStatus) {
       super();
       this.id = id;
       this.sequenceId = sequenceId;
@@ -515,7 +515,7 @@ public class TrashFile extends SerializableObject {
       this.modifiedAt = modifiedAt;
       this.modifiedBy = modifiedBy;
       this.ownedBy = ownedBy;
-      this.itemStatus = new EnumWrapper<TrashFileItemStatusField>(itemStatus);
+      this.itemStatus = itemStatus;
       this.type = new EnumWrapper<TrashFileTypeField>(TrashFileTypeField.FILE);
     }
 

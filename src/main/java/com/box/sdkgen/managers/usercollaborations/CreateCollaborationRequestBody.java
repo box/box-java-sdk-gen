@@ -41,16 +41,6 @@ public class CreateCollaborationRequestBody extends SerializableObject {
   protected Date expiresAt;
 
   public CreateCollaborationRequestBody(
-      @JsonProperty("item") CreateCollaborationRequestBodyItemField item,
-      @JsonProperty("accessible_by") CreateCollaborationRequestBodyAccessibleByField accessibleBy,
-      @JsonProperty("role") EnumWrapper<CreateCollaborationRequestBodyRoleField> role) {
-    super();
-    this.item = item;
-    this.accessibleBy = accessibleBy;
-    this.role = role;
-  }
-
-  public CreateCollaborationRequestBody(
       CreateCollaborationRequestBodyItemField item,
       CreateCollaborationRequestBodyAccessibleByField accessibleBy,
       CreateCollaborationRequestBodyRoleField role) {
@@ -58,6 +48,16 @@ public class CreateCollaborationRequestBody extends SerializableObject {
     this.item = item;
     this.accessibleBy = accessibleBy;
     this.role = new EnumWrapper<CreateCollaborationRequestBodyRoleField>(role);
+  }
+
+  public CreateCollaborationRequestBody(
+      @JsonProperty("item") CreateCollaborationRequestBodyItemField item,
+      @JsonProperty("accessible_by") CreateCollaborationRequestBodyAccessibleByField accessibleBy,
+      @JsonProperty("role") EnumWrapper<CreateCollaborationRequestBodyRoleField> role) {
+    super();
+    this.item = item;
+    this.accessibleBy = accessibleBy;
+    this.role = role;
   }
 
   protected CreateCollaborationRequestBody(Builder builder) {
@@ -163,21 +163,21 @@ public class CreateCollaborationRequestBody extends SerializableObject {
     public Builder(
         CreateCollaborationRequestBodyItemField item,
         CreateCollaborationRequestBodyAccessibleByField accessibleBy,
-        EnumWrapper<CreateCollaborationRequestBodyRoleField> role) {
-      super();
-      this.item = item;
-      this.accessibleBy = accessibleBy;
-      this.role = role;
-    }
-
-    public Builder(
-        CreateCollaborationRequestBodyItemField item,
-        CreateCollaborationRequestBodyAccessibleByField accessibleBy,
         CreateCollaborationRequestBodyRoleField role) {
       super();
       this.item = item;
       this.accessibleBy = accessibleBy;
       this.role = new EnumWrapper<CreateCollaborationRequestBodyRoleField>(role);
+    }
+
+    public Builder(
+        CreateCollaborationRequestBodyItemField item,
+        CreateCollaborationRequestBodyAccessibleByField accessibleBy,
+        EnumWrapper<CreateCollaborationRequestBodyRoleField> role) {
+      super();
+      this.item = item;
+      this.accessibleBy = accessibleBy;
+      this.role = role;
     }
 
     public Builder isAccessOnly(Boolean isAccessOnly) {

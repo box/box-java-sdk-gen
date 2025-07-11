@@ -38,15 +38,15 @@ public class UpdateMetadataTemplateRequestBody extends SerializableObject {
 
   protected List<String> multiSelectOptionKeys;
 
+  public UpdateMetadataTemplateRequestBody(UpdateMetadataTemplateRequestBodyOpField op) {
+    super();
+    this.op = new EnumWrapper<UpdateMetadataTemplateRequestBodyOpField>(op);
+  }
+
   public UpdateMetadataTemplateRequestBody(
       @JsonProperty("op") EnumWrapper<UpdateMetadataTemplateRequestBodyOpField> op) {
     super();
     this.op = op;
-  }
-
-  public UpdateMetadataTemplateRequestBody(UpdateMetadataTemplateRequestBodyOpField op) {
-    super();
-    this.op = new EnumWrapper<UpdateMetadataTemplateRequestBodyOpField>(op);
   }
 
   protected UpdateMetadataTemplateRequestBody(Builder builder) {
@@ -181,14 +181,14 @@ public class UpdateMetadataTemplateRequestBody extends SerializableObject {
 
     protected List<String> multiSelectOptionKeys;
 
-    public Builder(EnumWrapper<UpdateMetadataTemplateRequestBodyOpField> op) {
-      super();
-      this.op = op;
-    }
-
     public Builder(UpdateMetadataTemplateRequestBodyOpField op) {
       super();
       this.op = new EnumWrapper<UpdateMetadataTemplateRequestBodyOpField>(op);
+    }
+
+    public Builder(EnumWrapper<UpdateMetadataTemplateRequestBodyOpField> op) {
+      super();
+      this.op = op;
     }
 
     public Builder data(Map<String, Object> data) {

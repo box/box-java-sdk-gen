@@ -40,11 +40,9 @@ public class CompletionRuleVariable extends SerializableObject {
   @JsonProperty("variable_value")
   protected final EnumWrapper<CompletionRuleVariableVariableValueField> variableValue;
 
-  public CompletionRuleVariable(
-      @JsonProperty("variable_value")
-          EnumWrapper<CompletionRuleVariableVariableValueField> variableValue) {
+  public CompletionRuleVariable(CompletionRuleVariableVariableValueField variableValue) {
     super();
-    this.variableValue = variableValue;
+    this.variableValue = new EnumWrapper<CompletionRuleVariableVariableValueField>(variableValue);
     this.type =
         new EnumWrapper<CompletionRuleVariableTypeField>(CompletionRuleVariableTypeField.VARIABLE);
     this.variableType =
@@ -52,9 +50,11 @@ public class CompletionRuleVariable extends SerializableObject {
             CompletionRuleVariableVariableTypeField.TASK_COMPLETION_RULE);
   }
 
-  public CompletionRuleVariable(CompletionRuleVariableVariableValueField variableValue) {
+  public CompletionRuleVariable(
+      @JsonProperty("variable_value")
+          EnumWrapper<CompletionRuleVariableVariableValueField> variableValue) {
     super();
-    this.variableValue = new EnumWrapper<CompletionRuleVariableVariableValueField>(variableValue);
+    this.variableValue = variableValue;
     this.type =
         new EnumWrapper<CompletionRuleVariableTypeField>(CompletionRuleVariableTypeField.VARIABLE);
     this.variableType =
@@ -126,9 +126,9 @@ public class CompletionRuleVariable extends SerializableObject {
 
     protected final EnumWrapper<CompletionRuleVariableVariableValueField> variableValue;
 
-    public Builder(EnumWrapper<CompletionRuleVariableVariableValueField> variableValue) {
+    public Builder(CompletionRuleVariableVariableValueField variableValue) {
       super();
-      this.variableValue = variableValue;
+      this.variableValue = new EnumWrapper<CompletionRuleVariableVariableValueField>(variableValue);
       this.type =
           new EnumWrapper<CompletionRuleVariableTypeField>(
               CompletionRuleVariableTypeField.VARIABLE);
@@ -137,9 +137,9 @@ public class CompletionRuleVariable extends SerializableObject {
               CompletionRuleVariableVariableTypeField.TASK_COMPLETION_RULE);
     }
 
-    public Builder(CompletionRuleVariableVariableValueField variableValue) {
+    public Builder(EnumWrapper<CompletionRuleVariableVariableValueField> variableValue) {
       super();
-      this.variableValue = new EnumWrapper<CompletionRuleVariableVariableValueField>(variableValue);
+      this.variableValue = variableValue;
       this.type =
           new EnumWrapper<CompletionRuleVariableTypeField>(
               CompletionRuleVariableTypeField.VARIABLE);

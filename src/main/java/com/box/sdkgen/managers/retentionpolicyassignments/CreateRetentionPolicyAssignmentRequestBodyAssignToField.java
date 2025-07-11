@@ -26,16 +26,16 @@ public class CreateRetentionPolicyAssignmentRequestBodyAssignToField extends Ser
   @Nullable protected String id;
 
   public CreateRetentionPolicyAssignmentRequestBodyAssignToField(
+      CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField type) {
+    super();
+    this.type = new EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField>(type);
+  }
+
+  public CreateRetentionPolicyAssignmentRequestBodyAssignToField(
       @JsonProperty("type")
           EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField> type) {
     super();
     this.type = type;
-  }
-
-  public CreateRetentionPolicyAssignmentRequestBodyAssignToField(
-      CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField type) {
-    super();
-    this.type = new EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField>(type);
   }
 
   protected CreateRetentionPolicyAssignmentRequestBodyAssignToField(Builder builder) {
@@ -90,15 +90,15 @@ public class CreateRetentionPolicyAssignmentRequestBodyAssignToField extends Ser
 
     protected String id;
 
-    public Builder(EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField> type) {
-      super();
-      this.type = type;
-    }
-
     public Builder(CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField type) {
       super();
       this.type =
           new EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField>(type);
+    }
+
+    public Builder(EnumWrapper<CreateRetentionPolicyAssignmentRequestBodyAssignToTypeField> type) {
+      super();
+      this.type = type;
     }
 
     public Builder id(String id) {

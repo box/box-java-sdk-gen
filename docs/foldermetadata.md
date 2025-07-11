@@ -95,7 +95,7 @@ See the endpoint docs at
 
 <!-- sample post_folders_id_metadata_id_id -->
 ```
-client.getFolderMetadata().createFolderMetadataById(folder.getId(), CreateFolderMetadataByIdScope.GLOBAL, "properties", mapOf(entryOf("abc", "xyz")))
+client.getFolderMetadata().createFolderMetadataById(folder.getId(), CreateFolderMetadataByIdScope.ENTERPRISE, templateKey, mapOf(entryOf("name", "John"), entryOf("age", 23), entryOf("birthDate", "2001-01-03T02:20:50.520Z"), entryOf("countryCode", "US"), entryOf("sports", Arrays.asList("basketball", "tennis"))))
 ```
 
 ### Arguments
@@ -136,7 +136,10 @@ This operation is performed by calling function `updateFolderMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-folders-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `updateFolderMetadataById` in integration tests*
+<!-- sample put_folders_id_metadata_id_id -->
+```
+client.getFolderMetadata().updateFolderMetadataById(folder.getId(), UpdateFolderMetadataByIdScope.ENTERPRISE, templateKey, Arrays.asList(new UpdateFolderMetadataByIdRequestBody.Builder().op(UpdateFolderMetadataByIdRequestBodyOpField.REPLACE).path("/name").value("Jack").build(), new UpdateFolderMetadataByIdRequestBody.Builder().op(UpdateFolderMetadataByIdRequestBodyOpField.REPLACE).path("/age").value(24L).build(), new UpdateFolderMetadataByIdRequestBody.Builder().op(UpdateFolderMetadataByIdRequestBodyOpField.REPLACE).path("/birthDate").value("2000-01-03T02:20:50.520Z").build(), new UpdateFolderMetadataByIdRequestBody.Builder().op(UpdateFolderMetadataByIdRequestBodyOpField.REPLACE).path("/countryCode").value("CA").build(), new UpdateFolderMetadataByIdRequestBody.Builder().op(UpdateFolderMetadataByIdRequestBodyOpField.REPLACE).path("/sports").value(Arrays.asList("football")).build()))
+```
 
 ### Arguments
 
@@ -171,7 +174,7 @@ See the endpoint docs at
 
 <!-- sample delete_folders_id_metadata_id_id -->
 ```
-client.getFolderMetadata().deleteFolderMetadataById(folder.getId(), DeleteFolderMetadataByIdScope.GLOBAL, "properties")
+client.getFolderMetadata().deleteFolderMetadataById(folder.getId(), DeleteFolderMetadataByIdScope.ENTERPRISE, templateKey)
 ```
 
 ### Arguments

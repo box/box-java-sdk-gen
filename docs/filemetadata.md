@@ -90,7 +90,7 @@ See the endpoint docs at
 
 <!-- sample post_files_id_metadata_id_id -->
 ```
-client.getFileMetadata().createFileMetadataById(file.getId(), CreateFileMetadataByIdScope.GLOBAL, "properties", mapOf(entryOf("abc", "xyz")))
+client.getFileMetadata().createFileMetadataById(file.getId(), CreateFileMetadataByIdScope.ENTERPRISE, templateKey, mapOf(entryOf("name", "John"), entryOf("age", 23), entryOf("birthDate", "2001-01-03T02:20:50.520Z"), entryOf("countryCode", "US"), entryOf("sports", Arrays.asList("basketball", "tennis"))))
 ```
 
 ### Arguments
@@ -131,7 +131,10 @@ This operation is performed by calling function `updateFileMetadataById`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-metadata-id-id/).
 
-*Currently we don't have an example for calling `updateFileMetadataById` in integration tests*
+<!-- sample put_files_id_metadata_id_id -->
+```
+client.getFileMetadata().updateFileMetadataById(file.getId(), UpdateFileMetadataByIdScope.ENTERPRISE, templateKey, Arrays.asList(new UpdateFileMetadataByIdRequestBody.Builder().op(UpdateFileMetadataByIdRequestBodyOpField.REPLACE).path("/name").value("Jack").build(), new UpdateFileMetadataByIdRequestBody.Builder().op(UpdateFileMetadataByIdRequestBodyOpField.REPLACE).path("/age").value(24L).build(), new UpdateFileMetadataByIdRequestBody.Builder().op(UpdateFileMetadataByIdRequestBodyOpField.REPLACE).path("/birthDate").value("2000-01-03T02:20:50.520Z").build(), new UpdateFileMetadataByIdRequestBody.Builder().op(UpdateFileMetadataByIdRequestBodyOpField.REPLACE).path("/countryCode").value("CA").build(), new UpdateFileMetadataByIdRequestBody.Builder().op(UpdateFileMetadataByIdRequestBodyOpField.REPLACE).path("/sports").value(Arrays.asList("football")).build()))
+```
 
 ### Arguments
 
@@ -166,7 +169,7 @@ See the endpoint docs at
 
 <!-- sample delete_files_id_metadata_id_id -->
 ```
-client.getFileMetadata().deleteFileMetadataById(file.getId(), DeleteFileMetadataByIdScope.GLOBAL, "properties")
+client.getFileMetadata().deleteFileMetadataById(file.getId(), DeleteFileMetadataByIdScope.ENTERPRISE, templateKey)
 ```
 
 ### Arguments

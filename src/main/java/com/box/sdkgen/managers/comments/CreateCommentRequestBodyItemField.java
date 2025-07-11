@@ -23,18 +23,18 @@ public class CreateCommentRequestBodyItemField extends SerializableObject {
               .class)
   protected final EnumWrapper<CreateCommentRequestBodyItemTypeField> type;
 
+  public CreateCommentRequestBodyItemField(String id, CreateCommentRequestBodyItemTypeField type) {
+    super();
+    this.id = id;
+    this.type = new EnumWrapper<CreateCommentRequestBodyItemTypeField>(type);
+  }
+
   public CreateCommentRequestBodyItemField(
       @JsonProperty("id") String id,
       @JsonProperty("type") EnumWrapper<CreateCommentRequestBodyItemTypeField> type) {
     super();
     this.id = id;
     this.type = type;
-  }
-
-  public CreateCommentRequestBodyItemField(String id, CreateCommentRequestBodyItemTypeField type) {
-    super();
-    this.id = id;
-    this.type = new EnumWrapper<CreateCommentRequestBodyItemTypeField>(type);
   }
 
   public String getId() {

@@ -20,7 +20,12 @@ import com.box.sdkgen.managers.metadatatemplates.DeleteMetadataTemplateScope;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBody;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBodyAttributesField;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBodyAttributesParentField;
+import com.box.sdkgen.schemas.aiagentask.AiAgentAsk;
 import com.box.sdkgen.schemas.aiagentaskoraiagentextractoraiagentextractstructuredoraiagenttextgen.AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen;
+import com.box.sdkgen.schemas.aiagentextract.AiAgentExtract;
+import com.box.sdkgen.schemas.aiagentextractstructured.AiAgentExtractStructured;
+import com.box.sdkgen.schemas.aiagentlongtexttool.AiAgentLongTextTool;
+import com.box.sdkgen.schemas.aiagenttextgen.AiAgentTextGen;
 import com.box.sdkgen.schemas.aiask.AiAsk;
 import com.box.sdkgen.schemas.aiask.AiAskModeField;
 import com.box.sdkgen.schemas.aidialoguehistory.AiDialogueHistory;
@@ -50,18 +55,29 @@ public class AiITest {
 
   @Test
   public void testAskAiSingleItem() {
+    AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen aiAgentConfig =
+        client
+            .getAi()
+            .getAiAgentDefaultConfig(
+                new GetAiAgentDefaultConfigQueryParams.Builder(
+                        GetAiAgentDefaultConfigQueryParamsModeField.ASK)
+                    .language("en-US")
+                    .build());
+    AiAgentAsk aiAskAgentConfig = aiAgentConfig.getAiAgentAsk();
     FileFull fileToAsk = uploadNewFile();
     AiResponseFull response =
         client
             .getAi()
             .createAiAsk(
-                new AiAsk(
-                    AiAskModeField.SINGLE_ITEM_QA,
-                    "which direction sun rises",
-                    Arrays.asList(
-                        new AiItemAsk.Builder(fileToAsk.getId(), AiItemAskTypeField.FILE)
-                            .content("Sun rises in the East")
-                            .build())));
+                new AiAsk.Builder(
+                        AiAskModeField.SINGLE_ITEM_QA,
+                        "which direction sun rises",
+                        Arrays.asList(
+                            new AiItemAsk.Builder(fileToAsk.getId(), AiItemAskTypeField.FILE)
+                                .content("Sun rises in the East")
+                                .build()))
+                    .aiAgent(aiAskAgentConfig)
+                    .build());
     assert response.getAnswer().contains("East");
     assert response.getCompletionReason().equals("done");
     client.getFiles().deleteFileById(fileToAsk.getId());
@@ -94,6 +110,15 @@ public class AiITest {
   @Test
   public void testAiTextGenWithDialogueHistory() {
     FileFull fileToAsk = uploadNewFile();
+    AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen aiAgentConfig =
+        client
+            .getAi()
+            .getAiAgentDefaultConfig(
+                new GetAiAgentDefaultConfigQueryParams.Builder(
+                        GetAiAgentDefaultConfigQueryParamsModeField.TEXT_GEN)
+                    .language("en-US")
+                    .build());
+    AiAgentTextGen aiTextGenAgentConfig = aiAgentConfig.getAiAgentTextGen();
     AiResponse response =
         client
             .getAi()
@@ -118,6 +143,7 @@ public class AiITest {
                                 .answer("East")
                                 .createdAt(dateTimeFromString("2021-01-01T00:00:00Z"))
                                 .build()))
+                    .aiAgent(aiTextGenAgentConfig)
                     .build());
     assert response.getAnswer().contains("sun");
     assert response.getCompletionReason().equals("done");
@@ -126,7 +152,7 @@ public class AiITest {
 
   @Test
   public void testGettingAiAskAgentConfig() {
-    AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen aiAskConfig =
+    AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen aiAgentConfig =
         client
             .getAi()
             .getAiAgentDefaultConfig(
@@ -134,11 +160,33 @@ public class AiITest {
                         GetAiAgentDefaultConfigQueryParamsModeField.ASK)
                     .language("en-US")
                     .build());
+    assert aiAgentConfig.getType().equals("ai_agent_ask");
+    AiAgentAsk aiAgentAskConfig = aiAgentConfig.getAiAgentAsk();
+    assert !(aiAgentAskConfig.getBasicText().getModel().equals(""));
+    assert !(aiAgentAskConfig.getBasicText().getPromptTemplate().equals(""));
+    assert aiAgentAskConfig.getBasicText().getNumTokensForCompletion() > -1;
+    assert !(aiAgentAskConfig.getBasicText().getLlmEndpointParams() == null);
+    assert !(aiAgentAskConfig.getBasicTextMulti().getModel().equals(""));
+    assert !(aiAgentAskConfig.getBasicTextMulti().getPromptTemplate().equals(""));
+    assert aiAgentAskConfig.getBasicTextMulti().getNumTokensForCompletion() > -1;
+    assert !(aiAgentAskConfig.getBasicTextMulti().getLlmEndpointParams() == null);
+    assert !(aiAgentAskConfig.getLongText().getModel().equals(""));
+    assert !(aiAgentAskConfig.getLongText().getPromptTemplate().equals(""));
+    assert aiAgentAskConfig.getLongText().getNumTokensForCompletion() > -1;
+    assert !(aiAgentAskConfig.getLongText().getEmbeddings().getModel().equals(""));
+    assert !(aiAgentAskConfig.getLongText().getEmbeddings().getStrategy().getId().equals(""));
+    assert !(aiAgentAskConfig.getLongText().getLlmEndpointParams() == null);
+    assert !(aiAgentAskConfig.getLongTextMulti().getModel().equals(""));
+    assert !(aiAgentAskConfig.getLongTextMulti().getPromptTemplate().equals(""));
+    assert aiAgentAskConfig.getLongTextMulti().getNumTokensForCompletion() > -1;
+    assert !(aiAgentAskConfig.getLongTextMulti().getEmbeddings().getModel().equals(""));
+    assert !(aiAgentAskConfig.getLongTextMulti().getEmbeddings().getStrategy().getId().equals(""));
+    assert !(aiAgentAskConfig.getLongTextMulti().getLlmEndpointParams() == null);
   }
 
   @Test
   public void testGettingAiTextGenAgentConfig() {
-    AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen aiTextGenConfig =
+    AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen aiAgentConfig =
         client
             .getAi()
             .getAiAgentDefaultConfig(
@@ -146,10 +194,41 @@ public class AiITest {
                         GetAiAgentDefaultConfigQueryParamsModeField.TEXT_GEN)
                     .language("en-US")
                     .build());
+    assert aiAgentConfig.getType().equals("ai_agent_text_gen");
+    AiAgentTextGen aiAgentTextGenConfig = aiAgentConfig.getAiAgentTextGen();
+    assert !(aiAgentTextGenConfig.getBasicGen().getLlmEndpointParams() == null);
+    assert !(aiAgentTextGenConfig.getBasicGen().getModel().equals(""));
+    assert !(aiAgentTextGenConfig.getBasicGen().getPromptTemplate().equals(""));
+    assert aiAgentTextGenConfig.getBasicGen().getNumTokensForCompletion() > -1;
+    assert !(aiAgentTextGenConfig.getBasicGen().getContentTemplate().equals(""));
+    assert !(aiAgentTextGenConfig.getBasicGen().getEmbeddings().getModel().equals(""));
+    assert !(aiAgentTextGenConfig.getBasicGen().getEmbeddings().getStrategy().getId().equals(""));
   }
 
   @Test
   public void testAiExtract() {
+    AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen aiAgentConfig =
+        client
+            .getAi()
+            .getAiAgentDefaultConfig(
+                new GetAiAgentDefaultConfigQueryParams.Builder(
+                        GetAiAgentDefaultConfigQueryParamsModeField.EXTRACT)
+                    .language("en-US")
+                    .build());
+    AiAgentExtract aiExtractAgentConfig = aiAgentConfig.getAiAgentExtract();
+    AiAgentLongTextTool longTextConfigWithNoEmbeddings =
+        new AiAgentLongTextTool.Builder()
+            .systemMessage(aiExtractAgentConfig.getLongText().getSystemMessage())
+            .promptTemplate(aiExtractAgentConfig.getLongText().getPromptTemplate())
+            .model(aiExtractAgentConfig.getLongText().getModel())
+            .numTokensForCompletion(aiExtractAgentConfig.getLongText().getNumTokensForCompletion())
+            .llmEndpointParams(aiExtractAgentConfig.getLongText().getLlmEndpointParams())
+            .build();
+    AiAgentExtract agentIgnoringOverridingEmbeddingsModel =
+        new AiAgentExtract.Builder()
+            .longText(longTextConfigWithNoEmbeddings)
+            .basicText(aiExtractAgentConfig.getBasicText())
+            .build();
     Files uploadedFiles =
         client
             .getUploads()
@@ -166,9 +245,11 @@ public class AiITest {
         client
             .getAi()
             .createAiExtract(
-                new AiExtract(
-                    "firstName, lastName, location, yearOfBirth, company",
-                    Arrays.asList(new AiItemBase(file.getId()))));
+                new AiExtract.Builder(
+                        "firstName, lastName, location, yearOfBirth, company",
+                        Arrays.asList(new AiItemBase(file.getId())))
+                    .aiAgent(agentIgnoringOverridingEmbeddingsModel)
+                    .build());
     String expectedResponse =
         "{\"firstName\": \"John\", \"lastName\": \"Doe\", \"location\": \"San Francisco\", \"yearOfBirth\": \"1990\", \"company\": \"Box\"}";
     assert response.getAnswer().equals(expectedResponse);
@@ -178,6 +259,30 @@ public class AiITest {
 
   @Test
   public void testAiExtractStructuredWithFields() {
+    AiAgentAskOrAiAgentExtractOrAiAgentExtractStructuredOrAiAgentTextGen aiAgentConfig =
+        client
+            .getAi()
+            .getAiAgentDefaultConfig(
+                new GetAiAgentDefaultConfigQueryParams.Builder(
+                        GetAiAgentDefaultConfigQueryParamsModeField.EXTRACT_STRUCTURED)
+                    .language("en-US")
+                    .build());
+    AiAgentExtractStructured aiExtractStructuredAgentConfig =
+        aiAgentConfig.getAiAgentExtractStructured();
+    AiAgentLongTextTool longTextConfigWithNoEmbeddings =
+        new AiAgentLongTextTool.Builder()
+            .systemMessage(aiExtractStructuredAgentConfig.getLongText().getSystemMessage())
+            .promptTemplate(aiExtractStructuredAgentConfig.getLongText().getPromptTemplate())
+            .model(aiExtractStructuredAgentConfig.getLongText().getModel())
+            .numTokensForCompletion(
+                aiExtractStructuredAgentConfig.getLongText().getNumTokensForCompletion())
+            .llmEndpointParams(aiExtractStructuredAgentConfig.getLongText().getLlmEndpointParams())
+            .build();
+    AiAgentExtractStructured agentIgnoringOverridingEmbeddingsModel =
+        new AiAgentExtractStructured.Builder()
+            .longText(longTextConfigWithNoEmbeddings)
+            .basicText(aiExtractStructuredAgentConfig.getBasicText())
+            .build();
     Files uploadedFiles =
         client
             .getUploads()
@@ -231,6 +336,7 @@ public class AiITest {
                                         new AiExtractStructuredFieldsOptionsField("guitar"),
                                         new AiExtractStructuredFieldsOptionsField("books")))
                                 .build()))
+                    .aiAgent(agentIgnoringOverridingEmbeddingsModel)
                     .build());
     assert convertToString(getValueFromObjectRawData(response, "answer.hobby"))
         .equals(convertToString(Arrays.asList("guitar")));

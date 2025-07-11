@@ -120,6 +120,8 @@ public class FoldersITest {
                     .build());
     assert movedFolder.getParent().getId().equals(folderOrigin.getId());
     Items folderItems = client.getFolders().getFolderItems(folderOrigin.getId());
+    assert folderItems.getEntries().get(0).getId().equals(movedFolder.getId());
+    assert folderItems.getEntries().get(0).getName().equals(movedFolderName);
     client.getFolders().deleteFolderById(movedFolder.getId());
     client.getFolders().deleteFolderById(folderOrigin.getId());
   }

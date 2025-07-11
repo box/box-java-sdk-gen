@@ -2,7 +2,9 @@ package com.box.sdkgen.schemas.aitextgen;
 
 import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.schemas.aiagentreference.AiAgentReference;
 import com.box.sdkgen.schemas.aiagentreferenceoraiagenttextgen.AiAgentReferenceOrAiAgentTextGen;
+import com.box.sdkgen.schemas.aiagenttextgen.AiAgentTextGen;
 import com.box.sdkgen.schemas.aidialoguehistory.AiDialogueHistory;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -114,6 +116,16 @@ public class AiTextGen extends SerializableObject {
 
     public Builder dialogueHistory(List<AiDialogueHistory> dialogueHistory) {
       this.dialogueHistory = dialogueHistory;
+      return this;
+    }
+
+    public Builder aiAgent(AiAgentReference aiAgent) {
+      this.aiAgent = new AiAgentReferenceOrAiAgentTextGen(aiAgent);
+      return this;
+    }
+
+    public Builder aiAgent(AiAgentTextGen aiAgent) {
+      this.aiAgent = new AiAgentReferenceOrAiAgentTextGen(aiAgent);
       return this;
     }
 

@@ -4,6 +4,7 @@ import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.schemas.integrationmappingbase.IntegrationMappingBase;
 import com.box.sdkgen.schemas.integrationmappingbase.IntegrationMappingBaseTypeField;
+import com.box.sdkgen.schemas.integrationmappingpartneritemslack.IntegrationMappingPartnerItemSlack;
 import com.box.sdkgen.schemas.integrationmappingpartneritemslackunion.IntegrationMappingPartnerItemSlackUnion;
 import com.box.sdkgen.schemas.integrationmappingslackoptions.IntegrationMappingSlackOptions;
 import com.box.sdkgen.schemas.userintegrationmappings.UserIntegrationMappings;
@@ -55,6 +56,13 @@ public class IntegrationMapping extends IntegrationMappingBase {
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
   protected Date modifiedAt;
+
+  public IntegrationMapping(
+      String id, IntegrationMappingPartnerItemSlack partnerItem, FolderMini boxItem) {
+    super(id);
+    this.partnerItem = new IntegrationMappingPartnerItemSlackUnion(partnerItem);
+    this.boxItem = boxItem;
+  }
 
   public IntegrationMapping(
       @JsonProperty("id") String id,
@@ -221,6 +229,12 @@ public class IntegrationMapping extends IntegrationMappingBase {
     protected Date createdAt;
 
     protected Date modifiedAt;
+
+    public Builder(String id, IntegrationMappingPartnerItemSlack partnerItem, FolderMini boxItem) {
+      super(id);
+      this.partnerItem = new IntegrationMappingPartnerItemSlackUnion(partnerItem);
+      this.boxItem = boxItem;
+    }
 
     public Builder(
         String id, IntegrationMappingPartnerItemSlackUnion partnerItem, FolderMini boxItem) {

@@ -24,18 +24,18 @@ public class CreateLegalHoldPolicyAssignmentRequestBodyAssignToField extends Ser
   protected final String id;
 
   public CreateLegalHoldPolicyAssignmentRequestBodyAssignToField(
+      CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField type, String id) {
+    super();
+    this.type = new EnumWrapper<CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField>(type);
+    this.id = id;
+  }
+
+  public CreateLegalHoldPolicyAssignmentRequestBodyAssignToField(
       @JsonProperty("type")
           EnumWrapper<CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField> type,
       @JsonProperty("id") String id) {
     super();
     this.type = type;
-    this.id = id;
-  }
-
-  public CreateLegalHoldPolicyAssignmentRequestBodyAssignToField(
-      CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField type, String id) {
-    super();
-    this.type = new EnumWrapper<CreateLegalHoldPolicyAssignmentRequestBodyAssignToTypeField>(type);
     this.id = id;
   }
 

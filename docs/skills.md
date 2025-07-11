@@ -16,7 +16,10 @@ This operation is performed by calling function `getBoxSkillCardsOnFile`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-files-id-metadata-global-boxSkillsCards/).
 
-*Currently we don't have an example for calling `getBoxSkillCardsOnFile` in integration tests*
+<!-- sample get_files_id_metadata_global_boxSkillsCards -->
+```
+client.getSkills().getBoxSkillCardsOnFile(file.getId())
+```
 
 ### Arguments
 
@@ -45,7 +48,10 @@ This operation is performed by calling function `createBoxSkillCardsOnFile`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/post-files-id-metadata-global-boxSkillsCards/).
 
-*Currently we don't have an example for calling `createBoxSkillCardsOnFile` in integration tests*
+<!-- sample post_files_id_metadata_global_boxSkillsCards -->
+```
+client.getSkills().createBoxSkillCardsOnFile(file.getId(), new CreateBoxSkillCardsOnFileRequestBody(cardsToCreate))
+```
 
 ### Arguments
 
@@ -74,7 +80,10 @@ This operation is performed by calling function `updateBoxSkillCardsOnFile`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/put-files-id-metadata-global-boxSkillsCards/).
 
-*Currently we don't have an example for calling `updateBoxSkillCardsOnFile` in integration tests*
+<!-- sample put_files_id_metadata_global_boxSkillsCards -->
+```
+client.getSkills().updateBoxSkillCardsOnFile(file.getId(), Arrays.asList(new UpdateBoxSkillCardsOnFileRequestBody.Builder().op(UpdateBoxSkillCardsOnFileRequestBodyOpField.REPLACE).path("/cards/0").value(cardToUpdate).build()))
+```
 
 ### Arguments
 
@@ -103,7 +112,10 @@ This operation is performed by calling function `deleteBoxSkillCardsFromFile`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/delete-files-id-metadata-global-boxSkillsCards/).
 
-*Currently we don't have an example for calling `deleteBoxSkillCardsFromFile` in integration tests*
+<!-- sample delete_files_id_metadata_global_boxSkillsCards -->
+```
+client.getSkills().deleteBoxSkillCardsFromFile(file.getId())
+```
 
 ### Arguments
 
