@@ -20,31 +20,33 @@ public class TransferITest {
 
   @Test
   public void testTransferUserContent() {
-    String newUserName = getUuid();
-    UserFull newUser =
+    String sourceUserName = getUuid();
+    UserFull sourceUser =
         client
             .getUsers()
             .createUser(
-                new CreateUserRequestBody.Builder(newUserName).isPlatformAccessOnly(true).build());
-    UserFull currentUser = client.getUsers().getUserMe();
-    FolderFull transferedFolder =
+                new CreateUserRequestBody.Builder(sourceUserName)
+                    .isPlatformAccessOnly(true)
+                    .build());
+    UserFull targetUser = client.getUsers().getUserMe();
+    FolderFull transferredFolder =
         client
             .getTransfer()
             .transferOwnedFolder(
-                newUser.getId(),
+                sourceUser.getId(),
                 new TransferOwnedFolderRequestBody(
-                    new TransferOwnedFolderRequestBodyOwnedByField(currentUser.getId())),
+                    new TransferOwnedFolderRequestBodyOwnedByField(targetUser.getId())),
                 new TransferOwnedFolderQueryParams.Builder().notify(false).build());
-    assert transferedFolder.getOwnedBy().getId().equals(currentUser.getId());
+    assert transferredFolder.getOwnedBy().getId().equals(targetUser.getId());
     client
         .getFolders()
         .deleteFolderById(
-            transferedFolder.getId(),
+            transferredFolder.getId(),
             new DeleteFolderByIdQueryParams.Builder().recursive(true).build());
     client
         .getUsers()
         .deleteUserById(
-            newUser.getId(),
+            sourceUser.getId(),
             new DeleteUserByIdQueryParams.Builder().notify(false).force(true).build());
   }
 }
