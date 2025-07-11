@@ -79,6 +79,9 @@ public class IntegrationMappingsITest {
     assert convertToString(slackIntegrationMapping.getIntegrationType()).equals("slack");
     assert convertToString(slackIntegrationMapping.getType()).equals("integration_mapping");
     assert convertToString(slackIntegrationMapping.getBoxItem().getType()).equals("folder");
+    assert slackIntegrationMapping.getPartnerItem().getId().equals(slackPartnerItemId);
+    assert slackIntegrationMapping.getPartnerItem().getSlackWorkspaceId().equals(slackOrgId);
+    assert convertToString(slackIntegrationMapping.getPartnerItem().getType()).equals("channel");
     IntegrationMapping updatedSlackMapping =
         userClient
             .getIntegrationMappings()

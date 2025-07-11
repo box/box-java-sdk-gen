@@ -74,6 +74,56 @@ public class WebLinkSharedLinkField extends SerializableObject {
   protected final long previewCount;
 
   public WebLinkSharedLinkField(
+      String url,
+      WebLinkSharedLinkEffectiveAccessField effectiveAccess,
+      WebLinkSharedLinkEffectivePermissionField effectivePermission,
+      boolean isPasswordEnabled,
+      long downloadCount,
+      long previewCount) {
+    super();
+    this.url = url;
+    this.effectiveAccess = new EnumWrapper<WebLinkSharedLinkEffectiveAccessField>(effectiveAccess);
+    this.effectivePermission =
+        new EnumWrapper<WebLinkSharedLinkEffectivePermissionField>(effectivePermission);
+    this.isPasswordEnabled = isPasswordEnabled;
+    this.downloadCount = downloadCount;
+    this.previewCount = previewCount;
+  }
+
+  public WebLinkSharedLinkField(
+      String url,
+      WebLinkSharedLinkEffectiveAccessField effectiveAccess,
+      EnumWrapper<WebLinkSharedLinkEffectivePermissionField> effectivePermission,
+      boolean isPasswordEnabled,
+      long downloadCount,
+      long previewCount) {
+    super();
+    this.url = url;
+    this.effectiveAccess = new EnumWrapper<WebLinkSharedLinkEffectiveAccessField>(effectiveAccess);
+    this.effectivePermission = effectivePermission;
+    this.isPasswordEnabled = isPasswordEnabled;
+    this.downloadCount = downloadCount;
+    this.previewCount = previewCount;
+  }
+
+  public WebLinkSharedLinkField(
+      String url,
+      EnumWrapper<WebLinkSharedLinkEffectiveAccessField> effectiveAccess,
+      WebLinkSharedLinkEffectivePermissionField effectivePermission,
+      boolean isPasswordEnabled,
+      long downloadCount,
+      long previewCount) {
+    super();
+    this.url = url;
+    this.effectiveAccess = effectiveAccess;
+    this.effectivePermission =
+        new EnumWrapper<WebLinkSharedLinkEffectivePermissionField>(effectivePermission);
+    this.isPasswordEnabled = isPasswordEnabled;
+    this.downloadCount = downloadCount;
+    this.previewCount = previewCount;
+  }
+
+  public WebLinkSharedLinkField(
       @JsonProperty("url") String url,
       @JsonProperty("effective_access")
           EnumWrapper<WebLinkSharedLinkEffectiveAccessField> effectiveAccess,
@@ -86,23 +136,6 @@ public class WebLinkSharedLinkField extends SerializableObject {
     this.url = url;
     this.effectiveAccess = effectiveAccess;
     this.effectivePermission = effectivePermission;
-    this.isPasswordEnabled = isPasswordEnabled;
-    this.downloadCount = downloadCount;
-    this.previewCount = previewCount;
-  }
-
-  public WebLinkSharedLinkField(
-      String url,
-      WebLinkSharedLinkEffectiveAccessField effectiveAccess,
-      WebLinkSharedLinkEffectivePermissionField effectivePermission,
-      boolean isPasswordEnabled,
-      long downloadCount,
-      long previewCount) {
-    super();
-    this.url = url;
-    this.effectiveAccess = new EnumWrapper<WebLinkSharedLinkEffectiveAccessField>(effectiveAccess);
-    this.effectivePermission =
-        new EnumWrapper<WebLinkSharedLinkEffectivePermissionField>(effectivePermission);
     this.isPasswordEnabled = isPasswordEnabled;
     this.downloadCount = downloadCount;
     this.previewCount = previewCount;
@@ -294,22 +327,6 @@ public class WebLinkSharedLinkField extends SerializableObject {
 
     public Builder(
         String url,
-        EnumWrapper<WebLinkSharedLinkEffectiveAccessField> effectiveAccess,
-        EnumWrapper<WebLinkSharedLinkEffectivePermissionField> effectivePermission,
-        boolean isPasswordEnabled,
-        long downloadCount,
-        long previewCount) {
-      super();
-      this.url = url;
-      this.effectiveAccess = effectiveAccess;
-      this.effectivePermission = effectivePermission;
-      this.isPasswordEnabled = isPasswordEnabled;
-      this.downloadCount = downloadCount;
-      this.previewCount = previewCount;
-    }
-
-    public Builder(
-        String url,
         WebLinkSharedLinkEffectiveAccessField effectiveAccess,
         WebLinkSharedLinkEffectivePermissionField effectivePermission,
         boolean isPasswordEnabled,
@@ -321,6 +338,56 @@ public class WebLinkSharedLinkField extends SerializableObject {
           new EnumWrapper<WebLinkSharedLinkEffectiveAccessField>(effectiveAccess);
       this.effectivePermission =
           new EnumWrapper<WebLinkSharedLinkEffectivePermissionField>(effectivePermission);
+      this.isPasswordEnabled = isPasswordEnabled;
+      this.downloadCount = downloadCount;
+      this.previewCount = previewCount;
+    }
+
+    public Builder(
+        String url,
+        WebLinkSharedLinkEffectiveAccessField effectiveAccess,
+        EnumWrapper<WebLinkSharedLinkEffectivePermissionField> effectivePermission,
+        boolean isPasswordEnabled,
+        long downloadCount,
+        long previewCount) {
+      super();
+      this.url = url;
+      this.effectiveAccess =
+          new EnumWrapper<WebLinkSharedLinkEffectiveAccessField>(effectiveAccess);
+      this.effectivePermission = effectivePermission;
+      this.isPasswordEnabled = isPasswordEnabled;
+      this.downloadCount = downloadCount;
+      this.previewCount = previewCount;
+    }
+
+    public Builder(
+        String url,
+        EnumWrapper<WebLinkSharedLinkEffectiveAccessField> effectiveAccess,
+        WebLinkSharedLinkEffectivePermissionField effectivePermission,
+        boolean isPasswordEnabled,
+        long downloadCount,
+        long previewCount) {
+      super();
+      this.url = url;
+      this.effectiveAccess = effectiveAccess;
+      this.effectivePermission =
+          new EnumWrapper<WebLinkSharedLinkEffectivePermissionField>(effectivePermission);
+      this.isPasswordEnabled = isPasswordEnabled;
+      this.downloadCount = downloadCount;
+      this.previewCount = previewCount;
+    }
+
+    public Builder(
+        String url,
+        EnumWrapper<WebLinkSharedLinkEffectiveAccessField> effectiveAccess,
+        EnumWrapper<WebLinkSharedLinkEffectivePermissionField> effectivePermission,
+        boolean isPasswordEnabled,
+        long downloadCount,
+        long previewCount) {
+      super();
+      this.url = url;
+      this.effectiveAccess = effectiveAccess;
+      this.effectivePermission = effectivePermission;
       this.isPasswordEnabled = isPasswordEnabled;
       this.downloadCount = downloadCount;
       this.previewCount = previewCount;

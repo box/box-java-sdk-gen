@@ -27,6 +27,8 @@ public class AppItemAssociationsITest {
     assert !(association.getId().equals(""));
     assert convertToString(association.getAppItem().getApplicationType()).equals("hubs");
     assert convertToString(association.getAppItem().getType()).equals("app_item");
+    assert convertToString(association.getItem().getType()).equals("file");
+    assert association.getItem().getId().equals(fileId);
     FileFull file =
         client
             .getFiles()
@@ -49,6 +51,8 @@ public class AppItemAssociationsITest {
     assert !(association.getId().equals(""));
     assert convertToString(association.getAppItem().getApplicationType()).equals("hubs");
     assert convertToString(association.getAppItem().getType()).equals("app_item");
+    assert convertToString(association.getItem().getType()).equals("folder");
+    assert association.getItem().getId().equals(folderId);
     FolderFull folder =
         client
             .getFolders()

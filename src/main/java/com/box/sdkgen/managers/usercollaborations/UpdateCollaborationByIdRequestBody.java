@@ -42,15 +42,15 @@ public class UpdateCollaborationByIdRequestBody extends SerializableObject {
   @JsonProperty("can_view_path")
   protected Boolean canViewPath;
 
+  public UpdateCollaborationByIdRequestBody(UpdateCollaborationByIdRequestBodyRoleField role) {
+    super();
+    this.role = new EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField>(role);
+  }
+
   public UpdateCollaborationByIdRequestBody(
       @JsonProperty("role") EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField> role) {
     super();
     this.role = role;
-  }
-
-  public UpdateCollaborationByIdRequestBody(UpdateCollaborationByIdRequestBodyRoleField role) {
-    super();
-    this.role = new EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField>(role);
   }
 
   protected UpdateCollaborationByIdRequestBody(Builder builder) {
@@ -129,14 +129,14 @@ public class UpdateCollaborationByIdRequestBody extends SerializableObject {
 
     protected Boolean canViewPath;
 
-    public Builder(EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField> role) {
-      super();
-      this.role = role;
-    }
-
     public Builder(UpdateCollaborationByIdRequestBodyRoleField role) {
       super();
       this.role = new EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField>(role);
+    }
+
+    public Builder(EnumWrapper<UpdateCollaborationByIdRequestBodyRoleField> role) {
+      super();
+      this.role = role;
     }
 
     public Builder status(UpdateCollaborationByIdRequestBodyStatusField status) {

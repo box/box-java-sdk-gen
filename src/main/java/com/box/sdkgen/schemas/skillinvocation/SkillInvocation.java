@@ -4,7 +4,9 @@ import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.event.Event;
+import com.box.sdkgen.schemas.file.File;
 import com.box.sdkgen.schemas.fileorfolder.FileOrFolder;
+import com.box.sdkgen.schemas.folder.Folder;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -236,6 +238,16 @@ public class SkillInvocation extends SerializableObject {
 
     public Builder enterprise(SkillInvocationEnterpriseField enterprise) {
       this.enterprise = enterprise;
+      return this;
+    }
+
+    public Builder source(File source) {
+      this.source = new FileOrFolder(source);
+      return this;
+    }
+
+    public Builder source(Folder source) {
+      this.source = new FileOrFolder(source);
       return this;
     }
 

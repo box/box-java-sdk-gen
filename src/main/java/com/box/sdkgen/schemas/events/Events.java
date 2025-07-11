@@ -92,6 +92,16 @@ public class Events extends SerializableObject {
       return this;
     }
 
+    public Builder nextStreamPosition(String nextStreamPosition) {
+      this.nextStreamPosition = new EventsNextStreamPositionField(nextStreamPosition);
+      return this;
+    }
+
+    public Builder nextStreamPosition(double nextStreamPosition) {
+      this.nextStreamPosition = new EventsNextStreamPositionField(nextStreamPosition);
+      return this;
+    }
+
     public Builder nextStreamPosition(EventsNextStreamPositionField nextStreamPosition) {
       this.nextStreamPosition = nextStreamPosition;
       return this;

@@ -4,6 +4,7 @@ import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.folderreference.FolderReference;
 import com.box.sdkgen.schemas.integrationmappingbase.IntegrationMappingBase;
 import com.box.sdkgen.schemas.integrationmappingbase.IntegrationMappingBaseTypeField;
+import com.box.sdkgen.schemas.integrationmappingpartneritemteams.IntegrationMappingPartnerItemTeams;
 import com.box.sdkgen.schemas.integrationmappingpartneritemteamsunion.IntegrationMappingPartnerItemTeamsUnion;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonFilter;
@@ -45,6 +46,13 @@ public class IntegrationMappingTeams extends IntegrationMappingBase {
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
   protected Date modifiedAt;
+
+  public IntegrationMappingTeams(
+      String id, IntegrationMappingPartnerItemTeams partnerItem, FolderReference boxItem) {
+    super(id);
+    this.partnerItem = new IntegrationMappingPartnerItemTeamsUnion(partnerItem);
+    this.boxItem = boxItem;
+  }
 
   public IntegrationMappingTeams(
       @JsonProperty("id") String id,
@@ -172,6 +180,13 @@ public class IntegrationMappingTeams extends IntegrationMappingBase {
     protected Date createdAt;
 
     protected Date modifiedAt;
+
+    public Builder(
+        String id, IntegrationMappingPartnerItemTeams partnerItem, FolderReference boxItem) {
+      super(id);
+      this.partnerItem = new IntegrationMappingPartnerItemTeamsUnion(partnerItem);
+      this.boxItem = boxItem;
+    }
 
     public Builder(
         String id, IntegrationMappingPartnerItemTeamsUnion partnerItem, FolderReference boxItem) {

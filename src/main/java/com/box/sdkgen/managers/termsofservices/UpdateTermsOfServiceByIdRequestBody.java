@@ -24,17 +24,17 @@ public class UpdateTermsOfServiceByIdRequestBody extends SerializableObject {
   protected final String text;
 
   public UpdateTermsOfServiceByIdRequestBody(
-      @JsonProperty("status") EnumWrapper<UpdateTermsOfServiceByIdRequestBodyStatusField> status,
-      @JsonProperty("text") String text) {
+      UpdateTermsOfServiceByIdRequestBodyStatusField status, String text) {
     super();
-    this.status = status;
+    this.status = new EnumWrapper<UpdateTermsOfServiceByIdRequestBodyStatusField>(status);
     this.text = text;
   }
 
   public UpdateTermsOfServiceByIdRequestBody(
-      UpdateTermsOfServiceByIdRequestBodyStatusField status, String text) {
+      @JsonProperty("status") EnumWrapper<UpdateTermsOfServiceByIdRequestBodyStatusField> status,
+      @JsonProperty("text") String text) {
     super();
-    this.status = new EnumWrapper<UpdateTermsOfServiceByIdRequestBodyStatusField>(status);
+    this.status = status;
     this.text = text;
   }
 

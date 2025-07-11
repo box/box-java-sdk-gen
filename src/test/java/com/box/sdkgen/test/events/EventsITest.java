@@ -11,8 +11,10 @@ import com.box.sdkgen.managers.events.GetEventsQueryParamsEventTypeField;
 import com.box.sdkgen.managers.events.GetEventsQueryParamsStreamTypeField;
 import com.box.sdkgen.schemas.event.Event;
 import com.box.sdkgen.schemas.events.Events;
+import com.box.sdkgen.schemas.eventsource.EventSource;
 import com.box.sdkgen.schemas.realtimeserver.RealtimeServer;
 import com.box.sdkgen.schemas.realtimeservers.RealtimeServers;
+import com.box.sdkgen.schemas.user.User;
 import java.util.Arrays;
 import java.util.Date;
 import org.junit.jupiter.api.Test;
@@ -43,6 +45,11 @@ public class EventsITest {
     assert events.getEntries().size() > 0;
     Event firstEvent = events.getEntries().get(0);
     assert convertToString(firstEvent.getEventType()).equals("UPLOAD");
+    EventSource source = firstEvent.getSource().getEventSource();
+    assert convertToString(source.getItemType()).equals("file")
+        || convertToString(source.getItemType()).equals("folder");
+    assert !(source.getItemId().equals(""));
+    assert !(source.getItemName().equals(""));
   }
 
   @Test
@@ -58,6 +65,9 @@ public class EventsITest {
     assert events.getEntries().size() > 0;
     Event firstEvent = events.getEntries().get(0);
     assert convertToString(firstEvent.getEventType()).equals("DELETE_USER");
+    User source = firstEvent.getSource().getUser();
+    assert convertToString(source.getType()).equals("user");
+    assert !(source.getId().equals(""));
   }
 
   @Test

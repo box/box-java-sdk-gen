@@ -91,4 +91,19 @@ public class EnumWrapper<E extends Enum<E> & Valuable> implements Valuable {
       List<List<T>> listOfEnums) {
     return listOfEnums.stream().map(EnumWrapper::wrapListOfEnums).collect(Collectors.toList());
   }
+
+  public static <T extends Enum<T> & Valuable> String convertToString(EnumWrapper<T> enumValue) {
+    if (enumValue == null) {
+      return null;
+    }
+    return enumValue.getStringValue();
+  }
+
+  public static <T extends Enum<T> & Valuable> List<String> convertToString(
+      List<EnumWrapper<T>> enumValue) {
+    if (enumValue == null) {
+      return null;
+    }
+    return enumValue.stream().map(EnumWrapper::getStringValue).collect(Collectors.toList());
+  }
 }

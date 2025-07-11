@@ -2,7 +2,11 @@ package com.box.sdkgen.managers.skills;
 
 import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.schemas.keywordskillcard.KeywordSkillCard;
 import com.box.sdkgen.schemas.keywordskillcardorstatusskillcardortimelineskillcardortranscriptskillcard.KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard;
+import com.box.sdkgen.schemas.statusskillcard.StatusSkillCard;
+import com.box.sdkgen.schemas.timelineskillcard.TimelineSkillCard;
+import com.box.sdkgen.schemas.transcriptskillcard.TranscriptSkillCard;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -106,6 +110,30 @@ public class UpdateBoxSkillCardsOnFileRequestBody extends SerializableObject {
 
     public Builder path(String path) {
       this.path = path;
+      return this;
+    }
+
+    public Builder value(KeywordSkillCard value) {
+      this.value =
+          new KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard(value);
+      return this;
+    }
+
+    public Builder value(StatusSkillCard value) {
+      this.value =
+          new KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard(value);
+      return this;
+    }
+
+    public Builder value(TimelineSkillCard value) {
+      this.value =
+          new KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard(value);
+      return this;
+    }
+
+    public Builder value(TranscriptSkillCard value) {
+      this.value =
+          new KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard(value);
       return this;
     }
 

@@ -52,24 +52,48 @@ public class AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser
     super(null, null, null, null, null, user);
   }
 
+  public boolean isAppItemEventSource() {
+    return value0 != null;
+  }
+
   public AppItemEventSource getAppItemEventSource() {
     return value0;
+  }
+
+  public boolean isEventSource() {
+    return value1 != null;
   }
 
   public EventSource getEventSource() {
     return value1;
   }
 
+  public boolean isFile() {
+    return value2 != null;
+  }
+
   public File getFile() {
     return value2;
+  }
+
+  public boolean isFolder() {
+    return value3 != null;
   }
 
   public Folder getFolder() {
     return value3;
   }
 
+  public boolean isMap() {
+    return value4 != null;
+  }
+
   public Map<String, Object> getMap() {
     return value4;
+  }
+
+  public boolean isUser() {
+    return value5 != null;
   }
 
   public User getUser() {

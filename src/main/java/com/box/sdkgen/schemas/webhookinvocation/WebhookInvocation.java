@@ -3,7 +3,9 @@ package com.box.sdkgen.schemas.webhookinvocation;
 import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
+import com.box.sdkgen.schemas.file.File;
 import com.box.sdkgen.schemas.fileorfolder.FileOrFolder;
+import com.box.sdkgen.schemas.folder.Folder;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.schemas.webhook.Webhook;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -194,6 +196,16 @@ public class WebhookInvocation extends SerializableObject {
 
     public Builder trigger(EnumWrapper<WebhookInvocationTriggerField> trigger) {
       this.trigger = trigger;
+      return this;
+    }
+
+    public Builder source(File source) {
+      this.source = new FileOrFolder(source);
+      return this;
+    }
+
+    public Builder source(Folder source) {
+      this.source = new FileOrFolder(source);
       return this;
     }
 

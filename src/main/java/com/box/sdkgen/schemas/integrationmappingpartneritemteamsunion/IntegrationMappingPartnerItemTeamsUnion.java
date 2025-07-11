@@ -2,6 +2,7 @@ package com.box.sdkgen.schemas.integrationmappingpartneritemteamsunion;
 
 import com.box.sdkgen.internal.OneOfOne;
 import com.box.sdkgen.schemas.integrationmappingpartneritemteams.IntegrationMappingPartnerItemTeams;
+import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.box.sdkgen.serialization.json.JsonManager;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -20,13 +21,38 @@ import java.io.IOException;
 public class IntegrationMappingPartnerItemTeamsUnion
     extends OneOfOne<IntegrationMappingPartnerItemTeams> {
 
+  protected final String type;
+
+  protected final String id;
+
+  protected final String tenantId;
+
   public IntegrationMappingPartnerItemTeamsUnion(
       IntegrationMappingPartnerItemTeams integrationMappingPartnerItemTeams) {
     super(integrationMappingPartnerItemTeams);
+    this.type = EnumWrapper.convertToString(integrationMappingPartnerItemTeams.getType());
+    this.id = integrationMappingPartnerItemTeams.getId();
+    this.tenantId = integrationMappingPartnerItemTeams.getTenantId();
+  }
+
+  public boolean isIntegrationMappingPartnerItemTeams() {
+    return value0 != null;
   }
 
   public IntegrationMappingPartnerItemTeams getIntegrationMappingPartnerItemTeams() {
     return value0;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public String getTenantId() {
+    return tenantId;
   }
 
   static class IntegrationMappingPartnerItemTeamsUnionDeserializer

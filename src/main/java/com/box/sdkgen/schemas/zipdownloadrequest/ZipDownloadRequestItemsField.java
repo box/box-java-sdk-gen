@@ -19,17 +19,17 @@ public class ZipDownloadRequestItemsField extends SerializableObject {
 
   protected final String id;
 
+  public ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField type, String id) {
+    super();
+    this.type = new EnumWrapper<ZipDownloadRequestItemsTypeField>(type);
+    this.id = id;
+  }
+
   public ZipDownloadRequestItemsField(
       @JsonProperty("type") EnumWrapper<ZipDownloadRequestItemsTypeField> type,
       @JsonProperty("id") String id) {
     super();
     this.type = type;
-    this.id = id;
-  }
-
-  public ZipDownloadRequestItemsField(ZipDownloadRequestItemsTypeField type, String id) {
-    super();
-    this.type = new EnumWrapper<ZipDownloadRequestItemsTypeField>(type);
     this.id = id;
   }
 

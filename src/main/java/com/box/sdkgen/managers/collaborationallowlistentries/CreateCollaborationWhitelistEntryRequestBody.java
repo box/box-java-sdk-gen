@@ -24,20 +24,20 @@ public class CreateCollaborationWhitelistEntryRequestBody extends SerializableOb
   protected final EnumWrapper<CreateCollaborationWhitelistEntryRequestBodyDirectionField> direction;
 
   public CreateCollaborationWhitelistEntryRequestBody(
+      String domain, CreateCollaborationWhitelistEntryRequestBodyDirectionField direction) {
+    super();
+    this.domain = domain;
+    this.direction =
+        new EnumWrapper<CreateCollaborationWhitelistEntryRequestBodyDirectionField>(direction);
+  }
+
+  public CreateCollaborationWhitelistEntryRequestBody(
       @JsonProperty("domain") String domain,
       @JsonProperty("direction")
           EnumWrapper<CreateCollaborationWhitelistEntryRequestBodyDirectionField> direction) {
     super();
     this.domain = domain;
     this.direction = direction;
-  }
-
-  public CreateCollaborationWhitelistEntryRequestBody(
-      String domain, CreateCollaborationWhitelistEntryRequestBodyDirectionField direction) {
-    super();
-    this.domain = domain;
-    this.direction =
-        new EnumWrapper<CreateCollaborationWhitelistEntryRequestBodyDirectionField>(direction);
   }
 
   public String getDomain() {

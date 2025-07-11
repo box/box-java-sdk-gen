@@ -24,20 +24,20 @@ public class UpdateShieldInformationBarrierStatusRequestBody extends Serializabl
   protected final EnumWrapper<UpdateShieldInformationBarrierStatusRequestBodyStatusField> status;
 
   public UpdateShieldInformationBarrierStatusRequestBody(
+      String id, UpdateShieldInformationBarrierStatusRequestBodyStatusField status) {
+    super();
+    this.id = id;
+    this.status =
+        new EnumWrapper<UpdateShieldInformationBarrierStatusRequestBodyStatusField>(status);
+  }
+
+  public UpdateShieldInformationBarrierStatusRequestBody(
       @JsonProperty("id") String id,
       @JsonProperty("status")
           EnumWrapper<UpdateShieldInformationBarrierStatusRequestBodyStatusField> status) {
     super();
     this.id = id;
     this.status = status;
-  }
-
-  public UpdateShieldInformationBarrierStatusRequestBody(
-      String id, UpdateShieldInformationBarrierStatusRequestBodyStatusField status) {
-    super();
-    this.id = id;
-    this.status =
-        new EnumWrapper<UpdateShieldInformationBarrierStatusRequestBodyStatusField>(status);
   }
 
   public String getId() {

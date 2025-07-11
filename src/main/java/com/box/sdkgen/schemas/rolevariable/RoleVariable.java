@@ -30,19 +30,19 @@ public class RoleVariable extends SerializableObject {
   @JsonProperty("variable_value")
   protected final EnumWrapper<RoleVariableVariableValueField> variableValue;
 
-  public RoleVariable(
-      @JsonProperty("variable_value") EnumWrapper<RoleVariableVariableValueField> variableValue) {
+  public RoleVariable(RoleVariableVariableValueField variableValue) {
     super();
-    this.variableValue = variableValue;
+    this.variableValue = new EnumWrapper<RoleVariableVariableValueField>(variableValue);
     this.type = new EnumWrapper<RoleVariableTypeField>(RoleVariableTypeField.VARIABLE);
     this.variableType =
         new EnumWrapper<RoleVariableVariableTypeField>(
             RoleVariableVariableTypeField.COLLABORATOR_ROLE);
   }
 
-  public RoleVariable(RoleVariableVariableValueField variableValue) {
+  public RoleVariable(
+      @JsonProperty("variable_value") EnumWrapper<RoleVariableVariableValueField> variableValue) {
     super();
-    this.variableValue = new EnumWrapper<RoleVariableVariableValueField>(variableValue);
+    this.variableValue = variableValue;
     this.type = new EnumWrapper<RoleVariableTypeField>(RoleVariableTypeField.VARIABLE);
     this.variableType =
         new EnumWrapper<RoleVariableVariableTypeField>(
@@ -113,18 +113,18 @@ public class RoleVariable extends SerializableObject {
 
     protected final EnumWrapper<RoleVariableVariableValueField> variableValue;
 
-    public Builder(EnumWrapper<RoleVariableVariableValueField> variableValue) {
+    public Builder(RoleVariableVariableValueField variableValue) {
       super();
-      this.variableValue = variableValue;
+      this.variableValue = new EnumWrapper<RoleVariableVariableValueField>(variableValue);
       this.type = new EnumWrapper<RoleVariableTypeField>(RoleVariableTypeField.VARIABLE);
       this.variableType =
           new EnumWrapper<RoleVariableVariableTypeField>(
               RoleVariableVariableTypeField.COLLABORATOR_ROLE);
     }
 
-    public Builder(RoleVariableVariableValueField variableValue) {
+    public Builder(EnumWrapper<RoleVariableVariableValueField> variableValue) {
       super();
-      this.variableValue = new EnumWrapper<RoleVariableVariableValueField>(variableValue);
+      this.variableValue = variableValue;
       this.type = new EnumWrapper<RoleVariableTypeField>(RoleVariableTypeField.VARIABLE);
       this.variableType =
           new EnumWrapper<RoleVariableVariableTypeField>(

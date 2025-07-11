@@ -36,17 +36,17 @@ public class CreateTermsOfServiceRequestBody extends SerializableObject {
   protected final String text;
 
   public CreateTermsOfServiceRequestBody(
-      @JsonProperty("status") EnumWrapper<CreateTermsOfServiceRequestBodyStatusField> status,
-      @JsonProperty("text") String text) {
+      CreateTermsOfServiceRequestBodyStatusField status, String text) {
     super();
-    this.status = status;
+    this.status = new EnumWrapper<CreateTermsOfServiceRequestBodyStatusField>(status);
     this.text = text;
   }
 
   public CreateTermsOfServiceRequestBody(
-      CreateTermsOfServiceRequestBodyStatusField status, String text) {
+      @JsonProperty("status") EnumWrapper<CreateTermsOfServiceRequestBodyStatusField> status,
+      @JsonProperty("text") String text) {
     super();
-    this.status = new EnumWrapper<CreateTermsOfServiceRequestBodyStatusField>(status);
+    this.status = status;
     this.text = text;
   }
 
@@ -114,15 +114,15 @@ public class CreateTermsOfServiceRequestBody extends SerializableObject {
 
     protected final String text;
 
-    public Builder(EnumWrapper<CreateTermsOfServiceRequestBodyStatusField> status, String text) {
-      super();
-      this.status = status;
-      this.text = text;
-    }
-
     public Builder(CreateTermsOfServiceRequestBodyStatusField status, String text) {
       super();
       this.status = new EnumWrapper<CreateTermsOfServiceRequestBodyStatusField>(status);
+      this.text = text;
+    }
+
+    public Builder(EnumWrapper<CreateTermsOfServiceRequestBodyStatusField> status, String text) {
+      super();
+      this.status = status;
       this.text = text;
     }
 

@@ -96,33 +96,6 @@ public class TrashFileRestored extends SerializableObject {
   protected final EnumWrapper<TrashFileRestoredItemStatusField> itemStatus;
 
   public TrashFileRestored(
-      @JsonProperty("id") String id,
-      @JsonProperty("sequence_id") String sequenceId,
-      @JsonProperty("sha1") String sha1,
-      @JsonProperty("description") String description,
-      @JsonProperty("size") long size,
-      @JsonProperty("path_collection") TrashFileRestoredPathCollectionField pathCollection,
-      @JsonProperty("created_at") Date createdAt,
-      @JsonProperty("modified_at") Date modifiedAt,
-      @JsonProperty("modified_by") UserMini modifiedBy,
-      @JsonProperty("owned_by") UserMini ownedBy,
-      @JsonProperty("item_status") EnumWrapper<TrashFileRestoredItemStatusField> itemStatus) {
-    super();
-    this.id = id;
-    this.sequenceId = sequenceId;
-    this.sha1 = sha1;
-    this.description = description;
-    this.size = size;
-    this.pathCollection = pathCollection;
-    this.createdAt = createdAt;
-    this.modifiedAt = modifiedAt;
-    this.modifiedBy = modifiedBy;
-    this.ownedBy = ownedBy;
-    this.itemStatus = itemStatus;
-    this.type = new EnumWrapper<TrashFileRestoredTypeField>(TrashFileRestoredTypeField.FILE);
-  }
-
-  public TrashFileRestored(
       String id,
       String sequenceId,
       String sha1,
@@ -146,6 +119,33 @@ public class TrashFileRestored extends SerializableObject {
     this.modifiedBy = modifiedBy;
     this.ownedBy = ownedBy;
     this.itemStatus = new EnumWrapper<TrashFileRestoredItemStatusField>(itemStatus);
+    this.type = new EnumWrapper<TrashFileRestoredTypeField>(TrashFileRestoredTypeField.FILE);
+  }
+
+  public TrashFileRestored(
+      @JsonProperty("id") String id,
+      @JsonProperty("sequence_id") String sequenceId,
+      @JsonProperty("sha1") String sha1,
+      @JsonProperty("description") String description,
+      @JsonProperty("size") long size,
+      @JsonProperty("path_collection") TrashFileRestoredPathCollectionField pathCollection,
+      @JsonProperty("created_at") Date createdAt,
+      @JsonProperty("modified_at") Date modifiedAt,
+      @JsonProperty("modified_by") UserMini modifiedBy,
+      @JsonProperty("owned_by") UserMini ownedBy,
+      @JsonProperty("item_status") EnumWrapper<TrashFileRestoredItemStatusField> itemStatus) {
+    super();
+    this.id = id;
+    this.sequenceId = sequenceId;
+    this.sha1 = sha1;
+    this.description = description;
+    this.size = size;
+    this.pathCollection = pathCollection;
+    this.createdAt = createdAt;
+    this.modifiedAt = modifiedAt;
+    this.modifiedBy = modifiedBy;
+    this.ownedBy = ownedBy;
+    this.itemStatus = itemStatus;
     this.type = new EnumWrapper<TrashFileRestoredTypeField>(TrashFileRestoredTypeField.FILE);
   }
 
@@ -474,7 +474,7 @@ public class TrashFileRestored extends SerializableObject {
         Date modifiedAt,
         UserMini modifiedBy,
         UserMini ownedBy,
-        EnumWrapper<TrashFileRestoredItemStatusField> itemStatus) {
+        TrashFileRestoredItemStatusField itemStatus) {
       super();
       this.id = id;
       this.sequenceId = sequenceId;
@@ -486,7 +486,7 @@ public class TrashFileRestored extends SerializableObject {
       this.modifiedAt = modifiedAt;
       this.modifiedBy = modifiedBy;
       this.ownedBy = ownedBy;
-      this.itemStatus = itemStatus;
+      this.itemStatus = new EnumWrapper<TrashFileRestoredItemStatusField>(itemStatus);
       this.type = new EnumWrapper<TrashFileRestoredTypeField>(TrashFileRestoredTypeField.FILE);
     }
 
@@ -501,7 +501,7 @@ public class TrashFileRestored extends SerializableObject {
         Date modifiedAt,
         UserMini modifiedBy,
         UserMini ownedBy,
-        TrashFileRestoredItemStatusField itemStatus) {
+        EnumWrapper<TrashFileRestoredItemStatusField> itemStatus) {
       super();
       this.id = id;
       this.sequenceId = sequenceId;
@@ -513,7 +513,7 @@ public class TrashFileRestored extends SerializableObject {
       this.modifiedAt = modifiedAt;
       this.modifiedBy = modifiedBy;
       this.ownedBy = ownedBy;
-      this.itemStatus = new EnumWrapper<TrashFileRestoredItemStatusField>(itemStatus);
+      this.itemStatus = itemStatus;
       this.type = new EnumWrapper<TrashFileRestoredTypeField>(TrashFileRestoredTypeField.FILE);
     }
 

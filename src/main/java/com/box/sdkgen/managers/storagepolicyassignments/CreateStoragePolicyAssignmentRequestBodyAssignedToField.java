@@ -24,18 +24,18 @@ public class CreateStoragePolicyAssignmentRequestBodyAssignedToField extends Ser
   protected final String id;
 
   public CreateStoragePolicyAssignmentRequestBodyAssignedToField(
+      CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField type, String id) {
+    super();
+    this.type = new EnumWrapper<CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField>(type);
+    this.id = id;
+  }
+
+  public CreateStoragePolicyAssignmentRequestBodyAssignedToField(
       @JsonProperty("type")
           EnumWrapper<CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField> type,
       @JsonProperty("id") String id) {
     super();
     this.type = type;
-    this.id = id;
-  }
-
-  public CreateStoragePolicyAssignmentRequestBodyAssignedToField(
-      CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField type, String id) {
-    super();
-    this.type = new EnumWrapper<CreateStoragePolicyAssignmentRequestBodyAssignedToTypeField>(type);
     this.id = id;
   }
 

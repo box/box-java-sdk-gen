@@ -38,21 +38,6 @@ public class DocGenJobV2025R0 extends DocGenJobBaseV2025R0 {
   protected final String outputType;
 
   public DocGenJobV2025R0(
-      @JsonProperty("id") String id,
-      @JsonProperty("batch") DocGenBatchBaseV2025R0 batch,
-      @JsonProperty("template_file") FileReferenceV2025R0 templateFile,
-      @JsonProperty("template_file_version") FileVersionBaseV2025R0 templateFileVersion,
-      @JsonProperty("status") EnumWrapper<DocGenJobV2025R0StatusField> status,
-      @JsonProperty("output_type") String outputType) {
-    super(id);
-    this.batch = batch;
-    this.templateFile = templateFile;
-    this.templateFileVersion = templateFileVersion;
-    this.status = status;
-    this.outputType = outputType;
-  }
-
-  public DocGenJobV2025R0(
       String id,
       DocGenBatchBaseV2025R0 batch,
       FileReferenceV2025R0 templateFile,
@@ -64,6 +49,21 @@ public class DocGenJobV2025R0 extends DocGenJobBaseV2025R0 {
     this.templateFile = templateFile;
     this.templateFileVersion = templateFileVersion;
     this.status = new EnumWrapper<DocGenJobV2025R0StatusField>(status);
+    this.outputType = outputType;
+  }
+
+  public DocGenJobV2025R0(
+      @JsonProperty("id") String id,
+      @JsonProperty("batch") DocGenBatchBaseV2025R0 batch,
+      @JsonProperty("template_file") FileReferenceV2025R0 templateFile,
+      @JsonProperty("template_file_version") FileVersionBaseV2025R0 templateFileVersion,
+      @JsonProperty("status") EnumWrapper<DocGenJobV2025R0StatusField> status,
+      @JsonProperty("output_type") String outputType) {
+    super(id);
+    this.batch = batch;
+    this.templateFile = templateFile;
+    this.templateFileVersion = templateFileVersion;
+    this.status = status;
     this.outputType = outputType;
   }
 
@@ -203,13 +203,13 @@ public class DocGenJobV2025R0 extends DocGenJobBaseV2025R0 {
         DocGenBatchBaseV2025R0 batch,
         FileReferenceV2025R0 templateFile,
         FileVersionBaseV2025R0 templateFileVersion,
-        EnumWrapper<DocGenJobV2025R0StatusField> status,
+        DocGenJobV2025R0StatusField status,
         String outputType) {
       super(id);
       this.batch = batch;
       this.templateFile = templateFile;
       this.templateFileVersion = templateFileVersion;
-      this.status = status;
+      this.status = new EnumWrapper<DocGenJobV2025R0StatusField>(status);
       this.outputType = outputType;
     }
 
@@ -218,13 +218,13 @@ public class DocGenJobV2025R0 extends DocGenJobBaseV2025R0 {
         DocGenBatchBaseV2025R0 batch,
         FileReferenceV2025R0 templateFile,
         FileVersionBaseV2025R0 templateFileVersion,
-        DocGenJobV2025R0StatusField status,
+        EnumWrapper<DocGenJobV2025R0StatusField> status,
         String outputType) {
       super(id);
       this.batch = batch;
       this.templateFile = templateFile;
       this.templateFileVersion = templateFileVersion;
-      this.status = new EnumWrapper<DocGenJobV2025R0StatusField>(status);
+      this.status = status;
       this.outputType = outputType;
     }
 

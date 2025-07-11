@@ -1,11 +1,14 @@
 package com.box.sdkgen.schemas.legalholdpolicyassignment;
 
 import com.box.sdkgen.internal.utils.DateTimeUtils;
+import com.box.sdkgen.schemas.file.File;
 import com.box.sdkgen.schemas.fileorfolderorweblink.FileOrFolderOrWebLink;
+import com.box.sdkgen.schemas.folder.Folder;
 import com.box.sdkgen.schemas.legalholdpolicyassignmentbase.LegalHoldPolicyAssignmentBase;
 import com.box.sdkgen.schemas.legalholdpolicyassignmentbase.LegalHoldPolicyAssignmentBaseTypeField;
 import com.box.sdkgen.schemas.legalholdpolicymini.LegalHoldPolicyMini;
 import com.box.sdkgen.schemas.usermini.UserMini;
+import com.box.sdkgen.schemas.weblink.WebLink;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -140,6 +143,21 @@ public class LegalHoldPolicyAssignment extends LegalHoldPolicyAssignmentBase {
 
     public Builder legalHoldPolicy(LegalHoldPolicyMini legalHoldPolicy) {
       this.legalHoldPolicy = legalHoldPolicy;
+      return this;
+    }
+
+    public Builder assignedTo(File assignedTo) {
+      this.assignedTo = new FileOrFolderOrWebLink(assignedTo);
+      return this;
+    }
+
+    public Builder assignedTo(Folder assignedTo) {
+      this.assignedTo = new FileOrFolderOrWebLink(assignedTo);
+      return this;
+    }
+
+    public Builder assignedTo(WebLink assignedTo) {
+      this.assignedTo = new FileOrFolderOrWebLink(assignedTo);
       return this;
     }
 

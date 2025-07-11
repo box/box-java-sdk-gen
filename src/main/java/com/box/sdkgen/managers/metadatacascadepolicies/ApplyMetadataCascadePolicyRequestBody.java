@@ -24,19 +24,19 @@ public class ApplyMetadataCascadePolicyRequestBody extends SerializableObject {
       conflictResolution;
 
   public ApplyMetadataCascadePolicyRequestBody(
-      @JsonProperty("conflict_resolution")
-          EnumWrapper<ApplyMetadataCascadePolicyRequestBodyConflictResolutionField>
-              conflictResolution) {
-    super();
-    this.conflictResolution = conflictResolution;
-  }
-
-  public ApplyMetadataCascadePolicyRequestBody(
       ApplyMetadataCascadePolicyRequestBodyConflictResolutionField conflictResolution) {
     super();
     this.conflictResolution =
         new EnumWrapper<ApplyMetadataCascadePolicyRequestBodyConflictResolutionField>(
             conflictResolution);
+  }
+
+  public ApplyMetadataCascadePolicyRequestBody(
+      @JsonProperty("conflict_resolution")
+          EnumWrapper<ApplyMetadataCascadePolicyRequestBodyConflictResolutionField>
+              conflictResolution) {
+    super();
+    this.conflictResolution = conflictResolution;
   }
 
   public EnumWrapper<ApplyMetadataCascadePolicyRequestBodyConflictResolutionField>

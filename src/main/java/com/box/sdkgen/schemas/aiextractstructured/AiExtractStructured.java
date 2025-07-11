@@ -2,7 +2,9 @@ package com.box.sdkgen.schemas.aiextractstructured;
 
 import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.schemas.aiagentextractstructured.AiAgentExtractStructured;
 import com.box.sdkgen.schemas.aiagentextractstructuredoraiagentreference.AiAgentExtractStructuredOrAiAgentReference;
+import com.box.sdkgen.schemas.aiagentreference.AiAgentReference;
 import com.box.sdkgen.schemas.aiitembase.AiItemBase;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -115,6 +117,16 @@ public class AiExtractStructured extends SerializableObject {
 
     public Builder fields(List<AiExtractStructuredFieldsField> fields) {
       this.fields = fields;
+      return this;
+    }
+
+    public Builder aiAgent(AiAgentExtractStructured aiAgent) {
+      this.aiAgent = new AiAgentExtractStructuredOrAiAgentReference(aiAgent);
+      return this;
+    }
+
+    public Builder aiAgent(AiAgentReference aiAgent) {
+      this.aiAgent = new AiAgentExtractStructuredOrAiAgentReference(aiAgent);
       return this;
     }
 

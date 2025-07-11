@@ -24,8 +24,16 @@ public class EventsNextStreamPositionField extends OneOfTwo<String, Double> {
     super(null, doubleNumber);
   }
 
+  public boolean isString() {
+    return value0 != null;
+  }
+
   public String getString() {
     return value0;
+  }
+
+  public boolean isDoubleNumber() {
+    return value1 != null;
   }
 
   public Double getDoubleNumber() {

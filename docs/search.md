@@ -48,7 +48,10 @@ This operation is performed by calling function `searchForContent`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/get-search/).
 
-*Currently we don't have an example for calling `searchForContent` in integration tests*
+<!-- sample get_search -->
+```
+client.getSearch().searchForContent(new SearchForContentQueryParams.Builder().ancestorFolderIds(Arrays.asList("0")).mdfilters(Arrays.asList(new MetadataFilter.Builder().scope(MetadataFilterScopeField.ENTERPRISE).templateKey(templateKey).filters(searchFilters).build())).build())
+```
 
 ### Arguments
 

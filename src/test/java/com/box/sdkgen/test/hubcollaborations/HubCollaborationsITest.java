@@ -60,6 +60,8 @@ public class HubCollaborationsITest {
     assert !(createdCollaboration.getId().equals(""));
     assert convertToString(createdCollaboration.getType()).equals("hub_collaboration");
     assert createdCollaboration.getHub().getId().equals(hub.getId());
+    assert convertToString(createdCollaboration.getAccessibleBy().getType()).equals("user");
+    assert createdCollaboration.getAccessibleBy().getId().equals(user.getId());
     assert createdCollaboration.getRole().equals("viewer");
     HubCollaborationV2025R0 updatedCollaboration =
         client
@@ -70,6 +72,8 @@ public class HubCollaborationsITest {
     assert !(updatedCollaboration.getId().equals(""));
     assert convertToString(updatedCollaboration.getType()).equals("hub_collaboration");
     assert updatedCollaboration.getHub().getId().equals(hub.getId());
+    assert convertToString(updatedCollaboration.getAccessibleBy().getType()).equals("user");
+    assert updatedCollaboration.getAccessibleBy().getId().equals(user.getId());
     assert updatedCollaboration.getRole().equals("editor");
     HubCollaborationsV2025R0 collaborations =
         client
@@ -81,6 +85,8 @@ public class HubCollaborationsITest {
     assert retrievedCollaboration.getId().equals(createdCollaboration.getId());
     assert convertToString(retrievedCollaboration.getType()).equals("hub_collaboration");
     assert retrievedCollaboration.getHub().getId().equals(hub.getId());
+    assert convertToString(retrievedCollaboration.getAccessibleBy().getType()).equals("user");
+    assert retrievedCollaboration.getAccessibleBy().getId().equals(user.getId());
     assert retrievedCollaboration.getRole().equals("editor");
     client.getHubCollaborations().deleteHubCollaborationByIdV2025R0(createdCollaboration.getId());
     client.getUsers().deleteUserById(user.getId());

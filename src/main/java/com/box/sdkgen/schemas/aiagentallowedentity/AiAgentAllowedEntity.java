@@ -3,6 +3,7 @@ package com.box.sdkgen.schemas.aiagentallowedentity;
 import com.box.sdkgen.internal.OneOfTwo;
 import com.box.sdkgen.schemas.groupbase.GroupBase;
 import com.box.sdkgen.schemas.userbase.UserBase;
+import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.box.sdkgen.serialization.json.JsonManager;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -17,20 +18,44 @@ import java.io.IOException;
 @JsonSerialize(using = OneOfTwo.OneOfTwoSerializer.class)
 public class AiAgentAllowedEntity extends OneOfTwo<UserBase, GroupBase> {
 
+  protected final String id;
+
+  protected final String type;
+
   public AiAgentAllowedEntity(UserBase userBase) {
     super(userBase, null);
+    this.id = userBase.getId();
+    this.type = EnumWrapper.convertToString(userBase.getType());
   }
 
   public AiAgentAllowedEntity(GroupBase groupBase) {
     super(null, groupBase);
+    this.id = groupBase.getId();
+    this.type = EnumWrapper.convertToString(groupBase.getType());
+  }
+
+  public boolean isUserBase() {
+    return value0 != null;
   }
 
   public UserBase getUserBase() {
     return value0;
   }
 
+  public boolean isGroupBase() {
+    return value1 != null;
+  }
+
   public GroupBase getGroupBase() {
     return value1;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public String getType() {
+    return type;
   }
 
   static class AiAgentAllowedEntityDeserializer extends JsonDeserializer<AiAgentAllowedEntity> {

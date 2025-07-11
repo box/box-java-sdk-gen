@@ -2,6 +2,7 @@ package com.box.sdkgen.schemas.integrationmappingpartneritemslackunion;
 
 import com.box.sdkgen.internal.OneOfOne;
 import com.box.sdkgen.schemas.integrationmappingpartneritemslack.IntegrationMappingPartnerItemSlack;
+import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.box.sdkgen.serialization.json.JsonManager;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -20,13 +21,45 @@ import java.io.IOException;
 public class IntegrationMappingPartnerItemSlackUnion
     extends OneOfOne<IntegrationMappingPartnerItemSlack> {
 
+  protected final String type;
+
+  protected final String id;
+
+  protected final String slackWorkspaceId;
+
+  protected final String slackOrgId;
+
   public IntegrationMappingPartnerItemSlackUnion(
       IntegrationMappingPartnerItemSlack integrationMappingPartnerItemSlack) {
     super(integrationMappingPartnerItemSlack);
+    this.type = EnumWrapper.convertToString(integrationMappingPartnerItemSlack.getType());
+    this.id = integrationMappingPartnerItemSlack.getId();
+    this.slackWorkspaceId = integrationMappingPartnerItemSlack.getSlackWorkspaceId();
+    this.slackOrgId = integrationMappingPartnerItemSlack.getSlackOrgId();
+  }
+
+  public boolean isIntegrationMappingPartnerItemSlack() {
+    return value0 != null;
   }
 
   public IntegrationMappingPartnerItemSlack getIntegrationMappingPartnerItemSlack() {
     return value0;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public String getSlackWorkspaceId() {
+    return slackWorkspaceId;
+  }
+
+  public String getSlackOrgId() {
+    return slackOrgId;
   }
 
   static class IntegrationMappingPartnerItemSlackUnionDeserializer

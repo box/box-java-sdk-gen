@@ -2,7 +2,9 @@ package com.box.sdkgen.schemas.aiask;
 
 import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.schemas.aiagentask.AiAgentAsk;
 import com.box.sdkgen.schemas.aiagentaskoraiagentreference.AiAgentAskOrAiAgentReference;
+import com.box.sdkgen.schemas.aiagentreference.AiAgentReference;
 import com.box.sdkgen.schemas.aidialoguehistory.AiDialogueHistory;
 import com.box.sdkgen.schemas.aiitemask.AiItemAsk;
 import com.box.sdkgen.serialization.json.EnumWrapper;
@@ -33,19 +35,19 @@ public class AiAsk extends SerializableObject {
   @JsonProperty("ai_agent")
   protected AiAgentAskOrAiAgentReference aiAgent;
 
+  public AiAsk(AiAskModeField mode, String prompt, List<AiItemAsk> items) {
+    super();
+    this.mode = new EnumWrapper<AiAskModeField>(mode);
+    this.prompt = prompt;
+    this.items = items;
+  }
+
   public AiAsk(
       @JsonProperty("mode") EnumWrapper<AiAskModeField> mode,
       @JsonProperty("prompt") String prompt,
       @JsonProperty("items") List<AiItemAsk> items) {
     super();
     this.mode = mode;
-    this.prompt = prompt;
-    this.items = items;
-  }
-
-  public AiAsk(AiAskModeField mode, String prompt, List<AiItemAsk> items) {
-    super();
-    this.mode = new EnumWrapper<AiAskModeField>(mode);
     this.prompt = prompt;
     this.items = items;
   }
@@ -150,16 +152,16 @@ public class AiAsk extends SerializableObject {
 
     protected AiAgentAskOrAiAgentReference aiAgent;
 
-    public Builder(EnumWrapper<AiAskModeField> mode, String prompt, List<AiItemAsk> items) {
+    public Builder(AiAskModeField mode, String prompt, List<AiItemAsk> items) {
       super();
-      this.mode = mode;
+      this.mode = new EnumWrapper<AiAskModeField>(mode);
       this.prompt = prompt;
       this.items = items;
     }
 
-    public Builder(AiAskModeField mode, String prompt, List<AiItemAsk> items) {
+    public Builder(EnumWrapper<AiAskModeField> mode, String prompt, List<AiItemAsk> items) {
       super();
-      this.mode = new EnumWrapper<AiAskModeField>(mode);
+      this.mode = mode;
       this.prompt = prompt;
       this.items = items;
     }
@@ -171,6 +173,16 @@ public class AiAsk extends SerializableObject {
 
     public Builder includeCitations(Boolean includeCitations) {
       this.includeCitations = includeCitations;
+      return this;
+    }
+
+    public Builder aiAgent(AiAgentAsk aiAgent) {
+      this.aiAgent = new AiAgentAskOrAiAgentReference(aiAgent);
+      return this;
+    }
+
+    public Builder aiAgent(AiAgentReference aiAgent) {
+      this.aiAgent = new AiAgentAskOrAiAgentReference(aiAgent);
       return this;
     }
 

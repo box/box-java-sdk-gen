@@ -25,18 +25,18 @@ public class MetadataQueryIndex extends SerializableObject {
 
   protected List<MetadataQueryIndexFieldsField> fields;
 
+  public MetadataQueryIndex(String type, MetadataQueryIndexStatusField status) {
+    super();
+    this.type = type;
+    this.status = new EnumWrapper<MetadataQueryIndexStatusField>(status);
+  }
+
   public MetadataQueryIndex(
       @JsonProperty("type") String type,
       @JsonProperty("status") EnumWrapper<MetadataQueryIndexStatusField> status) {
     super();
     this.type = type;
     this.status = status;
-  }
-
-  public MetadataQueryIndex(String type, MetadataQueryIndexStatusField status) {
-    super();
-    this.type = type;
-    this.status = new EnumWrapper<MetadataQueryIndexStatusField>(status);
   }
 
   protected MetadataQueryIndex(Builder builder) {
@@ -115,16 +115,16 @@ public class MetadataQueryIndex extends SerializableObject {
 
     protected List<MetadataQueryIndexFieldsField> fields;
 
-    public Builder(String type, EnumWrapper<MetadataQueryIndexStatusField> status) {
-      super();
-      this.type = type;
-      this.status = status;
-    }
-
     public Builder(String type, MetadataQueryIndexStatusField status) {
       super();
       this.type = type;
       this.status = new EnumWrapper<MetadataQueryIndexStatusField>(status);
+    }
+
+    public Builder(String type, EnumWrapper<MetadataQueryIndexStatusField> status) {
+      super();
+      this.type = type;
+      this.status = status;
     }
 
     public Builder id(String id) {

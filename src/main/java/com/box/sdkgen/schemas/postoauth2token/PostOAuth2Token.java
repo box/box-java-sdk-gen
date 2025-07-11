@@ -74,15 +74,15 @@ public class PostOAuth2Token extends SerializableObject {
   @JsonProperty("box_shared_link")
   protected String boxSharedLink;
 
+  public PostOAuth2Token(PostOAuth2TokenGrantTypeField grantType) {
+    super();
+    this.grantType = new EnumWrapper<PostOAuth2TokenGrantTypeField>(grantType);
+  }
+
   public PostOAuth2Token(
       @JsonProperty("grant_type") EnumWrapper<PostOAuth2TokenGrantTypeField> grantType) {
     super();
     this.grantType = grantType;
-  }
-
-  public PostOAuth2Token(PostOAuth2TokenGrantTypeField grantType) {
-    super();
-    this.grantType = new EnumWrapper<PostOAuth2TokenGrantTypeField>(grantType);
   }
 
   protected PostOAuth2Token(Builder builder) {
@@ -308,14 +308,14 @@ public class PostOAuth2Token extends SerializableObject {
 
     protected String boxSharedLink;
 
-    public Builder(EnumWrapper<PostOAuth2TokenGrantTypeField> grantType) {
-      super();
-      this.grantType = grantType;
-    }
-
     public Builder(PostOAuth2TokenGrantTypeField grantType) {
       super();
       this.grantType = new EnumWrapper<PostOAuth2TokenGrantTypeField>(grantType);
+    }
+
+    public Builder(EnumWrapper<PostOAuth2TokenGrantTypeField> grantType) {
+      super();
+      this.grantType = grantType;
     }
 
     public Builder clientId(String clientId) {

@@ -3,6 +3,10 @@ package com.box.sdkgen.schemas.aiagentspreadsheettool;
 import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.aillmendpointparams.AiLlmEndpointParams;
+import com.box.sdkgen.schemas.aillmendpointparamsaws.AiLlmEndpointParamsAws;
+import com.box.sdkgen.schemas.aillmendpointparamsgoogle.AiLlmEndpointParamsGoogle;
+import com.box.sdkgen.schemas.aillmendpointparamsibm.AiLlmEndpointParamsIbm;
+import com.box.sdkgen.schemas.aillmendpointparamsopenai.AiLlmEndpointParamsOpenAi;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
@@ -93,6 +97,26 @@ public class AiAgentSpreadsheetTool extends SerializableObject {
 
     public Builder numTokensForCompletion(Long numTokensForCompletion) {
       this.numTokensForCompletion = numTokensForCompletion;
+      return this;
+    }
+
+    public Builder llmEndpointParams(AiLlmEndpointParamsOpenAi llmEndpointParams) {
+      this.llmEndpointParams = new AiLlmEndpointParams(llmEndpointParams);
+      return this;
+    }
+
+    public Builder llmEndpointParams(AiLlmEndpointParamsGoogle llmEndpointParams) {
+      this.llmEndpointParams = new AiLlmEndpointParams(llmEndpointParams);
+      return this;
+    }
+
+    public Builder llmEndpointParams(AiLlmEndpointParamsAws llmEndpointParams) {
+      this.llmEndpointParams = new AiLlmEndpointParams(llmEndpointParams);
+      return this;
+    }
+
+    public Builder llmEndpointParams(AiLlmEndpointParamsIbm llmEndpointParams) {
+      this.llmEndpointParams = new AiLlmEndpointParams(llmEndpointParams);
       return this;
     }
 

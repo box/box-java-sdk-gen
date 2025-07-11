@@ -4,6 +4,11 @@ import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.v2025r0.enterprisereferencev2025r0.EnterpriseReferenceV2025R0;
+import com.box.sdkgen.schemas.v2025r0.shieldlistcontentcountryv2025r0.ShieldListContentCountryV2025R0;
+import com.box.sdkgen.schemas.v2025r0.shieldlistcontentdomainv2025r0.ShieldListContentDomainV2025R0;
+import com.box.sdkgen.schemas.v2025r0.shieldlistcontentemailv2025r0.ShieldListContentEmailV2025R0;
+import com.box.sdkgen.schemas.v2025r0.shieldlistcontentintegrationv2025r0.ShieldListContentIntegrationV2025R0;
+import com.box.sdkgen.schemas.v2025r0.shieldlistcontentipv2025r0.ShieldListContentIpV2025R0;
 import com.box.sdkgen.schemas.v2025r0.shieldlistcontentv2025r0.ShieldListContentV2025R0;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,6 +41,96 @@ public class ShieldListV2025R0 extends SerializableObject {
   protected final Date updatedAt;
 
   protected final ShieldListContentV2025R0 content;
+
+  public ShieldListV2025R0(
+      String id,
+      String type,
+      String name,
+      EnterpriseReferenceV2025R0 enterprise,
+      Date createdAt,
+      Date updatedAt,
+      ShieldListContentCountryV2025R0 content) {
+    super();
+    this.id = id;
+    this.type = type;
+    this.name = name;
+    this.enterprise = enterprise;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
+    this.content = new ShieldListContentV2025R0(content);
+  }
+
+  public ShieldListV2025R0(
+      String id,
+      String type,
+      String name,
+      EnterpriseReferenceV2025R0 enterprise,
+      Date createdAt,
+      Date updatedAt,
+      ShieldListContentDomainV2025R0 content) {
+    super();
+    this.id = id;
+    this.type = type;
+    this.name = name;
+    this.enterprise = enterprise;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
+    this.content = new ShieldListContentV2025R0(content);
+  }
+
+  public ShieldListV2025R0(
+      String id,
+      String type,
+      String name,
+      EnterpriseReferenceV2025R0 enterprise,
+      Date createdAt,
+      Date updatedAt,
+      ShieldListContentEmailV2025R0 content) {
+    super();
+    this.id = id;
+    this.type = type;
+    this.name = name;
+    this.enterprise = enterprise;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
+    this.content = new ShieldListContentV2025R0(content);
+  }
+
+  public ShieldListV2025R0(
+      String id,
+      String type,
+      String name,
+      EnterpriseReferenceV2025R0 enterprise,
+      Date createdAt,
+      Date updatedAt,
+      ShieldListContentIpV2025R0 content) {
+    super();
+    this.id = id;
+    this.type = type;
+    this.name = name;
+    this.enterprise = enterprise;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
+    this.content = new ShieldListContentV2025R0(content);
+  }
+
+  public ShieldListV2025R0(
+      String id,
+      String type,
+      String name,
+      EnterpriseReferenceV2025R0 enterprise,
+      Date createdAt,
+      Date updatedAt,
+      ShieldListContentIntegrationV2025R0 content) {
+    super();
+    this.id = id;
+    this.type = type;
+    this.name = name;
+    this.enterprise = enterprise;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
+    this.content = new ShieldListContentV2025R0(content);
+  }
 
   public ShieldListV2025R0(
       @JsonProperty("id") String id,
@@ -178,6 +273,96 @@ public class ShieldListV2025R0 extends SerializableObject {
     protected final Date updatedAt;
 
     protected final ShieldListContentV2025R0 content;
+
+    public Builder(
+        String id,
+        String type,
+        String name,
+        EnterpriseReferenceV2025R0 enterprise,
+        Date createdAt,
+        Date updatedAt,
+        ShieldListContentCountryV2025R0 content) {
+      super();
+      this.id = id;
+      this.type = type;
+      this.name = name;
+      this.enterprise = enterprise;
+      this.createdAt = createdAt;
+      this.updatedAt = updatedAt;
+      this.content = new ShieldListContentV2025R0(content);
+    }
+
+    public Builder(
+        String id,
+        String type,
+        String name,
+        EnterpriseReferenceV2025R0 enterprise,
+        Date createdAt,
+        Date updatedAt,
+        ShieldListContentDomainV2025R0 content) {
+      super();
+      this.id = id;
+      this.type = type;
+      this.name = name;
+      this.enterprise = enterprise;
+      this.createdAt = createdAt;
+      this.updatedAt = updatedAt;
+      this.content = new ShieldListContentV2025R0(content);
+    }
+
+    public Builder(
+        String id,
+        String type,
+        String name,
+        EnterpriseReferenceV2025R0 enterprise,
+        Date createdAt,
+        Date updatedAt,
+        ShieldListContentEmailV2025R0 content) {
+      super();
+      this.id = id;
+      this.type = type;
+      this.name = name;
+      this.enterprise = enterprise;
+      this.createdAt = createdAt;
+      this.updatedAt = updatedAt;
+      this.content = new ShieldListContentV2025R0(content);
+    }
+
+    public Builder(
+        String id,
+        String type,
+        String name,
+        EnterpriseReferenceV2025R0 enterprise,
+        Date createdAt,
+        Date updatedAt,
+        ShieldListContentIpV2025R0 content) {
+      super();
+      this.id = id;
+      this.type = type;
+      this.name = name;
+      this.enterprise = enterprise;
+      this.createdAt = createdAt;
+      this.updatedAt = updatedAt;
+      this.content = new ShieldListContentV2025R0(content);
+    }
+
+    public Builder(
+        String id,
+        String type,
+        String name,
+        EnterpriseReferenceV2025R0 enterprise,
+        Date createdAt,
+        Date updatedAt,
+        ShieldListContentIntegrationV2025R0 content) {
+      super();
+      this.id = id;
+      this.type = type;
+      this.name = name;
+      this.enterprise = enterprise;
+      this.createdAt = createdAt;
+      this.updatedAt = updatedAt;
+      this.content = new ShieldListContentV2025R0(content);
+    }
 
     public Builder(
         String id,

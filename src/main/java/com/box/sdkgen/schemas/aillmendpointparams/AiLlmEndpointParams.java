@@ -5,6 +5,7 @@ import com.box.sdkgen.schemas.aillmendpointparamsaws.AiLlmEndpointParamsAws;
 import com.box.sdkgen.schemas.aillmendpointparamsgoogle.AiLlmEndpointParamsGoogle;
 import com.box.sdkgen.schemas.aillmendpointparamsibm.AiLlmEndpointParamsIbm;
 import com.box.sdkgen.schemas.aillmendpointparamsopenai.AiLlmEndpointParamsOpenAi;
+import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.box.sdkgen.serialization.json.JsonManager;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -24,36 +25,82 @@ public class AiLlmEndpointParams
         AiLlmEndpointParamsAws,
         AiLlmEndpointParamsIbm> {
 
+  protected final String type;
+
+  protected final Double temperature;
+
+  protected final Double topP;
+
   public AiLlmEndpointParams(AiLlmEndpointParamsOpenAi aiLlmEndpointParamsOpenAi) {
     super(aiLlmEndpointParamsOpenAi, null, null, null);
+    this.type = EnumWrapper.convertToString(aiLlmEndpointParamsOpenAi.getType());
+    this.temperature = aiLlmEndpointParamsOpenAi.getTemperature();
+    this.topP = aiLlmEndpointParamsOpenAi.getTopP();
   }
 
   public AiLlmEndpointParams(AiLlmEndpointParamsGoogle aiLlmEndpointParamsGoogle) {
     super(null, aiLlmEndpointParamsGoogle, null, null);
+    this.type = EnumWrapper.convertToString(aiLlmEndpointParamsGoogle.getType());
+    this.temperature = aiLlmEndpointParamsGoogle.getTemperature();
+    this.topP = aiLlmEndpointParamsGoogle.getTopP();
   }
 
   public AiLlmEndpointParams(AiLlmEndpointParamsAws aiLlmEndpointParamsAws) {
     super(null, null, aiLlmEndpointParamsAws, null);
+    this.type = EnumWrapper.convertToString(aiLlmEndpointParamsAws.getType());
+    this.temperature = aiLlmEndpointParamsAws.getTemperature();
+    this.topP = aiLlmEndpointParamsAws.getTopP();
   }
 
   public AiLlmEndpointParams(AiLlmEndpointParamsIbm aiLlmEndpointParamsIbm) {
     super(null, null, null, aiLlmEndpointParamsIbm);
+    this.type = EnumWrapper.convertToString(aiLlmEndpointParamsIbm.getType());
+    this.temperature = aiLlmEndpointParamsIbm.getTemperature();
+    this.topP = aiLlmEndpointParamsIbm.getTopP();
+  }
+
+  public boolean isAiLlmEndpointParamsOpenAi() {
+    return value0 != null;
   }
 
   public AiLlmEndpointParamsOpenAi getAiLlmEndpointParamsOpenAi() {
     return value0;
   }
 
+  public boolean isAiLlmEndpointParamsGoogle() {
+    return value1 != null;
+  }
+
   public AiLlmEndpointParamsGoogle getAiLlmEndpointParamsGoogle() {
     return value1;
+  }
+
+  public boolean isAiLlmEndpointParamsAws() {
+    return value2 != null;
   }
 
   public AiLlmEndpointParamsAws getAiLlmEndpointParamsAws() {
     return value2;
   }
 
+  public boolean isAiLlmEndpointParamsIbm() {
+    return value3 != null;
+  }
+
   public AiLlmEndpointParamsIbm getAiLlmEndpointParamsIbm() {
     return value3;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public double getTemperature() {
+    return temperature;
+  }
+
+  public double getTopP() {
+    return topP;
   }
 
   static class AiLlmEndpointParamsDeserializer extends JsonDeserializer<AiLlmEndpointParams> {

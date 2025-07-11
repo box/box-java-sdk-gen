@@ -3,7 +3,12 @@ package com.box.sdkgen.schemas.event;
 import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
+import com.box.sdkgen.schemas.appitemeventsource.AppItemEventSource;
 import com.box.sdkgen.schemas.appitemeventsourceoreventsourceorfileorfolderorgenericsourceoruser.AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser;
+import com.box.sdkgen.schemas.eventsource.EventSource;
+import com.box.sdkgen.schemas.file.File;
+import com.box.sdkgen.schemas.folder.Folder;
+import com.box.sdkgen.schemas.user.User;
 import com.box.sdkgen.schemas.usermini.UserMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonFilter;
@@ -11,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Date;
+import java.util.Map;
 import java.util.Objects;
 
 @JsonFilter("nullablePropertyFilter")
@@ -233,6 +239,36 @@ public class Event extends SerializableObject {
 
     public Builder sessionId(String sessionId) {
       this.sessionId = sessionId;
+      return this;
+    }
+
+    public Builder source(AppItemEventSource source) {
+      this.source = new AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(source);
+      return this;
+    }
+
+    public Builder source(EventSource source) {
+      this.source = new AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(source);
+      return this;
+    }
+
+    public Builder source(File source) {
+      this.source = new AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(source);
+      return this;
+    }
+
+    public Builder source(Folder source) {
+      this.source = new AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(source);
+      return this;
+    }
+
+    public Builder source(Map<String, Object> source) {
+      this.source = new AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(source);
+      return this;
+    }
+
+    public Builder source(User source) {
+      this.source = new AppItemEventSourceOrEventSourceOrFileOrFolderOrGenericSourceOrUser(source);
       return this;
     }
 

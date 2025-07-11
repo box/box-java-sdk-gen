@@ -3,6 +3,7 @@ package com.box.sdkgen.schemas.searchresultsorsearchresultswithsharedlinks;
 import com.box.sdkgen.internal.OneOfTwo;
 import com.box.sdkgen.schemas.searchresults.SearchResults;
 import com.box.sdkgen.schemas.searchresultswithsharedlinks.SearchResultsWithSharedLinks;
+import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.box.sdkgen.serialization.json.JsonManager;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -21,21 +22,61 @@ import java.io.IOException;
 public class SearchResultsOrSearchResultsWithSharedLinks
     extends OneOfTwo<SearchResults, SearchResultsWithSharedLinks> {
 
+  protected final Long totalCount;
+
+  protected final Long limit;
+
+  protected final Long offset;
+
+  protected final String type;
+
   public SearchResultsOrSearchResultsWithSharedLinks(SearchResults searchResults) {
     super(searchResults, null);
+    this.totalCount = searchResults.getTotalCount();
+    this.limit = searchResults.getLimit();
+    this.offset = searchResults.getOffset();
+    this.type = EnumWrapper.convertToString(searchResults.getType());
   }
 
   public SearchResultsOrSearchResultsWithSharedLinks(
       SearchResultsWithSharedLinks searchResultsWithSharedLinks) {
     super(null, searchResultsWithSharedLinks);
+    this.totalCount = searchResultsWithSharedLinks.getTotalCount();
+    this.limit = searchResultsWithSharedLinks.getLimit();
+    this.offset = searchResultsWithSharedLinks.getOffset();
+    this.type = EnumWrapper.convertToString(searchResultsWithSharedLinks.getType());
+  }
+
+  public boolean isSearchResults() {
+    return value0 != null;
   }
 
   public SearchResults getSearchResults() {
     return value0;
   }
 
+  public boolean isSearchResultsWithSharedLinks() {
+    return value1 != null;
+  }
+
   public SearchResultsWithSharedLinks getSearchResultsWithSharedLinks() {
     return value1;
+  }
+
+  public long getTotalCount() {
+    return totalCount;
+  }
+
+  public long getLimit() {
+    return limit;
+  }
+
+  public long getOffset() {
+    return offset;
+  }
+
+  public String getType() {
+    return type;
   }
 
   static class SearchResultsOrSearchResultsWithSharedLinksDeserializer
