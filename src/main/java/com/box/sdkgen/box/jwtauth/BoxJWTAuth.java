@@ -63,7 +63,8 @@ public class BoxJWTAuth implements Authentication {
             this.config.getClientId(),
             this.subjectId,
             getUuid(),
-            this.config.getJwtKeyId());
+            this.config.getJwtKeyId(),
+            this.config.getPrivateKeyDecryptor());
     JwtKey jwtKey = new JwtKey(this.config.getPrivateKey(), this.config.getPrivateKeyPassphrase());
     String assertion = createJwtAssertion(claims, jwtKey, jwtOptions);
     AuthorizationManager authManager =
