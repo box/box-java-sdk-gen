@@ -1,5 +1,6 @@
 package com.box.sdkgen.internal;
 
+import com.box.sdkgen.serialization.json.JsonManager;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,10 +28,10 @@ public class OneOfTwo<T0, T1> extends SerializableObject {
         OneOfTwo<?, ?> itemEntryField, JsonGenerator gen, SerializerProvider provider)
         throws IOException {
       if (itemEntryField.value0 != null) {
-        gen.writeObject(OBJECT_MAPPER.valueToTree(itemEntryField.value0));
+        JsonManager.WRITER.writeValue(gen, itemEntryField.value0);
       }
       if (itemEntryField.value1 != null) {
-        gen.writeObject(OBJECT_MAPPER.valueToTree(itemEntryField.value1));
+        JsonManager.WRITER.writeValue(gen, itemEntryField.value1);
       }
     }
   }
