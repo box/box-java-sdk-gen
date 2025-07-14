@@ -5,9 +5,13 @@ import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.internal.utils.DateTimeUtils;
 import com.box.sdkgen.schemas.appitem.AppItem;
+import com.box.sdkgen.schemas.file.File;
 import com.box.sdkgen.schemas.fileorfolderorweblink.FileOrFolderOrWebLink;
+import com.box.sdkgen.schemas.folder.Folder;
+import com.box.sdkgen.schemas.groupmini.GroupMini;
 import com.box.sdkgen.schemas.groupminiorusercollaborations.GroupMiniOrUserCollaborations;
 import com.box.sdkgen.schemas.usercollaborations.UserCollaborations;
+import com.box.sdkgen.schemas.weblink.WebLink;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -321,6 +325,24 @@ public class Collaboration extends SerializableObject {
       return this;
     }
 
+    public Builder item(File item) {
+      this.item = new FileOrFolderOrWebLink(item);
+      this.markNullableFieldAsSet("item");
+      return this;
+    }
+
+    public Builder item(Folder item) {
+      this.item = new FileOrFolderOrWebLink(item);
+      this.markNullableFieldAsSet("item");
+      return this;
+    }
+
+    public Builder item(WebLink item) {
+      this.item = new FileOrFolderOrWebLink(item);
+      this.markNullableFieldAsSet("item");
+      return this;
+    }
+
     public Builder item(FileOrFolderOrWebLink item) {
       this.item = item;
       this.markNullableFieldAsSet("item");
@@ -330,6 +352,16 @@ public class Collaboration extends SerializableObject {
     public Builder appItem(AppItem appItem) {
       this.appItem = appItem;
       this.markNullableFieldAsSet("app_item");
+      return this;
+    }
+
+    public Builder accessibleBy(GroupMini accessibleBy) {
+      this.accessibleBy = new GroupMiniOrUserCollaborations(accessibleBy);
+      return this;
+    }
+
+    public Builder accessibleBy(UserCollaborations accessibleBy) {
+      this.accessibleBy = new GroupMiniOrUserCollaborations(accessibleBy);
       return this;
     }
 

@@ -2,7 +2,9 @@ package com.box.sdkgen.schemas.fileorfolderscope;
 
 import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
+import com.box.sdkgen.schemas.filemini.FileMini;
 import com.box.sdkgen.schemas.fileminiorfoldermini.FileMiniOrFolderMini;
+import com.box.sdkgen.schemas.foldermini.FolderMini;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -81,6 +83,16 @@ public class FileOrFolderScope extends SerializableObject {
 
     public Builder scope(EnumWrapper<FileOrFolderScopeScopeField> scope) {
       this.scope = scope;
+      return this;
+    }
+
+    public Builder object(FileMini object) {
+      this.object = new FileMiniOrFolderMini(object);
+      return this;
+    }
+
+    public Builder object(FolderMini object) {
+      this.object = new FileMiniOrFolderMini(object);
       return this;
     }
 

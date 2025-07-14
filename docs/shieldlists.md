@@ -16,7 +16,10 @@ This operation is performed by calling function `getShieldListsV2025R0`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/v2025.0/get-shield-lists/).
 
-*Currently we don't have an example for calling `getShieldListsV2025R0` in integration tests*
+<!-- sample get_shield_lists_v2025.0 -->
+```
+client.getShieldLists().getShieldListsV2025R0()
+```
 
 ### Arguments
 
@@ -40,7 +43,10 @@ This operation is performed by calling function `createShieldListV2025R0`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/v2025.0/post-shield-lists/).
 
-*Currently we don't have an example for calling `createShieldListV2025R0` in integration tests*
+<!-- sample post_shield_lists_v2025.0 -->
+```
+client.getShieldLists().createShieldListV2025R0(new ShieldListsCreateV2025R0.Builder(shieldListCountryName, new ShieldListContentCountryV2025R0.Builder(Arrays.asList("US", "PL")).type(ShieldListContentCountryV2025R0TypeField.COUNTRY).build()).description("A list of things that are shielded").build())
+```
 
 ### Arguments
 
@@ -66,7 +72,10 @@ This operation is performed by calling function `getShieldListByIdV2025R0`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/v2025.0/get-shield-lists-id/).
 
-*Currently we don't have an example for calling `getShieldListByIdV2025R0` in integration tests*
+<!-- sample get_shield_lists_id_v2025.0 -->
+```
+client.getShieldLists().getShieldListByIdV2025R0(shieldListCountry.getId())
+```
 
 ### Arguments
 
@@ -92,7 +101,10 @@ This operation is performed by calling function `deleteShieldListByIdV2025R0`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/v2025.0/delete-shield-lists-id/).
 
-*Currently we don't have an example for calling `deleteShieldListByIdV2025R0` in integration tests*
+<!-- sample delete_shield_lists_id_v2025.0 -->
+```
+client.getShieldLists().deleteShieldListByIdV2025R0(shieldListCountry.getId())
+```
 
 ### Arguments
 
@@ -118,7 +130,10 @@ This operation is performed by calling function `updateShieldListByIdV2025R0`.
 See the endpoint docs at
 [API Reference](https://developer.box.com/reference/v2025.0/put-shield-lists-id/).
 
-*Currently we don't have an example for calling `updateShieldListByIdV2025R0` in integration tests*
+<!-- sample put_shield_lists_id_v2025.0 -->
+```
+client.getShieldLists().updateShieldListByIdV2025R0(shieldListCountry.getId(), new ShieldListsUpdateV2025R0.Builder(shieldListCountryName, new ShieldListContentCountryV2025R0.Builder(Arrays.asList("US")).type(ShieldListContentCountryV2025R0TypeField.COUNTRY).build()).description("Updated description").build())
+```
 
 ### Arguments
 

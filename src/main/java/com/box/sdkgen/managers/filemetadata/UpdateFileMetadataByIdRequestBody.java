@@ -7,6 +7,7 @@ import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.List;
 import java.util.Objects;
 
 @JsonFilter("nullablePropertyFilter")
@@ -120,6 +121,26 @@ public class UpdateFileMetadataByIdRequestBody extends SerializableObject {
 
     public Builder path(String path) {
       this.path = path;
+      return this;
+    }
+
+    public Builder value(String value) {
+      this.value = new MetadataInstanceValue(value);
+      return this;
+    }
+
+    public Builder value(long value) {
+      this.value = new MetadataInstanceValue(value);
+      return this;
+    }
+
+    public Builder value(double value) {
+      this.value = new MetadataInstanceValue(value);
+      return this;
+    }
+
+    public Builder value(List<String> value) {
+      this.value = new MetadataInstanceValue(value);
       return this;
     }
 

@@ -3,7 +3,10 @@ package com.box.sdkgen.schemas.appitemassociation;
 import com.box.sdkgen.internal.NullableFieldTracker;
 import com.box.sdkgen.internal.SerializableObject;
 import com.box.sdkgen.schemas.appitem.AppItem;
+import com.box.sdkgen.schemas.filebase.FileBase;
 import com.box.sdkgen.schemas.filebaseorfolderbaseorweblinkbase.FileBaseOrFolderBaseOrWebLinkBase;
+import com.box.sdkgen.schemas.folderbase.FolderBase;
+import com.box.sdkgen.schemas.weblinkbase.WebLinkBase;
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,6 +28,36 @@ public class AppItemAssociation extends SerializableObject {
   protected final AppItem appItem;
 
   protected final FileBaseOrFolderBaseOrWebLinkBase item;
+
+  public AppItemAssociation(String id, AppItem appItem, FileBase item) {
+    super();
+    this.id = id;
+    this.appItem = appItem;
+    this.item = new FileBaseOrFolderBaseOrWebLinkBase(item);
+    this.type =
+        new EnumWrapper<AppItemAssociationTypeField>(
+            AppItemAssociationTypeField.APP_ITEM_ASSOCIATION);
+  }
+
+  public AppItemAssociation(String id, AppItem appItem, FolderBase item) {
+    super();
+    this.id = id;
+    this.appItem = appItem;
+    this.item = new FileBaseOrFolderBaseOrWebLinkBase(item);
+    this.type =
+        new EnumWrapper<AppItemAssociationTypeField>(
+            AppItemAssociationTypeField.APP_ITEM_ASSOCIATION);
+  }
+
+  public AppItemAssociation(String id, AppItem appItem, WebLinkBase item) {
+    super();
+    this.id = id;
+    this.appItem = appItem;
+    this.item = new FileBaseOrFolderBaseOrWebLinkBase(item);
+    this.type =
+        new EnumWrapper<AppItemAssociationTypeField>(
+            AppItemAssociationTypeField.APP_ITEM_ASSOCIATION);
+  }
 
   public AppItemAssociation(
       @JsonProperty("id") String id,
@@ -114,6 +147,36 @@ public class AppItemAssociation extends SerializableObject {
     protected final AppItem appItem;
 
     protected final FileBaseOrFolderBaseOrWebLinkBase item;
+
+    public Builder(String id, AppItem appItem, FileBase item) {
+      super();
+      this.id = id;
+      this.appItem = appItem;
+      this.item = new FileBaseOrFolderBaseOrWebLinkBase(item);
+      this.type =
+          new EnumWrapper<AppItemAssociationTypeField>(
+              AppItemAssociationTypeField.APP_ITEM_ASSOCIATION);
+    }
+
+    public Builder(String id, AppItem appItem, FolderBase item) {
+      super();
+      this.id = id;
+      this.appItem = appItem;
+      this.item = new FileBaseOrFolderBaseOrWebLinkBase(item);
+      this.type =
+          new EnumWrapper<AppItemAssociationTypeField>(
+              AppItemAssociationTypeField.APP_ITEM_ASSOCIATION);
+    }
+
+    public Builder(String id, AppItem appItem, WebLinkBase item) {
+      super();
+      this.id = id;
+      this.appItem = appItem;
+      this.item = new FileBaseOrFolderBaseOrWebLinkBase(item);
+      this.type =
+          new EnumWrapper<AppItemAssociationTypeField>(
+              AppItemAssociationTypeField.APP_ITEM_ASSOCIATION);
+    }
 
     public Builder(String id, AppItem appItem, FileBaseOrFolderBaseOrWebLinkBase item) {
       super();

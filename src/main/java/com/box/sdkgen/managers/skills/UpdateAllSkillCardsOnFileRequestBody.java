@@ -32,21 +32,21 @@ public class UpdateAllSkillCardsOnFileRequestBody extends SerializableObject {
   protected UpdateAllSkillCardsOnFileRequestBodyUsageField usage;
 
   public UpdateAllSkillCardsOnFileRequestBody(
-      @JsonProperty("status") EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField> status,
-      @JsonProperty("metadata") UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata,
-      @JsonProperty("file") UpdateAllSkillCardsOnFileRequestBodyFileField file) {
-    super();
-    this.status = status;
-    this.metadata = metadata;
-    this.file = file;
-  }
-
-  public UpdateAllSkillCardsOnFileRequestBody(
       UpdateAllSkillCardsOnFileRequestBodyStatusField status,
       UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata,
       UpdateAllSkillCardsOnFileRequestBodyFileField file) {
     super();
     this.status = new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField>(status);
+    this.metadata = metadata;
+    this.file = file;
+  }
+
+  public UpdateAllSkillCardsOnFileRequestBody(
+      @JsonProperty("status") EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField> status,
+      @JsonProperty("metadata") UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata,
+      @JsonProperty("file") UpdateAllSkillCardsOnFileRequestBodyFileField file) {
+    super();
+    this.status = status;
     this.metadata = metadata;
     this.file = file;
   }
@@ -140,21 +140,21 @@ public class UpdateAllSkillCardsOnFileRequestBody extends SerializableObject {
     protected UpdateAllSkillCardsOnFileRequestBodyUsageField usage;
 
     public Builder(
-        EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField> status,
-        UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata,
-        UpdateAllSkillCardsOnFileRequestBodyFileField file) {
-      super();
-      this.status = status;
-      this.metadata = metadata;
-      this.file = file;
-    }
-
-    public Builder(
         UpdateAllSkillCardsOnFileRequestBodyStatusField status,
         UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata,
         UpdateAllSkillCardsOnFileRequestBodyFileField file) {
       super();
       this.status = new EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField>(status);
+      this.metadata = metadata;
+      this.file = file;
+    }
+
+    public Builder(
+        EnumWrapper<UpdateAllSkillCardsOnFileRequestBodyStatusField> status,
+        UpdateAllSkillCardsOnFileRequestBodyMetadataField metadata,
+        UpdateAllSkillCardsOnFileRequestBodyFileField file) {
+      super();
+      this.status = status;
       this.metadata = metadata;
       this.file = file;
     }

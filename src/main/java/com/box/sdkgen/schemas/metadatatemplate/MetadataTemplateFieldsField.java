@@ -32,19 +32,19 @@ public class MetadataTemplateFieldsField extends SerializableObject {
   protected String id;
 
   public MetadataTemplateFieldsField(
-      @JsonProperty("type") EnumWrapper<MetadataTemplateFieldsTypeField> type,
-      @JsonProperty("key") String key,
-      @JsonProperty("displayName") String displayName) {
+      MetadataTemplateFieldsTypeField type, String key, String displayName) {
     super();
-    this.type = type;
+    this.type = new EnumWrapper<MetadataTemplateFieldsTypeField>(type);
     this.key = key;
     this.displayName = displayName;
   }
 
   public MetadataTemplateFieldsField(
-      MetadataTemplateFieldsTypeField type, String key, String displayName) {
+      @JsonProperty("type") EnumWrapper<MetadataTemplateFieldsTypeField> type,
+      @JsonProperty("key") String key,
+      @JsonProperty("displayName") String displayName) {
     super();
-    this.type = new EnumWrapper<MetadataTemplateFieldsTypeField>(type);
+    this.type = type;
     this.key = key;
     this.displayName = displayName;
   }
@@ -161,17 +161,17 @@ public class MetadataTemplateFieldsField extends SerializableObject {
 
     protected String id;
 
-    public Builder(
-        EnumWrapper<MetadataTemplateFieldsTypeField> type, String key, String displayName) {
+    public Builder(MetadataTemplateFieldsTypeField type, String key, String displayName) {
       super();
-      this.type = type;
+      this.type = new EnumWrapper<MetadataTemplateFieldsTypeField>(type);
       this.key = key;
       this.displayName = displayName;
     }
 
-    public Builder(MetadataTemplateFieldsTypeField type, String key, String displayName) {
+    public Builder(
+        EnumWrapper<MetadataTemplateFieldsTypeField> type, String key, String displayName) {
       super();
-      this.type = new EnumWrapper<MetadataTemplateFieldsTypeField>(type);
+      this.type = type;
       this.key = key;
       this.displayName = displayName;
     }

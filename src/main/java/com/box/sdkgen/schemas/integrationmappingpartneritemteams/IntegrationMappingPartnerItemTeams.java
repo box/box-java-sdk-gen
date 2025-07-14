@@ -27,19 +27,19 @@ public class IntegrationMappingPartnerItemTeams extends SerializableObject {
   protected final String tenantId;
 
   public IntegrationMappingPartnerItemTeams(
-      @JsonProperty("type") EnumWrapper<IntegrationMappingPartnerItemTeamsTypeField> type,
-      @JsonProperty("id") String id,
-      @JsonProperty("tenant_id") String tenantId) {
+      IntegrationMappingPartnerItemTeamsTypeField type, String id, String tenantId) {
     super();
-    this.type = type;
+    this.type = new EnumWrapper<IntegrationMappingPartnerItemTeamsTypeField>(type);
     this.id = id;
     this.tenantId = tenantId;
   }
 
   public IntegrationMappingPartnerItemTeams(
-      IntegrationMappingPartnerItemTeamsTypeField type, String id, String tenantId) {
+      @JsonProperty("type") EnumWrapper<IntegrationMappingPartnerItemTeamsTypeField> type,
+      @JsonProperty("id") String id,
+      @JsonProperty("tenant_id") String tenantId) {
     super();
-    this.type = new EnumWrapper<IntegrationMappingPartnerItemTeamsTypeField>(type);
+    this.type = type;
     this.id = id;
     this.tenantId = tenantId;
   }

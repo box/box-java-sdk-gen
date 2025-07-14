@@ -6,6 +6,7 @@ import com.box.sdkgen.schemas.v2025r0.shieldlistcontentdomainv2025r0.ShieldListC
 import com.box.sdkgen.schemas.v2025r0.shieldlistcontentemailv2025r0.ShieldListContentEmailV2025R0;
 import com.box.sdkgen.schemas.v2025r0.shieldlistcontentintegrationv2025r0.ShieldListContentIntegrationV2025R0;
 import com.box.sdkgen.schemas.v2025r0.shieldlistcontentipv2025r0.ShieldListContentIpV2025R0;
+import com.box.sdkgen.serialization.json.EnumWrapper;
 import com.box.sdkgen.serialization.json.JsonManager;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -26,45 +27,76 @@ public class ShieldListContentV2025R0
         ShieldListContentIpV2025R0,
         ShieldListContentIntegrationV2025R0> {
 
+  protected final String type;
+
   public ShieldListContentV2025R0(ShieldListContentCountryV2025R0 shieldListContentCountryV2025R0) {
     super(shieldListContentCountryV2025R0, null, null, null, null);
+    this.type = EnumWrapper.convertToString(shieldListContentCountryV2025R0.getType());
   }
 
   public ShieldListContentV2025R0(ShieldListContentDomainV2025R0 shieldListContentDomainV2025R0) {
     super(null, shieldListContentDomainV2025R0, null, null, null);
+    this.type = EnumWrapper.convertToString(shieldListContentDomainV2025R0.getType());
   }
 
   public ShieldListContentV2025R0(ShieldListContentEmailV2025R0 shieldListContentEmailV2025R0) {
     super(null, null, shieldListContentEmailV2025R0, null, null);
+    this.type = EnumWrapper.convertToString(shieldListContentEmailV2025R0.getType());
   }
 
   public ShieldListContentV2025R0(ShieldListContentIpV2025R0 shieldListContentIpV2025R0) {
     super(null, null, null, shieldListContentIpV2025R0, null);
+    this.type = EnumWrapper.convertToString(shieldListContentIpV2025R0.getType());
   }
 
   public ShieldListContentV2025R0(
       ShieldListContentIntegrationV2025R0 shieldListContentIntegrationV2025R0) {
     super(null, null, null, null, shieldListContentIntegrationV2025R0);
+    this.type = EnumWrapper.convertToString(shieldListContentIntegrationV2025R0.getType());
+  }
+
+  public boolean isShieldListContentCountryV2025R0() {
+    return value0 != null;
   }
 
   public ShieldListContentCountryV2025R0 getShieldListContentCountryV2025R0() {
     return value0;
   }
 
+  public boolean isShieldListContentDomainV2025R0() {
+    return value1 != null;
+  }
+
   public ShieldListContentDomainV2025R0 getShieldListContentDomainV2025R0() {
     return value1;
+  }
+
+  public boolean isShieldListContentEmailV2025R0() {
+    return value2 != null;
   }
 
   public ShieldListContentEmailV2025R0 getShieldListContentEmailV2025R0() {
     return value2;
   }
 
+  public boolean isShieldListContentIpV2025R0() {
+    return value3 != null;
+  }
+
   public ShieldListContentIpV2025R0 getShieldListContentIpV2025R0() {
     return value3;
   }
 
+  public boolean isShieldListContentIntegrationV2025R0() {
+    return value4 != null;
+  }
+
   public ShieldListContentIntegrationV2025R0 getShieldListContentIntegrationV2025R0() {
     return value4;
+  }
+
+  public String getType() {
+    return type;
   }
 
   static class ShieldListContentV2025R0Deserializer

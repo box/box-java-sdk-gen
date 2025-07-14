@@ -33,19 +33,19 @@ public class EventSource extends SerializableObject {
   @JsonProperty("owned_by")
   protected UserMini ownedBy;
 
+  public EventSource(EventSourceItemTypeField itemType, String itemId, String itemName) {
+    super();
+    this.itemType = new EnumWrapper<EventSourceItemTypeField>(itemType);
+    this.itemId = itemId;
+    this.itemName = itemName;
+  }
+
   public EventSource(
       @JsonProperty("item_type") EnumWrapper<EventSourceItemTypeField> itemType,
       @JsonProperty("item_id") String itemId,
       @JsonProperty("item_name") String itemName) {
     super();
     this.itemType = itemType;
-    this.itemId = itemId;
-    this.itemName = itemName;
-  }
-
-  public EventSource(EventSourceItemTypeField itemType, String itemId, String itemName) {
-    super();
-    this.itemType = new EnumWrapper<EventSourceItemTypeField>(itemType);
     this.itemId = itemId;
     this.itemName = itemName;
   }
@@ -150,16 +150,16 @@ public class EventSource extends SerializableObject {
 
     protected UserMini ownedBy;
 
-    public Builder(EnumWrapper<EventSourceItemTypeField> itemType, String itemId, String itemName) {
+    public Builder(EventSourceItemTypeField itemType, String itemId, String itemName) {
       super();
-      this.itemType = itemType;
+      this.itemType = new EnumWrapper<EventSourceItemTypeField>(itemType);
       this.itemId = itemId;
       this.itemName = itemName;
     }
 
-    public Builder(EventSourceItemTypeField itemType, String itemId, String itemName) {
+    public Builder(EnumWrapper<EventSourceItemTypeField> itemType, String itemId, String itemName) {
       super();
-      this.itemType = new EnumWrapper<EventSourceItemTypeField>(itemType);
+      this.itemType = itemType;
       this.itemId = itemId;
       this.itemName = itemName;
     }

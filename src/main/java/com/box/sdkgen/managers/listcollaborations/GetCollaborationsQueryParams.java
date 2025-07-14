@@ -13,12 +13,12 @@ public class GetCollaborationsQueryParams {
 
   public Long limit;
 
-  public GetCollaborationsQueryParams(EnumWrapper<GetCollaborationsQueryParamsStatusField> status) {
-    this.status = status;
-  }
-
   public GetCollaborationsQueryParams(GetCollaborationsQueryParamsStatusField status) {
     this.status = new EnumWrapper<GetCollaborationsQueryParamsStatusField>(status);
+  }
+
+  public GetCollaborationsQueryParams(EnumWrapper<GetCollaborationsQueryParamsStatusField> status) {
+    this.status = status;
   }
 
   protected GetCollaborationsQueryParams(Builder builder) {
@@ -54,12 +54,12 @@ public class GetCollaborationsQueryParams {
 
     protected Long limit;
 
-    public Builder(EnumWrapper<GetCollaborationsQueryParamsStatusField> status) {
-      this.status = status;
-    }
-
     public Builder(GetCollaborationsQueryParamsStatusField status) {
       this.status = new EnumWrapper<GetCollaborationsQueryParamsStatusField>(status);
+    }
+
+    public Builder(EnumWrapper<GetCollaborationsQueryParamsStatusField> status) {
+      this.status = status;
     }
 
     public Builder fields(List<String> fields) {

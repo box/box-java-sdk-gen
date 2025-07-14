@@ -1,5 +1,7 @@
 package com.box.sdkgen.test.search;
 
+import static com.box.sdkgen.internal.utils.UtilsManager.convertToString;
+import static com.box.sdkgen.internal.utils.UtilsManager.dateTimeFromString;
 import static com.box.sdkgen.internal.utils.UtilsManager.delayInSeconds;
 import static com.box.sdkgen.internal.utils.UtilsManager.entryOf;
 import static com.box.sdkgen.internal.utils.UtilsManager.generateByteStream;
@@ -14,16 +16,27 @@ import com.box.sdkgen.managers.metadatatemplates.CreateMetadataTemplateRequestBo
 import com.box.sdkgen.managers.metadatatemplates.CreateMetadataTemplateRequestBodyFieldsOptionsField;
 import com.box.sdkgen.managers.metadatatemplates.CreateMetadataTemplateRequestBodyFieldsTypeField;
 import com.box.sdkgen.managers.metadatatemplates.DeleteMetadataTemplateScope;
+import com.box.sdkgen.managers.search.SearchForContentQueryParams;
+import com.box.sdkgen.managers.search.SearchForContentQueryParamsTrashContentField;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBody;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBodyAttributesField;
 import com.box.sdkgen.managers.uploads.UploadFileRequestBodyAttributesParentField;
 import com.box.sdkgen.schemas.filefull.FileFull;
 import com.box.sdkgen.schemas.files.Files;
+import com.box.sdkgen.schemas.metadatafieldfilterdaterange.MetadataFieldFilterDateRange;
+import com.box.sdkgen.schemas.metadatafieldfilterdaterangeormetadatafieldfilterfloatrangeorarrayofstringornumberorstring.MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString;
+import com.box.sdkgen.schemas.metadatafieldfilterfloatrange.MetadataFieldFilterFloatRange;
+import com.box.sdkgen.schemas.metadatafilter.MetadataFilter;
+import com.box.sdkgen.schemas.metadatafilter.MetadataFilterScopeField;
 import com.box.sdkgen.schemas.metadatafull.MetadataFull;
 import com.box.sdkgen.schemas.metadataquery.MetadataQuery;
 import com.box.sdkgen.schemas.metadataqueryresults.MetadataQueryResults;
 import com.box.sdkgen.schemas.metadatatemplate.MetadataTemplate;
+import com.box.sdkgen.schemas.searchresults.SearchResults;
+import com.box.sdkgen.schemas.searchresultsorsearchresultswithsharedlinks.SearchResultsOrSearchResultsWithSharedLinks;
+import com.box.sdkgen.schemas.searchresultswithsharedlinks.SearchResultsWithSharedLinks;
 import java.util.Arrays;
+import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 public class SearchITest {
@@ -125,5 +138,157 @@ public class SearchITest {
         .getMetadataTemplates()
         .deleteMetadataTemplate(DeleteMetadataTemplateScope.ENTERPRISE, template.getTemplateKey());
     client.getFiles().deleteFileById(file.getId());
+  }
+
+  @Test
+  public void testMetadataFilters() {
+    String templateKey = String.join("", "key", getUuid());
+    MetadataTemplate template =
+        client
+            .getMetadataTemplates()
+            .createMetadataTemplate(
+                new CreateMetadataTemplateRequestBody.Builder("enterprise", templateKey)
+                    .templateKey(templateKey)
+                    .fields(
+                        Arrays.asList(
+                            new CreateMetadataTemplateRequestBodyFieldsField(
+                                CreateMetadataTemplateRequestBodyFieldsTypeField.FLOAT,
+                                "floatField",
+                                "floatField"),
+                            new CreateMetadataTemplateRequestBodyFieldsField(
+                                CreateMetadataTemplateRequestBodyFieldsTypeField.STRING,
+                                "stringField",
+                                "stringField"),
+                            new CreateMetadataTemplateRequestBodyFieldsField(
+                                CreateMetadataTemplateRequestBodyFieldsTypeField.DATE,
+                                "dateField",
+                                "dateField"),
+                            new CreateMetadataTemplateRequestBodyFieldsField.Builder(
+                                    CreateMetadataTemplateRequestBodyFieldsTypeField.ENUM,
+                                    "enumField",
+                                    "enumField")
+                                .options(
+                                    Arrays.asList(
+                                        new CreateMetadataTemplateRequestBodyFieldsOptionsField(
+                                            "enumValue1"),
+                                        new CreateMetadataTemplateRequestBodyFieldsOptionsField(
+                                            "enumValue2")))
+                                .build(),
+                            new CreateMetadataTemplateRequestBodyFieldsField.Builder(
+                                    CreateMetadataTemplateRequestBodyFieldsTypeField.MULTISELECT,
+                                    "multiSelectField",
+                                    "multiSelectField")
+                                .options(
+                                    Arrays.asList(
+                                        new CreateMetadataTemplateRequestBodyFieldsOptionsField(
+                                            "multiSelectValue1"),
+                                        new CreateMetadataTemplateRequestBodyFieldsOptionsField(
+                                            "multiSelectValue2")))
+                                .build()))
+                    .build());
+    Files files =
+        client
+            .getUploads()
+            .uploadFile(
+                new UploadFileRequestBody(
+                    new UploadFileRequestBodyAttributesField(
+                        getUuid(), new UploadFileRequestBodyAttributesParentField("0")),
+                    generateByteStream(10)));
+    FileFull file = files.getEntries().get(0);
+    MetadataFull metadata =
+        client
+            .getFileMetadata()
+            .createFileMetadataById(
+                file.getId(),
+                CreateFileMetadataByIdScope.ENTERPRISE,
+                templateKey,
+                mapOf(
+                    entryOf("floatField", 10),
+                    entryOf("stringField", "stringValue"),
+                    entryOf("dateField", "2035-01-02T00:00:00Z"),
+                    entryOf("enumField", "enumValue2"),
+                    entryOf(
+                        "multiSelectField",
+                        Arrays.asList("multiSelectValue1", "multiSelectValue2"))));
+    Map<
+            String,
+            MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString>
+        searchFilters =
+            mapOf(
+                entryOf(
+                    "stringField",
+                    new MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(
+                        "stringValue")),
+                entryOf(
+                    "dateField",
+                    new MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(
+                        new MetadataFieldFilterDateRange.Builder()
+                            .lt(dateTimeFromString("2035-01-01T00:00:00Z"))
+                            .gt(dateTimeFromString("2035-01-03T00:00:00Z"))
+                            .build())),
+                entryOf(
+                    "floatField",
+                    new MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(
+                        new MetadataFieldFilterFloatRange.Builder().lt(9.5).gt(10.5).build())),
+                entryOf(
+                    "enumField",
+                    new MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(
+                        "enumValue2")),
+                entryOf(
+                    "multiSelectField",
+                    new MetadataFieldFilterDateRangeOrMetadataFieldFilterFloatRangeOrArrayOfStringOrNumberOrString(
+                        Arrays.asList("multiSelectValue1", "multiSelectValue2"))));
+    SearchResultsOrSearchResultsWithSharedLinks query =
+        client
+            .getSearch()
+            .searchForContent(
+                new SearchForContentQueryParams.Builder()
+                    .ancestorFolderIds(Arrays.asList("0"))
+                    .mdfilters(
+                        Arrays.asList(
+                            new MetadataFilter.Builder()
+                                .scope(MetadataFilterScopeField.ENTERPRISE)
+                                .templateKey(templateKey)
+                                .filters(searchFilters)
+                                .build()))
+                    .build());
+    SearchResults queryResults = query.getSearchResults();
+    assert queryResults.getEntries().size() >= 0;
+    client
+        .getMetadataTemplates()
+        .deleteMetadataTemplate(DeleteMetadataTemplateScope.ENTERPRISE, template.getTemplateKey());
+    client.getFiles().deleteFileById(file.getId());
+  }
+
+  @Test
+  public void testGetSearch() {
+    String keyword = "test";
+    SearchResultsOrSearchResultsWithSharedLinks search =
+        client
+            .getSearch()
+            .searchForContent(
+                new SearchForContentQueryParams.Builder()
+                    .query(keyword)
+                    .ancestorFolderIds(Arrays.asList("0"))
+                    .trashContent(SearchForContentQueryParamsTrashContentField.NON_TRASHED_ONLY)
+                    .build());
+    assert convertToString(search.getType()).equals("search_results_items");
+    SearchResults searchResults = search.getSearchResults();
+    assert searchResults.getEntries().size() >= 0;
+    SearchResultsOrSearchResultsWithSharedLinks searchWithSharedLink =
+        client
+            .getSearch()
+            .searchForContent(
+                new SearchForContentQueryParams.Builder()
+                    .query(keyword)
+                    .ancestorFolderIds(Arrays.asList("0"))
+                    .trashContent(SearchForContentQueryParamsTrashContentField.NON_TRASHED_ONLY)
+                    .includeRecentSharedLinks(true)
+                    .build());
+    assert convertToString(searchWithSharedLink.getType())
+        .equals("search_results_with_shared_links");
+    SearchResultsWithSharedLinks searchResultsWithSharedLink =
+        searchWithSharedLink.getSearchResultsWithSharedLinks();
+    assert searchResultsWithSharedLink.getEntries().size() >= 0;
   }
 }
