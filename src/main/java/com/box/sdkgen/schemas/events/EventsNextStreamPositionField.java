@@ -14,14 +14,14 @@ import java.io.IOException;
 @JsonDeserialize(
     using = EventsNextStreamPositionField.EventsNextStreamPositionFieldDeserializer.class)
 @JsonSerialize(using = OneOfTwo.OneOfTwoSerializer.class)
-public class EventsNextStreamPositionField extends OneOfTwo<String, Double> {
+public class EventsNextStreamPositionField extends OneOfTwo<String, Long> {
 
   public EventsNextStreamPositionField(String string) {
     super(string, null);
   }
 
-  public EventsNextStreamPositionField(Double doubleNumber) {
-    super(null, doubleNumber);
+  public EventsNextStreamPositionField(Long longNumber) {
+    super(null, longNumber);
   }
 
   public boolean isString() {
@@ -32,11 +32,11 @@ public class EventsNextStreamPositionField extends OneOfTwo<String, Double> {
     return value0;
   }
 
-  public boolean isDoubleNumber() {
+  public boolean isLongNumber() {
     return value1 != null;
   }
 
-  public Double getDoubleNumber() {
+  public Long getLongNumber() {
     return value1;
   }
 
@@ -53,7 +53,7 @@ public class EventsNextStreamPositionField extends OneOfTwo<String, Double> {
       JsonNode node = JsonManager.jsonToSerializedData(jp);
       try {
         return new EventsNextStreamPositionField(
-            OneOfTwo.OBJECT_MAPPER.convertValue(node, Double.class));
+            OneOfTwo.OBJECT_MAPPER.convertValue(node, Long.class));
       } catch (Exception ignored) {
       }
       try {
