@@ -1,4 +1,4 @@
-package com.box.sdkgen.managers.hubs;
+package com.box.sdkgen.managers.hubitems;
 
 import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 
@@ -6,18 +6,18 @@ import com.box.sdkgen.parameters.v2025r0.boxversionheaderv2025r0.BoxVersionHeade
 import com.box.sdkgen.serialization.json.EnumWrapper;
 import java.util.Map;
 
-public class CreateHubCopyV2025R0Headers {
+public class ManageHubItemsV2025R0Headers {
 
   public EnumWrapper<BoxVersionHeaderV2025R0> boxVersion;
 
   public Map<String, String> extraHeaders;
 
-  public CreateHubCopyV2025R0Headers() {
+  public ManageHubItemsV2025R0Headers() {
     this.boxVersion = new EnumWrapper<BoxVersionHeaderV2025R0>(BoxVersionHeaderV2025R0._2025_0);
     this.extraHeaders = mapOf();
   }
 
-  protected CreateHubCopyV2025R0Headers(Builder builder) {
+  protected ManageHubItemsV2025R0Headers(Builder builder) {
     this.boxVersion = builder.boxVersion;
     this.extraHeaders = builder.extraHeaders;
   }
@@ -56,8 +56,8 @@ public class CreateHubCopyV2025R0Headers {
       return this;
     }
 
-    public CreateHubCopyV2025R0Headers build() {
-      return new CreateHubCopyV2025R0Headers(this);
+    public ManageHubItemsV2025R0Headers build() {
+      return new ManageHubItemsV2025R0Headers(this);
     }
   }
 }
