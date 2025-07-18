@@ -35,6 +35,7 @@ import com.box.sdkgen.managers.folders.FoldersManager;
 import com.box.sdkgen.managers.folderwatermarks.FolderWatermarksManager;
 import com.box.sdkgen.managers.groups.GroupsManager;
 import com.box.sdkgen.managers.hubcollaborations.HubCollaborationsManager;
+import com.box.sdkgen.managers.hubitems.HubItemsManager;
 import com.box.sdkgen.managers.hubs.HubsManager;
 import com.box.sdkgen.managers.integrationmappings.IntegrationMappingsManager;
 import com.box.sdkgen.managers.invites.InvitesManager;
@@ -247,6 +248,8 @@ public class BoxClient {
   public final HubsManager hubs;
 
   public final HubCollaborationsManager hubCollaborations;
+
+  public final HubItemsManager hubItems;
 
   public final ShieldListsManager shieldLists;
 
@@ -569,6 +572,8 @@ public class BoxClient {
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
+    this.hubItems =
+        new HubItemsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.shieldLists =
         new ShieldListsManager.Builder()
             .auth(this.auth)
@@ -895,6 +900,8 @@ public class BoxClient {
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
+    this.hubItems =
+        new HubItemsManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
     this.shieldLists =
         new ShieldListsManager.Builder()
             .auth(this.auth)
@@ -1271,6 +1278,10 @@ public class BoxClient {
 
   public HubCollaborationsManager getHubCollaborations() {
     return hubCollaborations;
+  }
+
+  public HubItemsManager getHubItems() {
+    return hubItems;
   }
 
   public ShieldListsManager getShieldLists() {

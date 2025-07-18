@@ -11,7 +11,10 @@ import com.box.sdkgen.networking.fetchoptions.FetchOptions;
 import com.box.sdkgen.networking.fetchoptions.ResponseFormat;
 import com.box.sdkgen.networking.fetchresponse.FetchResponse;
 import com.box.sdkgen.networking.network.NetworkSession;
+import com.box.sdkgen.schemas.v2025r0.hubcopyrequestv2025r0.HubCopyRequestV2025R0;
+import com.box.sdkgen.schemas.v2025r0.hubcreaterequestv2025r0.HubCreateRequestV2025R0;
 import com.box.sdkgen.schemas.v2025r0.hubsv2025r0.HubsV2025R0;
+import com.box.sdkgen.schemas.v2025r0.hubupdaterequestv2025r0.HubUpdateRequestV2025R0;
 import com.box.sdkgen.schemas.v2025r0.hubv2025r0.HubV2025R0;
 import com.box.sdkgen.serialization.json.JsonManager;
 import java.util.Map;
@@ -74,6 +77,35 @@ public class HubsManager {
                     .networkSession(this.networkSession)
                     .build());
     return JsonManager.deserialize(response.getData(), HubsV2025R0.class);
+  }
+
+  public HubV2025R0 createHubV2025R0(HubCreateRequestV2025R0 requestBody) {
+    return createHubV2025R0(requestBody, new CreateHubV2025R0Headers());
+  }
+
+  public HubV2025R0 createHubV2025R0(
+      HubCreateRequestV2025R0 requestBody, CreateHubV2025R0Headers headers) {
+    Map<String, String> headersMap =
+        prepareParams(
+            mergeMaps(
+                mapOf(entryOf("box-version", convertToString(headers.getBoxVersion()))),
+                headers.getExtraHeaders()));
+    FetchResponse response =
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.Builder(
+                        String.join(
+                            "", this.networkSession.getBaseUrls().getBaseUrl(), "/2.0/hubs"),
+                        "POST")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
+    return JsonManager.deserialize(response.getData(), HubV2025R0.class);
   }
 
   public HubsV2025R0 getEnterpriseHubsV2025R0() {
@@ -152,6 +184,38 @@ public class HubsManager {
     return JsonManager.deserialize(response.getData(), HubV2025R0.class);
   }
 
+  public HubV2025R0 updateHubByIdV2025R0(String hubId, HubUpdateRequestV2025R0 requestBody) {
+    return updateHubByIdV2025R0(hubId, requestBody, new UpdateHubByIdV2025R0Headers());
+  }
+
+  public HubV2025R0 updateHubByIdV2025R0(
+      String hubId, HubUpdateRequestV2025R0 requestBody, UpdateHubByIdV2025R0Headers headers) {
+    Map<String, String> headersMap =
+        prepareParams(
+            mergeMaps(
+                mapOf(entryOf("box-version", convertToString(headers.getBoxVersion()))),
+                headers.getExtraHeaders()));
+    FetchResponse response =
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.Builder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/hubs/",
+                            convertToString(hubId)),
+                        "PUT")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
+    return JsonManager.deserialize(response.getData(), HubV2025R0.class);
+  }
+
   public void deleteHubByIdV2025R0(String hubId) {
     deleteHubByIdV2025R0(hubId, new DeleteHubByIdV2025R0Headers());
   }
@@ -178,6 +242,39 @@ public class HubsManager {
                     .auth(this.auth)
                     .networkSession(this.networkSession)
                     .build());
+  }
+
+  public HubV2025R0 createHubCopyV2025R0(String hubId, HubCopyRequestV2025R0 requestBody) {
+    return createHubCopyV2025R0(hubId, requestBody, new CreateHubCopyV2025R0Headers());
+  }
+
+  public HubV2025R0 createHubCopyV2025R0(
+      String hubId, HubCopyRequestV2025R0 requestBody, CreateHubCopyV2025R0Headers headers) {
+    Map<String, String> headersMap =
+        prepareParams(
+            mergeMaps(
+                mapOf(entryOf("box-version", convertToString(headers.getBoxVersion()))),
+                headers.getExtraHeaders()));
+    FetchResponse response =
+        this.networkSession
+            .getNetworkClient()
+            .fetch(
+                new FetchOptions.Builder(
+                        String.join(
+                            "",
+                            this.networkSession.getBaseUrls().getBaseUrl(),
+                            "/2.0/hubs/",
+                            convertToString(hubId),
+                            "/copy"),
+                        "POST")
+                    .headers(headersMap)
+                    .data(JsonManager.serialize(requestBody))
+                    .contentType("application/json")
+                    .responseFormat(ResponseFormat.JSON)
+                    .auth(this.auth)
+                    .networkSession(this.networkSession)
+                    .build());
+    return JsonManager.deserialize(response.getData(), HubV2025R0.class);
   }
 
   public Authentication getAuth() {
