@@ -244,12 +244,12 @@ public class HubsManager {
                     .build());
   }
 
-  public HubV2025R0 createHubCopyV2025R0(String hubId, HubCopyRequestV2025R0 requestBody) {
-    return createHubCopyV2025R0(hubId, requestBody, new CreateHubCopyV2025R0Headers());
+  public HubV2025R0 copyHubV2025R0(String hubId, HubCopyRequestV2025R0 requestBody) {
+    return copyHubV2025R0(hubId, requestBody, new CopyHubV2025R0Headers());
   }
 
-  public HubV2025R0 createHubCopyV2025R0(
-      String hubId, HubCopyRequestV2025R0 requestBody, CreateHubCopyV2025R0Headers headers) {
+  public HubV2025R0 copyHubV2025R0(
+      String hubId, HubCopyRequestV2025R0 requestBody, CopyHubV2025R0Headers headers) {
     Map<String, String> headersMap =
         prepareParams(
             mergeMaps(

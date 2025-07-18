@@ -66,15 +66,15 @@ public class HubItemsManager {
     return JsonManager.deserialize(response.getData(), HubItemsV2025R0.class);
   }
 
-  public HubItemsManageResponseV2025R0 createHubManageItemV2025R0(
+  public HubItemsManageResponseV2025R0 manageHubItemsV2025R0(
       String hubId, HubItemsManageRequestV2025R0 requestBody) {
-    return createHubManageItemV2025R0(hubId, requestBody, new CreateHubManageItemV2025R0Headers());
+    return manageHubItemsV2025R0(hubId, requestBody, new ManageHubItemsV2025R0Headers());
   }
 
-  public HubItemsManageResponseV2025R0 createHubManageItemV2025R0(
+  public HubItemsManageResponseV2025R0 manageHubItemsV2025R0(
       String hubId,
       HubItemsManageRequestV2025R0 requestBody,
-      CreateHubManageItemV2025R0Headers headers) {
+      ManageHubItemsV2025R0Headers headers) {
     Map<String, String> headersMap =
         prepareParams(
             mergeMaps(
