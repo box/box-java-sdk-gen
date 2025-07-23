@@ -128,7 +128,7 @@ client.getUploads().uploadWithPreflightCheck(new UploadWithPreflightCheckRequest
 ### Arguments
 
 - requestBody `UploadWithPreflightCheckRequestBody`
-  - 
+  
 - queryParams `UploadWithPreflightCheckQueryParams`
   - Query parameters of uploadFile method
 - headers `UploadWithPreflightCheckHeaders`
