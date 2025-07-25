@@ -8,6 +8,7 @@ the SDK are available by topic:
 * [Ai](ai.md)
 * [Aistudio](aistudio.md)
 * [Appitemassociations](appitemassociations.md)
+* [Archives](archives.md)
 * [Authorization](authorization.md)
 * [Avatars](avatars.md)
 * [Chunkeduploads](chunkeduploads.md)

@@ -6,6 +6,7 @@ import static com.box.sdkgen.internal.utils.UtilsManager.mapOf;
 import com.box.sdkgen.managers.ai.AiManager;
 import com.box.sdkgen.managers.aistudio.AiStudioManager;
 import com.box.sdkgen.managers.appitemassociations.AppItemAssociationsManager;
+import com.box.sdkgen.managers.archives.ArchivesManager;
 import com.box.sdkgen.managers.authorization.AuthorizationManager;
 import com.box.sdkgen.managers.avatars.AvatarsManager;
 import com.box.sdkgen.managers.chunkeduploads.ChunkedUploadsManager;
@@ -252,6 +253,8 @@ public class BoxClient {
   public final HubItemsManager hubItems;
 
   public final ShieldListsManager shieldLists;
+
+  public final ArchivesManager archives;
 
   public BoxClient(Authentication auth) {
     this.auth = auth;
@@ -579,6 +582,8 @@ public class BoxClient {
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
+    this.archives =
+        new ArchivesManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
   }
 
   protected BoxClient(Builder builder) {
@@ -907,6 +912,8 @@ public class BoxClient {
             .auth(this.auth)
             .networkSession(this.networkSession)
             .build();
+    this.archives =
+        new ArchivesManager.Builder().auth(this.auth).networkSession(this.networkSession).build();
   }
 
   public FetchResponse makeRequest(FetchOptions fetchOptions) {
@@ -1286,6 +1293,10 @@ public class BoxClient {
 
   public ShieldListsManager getShieldLists() {
     return shieldLists;
+  }
+
+  public ArchivesManager getArchives() {
+    return archives;
   }
 
   public static class Builder {
