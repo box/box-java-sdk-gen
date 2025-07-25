@@ -13,21 +13,28 @@ public class BoxRetryStrategy implements RetryStrategy {
 
   public double retryBaseInterval;
 
+  public int maxRetriesOnException;
+
   public BoxRetryStrategy() {
     this.maxAttempts = 5;
     this.retryRandomizationFactor = 0.5;
     this.retryBaseInterval = 1;
+    this.maxRetriesOnException = 2;
   }
 
   protected BoxRetryStrategy(Builder builder) {
     this.maxAttempts = builder.maxAttempts;
     this.retryRandomizationFactor = builder.retryRandomizationFactor;
     this.retryBaseInterval = builder.retryBaseInterval;
+    this.maxRetriesOnException = builder.maxRetriesOnException;
   }
 
   @Override
   public boolean shouldRetry(
       FetchOptions fetchOptions, FetchResponse fetchResponse, int attemptNumber) {
+    if (fetchResponse.getStatus() == 0) {
+      return attemptNumber <= this.maxRetriesOnException;
+    }
     boolean isSuccessful = fetchResponse.getStatus() >= 200 && fetchResponse.getStatus() < 400;
     String retryAfterHeader = fetchResponse.getHeaders().get("Retry-After");
     boolean isAcceptedWithRetryAfter =
@@ -79,6 +86,10 @@ public class BoxRetryStrategy implements RetryStrategy {
     return retryBaseInterval;
   }
 
+  public int getMaxRetriesOnException() {
+    return maxRetriesOnException;
+  }
+
   public static class Builder {
 
     protected int maxAttempts;
@@ -87,10 +98,13 @@ public class BoxRetryStrategy implements RetryStrategy {
 
     protected double retryBaseInterval;
 
+    protected int maxRetriesOnException;
+
     public Builder() {
       this.maxAttempts = 5;
       this.retryRandomizationFactor = 0.5;
       this.retryBaseInterval = 1;
+      this.maxRetriesOnException = 2;
     }
 
     public Builder maxAttempts(int maxAttempts) {
@@ -105,6 +119,11 @@ public class BoxRetryStrategy implements RetryStrategy {
 
     public Builder retryBaseInterval(double retryBaseInterval) {
       this.retryBaseInterval = retryBaseInterval;
+      return this;
+    }
+
+    public Builder maxRetriesOnException(int maxRetriesOnException) {
+      this.maxRetriesOnException = maxRetriesOnException;
       return this;
     }
 

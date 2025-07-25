@@ -80,7 +80,10 @@ public class BoxNetworkClient implements NetworkClient {
     FetchResponse fetchResponse = null;
     Exception exceptionThrown = null;
 
-    int attemptNumber = 0;
+    int attemptNumber = 1;
+    int numberOfRetriesOnException = 0;
+    int attemptForRetry = 0;
+    boolean shouldRetry = false;
 
     while (true) {
       request = prepareRequest(fetchOptions, authenticationNeeded, networkSession);
@@ -105,6 +108,8 @@ public class BoxNetworkClient implements NetworkClient {
                 ? response.networkResponse().request().url().toString()
                 : response.request().url().toString();
 
+        attemptForRetry = attemptNumber;
+
         if (Objects.equals(
             fetchOptions.getResponseFormat().getEnumValue(), ResponseFormat.BINARY)) {
           fetchResponse =
@@ -128,51 +133,60 @@ public class BoxNetworkClient implements NetworkClient {
                     (modifiedResponse, interceptor) -> interceptor.afterRequest(modifiedResponse),
                     (o1, o2) -> o2);
 
-        boolean shouldRetry =
-            networkSession
-                .getRetryStrategy()
-                .shouldRetry(fetchOptions, fetchResponse, attemptNumber);
-
-        if (shouldRetry) {
-          TimeUnit.SECONDS.sleep(
-              (long)
-                  networkSession
-                      .getRetryStrategy()
-                      .retryAfter(fetchOptions, fetchResponse, attemptNumber));
-          attemptNumber++;
-          continue;
-        }
-
-        if (fetchResponse.getStatus() >= 300
-            && fetchResponse.getStatus() < 400
-            && fetchOptions.followRedirects) {
-          if (!fetchResponse.getHeaders().containsKey("Location")) {
-            throw new BoxSDKError(
-                "Redirect response missing Location header for " + fetchOptions.getUrl());
-          }
-          URI originalUri = URI.create(fetchOptions.getUrl());
-          URI redirectUri = URI.create(fetchResponse.getHeaders().get("Location"));
-          boolean sameOrigin =
-              originalUri.getHost().equals(redirectUri.getHost())
-                  && originalUri.getPort() == redirectUri.getPort()
-                  && originalUri.getScheme().equals(redirectUri.getScheme());
-          return fetch(
-              new FetchOptions.Builder(fetchResponse.getHeaders().get("Location"), "GET")
-                  .responseFormat(fetchOptions.getResponseFormat())
-                  .auth(sameOrigin ? fetchOptions.getAuth() : null)
-                  .networkSession(networkSession)
-                  .build());
-        }
-
       } catch (Exception e) {
         exceptionThrown = e;
-        // Retry network exception only once
-        if (attemptNumber > 1) {
-          if (response != null) {
-            response.close();
-          }
-          throw new BoxSDKError(e.getMessage(), e);
+        numberOfRetriesOnException++;
+        attemptForRetry = numberOfRetriesOnException;
+        if (response != null) {
+          response.close();
         }
+
+        fetchResponse =
+            new FetchResponse.Builder(0, new TreeMap<>(String.CASE_INSENSITIVE_ORDER)).build();
+      }
+
+      shouldRetry =
+          networkSession
+              .getRetryStrategy()
+              .shouldRetry(fetchOptions, fetchResponse, attemptForRetry);
+
+      if (shouldRetry) {
+        double retryDelay =
+            networkSession
+                .getRetryStrategy()
+                .retryAfter(fetchOptions, fetchResponse, attemptForRetry);
+        if (retryDelay > 0) {
+          try {
+            TimeUnit.SECONDS.sleep((long) retryDelay);
+          } catch (InterruptedException ie) {
+            Thread.currentThread().interrupt();
+            throw new BoxSDKError("Retry interrupted", ie);
+          }
+        }
+        attemptNumber++;
+        continue;
+      }
+
+      if (fetchResponse != null
+          && fetchResponse.getStatus() >= 300
+          && fetchResponse.getStatus() < 400
+          && fetchOptions.followRedirects) {
+        if (!fetchResponse.getHeaders().containsKey("Location")) {
+          throw new BoxSDKError(
+              "Redirect response missing Location header for " + fetchOptions.getUrl());
+        }
+        URI originalUri = URI.create(fetchOptions.getUrl());
+        URI redirectUri = URI.create(fetchResponse.getHeaders().get("Location"));
+        boolean sameOrigin =
+            originalUri.getHost().equals(redirectUri.getHost())
+                && originalUri.getPort() == redirectUri.getPort()
+                && originalUri.getScheme().equals(redirectUri.getScheme());
+        return fetch(
+            new FetchOptions.Builder(fetchResponse.getHeaders().get("Location"), "GET")
+                .responseFormat(fetchOptions.getResponseFormat())
+                .auth(sameOrigin ? fetchOptions.getAuth() : null)
+                .networkSession(networkSession)
+                .build());
       }
 
       if (fetchResponse != null
