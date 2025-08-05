@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/box/box-java-sdk-gen/compare/v0.7.0...v0.8.0) (2025-08-05)
+
+
+### Bug Fixes
+
+* Fix `mergeMaps` function (box/box-codegen[#734](https://github.com/box/box-java-sdk-gen/issues/734)) ([#324](https://github.com/box/box-java-sdk-gen/issues/324)) ([37e5536](https://github.com/box/box-java-sdk-gen/commit/37e553661f2573306710922984ff47d94fa6abc6))
+* Fix downscope token to use `retrieveToken` method for token retrieval (box/box-codegen[#731](https://github.com/box/box-java-sdk-gen/issues/731)) ([#320](https://github.com/box/box-java-sdk-gen/issues/320)) ([55711f7](https://github.com/box/box-java-sdk-gen/commit/55711f79b38ab2ee4cc36a1df5c01cac8a9fbf8a))
+* Fix Locale Comparison for upperCase and lowerCase (box/box-codegen[#746](https://github.com/box/box-java-sdk-gen/issues/746)) ([#345](https://github.com/box/box-java-sdk-gen/issues/345)) ([d8480ee](https://github.com/box/box-java-sdk-gen/commit/d8480ee6c8793f7d1595690007bb3c0dcedc2bc5))
+* Specify events `next_stream_position` property type as `long` (box/box-openapi[#535](https://github.com/box/box-java-sdk-gen/issues/535)) ([#364](https://github.com/box/box-java-sdk-gen/issues/364)) ([715ac24](https://github.com/box/box-java-sdk-gen/commit/715ac2415b18b6128fa628728ace0cf3c632f47d))
+
+
+### New Features and Enhancements
+
+* Add AI spreadsheet processor (box/box-openapi[#533](https://github.com/box/box-java-sdk-gen/issues/533)) ([#349](https://github.com/box/box-java-sdk-gen/issues/349)) ([b53b17c](https://github.com/box/box-java-sdk-gen/commit/b53b17cba1189c38b9d8dba2ad9d97ed7c9fb59b))
+* Add Archive Public API (box/box-openapi[#540](https://github.com/box/box-java-sdk-gen/issues/540)) ([#372](https://github.com/box/box-java-sdk-gen/issues/372)) ([32c566d](https://github.com/box/box-java-sdk-gen/commit/32c566d3fef6c3377975ee1e0ffb83cfa858dd47))
+* add hubs API beta endpoints (box/box-openapi[#531](https://github.com/box/box-java-sdk-gen/issues/531)) ([#341](https://github.com/box/box-java-sdk-gen/issues/341)) ([d895e58](https://github.com/box/box-java-sdk-gen/commit/d895e58e61c5fe31ceb9d98697f98f13fba89148))
+* Add new Hubs APIs and Hubs items API (box/box-openapi[#538](https://github.com/box/box-java-sdk-gen/issues/538)) ([#365](https://github.com/box/box-java-sdk-gen/issues/365)) ([73c70b3](https://github.com/box/box-java-sdk-gen/commit/73c70b35aafc8f5212010fa9566cb49f28f41d95))
+* Add new property for network exception retry strategy (box/box-codegen[#763](https://github.com/box/box-java-sdk-gen/issues/763)) ([#371](https://github.com/box/box-java-sdk-gen/issues/371)) ([57927e0](https://github.com/box/box-java-sdk-gen/commit/57927e0b39c14ca208de7bc96ef942b8ca51f4d2))
+* Add new schema for `Metadata Error` (box/box-openapi[#539](https://github.com/box/box-java-sdk-gen/issues/539)) ([#366](https://github.com/box/box-java-sdk-gen/issues/366)) ([08fcb0f](https://github.com/box/box-java-sdk-gen/commit/08fcb0faeadb2981648ad46db7505a1503d029eb))
+* add Shield Lists APIs (box/box-openapi[#528](https://github.com/box/box-java-sdk-gen/issues/528)) ([#323](https://github.com/box/box-java-sdk-gen/issues/323)) ([79a2b87](https://github.com/box/box-java-sdk-gen/commit/79a2b87a6aaa2c33b9c9de7b3265ea31c3f09d58))
+* Add webhook validation(box/box-codegen[#745](https://github.com/box/box-java-sdk-gen/issues/745)) ([#347](https://github.com/box/box-java-sdk-gen/issues/347)) ([ca61a56](https://github.com/box/box-java-sdk-gen/commit/ca61a56c48a3be2042c2d2b1670d1023d37e5979))
+* Allow injecting private key `decryptor` for JWT (box/box-codegen[#754](https://github.com/box/box-java-sdk-gen/issues/754)) ([#355](https://github.com/box/box-java-sdk-gen/issues/355)) ([31f3a2a](https://github.com/box/box-java-sdk-gen/commit/31f3a2a6bcb2311b0db026220af58372914def41))
+* Shorten builder names in Java (box/box-codegen[#742](https://github.com/box/box-java-sdk-gen/issues/742)) ([#334](https://github.com/box/box-java-sdk-gen/issues/334)) ([cf87520](https://github.com/box/box-java-sdk-gen/commit/cf87520c948022432a8905628d232d8d9424cd62))
+* Support common union fields and implicit union conversion (box/box-codegen[#758](https://github.com/box/box-java-sdk-gen/issues/758)) ([#361](https://github.com/box/box-java-sdk-gen/issues/361)) ([eb98236](https://github.com/box/box-java-sdk-gen/commit/eb982364db2915305421838a47112bdf24f3dba2))
+* Support DateTime in Java (box/box-codegen[#726](https://github.com/box/box-java-sdk-gen/issues/726)) ([#314](https://github.com/box/box-java-sdk-gen/issues/314)) ([90389ec](https://github.com/box/box-java-sdk-gen/commit/90389ecd8023125f82cb5a538c00a1a153b5488e))
+* Support new tools in AI Studio (box/box-openapi[#534](https://github.com/box/box-java-sdk-gen/issues/534))  ([#352](https://github.com/box/box-java-sdk-gen/issues/352)) ([b7374ec](https://github.com/box/box-java-sdk-gen/commit/b7374ec91396d79719f75d6fccf8ef15ed503278))
+* Support sending `nullable` fields in Java (box/box-codegen[#748](https://github.com/box/box-java-sdk-gen/issues/748)) ([#346](https://github.com/box/box-java-sdk-gen/issues/346)) ([e4e31bb](https://github.com/box/box-java-sdk-gen/commit/e4e31bbb85ddf95f1d480b19ae03c639b0a6509e))
+* Update legal holds and AI models (box/box-openapi[#526](https://github.com/box/box-java-sdk-gen/issues/526)) ([#321](https://github.com/box/box-java-sdk-gen/issues/321)) ([28f2ec7](https://github.com/box/box-java-sdk-gen/commit/28f2ec7f871221527d1d5b0b9b6fd9b47e295b48))
+
 ## [0.7.0](https://github.com/box/box-java-sdk-gen/compare/v0.6.2...v0.7.0) (2025-05-09)
 
 
