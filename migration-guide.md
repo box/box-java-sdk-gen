@@ -31,13 +31,14 @@
   - [As-User header](#as-user-header)
   - [Custom Base URLs](#custom-base-urls)
 - [Convenience methods](#convenience-methods)
+  - [Webhook validation](#webhook-validation)
   - [Chunked upload of big files](#chunked-upload-of-big-files)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Introduction
 
-The new `box-java-sdk-gen` SDK library, which helps Java developers to conveniently integrate with Box API.
+The new `box-java-sdk-gen` SDK library helps Java developers to conveniently integrate with Box API.
 In the contrary to the previous library (`box-java-sdk`), it is not manually maintained, but auto-generated
 based on Open API Specification. This means you can leverage the most up-to-date Box API features in your
 applications without delay. More information and benefits of using the new can be found in the
@@ -561,6 +562,94 @@ BoxClient clientWithCustomBaseUrl = client.withCustomBaseUrls(baseUrls);
 ```
 
 ## Convenience methods
+
+### Webhook validation
+
+Webhook validation is used to validate a webhook message by verifying the signature and the delivery timestamp.
+
+**Old (`box-java-sdk`)**
+
+In old SDK, when you receive a webhook message from Box, to validate that it actually came from Box
+you need to call `BoxWebHookSignatureVerifier#verify(String sigVersion, String sigAlgorithm, String primarySignature, String secondarySignature, String payload, String deliveryTimestamp)` method.
+It would return a `boolean` value indicating whether the message was valid.
+
+```java
+// Webhook message contents are shown for demonstration purposes
+// Normally these would come from your HTTP handler
+
+// Webhook message HTTP body
+String messagePayload = "{"
++ "\"type\":\"webhook_event","
++ "\"webhook\":{"
++   "\"id\":\"1234567890\""
++ "},"
++ "\"trigger\":\"FILE.UPLOADED\","
++ "\"source\":{"
++   "\"id\":\"1234567890\","
++   "\"type\":\"file\","
++   "\"name\":\"Test.txt\""
++ "}}";
+
+// Webhook message HTTP headers
+Map<String, String> messageHeaders = new HashMap<String, String>();
+headers.put("BOX-DELIVERY-ID", "f96bb54b-ee16-4fc5-aa65-8c2d9e5b546f");
+headers.put("BOX-DELIVERY-TIMESTAMP", "2020-01-01T00:00:00-07:00");
+headers.put("BOX-SIGNATURE-ALGORITHM", "HmacSHA256");
+headers.put("BOX-SIGNATURE-PRIMARY", "6TfeAW3A1PASkgboxxA5yqHNKOwFyMWuEXny/FPD5hI=");
+headers.put("BOX-SIGNATURE-SECONDARY", "v+1CD1Jdo3muIcbpv5lxxgPglOqMfsNHPV899xWYydo=");
+headers.put("BOX-SIGNATURE-VERSION", "1");
+
+// Your application's webhook keys, obtained from the Box Developer Console
+String primaryKey = "4py2I9eSFb0ezXH5iPeQRcFK1LRLCdip";
+String secondaryKey = "Aq5EEEjAu4ssbz8n9UMu7EerI0LKj2TL";
+
+BoxWebHookSignatureVerifier verifier = new BoxWebHookSignatureVerifier(primaryKey, secondaryKey);
+boolean isValidMessage = verifier.verify(
+  headers.get("BOX-SIGNATURE-VERSION"),
+  headers.get("BOX-SIGNATURE-ALGORITHM"),
+  headers.get("BOX-SIGNATURE-PRIMARY"),
+  headers.get("BOX-SIGNATURE-SECONDARY"),
+  messagePayload,
+  headers.get("BOX-DELIVERY-TIMESTAMP")
+);
+```
+
+**New (`box-java-sdk-gen`)**
+
+In the new SDK, the `WebhooksManager.validateMessage()` method requires the `messagePayload` to be of type `string`,
+map of headers to be of type `Map<String, String>`, and the primary and secondary keys to be of type `String`.
+
+```java
+// Webhook message HTTP body
+String messagePayload = "{"
+        + "\"type\":\"webhook_event","
+        + "\"webhook\":{"
+        +   "\"id\":\"1234567890\""
+        + "},"
+        + "\"trigger\":\"FILE.UPLOADED\","
+        + "\"source\":{"
+        +   "\"id\":\"1234567890\","
+        +   "\"type\":\"file\","
+        +   "\"name\":\"Test.txt\""
+        + "}}";
+
+// Webhook message HTTP headers
+Map<String, String> messageHeaders = new HashMap<String, String>();
+headers.put("BOX-DELIVERY-ID", "f96bb54b-ee16-4fc5-aa65-8c2d9e5b546f");
+headers.put("BOX-DELIVERY-TIMESTAMP", "2020-01-01T00:00:00-07:00");
+headers.put("BOX-SIGNATURE-ALGORITHM", "HmacSHA256");
+headers.put("BOX-SIGNATURE-PRIMARY", "6TfeAW3A1PASkgboxxA5yqHNKOwFyMWuEXny/FPD5hI=");
+headers.put("BOX-SIGNATURE-SECONDARY", "v+1CD1Jdo3muIcbpv5lxxgPglOqMfsNHPV899xWYydo=");
+headers.put("BOX-SIGNATURE-VERSION", "1");
+
+// Your application's webhook keys, obtained from the Box Developer Console
+String primaryKey = "4py2I9eSFb0ezXH5iPeQRcFK1LRLCdip";
+String secondaryKey = "Aq5EEEjAu4ssbz8n9UMu7EerI0LKj2TL";
+
+boolean isValidMessage = WebhooksManager.validateMessage(
+        messagePayload, messageHeaders, primaryKey, secondaryKey);
+)
+```
 
 ### Chunked upload of big files
 
