@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.1](https://github.com/box/box-java-sdk-gen/compare/v0.8.0...v0.8.1) (2025-09-05)
+
+
+### Bug Fixes
+
+* Fix managing network errors (box/box-codegen[#798](https://github.com/box/box-java-sdk-gen/issues/798)) ([#407](https://github.com/box/box-java-sdk-gen/issues/407)) ([97fb904](https://github.com/box/box-java-sdk-gen/commit/97fb904453a15578090db0e10ec148aceb6e1b36))
+
+
+### New Features and Enhancements
+
+* Add missing webhook events (box/box-openapi[#554](https://github.com/box/box-java-sdk-gen/issues/554)) ([#436](https://github.com/box/box-java-sdk-gen/issues/436)) ([982a233](https://github.com/box/box-java-sdk-gen/commit/982a233098a6ed0a70ee380277e2d5f1878b626c))
+* Support event with long polling in Java (box/box-codegen[#807](https://github.com/box/box-java-sdk-gen/issues/807)) ([#434](https://github.com/box/box-java-sdk-gen/issues/434)) ([bf55902](https://github.com/box/box-java-sdk-gen/commit/bf55902b08c9fd668278c47e10daa3020a41e220))
+
 ## [0.8.0](https://github.com/box/box-java-sdk-gen/compare/v0.7.0...v0.8.0) (2025-08-05)
 
 
