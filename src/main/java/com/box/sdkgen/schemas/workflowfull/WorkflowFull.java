@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import java.util.Date;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,12 +20,12 @@ public class WorkflowFull extends Workflow {
   @JsonProperty("created_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
-  protected Date createdAt;
+  protected OffsetDateTime createdAt;
 
   @JsonProperty("modified_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
-  protected Date modifiedAt;
+  protected OffsetDateTime modifiedAt;
 
   @JsonProperty("created_by")
   protected UserBase createdBy;
@@ -46,11 +46,11 @@ public class WorkflowFull extends Workflow {
     markNullableFieldsAsSet(builder.getExplicitlySetNullableFields());
   }
 
-  public Date getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-  public Date getModifiedAt() {
+  public OffsetDateTime getModifiedAt() {
     return modifiedAt;
   }
 
@@ -145,20 +145,20 @@ public class WorkflowFull extends Workflow {
 
   public static class Builder extends Workflow.Builder {
 
-    protected Date createdAt;
+    protected OffsetDateTime createdAt;
 
-    protected Date modifiedAt;
+    protected OffsetDateTime modifiedAt;
 
     protected UserBase createdBy;
 
     protected UserBase modifiedBy;
 
-    public Builder createdAt(Date createdAt) {
+    public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    public Builder modifiedAt(Date modifiedAt) {
+    public Builder modifiedAt(OffsetDateTime modifiedAt) {
       this.modifiedAt = modifiedAt;
       return this;
     }

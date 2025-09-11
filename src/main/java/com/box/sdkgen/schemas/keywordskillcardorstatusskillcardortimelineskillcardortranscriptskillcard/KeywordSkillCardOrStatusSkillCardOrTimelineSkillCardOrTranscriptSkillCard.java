@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.IOException;
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 @JsonDeserialize(
     using =
@@ -26,7 +26,7 @@ import java.util.Date;
 public class KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSkillCard
     extends OneOfFour<KeywordSkillCard, StatusSkillCard, TimelineSkillCard, TranscriptSkillCard> {
 
-  protected final Date createdAt;
+  protected final OffsetDateTime createdAt;
 
   protected final String type;
 
@@ -96,7 +96,7 @@ public class KeywordSkillCardOrStatusSkillCardOrTimelineSkillCardOrTranscriptSki
     return value3;
   }
 
-  public Date getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 

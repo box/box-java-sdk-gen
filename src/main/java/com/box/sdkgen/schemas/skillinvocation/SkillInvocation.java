@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import java.util.Date;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 @JsonFilter("nullablePropertyFilter")
@@ -33,7 +33,7 @@ public class SkillInvocation extends SerializableObject {
   @JsonProperty("created_at")
   @JsonSerialize(using = DateTimeUtils.DateTimeSerializer.class)
   @JsonDeserialize(using = DateTimeUtils.DateTimeDeserializer.class)
-  protected Date createdAt;
+  protected OffsetDateTime createdAt;
 
   protected String trigger;
 
@@ -82,7 +82,7 @@ public class SkillInvocation extends SerializableObject {
     return status;
   }
 
-  public Date getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
@@ -186,7 +186,7 @@ public class SkillInvocation extends SerializableObject {
 
     protected SkillInvocationStatusField status;
 
-    protected Date createdAt;
+    protected OffsetDateTime createdAt;
 
     protected String trigger;
 
@@ -226,7 +226,7 @@ public class SkillInvocation extends SerializableObject {
       return this;
     }
 
-    public Builder createdAt(Date createdAt) {
+    public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
