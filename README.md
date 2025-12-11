@@ -4,7 +4,12 @@
 
 # Deprecation notice
 
-As of September 17, 2025 Box Next Generation SDKs are no longer supported as separate artifacts. Don't worry, your existing code will continue to work without changes. You can still use your applications based on Box Next Generation SDKs with no impact, but you won't receive new features, updates, or bug fixes. In keeping with industry best practices, we are consolidating the Box Next Generation SDKs and Box core SDKs into a single package for each programming language. This makes migration efforts much easier and allows to seamlessly add new capabilities to existing applications still powered by the manually maintained Box core SDKs. Box Next Generation SDKs are available as the latest major version release (`v10`) of Box core SDKs. Currently, it’s available as a separate [branch](https://github.com/box/box-java-sdk/tree/sdk-gen).
+As of September 17, 2025, Box Next Generation SDKs are no longer supported as separate artifacts. Your existing code will continue to work without changes, but you won't receive new features, updates, bug fixes, or security patches.
+
+In keeping with industry best practices, we are consolidating the Box Next Generation SDKs and Box core SDKs into a single package. This makes migration easier and allows you to seamlessly add new capabilities to existing applications. Two consolidated versions are available in [box-java-sdk](https://github.com/box/box-java-sdk):
+
+- [Version 5](https://github.com/box/box-java-sdk/tree/combined-sdk) (combined-sdk branch): Contains both `com.box.sdk` and `com.box.sdkgen` packages for gradual migration.
+- [Version 10](https://github.com/box/box-java-sdk/tree/main) (main branch): The latest major release containing only `com.box.sdkgen`.
 
 For more details, see our [SDK versioning strategy document](https://developer.box.com/guides/tooling/sdks/sdk-versioning/).
 
@@ -33,6 +38,7 @@ Embrace the new generation of Box SDKs and unlock the full potential of the Box 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+- [Deprecation notice](#deprecation-notice)
 - [Box Java SDK Gen](#box-java-sdk-gen)
 - [Table of contents](#table-of-contents)
 - [Installing](#installing)
