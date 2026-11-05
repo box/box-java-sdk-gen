@@ -85,6 +85,8 @@ Where `VERSION` is the version of the SDK you want to use. You can find the late
 
 # Getting Started
 
+The full API of this library is listed in [api.md](api.md), with code samples for each manager in [docs/](docs/README.md).
+
 To get started with the SDK, get a Developer Token from the Configuration page of your app in the [Box Developer
 Console](https://app.box.com/developers/console). You can use this token to make test calls for your own Box account.
 
@@ -104,7 +106,9 @@ client.folders.getFolderItems("0").getEntries().forEach(item -> {
 
 # Documentation
 
-Browse the [docs](docs/README.md) or see [API Reference](https://developer.box.com/reference/) for more information.
+- [api.md](api.md): every manager and method on `BoxClient`, with signatures and return types.
+- [docs/](docs/README.md): code samples for each manager, plus guides for [authentication](docs/Authentication.md), [configuration](docs/Configuration.md), and [the client](docs/Client.md).
+- [Box API Reference](https://developer.box.com/reference/): the underlying REST API.
 
 For `box-java-sdk`, the maintained replacement for this package, see its [README](https://github.com/box/box-java-sdk/blob/main/README.md) and [docs](https://github.com/box/box-java-sdk/blob/main/docs/README.md).
 
